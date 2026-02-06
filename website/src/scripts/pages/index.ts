@@ -49,10 +49,10 @@ export async function initHomepage(): Promise<void> {
   if (searchIndex) {
     const search = new FuzzySearch<SearchItem>();
     search.setItems(searchIndex);
-    
+
     const searchInput = document.getElementById('global-search') as HTMLInputElement;
     const resultsDiv = document.getElementById('search-results');
-    
+
     if (searchInput && resultsDiv) {
       searchInput.addEventListener('input', debounce(() => {
         const query = searchInput.value.trim();
@@ -60,10 +60,10 @@ export async function initHomepage(): Promise<void> {
           resultsDiv.classList.add('hidden');
           return;
         }
-        
+
         const results = search.search(query).slice(0, 10);
         if (results.length === 0) {
-          resultsDiv.innerHTML = '<div class="search-result-empty">No results found</div>';
+          resultsDiv.innerHTML = '<div class="search-result-empty">Nenhum resultado encontrado</div>';
         } else {
           resultsDiv.innerHTML = results.map(item => `
             <div class="search-result" data-path="${escapeHtml(item.path)}" data-type="${escapeHtml(item.type)}">
@@ -86,7 +86,7 @@ export async function initHomepage(): Promise<void> {
         }
         resultsDiv.classList.remove('hidden');
       }, 200));
-      
+
       // Close results when clicking outside
       document.addEventListener('click', (e) => {
         if (!searchInput.contains(e.target as Node) && !resultsDiv.contains(e.target as Node)) {
@@ -122,7 +122,7 @@ export async function initHomepage(): Promise<void> {
           });
         });
       } else {
-        featuredEl.innerHTML = '<p style="text-align: center; color: var(--color-text-muted);">No featured collections yet</p>';
+        featuredEl.innerHTML = '<p style="text-align: center; color: var(--color-text-muted);">Nenhuma coleção em destaque ainda</p>';
       }
     }
   }

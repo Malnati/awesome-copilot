@@ -100,8 +100,8 @@ function renderItems(items: Agent[], query = ''): void {
   if (items.length === 0) {
     list.innerHTML = `
       <div class="empty-state">
-        <h3>No agents found</h3>
-        <p>Try a different search term or adjust filters</p>
+        <h3>Nenhum agent encontrado</h3>
+        <p>Tente outro termo de busca ou ajuste os filtros</p>
       </div>
     `;
     return;
@@ -111,7 +111,7 @@ function renderItems(items: Agent[], query = ''): void {
     <div class="resource-item" data-path="${escapeHtml(item.path)}">
       <div class="resource-info">
         <div class="resource-title">${query ? search.highlight(item.title, query) : escapeHtml(item.title)}</div>
-        <div class="resource-description">${escapeHtml(item.description || 'No description')}</div>
+        <div class="resource-description">${escapeHtml(item.description || 'Sem descrição')}</div>
         <div class="resource-meta">
           ${item.model ? `<span class="resource-tag tag-model">${escapeHtml(item.model)}</span>` : ''}
           ${item.tools?.slice(0, 3).map(t => `<span class="resource-tag">${escapeHtml(t)}</span>`).join('') || ''}
