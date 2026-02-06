@@ -3,40 +3,41 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Modal from '../components/Modal.astro';
 ---
 
-<BaseLayout title="Instructions" description="Coding standards and best practices for GitHub Copilot" activeNav="instructions">
+
+<BaseLayout title="Instruções" description="Padrões de código e boas práticas para GitHub Copilot" activeNav="instructions">
   <main id="main-content">
     <div class="page-header">
       <div class="container">
         <h1>📋 Instructions</h1>
-        <p>Coding standards and best practices for GitHub Copilot</p>
+        <p>Padrões de código e boas práticas para GitHub Copilot</p>
       </div>
     </div>
 
     <div class="page-content">
       <div class="container">
         <div class="search-bar">
-          <label for="search-input" class="sr-only">Search instructions</label>
-          <input type="text" id="search-input" placeholder="Search instructions..." autocomplete="off">
+          <label for="search-input" class="sr-only">Buscar instructions</label>
+          <input type="text" id="search-input" placeholder="Buscar instructions..." autocomplete="off">
         </div>
-        
+
         <div class="filters-bar" id="filters-bar">
           <div class="filter-group">
             <label for="filter-extension">File Extension:</label>
-            <select id="filter-extension" multiple aria-label="Filter by file extension"></select>
+            <select id="filter-extension" multiple aria-label="Filtrar por file extension"></select>
           </div>
           <div class="filter-group">
-            <label for="sort-select">Sort:</label>
-            <select id="sort-select" aria-label="Sort by">
-              <option value="title">Name (A-Z)</option>
-              <option value="lastUpdated">Recently Updated</option>
+            <label for="sort-select">Ordenar:</label>
+            <select id="sort-select" aria-label="Ordenar por">
+              <option value="title">Nome (A-Z)</option>
+              <option value="lastUpdated">Mais recentes</option>
             </select>
           </div>
-          <button id="clear-filters" class="btn btn-secondary btn-small">Clear Filters</button>
+          <button id="clear-filters" class="btn btn-secondary btn-small">Limpar filtros</button>
         </div>
-        
+
         <div class="results-count" id="results-count" aria-live="polite"></div>
         <div class="resource-list" id="resource-list" role="list">
-          <div class="loading" aria-live="polite">Loading instructions...</div>
+          <div class="loading" aria-live="polite">Carregando instructions...</div>
         </div>
       </div>
     </div>

@@ -2,16 +2,17 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 ---
 
+
 <BaseLayout
   title="Tools"
-  description="MCP servers and developer tools for GitHub Copilot"
+  description="MCP servers e ferramentas para desenvolvedores GitHub Copilot"
   activeNav="tools"
 >
   <main id="main-content">
     <div class="page-header">
       <div class="container">
         <h1>🔧 Tools</h1>
-        <p>MCP servers and developer tools for GitHub Copilot</p>
+        <p>MCP servers e ferramentas para desenvolvedores GitHub Copilot</p>
       </div>
     </div>
 
@@ -19,21 +20,21 @@ import BaseLayout from "../layouts/BaseLayout.astro";
       <div class="container">
         <div class="search-section">
           <div class="search-bar">
-            <label for="search-input" class="sr-only">Search tools</label>
+            <label for="search-input" class="sr-only">Buscar tools</label>
             <input
               type="text"
               id="search-input"
-              placeholder="Search tools..."
+              placeholder="Buscar tools..."
               class="search-input"
             />
           </div>
           <div class="filters">
-            <label for="filter-category" class="sr-only">Filter by category</label>
-            <select id="filter-category" class="filter-select" aria-label="Filter by category">
+            <label for="filter-category" class="sr-only">Filtrar por category</label>
+            <select id="filter-category" class="filter-select" aria-label="Filtrar por category">
               <option value="">All Categories</option>
             </select>
             <button id="clear-filters" class="btn btn-secondary btn-small"
-              >Clear</button
+              >Limpar</button
             >
           </div>
           <div id="results-count" class="results-count" aria-live="polite"></div>
@@ -42,10 +43,10 @@ import BaseLayout from "../layouts/BaseLayout.astro";
         <div id="tools-list" role="list"></div>
 
         <div class="coming-soon">
-          <h2>More Tools Coming Soon</h2>
+          <h2>Mais Tools em breve</h2>
           <p>
-            We're working on additional tools to enhance your GitHub Copilot
-            experience. Check back soon!
+            Estamos trabalhando em novas tools para aprimorar sua experiência com GitHub Copilot.
+            Volte em breve!
           </p>
         </div>
       </div>
