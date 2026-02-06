@@ -1,33 +1,33 @@
 ---
-description: 'Comprehensive project architecture blueprint generator that analyzes codebases to create detailed architectural documentation. Automatically detects technology stacks and architectural patterns, generates visual diagrams, documents implementation patterns, and provides extensible blueprints for maintaining architectural consistency and guiding new development.'
+description: 'Gerador abrangente de blueprint de arquitetura de projeto que analisa o código para criar documentação arquitetural detalhada. Detecta automaticamente stacks de tecnologia e padrões arquiteturais, gera diagramas visuais, documenta padrões de implementação e fornece blueprints extensíveis para manter a consistência arquitetural e orientar novos desenvolvimentos.'
 agent: 'agent'
 ---
 
-# Comprehensive Project Architecture Blueprint Generator
+## Gerador Abrangente de Blueprint de Arquitetura de Projeto
 
-## Configuration Variables
-${PROJECT_TYPE="Auto-detect|.NET|Java|React|Angular|Python|Node.js|Flutter|Other"} <!-- Primary technology -->
-${ARCHITECTURE_PATTERN="Auto-detect|Clean Architecture|Microservices|Layered|MVVM|MVC|Hexagonal|Event-Driven|Serverless|Monolithic|Other"} <!-- Primary architectural pattern -->
-${DIAGRAM_TYPE="C4|UML|Flow|Component|None"} <!-- Architecture diagram type -->
-${DETAIL_LEVEL="High-level|Detailed|Comprehensive|Implementation-Ready"} <!-- Level of detail to include -->
-${INCLUDES_CODE_EXAMPLES=true|false} <!-- Include sample code to illustrate patterns -->
-${INCLUDES_IMPLEMENTATION_PATTERNS=true|false} <!-- Include detailed implementation patterns -->
-${INCLUDES_DECISION_RECORDS=true|false} <!-- Include architectural decision records -->
-${FOCUS_ON_EXTENSIBILITY=true|false} <!-- Emphasize extension points and patterns -->
+## Variáveis de Configuração
+${PROJECT_TYPE="Auto-detect|.NET|Java|React|Angular|Python|Node.js|Flutter|Other"} <!-- Tecnologia principal -->
+${ARCHITECTURE_PATTERN="Auto-detect|Clean Architecture|Microservices|Layered|MVVM|MVC|Hexagonal|Event-Driven|Serverless|Monolithic|Other"} <!-- Padrão arquitetural principal -->
+${DIAGRAM_TYPE="C4|UML|Flow|Component|None"} <!-- Tipo de diagrama de arquitetura -->
+${DETAIL_LEVEL="High-level|Detailed|Comprehensive|Implementation-Ready"} <!-- Nível de detalhe a incluir -->
+${INCLUDES_CODE_EXAMPLES=true|false} <!-- Incluir exemplos de código para ilustrar padrões -->
+${INCLUDES_IMPLEMENTATION_PATTERNS=true|false} <!-- Incluir padrões de implementação detalhados -->
+${INCLUDES_DECISION_RECORDS=true|false} <!-- Incluir registros de decisão arquitetural -->
+${FOCUS_ON_EXTENSIBILITY=true|false} <!-- Enfatizar pontos e padrões de extensão -->
 
-## Generated Prompt
+## Prompt Gerado
 
-"Create a comprehensive 'Project_Architecture_Blueprint.md' document that thoroughly analyzes the architectural patterns in the codebase to serve as a definitive reference for maintaining architectural consistency. Use the following approach:
+"Crie um documento abrangente 'Project_Architecture_Blueprint.md' que analise profundamente os padrões arquiteturais do código para servir como referência definitiva na manutenção da consistência arquitetural. Use a abordagem a seguir:
 
-### 1. Architecture Detection and Analysis
-- ${PROJECT_TYPE == "Auto-detect" ? "Analyze the project structure to identify all technology stacks and frameworks in use by examining:
-  - Project and configuration files
-  - Package dependencies and import statements
-  - Framework-specific patterns and conventions
-  - Build and deployment configurations" : "Focus on ${PROJECT_TYPE} specific patterns and practices"}
-  
-- ${ARCHITECTURE_PATTERN == "Auto-detect" ? "Determine the architectural pattern(s) by analyzing:
-  - Folder organization and namespacing
+### 1. Detecção e Análise de Arquitetura
+- ${PROJECT_TYPE == "Auto-detect" ? "Analise a estrutura do projeto para identificar todos os stacks de tecnologia e frameworks em uso examinando:
+  - Arquivos de projeto e configuração
+  - Dependências de pacotes e imports
+  - Padrões e convenções específicas de framework
+  - Configurações de build e deploy" : "Foque em padrões e práticas específicas de ${PROJECT_TYPE}"}
+
+- ${ARCHITECTURE_PATTERN == "Auto-detect" ? "Determine o(s) padrão(ões) arquiteturais analisando:
+  - Organização de pastas e namespacing
   - Dependency flow and component boundaries
   - Interface segregation and abstraction patterns
   - Communication mechanisms between components" : "Document how the ${ARCHITECTURE_PATTERN} architecture is implemented"}
@@ -131,7 +131,7 @@ Document implementation patterns for cross-cutting concerns:
 ### 9. Technology-Specific Architectural Patterns
 ${PROJECT_TYPE == "Auto-detect" ? "For each detected technology stack, document specific architectural patterns:" : `Document ${PROJECT_TYPE}-specific architectural patterns:`}
 
-${(PROJECT_TYPE == ".NET" || PROJECT_TYPE == "Auto-detect") ? 
+${(PROJECT_TYPE == ".NET" || PROJECT_TYPE == "Auto-detect") ?
 "#### .NET Architectural Patterns (if detected)
 - Host and application model implementation
 - Middleware pipeline organization
@@ -140,7 +140,7 @@ ${(PROJECT_TYPE == ".NET" || PROJECT_TYPE == "Auto-detect") ?
 - API implementation patterns (controllers, minimal APIs, etc.)
 - Dependency injection container configuration" : ""}
 
-${(PROJECT_TYPE == "Java" || PROJECT_TYPE == "Auto-detect") ? 
+${(PROJECT_TYPE == "Java" || PROJECT_TYPE == "Auto-detect") ?
 "#### Java Architectural Patterns (if detected)
 - Application container and bootstrap process
 - Dependency injection framework usage (Spring, CDI, etc.)
@@ -149,7 +149,7 @@ ${(PROJECT_TYPE == "Java" || PROJECT_TYPE == "Auto-detect") ?
 - ORM configuration and usage patterns
 - Service implementation patterns" : ""}
 
-${(PROJECT_TYPE == "React" || PROJECT_TYPE == "Auto-detect") ? 
+${(PROJECT_TYPE == "React" || PROJECT_TYPE == "Auto-detect") ?
 "#### React Architectural Patterns (if detected)
 - Component composition and reuse strategies
 - State management architecture
@@ -158,7 +158,7 @@ ${(PROJECT_TYPE == "React" || PROJECT_TYPE == "Auto-detect") ?
 - Data fetching and caching patterns
 - Rendering optimization strategies" : ""}
 
-${(PROJECT_TYPE == "Angular" || PROJECT_TYPE == "Auto-detect") ? 
+${(PROJECT_TYPE == "Angular" || PROJECT_TYPE == "Auto-detect") ?
 "#### Angular Architectural Patterns (if detected)
 - Module organization strategy
 - Component hierarchy design
@@ -167,7 +167,7 @@ ${(PROJECT_TYPE == "Angular" || PROJECT_TYPE == "Auto-detect") ?
 - Reactive programming patterns
 - Route guard implementation" : ""}
 
-${(PROJECT_TYPE == "Python" || PROJECT_TYPE == "Auto-detect") ? 
+${(PROJECT_TYPE == "Python" || PROJECT_TYPE == "Auto-detect") ?
 "#### Python Architectural Patterns (if detected)
 - Module organization approach
 - Dependency management strategy
@@ -176,7 +176,7 @@ ${(PROJECT_TYPE == "Python" || PROJECT_TYPE == "Auto-detect") ?
 - Asynchronous programming approach" : ""}
 
 ### 10. Implementation Patterns
-${INCLUDES_IMPLEMENTATION_PATTERNS ? 
+${INCLUDES_IMPLEMENTATION_PATTERNS ?
 "Document concrete implementation patterns for key architectural components:
 
 - **Interface Design Patterns**:
@@ -225,7 +225,7 @@ ${INCLUDES_IMPLEMENTATION_PATTERNS ?
 - Note cloud service integration patterns
 
 ### 13. Extension and Evolution Patterns
-${FOCUS_ON_EXTENSIBILITY ? 
+${FOCUS_ON_EXTENSIBILITY ?
 "Provide detailed guidance for extending the architecture:
 
 - **Feature Addition Patterns**:
@@ -246,7 +246,7 @@ ${FOCUS_ON_EXTENSIBILITY ?
   - Anti-corruption layer patterns
   - Service facade implementation" : "Document key extension points in the architecture."}
 
-${INCLUDES_CODE_EXAMPLES ? 
+${INCLUDES_CODE_EXAMPLES ?
 "### 14. Architectural Pattern Examples
 Extract representative code examples that illustrate key architectural patterns:
 
@@ -267,7 +267,7 @@ Extract representative code examples that illustrate key architectural patterns:
 
 Include enough context with each example to show the pattern clearly, but keep examples concise and focused on architectural concepts." : ""}
 
-${INCLUDES_DECISION_RECORDS ? 
+${INCLUDES_DECISION_RECORDS ?
 "### 15. Architectural Decision Records
 Document key architectural decisions evident in the codebase:
 

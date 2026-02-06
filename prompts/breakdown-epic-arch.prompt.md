@@ -1,66 +1,66 @@
 ---
 agent: 'agent'
-description: 'Prompt for creating the high-level technical architecture for an Epic, based on a Product Requirements Document.'
+description: 'Prompt para criar a arquitetura técnica de alto nível de um Epic, baseada em um Product Requirements Document.'
 ---
 
-# Epic Architecture Specification Prompt
+## Prompt de Especificação de Arquitetura de Epic
 
-## Goal
+## Objetivo
 
-Act as a Senior Software Architect. Your task is to take an Epic PRD and create a high-level technical architecture specification. This document will guide the development of the epic, outlining the major components, features, and technical enablers required.
+Atue como um Arquiteto de Software Sênior. Sua tarefa é pegar um Epic PRD e criar uma especificação de arquitetura técnica de alto nível. Este documento irá guiar o desenvolvimento do epic, detalhando os principais componentes, funcionalidades e habilitadores técnicos necessários.
 
-## Context Considerations
+## Considerações de Contexto
 
-- The Epic PRD from the Product Manager.
-- **Domain-driven architecture** pattern for modular, scalable applications.
-- **Self-hosted and SaaS deployment** requirements.
-- **Docker containerization** for all services.
-- **TypeScript/Next.js** stack with App Router.
-- **Turborepo monorepo** patterns.
-- **tRPC** for type-safe APIs.
-- **Stack Auth** for authentication.
+- O Epic PRD do Product Manager.
+- Padrão **Domain-driven architecture** para aplicações modulares e escaláveis.
+- Requisitos de deployment **Self-hosted e SaaS**.
+- **Docker containerization** para todos os serviços.
+- Stack **TypeScript/Next.js** com App Router.
+- Padrões de monorepo **Turborepo**.
+- **tRPC** para APIs type-safe.
+- **Stack Auth** para autenticação.
 
-**Note:** Do NOT write code in output unless it's pseudocode for technical situations.
+**Nota:** NÃO escreva código na saída, exceto pseudocódigo para situações técnicas.
 
-## Output Format
+## Formato de Saída
 
-The output should be a complete Epic Architecture Specification in Markdown format, saved to `/docs/ways-of-work/plan/{epic-name}/arch.md`.
+A saída deve ser uma Especificação de Arquitetura de Epic completa em formato Markdown, salva em `/docs/ways-of-work/plan/{epic-name}/arch.md`.
 
-### Specification Structure
+### Estrutura da Especificação
 
-#### 1. Epic Architecture Overview
+#### 1. Visão Geral da Arquitetura do Epic
 
-- A brief summary of the technical approach for the epic.
+- Um breve resumo da abordagem técnica para o epic.
 
-#### 2. System Architecture Diagram
+#### 2. Diagrama de Arquitetura do Sistema
 
-Create a comprehensive Mermaid diagram that illustrates the complete system architecture for this epic. The diagram should include:
+Crie um diagrama Mermaid abrangente que ilustre toda a arquitetura do sistema para este epic. O diagrama deve incluir:
 
-- **User Layer**: Show how different user types (web browsers, mobile apps, admin interfaces) interact with the system
-- **Application Layer**: Depict load balancers, application instances, and authentication services (Stack Auth)
-- **Service Layer**: Include tRPC APIs, background services, workflow engines (n8n), and any epic-specific services
-- **Data Layer**: Show databases (PostgreSQL), vector databases (Qdrant), caching layers (Redis), and external API integrations
-- **Infrastructure Layer**: Represent Docker containerization and deployment architecture
+- **Camada de Usuário**: Mostre como diferentes tipos de usuários (navegadores web, apps móveis, interfaces admin) interagem com o sistema
+- **Camada de Aplicação**: Represente load balancers, instâncias de aplicação e serviços de autenticação (Stack Auth)
+- **Camada de Serviço**: Inclua APIs tRPC, serviços de background, engines de workflow (n8n) e quaisquer serviços específicos do epic
+- **Camada de Dados**: Mostre bancos de dados (PostgreSQL), bancos vetoriais (Qdrant), camadas de cache (Redis) e integrações com APIs externas
+- **Camada de Infraestrutura**: Represente a containerização Docker e arquitetura de deploy
 
-Use clear subgraphs to organize these layers, apply consistent color coding for different component types, and show the data flow between components. Include both synchronous request paths and asynchronous processing flows where relevant to the epic.
+Use subgraphs claros para organizar essas camadas, aplique codificação de cores consistente para diferentes tipos de componentes e mostre o fluxo de dados entre componentes. Inclua caminhos de requisição síncronos e fluxos de processamento assíncronos quando relevante para o epic.
 
-#### 3. High-Level Features & Technical Enablers
+#### 3. Funcionalidades de Alto Nível & Habilitadores Técnicos
 
-- A list of the high-level features to be built.
-- A list of technical enablers (e.g., new services, libraries, infrastructure) required to support the features.
+- Uma lista das funcionalidades de alto nível a serem construídas.
+- Uma lista dos habilitadores técnicos (ex: novos serviços, bibliotecas, infraestrutura) necessários para suportar as funcionalidades.
 
-#### 4. Technology Stack
+#### 4. Stack Tecnológico
 
-- A list of the key technologies, frameworks, and libraries to be used.
+- Uma lista das principais tecnologias, frameworks e bibliotecas a serem usadas.
 
-#### 5. Technical Value
+#### 5. Valor Técnico
 
-- Estimate the technical value (e.g., High, Medium, Low) with a brief justification.
+- Estime o valor técnico (ex: Alto, Médio, Baixo) com uma breve justificativa.
 
-#### 6. T-Shirt Size Estimate
+#### 6. Estimativa T-Shirt Size
 
-- Provide a high-level t-shirt size estimate for the epic (e.g., S, M, L, XL).
+- Forneça uma estimativa de t-shirt size de alto nível para o epic (ex: P, M, G, GG).
 
-## Context Template
+## Template de Contexto
 
-- **Epic PRD:** [The content of the Epic PRD markdown file]
+- **Epic PRD:** [O conteúdo do arquivo markdown Epic PRD]

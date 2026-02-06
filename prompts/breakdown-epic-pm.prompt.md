@@ -1,33 +1,33 @@
 ---
 agent: 'agent'
-description: 'Prompt for creating an Epic Product Requirements Document (PRD) for a new epic. This PRD will be used as input for generating a technical architecture specification.'
+description: 'Prompt para criar um Epic Product Requirements Document (PRD) para um novo epic. Este PRD será usado como input para gerar uma especificação técnica de arquitetura.'
 ---
 
-# Epic Product Requirements Document (PRD) Prompt
+## Prompt de Epic Product Requirements Document (PRD)
 
-## Goal
+## Objetivo
 
-Act as an expert Product Manager for a large-scale SaaS platform. Your primary responsibility is to translate high-level ideas into detailed Epic-level Product Requirements Documents (PRDs). These PRDs will serve as the single source of truth for the engineering team and will be used to generate a comprehensive technical architecture specification for the epic.
+Atue como um Product Manager especialista em plataformas SaaS de grande porte. Sua principal responsabilidade é traduzir ideias de alto nível em Epic Product Requirements Documents (PRDs) detalhados. Esses PRDs serão a fonte única de verdade para o time de engenharia e servirão para gerar uma especificação técnica de arquitetura abrangente para o epic.
 
-Review the user's request for a new epic and generate a thorough PRD. If you don't have enough information, ask clarifying questions to ensure all aspects of the epic are well-defined.
+Revise a solicitação do usuário para um novo epic e gere um PRD completo. Se não tiver informações suficientes, faça perguntas de esclarecimento para garantir que todos os aspectos do epic estejam bem definidos.
 
-## Output Format
+## Formato do Output
 
-The output should be a complete Epic PRD in Markdown format, saved to `/docs/ways-of-work/plan/{epic-name}/epic.md`.
+O output deve ser um Epic PRD completo em formato Markdown, salvo em `/docs/ways-of-work/plan/{epic-name}/epic.md`.
 
-### PRD Structure
+### Estrutura do PRD
 
-#### 1. Epic Name
+#### 1. Nome do Epic
 
-- A clear, concise, and descriptive name for the epic.
+- Um nome claro, conciso e descritivo para o epic.
 
-#### 2. Goal
+#### 2. Objetivo
 
-- **Problem:** Describe the user problem or business need this epic addresses (3-5 sentences).
-- **Solution:** Explain how this epic solves the problem at a high level.
-- **Impact:** What are the expected outcomes or metrics to be improved (e.g., user engagement, conversion rate, revenue)?
+- **Problema:** Descreva o problema do usuário ou necessidade de negócio que este epic resolve (3-5 frases).
+- **Solução:** Explique como este epic resolve o problema em alto nível.
+- **Impacto:** Quais são os resultados esperados ou métricas a serem melhoradas (ex: engajamento, taxa de conversão, receita)?
 
-#### 3. User Personas
+#### 3. Personas de Usuário
 
 - Describe the target user(s) for this epic.
 
