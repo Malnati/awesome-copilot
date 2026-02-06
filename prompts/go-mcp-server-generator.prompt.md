@@ -1,25 +1,25 @@
 ---
 agent: agent
-description: 'Generate a complete Go MCP server project with proper structure, dependencies, and implementation using the official github.com/modelcontextprotocol/go-sdk.'
+description: 'Gere um projeto completo de servidor MCP em Go com estrutura adequada, dependências e implementação usando o SDK oficial github.com/modelcontextprotocol/go-sdk.'
 ---
 
-# Go MCP Server Project Generator
+## Gerador de Projeto Go MCP Server
 
-Generate a complete, production-ready Model Context Protocol (MCP) server project in Go.
+Gere um projeto completo, pronto para produção, de servidor Model Context Protocol (MCP) em Go.
 
-## Project Requirements
+## Requisitos do Projeto
 
-You will create a Go MCP server with:
+Você irá criar um servidor MCP em Go com:
 
-1. **Project Structure**: Proper Go module layout
-2. **Dependencies**: Official MCP SDK and necessary packages
-3. **Server Setup**: Configured MCP server with transports
-4. **Tools**: At least 2-3 useful tools with typed inputs/outputs
-5. **Error Handling**: Proper error handling and context usage
-6. **Documentation**: README with setup and usage instructions
-7. **Testing**: Basic test structure
+1. **Estrutura do Projeto**: Layout adequado de módulo Go
+2. **Dependências**: SDK oficial MCP e pacotes necessários
+3. **Configuração do Servidor**: Servidor MCP configurado com transports
+4. **Ferramentas**: Pelo menos 2-3 ferramentas úteis com inputs/outputs tipados
+5. **Tratamento de Erros**: Tratamento de erros adequado e uso de context
+6. **Documentação**: README com instruções de setup e uso
+7. **Testes**: Estrutura básica de testes
 
-## Template Structure
+## Estrutura do Template
 
 ```
 myserver/
@@ -27,12 +27,12 @@ myserver/
 ├── go.sum
 ├── main.go
 ├── tools/
-│   ├── tool1.go
-│   └── tool2.go
+|   ├── tool1.go
+|   └── tool2.go
 ├── resources/
-│   └── resource1.go
+|   └── resource1.go
 ├── config/
-│   └── config.go
+|   └── config.go
 ├── README.md
 └── main_test.go
 ```
@@ -68,7 +68,7 @@ import (
 
 func main() {
     cfg := config.Load()
-    
+
     ctx, cancel := context.WithCancel(context.Background())
     defer cancel()
 

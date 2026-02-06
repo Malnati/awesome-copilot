@@ -1,33 +1,33 @@
 ---
-description: 'Best practices for writing JavaScript/TypeScript tests using Jest, including mocking strategies, test structure, and common patterns.'
+description: 'Melhores práticas para escrever testes JavaScript/TypeScript usando Jest, incluindo estratégias de mocking, estrutura de testes e padrões comuns.'
 agent: 'agent'
 ---
 
-### Test Structure
-- Name test files with `.test.ts` or `.test.js` suffix
-- Place test files next to the code they test or in a dedicated `__tests__` directory
-- Use descriptive test names that explain the expected behavior
-- Use nested describe blocks to organize related tests
-- Follow the pattern: `describe('Component/Function/Class', () => { it('should do something', () => {}) })`
+### Estrutura dos Testes
+- Nomeie arquivos de teste com o sufixo `.test.ts` ou `.test.js`
+- Coloque arquivos de teste próximos ao código testado ou em um diretório dedicado `__tests__`
+- Use nomes de teste descritivos que expliquem o comportamento esperado
+- Use blocos describe aninhados para organizar testes relacionados
+- Siga o padrão: `describe('Component/Function/Class', () => { it('should do something', () => {}) })`
 
-### Effective Mocking
-- Mock external dependencies (APIs, databases, etc.) to isolate your tests
-- Use `jest.mock()` for module-level mocks
-- Use `jest.spyOn()` for specific function mocks
-- Use `mockImplementation()` or `mockReturnValue()` to define mock behavior
-- Reset mocks between tests with `jest.resetAllMocks()` in `afterEach`
+### Mocking Eficaz
+- Faça mock de dependências externas (APIs, bancos de dados, etc.) para isolar seus testes
+- Use `jest.mock()` para mocks de módulo
+- Use `jest.spyOn()` para mocks de funções específicas
+- Use `mockImplementation()` ou `mockReturnValue()` para definir o comportamento do mock
+- Resete mocks entre testes com `jest.resetAllMocks()` em `afterEach`
 
-### Testing Async Code
-- Always return promises or use async/await syntax in tests
-- Use `resolves`/`rejects` matchers for promises
-- Set appropriate timeouts for slow tests with `jest.setTimeout()`
+### Testando Código Assíncrono
+- Sempre retorne promises ou use sintaxe async/await nos testes
+- Use matchers `resolves`/`rejects` para promises
+- Defina timeouts apropriados para testes lentos com `jest.setTimeout()`
 
-### Snapshot Testing
-- Use snapshot tests for UI components or complex objects that change infrequently
-- Keep snapshots small and focused
-- Review snapshot changes carefully before committing
+### Testes de Snapshot
+- Use testes de snapshot para componentes UI ou objetos complexos que mudam pouco
+- Mantenha snapshots pequenos e focados
+- Revise mudanças de snapshot cuidadosamente antes de commitar
 
-### Testing React Components
+### Testando Componentes React
 - Use React Testing Library over Enzyme for testing components
 - Test user behavior and component accessibility
 - Query elements by accessibility roles, labels, or text content
