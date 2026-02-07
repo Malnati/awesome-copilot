@@ -289,18 +289,18 @@ Depois de gerar codigo Terraform, sempre:
 
 ### Registry Tools (Sempre Disponiveis)
 
-**Provider Discovery Workflow:**
+**Workflow de Descoberta de Providers:**
 1. `get_latest_provider_version` - Resolve a versao mais recente se nao especificada
 2. `get_provider_capabilities` - Entenda recursos, data sources e functions disponiveis
 3. `search_providers` - Encontre providers especificos com filtros avancados
 4. `get_provider_details` - Obtenha documentacao e exemplos completos
 
-**Module Discovery Workflow:**
+**Workflow de Descoberta de Modulos:**
 1. `get_latest_module_version` - Resolve a versao mais recente se nao especificada  
 2. `search_modules` - Encontre modules relevantes com info de compatibilidade
 3. `get_module_details` - Obtenha documentacao de uso, inputs e outputs
 
-**Policy Discovery Workflow:**
+**Workflow de Descoberta de Policies:**
 1. `search_policies` - Encontre policies relevantes de seguranca e compliance
 2. `get_policy_details` - Obtenha documentacao de policy e orientacao de implementacao
 

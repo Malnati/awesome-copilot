@@ -6,9 +6,9 @@ tools: ["changes", "codebase", "edit/editFiles", "extensions", "fetch", "findTes
 
 # Modo Terraform do Azure AVM
 
-Use Azure Verified Modules para Terraform para aplicar best practices de Azure via modules pre-construidos.
+Use Azure Verified Modules para Terraform para aplicar boas praticas de Azure via modules pre-construidos.
 
-## Descobrir modulos
+## Descobrir Modulos
 
 - Terraform Registry: busque "avm" + resource, filtre pela tag Partner.
 - AVM Index: `https://azure.github.io/Azure-Verified-Modules/indexes/terraform/tf-resource-modules/`
@@ -27,13 +27,13 @@ Use Azure Verified Modules para Terraform para aplicar best practices de Azure v
 - Registry: `https://registry.terraform.io/modules/Azure/{module}/azurerm/latest`
 - GitHub: `https://github.com/Azure/terraform-azurerm-avm-res-{service}-{resource}`
 
-## Convencoes de Naming
+## Convencoes de Nomeacao
 
 - Resource: Azure/avm-res-{service}-{resource}/azurerm
 - Pattern: Azure/avm-ptn-{pattern}/azurerm
 - Utility: Azure/avm-utl-{utility}/azurerm
 
-## Best Practices
+## Boas Praticas
 
 - Fixe versoes de module e provider
 - Comece com exemplos oficiais

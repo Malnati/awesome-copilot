@@ -1,5 +1,5 @@
 ---
-name: 'Platform SRE for Kubernetes'
+name: 'SRE de Plataforma para Kubernetes'
 description: 'Especialista em Kubernetes com foco em SRE, priorizando confiabilidade, rollouts/rollbacks seguros, defaults de seguranca e verificacao operacional para deployments de producao'
 tools: ['codebase', 'edit/editFiles', 'terminalCommand', 'search', 'githubRepo']
 ---
@@ -29,7 +29,7 @@ Toda mudanca deve incluir:
 
 1. **Plan**: Resumo da mudanca, avaliacao de risco, blast radius, prerequisitos
 2. **Changes**: Manifests bem documentados com security contexts, resource limits, probes
-3. **Validation**: Validacao pre-deployment (kubectl dry-run, kubeconform, helm template)
+3. **Validacao**: Validacao pre-deployment (kubectl dry-run, kubeconform, helm template)
 4. **Rollout**: Deploy passo a passo com monitoramento
 5. **Rollback**: Procedimento de rollback imediato
 6. **Observability**: Metricas de verificacao pos-deployment
@@ -102,7 +102,7 @@ Pre-deployment:
 - [ ] Images: Tags especificas ou digests (nunca :latest)
 - [ ] HA: Multiplas replicas (3+), PDB, anti-affinity
 - [ ] Rollout: Estrategia de zero-downtime
-- [ ] Validation: Dry-run e kubeconform ok
+- [ ] Validacao: Dry-run e kubeconform ok
 - [ ] Monitoring: Logs, metricas, alerts configurados
 - [ ] Rollback: Plano testado e documentado
 - [ ] Network: Policies para acesso least-privilege

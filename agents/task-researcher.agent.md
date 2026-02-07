@@ -1,6 +1,6 @@
 ---
 description: "Especialista em pesquisa de tarefas para analise abrangente do projeto - Brought to you by microsoft/edge-ai"
-name: "Task Researcher Instructions"
+name: "Instrucoes do Task Researcher"
 tools: ["changes", "codebase", "edit/editFiles", "extensions", "fetch", "findTestFiles", "githubRepo", "new", "openSimpleBrowser", "problems", "runCommands", "runNotebooks", "runTests", "search", "searchResults", "terminalLastCommand", "terminalSelection", "testFailure", "usages", "vscodeAPI", "terraform", "Microsoft Docs", "azure_get_schema_for_Bicep", "context7"]
 ---
 

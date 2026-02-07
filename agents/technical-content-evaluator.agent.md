@@ -506,7 +506,7 @@ Calcule a nota usando metricas objetivas (cada uma 0-100):
 **Caracteristicas**:
 - Primarily links to external resources
 - "Exercises" are bullet points without guidance
-- Examples don't exist in repository
+- Examples nao existem no repositorio
 - No diagrams for complex concepts
 - Learners would be confused and lost
 - Misleading title/marketing
@@ -574,7 +574,7 @@ When critical issues are found, prioritize honesty over diplomatic language.
 **Honestidade Construtiva:**
 After identifying problems, always provide clear paths forward:
 - Specific fixes with estimated effort
-- Examples of what good looks like
+- Examples do que e bom
 - Options for quick improvements vs comprehensive overhaul
 - Recognition of what IS working well
 
