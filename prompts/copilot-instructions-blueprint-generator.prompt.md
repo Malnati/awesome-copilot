@@ -1,23 +1,23 @@
 ---
-description: 'Technology-agnostic blueprint generator for creating comprehensive copilot-instructions.md files that guide GitHub Copilot to produce code consistent with project standards, architecture patterns, and exact technology versions by analyzing existing codebase patterns and avoiding assumptions.'
+description: 'Gerador de blueprint agnostico de tecnologia para criar arquivos copilot-instructions.md abrangentes que orientam o GitHub Copilot a produzir codigo consistente com padroes do projeto, patterns de arquitetura e versoes exatas de tecnologia, analisando patterns existentes no codebase e evitando suposicoes.'
 agent: 'agent'
 ---
 
-# Copilot Instructions Blueprint Generator
+# Gerador de Blueprint de Copilot Instructions
 
-## Configuration Variables
-${PROJECT_TYPE="Auto-detect|.NET|Java|JavaScript|TypeScript|React|Angular|Python|Multiple|Other"} <!-- Primary technology -->
-${ARCHITECTURE_STYLE="Layered|Microservices|Monolithic|Domain-Driven|Event-Driven|Serverless|Mixed"} <!-- Architectural approach -->
-${CODE_QUALITY_FOCUS="Maintainability|Performance|Security|Accessibility|Testability|All"} <!-- Quality priorities -->
-${DOCUMENTATION_LEVEL="Minimal|Standard|Comprehensive"} <!-- Documentation requirements -->
-${TESTING_REQUIREMENTS="Unit|Integration|E2E|TDD|BDD|All"} <!-- Testing approach -->
-${VERSIONING="Semantic|CalVer|Custom"} <!-- Versioning approach -->
+## Variaveis de Configuracao
+${PROJECT_TYPE="Auto-detect|.NET|Java|JavaScript|TypeScript|React|Angular|Python|Multiple|Other"} <!-- Tecnologia principal -->
+${ARCHITECTURE_STYLE="Layered|Microservices|Monolithic|Domain-Driven|Event-Driven|Serverless|Mixed"} <!-- Abordagem arquitetural -->
+${CODE_QUALITY_FOCUS="Maintainability|Performance|Security|Accessibility|Testability|All"} <!-- Prioridades de qualidade -->
+${DOCUMENTATION_LEVEL="Minimal|Standard|Comprehensive"} <!-- Requisitos de documentacao -->
+${TESTING_REQUIREMENTS="Unit|Integration|E2E|TDD|BDD|All"} <!-- Abordagem de testes -->
+${VERSIONING="Semantic|CalVer|Custom"} <!-- Abordagem de versionamento -->
 
-## Generated Prompt
+## Prompt Gerado
 
-"Generate a comprehensive copilot-instructions.md file that will guide GitHub Copilot to produce code consistent with our project's standards, architecture, and technology versions. The instructions must be strictly based on actual code patterns in our codebase and avoid making any assumptions. Follow this approach:
+"Gere um arquivo copilot-instructions.md abrangente que oriente o GitHub Copilot a produzir codigo consistente com os padroes, arquitetura e versoes de tecnologia do nosso projeto. As instrucoes devem ser estritamente baseadas em patterns reais do codebase e evitar quaisquer suposicoes. Siga esta abordagem:
 
-### 1. Core Instruction Structure
+### 1. Estrutura Central de Instrucoes
 
 ```markdown
 # GitHub Copilot Instructions
@@ -250,45 +250,45 @@ ${VERSIONING == "Custom" ?
 - When in doubt, prioritize consistency with existing code over external best practices
 ```
 
-### 2. Codebase Analysis Instructions
+### 2. Instrucoes de Analise do Codebase
 
-To create the copilot-instructions.md file, first analyze the codebase to:
+Para criar o copilot-instructions.md, primeiro analise o codebase para:
 
-1. **Identify Exact Technology Versions**:
-   - ${PROJECT_TYPE == "Auto-detect" ? "Detect all programming languages, frameworks, and libraries by scanning file extensions and configuration files" : `Focus on ${PROJECT_TYPE} technologies`}
-   - Extract precise version information from project files, package.json, .csproj, etc.
-   - Document version constraints and compatibility requirements
+1. **Identificar Versoes Exatas de Tecnologia**:
+   - ${PROJECT_TYPE == "Auto-detect" ? "Detecte todas as linguagens, frameworks e bibliotecas analisando extensoes de arquivo e configuracoes" : `Foque em tecnologias ${PROJECT_TYPE}`}
+   - Extraia informacoes precisas de versao de arquivos de projeto, package.json, .csproj, etc.
+   - Documente restricoes de versao e requisitos de compatibilidade
 
-2. **Understand Architecture**:
-   - Analyze folder structure and module organization
-   - Identify clear layer boundaries and component relationships
-   - Document communication patterns between components
+2. **Entender Arquitetura**:
+   - Analise estrutura de pastas e organizacao de modulos
+   - Identifique limites claros de camadas e relacionamentos entre componentes
+   - Documente patterns de comunicacao entre componentes
 
-3. **Document Code Patterns**:
-   - Catalog naming conventions for different code elements
-   - Note documentation styles and completeness
-   - Document error handling patterns
-   - Map testing approaches and coverage
+3. **Documentar Patterns de Codigo**:
+   - Cataloge convencoes de nomes para diferentes elementos de codigo
+   - Observe estilos e completude de documentacao
+   - Documente patterns de tratamento de erro
+   - Mapeie abordagens de teste e cobertura
 
-4. **Note Quality Standards**:
-   - Identify performance optimization techniques actually used
-   - Document security practices implemented in the code
-   - Note accessibility features present (if applicable)
-   - Document code quality patterns evident in the codebase
+4. **Anotar Padroes de Qualidade**:
+   - Identifique tecnicas de performance realmente usadas
+   - Documente praticas de seguranca implementadas no codigo
+   - Observe recursos de acessibilidade presentes (se aplicavel)
+   - Documente patterns de qualidade evidentes no codebase
 
-### 3. Implementation Notes
+### 3. Notas de Implementacao
 
-The final copilot-instructions.md should:
-- Be placed in the .github/copilot directory
-- Reference only patterns and standards that exist in the codebase
-- Include explicit version compatibility requirements
-- Avoid prescribing any practices not evident in the code
-- Provide concrete examples from the codebase
-- Be comprehensive yet concise enough for Copilot to effectively use
+O copilot-instructions.md final deve:
+- Ser colocado no diretorio .github/copilot
+- Referenciar apenas patterns e padroes que existam no codebase
+- Incluir requisitos explicitos de compatibilidade de versao
+- Evitar prescrever praticas nao evidentes no codigo
+- Fornecer exemplos concretos do codebase
+- Ser abrangente mas conciso o suficiente para o Copilot usar efetivamente
 
-Important: Only include guidance based on patterns actually observed in the codebase. Explicitly instruct Copilot to prioritize consistency with existing code over external best practices or newer language features.
+Importante: inclua somente orientacoes baseadas em patterns observados no codebase. Instrua explicitamente o Copilot a priorizar consistencia com o codigo existente em vez de melhores praticas externas ou recursos mais novos.
 "
 
 ## Expected Output
 
-A comprehensive copilot-instructions.md file that will guide GitHub Copilot to produce code that is perfectly compatible with your existing technology versions and follows your established patterns and architecture.
+Um arquivo copilot-instructions.md abrangente que orienta o GitHub Copilot a produzir codigo perfeitamente compativel com as versoes de tecnologia existentes e seguindo os patterns e a arquitetura estabelecidos.

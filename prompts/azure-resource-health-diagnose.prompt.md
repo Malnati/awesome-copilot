@@ -3,42 +3,42 @@ agent: 'agent'
 description: 'Analise a saúde de recursos Azure, diagnostique problemas a partir de logs e telemetria, e crie um plano de remediação para problemas identificados.'
 ---
 
-## Saúde de Recursos Azure & Diagnóstico de Problemas
+## Saude de Recursos Azure e Diagnostico de Problemas
 
-Este fluxo analisa um recurso Azure específico para avaliar seu status de saúde, diagnosticar possíveis problemas usando logs e dados de telemetria, e desenvolver um plano de remediação abrangente para quaisquer problemas encontrados.
+Este fluxo analisa um recurso Azure especifico para avaliar seu status de saude, diagnosticar possiveis problemas usando logs e dados de telemetria, e desenvolver um plano de remediacao abrangente para quaisquer problemas encontrados.
 
-## Pré-requisitos
+## Pre-requisitos
 - MCP server Azure configurado e autenticado
 - Recurso Azure alvo identificado (nome e opcionalmente resource group/subscription)
 - O recurso deve estar implantado e rodando para gerar logs/telemetria
-- Prefira ferramentas MCP Azure (`azmcp-*`) ao invés do Azure CLI direto quando disponível
+- Prefira ferramentas MCP Azure (`azmcp-*`) ao inves do Azure CLI direto quando disponivel
 
 ## Etapas do Fluxo
 
-### Etapa 1: Obter Melhores Práticas Azure
-**Ação**: Recupere melhores práticas de diagnóstico e troubleshooting
-**Ferramentas**: Ferramenta de melhores práticas MCP Azure
+### Etapa 1: Obter Melhores Praticas Azure
+**Acao**: Recupere melhores praticas de diagnostico e troubleshooting
+**Ferramentas**: Ferramenta de melhores praticas MCP Azure
 **Processo**:
-1. **Carregar Melhores Práticas**:
-   - Execute a ferramenta de melhores práticas Azure para obter diretrizes de diagnóstico
-   - Foque em monitoramento de saúde, análise de logs e padrões de resolução de problemas
-   - Use essas práticas para informar a abordagem de diagnóstico e recomendações de remediação
+1. **Carregar Melhores Praticas**:
+   - Execute a ferramenta de melhores praticas Azure para obter diretrizes de diagnostico
+   - Foque em monitoramento de saude, analise de logs e padroes de resolucao de problemas
+   - Use essas praticas para informar a abordagem de diagnostico e recomendacoes de remediacao
 
-### Etapa 2: Descoberta e Identificação de Recurso
-**Ação**: Localize e identifique o recurso Azure alvo
+### Etapa 2: Descoberta e Identificacao de Recurso
+**Acao**: Localize e identifique o recurso Azure alvo
 **Ferramentas**: Ferramentas MCP Azure + fallback Azure CLI
 **Processo**:
 1. **Resource Lookup**:
-   - If only resource name provided: Search across subscriptions using `azmcp-subscription-list`
-   - Use `az resource list --name <resource-name>` to find matching resources
-   - If multiple matches found, prompt user to specify subscription/resource group
-   - Gather detailed resource information:
-     - Resource type and current status
-     - Location, tags, and configuration
-     - Associated services and dependencies
+   - Se apenas o nome do recurso foi fornecido: procure em subscriptions usando `azmcp-subscription-list`
+   - Use `az resource list --name <resource-name>` para encontrar recursos correspondentes
+   - Se houver multiplas correspondencias, solicite que o usuario especifique subscription/resource group
+   - Colete informacoes detalhadas do recurso:
+     - Tipo de recurso e status atual
+     - Location, tags e configuracao
+     - Servicos associados e dependencias
 
 2. **Resource Type Detection**:
-   - Identify resource type to determine appropriate diagnostic approach:
+   - Identifique o tipo de recurso para determinar a abordagem de diagnostico adequada:
      - **Web Apps/Function Apps**: Application logs, performance metrics, dependency tracking
      - **Virtual Machines**: System logs, performance counters, boot diagnostics
      - **Cosmos DB**: Request metrics, throttling, partition statistics
@@ -48,15 +48,15 @@ Este fluxo analisa um recurso Azure específico para avaliar seu status de saúd
      - **Key Vault**: Access logs, certificate status, secret usage
      - **Service Bus**: Message metrics, dead letter queues, throughput
 
-### Step 3: Health Status Assessment
-**Action**: Evaluate current resource health and availability
-**Tools**: Azure MCP monitoring tools + Azure CLI
-**Process**:
+### Etapa 3: Avaliacao de Status de Saude
+**Acao**: Avaliar a saude e disponibilidade atual do recurso
+**Ferramentas**: Ferramentas de monitoramento MCP Azure + Azure CLI
+**Processo**:
 1. **Basic Health Check**:
-   - Check resource provisioning state and operational status
-   - Verify service availability and responsiveness
-   - Review recent deployment or configuration changes
-   - Assess current resource utilization (CPU, memory, storage, etc.)
+   - Verifique o estado de provisionamento e status operacional do recurso
+   - Valide disponibilidade e responsividade do servico
+   - Revise mudanças recentes de deploy ou configuracao
+   - Avalie utilizacao atual de recursos (CPU, memoria, storage, etc.)
 
 2. **Service-Specific Health Indicators**:
    - **Web Apps**: HTTP response codes, response times, uptime
@@ -65,19 +65,19 @@ Este fluxo analisa um recurso Azure específico para avaliar seu status de saúd
    - **VMs**: Boot diagnostics, guest OS metrics, network connectivity
    - **Functions**: Execution success rate, duration, error frequency
 
-### Step 4: Log & Telemetry Analysis
-**Action**: Analyze logs and telemetry to identify issues and patterns
-**Tools**: Azure MCP monitoring tools for Log Analytics queries
-**Process**:
-1. **Find Monitoring Sources**:
-   - Use `azmcp-monitor-workspace-list` to identify Log Analytics workspaces
-   - Locate Application Insights instances associated with the resource
-   - Identify relevant log tables using `azmcp-monitor-table-list`
+### Etapa 4: Analise de Logs e Telemetria
+**Acao**: Analisar logs e telemetria para identificar problemas e padroes
+**Ferramentas**: Ferramentas de monitoramento MCP Azure para queries no Log Analytics
+**Processo**:
+1. **Encontrar Fontes de Monitoramento**:
+   - Use `azmcp-monitor-workspace-list` para identificar Log Analytics workspaces
+   - Localize instancias de Application Insights associadas ao recurso
+   - Identifique tabelas de log relevantes usando `azmcp-monitor-table-list`
 
-2. **Execute Diagnostic Queries**:
-   Use `azmcp-monitor-log-query` with targeted KQL queries based on resource type:
+2. **Executar Queries de Diagnostico**:
+   Use `azmcp-monitor-log-query` com queries KQL direcionadas por tipo de recurso:
 
-   **General Error Analysis**:
+   **Analise Geral de Erros**:
    ```kql
    // Recent errors and exceptions
    union isfuzzy=true
@@ -91,7 +91,7 @@ Este fluxo analisa um recurso Azure específico para avaliar seu status de saúd
    | order by TimeGenerated desc
    ```
 
-   **Performance Analysis**:
+   **Analise de Performance**:
    ```kql
    // Performance degradation patterns
    Perf
@@ -101,7 +101,7 @@ Este fluxo analisa um recurso Azure específico para avaliar seu status de saúd
    | where avg_CounterValue > 80
    ```
 
-   **Application-Specific Queries**:
+   **Queries Especificas de Aplicacao**:
    ```kql
    // Application Insights - Failed requests
    requests
@@ -119,61 +119,61 @@ Este fluxo analisa um recurso Azure específico para avaliar seu status de saúd
    ```
 
 3. **Pattern Recognition**:
-   - Identify recurring error patterns or anomalies
-   - Correlate errors with deployment times or configuration changes
-   - Analyze performance trends and degradation patterns
-   - Look for dependency failures or external service issues
+   - Identifique padroes recorrentes de erro ou anomalias
+   - Correlacione erros com tempos de deploy ou mudancas de configuracao
+   - Analise tendencias de performance e degradacao
+   - Procure falhas de dependencia ou problemas em servicos externos
 
-### Step 5: Issue Classification & Root Cause Analysis
-**Action**: Categorize identified issues and determine root causes
-**Process**:
+### Etapa 5: Classificacao de Issues e Root Cause Analysis
+**Acao**: Categorizar issues identificadas e determinar causas-raiz
+**Processo**:
 1. **Issue Classification**:
-   - **Critical**: Service unavailable, data loss, security breaches
-   - **High**: Performance degradation, intermittent failures, high error rates
-   - **Medium**: Warnings, suboptimal configuration, minor performance issues
-   - **Low**: Informational alerts, optimization opportunities
+   - **Critical**: Servico indisponivel, perda de dados, falhas de seguranca
+   - **High**: Degradacao de performance, falhas intermitentes, alta taxa de erro
+   - **Medium**: Warnings, configuracao subotima, problemas menores de performance
+   - **Low**: Alertas informativos, oportunidades de otimizacao
 
 2. **Root Cause Analysis**:
-   - **Configuration Issues**: Incorrect settings, missing dependencies
-   - **Resource Constraints**: CPU/memory/disk limitations, throttling
-   - **Network Issues**: Connectivity problems, DNS resolution, firewall rules
-   - **Application Issues**: Code bugs, memory leaks, inefficient queries
-   - **External Dependencies**: Third-party service failures, API limits
-   - **Security Issues**: Authentication failures, certificate expiration
+   - **Configuration Issues**: Configuracoes incorretas, dependencias ausentes
+   - **Resource Constraints**: Limites de CPU/memoria/disco, throttling
+   - **Network Issues**: Problemas de conectividade, resolucao DNS, regras de firewall
+   - **Application Issues**: Bugs de codigo, memory leaks, queries ineficientes
+   - **External Dependencies**: Falhas de servicos de terceiros, limites de API
+   - **Security Issues**: Falhas de autenticacao, expiracao de certificados
 
 3. **Impact Assessment**:
-   - Determine business impact and affected users/systems
-   - Evaluate data integrity and security implications
-   - Assess recovery time objectives and priorities
+   - Determine impacto de negocio e usuarios/sistemas afetados
+   - Avalie integridade de dados e implicacoes de seguranca
+   - Avalie objetivos de tempo de recuperacao e prioridades
 
-### Step 6: Generate Remediation Plan
-**Action**: Create a comprehensive plan to address identified issues
-**Process**:
-1. **Immediate Actions** (Critical issues):
-   - Emergency fixes to restore service availability
-   - Temporary workarounds to mitigate impact
-   - Escalation procedures for complex issues
+### Etapa 6: Gerar Plano de Remediacao
+**Acao**: Criar um plano abrangente para tratar os problemas identificados
+**Processo**:
+1. **Immediate Actions** (issues Critical):
+   - Correcoes emergenciais para restaurar disponibilidade
+   - Workarounds temporarios para mitigar impacto
+   - Procedimentos de escalacao para issues complexas
 
-2. **Short-term Fixes** (High/Medium issues):
-   - Configuration adjustments and resource scaling
-   - Application updates and patches
-   - Monitoring and alerting improvements
+2. **Short-term Fixes** (issues High/Medium):
+   - Ajustes de configuracao e scaling de recursos
+   - Updates de aplicacao e patches
+   - Melhorias de monitoramento e alertas
 
-3. **Long-term Improvements** (All issues):
-   - Architectural changes for better resilience
-   - Preventive measures and monitoring enhancements
-   - Documentation and process improvements
+3. **Long-term Improvements** (todas as issues):
+   - Mudancas arquiteturais para maior resiliencia
+   - Medidas preventivas e melhorias de monitoramento
+   - Melhorias de documentacao e processos
 
 4. **Implementation Steps**:
-   - Prioritized action items with specific Azure CLI commands
-   - Testing and validation procedures
-   - Rollback plans for each change
-   - Monitoring to verify issue resolution
+   - Itens de acao priorizados com comandos Azure CLI especificos
+   - Procedimentos de teste e validacao
+   - Planos de rollback para cada mudanca
+   - Monitoramento para verificar resolucao das issues
 
-### Step 7: User Confirmation & Report Generation
-**Action**: Present findings and get approval for remediation actions
-**Process**:
-1. **Display Health Assessment Summary**:
+### Etapa 7: Confirmacao do Usuario e Geracao de Relatorio
+**Acao**: Apresentar achados e obter aprovacao para acoes de remediacao
+**Processo**:
+1. **Exibir Resumo de Avaliacao de Saude**:
    ```
    🏥 Azure Resource Health Assessment
 
@@ -203,7 +203,7 @@ Este fluxo analisa um recurso Azure específico para avaliar seu status de saúd
    ❓ Proceed with detailed remediation plan? (y/n)
    ```
 
-2. **Generate Detailed Report**:
+2. **Gerar Relatorio Detalhado**:
    ```markdown
    # Azure Resource Health Report: [Resource Name]
 

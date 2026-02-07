@@ -1,54 +1,54 @@
 ---
-description: Complete development kit for Microsoft 365 Copilot declarative agents with three comprehensive workflows (basic, advanced, validation), TypeSpec support, and Microsoft 365 Agents Toolkit integration
+description: Kit completo de desenvolvimento para Microsoft 365 Copilot declarative agents com tres workflows abrangentes (basic, advanced, validation), suporte TypeSpec e integracao com Microsoft 365 Agents Toolkit
 ---
 
 # Microsoft 365 Declarative Agents Development Kit
 
-I'll help you create and develop Microsoft 365 Copilot declarative agents using the latest v1.5 schema with comprehensive TypeSpec and Microsoft 365 Agents Toolkit integration. Choose from three specialized workflows:
+Vou ajudar voce a criar e desenvolver Microsoft 365 Copilot declarative agents usando o schema v1.5 mais recente com TypeSpec abrangente e integracao com Microsoft 365 Agents Toolkit. Escolha entre tres workflows especializados:
 
-## Workflow 1: Basic Agent Creation
-**Perfect for**: New developers, simple agents, quick prototypes
+## Workflow 1: Criacao Basica de Agent
+**Perfeito para**: Novos desenvolvedores, agentes simples, prototipos rapidos
 
-I'll guide you through:
-1. **Agent Planning**: Define purpose, target users, and core capabilities
-2. **Capability Selection**: Choose from 11 available capabilities (WebSearch, OneDriveAndSharePoint, GraphConnectors, etc.)
-3. **Basic Schema Creation**: Generate compliant JSON manifest with proper constraints
-4. **TypeSpec Alternative**: Create modern type-safe definitions that compile to JSON
-5. **Testing Setup**: Configure Agents Playground for local testing
-6. **Toolkit Integration**: Leverage Microsoft 365 Agents Toolkit for enhanced development
+Vou orientar:
+1. **Agent Planning**: Definir proposito, usuarios alvo e capacidades centrais
+2. **Selecao de Capacidades**: Escolher entre 11 capacidades disponiveis (WebSearch, OneDriveAndSharePoint, GraphConnectors, etc.)
+3. **Basic Schema Creation**: Gerar manifest JSON conforme com constraints corretas
+4. **TypeSpec Alternative**: Criar definicoes type-safe modernas que compilam para JSON
+5. **Testing Setup**: Configurar Agents Playground para testes locais
+6. **Toolkit Integration**: Usar Microsoft 365 Agents Toolkit para desenvolvimento aprimorado
 
 ## Workflow 2: Advanced Enterprise Agent Design
-**Perfect for**: Complex enterprise scenarios, production deployment, advanced features
+**Perfeito para**: Cenarios enterprise complexos, deploy em producao, features avancadas
 
-I'll help you architect:
-1. **Enterprise Requirements Analysis**: Multi-tenant considerations, compliance, security
-2. **Advanced Capability Configuration**: Complex capability combinations and interactions
-3. **Behavior Override Implementation**: Custom response patterns and specialized behaviors
-4. **Localization Strategy**: Multi-language support with proper resource management
-5. **Conversation Starters**: Strategic conversation entry points for user engagement
-6. **Production Deployment**: Environment management, versioning, and lifecycle planning
-7. **Monitoring & Analytics**: Implementation of tracking and performance optimization
+Vou ajudar a arquitetar:
+1. **Enterprise Requirements Analysis**: Consideracoes multi-tenant, compliance, seguranca
+2. **Advanced Capability Configuration**: Combinacoes complexas de capacidades e interacoes
+3. **Behavior Override Implementation**: Padrões de resposta customizados e behaviors especializados
+4. **Localization Strategy**: Suporte multi-idioma com gerenciamento de recursos adequado
+5. **Conversation Starters**: Entry points estrategicos para engajamento
+6. **Production Deployment**: Gestao de ambientes, versionamento e ciclo de vida
+7. **Monitoring & Analytics**: Implementacao de tracking e otimizacao de performance
 
 ## Workflow 3: Validation & Optimization
-**Perfect for**: Existing agents, troubleshooting, performance optimization
+**Perfeito para**: Agentes existentes, troubleshooting, otimizacao de performance
 
-I'll perform:
-1. **Schema Compliance Validation**: Full v1.5 specification adherence checking
+Vou executar:
+1. **Schema Compliance Validation**: Checagem completa de aderencia a especificacao v1.5
 2. **Character Limit Optimization**: Name (100), description (1000), instructions (8000)
-3. **Capability Audit**: Verify proper capability configuration and usage
-4. **TypeSpec Migration**: Convert existing JSON to modern TypeSpec definitions
-5. **Testing Protocol**: Comprehensive validation using Agents Playground
-6. **Performance Analysis**: Identify bottlenecks and optimization opportunities
-7. **Best Practices Review**: Alignment with Microsoft guidelines and recommendations
+3. **Capability Audit**: Verificar configuracao e uso correto de capacidades
+4. **TypeSpec Migration**: Converter JSON existente para definicoes TypeSpec modernas
+5. **Testing Protocol**: Validacao abrangente com Agents Playground
+6. **Performance Analysis**: Identificar gargalos e oportunidades de otimizacao
+7. **Best Practices Review**: Alinhamento com guidelines e recomendacoes da Microsoft
 
-## Core Features Across All Workflows
+## Core Features em Todos os Workflows
 
 ### Microsoft 365 Agents Toolkit Integration
-- **VS Code Extension**: Full integration with `teamsdevapp.ms-teams-vscode-extension`
-- **TypeSpec Development**: Modern type-safe agent definitions
-- **Local Debugging**: Agents Playground integration for testing
-- **Environment Management**: Development, staging, production configurations
-- **Lifecycle Management**: Creation, testing, deployment, monitoring
+- **VS Code Extension**: Integracao total com `teamsdevapp.ms-teams-vscode-extension`
+- **TypeSpec Development**: Definicoes de agent type-safe modernas
+- **Local Debugging**: Integracao com Agents Playground para testes
+- **Environment Management**: Configuracoes para dev, staging e prod
+- **Lifecycle Management**: Criacao, teste, deploy e monitoramento
 
 ### TypeSpec Examples
 ```typespec
@@ -63,10 +63,10 @@ model MyAgent {
 ```
 
 ### JSON Schema v1.5 Validation
-- Full compliance with latest Microsoft specification
-- Character limit enforcement (name: 100, description: 1000, instructions: 8000)
-- Array constraint validation (conversation_starters: max 4, capabilities: max 5)
-- Required field validation and type checking
+- Aderencia total a especificacao mais recente da Microsoft
+- Enforcement de limites de caracteres (name: 100, description: 1000, instructions: 8000)
+- Validacao de constraints de array (conversation_starters: max 4, capabilities: max 5)
+- Validacao de campos obrigatorios e tipos
 
 ### Available Capabilities (Choose up to 5)
 1. **WebSearch**: Internet search functionality
@@ -90,4 +90,4 @@ model MyAgent {
 }
 ```
 
-**Which workflow would you like to start with?** Share your requirements and I'll provide specialized guidance for your Microsoft 365 Copilot declarative agent development with full TypeSpec and Microsoft 365 Agents Toolkit support.
+**Qual workflow voce gostaria de iniciar?** Compartilhe seus requisitos e eu fornecerei orientacao especializada para desenvolvimento de Microsoft 365 Copilot declarative agents com suporte completo a TypeSpec e Microsoft 365 Agents Toolkit.

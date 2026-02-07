@@ -29,28 +29,28 @@ O output deve ser um Epic PRD completo em formato Markdown, salvo em `/docs/ways
 
 #### 3. Personas de Usuário
 
-- Describe the target user(s) for this epic.
+- Descreva o(s) usuário(s) alvo para este epic.
 
-#### 4. High-Level User Journeys
+#### 4. Jornadas de Usuário de Alto Nível
 
-- Describe the key user journeys and workflows enabled by this epic.
+- Descreva as principais jornadas e fluxos de trabalho habilitados por este epic.
 
-#### 5. Business Requirements
+#### 5. Requisitos de Negócio
 
-- **Functional Requirements:** A detailed, bulleted list of what the epic must deliver from a business perspective.
-- **Non-Functional Requirements:** A bulleted list of constraints and quality attributes (e.g., performance, security, accessibility, data privacy).
+- **Functional Requirements:** Uma lista detalhada, em bullets, do que o epic deve entregar do ponto de vista do negócio.
+- **Non-Functional Requirements:** Uma lista em bullets de restrições e atributos de qualidade (ex.: performance, segurança, acessibilidade, privacidade de dados).
 
-#### 6. Success Metrics
+#### 6. Métricas de Sucesso
 
-- Key Performance Indicators (KPIs) to measure the success of the epic.
+- Key Performance Indicators (KPIs) para medir o sucesso do epic.
 
 #### 7. Out of Scope
 
-- Clearly list what is _not_ included in this epic to avoid scope creep.
+- Liste claramente o que _não_ está incluído neste epic para evitar scope creep.
 
-#### 8. Business Value
+#### 8. Valor de Negócio
 
-- Estimate the business value (e.g., High, Medium, Low) with a brief justification.
+- Estime o valor de negócio (ex.: High, Medium, Low) com uma breve justificativa.
 
 ## Context Template
 

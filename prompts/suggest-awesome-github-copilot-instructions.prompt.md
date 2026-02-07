@@ -1,89 +1,89 @@
 ---
 agent: 'agent'
-description: 'Suggest relevant GitHub Copilot instruction files from the awesome-copilot repository based on current repository context and chat history, avoiding duplicates with existing instructions in this repository, and identifying outdated instructions that need updates.'
+description: 'Sugira arquivos de instrucoes GitHub Copilot relevantes do repositorio awesome-copilot com base no contexto atual do repositorio e historico do chat, evitando duplicatas com instrucoes existentes neste repositorio e identificando instrucoes desatualizadas que precisam de updates.'
 tools: ['edit', 'search', 'runCommands', 'runTasks', 'think', 'changes', 'testFailure', 'openSimpleBrowser', 'web/fetch', 'githubRepo', 'todos', 'search']
 ---
-# Suggest Awesome GitHub Copilot Instructions
+# Sugerir Instrucoes do Awesome GitHub Copilot
 
-Analyze current repository context and suggest relevant copilot-instruction files from the [GitHub awesome-copilot repository](https://github.com/github/awesome-copilot/blob/main/docs/README.instructions.md) that are not already available in this repository.
+Analise o contexto atual do repositorio e sugira arquivos de copilot-instructions relevantes do [repositorio awesome-copilot](https://github.com/github/awesome-copilot/blob/main/docs/README.instructions.md) que ainda nao estao disponiveis neste repositorio.
 
-## Process
+## Processo
 
-1. **Fetch Available Instructions**: Extract instruction list and descriptions from [awesome-copilot README.instructions.md](https://github.com/github/awesome-copilot/blob/main/docs/README.instructions.md). Must use `#fetch` tool.
-2. **Scan Local Instructions**: Discover existing instruction files in `.github/instructions/` folder
-3. **Extract Descriptions**: Read front matter from local instruction files to get descriptions and `applyTo` patterns
-4. **Fetch Remote Versions**: For each local instruction, fetch the corresponding version from awesome-copilot repository using raw GitHub URLs (e.g., `https://raw.githubusercontent.com/github/awesome-copilot/main/instructions/<filename>`)
-5. **Compare Versions**: Compare local instruction content with remote versions to identify:
-   - Instructions that are up-to-date (exact match)
-   - Instructions that are outdated (content differs)
-   - Key differences in outdated instructions (description, applyTo patterns, content)
-6. **Analyze Context**: Review chat history, repository files, and current project needs
-7. **Compare Existing**: Check against instructions already available in this repository
-8. **Match Relevance**: Compare available instructions against identified patterns and requirements
-9. **Present Options**: Display relevant instructions with descriptions, rationale, and availability status including outdated instructions
-10. **Validate**: Ensure suggested instructions would add value not already covered by existing instructions
-11. **Output**: Provide structured table with suggestions, descriptions, and links to both awesome-copilot instructions and similar local instructions
-   **AWAIT** user request to proceed with installation or updates of specific instructions. DO NOT INSTALL OR UPDATE UNLESS DIRECTED TO DO SO.
-12. **Download/Update Assets**: For requested instructions, automatically:
-    - Download new instructions to `.github/instructions/` folder
-    - Update outdated instructions by replacing with latest version from awesome-copilot
-    - Do NOT adjust content of the files
-    - Use `#fetch` tool to download assets, but may use `curl` using `#runInTerminal` tool to ensure all content is retrieved
-    - Use `#todos` tool to track progress
+1. **Fetch Available Instructions**: Extraia lista de instrucoes e descricoes de [awesome-copilot README.instructions.md](https://github.com/github/awesome-copilot/blob/main/docs/README.instructions.md). Deve usar a tool `#fetch`.
+2. **Scan Local Instructions**: Descubra arquivos de instrucoes existentes na pasta `.github/instructions/`
+3. **Extract Descriptions**: Leia front matter de arquivos locais para obter descricoes e padroes `applyTo`
+4. **Fetch Remote Versions**: Para cada instrucao local, busque a versao correspondente no repositorio awesome-copilot usando URLs raw do GitHub (ex: `https://raw.githubusercontent.com/github/awesome-copilot/main/instructions/<filename>`)
+5. **Compare Versions**: Compare o conteudo local com versoes remotas para identificar:
+   - Instrucoes up-to-date (match exato)
+   - Instrucoes desatualizadas (conteudo diferente)
+   - Diferencas chave em instrucoes desatualizadas (descricao, applyTo, conteudo)
+6. **Analyze Context**: Revise historico do chat, arquivos do repositorio e necessidades atuais do projeto
+7. **Compare Existing**: Verifique instrucoes ja disponiveis neste repositorio
+8. **Match Relevance**: Compare instrucoes disponiveis com padroes e requisitos identificados
+9. **Present Options**: Exiba instrucoes relevantes com descricoes, rationale e status de disponibilidade incluindo instrucoes desatualizadas
+10. **Validate**: Garanta que instrucoes sugeridas agregam valor nao coberto por instrucoes existentes
+11. **Output**: Forneca tabela estruturada com sugestoes, descricoes e links para instrucoes do awesome-copilot e instrucoes locais similares
+   **AGUARDE** solicitacao do usuario para prosseguir com instalacao ou updates de instrucoes especificas. NAO INSTALE OU ATUALIZE SEM SER DIRECIONADO.
+12. **Download/Update Assets**: Para instrucoes solicitadas, automaticamente:
+    - Baixe novas instrucoes para `.github/instructions/`
+    - Atualize instrucoes desatualizadas substituindo pela versao mais recente do awesome-copilot
+    - NAO ajuste conteudo dos arquivos
+    - Use a tool `#fetch` para baixar assets, mas pode usar `curl` via `#runInTerminal` para garantir todo o conteudo
+    - Use a tool `#todos` para acompanhar progresso
 
-## Context Analysis Criteria
+## Criterios de Analise de Contexto
 
 🔍 **Repository Patterns**:
-- Programming languages used (.cs, .js, .py, .ts, etc.)
-- Framework indicators (ASP.NET, React, Azure, Next.js, etc.)
-- Project types (web apps, APIs, libraries, tools)
-- Development workflow requirements (testing, CI/CD, deployment)
+- Linguagens usadas (.cs, .js, .py, .ts, etc.)
+- Indicadores de frameworks (ASP.NET, React, Azure, Next.js, etc.)
+- Tipos de projeto (web apps, APIs, libraries, tools)
+- Requisitos de workflow de desenvolvimento (testing, CI/CD, deployment)
 
 🗨️ **Chat History Context**:
-- Recent discussions and pain points
-- Technology-specific questions
-- Coding standards discussions
-- Development workflow requirements
+- Discussoes recentes e pontos de dor
+- Perguntas especificas de tecnologia
+- Discussao de padroes de codigo
+- Requisitos de workflow de desenvolvimento
 
-## Output Format
+## Formato de Saida
 
-Display analysis results in structured table comparing awesome-copilot instructions with existing repository instructions:
+Exiba resultados de analise em tabela estruturada comparando instrucoes do awesome-copilot com instrucoes existentes no repositorio:
 
 | Awesome-Copilot Instruction | Description | Already Installed | Similar Local Instruction | Suggestion Rationale |
 |------------------------------|-------------|-------------------|---------------------------|---------------------|
-| [blazor.instructions.md](https://github.com/github/awesome-copilot/blob/main/instructions/blazor.instructions.md) | Blazor development guidelines | ✅ Yes | blazor.instructions.md | Already covered by existing Blazor instructions |
-| [reactjs.instructions.md](https://github.com/github/awesome-copilot/blob/main/instructions/reactjs.instructions.md) | ReactJS development standards | ❌ No | None | Would enhance React development with established patterns |
-| [java.instructions.md](https://github.com/github/awesome-copilot/blob/main/instructions/java.instructions.md) | Java development best practices | ⚠️ Outdated | java.instructions.md | applyTo pattern differs: remote uses `'**/*.java'` vs local `'*.java'` - Update recommended |
+| [blazor.instructions.md](https://github.com/github/awesome-copilot/blob/main/instructions/blazor.instructions.md) | Blazor development guidelines | ✅ Sim | blazor.instructions.md | Ja coberto por instrucoes existentes de Blazor |
+| [reactjs.instructions.md](https://github.com/github/awesome-copilot/blob/main/instructions/reactjs.instructions.md) | ReactJS development standards | ❌ Nao | None | Melhoraria desenvolvimento React com padroes estabelecidos |
+| [java.instructions.md](https://github.com/github/awesome-copilot/blob/main/instructions/java.instructions.md) | Java development best practices | ⚠️ Desatualizado | java.instructions.md | Padrao applyTo difere: remoto usa `'**/*.java'` vs local `'*.java'` - Update recomendado |
 
-## Local Instructions Discovery Process
+## Processo de Descoberta de Instrucoes Locais
 
-1. List all `*.instructions.md` files in the `instructions/` directory
-2. For each discovered file, read front matter to extract `description` and `applyTo` patterns
-3. Build comprehensive inventory of existing instructions with their applicable file patterns
-4. Use this inventory to avoid suggesting duplicates
+1. Liste todos os arquivos `*.instructions.md` no diretorio `instructions/`
+2. Para cada arquivo encontrado, leia o front matter para extrair `description` e `applyTo`
+3. Monte inventario abrangente de instrucoes existentes com seus patterns de arquivo aplicaveis
+4. Use este inventario para evitar sugerir duplicatas
 
-## Version Comparison Process
+## Processo de Comparacao de Versoes
 
-1. For each local instruction file, construct the raw GitHub URL to fetch the remote version:
-   - Pattern: `https://raw.githubusercontent.com/github/awesome-copilot/main/instructions/<filename>`
-2. Fetch the remote version using the `#fetch` tool
-3. Compare entire file content (including front matter and body)
-4. Identify specific differences:
-   - **Front matter changes** (description, applyTo patterns)
-   - **Content updates** (guidelines, examples, best practices)
-5. Document key differences for outdated instructions
-6. Calculate similarity to determine if update is needed
+1. Para cada arquivo de instrucao local, construa a URL raw do GitHub para buscar a versao remota:
+   - Padrao: `https://raw.githubusercontent.com/github/awesome-copilot/main/instructions/<filename>`
+2. Busque a versao remota usando a tool `#fetch`
+3. Compare o conteudo completo do arquivo (incluindo front matter e corpo)
+4. Identifique diferencas especificas:
+   - **Mudancas de front matter** (description, applyTo)
+   - **Atualizacoes de conteudo** (guidelines, exemplos, boas praticas)
+5. Documente diferencas-chave para instrucoes desatualizadas
+6. Calcule similaridade para determinar se update e necessario
 
-## File Structure Requirements
+## Requisitos de Estrutura de Arquivo
 
-Based on GitHub documentation, copilot-instructions files should be:
-- **Repository-wide instructions**: `.github/copilot-instructions.md` (applies to entire repository)
-- **Path-specific instructions**: `.github/instructions/NAME.instructions.md` (applies to specific file patterns via `applyTo` frontmatter)
-- **Community instructions**: `instructions/NAME.instructions.md` (for sharing and distribution)
+Com base na documentacao do GitHub, arquivos de copilot-instructions devem ser:
+- **Repository-wide instructions**: `.github/copilot-instructions.md` (aplica ao repositorio todo)
+- **Path-specific instructions**: `.github/instructions/NAME.instructions.md` (aplica a file patterns especificos via front matter `applyTo`)
+- **Community instructions**: `instructions/NAME.instructions.md` (para compartilhamento e distribuicao)
 
-## Front Matter Structure
+## Estrutura de Front Matter
 
-Instructions files in awesome-copilot use this front matter format:
+Arquivos de instrucoes no awesome-copilot usam este front matter:
 ```markdown
 ---
 description: 'Brief description of what this instruction provides'
@@ -91,32 +91,30 @@ applyTo: '**/*.js,**/*.ts' # Optional: glob patterns for file matching
 ---
 ```
 
-## Requirements
+## Requisitos
 
-- Use `githubRepo` tool to get content from awesome-copilot repository instructions folder
-- Scan local file system for existing instructions in `.github/instructions/` directory
-- Read YAML front matter from local instruction files to extract descriptions and `applyTo` patterns
-- Compare local instructions with remote versions to detect outdated instructions
-- Compare against existing instructions in this repository to avoid duplicates
-- Focus on gaps in current instruction library coverage
-- Validate that suggested instructions align with repository's purpose and standards
-- Provide clear rationale for each suggestion
-- Include links to both awesome-copilot instructions and similar local instructions
-- Clearly identify outdated instructions with specific differences noted
-- Consider technology stack compatibility and project-specific needs
-- Don't provide any additional information or context beyond the table and the analysis
+- Use a tool `githubRepo` para obter conteudo da pasta instructions do awesome-copilot
+- Scanne o file system local para instrucoes existentes em `.github/instructions/`
+- Leia front matter YAML das instrucoes locais para extrair descricoes e `applyTo`
+- Compare instrucoes locais com versoes remotas para detectar desatualizadas
+- Compare com instrucoes existentes no repositorio para evitar duplicatas
+- Foque em gaps na cobertura da biblioteca de instrucoes atual
+- Valide que instrucoes sugeridas alinham com proposito e padroes do repositorio
+- Forneca rationale claro para cada sugestao
+- Inclua links para instrucoes do awesome-copilot e instrucoes locais similares
+- Identifique claramente instrucoes desatualizadas com diferencas especificas
+- Considere compatibilidade com stack e necessidades do projeto
+- Nao forneca informacao ou contexto adicional alem da tabela e analise
 
-## Icons Reference
+## Referencia de Icones
 
-- ✅ Already installed and up-to-date
-- ⚠️ Installed but outdated (update available)
-- ❌ Not installed in repo
+- ✅ Ja instalado e atualizado
+- ⚠️ Instalado mas desatualizado (update disponivel)
+- ❌ Nao instalado no repo
 
-## Update Handling
+## Tratamento de Updates
 
-When outdated instructions are identified:
-1. Include them in the output table with ⚠️ status
-2. Document specific differences in the "Suggestion Rationale" column
-3. Provide recommendation to update with key changes noted
-4. When user requests update, replace entire local file with remote version
-5. Preserve file location in `.github/instructions/` directory
+Quando instrucoes desatualizadas forem identificadas:
+1. Inclua-as na tabela de saida com status ⚠️
+2. Documente diferencas especificas na coluna "Suggestion Rationale"
+3. Forneca recomendacao de update com mudancas-chave

@@ -1,23 +1,23 @@
 ---
 agent: 'agent'
-description: 'Prompt para criar planos detalhados de implementação de features, seguindo a estrutura monorepo Epoch.'
+description: 'Prompt para criar planos detalhados de implementacao de features, seguindo a estrutura monorepo Epoch.'
 ---
 
-## Prompt de Plano de Implementação de Feature
+## Prompt de Plano de Implementacao de Feature
 
 ## Objetivo
 
-Atue como um engenheiro de software veterano do setor, responsável por criar features de alto impacto para empresas SaaS de grande porte. Seja excelente em criar planos técnicos detalhados de implementação de features com base em um Feature PRD.
-Revise o contexto fornecido e produza um plano de implementação completo e abrangente.
-**Nota:** Não escreva código no output, exceto pseudocódigo para situações técnicas.
+Atue como um engenheiro de software veterano do setor, responsavel por criar features de alto impacto para empresas SaaS de grande porte. Seja excelente em criar planos tecnicos detalhados de implementacao de features com base em um Feature PRD.
+Revise o contexto fornecido e produza um plano de implementacao completo e abrangente.
+**Nota:** Nao escreva codigo no output, exceto pseudocodigo para situacoes tecnicas.
 
 ## Formato do Output
 
-O output deve ser um plano de implementação completo em formato Markdown, salvo em `/docs/ways-of-work/plan/{epic-name}/{feature-name}/implementation-plan.md`.
+O output deve ser um plano de implementacao completo em formato Markdown, salvo em `/docs/ways-of-work/plan/{epic-name}/{feature-name}/implementation-plan.md`.
 
 ### File System
 
-Estrutura de pastas e arquivos para repositórios front-end e back-end seguindo a estrutura monorepo Epoch:
+Estrutura de pastas e arquivos para repositorios front-end e back-end seguindo a estrutura monorepo Epoch:
 
 ```
 apps/

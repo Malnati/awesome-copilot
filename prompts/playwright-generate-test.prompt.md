@@ -1,19 +1,19 @@
 ---
 agent: agent
-description: 'Generate a Playwright test based on a scenario using Playwright MCP'
+description: 'Gere um teste Playwright baseado em um cenario usando Playwright MCP'
 tools: ['changes', 'search/codebase', 'edit/editFiles', 'web/fetch', 'problems', 'runCommands', 'runTasks', 'runTests', 'search', 'search/searchResults', 'runCommands/terminalLastCommand', 'runCommands/terminalSelection', 'testFailure', 'playwright/*']
 model: 'Claude Sonnet 4.5'
 ---
 
-# Test Generation with Playwright MCP
+# Geracao de Teste com Playwright MCP
 
-Your goal is to generate a Playwright test based on the provided scenario after completing all prescribed steps.
+Seu objetivo e gerar um teste Playwright baseado no cenario fornecido apos completar todas as etapas prescritas.
 
-## Specific Instructions
+## Instrucoes Especificas
 
-- You are given a scenario, and you need to generate a playwright test for it. If the user does not provide a scenario, you will ask them to provide one.
-- DO NOT generate test code prematurely or based solely on the scenario without completing all prescribed steps.
-- DO run steps one by one using the tools provided by the Playwright MCP.
-- Only after all steps are completed, emit a Playwright TypeScript test that uses `@playwright/test` based on message history
-- Save generated test file in the tests directory
-- Execute the test file and iterate until the test passes
+- Voce recebe um cenario e precisa gerar um teste Playwright para ele. Se o usuario nao fornecer um cenario, voce vai pedir que forneca.
+- NAO gere codigo de teste prematuramente ou apenas com base no cenario sem completar todas as etapas prescritas.
+- Execute as etapas uma a uma usando as tools fornecidas pelo Playwright MCP.
+- Somente apos todas as etapas serem concluidas, emita um teste Playwright TypeScript que use `@playwright/test` com base no historico de mensagens
+- Salve o arquivo de teste gerado no diretorio tests
+- Execute o arquivo de teste e itere ate o teste passar

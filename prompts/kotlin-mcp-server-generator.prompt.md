@@ -1,25 +1,25 @@
 ---
 agent: agent
-description: 'Generate a complete Kotlin MCP server project with proper structure, dependencies, and implementation using the official io.modelcontextprotocol:kotlin-sdk library.'
+description: 'Gere um projeto completo de servidor MCP em Kotlin com estrutura adequada, dependencias e implementacao usando a biblioteca oficial io.modelcontextprotocol:kotlin-sdk.'
 ---
 
-# Kotlin MCP Server Project Generator
+# Gerador de Projeto de Servidor MCP em Kotlin
 
-Generate a complete, production-ready Model Context Protocol (MCP) server project in Kotlin.
+Gere um projeto completo e pronto para producao de servidor Model Context Protocol (MCP) em Kotlin.
 
-## Project Requirements
+## Requisitos do Projeto
 
-You will create a Kotlin MCP server with:
+Voce vai criar um servidor MCP em Kotlin com:
 
-1. **Project Structure**: Gradle-based Kotlin project layout
-2. **Dependencies**: Official MCP SDK, Ktor, and kotlinx libraries
-3. **Server Setup**: Configured MCP server with transports
-4. **Tools**: At least 2-3 useful tools with typed inputs/outputs
-5. **Error Handling**: Proper exception handling and validation
-6. **Documentation**: README with setup and usage instructions
-7. **Testing**: Basic test structure with coroutines
+1. **Estrutura de Projeto**: Layout de projeto Kotlin baseado em Gradle
+2. **Dependencias**: SDK MCP oficial, Ktor e bibliotecas kotlinx
+3. **Server Setup**: Servidor MCP configurado com transports
+4. **Tools**: Pelo menos 2-3 tools uteis com inputs/outputs tipados
+5. **Error Handling**: Tratamento adequado de excecoes e validacao
+6. **Documentacao**: README com instrucoes de setup e uso
+7. **Testing**: Estrutura basica de testes com coroutines
 
-## Template Structure
+## Estrutura de Template
 
 ```
 myserver/
@@ -44,7 +44,7 @@ myserver/
 └── README.md
 ```
 
-## build.gradle.kts Template
+## Template do build.gradle.kts
 
 ```kotlin
 plugins {
@@ -95,13 +95,13 @@ kotlin {
 }
 ```
 
-## settings.gradle.kts Template
+## Template do settings.gradle.kts
 
 ```kotlin
 rootProject.name = "{{PROJECT_NAME}}"
 ```
 
-## Main.kt Template
+## Template do Main.kt
 
 ```kotlin
 package com.example.myserver
@@ -126,7 +126,7 @@ fun main() = runBlocking {
 }
 ```
 
-## Server.kt Template
+## Template do Server.kt
 
 ```kotlin
 package com.example.myserver
@@ -164,7 +164,7 @@ fun createServer(config: Config): Server {
 }
 ```
 
-## Config.kt Template
+## Template do Config.kt
 
 ```kotlin
 package com.example.myserver.config
@@ -187,7 +187,7 @@ fun loadConfig(): Config {
 }
 ```
 
-## Tool1.kt Template
+## Template do Tool1.kt
 
 ```kotlin
 package com.example.myserver.tools
@@ -244,7 +244,7 @@ private fun performTool1Logic(param1: String, param2: Int): String {
 }
 ```
 
-## tools/ToolRegistry.kt Template
+## Template do tools/ToolRegistry.kt
 
 ```kotlin
 package com.example.myserver.tools
@@ -258,7 +258,7 @@ fun Server.registerTools() {
 }
 ```
 
-## ServerTest.kt Template
+## Template do ServerTest.kt
 
 ```kotlin
 package com.example.myserver
@@ -296,7 +296,7 @@ class ServerTest {
 }
 ```
 
-## README.md Template
+## Template do README.md
 
 ```markdown
 # {{PROJECT_NAME}}
@@ -316,24 +316,24 @@ A Model Context Protocol (MCP) server built with Kotlin.
 
 Build the project:
 
-\`\`\`bash
+```bash
 ./gradlew build
-\`\`\`
+```
 
 ## Usage
 
 Run the server with stdio transport:
 
-\`\`\`bash
+```bash
 ./gradlew run
-\`\`\`
+```
 
 Or build and run the jar:
 
-\`\`\`bash
+```bash
 ./gradlew installDist
 ./build/install/{{PROJECT_NAME}}/bin/{{PROJECT_NAME}}
-\`\`\`
+```
 
 ## Configuration
 
@@ -359,21 +359,21 @@ Configure via environment variables:
 
 Run tests:
 
-\`\`\`bash
+```bash
 ./gradlew test
-\`\`\`
+```
 
 Build:
 
-\`\`\`bash
+```bash
 ./gradlew build
-\`\`\`
+```
 
 Run with auto-reload (development):
 
-\`\`\`bash
+```bash
 ./gradlew run --continuous
-\`\`\`
+```
 
 ## Multiplatform
 
@@ -385,65 +385,16 @@ See `build.gradle.kts` for platform configuration.
 MIT
 ```
 
-## Generation Instructions
+## Instrucoes de Geracao
 
-When generating a Kotlin MCP server:
+Ao gerar um servidor MCP em Kotlin:
 
-1. **Gradle Setup**: Create proper `build.gradle.kts` with all dependencies
-2. **Package Structure**: Follow Kotlin package conventions
-3. **Type Safety**: Use data classes and kotlinx.serialization
-4. **Coroutines**: All operations should be suspending functions
-5. **Error Handling**: Use Kotlin exceptions and validation
-6. **JSON Schemas**: Use `buildJsonObject` for tool schemas
-7. **Testing**: Include coroutine test utilities
-8. **Logging**: Use kotlin-logging for structured logging
-9. **Configuration**: Use data classes and environment variables
-10. **Documentation**: KDoc comments for public APIs
-
-## Best Practices
-
-- Use suspending functions for all async operations
-- Leverage Kotlin's null safety and type system
-- Use data classes for structured data
-- Apply kotlinx.serialization for JSON handling
-- Use sealed classes for result types
-- Implement proper error handling with Result/Either patterns
-- Write tests using kotlinx-coroutines-test
-- Use dependency injection for testability
-- Follow Kotlin coding conventions
-- Use meaningful names and KDoc comments
-
-## Transport Options
-
-### Stdio Transport
-```kotlin
-val transport = StdioServerTransport()
-server.connect(transport)
-```
-
-### SSE Transport (Ktor)
-```kotlin
-embeddedServer(Netty, port = 8080) {
-    mcp {
-        Server(/*...*/) { "Description" }
-    }
-}.start(wait = true)
-```
-
-## Multiplatform Configuration
-
-For multiplatform projects, add to `build.gradle.kts`:
-
-```kotlin
-kotlin {
-    jvm()
-    js(IR) { nodejs() }
-    wasmJs()
-    
-    sourceSets {
-        commonMain.dependencies {
-            implementation("io.modelcontextprotocol:kotlin-sdk:0.7.2")
-        }
-    }
-}
-```
+1. **Gradle Setup**: Crie `build.gradle.kts` adequado com todas as dependencias
+2. **Package Structure**: Siga convencoes de package em Kotlin
+3. **Type Safety**: Use data classes e kotlinx.serialization
+4. **Coroutines**: Todas as operacoes devem ser suspending functions
+5. **Error Handling**: Use excecoes e validacao em Kotlin
+6. **JSON Schemas**: Use `buildJsonObject` para schemas de tool
+7. **Testing**: Inclua utilitarios de teste para coroutines
+8. **Logging**: Use kotlin-logging para logging estruturado
+9. **Configuration**: Use data classes e variaveis de ambiente

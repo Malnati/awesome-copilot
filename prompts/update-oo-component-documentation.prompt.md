@@ -1,68 +1,68 @@
 ---
 agent: 'agent'
-description: 'Update existing object-oriented component documentation following industry best practices and architectural documentation standards.'
+description: 'Atualize a documentacao existente de componentes orientados a objetos seguindo as melhores praticas da industria e padroes de documentacao de arquitetura.'
 tools: ['changes', 'search/codebase', 'edit/editFiles', 'extensions', 'web/fetch', 'githubRepo', 'openSimpleBrowser', 'problems', 'runTasks', 'search', 'search/searchResults', 'runCommands/terminalLastCommand', 'runCommands/terminalSelection', 'testFailure', 'usages', 'vscodeAPI']
 ---
-# Update Standard OO Component Documentation
+# Atualizar Documentacao Padrao de Componente OO
 
-Update the existing documentation file at: `${file}` by analyzing the corresponding component code.
+Atualize o arquivo de documentacao existente em: `${file}` analisando o codigo do componente correspondente.
 
-Extract the component path from the existing documentation's front matter (`component_path` field) or infer it from the documentation content. Analyze the current component implementation and update the documentation accordingly.
+Extraia o caminho do componente a partir do front matter da documentacao existente (campo `component_path`) ou infira-o a partir do conteudo da documentacao. Analise a implementacao atual do componente e atualize a documentacao de acordo.
 
-**Documentation Standards:**
+**Padroes de Documentacao:**
 
-- DOC-001: Follow C4 Model documentation levels (Context, Containers, Components, Code)
-- DOC-002: Align with Arc42 software architecture documentation template
-- DOC-003: Comply with IEEE 1016 Software Design Description standard
-- DOC-004: Use Agile Documentation principles (just enough documentation that adds value)
-- DOC-005: Target developers and maintainers as primary audience
+- DOC-001: Siga os niveis de documentacao do Modelo C4 (Context, Containers, Components, Code)
+- DOC-002: Alinhe com o template de documentacao de arquitetura de software Arc42
+- DOC-003: Cumpra o padrao IEEE 1016 Software Design Description
+- DOC-004: Use principios de Documentacao Agil (documentacao suficiente que agrega valor)
+- DOC-005: Direcione desenvolvedores e mantenedores como publico principal
 
-**Analysis Instructions:**
+**Instrucoes de Analise:**
 
-- ANA-001: Read existing documentation to understand component context and structure
-- ANA-002: Identify component path from front matter or content analysis
-- ANA-003: Examine current source code files for class structures and inheritance
-- ANA-004: Compare existing documentation with current implementation
-- ANA-005: Identify design patterns and architectural changes
-- ANA-006: Update public APIs, interfaces, and dependencies
-- ANA-007: Recognize new/changed creational/structural/behavioral patterns
-- ANA-008: Update method parameters, return values, exceptions
-- ANA-009: Reassess performance, security, reliability, maintainability
-- ANA-010: Update integration patterns and data flow
+- ANA-001: Leia a documentacao existente para entender o contexto e a estrutura do componente
+- ANA-002: Identifique o caminho do componente a partir do front matter ou da analise de conteudo
+- ANA-003: Examine os arquivos de codigo-fonte atuais para estruturas de classes e heranca
+- ANA-004: Compare a documentacao existente com a implementacao atual
+- ANA-005: Identifique padroes de design e mudancas arquiteturais
+- ANA-006: Atualize APIs publicas, interfaces e dependencias
+- ANA-007: Reconheca novos/alterados padroes criacionais/estruturais/comportamentais
+- ANA-008: Atualize parametros de metodo, valores de retorno, excecoes
+- ANA-009: Reavalie performance, seguranca, confiabilidade, manutenibilidade
+- ANA-010: Atualize padroes de integracao e fluxo de dados
 
-**Language-Specific Optimizations:**
+**Otimizacoes Especificas de Linguagem:**
 
 - LNG-001: **C#/.NET** - async/await, dependency injection, configuration, disposal
 - LNG-002: **Java** - Spring framework, annotations, exception handling, packaging
 - LNG-003: **TypeScript/JavaScript** - modules, async patterns, types, npm
 - LNG-004: **Python** - packages, virtual environments, type hints, testing
 
-**Update Strategy:**
+**Estrategia de Atualizacao:**
 
-- UPD-001: Preserve existing documentation structure and format
-- UPD-002: Update `last_updated` field to current date
-- UPD-003: Maintain version history in front matter if present
-- UPD-004: Add new sections if component has significantly expanded
-- UPD-005: Mark deprecated features or breaking changes
-- UPD-006: Update examples to reflect current API
-- UPD-007: Refresh dependency lists and versions
-- UPD-008: Update mermaid diagrams to reflect current architecture
+- UPD-001: Preserve a estrutura e o formato da documentacao existente
+- UPD-002: Atualize o campo `last_updated` para a data atual
+- UPD-003: Mantenha o historico de versoes no front matter, se presente
+- UPD-004: Adicione novas secoes se o componente tiver se expandido significativamente
+- UPD-005: Marque funcionalidades obsoletas ou mudancas com quebra
+- UPD-006: Atualize exemplos para refletir a API atual
+- UPD-007: Atualize listas de dependencias e versoes
+- UPD-008: Atualize diagramas mermaid para refletir a arquitetura atual
 
-**Error Handling:**
+**Tratamento de Erros:**
 
-- ERR-001: Documentation file doesn't exist - provide guidance on file location
-- ERR-002: Component path not found in documentation - request clarification
-- ERR-003: Source code has moved - suggest updated paths
-- ERR-004: Major architectural changes - highlight breaking changes
-- ERR-005: Insufficient access to source - document limitations
+- ERR-001: Arquivo de documentacao nao existe - forneca orientacao sobre o local do arquivo
+- ERR-002: Caminho do componente nao encontrado na documentacao - solicite esclarecimento
+- ERR-003: Codigo-fonte foi movido - sugira caminhos atualizados
+- ERR-004: Grandes mudancas arquiteturais - destaque mudancas com quebra
+- ERR-005: Acesso insuficiente ao codigo-fonte - documente limitacoes
 
-**Output Format:**
+**Formato de Saida:**
 
-Update the existing Markdown file maintaining its structure while refreshing content to match current implementation. Preserve formatting, heading hierarchy, and existing organizational decisions.
+Atualize o arquivo Markdown existente mantendo sua estrutura enquanto atualiza o conteudo para corresponder a implementacao atual. Preserve formatacao, hierarquia de cabecalhos e decisoes organizacionais existentes.
 
-**Required Documentation Structure:**
+**Estrutura de Documentacao Obrigatoria:**
 
-Update the existing documentation following the same template structure, ensuring all sections reflect current implementation:
+Atualize a documentacao existente seguindo a mesma estrutura de template, garantindo que todas as secoes reflitam a implementacao atual:
 
 ```md
 ---

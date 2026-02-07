@@ -1,31 +1,31 @@
 ---
 agent: 'agent'
-description: 'Create Spring Boot Kotlin Project Skeleton'
+description: 'Crie um esqueleto de projeto Spring Boot em Kotlin'
 ---
 
-# Create Spring Boot Kotlin project prompt
+# Criar prompt de projeto Spring Boot Kotlin
 
-- Please make sure you have the following software installed on your system:
+- Garanta que voce tenha o seguinte software instalado no sistema:
 
   - Java 21
   - Docker
   - Docker Compose
 
-- If you need to custom the project name, please change the `artifactId` and the `packageName` in [download-spring-boot-project-template](./create-spring-boot-kotlin-project.prompt.md#download-spring-boot-project-template)
+- Se precisar customizar o nome do projeto, altere `artifactId` e `packageName` em [download-spring-boot-project-template](./create-spring-boot-kotlin-project.prompt.md#download-spring-boot-project-template)
 
-- If you need to update the Spring Boot version, please change the `bootVersion` in [download-spring-boot-project-template](./create-spring-boot-kotlin-project.prompt.md#download-spring-boot-project-template)
+- Se precisar atualizar a versao do Spring Boot, altere `bootVersion` em [download-spring-boot-project-template](./create-spring-boot-kotlin-project.prompt.md#download-spring-boot-project-template)
 
-## Check Java version
+## Verificar versao do Java
 
-- Run following command in terminal and check the version of Java
+- Execute o comando abaixo no terminal e confira a versao do Java
 
 ```shell
 java -version
 ```
 
-## Download Spring Boot project template
+## Baixar template de projeto Spring Boot
 
-- Run following command in terminal to download a Spring Boot project template
+- Execute o comando abaixo no terminal para baixar o template
 
 ```shell
 curl https://start.spring.io/starter.zip \
@@ -40,33 +40,33 @@ curl https://start.spring.io/starter.zip \
   -o starter.zip
 ```
 
-## Unzip the downloaded file
+## Descompactar o arquivo baixado
 
-- Run following command in terminal to unzip the downloaded file
+- Execute o comando abaixo para descompactar o template
 
 ```shell
 unzip starter.zip -d ./${input:projectName:demo-kotlin}
 ```
 
-## Remove the downloaded zip file
+## Remover o zip baixado
 
-- Run following command in terminal to delete the downloaded zip file
+- Execute o comando abaixo para remover o arquivo
 
 ```shell
 rm -f starter.zip
 ```
 
-## Unzip the downloaded file
+## Descompactar o arquivo baixado
 
-- Run following command in terminal to unzip the downloaded file
+- Execute o comando abaixo para descompactar o template
 
 ```shell
 unzip starter.zip -d ./${input:projectName:demo-kotlin}
 ```
 
-## Add additional dependencies
+## Adicionar dependencias extras
 
-- Insert `springdoc-openapi-starter-webmvc-ui` and `archunit-junit5` dependency into `build.gradle.kts` file
+- Insira `springdoc-openapi-starter-webmvc-ui` e `archunit-junit5` no `build.gradle.kts`
 
 ```gradle.kts
 dependencies {
@@ -75,7 +75,7 @@ dependencies {
 }
 ```
 
-- Insert SpringDoc configurations into `application.properties` file
+- Insira configuracoes do SpringDoc no `application.properties`
 
 ```properties
 # SpringDoc configurations
@@ -84,7 +84,7 @@ springdoc.swagger-ui.operations-sorter=alpha
 springdoc.swagger-ui.tags-sorter=alpha
 ```
 
-- Insert Redis configurations into `application.properties` file
+- Insira configuracoes do Redis no `application.properties`
 
 ```properties
 # Redis configurations
@@ -93,7 +93,7 @@ spring.data.redis.port=6379
 spring.data.redis.password=rootroot
 ```
 
-- Insert R2DBC configurations into `application.properties` file
+- Insira configuracoes do R2DBC no `application.properties`
 
 ```properties
 # R2DBC configurations
@@ -106,7 +106,7 @@ spring.sql.init.platform=postgres
 spring.sql.init.continue-on-error=true
 ```
 
-- Insert MongoDB configurations into `application.properties` file
+- Insira configuracoes do MongoDB no `application.properties`
 
 ```properties
 # MongoDB configurations
@@ -118,30 +118,30 @@ spring.data.mongodb.password=rootroot
 spring.data.mongodb.database=test
 ```
 
-- Create `docker-compose.yaml` at project root and add following services: `redis:6`, `postgresql:17` and `mongo:8`.
+- Crie `docker-compose.yaml` na raiz do projeto e adicione os servicos: `redis:6`, `postgresql:17` e `mongo:8`.
 
-  - redis service should have
+  - O servico redis deve ter
     - password `rootroot`
     - mapping port 6379 to 6379
     - mounting volume `./redis_data` to `/data`
-  - postgresql service should have
+  - O servico postgresql deve ter
     - password `rootroot`
     - mapping port 5432 to 5432
     - mounting volume `./postgres_data` to `/var/lib/postgresql/data`
-  - mongo service should have
+  - O servico mongo deve ter
     - initdb root username `root`
     - initdb root password `rootroot`
     - mapping port 27017 to 27017
     - mounting volume `./mongo_data` to `/data/db`
 
-- Insert `redis_data`, `postgres_data` and `mongo_data` directories in `.gitignore` file
+- Insira os diretorios `redis_data`, `postgres_data` e `mongo_data` no `.gitignore`
 
-- Run gradle clean test command to check if the project is working
+- Rode o comando de teste do Gradle para checar se o projeto esta funcionando
 
 ```shell
 ./gradlew clean test
 ```
 
-- (Optional) `docker-compose up -d` to start the services, `./gradlew spring-boot:run` to run the Spring Boot project, `docker-compose rm -sf` to stop the services.
+- (Opcional) `docker-compose up -d` para iniciar os servicos, `./gradlew spring-boot:run` para rodar o projeto, `docker-compose rm -sf` para parar os servicos.
 
-Let's do this step by step.
+Vamos fazer isso passo a passo.

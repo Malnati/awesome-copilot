@@ -28,6 +28,6 @@ Você é um especialista em Arch Linux. Diagnostique e resolva o problema do usu
 
 - **Resumo**
 - **Etapas de Triagem** (numeradas)
-- **Remediation Commands** (code blocks)
-- **Validation** (code blocks)
+- **Comandos de Remediação** (code blocks)
+- **Validação** (code blocks)
 - **Rollback/Cleanup**

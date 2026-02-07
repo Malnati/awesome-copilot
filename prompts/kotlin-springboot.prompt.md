@@ -1,71 +1,71 @@
 ---
 agent: 'agent'
 tools: ['changes', 'search/codebase', 'edit/editFiles', 'problems', 'search']
-description: 'Get best practices for developing applications with Spring Boot and Kotlin.'
+description: 'Boas praticas para desenvolver aplicacoes com Spring Boot e Kotlin.'
 ---
 
-# Spring Boot with Kotlin Best Practices
+# Boas Praticas de Spring Boot com Kotlin
 
-Your goal is to help me write high-quality, idiomatic Spring Boot applications using Kotlin.
+Seu objetivo e me ajudar a escrever aplicacoes Spring Boot de alta qualidade e idiomaticas usando Kotlin.
 
-## Project Setup & Structure
+## Setup e Estrutura do Projeto
 
-- **Build Tool:** Use Maven (`pom.xml`) or Gradle (`build.gradle`) with the Kotlin plugins (`kotlin-maven-plugin` or `org.jetbrains.kotlin.jvm`).
-- **Kotlin Plugins:** For JPA, enable the `kotlin-jpa` plugin to automatically make entity classes `open` without boilerplate.
-- **Starters:** Use Spring Boot starters (e.g., `spring-boot-starter-web`, `spring-boot-starter-data-jpa`) as usual.
-- **Package Structure:** Organize code by feature/domain (e.g., `com.example.app.order`, `com.example.app.user`) rather than by layer.
+- **Build Tool:** Use Maven (`pom.xml`) ou Gradle (`build.gradle`) com os plugins Kotlin (`kotlin-maven-plugin` ou `org.jetbrains.kotlin.jvm`).
+- **Kotlin Plugins:** Para JPA, habilite o plugin `kotlin-jpa` para tornar classes de entidade `open` automaticamente sem boilerplate.
+- **Starters:** Use Spring Boot starters (por exemplo, `spring-boot-starter-web`, `spring-boot-starter-data-jpa`) como de costume.
+- **Package Structure:** Organize o codigo por feature/dominio (por exemplo, `com.example.app.order`, `com.example.app.user`) em vez de por camada.
 
-## Dependency Injection & Components
+## Dependency Injection e Components
 
-- **Primary Constructors:** Always use the primary constructor for required dependency injection. It's the most idiomatic and concise approach in Kotlin.
-- **Immutability:** Declare dependencies as `private val` in the primary constructor. Prefer `val` over `var` everywhere to promote immutability.
-- **Component Stereotypes:** Use `@Service`, `@Repository`, and `@RestController` annotations just as you would in Java.
+- **Primary Constructors:** Sempre use o construtor primario para injecao de dependencias obrigatorias. E a abordagem mais idiomatica e concisa em Kotlin.
+- **Immutability:** Declare dependencias como `private val` no construtor primario. Prefira `val` em vez de `var` para promover imutabilidade.
+- **Component Stereotypes:** Use `@Service`, `@Repository` e `@RestController` como faria em Java.
 
-## Configuration
+## Configuracao
 
-- **Externalized Configuration:** Use `application.yml` for its readability and hierarchical structure.
-- **Type-Safe Properties:** Use `@ConfigurationProperties` with `data class` to create immutable, type-safe configuration objects.
-- **Profiles:** Use Spring Profiles (`application-dev.yml`, `application-prod.yml`) to manage environment-specific configurations.
-- **Secrets Management:** Never hardcode secrets. Use environment variables or a dedicated secret management tool like HashiCorp Vault or AWS Secrets Manager.
+- **Externalized Configuration:** Use `application.yml` pela legibilidade e estrutura hierarquica.
+- **Type-Safe Properties:** Use `@ConfigurationProperties` com `data class` para criar objetos de configuracao imutaveis e type-safe.
+- **Profiles:** Use Spring Profiles (`application-dev.yml`, `application-prod.yml`) para configuracoes por ambiente.
+- **Secrets Management:** Nunca deixe secrets hardcoded. Use variaveis de ambiente ou uma ferramenta dedicada como HashiCorp Vault ou AWS Secrets Manager.
 
 ## Web Layer (Controllers)
 
-- **RESTful APIs:** Design clear and consistent RESTful endpoints.
-- **Data Classes for DTOs:** Use Kotlin `data class` for all DTOs. This provides `equals()`, `hashCode()`, `toString()`, and `copy()` for free and promotes immutability.
-- **Validation:** Use Java Bean Validation (JSR 380) with annotations (`@Valid`, `@NotNull`, `@Size`) on your DTO data classes.
-- **Error Handling:** Implement a global exception handler using `@ControllerAdvice` and `@ExceptionHandler` for consistent error responses.
+- **RESTful APIs:** Desenhe endpoints RESTful claros e consistentes.
+- **Data Classes para DTOs:** Use `data class` do Kotlin para todos os DTOs. Isso fornece `equals()`, `hashCode()`, `toString()` e `copy()` automaticamente e promove imutabilidade.
+- **Validation:** Use Java Bean Validation (JSR 380) com anotacoes (`@Valid`, `@NotNull`, `@Size`) nas DTOs.
+- **Error Handling:** Implemente um handler global com `@ControllerAdvice` e `@ExceptionHandler` para respostas consistentes.
 
 ## Service Layer
 
-- **Business Logic:** Encapsulate business logic within `@Service` classes.
-- **Statelessness:** Services should be stateless.
-- **Transaction Management:** Use `@Transactional` on service methods. In Kotlin, this can be applied to class or function level.
+- **Business Logic:** Encapsule a logica de negocio em classes `@Service`.
+- **Statelessness:** Services devem ser stateless.
+- **Transaction Management:** Use `@Transactional` em metodos de service. Em Kotlin, pode ser aplicado no nivel de classe ou funcao.
 
 ## Data Layer (Repositories)
 
-- **JPA Entities:** Define entities as classes. Remember they must be `open`. It's highly recommended to use the `kotlin-jpa` compiler plugin to handle this automatically.
-- **Null Safety:** Leverage Kotlin's null-safety (`?`) to clearly define which entity fields are optional or required at the type level.
-- **Spring Data JPA:** Use Spring Data JPA repositories by extending `JpaRepository` or `CrudRepository`.
-- **Coroutines:** For reactive applications, leverage Spring Boot's support for Kotlin Coroutines in the data layer.
+- **JPA Entities:** Defina entidades como classes. Lembre-se de que devem ser `open`. Recomenda-se usar o plugin `kotlin-jpa` para lidar com isso automaticamente.
+- **Null Safety:** Use o null-safety do Kotlin (`?`) para deixar claro quais campos sao opcionais ou obrigatorios no nivel de tipo.
+- **Spring Data JPA:** Use repositorios Spring Data JPA estendendo `JpaRepository` ou `CrudRepository`.
+- **Coroutines:** Para apps reativas, use o suporte do Spring Boot a Kotlin Coroutines na camada de dados.
 
 ## Logging
 
-- **Companion Object Logger:** The idiomatic way to declare a logger is in a companion object.
+- **Companion Object Logger:** A forma idiomatica de declarar um logger e em um companion object.
   ```kotlin
   companion object {
       private val logger = LoggerFactory.getLogger(MyClass::class.java)
   }
   ```
-- **Parameterized Logging:** Use parameterized messages (`logger.info("Processing user {}...", userId)`) for performance and clarity.
+- **Parameterized Logging:** Use mensagens parametrizadas (`logger.info("Processing user {}...", userId)`) para performance e clareza.
 
 ## Testing
 
-- **JUnit 5:** JUnit 5 is the default and works seamlessly with Kotlin.
-- **Idiomatic Testing Libraries:** For more fluent and idiomatic tests, consider using **Kotest** for assertions and **MockK** for mocking. They are designed for Kotlin and offer a more expressive syntax.
-- **Test Slices:** Use test slice annotations like `@WebMvcTest` or `@DataJpaTest` to test specific parts of the application.
-- **Testcontainers:** Use Testcontainers for reliable integration tests with real databases, message brokers, etc.
+- **JUnit 5:** JUnit 5 e o default e funciona bem com Kotlin.
+- **Idiomatic Testing Libraries:** Para testes mais fluent e idiomaticos, considere **Kotest** para assertivas e **MockK** para mocking. Sao projetados para Kotlin e oferecem sintaxe mais expressiva.
+- **Test Slices:** Use anotacoes como `@WebMvcTest` ou `@DataJpaTest` para testar partes especificas da aplicacao.
+- **Testcontainers:** Use Testcontainers para testes de integracao confiaveis com bancos reais, brokers de mensagem, etc.
 
-## Coroutines & Asynchronous Programming
+## Coroutines e Programacao Assincrona
 
-- **`suspend` functions:** For non-blocking asynchronous code, use `suspend` functions in your controllers and services. Spring Boot has excellent support for coroutines.
-- **Structured Concurrency:** Use `coroutineScope` or `supervisorScope` to manage the lifecycle of coroutines.
+- **`suspend` functions:** Para codigo assincrono non-blocking, use `suspend` functions em controllers e services. Spring Boot tem excelente suporte a coroutines.
+- **Structured Concurrency:** Use `coroutineScope` ou `supervisorScope` para gerenciar o ciclo de vida das coroutines.

@@ -1,29 +1,29 @@
 ---
 agent: 'agent'
-description: 'Update an existing specification file for the solution, optimized for Generative AI consumption based on new requirements or updates to any existing code.'
+description: 'Atualize um arquivo de especificacao existente para a solucao, otimizado para consumo por IA Generativa com base em novos requisitos ou atualizacoes em qualquer codigo existente.'
 tools: ['changes', 'search/codebase', 'edit/editFiles', 'extensions', 'web/fetch', 'githubRepo', 'openSimpleBrowser', 'problems', 'runTasks', 'search', 'search/searchResults', 'runCommands/terminalLastCommand', 'runCommands/terminalSelection', 'testFailure', 'usages', 'vscodeAPI']
 ---
-# Update Specification
+# Atualizar Especificacao
 
-Your goal is to update the existing specification file `${file}` based on new requirements or updates to any existing code.
+Seu objetivo e atualizar o arquivo de especificacao existente `${file}` com base em novos requisitos ou atualizacoes em qualquer codigo existente.
 
-The specification file must define the requirements, constraints, and interfaces for the solution components in a manner that is clear, unambiguous, and structured for effective use by Generative AIs. Follow established documentation standards and ensure the content is machine-readable and self-contained.
+O arquivo de especificacao deve definir requisitos, restricoes e interfaces para os componentes da solucao de forma clara, sem ambiguidades e estruturada para uso efetivo por IAs Generativas. Siga padroes de documentacao estabelecidos e garanta que o conteudo seja legivel por maquina e auto-contido.
 
-## Best Practices for AI-Ready Specifications
+## Melhores Praticas para Especificacoes Prontas para IA
 
-- Use precise, explicit, and unambiguous language.
-- Clearly distinguish between requirements, constraints, and recommendations.
-- Use structured formatting (headings, lists, tables) for easy parsing.
-- Avoid idioms, metaphors, or context-dependent references.
-- Define all acronyms and domain-specific terms.
-- Include examples and edge cases where applicable.
-- Ensure the document is self-contained and does not rely on external context.
+- Use linguagem precisa, explicita e sem ambiguidades.
+- Distinga claramente entre requisitos, restricoes e recomendacoes.
+- Use formatacao estruturada (cabecalhos, listas, tabelas) para facilitar parsing.
+- Evite idiomatismos, metaforas ou referencias dependentes de contexto.
+- Defina todas as siglas e termos especificos do dominio.
+- Inclua exemplos e casos de borda quando aplicavel.
+- Garanta que o documento seja auto-contido e nao dependa de contexto externo.
 
-The specification should be saved in the [/spec/](/spec/) directory and named according to the following convention: `[a-z0-9-]+.md`, where the name should be descriptive of the specification's content and starting with the highlevel purpose, which is one of [schema, tool, data, infrastructure, process, architecture, or design].
+A especificacao deve ser salva no diretorio [/spec/](/spec/) e nomeada de acordo com a seguinte convencao: `[a-z0-9-]+.md`, em que o nome deve ser descritivo do conteudo da especificacao e iniciar com o proposito de alto nivel, que e um de [schema, tool, data, infrastructure, process, architecture, ou design].
 
-The specification file must be formatted in well formed Markdown.
+O arquivo de especificacao deve ser formatado em Markdown bem formado.
 
-Specification files must follow the template below, ensuring that all sections are filled out appropriately. The front matter for the markdown should be structured correctly as per the example following:
+Arquivos de especificacao devem seguir o template abaixo, garantindo que todas as secoes sejam preenchidas apropriadamente. O front matter para o markdown deve ser estruturado corretamente conforme o exemplo a seguir:
 
 ```md
 ---

@@ -1,127 +1,127 @@
 ---
 agent: 'agent'
 tools: ['search/codebase', 'edit/editFiles', 'terminalCommand']
-description: 'Containerize an ASP.NET .NET Framework project by creating Dockerfile and .dockerfile files customized for the project.'
+description: 'Containerize um projeto ASP.NET .NET Framework criando Dockerfile e arquivos .dockerfile customizados para o projeto.'
 ---
 
-# ASP.NET .NET Framework Containerization Prompt
+# Prompt de Containerizacao de ASP.NET .NET Framework
 
-Containerize the ASP.NET (.NET Framework) project specified in the containerization settings below, focusing **exclusively** on changes required for the application to run in a Windows Docker container. Containerization should consider all settings specified here.
+Containerize o projeto ASP.NET (.NET Framework) especificado nas configuracoes de containerizacao abaixo, focando **exclusivamente** nas mudancas necessarias para o app rodar em um container Docker Windows. A containerizacao deve considerar todas as configuracoes especificadas aqui.
 
-**REMEMBER:** This is a .NET Framework application, not .NET Core. The containerization process will be different from that of a .NET Core application.
+**LEMBRETE:** Este e um app .NET Framework, nao .NET Core. O processo de containerizacao sera diferente do de um app .NET Core.
 
-## Containerization Settings
+## Configuracoes de Containerizacao
 
-This section of the prompt contains the specific settings and configurations required for containerizing the ASP.NET (.NET Framework) application. Prior to running this prompt, ensure that the settings are filled out with the necessary information. Note that in many cases, only the first few settings are required. Later settings can be left as defaults if they do not apply to the project being containerized.
+Esta secao do prompt contem as configuracoes especificas e os ajustes necessarios para containerizar a aplicacao ASP.NET (.NET Framework). Antes de rodar este prompt, garanta que as configuracoes estejam preenchidas com as informacoes necessarias. Em muitos casos, apenas as primeiras configuracoes sao necessarias. Configuracoes posteriores podem ficar como default se nao se aplicarem ao projeto.
 
-Any settings that are not specified will be set to default values. The default values are provided in `[square brackets]`.
+Quaisquer configuracoes nao especificadas serao definidas como default. Os valores padrao estao em `[colchetes]`.
 
-### Basic Project Information
-1. Project to containerize: 
+### Informacoes Basicas do Projeto
+1. Projeto para containerizar:
    - `[ProjectName (provide path to .csproj file)]`
 
-2. Windows Server SKU to use:
+2. Windows Server SKU a usar:
    - `[Windows Server Core (Default) or Windows Server Full]`
 
-3. Windows Server version to use:
+3. Versao do Windows Server a usar:
    - `[2022, 2019, or 2016 (Default 2022)]`
 
-4. Custom base image for the build stage of the Docker image ("None" to use standard Microsoft base image):
+4. Imagem base customizada para o stage de build da imagem Docker ("None" para usar imagem base Microsoft padrao):
    - `[Specify base image to use for build stage (Default None)]`
 
-5. Custom base image for the run stage of the Docker image ("None" to use standard Microsoft base image):
-   - `[Specify base image to use for run stage (Default None)]`   
+5. Imagem base customizada para o stage de run da imagem Docker ("None" para usar imagem base Microsoft padrao):
+   - `[Specify base image to use for run stage (Default None)]`
 
-### Container Configuration
-1. Ports that must be exposed in the container image:
+### Configuracao do Container
+1. Ports que devem ser expostas na imagem do container:
    - Primary HTTP port: `[e.g., 80]`
    - Additional ports: `[List any additional ports, or "None"]`
 
-2. User account the container should run as:
+2. Conta de usuario que o container deve usar:
    - `[User account, or default to "ContainerUser"]`
 
-3. IIS settings that must be configured in the container image:
+3. Configuracoes de IIS que devem ser definidas na imagem do container:
    - `[List any specific IIS settings, or "None"]`
 
-### Build configuration
-1. Custom build steps that must be performed before building the container image:
+### Configuracao de Build
+1. Passos de build customizados que devem ser executados antes de buildar a imagem do container:
    - `[List any specific build steps, or "None"]`
 
-2. Custom build steps that must be performed after building the container image:
+2. Passos de build customizados que devem ser executados apos buildar a imagem do container:
    - `[List any specific build steps, or "None"]`
 
-### Dependencies
-1. .NET assemblies that should be registered in the GAC in the container image:
+### Dependencias
+1. Assemblies .NET que devem ser registrados no GAC na imagem do container:
    - `[Assembly name and version, or "None"]`
 
-2. MSIs that must be copied to the container image and installed:
+2. MSIs que devem ser copiados para a imagem do container e instalados:
    - `[MSI names and versions, or "None"]`
 
-3. COM components that must be registered in the container image:
+3. Componentes COM que devem ser registrados na imagem do container:
    - `[COM component names, or "None"]`
 
-### System Configuration
-1. Registry keys and values that must be added to the container image:
+### Configuracao do Sistema
+1. Chaves e valores de registro que devem ser adicionados a imagem do container:
    - `[Registry paths and values, or "None"]`
 
-2. Environment variables that must be set in the container image:
+2. Variaveis de ambiente que devem ser definidas na imagem do container:
    - `[Variable names and values, or "Use defaults"]`
 
-3. Windows Server roles and features that must be installed in the container image:
+3. Roles e features do Windows Server que devem ser instaladas na imagem do container:
    - `[Role/feature names, or "None"]`
 
-### File System
-1. Files/directories that need to be copied to the container image:
+### Sistema de Arquivos
+1. Arquivos/diretorios que precisam ser copiados para a imagem do container:
    - `[Paths relative to project root, or "None"]`
    - Target location in container: `[Container paths, or "Not applicable"]`
 
-2. Files/directories to exclude from containerization:
+2. Arquivos/diretorios a excluir da containerizacao:
    - `[Paths to exclude, or "None"]`
 
-### .dockerignore Configuration
-1. Patterns to include in the `.dockerignore` file (.dockerignore will already have common defaults; these are additional patterns):
+### Configuracao de .dockerignore
+1. Padroes a incluir no arquivo `.dockerignore` (.dockerignore ja tera defaults comuns; estes sao padroes adicionais):
    - Additional patterns: `[List any additional patterns, or "None"]`
 
-### Health Check Configuration
-1. Health check endpoint:
+### Configuracao de Health Check
+1. Endpoint de health check:
    - `[Health check URL path, or "None"]`
 
-2. Health check interval and timeout:
+2. Intervalo e timeout do health check:
    - `[Interval and timeout values, or "Use defaults"]`
 
-### Additional Instructions
-1. Other instructions that must be followed to containerize the project:
+### Instrucoes Adicionais
+1. Outras instrucoes que devem ser seguidas para containerizar o projeto:
    - `[Specific requirements, or "None"]`
 
-2. Known issues to address:
+2. Issues conhecidas para enderecar:
    - `[Describe any known issues, or "None"]`
 
-## Scope
+## Escopo
 
-- ✅ App configuration modification to ensure config builders are used to read app settings and connection strings from the environment variables
-- ✅ Dockerfile creation and configuration for an ASP.NET application
-- ✅ Specifying multiple stages in the Dockerfile to build/publish the application and copy the output to the final image
-- ✅ Configuration of Windows container platform compatibility (Windows Server Core or Full)
-- ✅ Proper handling of dependencies (GAC assemblies, MSIs, COM components)
-- ❌ No infrastructure setup (assumed to be handled separately)
-- ❌ No code changes beyond those required for containerization
+- ✅ Modificacao de configuracao do app para garantir que config builders leiam app settings e connection strings de variaveis de ambiente
+- ✅ Criacao e configuracao de Dockerfile para um app ASP.NET
+- ✅ Especificacao de multiplos stages no Dockerfile para build/publish e copia do output para a imagem final
+- ✅ Configuracao de compatibilidade da plataforma de containers Windows (Windows Server Core ou Full)
+- ✅ Tratamento adequado de dependencias (GAC assemblies, MSIs, COM components)
+- ❌ Sem setup de infraestrutura (assumido como separado)
+- ❌ Sem mudancas de codigo alem das necessarias para containerizacao
 
-## Execution Process
+## Processo de Execucao
 
-1. Review the containerization settings above to understand the containerization requirements
-2. Create a `progress.md` file to track changes with check marks
-3. Determine the .NET Framework version from the project's .csproj file by checking the `TargetFrameworkVersion` element
-4. Select the appropriate Windows Server container image based on:
-   - The .NET Framework version detected from the project
-   - The Windows Server SKU specified in containerization settings (Core or Full)
-   - The Windows Server version specified in containerization settings (2016, 2019, or 2022)
-   - Windows Server Core tags can be found at: https://github.com/microsoft/dotnet-framework-docker/blob/main/README.aspnet.md#full-tag-listing
-5. Ensure that required NuGet packages are installed. **DO NOT** install these if they are missing. If they are not installed, the user must install them manually. If they are not installed, pause executing this prompt and ask the user to install them using the Visual Studio NuGet Package Manager or Visual Studio package manager console. The following packages are required:
+1. Revise as configuracoes de containerizacao acima para entender os requisitos
+2. Crie um arquivo `progress.md` para rastrear mudancas com check marks
+3. Determine a versao do .NET Framework no .csproj verificando o elemento `TargetFrameworkVersion`
+4. Selecione a imagem apropriada do Windows Server com base em:
+   - A versao do .NET Framework detectada no projeto
+   - O Windows Server SKU especificado nas configuracoes (Core ou Full)
+   - A versao do Windows Server especificada nas configuracoes (2016, 2019 ou 2022)
+   - Windows Server Core tags podem ser encontradas em: https://github.com/microsoft/dotnet-framework-docker/blob/main/README.aspnet.md#full-tag-listing
+5. Garanta que os pacotes NuGet necessarios estao instalados. **NAO** instale esses pacotes se estiverem ausentes. Se estiverem ausentes, o usuario deve instalar manualmente. Se nao estiverem instalados, pause este prompt e peca ao usuario para instalar usando o Visual Studio NuGet Package Manager ou o Visual Studio package manager console. Os seguintes pacotes sao obrigatorios:
    - `Microsoft.Configuration.ConfigurationBuilders.Environment`
-6. Modify the `web.config` file to add configuration builders section and settings to read app settings and connection strings from environment variables:
-   - Add ConfigBuilders section in configSections
-   - Add configBuilders section in the root
-   - Configure EnvironmentConfigBuilder for both appSettings and connectionStrings
+6. Modifique o `web.config` para adicionar a secao de configuration builders e settings para ler app settings e connection strings de variaveis de ambiente:
+   - Adicione a secao ConfigBuilders em configSections
+   - Adicione a secao configBuilders na raiz
+   - Configure EnvironmentConfigBuilder para appSettings e connectionStrings
    - Example pattern:
      ```xml
      <configSections>
@@ -139,40 +139,40 @@ Any settings that are not specified will be set to default values. The default v
        <!-- existing connection strings -->
      </connectionStrings>
      ```
-7. Create a `LogMonitorConfig.json` file in the folder where the Dockerfile will be created by copying the reference `LogMonitorConfig.json` file at the end of this prompt. The file's contents **MUST NOT** not be modified and should match the reference content exactly unless instructions in containerization settings specify otherwise.
-   - In particular, make sure the level of issues to be logged is not changed as using `Information` level for EventLog sources will cause unnecessary noise.
-8. Create a Dockerfile in the root of the project directory to containerize the application
-   - The Dockerfile should use multiple stages:
-     - Build stage: Use a Windows Server Core image to build the application
-       - The build stage MUST use a `mcr.microsoft.com/dotnet/framework/sdk` base image unless a custom base image is specified in the settings file
-       - Copy sln, csproj, and packages.config files first
-       - Copy NuGet.config if one exists and configure any private feeds
-       - Restore NuGet packages       
-       - Then, copy the rest of the source code and build and publish the application to C:\publish using MSBuild
-     - Final stage: Use the selected Windows Server image to run the application
-       - The final stage MUST use a `mcr.microsoft.com/dotnet/framework/aspnet` base image unless a custom base image is specified in the settings file
-       - Copy the `LogMonitorConfig.json` file to a directory in the container (e.g., C:\LogMonitor)
-       - Download LogMonitor.exe from the Microsoft repository to the same directory
-           - The correct LogMonitor.exe URL is: https://github.com/microsoft/windows-container-tools/releases/download/v2.1.1/LogMonitor.exe
-       - Set the working directory to C:\inetpub\wwwroot
-       - Copy the published output from the build stage (in C:\publish) to the final image
-       - Set the container's entry point to run LogMonitor.exe with ServiceMonitor.exe to monitor the IIS service
+7. Crie um arquivo `LogMonitorConfig.json` na pasta onde o Dockerfile sera criado copiando o arquivo de referencia `LogMonitorConfig.json` no final deste prompt. O conteudo do arquivo **NAO DEVE** ser modificado e deve corresponder exatamente ao conteudo de referencia, a menos que as instrucoes de containerizacao digam o contrario.
+   - Em particular, garanta que o nivel de issues a serem logadas nao seja alterado, pois usar `Information` para EventLog causa ruido desnecessario.
+8. Crie um Dockerfile na raiz do projeto para containerizar a aplicacao
+   - O Dockerfile deve usar multiplos stages:
+     - Build stage: Use uma imagem Windows Server Core para buildar a aplicacao
+       - O build stage **DEVE** usar uma imagem base `mcr.microsoft.com/dotnet/framework/sdk` a menos que uma imagem custom seja especificada nas settings
+       - Copie arquivos sln, csproj e packages.config primeiro
+       - Copie NuGet.config se existir e configure feeds privados
+       - Restaure pacotes NuGet
+       - Em seguida, copie o restante do codigo-fonte e compile e publique a aplicacao em C:\publish via MSBuild
+     - Final stage: Use a imagem Windows Server selecionada para rodar a aplicacao
+       - O final stage **DEVE** usar uma imagem base `mcr.microsoft.com/dotnet/framework/aspnet` a menos que uma imagem custom seja especificada nas settings
+       - Copie o arquivo `LogMonitorConfig.json` para um diretorio no container (ex.: C:\LogMonitor)
+       - Baixe o LogMonitor.exe do repositorio da Microsoft para o mesmo diretorio
+           - A URL correta do LogMonitor.exe e: https://github.com/microsoft/windows-container-tools/releases/download/v2.1.1/LogMonitor.exe
+       - Defina o working directory como C:\inetpub\wwwroot
+       - Copie o output publicado do build stage (em C:\publish) para a imagem final
+       - Defina o entry point do container para rodar LogMonitor.exe com ServiceMonitor.exe e monitorar o IIS
            - `ENTRYPOINT [ "C:\\LogMonitor\\LogMonitor.exe", "C:\\ServiceMonitor.exe", "w3svc" ]`
-   - Be sure to consider all requirements in the containerization settings:
-     - Windows Server SKU and version
-     - Exposed ports
-     - User account for container
+   - Considere todos os requisitos nas configuracoes de containerizacao:
+     - Windows Server SKU e versao
+     - Ports expostas
+     - User account do container
      - IIS settings
-     - GAC assembly registration
-     - MSI installation
-     - COM component registration
+     - Registro de assemblies no GAC
+     - Instalacao de MSI
+     - Registro de COM components
      - Registry keys
      - Environment variables
-     - Windows roles and features
-     - File/directory copying
-   - Model the Dockerfile after the example provided at the end of this prompt, but ensure it is customized to the specific project requirements and settings.
-   - **IMPORTANT:** Use a Windows Server Core base image unless the user has **specifically requested** a full Windows Server image in the settings file
-9. Create a `.dockerignore` file in the root of the project directory to exclude unnecessary files from the Docker image. The `.dockerignore` file **MUST** include at least the following elements as well as additional patterns as specified in the containerization settings:
+     - Windows roles e features
+     - Copia de arquivos/diretorios
+   - Modele o Dockerfile com base no exemplo ao final deste prompt, mas assegure que seja customizado para os requisitos e settings especificas.
+   - **IMPORTANTE:** Use uma imagem base Windows Server Core a menos que o usuario tenha **especificamente** solicitado Windows Server Full nas settings
+9. Crie um arquivo `.dockerignore` na raiz do projeto para excluir arquivos desnecessarios da imagem. O `.dockerignore` **DEVE** incluir ao menos os seguintes itens, bem como padroes adicionais especificados nas configuracoes:
    - packages/
    - bin/
    - obj/
@@ -187,64 +187,64 @@ Any settings that are not specified will be set to default values. The default v
    - *.suo
    - **/.DS_Store
    - **/Thumbs.db
-   - Any additional patterns specified in the containerization settings
-10. Configure health checks if specified in the settings:
-   - Add HEALTHCHECK instruction to Dockerfile if health check endpoint is provided
-11. Add the dockerfile to the project by adding the following item to the project file: `<None Include="Dockerfile" />`
-12. Mark tasks as completed: [ ] → [✓]
-13. Continue until all tasks are complete and Docker build succeeds
+   - Quaisquer padroes adicionais especificados nas configuracoes
+10. Configure health checks se especificado nas settings:
+   - Adicione instrucao HEALTHCHECK ao Dockerfile se um endpoint for fornecido
+11. Adicione o Dockerfile ao projeto adicionando o seguinte item no arquivo do projeto: `<None Include="Dockerfile" />`
+12. Marque tarefas como concluidas: [ ] → [✓]
+13. Continue ate que todas as tarefas estejam concluidas e o build do Docker tenha sucesso
 
-## Build and Runtime Verification
+## Verificacao de Build e Runtime
 
-confirm that Docker build succeeds once the Dockerfile is completed. Use the following command to build the Docker image:
+Confirme que o build do Docker foi bem-sucedido assim que o Dockerfile estiver completo. Use o comando abaixo para buildar a imagem:
 
 ```bash
 docker build -t aspnet-app:latest .
 ```
 
-If the build fails, review the error messages and make necessary adjustments to the Dockerfile or project configuration. Report success/failure.
+Se o build falhar, revise as mensagens de erro e faca ajustes necessarios no Dockerfile ou na configuracao do projeto. Reporte sucesso/falha.
 
-## Progress Tracking
+## Acompanhamento de Progresso
 
-Maintain a `progress.md` file with the following structure:
+Mantenha um arquivo `progress.md` com a seguinte estrutura:
 ```markdown
-# Containerization Progress
+# Progresso de Containerizacao
 
-## Environment Detection
-- [ ] .NET Framework version detection (version: ___)
-- [ ] Windows Server SKU selection (SKU: ___)
-- [ ] Windows Server version selection (Version: ___)
+## Deteccao de Ambiente
+- [ ] Deteccao da versao do .NET Framework (version: ___)
+- [ ] Selecao do Windows Server SKU (SKU: ___)
+- [ ] Selecao da versao do Windows Server (Version: ___)
 
-## Configuration Changes
-- [ ] Web.config modifications for configuration builders
-- [ ] NuGet package source configuration (if applicable)
-- [ ] Copy LogMonitorConfig.json and adjust if required by settings
+## Mudancas de Configuracao
+- [ ] Modificacoes no Web.config para configuration builders
+- [ ] Configuracao de origem de pacotes NuGet (se aplicavel)
+- [ ] Copia de LogMonitorConfig.json e ajustes se exigidos pelas settings
 
-## Containerization
-- [ ] Dockerfile creation
-- [ ] .dockerignore file creation
-- [ ] Build stage created with SDK image
-- [ ] sln, csproj, packages.config, and (if applicable) NuGet.config copied for package restore
-- [ ] Runtime stage created with runtime image
-- [ ] Non-root user configuration
-- [ ] Dependency handling (GAC, MSI, COM, registry, additional files, etc.)
-- [ ] Health check configuration (if applicable)
-- [ ] Special requirements implementation
+## Containerizacao
+- [ ] Criacao do Dockerfile
+- [ ] Criacao do arquivo .dockerignore
+- [ ] Build stage criado com imagem SDK
+- [ ] sln, csproj, packages.config e (se aplicavel) NuGet.config copiados para restore de pacotes
+- [ ] Runtime stage criado com imagem de runtime
+- [ ] Configuracao de usuario non-root
+- [ ] Tratamento de dependencias (GAC, MSI, COM, registry, arquivos adicionais, etc.)
+- [ ] Configuracao de health check (se aplicavel)
+- [ ] Implementacao de requisitos especiais
 
-## Verification
-- [ ] Review containerization settings and make sure that all requirements are met
-- [ ] Docker build success
+## Verificacao
+- [ ] Revisar settings de containerizacao e garantir que todos os requisitos foram atendidos
+- [ ] Sucesso no Docker build
 ```
 
-Do not pause for confirmation between steps. Continue methodically until the application has been containerized and Docker build succeeds.
+Nao pare para confirmacao entre as etapas. Continue metodicamente ate que a aplicacao esteja containerizada e o Docker build tenha sucesso.
 
-**YOU ARE NOT DONE UNTIL ALL CHECKBOXES ARE MARKED!** This includes building the Docker image successfully and addressing any issues that arise during the build process.
+**VOCE NAO TERMINOU ATE QUE TODOS OS CHECKBOXES ESTEJAM MARCADOS!** Isso inclui buildar a imagem Docker com sucesso e resolver quaisquer issues que surjam durante o build.
 
-## Reference Materials
+## Materiais de Referencia
 
-### Example Dockerfile
+### Dockerfile de Exemplo
 
-An example Dockerfile for an ASP.NET (.NET Framework) application using a Windows Server Core base image.
+Um exemplo de Dockerfile para um app ASP.NET (.NET Framework) usando uma imagem base Windows Server Core.
 
 ```dockerfile
 # escape=`
@@ -387,69 +387,13 @@ USER ContainerUser
 ENTRYPOINT [ "C:\\LogMonitor\\LogMonitor.exe", "C:\\ServiceMonitor.exe", "w3svc" ]
 ```
 
-## Adapting this Example
+## Adaptando este Exemplo
 
-**Note:** Customize this template based on the specific requirements in the containerization settings. 
+**Nota:** Customize este template com base nos requisitos especificos nas configuracoes de containerizacao.
 
-When adapting this example Dockerfile:
+Ao adaptar este exemplo de Dockerfile:
 
-1. Replace `YourSolution.sln`, `YourProject.csproj`, etc. with your actual file names
-2. Adjust the Windows Server and .NET Framework versions as needed
-3. Modify the dependency installation steps based on your requirements and remove any unnecessary ones
-4. Add or remove stages as needed for your specific workflow
-
-## Notes on Stage Naming
-
-- The `AS stage-name` syntax gives each stage a name
-- Use `--from=stage-name` to copy files from a previous stage
-- You can have multiple intermediate stages that aren't used in the final image
-
-### LogMonitorConfig.json
-
-The LogMonitorConfig.json file should be created in the root of the project directory. It is used to configure the LogMonitor tool, which monitors logs in the container. The contents of this file should look exactly like this to ensure proper logging functionality:
-```json
-{
-  "LogConfig": {
-    "sources": [
-      {
-        "type": "EventLog",
-        "startAtOldestRecord": true,
-        "eventFormatMultiLine": false,
-        "channels": [
-          {
-            "name": "system",
-            "level": "Warning"
-          },
-          {
-            "name": "application",
-            "level": "Error"
-          }
-        ]
-      },
-      {
-        "type": "File",
-        "directory": "c:\\inetpub\\logs",
-        "filter": "*.log",
-        "includeSubdirectories": true,
-        "includeFileNames": false
-      },
-      {
-        "type": "ETW",
-        "eventFormatMultiLine": false,
-        "providers": [
-          {
-            "providerName": "IIS: WWW Server",
-            "providerGuid": "3A2A4E84-4C21-4981-AE10-3FDA0D9B0F83",
-            "level": "Information"
-          },
-          {
-            "providerName": "Microsoft-Windows-IIS-Logging",
-            "providerGuid": "7E8AD27F-B271-4EA2-A783-A47BDE29143B",
-            "level": "Information"
-          }
-        ]
-      }
-    ]
-  }
-}
-```
+1. Substitua `YourSolution.sln`, `YourProject.csproj`, etc. pelos seus nomes reais de arquivos
+2. Ajuste as versoes de Windows Server e .NET Framework conforme necessario
+3. Modifique as etapas de instalacao de dependencias conforme necessario e remova o que nao for aplicavel
+4. Adicione ou remova stages conforme o seu workflow

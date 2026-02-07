@@ -1,59 +1,59 @@
 ---
 agent: 'agent'
-description: 'Generate a complete MCP server project in C# with tools, prompts, and proper configuration'
+description: 'Gere um projeto completo de servidor MCP em C# com tools, prompts e configuracao adequada'
 ---
 
-# Generate C# MCP Server
+# Gerar servidor MCP em C#
 
-Create a complete Model Context Protocol (MCP) server in C# with the following specifications:
+Crie um servidor completo de Model Context Protocol (MCP) em C# com as seguintes especificacoes:
 
-## Requirements
+## Requisitos
 
-1. **Project Structure**: Create a new C# console application with proper directory structure
-2. **NuGet Packages**: Include ModelContextProtocol (prerelease) and Microsoft.Extensions.Hosting
-3. **Logging Configuration**: Configure all logs to stderr to avoid interfering with stdio transport
-4. **Server Setup**: Use the Host builder pattern with proper DI configuration
-5. **Tools**: Create at least one useful tool with proper attributes and descriptions
-6. **Error Handling**: Include proper error handling and validation
+1. **Estrutura do Projeto**: Crie uma nova aplicacao console C# com estrutura de diretorios adequada
+2. **Pacotes NuGet**: Inclua ModelContextProtocol (prerelease) e Microsoft.Extensions.Hosting
+3. **Configuracao de Logging**: Configure todos os logs para stderr para nao interferir com transporte via stdio
+4. **Setup do Servidor**: Use o padrão Host builder com configuracao DI adequada
+5. **Tools**: Crie ao menos uma tool util com atributos e descricoes apropriadas
+6. **Tratamento de Erros**: Inclua validacao e tratamento de erros adequados
 
-## Implementation Details
+## Detalhes de Implementacao
 
-### Basic Project Setup
-- Use .NET 8.0 or later
-- Create a console application
-- Add necessary NuGet packages with --prerelease flag
-- Configure logging to stderr
+### Setup Basico do Projeto
+- Use .NET 8.0 ou superior
+- Crie uma aplicacao console
+- Adicione pacotes NuGet necessarios com flag --prerelease
+- Configure logging para stderr
 
-### Server Configuration
-- Use `Host.CreateApplicationBuilder` for DI and lifecycle management
-- Configure `AddMcpServer()` with stdio transport
-- Use `WithToolsFromAssembly()` for automatic tool discovery
-- Ensure the server runs with `RunAsync()`
+### Configuracao do Servidor
+- Use `Host.CreateApplicationBuilder` para DI e gerenciamento do lifecycle
+- Configure `AddMcpServer()` com transporte stdio
+- Use `WithToolsFromAssembly()` para descoberta automatica de tools
+- Garanta que o servidor rode com `RunAsync()`
 
-### Tool Implementation
-- Use `[McpServerToolType]` attribute on tool classes
-- Use `[McpServerTool]` attribute on tool methods
-- Add `[Description]` attributes to tools and parameters
-- Support async operations where appropriate
-- Include proper parameter validation
+### Implementacao de Tools
+- Use atributo `[McpServerToolType]` nas classes de tools
+- Use atributo `[McpServerTool]` nos metodos de tools
+- Adicione atributos `[Description]` em tools e parametros
+- Suporte operacoes async quando apropriado
+- Inclua validacao adequada de parametros
 
-### Code Quality
-- Follow C# naming conventions
-- Include XML documentation comments
+### Qualidade de Codigo
+- Siga convencoes de nomenclatura C#
+- Inclua comentarios XML de documentacao
 - Use nullable reference types
-- Implement proper error handling with McpProtocolException
-- Use structured logging for debugging
+- Implemente tratamento de erro apropriado com McpProtocolException
+- Use logging estruturado para debug
 
-## Example Tool Types to Consider
-- File operations (read, write, search)
-- Data processing (transform, validate, analyze)
-- External API integrations (HTTP requests)
-- System operations (execute commands, check status)
-- Database operations (query, update)
+## Tipos de Tools a Considerar
+- Operacoes de arquivo (read, write, search)
+- Processamento de dados (transform, validate, analyze)
+- Integracoes com APIs externas (HTTP requests)
+- Operacoes de sistema (executar comandos, checar status)
+- Operacoes de banco de dados (query, update)
 
-## Testing Guidance
-- Explain how to run the server
-- Provide example commands to test with MCP clients
-- Include troubleshooting tips
+## Orientacao de Testes
+- Explique como rodar o servidor
+- Forneca comandos de exemplo para testar com clientes MCP
+- Inclua dicas de troubleshooting
 
-Generate a complete, production-ready MCP server with comprehensive documentation and error handling.
+Gere um servidor MCP pronto para producao com documentacao e tratamento de erros abrangentes.

@@ -2,88 +2,88 @@
 agent: 'agent'
 model: Claude Sonnet 4
 tools: ['edit', 'githubRepo', 'changes', 'problems', 'search', 'runCommands', 'web/fetch']
-description: 'Set up complete GitHub Copilot configuration for a new project based on technology stack'
+description: 'Configure um setup completo do GitHub Copilot para um novo projeto com base na stack'
 ---
 
-You are a GitHub Copilot setup specialist. Your task is to create a complete, production-ready GitHub Copilot configuration for a new project based on the specified technology stack.
+Voce e um especialista em setup do GitHub Copilot. Sua tarefa e criar uma configuracao completa, pronta para producao, do GitHub Copilot para um novo projeto com base na stack especificada.
 
-## Project Information Required
+## Informacoes de Projeto Necessarias
 
-Ask the user for the following information if not provided:
+Pergunte ao usuario pelas informacoes abaixo se nao forem fornecidas:
 
-1. **Primary Language/Framework**: (e.g., JavaScript/React, Python/Django, Java/Spring Boot, etc.)
-2. **Project Type**: (e.g., web app, API, mobile app, desktop app, library, etc.)
-3. **Additional Technologies**: (e.g., database, cloud provider, testing frameworks, etc.)
+1. **Primary Language/Framework**: (ex.: JavaScript/React, Python/Django, Java/Spring Boot, etc.)
+2. **Project Type**: (ex.: web app, API, mobile app, desktop app, library, etc.)
+3. **Additional Technologies**: (ex.: banco de dados, cloud provider, frameworks de teste, etc.)
 4. **Team Size**: (solo, small team, enterprise)
 5. **Development Style**: (strict standards, flexible, specific patterns)
 
-## Configuration Files to Create
+## Arquivos de Configuracao a Criar
 
-Based on the provided stack, create the following files in the appropriate directories:
+Com base na stack, crie os seguintes arquivos nos diretorios apropriados:
 
 ### 1. `.github/copilot-instructions.md`
-Main repository instructions that apply to all Copilot interactions.
+Instrucoes principais do repositorio que se aplicam a todas as interacoes do Copilot.
 
-### 2. `.github/instructions/` Directory
-Create specific instruction files:
-- `${primaryLanguage}.instructions.md` - Language-specific guidelines
-- `testing.instructions.md` - Testing standards and practices
-- `documentation.instructions.md` - Documentation requirements
-- `security.instructions.md` - Security best practices
-- `performance.instructions.md` - Performance optimization guidelines
-- `code-review.instructions.md` - Code review standards and GitHub review guidelines
+### 2. Diretorio `.github/instructions/`
+Crie arquivos de instrucao especificos:
+- `${primaryLanguage}.instructions.md` - Diretrizes especificas da linguagem
+- `testing.instructions.md` - Padroes e praticas de teste
+- `documentation.instructions.md` - Requisitos de documentacao
+- `security.instructions.md` - Boas praticas de seguranca
+- `performance.instructions.md` - Diretrizes de otimizacao de performance
+- `code-review.instructions.md` - Padroes de code review e diretrizes de review no GitHub
 
-### 3. `.github/prompts/` Directory
-Create reusable prompt files:
-- `setup-component.prompt.md` - Component/module creation
-- `write-tests.prompt.md` - Test generation
-- `code-review.prompt.md` - Code review assistance
-- `refactor-code.prompt.md` - Code refactoring
-- `generate-docs.prompt.md` - Documentation generation
-- `debug-issue.prompt.md` - Debugging assistance
+### 3. Diretorio `.github/prompts/`
+Crie arquivos de prompt reutilizaveis:
+- `setup-component.prompt.md` - Criacao de componente/modulo
+- `write-tests.prompt.md` - Geracao de testes
+- `code-review.prompt.md` - Assistencia de code review
+- `refactor-code.prompt.md` - Refatoracao de codigo
+- `generate-docs.prompt.md` - Geracao de documentacao
+- `debug-issue.prompt.md` - Assistencia de debugging
 
-### 4. `.github/agents/` Directory
-Create specialized chat modes:
-- `architect.agent.md` - Architecture planning mode
-- `reviewer.agent.md` - Code review mode
-- `debugger.agent.md` - Debugging mode
+### 4. Diretorio `.github/agents/`
+Crie chat modes especializados:
+- `architect.agent.md` - Modo de planejamento de arquitetura
+- `reviewer.agent.md` - Modo de code review
+- `debugger.agent.md` - Modo de debugging
 
-**Chat Mode Attribution**: When using content from awesome-copilot chatmodes, add attribution comments:
+**Atribuicao de Chat Mode**: Ao usar conteudo de chatmodes do awesome-copilot, adicione comentario de atribuicao:
 ```markdown
 <!-- Based on/Inspired by: https://github.com/github/awesome-copilot/blob/main/agents/[filename].agent.md -->
 ```
 
-### 5. `.github/workflows/` Directory
-Create Coding Agent workflow file:
-- `copilot-setup-steps.yml` - GitHub Actions workflow for Coding Agent environment setup
+### 5. Diretorio `.github/workflows/`
+Crie arquivo de workflow para Coding Agent:
+- `copilot-setup-steps.yml` - GitHub Actions workflow para setup do ambiente do Coding Agent
 
-**CRITICAL**: The workflow MUST follow this exact structure:
-- Job name MUST be `copilot-setup-steps` 
-- Include proper triggers (workflow_dispatch, push, pull_request on the workflow file)
-- Set appropriate permissions (minimum required)
-- Customize steps based on the technology stack provided
+**CRITICAL**: O workflow DEVE seguir esta estrutura exata:
+- Job name DEVE ser `copilot-setup-steps`
+- Incluir triggers apropriados (workflow_dispatch, push, pull_request no arquivo de workflow)
+- Definir permissoes apropriadas (minimo necessario)
+- Customizar steps com base na stack fornecida
 
-## Content Guidelines
+## Diretrizes de Conteudo
 
-For each file, follow these principles:
+Para cada arquivo, siga estes principios:
 
-**MANDATORY FIRST STEP**: Always use the fetch tool to research existing patterns before creating any content:
-1. **Fetch from awesome-copilot collections**: https://github.com/github/awesome-copilot/blob/main/docs/README.collections.md
-2. **Fetch specific instruction files**: https://raw.githubusercontent.com/github/awesome-copilot/main/instructions/[relevant-file].instructions.md
-3. **Check for existing patterns** that match the technology stack
+**PRIMEIRO PASSO OBRIGATORIO**: Sempre use a ferramenta fetch para pesquisar patterns existentes antes de criar qualquer conteudo:
+1. **Buscar em collections do awesome-copilot**: https://github.com/github/awesome-copilot/blob/main/docs/README.collections.md
+2. **Buscar arquivos de instrucao especificos**: https://raw.githubusercontent.com/github/awesome-copilot/main/instructions/[relevant-file].instructions.md
+3. **Checar patterns existentes** que correspondam a stack
 
-**Primary Approach**: Reference and adapt existing instructions from awesome-copilot repository:
-- **Use existing content** when available - don't reinvent the wheel
-- **Adapt proven patterns** to the specific project context
-- **Combine multiple examples** if the stack requires it
-- **ALWAYS add attribution comments** when using awesome-copilot content
+**Abordagem Principal**: Referencie e adapte instrucoes existentes do repositorio awesome-copilot:
+- **Use conteudo existente** quando disponivel - nao reinvente a roda
+- **Adapte patterns comprovados** ao contexto do projeto
+- **Combine multiplos exemplos** se a stack exigir
+- **SEMPRE adicione comentarios de atribuicao** ao usar conteudo do awesome-copilot
 
-**Attribution Format**: When using content from awesome-copilot, add this comment at the top of the file:
+**Formato de Atribuicao**: Ao usar conteudo do awesome-copilot, adicione este comentario no topo do arquivo:
 ```markdown
 <!-- Based on/Inspired by: https://github.com/github/awesome-copilot/blob/main/instructions/[filename].instructions.md -->
 ```
 
-**Examples:**
+**Exemplos:**
 ```markdown
 <!-- Based on: https://github.com/github/awesome-copilot/blob/main/instructions/react.instructions.md -->
 ---
@@ -105,53 +105,53 @@ description: "Java Spring Boot development standards"
 ...
 ```
 
-**Secondary Approach**: If no awesome-copilot instructions exist, create **SIMPLE GUIDELINES ONLY**:
-- **High-level principles** and best practices (2-3 sentences each)
-- **Architectural patterns** (mention patterns, not implementation)
-- **Code style preferences** (naming conventions, structure preferences)
-- **Testing strategy** (approach, not test code)
-- **Documentation standards** (format, requirements)
+**Abordagem Secundaria**: Se nao existirem instrucoes do awesome-copilot, crie **APENAS DIRETRIZES SIMPLES**:
+- **Principios de alto nivel** e boas praticas (2-3 frases cada)
+- **Patterns arquiteturais** (mencione patterns, nao implementacao)
+- **Preferencias de code style** (convencoes de nome, estrutura)
+- **Estrategia de testes** (abordagem, nao codigo de teste)
+- **Padroes de documentacao** (formato, requisitos)
 
-**STRICTLY AVOID in .instructions.md files:**
-- ❌ **Writing actual code examples or snippets**
-- ❌ **Detailed implementation steps**
-- ❌ **Test cases or specific test code**
-- ❌ **Boilerplate or template code**
-- ❌ **Function signatures or class definitions**
-- ❌ **Import statements or dependency lists**
+**EVITE ESTRITAMENTE em arquivos .instructions.md:**
+- ❌ **Escrever exemplos ou snippets de codigo**
+- ❌ **Passos detalhados de implementacao**
+- ❌ **Casos de teste ou codigo de teste especifico**
+- ❌ **Boilerplate ou codigo de template**
+- ❌ **Assinaturas de funcao ou definicoes de classe**
+- ❌ **Imports ou listas de dependencias**
 
-**CORRECT .instructions.md content:**
-- ✅ **"Use descriptive variable names and follow camelCase"**
-- ✅ **"Prefer composition over inheritance"**
-- ✅ **"Write unit tests for all public methods"**
-- ✅ **"Use TypeScript strict mode for better type safety"**
-- ✅ **"Follow the repository's established error handling patterns"**
+**Conteudo CORRETO em .instructions.md:**
+- ✅ **"Use nomes de variaveis descritivos e siga camelCase"**
+- ✅ **"Prefira composicao em vez de heranca"**
+- ✅ **"Escreva testes unitarios para todos os metodos publicos"**
+- ✅ **"Use TypeScript strict mode para melhor type safety"**
+- ✅ **"Siga os patterns de tratamento de erro estabelecidos no repositorio"**
 
-**Research Strategy with fetch tool:**
-1. **Check awesome-copilot first** - Always start here for ALL file types
-2. **Look for exact tech stack matches** (e.g., React, Node.js, Spring Boot)
-3. **Look for general matches** (e.g., frontend chatmodes, testing prompts, review modes)
-4. **Check awesome-copilot collections** for curated sets of related files
-5. **Adapt community examples** to project needs
-6. **Only create custom content** if nothing relevant exists
+**Estrategia de Pesquisa com fetch tool:**
+1. **Cheque awesome-copilot primeiro** - Sempre comece aqui para TODOS os tipos de arquivo
+2. **Procure matches exatos da stack** (ex.: React, Node.js, Spring Boot)
+3. **Procure matches gerais** (ex.: frontend chatmodes, testing prompts, review modes)
+4. **Cheque collections do awesome-copilot** para conjuntos curados de arquivos relacionados
+5. **Adapte exemplos da comunidade** as necessidades do projeto
+6. **Crie conteudo custom** apenas se nada relevante existir
 
-**Fetch these awesome-copilot directories:**
+**Diretorios awesome-copilot a buscar:**
 - **Instructions**: https://github.com/github/awesome-copilot/tree/main/instructions
 - **Prompts**: https://github.com/github/awesome-copilot/tree/main/prompts  
 - **Chat Modes**: https://github.com/github/awesome-copilot/tree/main/chatmodes
 - **Collections**: https://github.com/github/awesome-copilot/blob/main/docs/README.collections.md
 
-**Awesome-Copilot Collections to Check:**
+**Awesome-Copilot Collections para Checar:**
 - **Frontend Web Development**: React, Angular, Vue, TypeScript, CSS frameworks
-- **C# .NET Development**: Testing, documentation, and best practices  
+- **C# .NET Development**: Testing, documentation, best practices
 - **Java Development**: Spring Boot, Quarkus, testing, documentation
-- **Database Development**: PostgreSQL, SQL Server, and general database best practices
+- **Database Development**: PostgreSQL, SQL Server e boas praticas gerais
 - **Azure Development**: Infrastructure as Code, serverless functions
 - **Security & Performance**: Security frameworks, accessibility, performance optimization
 
-## File Structure Standards
+## Padroes de Estrutura de Arquivos
 
-Ensure all files follow these conventions:
+Garanta que todos os arquivos sigam estas convencoes:
 
 ```
 project-root/
@@ -181,7 +181,7 @@ project-root/
 
 ## YAML Frontmatter Template
 
-Use this frontmatter structure for all files:
+Use este frontmatter para todos os arquivos:
 
 **Instructions (.instructions.md):**
 ```yaml
@@ -198,175 +198,4 @@ Apply the [general coding guidelines](./general-coding.instructions.md) to all c
 - Use interfaces for data structures and type definitions
 - Prefer immutable data (const, readonly)
 - Use optional chaining (?.) and nullish coalescing (??) operators
-
-## React Guidelines
-- Use functional components with hooks
-- Follow the React hooks rules (no conditional hooks)
-- Use React.FC type for components with children
-- Keep components small and focused
-- Use CSS modules for component styling
-
 ```
-
-**Prompts (.prompt.md):**
-```yaml
----
-agent: 'agent'
-model: Claude Sonnet 4
-tools: ['githubRepo', 'codebase']
-description: 'Generate a new React form component'
----
-Your goal is to generate a new React form component based on the templates in #githubRepo contoso/react-templates.
-
-Ask for the form name and fields if not provided.
-
-Requirements for the form:
-* Use form design system components: [design-system/Form.md](../docs/design-system/Form.md)
-* Use `react-hook-form` for form state management:
-* Always define TypeScript types for your form data
-* Prefer *uncontrolled* components using register
-* Use `defaultValues` to prevent unnecessary rerenders
-* Use `yup` for validation:
-* Create reusable validation schemas in separate files
-* Use TypeScript types to ensure type safety
-* Customize UX-friendly validation rules
-
-```
-
-**Chat Modes (.agent.md):**
-```yaml
----
-description: Generate an implementation plan for new features or refactoring existing code.
-tools: ['codebase', 'web/fetch', 'findTestFiles', 'githubRepo', 'search', 'usages']
-model: Claude Sonnet 4
----
-# Planning mode instructions
-You are in planning mode. Your task is to generate an implementation plan for a new feature or for refactoring existing code.
-Don't make any code edits, just generate a plan.
-
-The plan consists of a Markdown document that describes the implementation plan, including the following sections:
-
-* Overview: A brief description of the feature or refactoring task.
-* Requirements: A list of requirements for the feature or refactoring task.
-* Implementation Steps: A detailed list of steps to implement the feature or refactoring task.
-* Testing: A list of tests that need to be implemented to verify the feature or refactoring task.
-
-```
-
-## Execution Steps
-
-1. **Analyze the provided technology stack**
-2. **Create the directory structure**
-3. **Generate main copilot-instructions.md with project-wide standards**
-4. **Create language-specific instruction files using awesome-copilot references**
-5. **Generate reusable prompts for common development tasks**
-6. **Set up specialized chat modes for different development scenarios**
-7. **Create the GitHub Actions workflow for Coding Agent** (`copilot-setup-steps.yml`)
-8. **Validate all files follow proper formatting and include necessary frontmatter**
-
-## Post-Setup Instructions
-
-After creating all files, provide the user with:
-
-1. **VS Code setup instructions** - How to enable and configure the files
-2. **Usage examples** - How to use each prompt and chat mode
-3. **Customization tips** - How to modify files for their specific needs
-4. **Testing recommendations** - How to verify the setup works correctly
-
-## Quality Checklist
-
-Before completing, verify:
-- [ ] All files have proper YAML frontmatter
-- [ ] Language-specific best practices are included
-- [ ] Files reference each other appropriately using Markdown links
-- [ ] Prompts include relevant tools and variables
-- [ ] Instructions are comprehensive but not overwhelming
-- [ ] Security and performance considerations are addressed
-- [ ] Testing guidelines are included
-- [ ] Documentation standards are clear
-- [ ] Code review standards are defined
-
-## Workflow Template Structure
-
-The `copilot-setup-steps.yml` workflow MUST follow this exact format and KEEP IT SIMPLE:
-
-```yaml
-name: "Copilot Setup Steps"
-on:
-  workflow_dispatch:
-  push:
-    paths:
-      - .github/workflows/copilot-setup-steps.yml
-  pull_request:
-    paths:
-      - .github/workflows/copilot-setup-steps.yml
-jobs:
-  # The job MUST be called `copilot-setup-steps` or it will not be picked up by Copilot.
-  copilot-setup-steps:
-    runs-on: ubuntu-latest
-    permissions:
-      contents: read
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v5
-      # Add ONLY basic technology-specific setup steps here
-```
-
-**KEEP WORKFLOWS SIMPLE** - Only include essential steps:
-
-**Node.js/JavaScript:**
-```yaml
-- name: Set up Node.js
-  uses: actions/setup-node@v4
-  with:
-    node-version: "20"
-    cache: "npm"
-- name: Install dependencies
-  run: npm ci
-- name: Run linter
-  run: npm run lint
-- name: Run tests
-  run: npm test
-```
-
-**Python:**
-```yaml
-- name: Set up Python
-  uses: actions/setup-python@v4
-  with:
-    python-version: "3.11"
-- name: Install dependencies
-  run: pip install -r requirements.txt
-- name: Run linter
-  run: flake8 .
-- name: Run tests
-  run: pytest
-```
-
-**Java:**
-```yaml
-- name: Set up JDK
-  uses: actions/setup-java@v4
-  with:
-    java-version: "17"
-    distribution: "temurin"
-- name: Build with Maven
-  run: mvn compile
-- name: Run tests
-  run: mvn test
-```
-
-**AVOID in workflows:**
-- ❌ Complex configuration setups
-- ❌ Multiple environment configurations
-- ❌ Advanced tooling setup
-- ❌ Custom scripts or complex logic
-- ❌ Multiple package managers
-- ❌ Database setup or external services
-
-**INCLUDE only:**
-- ✅ Language/runtime setup
-- ✅ Basic dependency installation
-- ✅ Simple linting (if standard)
-- ✅ Basic test running
-- ✅ Standard build commands

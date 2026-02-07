@@ -1,50 +1,50 @@
 ---
 agent: 'agent'
 tools: ['changes', 'search/codebase', 'edit/editFiles', 'problems']
-description: 'Get best practices for C# async programming'
+description: 'Obtenha boas praticas para programacao async em C#'
 ---
 
-# C# Async Programming Best Practices
+# Boas Praticas de Programacao Async em C#
 
-Your goal is to help me follow best practices for asynchronous programming in C#.
+Seu objetivo e me ajudar a seguir boas praticas para programacao assincrona em C#.
 
-## Naming Conventions
+## Convencoes de Nome
 
-- Use the 'Async' suffix for all async methods
-- Match method names with their synchronous counterparts when applicable (e.g., `GetDataAsync()` for `GetData()`)
+- Use o sufixo "Async" para todos os metodos async
+- Alinhe nomes com seus equivalentes sincronos quando aplicavel (ex.: `GetDataAsync()` para `GetData()`)
 
-## Return Types
+## Tipos de Retorno
 
-- Return `Task<T>` when the method returns a value
-- Return `Task` when the method doesn't return a value
-- Consider `ValueTask<T>` for high-performance scenarios to reduce allocations
-- Avoid returning `void` for async methods except for event handlers
+- Retorne `Task<T>` quando o metodo retorna um valor
+- Retorne `Task` quando o metodo nao retorna valor
+- Considere `ValueTask<T>` para cenarios de alta performance e reduzir alocacoes
+- Evite retornar `void` para metodos async, exceto para event handlers
 
-## Exception Handling
+## Tratamento de Excecoes
 
-- Use try/catch blocks around await expressions
-- Avoid swallowing exceptions in async methods
-- Use `ConfigureAwait(false)` when appropriate to prevent deadlocks in library code
-- Propagate exceptions with `Task.FromException()` instead of throwing in async Task returning methods
+- Use try/catch ao redor de expressoes await
+- Evite engolir excecoes em metodos async
+- Use `ConfigureAwait(false)` quando apropriado para evitar deadlocks em code de biblioteca
+- Propague excecoes com `Task.FromException()` em vez de dar throw em metodos async que retornam Task
 
 ## Performance
 
-- Use `Task.WhenAll()` for parallel execution of multiple tasks
-- Use `Task.WhenAny()` for implementing timeouts or taking the first completed task
-- Avoid unnecessary async/await when simply passing through task results
-- Consider cancellation tokens for long-running operations
+- Use `Task.WhenAll()` para execucao paralela de varias tasks
+- Use `Task.WhenAny()` para implementar timeouts ou pegar a primeira task concluida
+- Evite async/await desnecessarios quando apenas repassar resultados de tasks
+- Considere cancellation tokens para operacoes longas
 
-## Common Pitfalls
+## Armadilhas Comuns
 
-- Never use `.Wait()`, `.Result`, or `.GetAwaiter().GetResult()` in async code
-- Avoid mixing blocking and async code
-- Don't create async void methods (except for event handlers)
-- Always await Task-returning methods
+- Nunca use `.Wait()`, `.Result` ou `.GetAwaiter().GetResult()` em codigo async
+- Evite misturar codigo bloqueante e async
+- Nao crie metodos async void (exceto event handlers)
+- Sempre aguarde metodos que retornam Task
 
-## Implementation Patterns
+## Patterns de Implementacao
 
-- Implement the async command pattern for long-running operations
-- Use async streams (IAsyncEnumerable<T>) for processing sequences asynchronously
-- Consider the task-based asynchronous pattern (TAP) for public APIs
+- Implemente o async command pattern para operacoes longas
+- Use async streams (IAsyncEnumerable<T>) para processar sequencias de forma assincrona
+- Considere o task-based asynchronous pattern (TAP) para APIs publicas
 
-When reviewing my C# code, identify these issues and suggest improvements that follow these best practices.
+Ao revisar meu codigo C#, identifique esses problemas e sugira melhorias que sigam essas boas praticas.

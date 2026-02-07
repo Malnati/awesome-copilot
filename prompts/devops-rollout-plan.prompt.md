@@ -1,118 +1,118 @@
 ---
 agent: 'agent'
-description: 'Generate comprehensive rollout plans with preflight checks, step-by-step deployment, verification signals, rollback procedures, and communication plans for infrastructure and application changes'
+description: 'Gere planos de rollout abrangentes com preflight checks, deployment passo a passo, sinais de verificacao, rollback e comunicacao para mudancas de infraestrutura e aplicacao'
 tools: ['codebase', 'terminalCommand', 'search', 'githubRepo']
 ---
 
-# DevOps Rollout Plan Generator
+# Gerador de Plano de Rollout DevOps
 
-Your goal is to create a comprehensive, production-ready rollout plan for infrastructure or application changes.
+Seu objetivo e criar um plano de rollout abrangente e pronto para producao para mudancas de infraestrutura ou aplicacao.
 
-## Input Requirements
+## Requisitos de Entrada
 
-Gather these details before generating the plan:
+Colete estes detalhes antes de gerar o plano:
 
-### Change Description
-- What's changing (infrastructure, application, configuration)
-- Version or state transition (from/to)
-- Problem solved or feature added
+### Descricao da Mudanca
+- O que esta mudando (infraestrutura, aplicacao, configuracao)
+- Transicao de versao ou estado (from/to)
+- Problema resolvido ou feature adicionada
 
-### Environment Details
-- Target environment (dev, staging, production, all)
-- Infrastructure type (Kubernetes, VMs, serverless, containers)
-- Affected services and dependencies
-- Current capacity and scale
+### Detalhes do Ambiente
+- Ambiente alvo (dev, staging, producao, todos)
+- Tipo de infraestrutura (Kubernetes, VMs, serverless, containers)
+- Servicos e dependencias afetados
+- Capacidade e escala atuais
 
-### Constraints & Requirements
-- Acceptable downtime window
-- Change window restrictions
-- Approval requirements
-- Regulatory or compliance considerations
+### Restricoes e Requisitos
+- Janela de downtime aceitavel
+- Restricoes de change window
+- Requisitos de aprovacao
+- Consideracoes regulatórias ou compliance
 
-### Risk Assessment
-- Blast radius of change
-- Data migrations or schema changes
-- Rollback complexity and safety
-- Known risks
+### Avaliacao de Risco
+- Blast radius da mudanca
+- Data migrations ou schema changes
+- Complexidade e seguranca de rollback
+- Riscos conhecidos
 
-## Output Format
+## Formato de Saida
 
-Generate a structured rollout plan with these sections:
+Gere um plano estruturado com estas secoes:
 
 ### 1. Executive Summary
-- What, why, when, duration
-- Risk level and rollback time
-- Affected systems and user impact
-- Expected downtime
+- O que, por que, quando, duracao
+- Nivel de risco e tempo de rollback
+- Sistemas afetados e impacto ao usuario
+- Downtime esperado
 
-### 2. Prerequisites & Approvals
-- Required approvals (technical lead, security, compliance, business)
-- Required resources (capacity, backups, monitoring, rollback automation)
-- Pre-deployment backups
+### 2. Prerequisitos e Aprovacoes
+- Aprovacoes necessarias (technical lead, seguranca, compliance, negocio)
+- Recursos necessarios (capacidade, backups, monitoramento, automacao de rollback)
+- Backups pre-deployment
 
 ### 3. Preflight Checks
-- Infrastructure health validation
-- Application health baseline
-- Dependency availability
-- Monitoring baseline metrics
-- Go/no-go decision checklist
+- Validacao de saude da infraestrutura
+- Baseline de saude da aplicacao
+- Disponibilidade de dependencias
+- Baseline de metricas de monitoramento
+- Checklist go/no-go
 
-### 4. Step-by-Step Rollout Procedure
-**Phases**: Pre-deployment, deployment, progressive verification
-- Specific commands for each step
-- Validation after each step
-- Duration estimates
+### 4. Procedimento de Rollout Passo a Passo
+**Fases**: Pre-deployment, deployment, verificacao progressiva
+- Comandos especificos para cada etapa
+- Validacao apos cada etapa
+- Estimativas de duracao
 
-### 5. Verification Signals
-**Immediate** (0-2 min): Deployment success, pods/containers started, health checks passing
-**Short-term** (2-5 min): Application responding, error rates acceptable, latency normal
-**Medium-term** (5-15 min): Sustained metrics, stable connections, integrations working
-**Long-term** (15+ min): No degradation, capacity healthy, business metrics normal
+### 5. Sinais de Verificacao
+**Immediate** (0-2 min): Deployment ok, pods/containers ativos, health checks passando
+**Short-term** (2-5 min): Aplicacao respondendo, error rates aceitaveis, latencia normal
+**Medium-term** (5-15 min): Metricas sustentadas, conexoes estaveis, integracoes ok
+**Long-term** (15+ min): Sem degradacao, capacidade saudavel, metricas de negocio normais
 
-### 6. Rollback Procedure
-**Decision Criteria**: When to initiate rollback
-**Rollback Steps**: Automated, infrastructure revert, or full restore
-**Post-Rollback Verification**: Confirm system health restored
-**Communication**: Stakeholder notification
+### 6. Procedimento de Rollback
+**Decision Criteria**: Quando iniciar rollback
+**Rollback Steps**: Automacao, revert de infra ou restore completo
+**Post-Rollback Verification**: Confirmar saude restaurada
+**Communication**: Notificacao de stakeholders
 
-### 7. Communication Plan
-- Pre-deployment (T-24h): Schedule and impact notice
-- Deployment start: Commencement notice
-- Progress updates: Status every X minutes
-- Completion: Success confirmation
-- Rollback (if needed): Issue notification
+### 7. Plano de Comunicacao
+- Pre-deployment (T-24h): Aviso de agenda e impacto
+- Inicio do deployment: Aviso de inicio
+- Atualizacoes de progresso: Status a cada X minutos
+- Conclusao: Confirmacao de sucesso
+- Rollback (se necessario): Notificacao de incidente
 
-**Stakeholder Matrix**: Who to notify, when, via what method, with what content
+**Stakeholder Matrix**: Quem notificar, quando, por qual canal e com que conteudo
 
-### 8. Post-Deployment Tasks
-- Immediate (1h): Verify criteria met, review logs
-- Short-term (24h): Monitor metrics, review errors
+### 8. Tarefas Pos-Deployment
+- Immediate (1h): Verificar criterios, revisar logs
+- Short-term (24h): Monitorar metricas, revisar erros
 - Medium-term (1 week): Post-deployment review, lessons learned
 
-### 9. Contingency Plans
-Scenarios: Partial failure, performance degradation, data inconsistency, dependency failure
-For each: Symptoms, response, timeline
+### 9. Planos de Contingencia
+Cenarios: Falha parcial, degradacao de performance, inconsistencia de dados, falha de dependencia
+Para cada: Sintomas, resposta, timeline
 
-### 10. Contact Information
-- Primary and secondary on-call
-- Escalation path
-- Emergency contacts (infrastructure, security, database, networking)
+### 10. Informacoes de Contato
+- On-call primario e secundario
+- Caminho de escalacao
+- Contatos de emergencia (infra, seguranca, banco, rede)
 
-## Plan Customization
+## Customizacao do Plano
 
-Adapt based on:
-- **Infrastructure Type**: Kubernetes, VMs, serverless, databases
-- **Risk Level**: Low (simplified), medium (standard), high (additional gates)
-- **Change Type**: Code deployment, infrastructure, configuration, data migration
-- **Environment**: Production (full plan), staging (simplified), development (minimal)
+Adapte conforme:
+- **Tipo de Infraestrutura**: Kubernetes, VMs, serverless, databases
+- **Nivel de Risco**: Low (simplificado), medium (padrao), high (gates adicionais)
+- **Tipo de Mudanca**: Code deployment, infraestrutura, configuracao, data migration
+- **Ambiente**: Producao (plano completo), staging (simplificado), development (minimo)
 
-## Remember
+## Lembretes
 
-- Always have a tested rollback plan
-- Communicate early and often
-- Monitor metrics, not just logs
-- Document everything
-- Learn from each deployment
-- Never deploy on Friday afternoon (unless critical)
-- Never skip verification steps
-- Never assume "it should work"
+- Sempre tenha plano de rollback testado
+- Comunique cedo e com frequencia
+- Monitore metricas, nao apenas logs
+- Documente tudo
+- Aprenda com cada deployment
+- Nunca deploy na sexta a tarde (a menos que seja critico)
+- Nunca pule etapas de verificacao
+- Nunca assuma que "vai funcionar"

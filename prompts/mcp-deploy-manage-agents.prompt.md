@@ -2,123 +2,123 @@
 ---
 mode: 'agent'
 tools: ['changes', 'search/codebase', 'edit/editFiles', 'problems']
-description: 'Deploy and manage MCP-based declarative agents in Microsoft 365 admin center with governance, assignments, and organizational distribution'
+description: 'Implante e gerencie agentes declarativos baseados em MCP no Microsoft 365 admin center com governanca, atribuicoes e distribuicao organizacional'
 model: 'gpt-4.1'
 tags: [mcp, m365-copilot, deployment, admin, agent-management, governance]
 ---
 
-# Deploy and Manage MCP-Based Agents
+# Deploy e Gerenciar Agentes Baseados em MCP
 
-Deploy, manage, and govern MCP-based declarative agents in Microsoft 365 using the admin center for organizational distribution and control.
+Implante, gerencie e governe agentes declarativos baseados em MCP no Microsoft 365 usando o admin center para distribuicao e controle organizacional.
 
-## Agent Types
+## Tipos de Agente
 
 ### Published by Organization
-- Built with predefined instructions and actions
-- Follow structured logic for predictable tasks
-- Require admin approval and publishing process
-- Support compliance and governance requirements
+- Criados com instrucoes e acoes predefinidas
+- Seguem logica estruturada para tarefas previsiveis
+- Exigem aprovacao de admin e processo de publicacao
+- Suportam requisitos de compliance e governanca
 
 ### Shared by Creator
-- Created in Microsoft 365 Copilot Studio or Agent Builder
-- Shared directly with specific users
-- Enhanced functionality with search, actions, connectors, APIs
-- Visible to admins in agent registry
+- Criados no Microsoft 365 Copilot Studio ou Agent Builder
+- Compartilhados diretamente com usuarios especificos
+- Funcionalidade aprimorada com search, actions, connectors, APIs
+- Visiveis para admins no agent registry
 
 ### Microsoft Agents
-- Developed and maintained by Microsoft
-- Integrated with Microsoft 365 services
-- Pre-approved and ready to use
+- Desenvolvidos e mantidos pela Microsoft
+- Integrados com servicos Microsoft 365
+- Pre-aprovados e prontos para uso
 
 ### External Partner Agents
-- Created by verified external developers/vendors
-- Subject to admin approval and control
-- Configurable availability and permissions
+- Criados por desenvolvedores/fornecedores externos verificados
+- Sujeitos a aprovacao e controle do admin
+- Disponibilidade e permissoes configuraveis
 
 ### Frontier Agents
-- Experimental or advanced capabilities
-- May require limited rollout or additional oversight
-- Examples:
-  - **App Builder agent**: Managed via M365 Copilot or Power Platform admin center
-  - **Workflows agent**: Flow automation managed via Power Platform admin center
+- Capacidades experimentais ou avancadas
+- Podem exigir rollout limitado ou supervisao adicional
+- Exemplos:
+  - **App Builder agent**: Gerenciado via M365 Copilot ou Power Platform admin center
+  - **Workflows agent**: Automacoes gerenciadas via Power Platform admin center
 
-## Admin Roles and Permissions
+## Admin Roles e Permissoes
 
-### Required Roles
-- **AI Admin**: Full agent management capabilities
-- **Global Reader**: View-only access (no editing)
+### Roles Necessarias
+- **AI Admin**: Recursos completos de gerenciamento de agentes
+- **Global Reader**: Acesso somente leitura (sem edicao)
 
-### Best Practices
-- Use roles with fewest permissions
-- Limit Global Administrator to emergency scenarios
-- Follow principle of least privilege
+### Boas Praticas
+- Use roles com o menor conjunto de permissoes
+- Limite Global Administrator a cenarios de emergencia
+- Siga o principio do menor privilegio
 
-## Agent Management in Microsoft 365 Admin Center
+## Gerenciamento de Agentes no Microsoft 365 Admin Center
 
-### Access Agent Management
-1. Go to [Microsoft 365 admin center](https://admin.microsoft.com/)
-2. Navigate to **Agents** page
-3. View available, deployed, or blocked agents
+### Acessar Agent Management
+1. Va para [Microsoft 365 admin center](https://admin.microsoft.com/)
+2. Navegue para a pagina **Agents**
+3. Veja agentes disponiveis, implantados ou bloqueados
 
-### Available Actions
+### Acoes Disponiveis
 
 **View Agents**
-- Filter by availability (available, deployed, blocked)
-- Search for specific agents
-- View agent details (name, creator, date, host products, status)
+- Filtre por disponibilidade (available, deployed, blocked)
+- Pesquise agentes especificos
+- Veja detalhes do agente (nome, creator, data, host products, status)
 
 **Deploy Agents**
-Options for distribution:
-1. **Agent Store**: Submit to Partner Center for validation and public availability
-2. **Organization Deployment**: IT admin deploys to all or selected employees
+Opcoes de distribuicao:
+1. **Agent Store**: Envie ao Partner Center para validacao e disponibilidade publica
+2. **Organization Deployment**: TI implanta para todos ou grupos selecionados
 
 **Manage Agent Lifecycle**
-- **Publish**: Make agent available to organization
-- **Deploy**: Assign to specific users or groups
-- **Block**: Prevent agent from being used
-- **Remove**: Delete agent from organization
+- **Publish**: Disponibiliza o agente para a organizacao
+- **Deploy**: Atribui para usuarios ou grupos especificos
+- **Block**: Impede o uso do agente
+- **Remove**: Remove o agente da organizacao
 
 **Configure Access**
-- Set availability for specific user groups
-- Manage permissions per agent
-- Control which agents appear in Copilot
+- Defina disponibilidade para grupos especificos
+- Gerencie permissoes por agente
+- Controle quais agentes aparecem no Copilot
 
-## Deployment Workflows
+## Workflows de Deploy
 
 ### Publish to Organization
 
-**For Agent Developers:**
-1. Build agent with Microsoft 365 Agents Toolkit
-2. Test thoroughly in development
-3. Submit agent for approval
-4. Wait for admin review
+**Para Desenvolvedores de Agente:**
+1. Construa o agente com Microsoft 365 Agents Toolkit
+2. Teste exaustivamente em desenvolvimento
+3. Envie o agente para aprovacao
+4. Aguarde revisao do admin
 
-**For Admins:**
-1. Review submitted agent in admin center
-2. Validate compliance and security
-3. Approve for organizational use
-4. Configure deployment settings
-5. Publish to selected users or organization-wide
+**Para Admins:**
+1. Revise o agente enviado no admin center
+2. Valide compliance e seguranca
+3. Aprove para uso organizacional
+4. Configure configuracoes de deploy
+5. Publique para usuarios selecionados ou toda a organizacao
 
 ### Deploy via Agent Store
 
-**Developer Steps:**
-1. Complete agent development and testing
-2. Package agent for submission
-3. Submit to Partner Center
-4. Await validation process
-5. Receive approval notification
-6. Agent appears in Copilot store
+**Etapas do Desenvolvedor:**
+1. Conclua desenvolvimento e testes do agente
+2. Empacote o agente para submissao
+3. Envie ao Partner Center
+4. Aguarde processo de validacao
+5. Receba notificacao de aprovacao
+6. O agente aparece na store do Copilot
 
-**Admin Steps:**
-1. Discover agents in Copilot store
-2. Review agent details and permissions
-3. Assign to organization or user groups
-4. Monitor usage and feedback
+**Etapas do Admin:**
+1. Descubra agentes na store do Copilot
+2. Revise detalhes e permissoes do agente
+3. Atribua para organizacao ou grupos
+4. Monitore uso e feedback
 
-### Deploy Organizational Agent
+### Deploy de Agente Organizacional
 
-**Admin Deployment Options:**
+**Opcoes de Deploy do Admin:**
 ```
 Organization-wide:
 - All employees with Copilot license
@@ -130,207 +130,207 @@ Group-based:
 - Role-based access control
 ```
 
-**Configuration Steps:**
-1. Navigate to Agents page in admin center
-2. Select agent to deploy
-3. Choose deployment scope:
+**Etapas de Configuracao:**
+1. Navegue para a pagina Agents no admin center
+2. Selecione o agente para implantar
+3. Escolha o escopo de deploy:
    - All users
    - Specific security groups
    - Individual users
-4. Set availability status
-5. Configure permissions if applicable
-6. Deploy and monitor
+4. Defina status de disponibilidade
+5. Configure permissoes se aplicavel
+6. Implante e monitore
 
-## User Experience
+## Experiencia do Usuario
 
-### Agent Discovery
-Users find agents in:
+### Descoberta de Agente
+Usuarios encontram agentes em:
 - Microsoft 365 Copilot hub
-- Agent picker in Copilot interface
-- Organization's agent catalog
+- Agent picker na interface do Copilot
+- Catalogo de agentes da organizacao
 
-### Agent Access Control
-Users can:
-- Toggle agents on/off during interactions
-- Add/remove agents from their experience
-- Right-click agents to manage preferences
-- Only access admin-allowed agents
+### Controle de Acesso ao Agente
+Usuarios podem:
+- Ativar/desativar agentes durante interacoes
+- Adicionar/remover agentes da experiencia
+- Clicar com botao direito para gerenciar preferencias
+- Acessar apenas agentes permitidos pelo admin
 
-### Agent Usage
-- Agents appear in Copilot sidebar
-- Users select agent for context
-- Queries routed through selected agent
-- Responses leverage agent's capabilities
+### Uso do Agente
+- Agentes aparecem na sidebar do Copilot
+- Usuarios selecionam agente para contexto
+- Consultas sao roteadas pelo agente selecionado
+- Respostas usam as capacidades do agente
 
-## Governance and Compliance
+## Governanca e Compliance
 
-### Security Considerations
-- **Data access**: Review what data agent can access
-- **API permissions**: Validate required scopes
-- **Authentication**: Ensure secure OAuth flows
-- **External connections**: Assess risk of external integrations
+### Consideracoes de Seguranca
+- **Data access**: Revise quais dados o agente pode acessar
+- **API permissions**: Valide scopes exigidos
+- **Authentication**: Garanta fluxos OAuth seguros
+- **External connections**: Avalie risco de integracoes externas
 
-### Compliance Requirements
-- **Data residency**: Verify data stays within boundaries
-- **Privacy policies**: Review agent privacy statement
-- **Terms of use**: Validate acceptable use policies
-- **Audit logs**: Monitor agent usage and activity
+### Requisitos de Compliance
+- **Data residency**: Verifique que os dados permanecem dentro dos limites
+- **Privacy policies**: Revise a declaracao de privacidade do agente
+- **Terms of use**: Valide politicas de uso aceitavel
+- **Audit logs**: Monitore uso e atividade do agente
 
-### Monitoring and Reporting
-Track:
-- Agent adoption rates
-- User feedback and satisfaction
-- Error rates and performance
-- Security incidents or violations
+### Monitoramento e Relatorios
+Acompanhe:
+- Taxas de adocao do agente
+- Feedback e satisfacao dos usuarios
+- Taxas de erro e performance
+- Incidentes ou violacoes de seguranca
 
-## MCP-Specific Management
+## Gerenciamento Especifico de MCP
 
-### MCP Agent Characteristics
-- Connect to external systems via Model Context Protocol
-- Use tools exposed by MCP servers
-- Require OAuth 2.0 or SSO authentication
-- Support same governance as REST API agents
+### Caracteristicas de Agente MCP
+- Conecta a sistemas externos via Model Context Protocol
+- Usa tools expostas por servidores MCP
+- Requer autenticacao OAuth 2.0 ou SSO
+- Suporta a mesma governanca de agentes REST API
 
-### MCP Agent Validation
-Verify:
-- MCP server URL is accessible
-- Authentication configuration is secure
-- Tools imported are appropriate
-- Response data doesn't expose sensitive info
-- Server follows security best practices
+### Validacao de Agente MCP
+Verifique:
+- URL do servidor MCP acessivel
+- Configuracao de autenticacao segura
+- Tools importadas sao adequadas
+- Dados de resposta nao expoem informacao sensivel
+- Servidor segue boas praticas de seguranca
 
-### MCP Agent Deployment
-Same process as REST API agents:
-1. Review in admin center
-2. Validate MCP server compliance
-3. Test authentication flow
-4. Deploy to users/groups
-5. Monitor performance
+### Deploy de Agente MCP
+Mesmo processo de agentes REST API:
+1. Revisao no admin center
+2. Validacao de compliance do servidor MCP
+3. Teste do fluxo de autenticacao
+4. Deploy para usuarios/grupos
+5. Monitoramento de performance
 
-## Agent Settings and Configuration
+## Configuracoes e Ajustes de Agente
 
-### Organizational Settings
-Configure at tenant level:
-- Enable/disable agent creation
-- Set default permissions
-- Configure approval workflows
-- Define compliance policies
+### Configuracoes Organizacionais
+Configure no nivel do tenant:
+- Habilitar/desabilitar criacao de agentes
+- Definir permissoes padrao
+- Configurar workflows de aprovacao
+- Definir politicas de compliance
 
-### Per-Agent Settings
-Configure for individual agents:
-- Availability (on/off)
-- User assignment (all/groups/individuals)
+### Configuracoes por Agente
+Configure para agentes individuais:
+- Disponibilidade (on/off)
+- Atribuicao de usuarios (all/groups/individuals)
 - Permission scopes
-- Usage limits or quotas
+- Limites de uso ou quotas
 
 ### Environment Routing
-For Power Platform-based agents:
-- Configure default environment
-- Enable environment routing for Copilot Studio
-- Manage flows via Power Platform admin center
+Para agentes baseados em Power Platform:
+- Configure ambiente padrao
+- Habilite environment routing para Copilot Studio
+- Gerencie flows via Power Platform admin center
 
 ## Shared Agent Management
 
-### View Shared Agents
-Admins can see:
-- List of all shared agents
-- Creator information
-- Creation date
+### Ver Shared Agents
+Admins podem ver:
+- Lista de todos os shared agents
+- Informacoes do creator
+- Data de criacao
 - Host products
-- Availability status
+- Status de disponibilidade
 
-### Manage Shared Agents
-Admin actions:
-- Search for specific shared agents
-- View agent capabilities
-- Block unsafe or non-compliant agents
-- Monitor agent lifecycle
+### Gerenciar Shared Agents
+Acoes de admin:
+- Pesquisar shared agents especificos
+- Ver capacidades do agente
+- Bloquear agentes inseguros ou nao conformes
+- Monitorar ciclo de vida do agente
 
-### User Access to Shared Agents
-Users access through:
-- Microsoft 365 Copilot on various surfaces
-- Agent-specific tasks and assistance
-- Creator-defined capabilities
+### Acesso do Usuario a Shared Agents
+Usuarios acessam por:
+- Microsoft 365 Copilot em varias superfices
+- Tarefas e assistencia especificas do agente
+- Capacidades definidas pelo creator
 
-## Best Practices
+## Boas Praticas
 
-### Before Deployment
-- **Pilot test** with small user group
-- **Gather feedback** from early adopters
-- **Validate security** and compliance
-- **Document** agent capabilities and limitations
-- **Train users** on agent usage
+### Antes do Deploy
+- **Pilot test** com pequeno grupo
+- **Gather feedback** de early adopters
+- **Validate security** e compliance
+- **Document** capacidades e limitacoes do agente
+- **Train users** sobre uso do agente
 
-### During Deployment
-- **Phased rollout** to manage adoption
-- **Monitor performance** and errors
-- **Collect feedback** continuously
-- **Address issues** promptly
-- **Communicate** availability to users
+### Durante o Deploy
+- **Phased rollout** para gerenciar adocao
+- **Monitor performance** e erros
+- **Collect feedback** continuamente
+- **Address issues** rapidamente
+- **Communicate** disponibilidade aos usuarios
 
-### Post-Deployment
-- **Track metrics**: Adoption, satisfaction, errors
-- **Iterate**: Improve based on feedback
-- **Update**: Keep agent current with new features
-- **Retire**: Remove obsolete or unused agents
-- **Review**: Regular security and compliance audits
+### Apos o Deploy
+- **Track metrics**: Adocao, satisfacao, erros
+- **Iterate**: Melhore com base no feedback
+- **Update**: Mantenha o agente atualizado com novos recursos
+- **Retire**: Remova agentes obsoletos ou nao usados
+- **Review**: Auditorias regulares de seguranca e compliance
 
-### Communication
-- Announce new agents to users
-- Provide documentation and examples
-- Share best practices and use cases
-- Highlight benefits and capabilities
-- Offer support channels
+### Comunicacao
+- Anuncie novos agentes aos usuarios
+- Forneca documentacao e exemplos
+- Compartilhe boas praticas e casos de uso
+- Destaque beneficios e capacidades
+- Ofereca canais de suporte
 
 ## Troubleshooting
 
 ### Agent Not Appearing
-- Check deployment status in admin center
-- Verify user is in assigned group
-- Confirm agent is not blocked
-- Check user has Copilot license
-- Refresh Copilot interface
+- Verifique status de deploy no admin center
+- Verifique se o usuario esta no grupo atribuido
+- Confirme que o agente nao esta bloqueado
+- Verifique se o usuario tem licenca Copilot
+- Atualize a interface do Copilot
 
 ### Authentication Failures
-- Verify OAuth credentials are valid
-- Check user has necessary permissions
-- Confirm MCP server is accessible
-- Test authentication flow independently
+- Verifique credenciais OAuth validas
+- Verifique se o usuario tem permissoes necessarias
+- Confirme que o servidor MCP esta acessivel
+- Teste o fluxo de autenticacao isoladamente
 
 ### Performance Issues
-- Monitor MCP server response times
-- Check network connectivity
-- Review error logs in admin center
-- Validate agent isn't rate-limited
+- Monitore tempos de resposta do servidor MCP
+- Verifique conectividade de rede
+- Revise logs de erro no admin center
+- Valide se o agente nao esta com rate-limit
 
 ### Compliance Violations
-- Block agent immediately if unsafe
-- Review audit logs for violations
-- Investigate data access patterns
-- Update policies to prevent recurrence
+- Bloqueie o agente imediatamente se inseguro
+- Revise audit logs para violacoes
+- Investigue padroes de acesso a dados
+- Atualize politicas para evitar recorrencia
 
 ## Resources
 
 - [Microsoft 365 admin center](https://admin.microsoft.com/)
 - [Power Platform admin center](https://admin.powerplatform.microsoft.com/)
-- [Partner Center](https://partner.microsoft.com/) for agent submissions
+- [Partner Center](https://partner.microsoft.com/) para submissao de agentes
 - [Microsoft Agent 365 Overview](https://learn.microsoft.com/en-us/microsoft-agent-365/overview)
 - [Agent Registry Documentation](https://learn.microsoft.com/en-us/microsoft-365/admin/manage/agent-registry)
 
 ## Workflow
 
-Ask the user:
-1. Is this agent ready for deployment or still in development?
-2. Who should have access (all users, specific groups, individuals)?
-3. Are there compliance or security requirements to address?
-4. Should this be published to the organization or the public store?
-5. What monitoring and reporting is needed?
+Pergunte ao usuario:
+1. Este agente esta pronto para deploy ou ainda em desenvolvimento?
+2. Quem deve ter acesso (all users, grupos especificos, individuos)?
+3. Ha requisitos de compliance ou seguranca para enderecar?
+4. Isso deve ser publicado para a organizacao ou para a store publica?
+5. Que monitoramento e relatorios sao necessarios?
 
-Then provide:
-- Step-by-step deployment guide
-- Admin center configuration steps
-- User assignment recommendations
-- Governance and compliance checklist
-- Monitoring and reporting plan
+Em seguida, forneca:
+- Guia de deploy passo a passo
+- Etapas de configuracao do admin center
+- Recomendacoes de atribuicao de usuarios
+- Checklist de governanca e compliance
+- Plano de monitoramento e relatorios
 
 ````

@@ -28,15 +28,15 @@ Seu objetivo é me ajudar a criar endpoints ASP.NET Minimal API bem estruturados
 
 - Use parâmetros de rota fortemente tipados com binding explícito
 - Use `Results<T1, T2>` para representar múltiplos tipos de resposta
-- Return `TypedResults` instead of `Results` for strongly-typed responses
-- Leverage C# 10+ features like nullable annotations and init-only properties
+- Retorne `TypedResults` em vez de `Results` para respostas fortemente tipadas
+- Aproveite recursos do C# 10+ como nullable annotations e propriedades init-only
 
 ## OpenAPI Documentation
 
-- Use the built-in OpenAPI document support added in .NET 9
-- Define operation summary and description
-- Add operationIds using the `WithName` extension method
-- Add descriptions to properties and parameters with `[Description()]`
-- Set proper content types for requests and responses
-- Use document transformers to add elements like servers, tags, and security schemes
-- Use schema transformers to apply customizations to OpenAPI schemas
+- Use o suporte embutido a documentos OpenAPI adicionado no .NET 9
+- Defina resumo e descrição da operação
+- Adicione operationIds usando o método de extensão `WithName`
+- Adicione descrições a propriedades e parâmetros com `[Description()]`
+- Defina content types adequados para requisições e respostas
+- Use document transformers para adicionar elementos como servers, tags e security schemes
+- Use schema transformers para aplicar customizações a schemas OpenAPI

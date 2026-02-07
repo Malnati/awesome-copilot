@@ -1,15 +1,15 @@
 ---
-description: 'Generate a complete Model Context Protocol server project in Java using the official MCP Java SDK with reactive streams and optional Spring Boot integration.'
+description: 'Gere um projeto completo de servidor Model Context Protocol em Java usando o SDK oficial de MCP Java com reactive streams e integracao opcional com Spring Boot.'
 agent: agent
 ---
 
-# Java MCP Server Generator
+# Gerador de Servidor MCP em Java
 
-Generate a complete, production-ready MCP server in Java using the official Java SDK with Maven or Gradle.
+Gere um servidor MCP completo e pronto para producao em Java usando o SDK oficial Java com Maven ou Gradle.
 
-## Project Generation
+## Geracao do Projeto
 
-When asked to create a Java MCP server, generate a complete project with this structure:
+Quando solicitado para criar um servidor MCP em Java, gere um projeto completo com esta estrutura:
 
 ```
 my-mcp-server/
@@ -39,7 +39,7 @@ my-mcp-server/
 └── README.md
 ```
 
-## Maven pom.xml Template
+## Template do pom.xml (Maven)
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -139,7 +139,7 @@ my-mcp-server/
 </project>
 ```
 
-## Gradle build.gradle.kts Template
+## Template do build.gradle.kts (Gradle)
 
 ```kotlin
 plugins {
@@ -181,7 +181,7 @@ tasks.test {
 }
 ```
 
-## McpServerApplication.java Template
+## Template do McpServerApplication.java
 
 ```java
 package com.example.mcp;
@@ -247,7 +247,7 @@ public class McpServerApplication {
 }
 ```
 
-## ToolDefinitions.java Template
+## Template do ToolDefinitions.java
 
 ```java
 package com.example.mcp.tools;
@@ -297,7 +297,7 @@ public class ToolDefinitions {
 }
 ```
 
-## ToolHandlers.java Template
+## Template do ToolHandlers.java
 
 ```java
 package com.example.mcp.tools;
@@ -393,7 +393,7 @@ public class ToolHandlers {
 }
 ```
 
-## ResourceDefinitions.java Template
+## Template do ResourceDefinitions.java
 
 ```java
 package com.example.mcp.resources;
@@ -423,7 +423,7 @@ public class ResourceDefinitions {
 }
 ```
 
-## ResourceHandlers.java Template
+## Template do ResourceHandlers.java
 
 ```java
 package com.example.mcp.resources;
@@ -495,7 +495,7 @@ public class ResourceHandlers {
 }
 ```
 
-## PromptDefinitions.java Template
+## Template do PromptDefinitions.java
 
 ```java
 package com.example.mcp.prompts;
@@ -528,7 +528,7 @@ public class PromptDefinitions {
 }
 ```
 
-## PromptHandlers.java Template
+## Template do PromptHandlers.java
 
 ```java
 package com.example.mcp.prompts;
@@ -586,7 +586,7 @@ public class PromptHandlers {
 }
 ```
 
-## McpServerTest.java Template
+## Template do McpServerTest.java
 
 ```java
 package com.example.mcp;
@@ -665,7 +665,7 @@ class McpServerTest {
 }
 ```
 
-## README.md Template
+## Template do README.md
 
 ```markdown
 # My MCP Server
@@ -722,7 +722,7 @@ mvn test
 ./gradlew test
 ```
 
-## Integration with Claude Desktop
+## Integracao com Claude Desktop
 
 Add to `claude_desktop_config.json`:
 
@@ -742,15 +742,15 @@ Add to `claude_desktop_config.json`:
 MIT
 ```
 
-## Generation Instructions
+## Instrucoes de Geracao
 
-1. **Ask for project name and package**
-2. **Choose build tool** (Maven or Gradle)
-3. **Generate all files** with proper package structure
-4. **Use Reactive Streams** for async handlers
-5. **Include comprehensive logging** with SLF4J
-6. **Add tests** for all handlers
-7. **Follow Java conventions** (camelCase, PascalCase)
-8. **Include error handling** with proper responses
-9. **Document public APIs** with Javadoc
-10. **Provide both sync and async** examples
+1. **Pergunte nome do projeto e package**
+2. **Escolha a ferramenta de build** (Maven ou Gradle)
+3. **Gere todos os arquivos** com a estrutura de package adequada
+4. **Use Reactive Streams** para handlers async
+5. **Inclua logging abrangente** com SLF4J
+6. **Adicione testes** para todos os handlers
+7. **Siga convencoes Java** (camelCase, PascalCase)
+8. **Inclua tratamento de erros** com respostas adequadas
+9. **Documente APIs publicas** com Javadoc
+10. **Forneca exemplos sync e async**

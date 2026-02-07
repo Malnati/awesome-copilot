@@ -1,18 +1,18 @@
 ---
-name: 'Refactoring Java Methods with Extract Method'
+name: 'Refatoracao de Metodos Java com Extract Method'
 agent: 'agent'
-description: 'Refactoring using Extract Methods in Java Language'
+description: 'Refatoracao usando Extract Method em Java'
 ---
 
-# Refactoring Java Methods with Extract Method
+# Refatoracao de Metodos Java com Extract Method
 
-## Role
+## Papel
 
-You are an expert in refactoring Java methods.
+Voce e especialista em refatoracao de metodos Java.
 
-Below are **2 examples** (with titles code before and code after refactoring) that represents **Extract Method**.
+Abaixo ha **2 exemplos** (com titulo, codigo antes e codigo depois da refatoracao) que representam **Extract Method**.
 
-## Code Before Refactoring 1:
+## Codigo Antes da Refatoracao 1:
 ```java
 public FactLineBuilder setC_BPartner_ID_IfValid(final int bpartnerId) {
 	assertNotBuild();
@@ -23,7 +23,7 @@ public FactLineBuilder setC_BPartner_ID_IfValid(final int bpartnerId) {
 }
 ```
 
-## Code After Refactoring 1:
+## Codigo Depois da Refatoracao 1:
 ```java
 public FactLineBuilder bpartnerIdIfNotNull(final BPartnerId bpartnerId) {
 	if (bpartnerId != null) {
@@ -37,7 +37,7 @@ public FactLineBuilder setC_BPartner_ID_IfValid(final int bpartnerRepoId) {
 }
 ```
 
-## Code Before Refactoring 2:
+## Codigo Antes da Refatoracao 2:
 ```java
 public DefaultExpander add(RelationshipType type, Direction direction) {
      Direction existingDirection = directions.get(type.name());
@@ -58,7 +58,7 @@ public DefaultExpander add(RelationshipType type, Direction direction) {
 }
 ```
 
-## Code After Refactoring 2:
+## Codigo Depois da Refatoracao 2:
 ```java
 public DefaultExpander add(RelationshipType type, Direction direction) {
      Direction existingDirection = directions.get(type.name());
@@ -83,23 +83,23 @@ protected RelationshipExpander newExpander(RelationshipType[] types,
 }
 ```
 
-## Task
+## Tarefa
 
-Apply **Extract Method** to improve readability, testability, maintainability, reusability, modularity, cohesion, low coupling, and consistency.
+Aplique **Extract Method** para melhorar legibilidade, testabilidade, manutenibilidade, reusabilidade, modularidade, coesao, baixo acoplamento e consistencia.
 
-Always return a complete and compilable method (Java 17).
+Sempre retorne um metodo completo e compilavel (Java 17).
 
-Perform intermediate steps internally:
-- First, analyze each method and identify those exceeding thresholds:
+Execute etapas intermediarias internamente:
+- Primeiro, analise cada metodo e identifique aqueles que excedem os limites:
   * LOC (Lines of Code) > 15
   * NOM (Number of Statements) > 10
   * CC (Cyclomatic Complexity) > 10
-- For each qualifying method, identify code blocks that can be extracted into separate methods.
-- Extract at least one new method with a descriptive name.
-- Output only the refactored code inside a single ```java``` block.
-- Do not remove any functionality from the original method.
-- Include a one-line comment above each new method describing its purpose.
+- Para cada metodo qualificado, identifique blocos de codigo que possam ser extraidos em metodos separados.
+- Extraia pelo menos um novo metodo com um nome descritivo.
+- Exiba apenas o codigo refatorado dentro de um unico bloco ```java```.
+- Nao remova nenhuma funcionalidade do metodo original.
+- Inclua um comentario de uma linha acima de cada novo metodo descrevendo seu proposito.
 
-## Code to be Refactored:
+## Codigo a Ser Refatorado:
 
-Now, assess all methods with high complexity and refactor them using **Extract Method**
+Agora, avalie todos os metodos com alta complexidade e refatore-os usando **Extract Method**

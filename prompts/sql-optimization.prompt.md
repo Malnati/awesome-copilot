@@ -1,13 +1,13 @@
 ---
 agent: 'agent'
 tools: ['changes', 'search/codebase', 'edit/editFiles', 'problems']
-description: 'Universal SQL performance optimization assistant for comprehensive query tuning, indexing strategies, and database performance analysis across all SQL databases (MySQL, PostgreSQL, SQL Server, Oracle). Provides execution plan analysis, pagination optimization, batch operations, and performance monitoring guidance.'
+description: 'Assistente universal de otimizacao de performance SQL para tuning completo de queries, estrategias de indexacao e analise de performance em todos os bancos SQL (MySQL, PostgreSQL, SQL Server, Oracle). Fornece analise de plano de execucao, otimizacao de paginacao, operacoes em lote e orientacao de monitoramento de performance.'
 tested_with: 'GitHub Copilot Chat (GPT-4o) - Validated July 20, 2025'
 ---
 
 # SQL Performance Optimization Assistant
 
-Expert SQL performance optimization for ${selection} (or entire project if no selection). Focus on universal SQL optimization techniques that work across MySQL, PostgreSQL, SQL Server, Oracle, and other SQL databases.
+Especialista em otimizacao de performance SQL para ${selection} (ou projeto inteiro se nao houver selecao). Foco em tecnicas universais de otimizacao SQL que funcionam em MySQL, PostgreSQL, SQL Server, Oracle e outros bancos SQL.
 
 ## 🎯 Core Optimization Areas
 
@@ -295,4 +295,4 @@ ORDER BY avg_elapsed_time DESC;
 5. **Monitor**: Continuously track performance metrics
 6. **Iterate**: Regular performance review and optimization
 
-Focus on measurable performance improvements and always test optimizations with realistic data volumes and query patterns.
+Foque em melhorias mensuraveis de performance e sempre teste as otimizacoes com volumes de dados e padroes de query realistas.

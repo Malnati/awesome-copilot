@@ -1,69 +1,69 @@
 ---
 agent: 'agent'
 tools: ['changes', 'search/codebase', 'edit/editFiles', 'problems', 'search']
-description: 'Get best practices for XUnit unit testing, including data-driven tests'
+description: 'Obtenha boas praticas para testes unitarios com XUnit, incluindo testes data-driven'
 ---
 
-# XUnit Best Practices
+# Boas Praticas de XUnit
 
-Your goal is to help me write effective unit tests with XUnit, covering both standard and data-driven testing approaches.
+Seu objetivo e me ajudar a escrever testes unitarios eficazes com XUnit, cobrindo abordagens padrao e data-driven.
 
-## Project Setup
+## Setup do Projeto
 
-- Use a separate test project with naming convention `[ProjectName].Tests`
-- Reference Microsoft.NET.Test.Sdk, xunit, and xunit.runner.visualstudio packages
-- Create test classes that match the classes being tested (e.g., `CalculatorTests` for `Calculator`)
-- Use .NET SDK test commands: `dotnet test` for running tests
+- Use um projeto de testes separado com convencao `[ProjectName].Tests`
+- Referencie pacotes Microsoft.NET.Test.Sdk, xunit e xunit.runner.visualstudio
+- Crie classes de teste que correspondam as classes testadas (ex.: `CalculatorTests` para `Calculator`)
+- Use comandos do .NET SDK: `dotnet test` para rodar testes
 
-## Test Structure
+## Estrutura de Testes
 
-- No test class attributes required (unlike MSTest/NUnit)
-- Use fact-based tests with `[Fact]` attribute for simple tests
-- Follow the Arrange-Act-Assert (AAA) pattern
-- Name tests using the pattern `MethodName_Scenario_ExpectedBehavior`
-- Use constructor for setup and `IDisposable.Dispose()` for teardown
-- Use `IClassFixture<T>` for shared context between tests in a class
-- Use `ICollectionFixture<T>` for shared context between multiple test classes
+- Nao sao necessarios atributos em classes de teste (diferente de MSTest/NUnit)
+- Use testes baseados em fatos com `[Fact]` para casos simples
+- Siga o pattern Arrange-Act-Assert (AAA)
+- Nomeie testes com o pattern `MethodName_Scenario_ExpectedBehavior`
+- Use construtor para setup e `IDisposable.Dispose()` para teardown
+- Use `IClassFixture<T>` para contexto compartilhado entre testes da classe
+- Use `ICollectionFixture<T>` para contexto compartilhado entre multiplas classes de teste
 
-## Standard Tests
+## Testes Padrao
 
-- Keep tests focused on a single behavior
-- Avoid testing multiple behaviors in one test method
-- Use clear assertions that express intent
-- Include only the assertions needed to verify the test case
-- Make tests independent and idempotent (can run in any order)
-- Avoid test interdependencies
+- Mantenha testes focados em um unico comportamento
+- Evite testar multiplos comportamentos em um unico metodo
+- Use assertions claras que expressem a intencao
+- Inclua apenas assertions necessarias para validar o caso de teste
+- Torne testes independentes e idempotentes (podem rodar em qualquer ordem)
+- Evite dependencias entre testes
 
-## Data-Driven Tests
+## Testes Data-Driven
 
-- Use `[Theory]` combined with data source attributes
-- Use `[InlineData]` for inline test data
-- Use `[MemberData]` for method-based test data
-- Use `[ClassData]` for class-based test data
-- Create custom data attributes by implementing `DataAttribute`
-- Use meaningful parameter names in data-driven tests
+- Use `[Theory]` combinado com atributos de fonte de dados
+- Use `[InlineData]` para dados inline
+- Use `[MemberData]` para dados baseados em metodo
+- Use `[ClassData]` para dados baseados em classe
+- Crie atributos custom implementando `DataAttribute`
+- Use nomes de parametros significativos em testes data-driven
 
 ## Assertions
 
-- Use `Assert.Equal` for value equality
-- Use `Assert.Same` for reference equality
-- Use `Assert.True`/`Assert.False` for boolean conditions
-- Use `Assert.Contains`/`Assert.DoesNotContain` for collections
-- Use `Assert.Matches`/`Assert.DoesNotMatch` for regex pattern matching
-- Use `Assert.Throws<T>` or `await Assert.ThrowsAsync<T>` to test exceptions
-- Use fluent assertions library for more readable assertions
+- Use `Assert.Equal` para igualdade de valor
+- Use `Assert.Same` para igualdade de referencia
+- Use `Assert.True`/`Assert.False` para booleanos
+- Use `Assert.Contains`/`Assert.DoesNotContain` para colecoes
+- Use `Assert.Matches`/`Assert.DoesNotMatch` para regex
+- Use `Assert.Throws<T>` ou `await Assert.ThrowsAsync<T>` para excecoes
+- Use fluent assertions para asserts mais legiveis
 
-## Mocking and Isolation
+## Mocking e Isolamento
 
-- Consider using Moq or NSubstitute alongside XUnit
-- Mock dependencies to isolate units under test
-- Use interfaces to facilitate mocking
-- Consider using a DI container for complex test setups
+- Considere usar Moq ou NSubstitute junto com XUnit
+- Mocke dependencias para isolar unidades sob teste
+- Use interfaces para facilitar mocking
+- Considere usar um DI container para setups complexos
 
-## Test Organization
+## Organizacao de Testes
 
-- Group tests by feature or component
-- Use `[Trait("Category", "CategoryName")]` for categorization
-- Use collection fixtures to group tests with shared dependencies
-- Consider output helpers (`ITestOutputHelper`) for test diagnostics
-- Skip tests conditionally with `Skip = "reason"` in fact/theory attributes
+- Agrupe testes por feature ou componente
+- Use `[Trait("Category", "CategoryName")]` para categorizacao
+- Use collection fixtures para agrupar testes com dependencias compartilhadas
+- Considere output helpers (`ITestOutputHelper`) para diagnosticos
+- Pule testes condicionalmente com `Skip = "reason"` em atributos fact/theory

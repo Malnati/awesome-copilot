@@ -1,38 +1,38 @@
 ---
 agent: 'agent'
-description: 'Update Azure Verified Modules (AVM) to latest versions in Bicep files.'
+description: 'Atualize Azure Verified Modules (AVM) para as versoes mais recentes em arquivos Bicep.'
 tools: ['search/codebase', 'think', 'changes', 'web/fetch', 'search/searchResults', 'todos', 'edit/editFiles', 'search', 'runCommands', 'bicepschema', 'azure_get_schema_for_Bicep']
 ---
-# Update Azure Verified Modules in Bicep Files
+# Atualizar Azure Verified Modules em Arquivos Bicep
 
-Update Bicep file `${file}` to use latest Azure Verified Module (AVM) versions. Limit progress updates to non-breaking changes. Don't output information other than the final output table and summary.
+Atualize o arquivo Bicep `${file}` para usar as versoes mais recentes do Azure Verified Module (AVM). Limite atualizacoes de progresso a mudancas sem quebra. Nao apresente informacoes alem da tabela final de saida e do resumo.
 
-## Process
+## Processo
 
-1. **Scan**: Extract AVM modules and current versions from `${file}`
-1. **Identify**: List all unique AVM modules used by matching `avm/res/{service}/{resource}` using `#search` tool
-1. **Check**: Use `#fetch` tool to get latest version of each AVM module from MCR: `https://mcr.microsoft.com/v2/bicep/avm/res/{service}/{resource}/tags/list`
-1. **Compare**: Parse semantic versions to identify AVM modules needing update
-1. **Review**: For breaking changes, use `#fetch` tool to get docs from: `https://github.com/Azure/bicep-registry-modules/tree/main/avm/res/{service}/{resource}`
-1. **Update**: Apply version updates and parameter changes using `#editFiles` tool
-1. **Validate**: Run `bicep lint` and `bicep build` using `#runCommands` tool to ensure compliance.
-1. **Output**: Summarize changes in a table format with summary of updates below.
+1. **Scan**: Extraia modulos AVM e versoes atuais de `${file}`
+1. **Identify**: Liste todos os modulos AVM unicos usados ao corresponder `avm/res/{service}/{resource}` usando a ferramenta `#search`
+1. **Check**: Use a ferramenta `#fetch` para obter a versao mais recente de cada modulo AVM no MCR: `https://mcr.microsoft.com/v2/bicep/avm/res/{service}/{resource}/tags/list`
+1. **Compare**: Analise versoes semanticas para identificar modulos AVM que precisam de atualizacao
+1. **Review**: Para mudancas com quebra, use a ferramenta `#fetch` para obter docs de: `https://github.com/Azure/bicep-registry-modules/tree/main/avm/res/{service}/{resource}`
+1. **Update**: Aplique atualizacoes de versao e mudancas de parametros usando a ferramenta `#editFiles`
+1. **Validate**: Execute `bicep lint` e `bicep build` usando a ferramenta `#runCommands` para garantir conformidade.
+1. **Output**: Resuma as mudancas em formato de tabela com um resumo das atualizacoes abaixo.
 
-## Tool Usage
+## Uso de Ferramentas
 
-Always use tools `#search`, `#searchResults`,`#fetch`, `#editFiles`, `#runCommands`, `#todos` if available. Avoid writing code to perform tasks.
+Sempre use as ferramentas `#search`, `#searchResults`, `#fetch`, `#editFiles`, `#runCommands`, `#todos` se estiverem disponiveis. Evite escrever codigo para executar tarefas.
 
-## Breaking Change Policy
+## Politica de Mudancas com Quebra
 
-⚠️ **PAUSE for approval** if updates involve:
+⚠️ **PAUSE para aprovacao** se atualizacoes envolverem:
 
-- Incompatible parameter changes
-- Security/compliance modifications
-- Behavioral changes
+- Mudancas de parametros incompativeis
+- Modificacoes de seguranca/conformidade
+- Mudancas de comportamento
 
-## Output Format
+## Formato de Saida
 
-Only display results in table with icons:
+Exiba resultados apenas em tabela com icones:
 
 ```markdown
 | Module | Current | Latest | Status | Action | Docs |

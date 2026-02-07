@@ -1,59 +1,59 @@
 ---
 agent: 'agent'
-description: 'Create comprehensive, standardized documentation for object-oriented components following industry best practices and architectural documentation standards.'
+description: 'Crie documentacao abrangente e padronizada para componentes orientados a objetos seguindo melhores praticas da industria e padroes de documentacao arquitetural.'
 tools: ['changes', 'search/codebase', 'edit/editFiles', 'extensions', 'web/fetch', 'githubRepo', 'openSimpleBrowser', 'problems', 'runTasks', 'search', 'search/searchResults', 'runCommands/terminalLastCommand', 'runCommands/terminalSelection', 'testFailure', 'usages', 'vscodeAPI']
 ---
-# Generate Standard OO Component Documentation
+# Gerar Documentacao Padrao de Componente OO
 
-Create comprehensive documentation for the object-oriented component(s) at: `${input:ComponentPath}`.
+Crie documentacao abrangente para o(s) componente(s) orientado(s) a objeto em: `${input:ComponentPath}`.
 
-Analyze the component by examining code in the provided path. If folder, analyze all source files. If single file, treat as main component and analyze related files in same directory.
+Analise o componente examinando o codigo no caminho fornecido. Se for uma pasta, analise todos os arquivos fonte. Se for um arquivo unico, trate como componente principal e analise arquivos relacionados no mesmo diretorio.
 
-## Documentation Standards
+## Padroes de Documentacao
 
-- DOC-001: Follow C4 Model documentation levels (Context, Containers, Components, Code)
-- DOC-002: Align with Arc42 software architecture documentation template
-- DOC-003: Comply with IEEE 1016 Software Design Description standard
-- DOC-004: Use Agile Documentation principles (just enough documentation that adds value)
-- DOC-005: Target developers and maintainers as primary audience
+- DOC-001: Seguir niveis do modelo C4 (Context, Containers, Components, Code)
+- DOC-002: Alinhar com o template Arc42 de documentacao de arquitetura de software
+- DOC-003: Cumprir o padrao IEEE 1016 de Software Design Description
+- DOC-004: Usar principios de Agile Documentation (documentacao suficiente que agrega valor)
+- DOC-005: Direcionar para developers e maintainers como publico principal
 
-## Analysis Instructions
+## Instrucoes de Analise
 
-- ANA-001: Determine path type (folder vs single file) and identify primary component
-- ANA-002: Examine source code files for class structures and inheritance
-- ANA-003: Identify design patterns and architectural decisions
-- ANA-004: Document public APIs, interfaces, and dependencies
-- ANA-005: Recognize creational/structural/behavioral patterns
-- ANA-006: Document method parameters, return values, exceptions
-- ANA-007: Assess performance, security, reliability, maintainability
-- ANA-008: Infer integration patterns and data flow
+- ANA-001: Determinar tipo de caminho (pasta vs arquivo unico) e identificar componente principal
+- ANA-002: Examinar arquivos fonte para estruturas de classe e heranca
+- ANA-003: Identificar design patterns e decisoes arquiteturais
+- ANA-004: Documentar APIs publicas, interfaces e dependencias
+- ANA-005: Reconhecer patterns criacionais/estruturais/comportamentais
+- ANA-006: Documentar parametros, retornos e excecoes de metodos
+- ANA-007: Avaliar performance, seguranca, confiabilidade e maintainability
+- ANA-008: Inferir patterns de integracao e fluxo de dados
 
-## Language-Specific Optimizations
+## Otimizacoes por Linguagem
 
-- LNG-001: **C#/.NET** - async/await, dependency injection, configuration, disposal
+- LNG-001: **C#/.NET** - async/await, dependency injection, configuracao, disposal
 - LNG-002: **Java** - Spring framework, annotations, exception handling, packaging
 - LNG-003: **TypeScript/JavaScript** - modules, async patterns, types, npm
 - LNG-004: **Python** - packages, virtual environments, type hints, testing
 
-## Error Handling
+## Tratamento de Erros
 
-- ERR-001: Path doesn't exist - provide correct format guidance
-- ERR-002: No source files found - suggest alternative locations
-- ERR-003: Unclear structure - document findings and request clarification
-- ERR-004: Non-standard patterns - document custom approaches
-- ERR-005: Insufficient code - focus on available information, highlight gaps
+- ERR-001: Caminho nao existe - forneca orientacao de formato correto
+- ERR-002: Nenhum arquivo fonte encontrado - sugira localizacoes alternativas
+- ERR-003: Estrutura nao clara - documente achados e solicite esclarecimentos
+- ERR-004: Patterns nao padrao - documente abordagens custom
+- ERR-005: Codigo insuficiente - foque nas informacoes disponiveis e destaque lacunas
 
-## Output Format
+## Formato de Saida
 
-Generate well-structured Markdown with clear heading hierarchy, code blocks, tables, bullet points, and proper formatting for readability and maintainability.
+Gere Markdown bem estruturado com hierarquia clara de headings, code blocks, tabelas, bullets e formatacao adequada para legibilidade e maintainability.
 
-## File Location
+## Localizacao do Arquivo
 
-The documentation should be saved in the `/docs/components/` directory and named according to the convention: `[component-name]-documentation.md`.
+A documentacao deve ser salva em `/docs/components/` e nomeada conforme a convencao: `[component-name]-documentation.md`.
 
-## Required Documentation Structure
+## Estrutura de Documentacao Obrigatoria
 
-The documentation file must follow the template below, ensuring that all sections are filled out appropriately. The front matter for the markdown should be structured correctly as per the example following:
+O arquivo deve seguir o template abaixo, garantindo que todas as secoes sejam preenchidas. O front matter deve ser estruturado corretamente conforme o exemplo:
 
 ```md
 ---

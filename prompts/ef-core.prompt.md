@@ -1,76 +1,76 @@
 ---
 agent: 'agent'
 tools: ['changes', 'search/codebase', 'edit/editFiles', 'problems', 'runCommands']
-description: 'Get best practices for Entity Framework Core'
+description: 'Obtenha boas praticas para Entity Framework Core'
 ---
 
-# Entity Framework Core Best Practices
+# Boas Praticas de Entity Framework Core
 
-Your goal is to help me follow best practices when working with Entity Framework Core.
+Seu objetivo e me ajudar a seguir boas praticas ao trabalhar com Entity Framework Core.
 
-## Data Context Design
+## Design do Data Context
 
-- Keep DbContext classes focused and cohesive
-- Use constructor injection for configuration options
-- Override OnModelCreating for fluent API configuration
-- Separate entity configurations using IEntityTypeConfiguration
-- Consider using DbContextFactory pattern for console apps or tests
+- Mantenha classes DbContext focadas e coesas
+- Use constructor injection para options de configuracao
+- Override OnModelCreating para configuracao via fluent API
+- Separe configuracoes de entidade usando IEntityTypeConfiguration
+- Considere usar o pattern DbContextFactory para apps console ou testes
 
-## Entity Design
+## Design de Entidades
 
-- Use meaningful primary keys (consider natural vs surrogate keys)
-- Implement proper relationships (one-to-one, one-to-many, many-to-many)
-- Use data annotations or fluent API for constraints and validations
-- Implement appropriate navigational properties
-- Consider using owned entity types for value objects
+- Use chaves primarias significativas (considere natural vs surrogate keys)
+- Implemente relacionamentos corretos (one-to-one, one-to-many, many-to-many)
+- Use data annotations ou fluent API para constraints e validacoes
+- Implemente propriedades de navegacao adequadas
+- Considere usar owned entity types para value objects
 
 ## Performance
 
-- Use AsNoTracking() for read-only queries
-- Implement pagination for large result sets with Skip() and Take()
-- Use Include() to eager load related entities when needed
-- Consider projection (Select) to retrieve only required fields
-- Use compiled queries for frequently executed queries
-- Avoid N+1 query problems by properly including related data
+- Use AsNoTracking() para queries somente leitura
+- Implemente paginacao para grandes conjuntos com Skip() e Take()
+- Use Include() para eager load de entidades relacionadas quando necessario
+- Considere projection (Select) para buscar apenas campos requeridos
+- Use compiled queries para queries executadas com frequencia
+- Evite problemas de N+1 incluindo dados relacionados corretamente
 
 ## Migrations
 
-- Create small, focused migrations
-- Name migrations descriptively
-- Verify migration SQL scripts before applying to production
-- Consider using migration bundles for deployment
-- Add data seeding through migrations when appropriate
+- Crie migrations pequenas e focadas
+- Nomeie migrations de forma descritiva
+- Verifique scripts SQL de migration antes de aplicar em producao
+- Considere usar migration bundles para deployment
+- Adicione data seeding via migrations quando apropriado
 
 ## Querying
 
-- Use IQueryable judiciously and understand when queries execute
-- Prefer strongly-typed LINQ queries over raw SQL
-- Use appropriate query operators (Where, OrderBy, GroupBy)
-- Consider database functions for complex operations
-- Implement specifications pattern for reusable queries
+- Use IQueryable com criterio e entenda quando a query executa
+- Prefira LINQ tipado em vez de SQL bruto
+- Use operadores adequados (Where, OrderBy, GroupBy)
+- Considere funcoes de banco para operacoes complexas
+- Implemente specifications pattern para queries reutilizaveis
 
-## Change Tracking & Saving
+## Change Tracking e Saving
 
-- Use appropriate change tracking strategies
-- Batch your SaveChanges() calls
-- Implement concurrency control for multi-user scenarios
-- Consider using transactions for multiple operations
-- Use appropriate DbContext lifetimes (scoped for web apps)
+- Use estrategias de change tracking apropriadas
+- Agrupe chamadas de SaveChanges()
+- Implemente concurrency control para cenarios multi-usuario
+- Considere transacoes para multiplas operacoes
+- Use lifetimes adequados de DbContext (scoped para web apps)
 
-## Security
+## Seguranca
 
-- Avoid SQL injection by using parameterized queries
-- Implement appropriate data access permissions
-- Be careful with raw SQL queries
-- Consider data encryption for sensitive information
-- Use migrations to manage database user permissions
+- Evite SQL injection usando queries parametrizadas
+- Implemente permissoes adequadas de acesso a dados
+- Tenha cuidado com SQL bruto
+- Considere criptografia para dados sensiveis
+- Use migrations para gerenciar permissoes de usuario no banco
 
 ## Testing
 
-- Use in-memory database provider for unit tests
-- Create separate testing contexts with SQLite for integration tests
-- Mock DbContext and DbSet for pure unit tests
-- Test migrations in isolated environments
-- Consider snapshot testing for model changes
+- Use provider in-memory para unit tests
+- Crie contexts de teste separados com SQLite para integration tests
+- Mock DbContext e DbSet para unit tests puros
+- Teste migrations em ambientes isolados
+- Considere snapshot testing para mudancas de model
 
-When reviewing my EF Core code, identify issues and suggest improvements that follow these best practices.
+Ao revisar meu codigo EF Core, identifique issues e sugira melhorias conforme essas boas praticas.

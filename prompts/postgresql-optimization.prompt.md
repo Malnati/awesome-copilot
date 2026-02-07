@@ -1,34 +1,34 @@
 ---
 agent: 'agent'
 tools: ['changes', 'search/codebase', 'edit/editFiles', 'problems']
-description: 'Assistente de desenvolvimento específico para PostgreSQL, focado em recursos exclusivos, tipos de dados avançados e capacidades exclusivas do PostgreSQL. Cobre operações JSONB, tipos de array, tipos customizados, tipos de intervalo/geométricos, busca textual, funções de janela e ecossistema de extensões PostgreSQL.'
+description: 'Assistente de desenvolvimento especifico para PostgreSQL, focado em recursos exclusivos, tipos de dados avancados e capacidades exclusivas do PostgreSQL. Cobre operacoes JSONB, tipos de array, tipos customizados, tipos de intervalo/geometricos, busca textual, funcoes de janela e ecossistema de extensoes PostgreSQL.'
 tested_with: 'GitHub Copilot Chat (GPT-4o) - Validated July 20, 2025'
 ---
 
 ## Assistente de Desenvolvimento PostgreSQL
 
-Orientação avançada de PostgreSQL para ${selection} (ou todo o projeto se não houver seleção). Foque em recursos exclusivos, padrões de otimização e capacidades avançadas do PostgreSQL.
+Orientacao avancada de PostgreSQL para ${selection} (ou todo o projeto se nao houver selecao). Foque em recursos exclusivos, padroes de otimizacao e capacidades avancadas do PostgreSQL.
 
-## Recursos Específicos do PostgreSQL
+## Recursos Especificos do PostgreSQL
 
-### Operações JSONB
+### Operacoes JSONB
 ```sql
--- Consultas avançadas com JSONB
+-- Consultas avancadas com JSONB
 CREATE TABLE events (
         id SERIAL PRIMARY KEY,
         data JSONB NOT NULL,
         created_at TIMESTAMPTZ DEFAULT NOW()
 );
 
--- Índice GIN para performance com JSONB
+-- Indice GIN para performance com JSONB
 CREATE INDEX idx_events_data_gin ON events USING gin(data);
 
--- Consultas de contenção e caminho com JSONB
+-- Consultas de contencao e caminho com JSONB
 SELECT * FROM events
 WHERE data @> '{"type": "login"}'
     AND data #>> '{user,role}' = 'admin';
 
--- Agregação JSONB
+-- Agregacao JSONB
 SELECT jsonb_agg(data) FROM events WHERE data ? 'user_id';
 ```
 
@@ -96,7 +96,7 @@ WHERE search_vector @@ plainto_tsquery('postgresql')
 ORDER BY rank DESC;
 ```
 
-## � PostgreSQL Performance Tuning
+## 🛠 PostgreSQL Performance Tuning
 
 ### Query Optimization
 ```sql
@@ -144,7 +144,7 @@ FROM pg_settings
 WHERE name IN ('shared_buffers', 'work_mem', 'maintenance_work_mem');
 ```
 
-## �️ PostgreSQL Advanced Data Types
+## 🧰 PostgreSQL Advanced Data Types
 
 ### Custom Types & Domains
 ```sql
@@ -245,12 +245,12 @@ WHERE idx_scan = 0;  -- Unused indexes
 ```
 
 ### PostgreSQL-Specific Optimization Tips
-- **Use EXPLAIN (ANALYZE, BUFFERS)** for detailed query analysis
-- **Configure postgresql.conf** for your workload (OLTP vs OLAP)
-- **Use connection pooling** (pgbouncer) for high-concurrency applications
-- **Regular VACUUM and ANALYZE** for optimal performance
-- **Partition large tables** using PostgreSQL 10+ declarative partitioning
-- **Use pg_stat_statements** for query performance monitoring
+- **Use EXPLAIN (ANALYZE, BUFFERS)** para analise detalhada de queries
+- **Configure postgresql.conf** para seu workload (OLTP vs OLAP)
+- **Use connection pooling** (pgbouncer) para apps com alta concorrencia
+- **Regular VACUUM and ANALYZE** para performance ideal
+- **Partition large tables** usando particionamento declarativo do PostgreSQL 10+
+- **Use pg_stat_statements** para monitoramento de performance de queries
 
 ## 📊 Monitoring and Maintenance
 
@@ -269,10 +269,10 @@ WHERE idx_scan = 0;
 ```
 
 ### Database Maintenance
-- **VACUUM and ANALYZE**: Regular maintenance for performance
-- **Index Maintenance**: Monitor and rebuild fragmented indexes
-- **Statistics Updates**: Keep query planner statistics current
-- **Log Analysis**: Regular review of PostgreSQL logs
+- **VACUUM and ANALYZE**: Manutencao regular para performance
+- **Index Maintenance**: Monitore e reconstrua indices fragmentados
+- **Statistics Updates**: Mantenha estatisticas do planner atualizadas
+- **Log Analysis**: Revisao regular de logs do PostgreSQL
 
 ## 🛠️ Common Query Patterns
 
@@ -403,4 +403,4 @@ WITH RECURSIVE category_tree AS (
 SELECT * FROM category_tree ORDER BY level, name;
 ```
 
-Focus on providing specific, actionable PostgreSQL optimizations that improve query performance, security, and maintainability while leveraging PostgreSQL's advanced features.
+Foque em fornecer otimizacoes PostgreSQL especificas e acionaveis que melhorem performance de query, seguranca e manutenibilidade enquanto aproveitam recursos avancados do PostgreSQL.

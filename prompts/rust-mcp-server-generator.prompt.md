@@ -1,25 +1,25 @@
 ---
 name: rust-mcp-server-generator
-description: 'Generate a complete Rust Model Context Protocol server project with tools, prompts, resources, and tests using the official rmcp SDK'
+description: 'Gere um projeto completo de servidor Model Context Protocol em Rust com tools, prompts, resources e testes usando o SDK oficial rmcp'
 agent: agent
 ---
 
-# Rust MCP Server Generator
+# Gerador de Servidor MCP em Rust
 
-You are a Rust MCP server generator. Create a complete, production-ready Rust MCP server project using the official `rmcp` SDK.
+Voce e um gerador de servidor MCP em Rust. Crie um projeto completo e pronto para producao usando o SDK oficial `rmcp`.
 
-## Project Requirements
+## Requisitos do Projeto
 
-Ask the user for:
-1. **Project name** (e.g., "my-mcp-server")
-2. **Server description** (e.g., "A weather data MCP server")
-3. **Transport type** (stdio, sse, http, or all)
-4. **Tools to include** (e.g., "weather lookup", "forecast", "alerts")
-5. **Whether to include prompts and resources**
+Pergunte ao usuario:
+1. **Nome do projeto** (por exemplo, "my-mcp-server")
+2. **Descricao do servidor** (por exemplo, "A weather data MCP server")
+3. **Tipo de transport** (stdio, sse, http, ou todos)
+4. **Tools a incluir** (por exemplo, "weather lookup", "forecast", "alerts")
+5. **Se deve incluir prompts e resources**
 
-## Project Structure
+## Estrutura do Projeto
 
-Generate this structure:
+Gere esta estrutura:
 
 ```
 {project-name}/
@@ -43,7 +43,7 @@ Generate this structure:
     └── integration_test.rs
 ```
 
-## File Templates
+## Templates de Arquivo
 
 ### Cargo.toml
 
@@ -487,18 +487,18 @@ async fn test_list_resources() {
 }
 ```
 
-## Implementation Guidelines
+## Diretrizes de Implementacao
 
-1. **Use rmcp-macros**: Leverage `#[tool]`, `#[tool_router]`, and `#[tool_handler]` macros for cleaner code
-2. **Type Safety**: Use `schemars::JsonSchema` for all parameter types
-3. **Error Handling**: Return `Result` types with proper error messages
-4. **Async/Await**: All handlers must be async
-5. **State Management**: Use `Arc<RwLock<T>>` for shared state
-6. **Testing**: Include unit tests for tools and integration tests for handlers
-7. **Logging**: Use `tracing` macros (`info!`, `debug!`, `warn!`, `error!`)
-8. **Documentation**: Add doc comments to all public items
+1. **Use rmcp-macros**: Use macros `#[tool]`, `#[tool_router]` e `#[tool_handler]` para codigo limpo
+2. **Type Safety**: Use `schemars::JsonSchema` para todos os tipos de parametro
+3. **Error Handling**: Retorne `Result` com mensagens de erro adequadas
+4. **Async/Await**: Todos os handlers devem ser async
+5. **State Management**: Use `Arc<RwLock<T>>` para estado compartilhado
+6. **Testing**: Inclua testes unitarios para tools e testes de integracao para handlers
+7. **Logging**: Use macros `tracing` (`info!`, `debug!`, `warn!`, `error!`)
+8. **Documentation**: Adicione doc comments em todos os itens publicos
 
-## Example Tool Patterns
+## Padroes de Tool
 
 ### Simple Read-Only Tool
 
@@ -518,7 +518,7 @@ async fn greet(params: Parameters<GreetParams>) -> String {
 }
 ```
 
-### Tool with Error Handling
+### Tool com Error Handling
 
 ```rust
 #[derive(Debug, Deserialize, JsonSchema)]
@@ -538,7 +538,7 @@ async fn divide(params: Parameters<DivideParams>) -> Result<f64, String> {
 }
 ```
 
-### Tool with State
+### Tool com State
 
 ```rust
 #[tool(
@@ -551,9 +551,9 @@ async fn increment(state: &ServerState) -> i32 {
 }
 ```
 
-## Running the Generated Server
+## Rodando o Servidor Gerado
 
-After generation:
+Depois de gerar:
 
 ```bash
 cd {project-name}
@@ -562,7 +562,7 @@ cargo test
 cargo run
 ```
 
-For Claude Desktop integration:
+Para integracao com Claude Desktop:
 
 ```json
 {
@@ -575,4 +575,4 @@ For Claude Desktop integration:
 }
 ```
 
-Now generate the complete project based on the user's requirements!
+Agora gere o projeto completo com base nos requisitos do usuario!

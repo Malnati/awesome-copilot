@@ -1,31 +1,31 @@
 ---
 agent: 'agent'
-description: 'Create Spring Boot Java Project Skeleton'
+description: 'Crie um esqueleto de projeto Spring Boot em Java'
 ---
 
-# Create Spring Boot Java project prompt
+# Criar prompt de projeto Spring Boot Java
 
-- Please make sure you have the following software installed on your system:
+- Garanta que voce tenha o seguinte software instalado no sistema:
 
   - Java 21
   - Docker
   - Docker Compose
 
-- If you need to custom the project name, please change the `artifactId` and the `packageName` in [download-spring-boot-project-template](./create-spring-boot-java-project.prompt.md#download-spring-boot-project-template)
+- Se precisar customizar o nome do projeto, altere `artifactId` e `packageName` em [download-spring-boot-project-template](./create-spring-boot-java-project.prompt.md#download-spring-boot-project-template)
 
-- If you need to update the Spring Boot version, please change the `bootVersion` in [download-spring-boot-project-template](./create-spring-boot-java-project.prompt.md#download-spring-boot-project-template)
+- Se precisar atualizar a versao do Spring Boot, altere `bootVersion` em [download-spring-boot-project-template](./create-spring-boot-java-project.prompt.md#download-spring-boot-project-template)
 
-## Check Java version
+## Verificar versao do Java
 
-- Run following command in terminal and check the version of Java
+- Execute o comando abaixo no terminal e confira a versao do Java
 
 ```shell
 java -version
 ```
 
-## Download Spring Boot project template
+## Baixar template de projeto Spring Boot
 
-- Run following command in terminal to download a Spring Boot project template
+- Execute o comando abaixo no terminal para baixar o template
 
 ```shell
 curl https://start.spring.io/starter.zip \
@@ -39,33 +39,33 @@ curl https://start.spring.io/starter.zip \
   -o starter.zip
 ```
 
-## Unzip the downloaded file
+## Descompactar o arquivo baixado
 
-- Run following command in terminal to unzip the downloaded file
+- Execute o comando abaixo para descompactar o template
 
 ```shell
 unzip starter.zip -d ./${input:projectName:demo-java}
 ```
 
-## Remove the downloaded zip file
+## Remover o zip baixado
 
-- Run following command in terminal to delete the downloaded zip file
+- Execute o comando abaixo para remover o arquivo
 
 ```shell
 rm -f starter.zip
 ```
 
-## Change directory to the project root
+## Entrar no diretorio do projeto
 
-- Run following command in terminal to change directory to the project root
+- Execute o comando abaixo para entrar no diretorio do projeto
 
 ```shell
 cd ${input:projectName:demo-java}
 ```
 
-## Add additional dependencies
+## Adicionar dependencias extras
 
-- Insert `springdoc-openapi-starter-webmvc-ui` and `archunit-junit5` dependency into `pom.xml` file
+- Insira as dependencias `springdoc-openapi-starter-webmvc-ui` e `archunit-junit5` no `pom.xml`
 
 ```xml
 <dependency>
@@ -81,9 +81,9 @@ cd ${input:projectName:demo-java}
 </dependency>
 ```
 
-## Add SpringDoc, Redis, JPA and MongoDB configurations
+## Adicionar configuracoes do SpringDoc, Redis, JPA e MongoDB
 
-- Insert SpringDoc configurations into `application.properties` file
+- Insira as configuracoes do SpringDoc no `application.properties`
 
 ```properties
 # SpringDoc configurations
@@ -92,7 +92,7 @@ springdoc.swagger-ui.operations-sorter=alpha
 springdoc.swagger-ui.tags-sorter=alpha
 ```
 
-- Insert Redis configurations into `application.properties` file
+- Insira as configuracoes do Redis no `application.properties`
 
 ```properties
 # Redis configurations
@@ -101,7 +101,7 @@ spring.data.redis.port=6379
 spring.data.redis.password=rootroot
 ```
 
-- Insert JPA configurations into `application.properties` file
+- Insira as configuracoes do JPA no `application.properties`
 
 ```properties
 # JPA configurations
@@ -114,7 +114,7 @@ spring.jpa.show-sql=true
 spring.jpa.properties.hibernate.format_sql=true
 ```
 
-- Insert MongoDB configurations into `application.properties` file
+- Insira as configuracoes do MongoDB no `application.properties`
 
 ```properties
 # MongoDB configurations
@@ -126,38 +126,38 @@ spring.data.mongodb.password=rootroot
 spring.data.mongodb.database=test
 ```
 
-## Add `docker-compose.yaml` with Redis, PostgreSQL and MongoDB services
+## Adicionar `docker-compose.yaml` com Redis, PostgreSQL e MongoDB
 
-- Create `docker-compose.yaml` at project root and add following services: `redis:6`, `postgresql:17` and `mongo:8`.
+- Crie `docker-compose.yaml` na raiz do projeto e adicione os servicos: `redis:6`, `postgresql:17` e `mongo:8`.
 
-  - redis service should have
+  - O servico redis deve ter
     - password `rootroot`
     - mapping port 6379 to 6379
     - mounting volume `./redis_data` to `/data`
-  - postgresql service should have
+  - O servico postgresql deve ter
     - password `rootroot`
     - mapping port 5432 to 5432
     - mounting volume `./postgres_data` to `/var/lib/postgresql/data`
-  - mongo service should have
+  - O servico mongo deve ter
     - initdb root username `root`
     - initdb root password `rootroot`
     - mapping port 27017 to 27017
     - mounting volume `./mongo_data` to `/data/db`
 
-## Add `.gitignore` file
+## Adicionar arquivo `.gitignore`
 
-- Insert `redis_data`, `postgres_data` and `mongo_data` directories in `.gitignore` file
+- Insira os diretorios `redis_data`, `postgres_data` e `mongo_data` no `.gitignore`
 
-## Run Maven test command
+## Rodar Maven test
 
-- Run maven clean test command to check if the project is working
+- Rode o comando de teste do Maven para checar se o projeto esta funcionando
 
 ```shell
 ./mvnw clean test
 ```
 
-## Run Maven run command (Optional)
+## Rodar Maven run (Opcional)
 
-- (Optional) `docker-compose up -d` to start the services, `./mvnw spring-boot:run` to run the Spring Boot project, `docker-compose rm -sf` to stop the services.
+- (Opcional) `docker-compose up -d` para iniciar os servicos, `./mvnw spring-boot:run` para rodar o projeto, `docker-compose rm -sf` para parar os servicos.
 
-## Let's do this step by step
+## Vamos fazer isso passo a passo

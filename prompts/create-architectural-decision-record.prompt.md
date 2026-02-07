@@ -1,11 +1,11 @@
 ---
 agent: 'agent'
-description: 'Create an Architectural Decision Record (ADR) document for AI-optimized decision documentation.'
+description: 'Crie um Architectural Decision Record (ADR) para documentacao de decisoes otimizada para IA.'
 tools: ['changes', 'search/codebase', 'edit/editFiles', 'extensions', 'web/fetch', 'githubRepo', 'openSimpleBrowser', 'problems', 'runTasks', 'search', 'search/searchResults', 'runCommands/terminalLastCommand', 'runCommands/terminalSelection', 'testFailure', 'usages', 'vscodeAPI']
 ---
-# Create Architectural Decision Record
+# Criar Architectural Decision Record
 
-Create an ADR document for `${input:DecisionTitle}` using structured formatting optimized for AI consumption and human readability.
+Crie um ADR para `${input:DecisionTitle}` usando formatacao estruturada otimizada para consumo por IA e leitura humana.
 
 ## Inputs
 
@@ -15,22 +15,22 @@ Create an ADR document for `${input:DecisionTitle}` using structured formatting 
 - **Stakeholders**: `${input:Stakeholders}`
 
 ## Input Validation
-If any of the required inputs are not provided or cannot be determined from the conversation history, ask the user to provide the missing information before proceeding with ADR generation.
+Se algum dos inputs obrigatorios nao for fornecido ou nao puder ser determinado pelo historico da conversa, solicite ao usuario as informacoes faltantes antes de prosseguir com a geracao do ADR.
 
-## Requirements
+## Requisitos
 
-- Use precise, unambiguous language
-- Follow standardized ADR format with front matter
-- Include both positive and negative consequences
-- Document alternatives with rejection rationale
-- Structure for machine parsing and human reference
-- Use coded bullet points (3-4 letter codes + 3-digit numbers) for multi-item sections
+- Use linguagem precisa e sem ambiguidades
+- Siga formato padronizado de ADR com front matter
+- Inclua consequencias positivas e negativas
+- Documente alternativas com justificativa de rejeicao
+- Estruture para parsing por maquina e referencia humana
+- Use coded bullet points (3-4 letter codes + 3-digit numbers) para secoes com multiplos itens
 
-The ADR must be saved in the `/docs/adr/` directory using the naming convention: `adr-NNNN-[title-slug].md`, where NNNN is the next sequential 4-digit number (e.g., `adr-0001-database-selection.md`).
+O ADR deve ser salvo em `/docs/adr/` usando a convencao: `adr-NNNN-[title-slug].md`, onde NNNN e o proximo numero sequencial de 4 digitos (ex.: `adr-0001-database-selection.md`).
 
-## Required Documentation Structure
+## Estrutura de Documentacao Obrigatoria
 
-The documentation file must follow the template below, ensuring that all sections are filled out appropriately. The front matter for the markdown should be structured correctly as per the example following:
+O arquivo deve seguir o template abaixo, garantindo que todas as secoes sejam preenchidas. O front matter deve ser estruturado corretamente conforme o exemplo:
 
 ```md
 ---

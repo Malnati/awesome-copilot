@@ -1,17 +1,17 @@
 ---
 agent: 'agent'
 tools: ['changes', 'search/codebase', 'edit/editFiles', 'problems']
-description: 'PostgreSQL-specific code review assistant focusing on PostgreSQL best practices, anti-patterns, and unique quality standards. Covers JSONB operations, array usage, custom types, schema design, function optimization, and PostgreSQL-exclusive security features like Row Level Security (RLS).'
+description: 'Assistente de code review especifico de PostgreSQL focado em boas praticas, anti-padroes e padroes de qualidade exclusivos do PostgreSQL. Cobre operacoes JSONB, uso de arrays, tipos customizados, schema design, otimizacao de funcoes e recursos de seguranca exclusivos como Row Level Security (RLS).'
 tested_with: 'GitHub Copilot Chat (GPT-4o) - Validated July 20, 2025'
 ---
 
-# PostgreSQL Code Review Assistant
+# Assistente de Code Review PostgreSQL
 
-Expert PostgreSQL code review for ${selection} (or entire project if no selection). Focus on PostgreSQL-specific best practices, anti-patterns, and quality standards that are unique to PostgreSQL.
+Code review especialista para PostgreSQL em ${selection} (ou projeto inteiro se nao houver selecao). Foco em boas praticas especificas de PostgreSQL, anti-padroes e padroes de qualidade exclusivos do PostgreSQL.
 
-## 🎯 PostgreSQL-Specific Review Areas
+## 🎯 Areas de Review Especificas de PostgreSQL
 
-### JSONB Best Practices
+### Boas Praticas de JSONB
 ```sql
 -- ❌ BAD: Inefficient JSONB usage
 SELECT * FROM orders WHERE data->>'status' = 'shipped';  -- No index support
@@ -28,7 +28,7 @@ ALTER TABLE orders ADD CONSTRAINT valid_status
 CHECK (data->>'status' IN ('pending', 'shipped', 'delivered'));
 ```
 
-### Array Operations Review
+### Review de Operacoes com Arrays
 ```sql
 -- ❌ BAD: Inefficient array operations
 SELECT * FROM products WHERE 'electronics' = ANY(categories);  -- No index
@@ -45,7 +45,7 @@ UPDATE products SET categories = categories || ARRAY['new_category']
 WHERE id IN (SELECT id FROM products WHERE condition);
 ```
 
-### PostgreSQL Schema Design Review
+### Review de Schema Design em PostgreSQL
 ```sql
 -- ❌ BAD: Not using PostgreSQL features
 CREATE TABLE users (
@@ -67,7 +67,7 @@ CREATE TABLE users (
 CREATE INDEX idx_users_metadata ON users USING gin(metadata);
 ```
 
-### Custom Types and Domains
+### Tipos e Domains Customizados
 ```sql
 -- ❌ BAD: Using generic types for specific data
 CREATE TABLE transactions (
@@ -88,21 +88,21 @@ CREATE TABLE transactions (
 );
 ```
 
-## 🔍 PostgreSQL-Specific Anti-Patterns
+## 🔍 Anti-Padroes Especificos de PostgreSQL
 
-### Performance Anti-Patterns
-- **Avoiding PostgreSQL-specific indexes**: Not using GIN/GiST for appropriate data types
-- **Misusing JSONB**: Treating JSONB like a simple string field
-- **Ignoring array operators**: Using inefficient array operations
-- **Poor partition key selection**: Not leveraging PostgreSQL partitioning effectively
+### Anti-Padroes de Performance
+- **Avoiding PostgreSQL-specific indexes**: Nao usar GIN/GiST para data types apropriados
+- **Misusing JSONB**: Tratar JSONB como campo string simples
+- **Ignoring array operators**: Usar operacoes de array ineficientes
+- **Poor partition key selection**: Nao aproveitar particionamento do PostgreSQL
 
-### Schema Design Issues
-- **Not using ENUM types**: Using VARCHAR for limited value sets
-- **Ignoring constraints**: Missing CHECK constraints for data validation
-- **Wrong data types**: Using VARCHAR instead of TEXT or CITEXT
-- **Missing JSONB structure**: Unstructured JSONB without validation
+### Problemas de Schema Design
+- **Not using ENUM types**: Usar VARCHAR para conjuntos de valores limitados
+- **Ignoring constraints**: Falta de CHECK constraints para validacao de dados
+- **Wrong data types**: Usar VARCHAR em vez de TEXT ou CITEXT
+- **Missing JSONB structure**: JSONB sem estrutura e validacao
 
-### Function and Trigger Issues
+### Problemas em Functions e Triggers
 ```sql
 -- ❌ BAD: Inefficient trigger function
 CREATE OR REPLACE FUNCTION update_modified_time()
@@ -130,9 +130,9 @@ CREATE TRIGGER update_modified_time_trigger
     EXECUTE FUNCTION update_modified_time();
 ```
 
-## 📊 PostgreSQL Extension Usage Review
+## 📊 Review de Uso de Extensoes PostgreSQL
 
-### Extension Best Practices
+### Boas Praticas de Extensoes
 ```sql
 -- ✅ Check if extension exists before creating
 CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
@@ -150,7 +150,7 @@ SELECT crypt('password', gen_salt('bf'));
 SELECT word_similarity('postgres', 'postgre');
 ```
 
-## 🛡️ PostgreSQL Security Review
+## 🛡️ Review de Seguranca PostgreSQL
 
 ### Row Level Security (RLS)
 ```sql
@@ -172,43 +172,43 @@ GRANT SELECT, INSERT, UPDATE ON specific_table TO app_user;
 GRANT USAGE ON SEQUENCE specific_table_id_seq TO app_user;
 ```
 
-## 🎯 PostgreSQL Code Quality Checklist
+## 🎯 Checklist de Qualidade de Codigo PostgreSQL
 
 ### Schema Design
-- [ ] Using appropriate PostgreSQL data types (CITEXT, JSONB, arrays)
-- [ ] Leveraging ENUM types for constrained values
-- [ ] Implementing proper CHECK constraints
-- [ ] Using TIMESTAMPTZ instead of TIMESTAMP
-- [ ] Defining custom domains for reusable constraints
+- [ ] Usando data types apropriados do PostgreSQL (CITEXT, JSONB, arrays)
+- [ ] Aproveitando ENUM types para valores limitados
+- [ ] Implementando CHECK constraints adequados
+- [ ] Usando TIMESTAMPTZ em vez de TIMESTAMP
+- [ ] Definindo domains customizados para constraints reutilizaveis
 
 ### Performance Considerations
-- [ ] Appropriate index types (GIN for JSONB/arrays, GiST for ranges)
-- [ ] JSONB queries using containment operators (@>, ?)
-- [ ] Array operations using PostgreSQL-specific operators
-- [ ] Proper use of window functions and CTEs
-- [ ] Efficient use of PostgreSQL-specific functions
+- [ ] Tipos de indice adequados (GIN para JSONB/arrays, GiST para ranges)
+- [ ] Queries JSONB usando operadores de contencao (@>, ?)
+- [ ] Operacoes de array usando operadores especificos do PostgreSQL
+- [ ] Uso apropriado de window functions e CTEs
+- [ ] Uso eficiente de funcoes especificas do PostgreSQL
 
 ### PostgreSQL Features Utilization
-- [ ] Using extensions where appropriate
-- [ ] Implementing stored procedures in PL/pgSQL when beneficial
-- [ ] Leveraging PostgreSQL's advanced SQL features
-- [ ] Using PostgreSQL-specific optimization techniques
-- [ ] Implementing proper error handling in functions
+- [ ] Usando extensoes quando apropriado
+- [ ] Implementando stored procedures em PL/pgSQL quando benefico
+- [ ] Aproveitando recursos avancados do PostgreSQL
+- [ ] Usando tecnicas de otimizacao especificas do PostgreSQL
+- [ ] Implementando tratamento adequado de erros em funcoes
 
 ### Security and Compliance
-- [ ] Row Level Security (RLS) implementation where needed
-- [ ] Proper role and privilege management
-- [ ] Using PostgreSQL's built-in encryption functions
-- [ ] Implementing audit trails with PostgreSQL features
+- [ ] Implementacao de Row Level Security (RLS) quando necessario
+- [ ] Gerenciamento adequado de roles e privilegios
+- [ ] Uso de funcoes de criptografia embutidas do PostgreSQL
+- [ ] Implementacao de trilhas de auditoria com recursos PostgreSQL
 
-## 📝 PostgreSQL-Specific Review Guidelines
+## 📝 Diretrizes de Review Especificas de PostgreSQL
 
-1. **Data Type Optimization**: Ensure PostgreSQL-specific types are used appropriately
-2. **Index Strategy**: Review index types and ensure PostgreSQL-specific indexes are utilized
-3. **JSONB Structure**: Validate JSONB schema design and query patterns
-4. **Function Quality**: Review PL/pgSQL functions for efficiency and best practices
-5. **Extension Usage**: Verify appropriate use of PostgreSQL extensions
-6. **Performance Features**: Check utilization of PostgreSQL's advanced features
-7. **Security Implementation**: Review PostgreSQL-specific security features
+1. **Data Type Optimization**: Garanta que data types especificos do PostgreSQL sejam usados adequadamente
+2. **Index Strategy**: Revise tipos de indice e garanta uso de indices especificos do PostgreSQL
+3. **JSONB Structure**: Valide schema de JSONB e padroes de query
+4. **Function Quality**: Revise funcoes PL/pgSQL para eficiencia e boas praticas
+5. **Extension Usage**: Verifique uso apropriado de extensoes PostgreSQL
+6. **Performance Features**: Verifique uso de recursos avancados do PostgreSQL
+7. **Security Implementation**: Revise recursos de seguranca especificos do PostgreSQL
 
-Focus on PostgreSQL's unique capabilities and ensure the code leverages what makes PostgreSQL special rather than treating it as a generic SQL database.
+Foque nas capacidades unicas do PostgreSQL e garanta que o codigo aproveita o que torna o PostgreSQL especial em vez de trata-lo como um banco SQL generico.

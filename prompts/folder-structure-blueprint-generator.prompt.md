@@ -1,286 +1,286 @@
 ---
-description: 'Comprehensive technology-agnostic prompt for analyzing and documenting project folder structures. Auto-detects project types (.NET, Java, React, Angular, Python, Node.js, Flutter), generates detailed blueprints with visualization options, naming conventions, file placement patterns, and extension templates for maintaining consistent code organization across diverse technology stacks.'
+description: 'Prompt abrangente e agnostico de tecnologia para analisar e documentar estruturas de pastas de projetos. Auto-detecta tipos de projeto (.NET, Java, React, Angular, Python, Node.js, Flutter), gera blueprints detalhados com opcoes de visualizacao, convencoes de nome, patterns de alocacao de arquivos e templates de extensao para manter organizacao consistente em diferentes stacks.'
 agent: 'agent'
 ---
 
-# Project Folder Structure Blueprint Generator
+# Gerador de Blueprint de Estrutura de Pastas de Projeto
 
-## Configuration Variables
+## Variaveis de Configuracao
 
 ${PROJECT_TYPE="Auto-detect|.NET|Java|React|Angular|Python|Node.js|Flutter|Other"} 
-<!-- Select primary technology -->
+<!-- Selecionar tecnologia principal -->
 
 ${INCLUDES_MICROSERVICES="Auto-detect|true|false"} 
-<!-- Is this a microservices architecture? -->
+<!-- Esta arquitetura usa microservices? -->
 
 ${INCLUDES_FRONTEND="Auto-detect|true|false"} 
-<!-- Does project include frontend components? -->
+<!-- O projeto inclui componentes de frontend? -->
 
 ${IS_MONOREPO="Auto-detect|true|false"} 
-<!-- Is this a monorepo with multiple projects? -->
+<!-- E um monorepo com multiplos projetos? -->
 
 ${VISUALIZATION_STYLE="ASCII|Markdown List|Table"} 
-<!-- How to visualize the structure -->
+<!-- Como visualizar a estrutura -->
 
 ${DEPTH_LEVEL=1-5} 
-<!-- How many levels of folders to document in detail -->
+<!-- Quantos niveis de pastas detalhar -->
 
 ${INCLUDE_FILE_COUNTS=true|false} 
-<!-- Include file count statistics -->
+<!-- Incluir estatisticas de contagem de arquivos -->
 
 ${INCLUDE_GENERATED_FOLDERS=true|false} 
-<!-- Include auto-generated folders -->
+<!-- Incluir pastas geradas automaticamente -->
 
 ${INCLUDE_FILE_PATTERNS=true|false} 
-<!-- Document file naming/location patterns -->
+<!-- Documentar patterns de nome/localizacao de arquivos -->
 
 ${INCLUDE_TEMPLATES=true|false} 
-<!-- Include file/folder templates for new features -->
+<!-- Incluir templates de arquivos/pastas para novas features -->
 
-## Generated Prompt
+## Prompt Gerado
 
-"Analyze the project's folder structure and create a comprehensive 'Project_Folders_Structure_Blueprint.md' document that serves as a definitive guide for maintaining consistent code organization. Use the following approach:
+"Analise a estrutura de pastas do projeto e crie um documento abrangente 'Project_Folders_Structure_Blueprint.md' que sirva como guia definitivo para manter organizacao consistente de codigo. Use a abordagem abaixo:
 
-### Initial Auto-detection Phase
+### Fase Inicial de Auto-deteccao
 
 ${PROJECT_TYPE == "Auto-detect" ? 
-"Begin by scanning the folder structure for key files that identify the project type:
-- Look for solution/project files (.sln, .csproj, .fsproj, .vbproj) to identify .NET projects
-- Check for build files (pom.xml, build.gradle, settings.gradle) for Java projects
-- Identify package.json with dependencies for JavaScript/TypeScript projects
-- Look for specific framework files (angular.json, react-scripts entries, next.config.js)
-- Check for Python project identifiers (requirements.txt, setup.py, pyproject.toml)
-- Examine mobile app identifiers (pubspec.yaml, android/ios folders)
-- Note all technology signatures found and their versions" : 
-"Focus analysis on ${PROJECT_TYPE} project structure"}
+"Comece varrendo a estrutura de pastas em busca de arquivos-chave que identifiquem o tipo de projeto:
+- Procure arquivos de solucao/projeto (.sln, .csproj, .fsproj, .vbproj) para identificar projetos .NET
+- Verifique arquivos de build (pom.xml, build.gradle, settings.gradle) para projetos Java
+- Identifique package.json com dependencias para projetos JavaScript/TypeScript
+- Procure arquivos especificos de framework (angular.json, entradas react-scripts, next.config.js)
+- Verifique identificadores de projeto Python (requirements.txt, setup.py, pyproject.toml)
+- Examine identificadores de apps mobile (pubspec.yaml, pastas android/ios)
+- Observe todas as assinaturas de tecnologia encontradas e suas versoes" : 
+"Foque a analise na estrutura do projeto ${PROJECT_TYPE}"}
 
 ${IS_MONOREPO == "Auto-detect" ? 
-"Determine if this is a monorepo by looking for:
-- Multiple distinct projects with their own configuration files
-- Workspace configuration files (lerna.json, nx.json, turborepo.json, etc.)
-- Cross-project references and shared dependency patterns
-- Root-level orchestration scripts and configuration" : ""}
+"Determine se e monorepo procurando:
+- Multiplos projetos distintos com seus proprios arquivos de configuracao
+- Arquivos de configuracao de workspace (lerna.json, nx.json, turborepo.json, etc.)
+- Referencias cruzadas entre projetos e patterns de dependencias compartilhadas
+- Scripts e configuracoes de orquestracao na raiz" : ""}
 
 ${INCLUDES_MICROSERVICES == "Auto-detect" ? 
-"Check for microservices architecture indicators:
-- Multiple service directories with similar/repeated structures
-- Service-specific Dockerfiles or deployment configurations
-- Inter-service communication patterns (APIs, message brokers)
-- Service registry or discovery configuration
-- API gateway configuration files
-- Shared libraries or utilities across services" : ""}
+"Verifique indicadores de arquitetura de microservices:
+- Multiplos diretorios de service com estruturas similares
+- Dockerfiles ou configuracoes de deploy por service
+- Patterns de comunicacao entre services (APIs, message brokers)
+- Configuracoes de service registry ou discovery
+- Arquivos de configuracao de API gateway
+- Libraries ou utilities compartilhadas entre services" : ""}
 
 ${INCLUDES_FRONTEND == "Auto-detect" ? 
-"Identify frontend components by looking for:
-- Web asset directories (wwwroot, public, dist, static)
-- UI framework files (components, modules, pages)
-- Frontend build configuration (webpack, vite, rollup, etc.)
-- Style sheet organization (CSS, SCSS, styled-components)
-- Static asset organization (images, fonts, icons)" : ""}
+"Identifique componentes de frontend procurando:
+- Diretorios de assets web (wwwroot, public, dist, static)
+- Arquivos de UI framework (components, modules, pages)
+- Configuracoes de build de frontend (webpack, vite, rollup, etc.)
+- Organizacao de stylesheets (CSS, SCSS, styled-components)
+- Organizacao de assets estaticos (images, fonts, icons)" : ""}
 
 ### 1. Structural Overview
 
-Provide a high-level overview of the ${PROJECT_TYPE == "Auto-detect" ? "detected project type(s)" : PROJECT_TYPE} project's organization principles and folder structure:
+Forneca uma visao geral de alto nivel dos principios de organizacao e estrutura do projeto ${PROJECT_TYPE == "Auto-detect" ? "detectado" : PROJECT_TYPE}:
 
-- Document the overall architectural approach reflected in the folder structure
-- Identify the main organizational principles (by feature, by layer, by domain, etc.)
-- Note any structural patterns that repeat throughout the codebase
-- Document the rationale behind the structure where it can be inferred
+- Documente a abordagem arquitetural refletida na estrutura
+- Identifique principios organizacionais principais (por feature, por camada, por dominio, etc.)
+- Observe patterns estruturais que se repetem no codebase
+- Documente a razao por tras da estrutura quando possivel inferir
 
 ${IS_MONOREPO == "Auto-detect" ? 
-"If detected as a monorepo, explain how the monorepo is organized and the relationship between projects." : 
-IS_MONOREPO ? "Explain how the monorepo is organized and the relationship between projects." : ""}
+"Se detectado como monorepo, explique como ele e organizado e a relacao entre projetos." : 
+IS_MONOREPO ? "Explique como o monorepo e organizado e a relacao entre projetos." : ""}
 
 ${INCLUDES_MICROSERVICES == "Auto-detect" ? 
-"If microservices are detected, describe how they are structured and organized." : 
-INCLUDES_MICROSERVICES ? "Describe how the microservices are structured and organized." : ""}
+"Se microservices forem detectados, descreva como sao estruturados e organizados." : 
+INCLUDES_MICROSERVICES ? "Descreva como os microservices sao estruturados e organizados." : ""}
 
 ### 2. Directory Visualization
 
 ${VISUALIZATION_STYLE == "ASCII" ? 
-"Create an ASCII tree representation of the folder hierarchy to depth level ${DEPTH_LEVEL}." : ""}
+"Crie uma arvore ASCII da hierarquia de pastas ate o nivel ${DEPTH_LEVEL}." : ""}
 
 ${VISUALIZATION_STYLE == "Markdown List" ? 
-"Use nested markdown lists to represent the folder hierarchy to depth level ${DEPTH_LEVEL}." : ""}
+"Use listas Markdown aninhadas para representar a hierarquia ate o nivel ${DEPTH_LEVEL}." : ""}
 
 ${VISUALIZATION_STYLE == "Table" ? 
-"Create a table with columns for Path, Purpose, Content Types, and Conventions." : ""}
+"Crie uma tabela com colunas Path, Purpose, Content Types e Conventions." : ""}
 
 ${INCLUDE_GENERATED_FOLDERS ? 
-"Include all folders including generated ones." : 
-"Exclude auto-generated folders like bin/, obj/, node_modules/, etc."}
+"Inclua todas as pastas, inclusive as geradas." : 
+"Exclua pastas geradas automaticamente como bin/, obj/, node_modules/, etc."}
 
 ### 3. Key Directory Analysis
 
-Document each significant directory's purpose, contents, and patterns:
+Documente o proposito, conteudo e patterns de cada diretorio significativo:
 
 ${PROJECT_TYPE == "Auto-detect" ? 
-"For each detected technology, analyze directory structures based on observed usage patterns:" : ""}
+"Para cada tecnologia detectada, analise a estrutura com base nos patterns observados:" : ""}
 
 ${(PROJECT_TYPE == ".NET" || PROJECT_TYPE == "Auto-detect") ? 
 "#### .NET Project Structure (if detected)
 
 - **Solution Organization**: 
-  - How projects are grouped and related
-  - Solution folder organization patterns
-  - Multi-targeting project patterns
+  - Como projetos sao agrupados e relacionados
+  - Patterns de organizacao de solution folders
+  - Patterns de projetos multi-target
 
 - **Project Organization**:
-  - Internal folder structure patterns
-  - Source code organization approach
-  - Resource organization
-  - Project dependencies and references
+  - Patterns internos de estrutura de pastas
+  - Abordagem de organizacao do source
+  - Organizacao de resources
+  - Dependencias e referencias de projeto
 
 - **Domain/Feature Organization**:
-  - How business domains or features are separated
-  - Domain boundary enforcement patterns
+  - Separacao de dominios ou features
+  - Patterns de enforcement de limites de dominio
 
 - **Layer Organization**:
-  - Separation of concerns (Controllers, Services, Repositories, etc.)
-  - Layer interaction and dependency patterns
+  - Separacao de concerns (Controllers, Services, Repositories, etc.)
+  - Patterns de interacao e dependencia entre camadas
 
 - **Configuration Management**:
-  - Configuration file locations and purposes
-  - Environment-specific configurations
-  - Secret management approach
+  - Localizacao e proposito de arquivos de configuracao
+  - Configuracoes por ambiente
+  - Abordagem de gestao de secrets
 
 - **Test Project Organization**:
-  - Test project structure and naming
-  - Test categories and organization
-  - Test data and mock locations" : ""}
+  - Estrutura e convencoes de nome de projetos de teste
+  - Categorias de teste e organizacao
+  - Localizacao de dados de teste e mocks" : ""}
 
 ${(PROJECT_TYPE == "React" || PROJECT_TYPE == "Angular" || PROJECT_TYPE == "Auto-detect") ? 
 "#### UI Project Structure (if detected)
 
 - **Component Organization**:
-  - Component folder structure patterns
-  - Grouping strategies (by feature, type, etc.)
-  - Shared vs. feature-specific components
+  - Patterns de estrutura de pastas de componentes
+  - Estrategias de agrupamento (por feature, por tipo, etc.)
+  - Componentes compartilhados vs. especificos
 
 - **State Management**:
-  - State-related file organization
-  - Store structure for global state
-  - Local state management patterns
+  - Organizacao de arquivos de estado
+  - Estrutura de store global
+  - Patterns de state local
 
 - **Routing Organization**:
-  - Route definition locations
-  - Page/view component organization
-  - Route parameter handling
+  - Localizacao de definicoes de rota
+  - Organizacao de paginas/views
+  - Tratamento de parametros de rota
 
 - **API Integration**:
-  - API client organization
-  - Service layer structure
-  - Data fetching patterns
+  - Organizacao do API client
+  - Estrutura de service layer
+  - Patterns de data fetching
 
 - **Asset Management**:
-  - Static resource organization
-  - Image/media file structure
-  - Font and icon organization
+  - Organizacao de assets estaticos
+  - Estrutura de imagens/midias
+  - Organizacao de fontes e icones
   
 - **Style Organization**:
-  - CSS/SCSS file structure
-  - Theme organization
-  - Style module patterns" : ""}
+  - Estrutura de arquivos CSS/SCSS
+  - Organizacao de temas
+  - Patterns de modules de estilo" : ""}
 
 ### 4. File Placement Patterns
 
 ${INCLUDE_FILE_PATTERNS ? 
-"Document the patterns that determine where different types of files should be placed:
+"Documente os patterns que determinam onde diferentes tipos de arquivos devem ficar:
 
 - **Configuration Files**:
-  - Locations for different types of configuration
-  - Environment-specific configuration patterns
+  - Localizacoes para diferentes tipos de configuracao
+  - Patterns de configuracao por ambiente
   
 - **Model/Entity Definitions**:
-  - Where domain models are defined
-  - Data transfer object (DTO) locations
-  - Schema definition locations
+  - Onde modelos de dominio sao definidos
+  - Localizacao de DTOs
+  - Localizacao de schemas
   
 - **Business Logic**:
-  - Service implementation locations
-  - Business rule organization
-  - Utility and helper function placement
+  - Localizacao de implementacoes de services
+  - Organizacao de regras de negocio
+  - Localizacao de utilities e helpers
   
 - **Interface Definitions**:
-  - Where interfaces and abstractions are defined
-  - How interfaces are grouped and organized
+  - Onde interfaces e abstracoes sao definidas
+  - Como interfaces sao agrupadas e organizadas
   
 - **Test Files**:
-  - Unit test location patterns
-  - Integration test placement
-  - Test utility and mock locations
+  - Patterns de localizacao de testes unitarios
+  - Localizacao de testes de integracao
+  - Localizacao de utilitarios e mocks
   
 - **Documentation Files**:
-  - API documentation placement
-  - Internal documentation organization
-  - README file distribution" : 
-"Document where key file types are located in the project."}
+  - Localizacao de documentacao de API
+  - Organizacao de documentacao interna
+  - Distribuicao de arquivos README" : 
+"Documente onde os tipos de arquivo-chave ficam no projeto."}
 
 ### 5. Naming and Organization Conventions
-Document the naming and organizational conventions observed across the project:
+Documente as convencoes de nome e organizacao observadas no projeto:
 
 - **File Naming Patterns**:
-  - Case conventions (PascalCase, camelCase, kebab-case)
-  - Prefix and suffix patterns
-  - Type indicators in filenames
+  - Convencoes de case (PascalCase, camelCase, kebab-case)
+  - Prefixos e sufixos
+  - Indicadores de tipo em nomes de arquivo
   
 - **Folder Naming Patterns**:
-  - Naming conventions for different folder types
-  - Hierarchical naming patterns
-  - Grouping and categorization conventions
+  - Convencoes de nome para diferentes tipos de pasta
+  - Patterns hierarquicos
+  - Convencoes de agrupamento e categorizacao
   
 - **Namespace/Module Patterns**:
-  - How namespaces/modules map to folder structure
-  - Import/using statement organization
-  - Internal vs. public API separation
+  - Como namespaces/modules mapeiam para estrutura de pastas
+  - Organizacao de import/using
+  - Separacao de API interna vs publica
 
 - **Organizational Patterns**:
-  - Code co-location strategies
-  - Feature encapsulation approaches
-  - Cross-cutting concern organization
+  - Estrategias de co-localizacao de codigo
+  - Abordagens de encapsulamento de features
+  - Organizacao de concerns cross-cutting
 
 ### 6. Navigation and Development Workflow
-Provide guidance for navigating and working with the codebase structure:
+Forneca orientacao para navegar e trabalhar com o codebase:
 
 - **Entry Points**:
-  - Main application entry points
-  - Key configuration starting points
-  - Initial files for understanding the project
+  - Entry points principais do app
+  - Pontos iniciais de configuracao
+  - Arquivos iniciais para entender o projeto
 
 - **Common Development Tasks**:
-  - Where to add new features
-  - How to extend existing functionality
-  - Where to place new tests
-  - Configuration modification locations
+  - Onde adicionar novas features
+  - Como estender funcionalidades existentes
+  - Onde colocar novos testes
+  - Onde modificar configuracoes
   
 - **Dependency Patterns**:
-  - How dependencies flow between folders
-  - Import/reference patterns
-  - Dependency injection registration locations
+  - Como dependencias fluem entre pastas
+  - Patterns de import/reference
+  - Localizacoes de registro de dependency injection
 
 ${INCLUDE_FILE_COUNTS ? 
 "- **Content Statistics**:
-  - Files per directory analysis
-  - Code distribution metrics
-  - Complexity concentration areas" : ""}
+  - Analise de arquivos por diretorio
+  - Metricas de distribuicao de codigo
+  - Areas de concentracao de complexidade" : ""}
 
 ### 7. Build and Output Organization
-Document the build process and output organization:
+Documente o processo de build e organizacao de outputs:
 
 - **Build Configuration**:
-  - Build script locations and purposes
-  - Build pipeline organization
-  - Build task definitions
+  - Localizacoes e propositos de scripts de build
+  - Organizacao de pipeline de build
+  - Definicao de tarefas de build
   
 - **Output Structure**:
-  - Compiled/built output locations
-  - Output organization patterns
-  - Distribution package structure
+  - Localizacao de outputs compilados/buildados
+  - Patterns de organizacao de output
+  - Estrutura de pacotes de distribuicao
   
 - **Environment-Specific Builds**:
-  - Development vs. production differences
-  - Environment configuration strategies
-  - Build variant organization
+  - Diferencas entre dev e prod
+  - Estrategias de configuracao por ambiente
+  - Organizacao de variantes de build
 
 ### 8. Technology-Specific Organization
 
@@ -288,118 +288,113 @@ ${(PROJECT_TYPE == ".NET" || PROJECT_TYPE == "Auto-detect") ?
 "#### .NET-Specific Structure Patterns (if detected)
 
 - **Project File Organization**:
-  - Project file structure and patterns
-  - Target framework configuration
-  - Property group organization
-  - Item group patterns
+  - Estrutura e patterns de project file
+  - Configuracao de target framework
+  - Organizacao de property groups
+  - Patterns de item groups
   
 - **Assembly Organization**:
-  - Assembly naming patterns
-  - Multi-assembly architecture
-  - Assembly reference patterns
+  - Patterns de nome de assemblies
+  - Arquitetura multi-assembly
+  - Patterns de referencia entre assemblies
   
 - **Resource Organization**:
-  - Embedded resource patterns
-  - Localization file structure
-  - Static web asset organization
+  - Patterns de embedded resources
+  - Estrutura de arquivos de localizacao
+  - Organizacao de static web assets
   
 - **Package Management**:
-  - NuGet configuration locations
-  - Package reference organization
-  - Package version management" : ""}
+  - Localizacao de configuracao NuGet
+  - Organizacao de package references
+  - Gestao de versoes de pacotes" : ""}
 
 ${(PROJECT_TYPE == "Java" || PROJECT_TYPE == "Auto-detect") ? 
 "#### Java-Specific Structure Patterns (if detected)
 
 - **Package Hierarchy**:
-  - Package naming and nesting conventions
-  - Domain vs. technical packages
-  - Visibility and access patterns
+  - Convencoes de nome e nesting de packages
+  - Packages de dominio vs tecnico
+  - Patterns de visibilidade e acesso
   
 - **Build Tool Organization**:
-  - Maven/Gradle structure patterns
-  - Module organization
-  - Plugin configuration patterns
+  - Estrutura e patterns Maven/Gradle
+  - Organizacao de modulos
+  - Patterns de configuracao de plugins
   
 - **Resource Organization**:
-  - Resource folder structures
-  - Environment-specific resources
-  - Properties file organization" : ""}
+  - Estrutura de pastas de resources
+  - Resources por ambiente
+  - Organizacao de properties" : ""}
 
 ${(PROJECT_TYPE == "Node.js" || PROJECT_TYPE == "Auto-detect") ? 
 "#### Node.js-Specific Structure Patterns (if detected)
 
 - **Module Organization**:
-  - CommonJS vs. ESM organization
-  - Internal module patterns
-  - Third-party dependency management
+  - Organizacao CommonJS vs ESM
+  - Patterns de modulos internos
+  - Gestao de dependencias de terceiros
   
 - **Script Organization**:
-  - npm/yarn script definition patterns
-  - Utility script locations
-  - Development tool scripts
+  - Patterns de scripts npm/yarn
+  - Localizacao de scripts utilitarios
+  - Scripts de ferramentas de desenvolvimento
   
 - **Configuration Management**:
-  - Configuration file locations
-  - Environment variable management
-  - Secret management approaches" : ""}
+  - Localizacao de arquivos de configuracao
+  - Gestao de variaveis de ambiente
+  - Abordagens de gestao de secrets" : ""}
 
 ### 9. Extension and Evolution
-Document how the project structure is designed to be extended:
+Documente como a estrutura do projeto foi desenhada para evoluir:
 
 - **Extension Points**:
-  - How to add new modules/features while maintaining conventions
-  - Plugin/extension folder patterns
-  - Customization directory structures
+  - Como adicionar novos modulos/features mantendo convencoes
+  - Patterns de pasta para plugins/extensoes
+  - Estruturas de customizacao
   
 - **Scalability Patterns**:
-  - How the structure scales for larger features
-  - Approach for breaking down large modules
-  - Code splitting strategies
+  - Como a estrutura escala para features maiores
+  - Abordagem para dividir modulos grandes
+  - Estrategias de code splitting
   
 - **Refactoring Patterns**:
-  - Common refactoring approaches observed
-  - How structural changes are managed
-  - Incremental reorganization patterns
+  - Abordagens comuns de refatoracao
+  - Como mudancas estruturais sao gerenciadas
+  - Patterns de reorganizacao incremental
 
 ${INCLUDE_TEMPLATES ? 
 "### 10. Structure Templates
 
-Provide templates for creating new components that follow project conventions:
+Forneca templates para criar novos componentes seguindo convencoes do projeto:
 
 - **New Feature Template**:
-  - Folder structure for adding a complete feature
-  - Required file types and their locations
-  - Naming patterns to follow
+  - Estrutura de pastas para adicionar uma feature completa
+  - Tipos de arquivo obrigatorios e suas localizacoes
+  - Patterns de nome a seguir
   
 - **New Component Template**:
-  - Directory structure for a typical component
-  - Essential files to include
-  - Integration points with existing structure
+  - Estrutura de diretorio para um componente tipico
+  - Arquivos essenciais a incluir
+  - Pontos de integracao com a estrutura existente
   
 - **New Service Template**:
-  - Structure for adding a new service
-  - Interface and implementation placement
-  - Configuration and registration patterns
+  - Estrutura para adicionar um novo service
+  - Localizacao de interface e implementacao
+  - Patterns de configuracao e registro
   
 - **New Test Structure**:
-  - Folder structure for test projects/files
-  - Test file organization templates
-  - Test resource organization" : ""}
+  - Estrutura de pastas para testes
+  - Templates de organizacao de arquivos de teste
+  - Organizacao de resources de teste" : ""}
 
 ### ${INCLUDE_TEMPLATES ? "11" : "10"}. Structure Enforcement
 
-Document how the project structure is maintained and enforced:
+Documente como a estrutura do projeto e mantida e aplicada:
 
 - **Structure Validation**:
-  - Tools/scripts that enforce structure
-  - Build checks for structural compliance
-  - Linting rules related to structure
+  - Ferramentas/scripts que reforcam estrutura
+  - Checks de build para conformidade estrutural
+  - Regras de linting relacionadas a estrutura
   
 - **Documentation Practices**:
-  - How structural changes are documented
-  - Where architectural decisions are recorded
-  - Structure evolution history
-
-Include a section at the end about maintaining this blueprint and when it was last updated.
-"
+  - Como mudancas estruturais sao documentadas

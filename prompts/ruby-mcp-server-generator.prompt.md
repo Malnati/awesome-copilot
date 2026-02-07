@@ -1,15 +1,15 @@
 ---
-description: 'Generate a complete Model Context Protocol server project in Ruby using the official MCP Ruby SDK gem.'
+description: 'Gere um projeto completo de servidor Model Context Protocol em Ruby usando o SDK oficial MCP Ruby.'
 agent: agent
 ---
 
-# Ruby MCP Server Generator
+# Gerador de Servidor MCP em Ruby
 
-Generate a complete, production-ready MCP server in Ruby using the official Ruby SDK.
+Gere um servidor MCP completo e pronto para producao em Ruby usando o SDK oficial Ruby.
 
-## Project Generation
+## Geracao do Projeto
 
-When asked to create a Ruby MCP server, generate a complete project with this structure:
+Quando solicitado para criar um servidor MCP em Ruby, gere um projeto completo com esta estrutura:
 
 ```
 my-mcp-server/
@@ -36,7 +36,7 @@ my-mcp-server/
 └── README.md
 ```
 
-## Gemfile Template
+## Template do Gemfile
 
 ```ruby
 source 'https://rubygems.org'
@@ -50,7 +50,7 @@ group :development, :test do
 end
 ```
 
-## Rakefile Template
+## Template do Rakefile
 
 ```ruby
 require 'rake/testtask'
@@ -67,7 +67,7 @@ RuboCop::RakeTask.new
 task default: %i[test rubocop]
 ```
 
-## lib/my_mcp_server.rb Template
+## Template do lib/my_mcp_server.rb
 
 ```ruby
 # frozen_string_literal: true
@@ -84,7 +84,7 @@ module MyMcpServer
 end
 ```
 
-## lib/my_mcp_server/server.rb Template
+## Template do lib/my_mcp_server/server.rb
 
 ```ruby
 # frozen_string_literal: true
@@ -133,7 +133,7 @@ module MyMcpServer
 end
 ```
 
-## lib/my_mcp_server/tools/greet_tool.rb Template
+## Template do lib/my_mcp_server/tools/greet_tool.rb
 
 ```ruby
 # frozen_string_literal: true
@@ -186,7 +186,7 @@ module MyMcpServer
 end
 ```
 
-## lib/my_mcp_server/tools/calculate_tool.rb Template
+## Template do lib/my_mcp_server/tools/calculate_tool.rb
 
 ```ruby
 # frozen_string_literal: true
@@ -263,7 +263,7 @@ module MyMcpServer
 end
 ```
 
-## lib/my_mcp_server/prompts/code_review_prompt.rb Template
+## Template do lib/my_mcp_server/prompts/code_review_prompt.rb
 
 ```ruby
 # frozen_string_literal: true
@@ -325,7 +325,7 @@ module MyMcpServer
 end
 ```
 
-## lib/my_mcp_server/resources/example_resource.rb Template
+## Template do lib/my_mcp_server/resources/example_resource.rb
 
 ```ruby
 # frozen_string_literal: true
@@ -364,7 +364,7 @@ module MyMcpServer
 end
 ```
 
-## bin/mcp-server Template
+## Template do bin/mcp-server
 
 ```ruby
 #!/usr/bin/env ruby
@@ -385,12 +385,12 @@ rescue StandardError => e
 end
 ```
 
-Make the file executable:
+Torne o arquivo executavel:
 ```bash
 chmod +x bin/mcp-server
 ```
 
-## test/test_helper.rb Template
+## Template do test/test_helper.rb
 
 ```ruby
 # frozen_string_literal: true
@@ -400,7 +400,7 @@ require 'my_mcp_server'
 require 'minitest/autorun'
 ```
 
-## test/tools/greet_tool_test.rb Template
+## Template do test/tools/greet_tool_test.rb
 
 ```ruby
 # frozen_string_literal: true
@@ -438,7 +438,7 @@ module MyMcpServer
 end
 ```
 
-## test/tools/calculate_tool_test.rb Template
+## Template do test/tools/calculate_tool_test.rb
 
 ```ruby
 # frozen_string_literal: true
@@ -524,7 +524,7 @@ module MyMcpServer
 end
 ```
 
-## README.md Template
+## Template do README.md
 
 ```markdown
 # My MCP Server
@@ -604,7 +604,7 @@ Run all checks:
 bundle exec rake
 ```
 
-## Integration with Claude Desktop
+## Integracao com Claude Desktop
 
 Add to `claude_desktop_config.json`:
 
@@ -646,15 +646,15 @@ my-mcp-server/
 MIT
 ```
 
-## Generation Instructions
+## Instrucoes de Geracao
 
-1. **Ask for project name and description**
-2. **Generate all files** with proper naming and module structure
-3. **Use classes for tools and prompts** for better organization
-4. **Include input/output schemas** for type safety
-5. **Add tool annotations** for behavior hints
-6. **Include structured content** in responses
-7. **Implement comprehensive tests** for all tools
-8. **Follow Ruby conventions** (snake_case, modules, frozen_string_literal)
-9. **Add proper error handling** with is_error flag
-10. **Provide both stdio and HTTP** usage examples
+1. **Pergunte nome e descricao do projeto**
+2. **Gere todos os arquivos** com nomenclatura e estrutura de modulo adequadas
+3. **Use classes para tools e prompts** para melhor organizacao
+4. **Inclua input/output schemas** para type safety
+5. **Adicione tool annotations** para hints de comportamento
+6. **Inclua structured content** nas respostas
+7. **Implemente testes abrangentes** para todas as tools
+8. **Siga convencoes Ruby** (snake_case, modules, frozen_string_literal)
+9. **Adicione error handling adequado** com flag is_error
+10. **Forneca exemplos de uso stdio e HTTP**

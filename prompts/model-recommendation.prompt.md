@@ -1,5 +1,5 @@
 ---
-description: "Analyze chatmode or prompt files and recommend optimal AI models based on task complexity, required capabilities, and cost-efficiency"
+description: "Analise arquivos chatmode ou prompt e recomende modelos de IA ideais com base na complexidade da tarefa, capacidades necessarias e custo-eficiencia"
 agent: "agent"
 tools:
   - "search/codebase"
@@ -8,114 +8,114 @@ tools:
 model: Auto (copilot)
 ---
 
-# AI Model Recommendation for Copilot Chat Modes and Prompts
+# Recomendacao de Modelo de IA para Copilot Chat Modes e Prompts
 
-## Mission
+## Missao
 
-Analyze `.agent.md` or `.prompt.md` files to understand their purpose, complexity, and required capabilities, then recommend the most suitable AI model(s) from GitHub Copilot's available options. Provide rationale based on task characteristics, model strengths, cost-efficiency, and performance trade-offs.
+Analise arquivos `.agent.md` ou `.prompt.md` para entender o proposito, a complexidade e as capacidades necessarias, e recomende o(s) modelo(s) de IA mais adequados entre as opcoes disponiveis no GitHub Copilot. Forneca justificativa baseada nas caracteristicas da tarefa, pontos fortes do modelo, custo-eficiencia e trade-offs de performance.
 
-## Scope & Preconditions
+## Escopo e Precondicoes
 
-- **Input**: Path to a `.agent.md` or `.prompt.md` file
-- **Available Models**: GPT-4.1, GPT-5, GPT-5 mini, GPT-5 Codex, Claude Sonnet 3.5, Claude Sonnet 4, Claude Sonnet 4.5, Claude Opus 4.1, Gemini 2.5 Pro, Gemini 2.0 Flash, Grok Code Fast 1, o3, o4-mini (with deprecation dates)
-- **Model Auto-Selection**: Available in VS Code (Sept 2025+) - selects from GPT-4.1, GPT-5 mini, GPT-5, Claude Sonnet 3.5, Claude Sonnet 4.5 (excludes premium multipliers > 1)
-- **Context**: GitHub Copilot subscription tiers (Free: 2K completions + 50 chat/month with 0x models only; Pro: unlimited 0x + 1000 premium/month; Pro+: unlimited 0x + 5000 premium/month)
+- **Input**: Caminho para um arquivo `.agent.md` ou `.prompt.md`
+- **Modelos Disponiveis**: GPT-4.1, GPT-5, GPT-5 mini, GPT-5 Codex, Claude Sonnet 3.5, Claude Sonnet 4, Claude Sonnet 4.5, Claude Opus 4.1, Gemini 2.5 Pro, Gemini 2.0 Flash, Grok Code Fast 1, o3, o4-mini (com datas de descontinuacao)
+- **Auto-Selection de Modelos**: Disponivel no VS Code (Set 2025+) - seleciona entre GPT-4.1, GPT-5 mini, GPT-5, Claude Sonnet 3.5, Claude Sonnet 4.5 (exclui multiplicadores premium > 1)
+- **Contexto**: Tiers de assinatura GitHub Copilot (Free: 2K completions + 50 chat/mes com modelos 0x apenas; Pro: ilimitado 0x + 1000 premium/mes; Pro+: ilimitado 0x + 5000 premium/mes)
 
 ## Inputs
 
-Required:
+Obrigatorios:
 
-- `${input:filePath:Path to .agent.md or .prompt.md file}` - Absolute or workspace-relative path to the file to analyze
+- `${input:filePath:Path to .agent.md or .prompt.md file}` - Caminho absoluto ou relativo ao workspace do arquivo a analisar
 
-Optional:
+Opcionais:
 
-- `${input:subscriptionTier:Pro}` - User's Copilot subscription tier (Free, Pro, Pro+) - defaults to Pro
-- `${input:priorityFactor:Balanced}` - Optimization priority (Speed, Cost, Quality, Balanced) - defaults to Balanced
+- `${input:subscriptionTier:Pro}` - Tier de assinatura do Copilot (Free, Pro, Pro+) - padrao Pro
+- `${input:priorityFactor:Balanced}` - Prioridade de otimizacao (Speed, Cost, Quality, Balanced) - padrao Balanced
 
 ## Workflow
 
-### 1. File Analysis Phase
+### 1. Fase de Analise do Arquivo
 
-**Read and Parse File**:
+**Ler e Parsear o Arquivo**:
 
-- Read the target `.agent.md` or `.prompt.md` file
-- Extract frontmatter (description, mode, tools, model if specified)
-- Analyze body content to identify:
-  - Task complexity (simple/moderate/complex/advanced)
-  - Required reasoning depth (basic/intermediate/advanced/expert)
-  - Code generation needs (minimal/moderate/extensive)
-  - Multi-turn conversation requirements
-  - Context window needs (small/medium/large)
-  - Specialized capabilities (image analysis, long-context, real-time data)
+- Leia o arquivo `.agent.md` ou `.prompt.md` alvo
+- Extraia o frontmatter (description, mode, tools, model se especificado)
+- Analise o corpo para identificar:
+  - Complexidade da tarefa (simple/moderate/complex/advanced)
+  - Profundidade de raciocinio requerida (basic/intermediate/advanced/expert)
+  - Necessidade de geracao de codigo (minimal/moderate/extensive)
+  - Requisitos de conversas multi-turn
+  - Necessidades de context window (small/medium/large)
+  - Capacidades especializadas (image analysis, long-context, real-time data)
 
-**Categorize Task Type**:
+**Categorizar Tipo de Tarefa**:
 
-Identify the primary task category based on content analysis:
+Identifique a categoria principal da tarefa com base na analise de conteudo:
 
 1. **Simple Repetitive Tasks**:
 
-   - Pattern: Formatting, simple refactoring, adding comments/docstrings, basic CRUD
-   - Characteristics: Straightforward logic, minimal context, fast execution preferred
+   - Padrao: Formatacao, refatoracao simples, adicionar comentarios/docstrings, CRUD basico
+   - Caracteristicas: Logica direta, contexto minimo, execucao rapida preferida
    - Keywords: format, comment, simple, basic, add docstring, rename, move
 
 2. **Code Generation & Implementation**:
 
-   - Pattern: Writing functions/classes, implementing features, API endpoints, tests
-   - Characteristics: Moderate complexity, domain knowledge, idiomatic code
+   - Padrao: Escrever funcoes/classes, implementar features, endpoints de API, testes
+   - Caracteristicas: Complexidade moderada, conhecimento de dominio, codigo idiomatico
    - Keywords: implement, create, generate, write, build, scaffold
 
 3. **Complex Refactoring & Architecture**:
 
-   - Pattern: System design, architectural review, large-scale refactoring, performance optimization
-   - Characteristics: Deep reasoning, multiple components, trade-off analysis
+   - Padrao: System design, revisao arquitetural, refatoracao em larga escala, otimizacao de performance
+   - Caracteristicas: Raciocinio profundo, multiplos componentes, analise de trade-offs
    - Keywords: architect, refactor, optimize, design, scale, review architecture
 
 4. **Debugging & Problem-Solving**:
 
-   - Pattern: Bug fixing, error analysis, systematic troubleshooting, root cause analysis
-   - Characteristics: Step-by-step reasoning, debugging context, verification needs
+   - Padrao: Bug fixing, analise de erros, troubleshooting sistematico, root cause analysis
+   - Caracteristicas: Raciocinio passo a passo, contexto de debugging, necessidade de verificacao
    - Keywords: debug, fix, troubleshoot, diagnose, error, investigate
 
 5. **Planning & Research**:
 
-   - Pattern: Feature planning, research, documentation analysis, ADR creation
-   - Characteristics: Read-only, context gathering, decision-making support
+   - Padrao: Planejamento de features, pesquisa, analise de documentacao, criacao de ADR
+   - Caracteristicas: Read-only, coleta de contexto, suporte a decisao
    - Keywords: plan, research, analyze, investigate, document, assess
 
 6. **Code Review & Quality Analysis**:
 
-   - Pattern: Security analysis, performance review, best practices validation, compliance checking
-   - Characteristics: Critical thinking, pattern recognition, domain expertise
+   - Padrao: Analise de seguranca, revisao de performance, validacao de boas praticas, checagem de compliance
+   - Caracteristicas: Pensamento critico, reconhecimento de padroes, expertise de dominio
    - Keywords: review, analyze, security, performance, compliance, validate
 
 7. **Specialized Domain Tasks**:
 
-   - Pattern: Django/framework-specific, accessibility (WCAG), testing (TDD), API design
-   - Characteristics: Deep domain knowledge, framework conventions, standards compliance
+   - Padrao: Django/framework-specific, acessibilidade (WCAG), testing (TDD), design de API
+   - Caracteristicas: Conhecimento profundo de dominio, convencoes de framework, compliance com standards
    - Keywords: django, accessibility, wcag, rest, api, testing, tdd
 
 8. **Advanced Reasoning & Multi-Step Workflows**:
-   - Pattern: Algorithmic optimization, complex data transformations, multi-phase workflows
-   - Characteristics: Advanced reasoning, mathematical/algorithmic thinking, sequential logic
+   - Padrao: Otimizacao algoritmica, transformacoes complexas de dados, workflows multi-fase
+   - Caracteristicas: Raciocinio avancado, pensamento matematico/algoritmico, logica sequencial
    - Keywords: algorithm, optimize, transform, sequential, reasoning, calculate
 
-**Extract Capability Requirements**:
+**Extrair Requisitos de Capacidade**:
 
-Based on `tools` in frontmatter and body instructions:
+Com base em `tools` no frontmatter e nas instrucoes do corpo:
 
-- **Read-only tools** (search, fetch, usages, githubRepo): Lower complexity, faster models suitable
-- **Write operations** (edit/editFiles, new): Moderate complexity, accuracy important
-- **Execution tools** (runCommands, runTests, runTasks): Validation needs, iterative approach
-- **Advanced tools** (context7/\*, sequential-thinking/\*): Complex reasoning, premium models beneficial
-- **Multi-modal** (image analysis references): Requires vision-capable models
+- **Read-only tools** (search, fetch, usages, githubRepo): Menor complexidade, modelos mais rapidos servem
+- **Write operations** (edit/editFiles, new): Complexidade moderada, precisao importante
+- **Execution tools** (runCommands, runTests, runTasks): Necessidade de validacao, abordagem iterativa
+- **Advanced tools** (context7/*, sequential-thinking/*): Raciocinio complexo, modelos premium ajudam
+- **Multi-modal** (referencias a image analysis): Requer modelos com visao
 
-### 2. Model Evaluation Phase
+### 2. Fase de Avaliacao de Modelos
 
-**Apply Model Selection Criteria**:
+**Aplicar Criterios de Selecao**:
 
-For each available model, evaluate against these dimensions:
+Para cada modelo disponivel, avalie contra estas dimensoes:
 
-#### Model Capabilities Matrix
+#### Matriz de Capacidades dos Modelos
 
 | Model                   | Multiplier | Speed    | Code Quality | Reasoning | Context | Vision | Best For                                          |
 | ----------------------- | ---------- | -------- | ------------ | --------- | ------- | ------ | ------------------------------------------------- |
@@ -133,7 +133,7 @@ For each available model, evaluate against these dimensions:
 | o3 (deprecated)         | 1x         | Slow     | Good         | Expert    | 128K    | ❌     | Advanced reasoning, algorithmic optimization      |
 | o4-mini (deprecated)    | 0.33x      | Fast     | Good         | Good      | 128K    | ❌     | Reasoning at lower cost (deprecated)              |
 
-#### Selection Decision Tree
+#### Arvore de Decisao
 
 ```
 START
@@ -175,43 +175,43 @@ START
       └─ Balanced → GPT-4.1, Claude Sonnet 4, GPT-5
 ```
 
-### 3. Recommendation Generation Phase
+### 3. Fase de Geracao da Recomendacao
 
-**Primary Recommendation**:
+**Recomendacao Primaria**:
 
-- Identify the single best model based on task analysis and decision tree
-- Provide specific rationale tied to file content characteristics
-- Explain multiplier cost implications for user's subscription tier
+- Identifique o melhor modelo com base na analise da tarefa e na arvore de decisao
+- Forneca uma justificativa especifica vinculada ao conteudo do arquivo
+- Explique implicacoes de custo do multiplicador para o tier do usuario
 
-**Alternative Recommendations**:
+**Recomendacoes Alternativas**:
 
-- Suggest 1-2 alternative models with trade-off explanations
-- Include scenarios where alternatives might be preferred
-- Consider priority factor overrides (speed vs. quality vs. cost)
+- Sugira 1-2 modelos alternativos com explicacoes de trade-offs
+- Inclua cenarios em que alternativas podem ser preferiveis
+- Considere overrides de priority factor (speed vs. quality vs. cost)
 
-**Auto-Selection Guidance**:
+**Orientacao de Auto-Selection**:
 
-- Assess if task is suitable for auto model selection (excludes premium models > 1x)
-- Explain when manual selection is beneficial vs. letting Copilot choose
-- Note any limitations of auto-selection for the specific task
+- Avalie se a tarefa e adequada para auto-selecao (exclui modelos premium > 1x)
+- Explique quando a selecao manual e benefica vs. deixar o Copilot escolher
+- Observe limitacoes da auto-selecao para a tarefa especifica
 
-**Deprecation Warnings**:
+**Avisos de Descontinuacao**:
 
-- Flag if file currently specifies a deprecated model (o3, o4-mini, Claude Sonnet 3.7, Gemini 2.0 Flash)
-- Provide migration path to recommended replacement
-- Include timeline for deprecation (e.g., "o3 deprecating 2025-10-23")
+- Sinalize se o arquivo especifica um modelo deprecated (o3, o4-mini, Claude Sonnet 3.7, Gemini 2.0 Flash)
+- Forneca caminho de migracao para a recomendacao de substituicao
+- Inclua timeline para descontinuacao (por exemplo, "o3 deprecating 2025-10-23")
 
-**Subscription Tier Considerations**:
+**Consideracoes por Subscription Tier**:
 
-- **Free Tier**: Recommend only 0x multiplier models (GPT-4.1, GPT-5 mini, Grok Code Fast 1)
-- **Pro Tier**: Balance between 0x (unlimited) and 1x (1000/month) models
-- **Pro+ Tier**: More freedom with 1x models (5000/month), justify 10x usage for exceptional cases
+- **Free Tier**: Recomende apenas modelos com multiplicador 0x (GPT-4.1, GPT-5 mini, Grok Code Fast 1)
+- **Pro Tier**: Balanceie entre 0x (ilimitado) e 1x (1000/mes)
+- **Pro+ Tier**: Mais liberdade com modelos 1x (5000/mes), justifique uso 10x para casos excepcionais
 
-### 4. Integration Recommendations
+### 4. Recomendacoes de Integracao
 
-**Frontmatter Update Guidance**:
+**Orientacao para Atualizacao de Frontmatter**:
 
-If file does not specify a `model` field:
+Se o arquivo nao especifica `model`:
 
 ```markdown
 ## Recommendation: Add Model Specification
@@ -244,7 +244,7 @@ tools: [...]
 Rationale: [Explanation of why this model is optimal for this task]
 ```
 
-If file already specifies a model:
+Se o arquivo ja especifica um modelo:
 
 ```markdown
 ## Current Model Assessment
@@ -256,19 +256,19 @@ Recommendation: [Keep current model | Consider switching to [Recommended Model]]
 Rationale: [Explanation]
 ```
 
-**Tool Alignment Check**:
+**Checagem de Alinhamento de Tools**:
 
-Verify model capabilities align with specified tools:
+Verifique se as capacidades do modelo alinham com as tools especificadas:
 
-- If tools include `context7/*` or `sequential-thinking/*`: Recommend advanced reasoning models (Claude Sonnet 4.5, GPT-5, Claude Opus 4.1)
-- If tools include vision-related references: Ensure model supports images (flag if GPT-5 Codex, Claude Sonnet 4, or mini models selected)
-- If tools are read-only (search, fetch): Suggest cost-effective models (GPT-5 mini, Grok Code Fast 1)
+- Se tools incluem `context7/*` ou `sequential-thinking/*`: Recomende modelos com raciocinio avancado (Claude Sonnet 4.5, GPT-5, Claude Opus 4.1)
+- Se tools incluem referencias a visao: Garanta suporte a imagens (sinalize se GPT-5 Codex, Claude Sonnet 4 ou mini models selecionados)
+- Se tools sao read-only (search, fetch): Sugira modelos custo-efetivos (GPT-5 mini, Grok Code Fast 1)
 
-### 5. Context7 Integration for Up-to-Date Information
+### 5. Integracao com Context7 para Informacoes Atualizadas
 
-**Leverage Context7 for Model Documentation**:
+**Use Context7 para Documentacao de Modelos**:
 
-When uncertainty exists about current model capabilities, use Context7 to fetch latest information:
+Quando houver duvida sobre capacidades atuais dos modelos, use Context7 para buscar informacoes mais recentes:
 
 ```markdown
 **Verification with Context7**:
@@ -280,7 +280,7 @@ Using `context7/get-library-docs` with library ID `/websites/github_en_copilot`:
 - Cross-reference against analyzed file requirements
 ```
 
-**Example Context7 Usage**:
+**Exemplo de Uso do Context7**:
 
 ```
 If unsure whether Claude Sonnet 4.5 supports image analysis:
@@ -288,11 +288,11 @@ If unsure whether Claude Sonnet 4.5 supports image analysis:
 → Confirm feature support before recommending for multi-modal tasks
 ```
 
-## Output Expectations
+## Expectativas de Saida
 
-### Report Structure
+### Estrutura do Relatorio
 
-Generate a structured markdown report with the following sections:
+Gere um relatorio markdown estruturado com as seguintes secoes:
 
 ```markdown
 # AI Model Recommendation Report
@@ -398,280 +398,4 @@ Generate a structured markdown report with the following sections:
 ### Frontmatter Update
 
 [Provide specific code block showing recommended frontmatter change]
-
-### Model Selection in VS Code
-
-**To Use Recommended Model**:
-
-1. Open Copilot Chat
-2. Click model dropdown (currently shows "[current model or Auto]")
-3. Select **[Recommended Model Name]**
-4. [Optional: When to switch back to Auto]
-
-**Keyboard Shortcut**: `Cmd+Shift+P` → "Copilot: Change Model"
-
-### Tool Alignment Verification
-
-[Check results: Are specified tools compatible with recommended model?]
-
-✅ **Compatible Tools**: [list]
-⚠️ **Potential Limitations**: [list if any]
-
-## Deprecation Notices
-
-[If applicable, list any deprecated models in current configuration]
-
-⚠️ **Deprecated Model in Use**: [Model Name] (Deprecation date: [YYYY-MM-DD])
-
-**Migration Path**:
-
-- **Current**: [Deprecated Model]
-- **Replacement**: [Recommended Model]
-- **Action Required**: Update `model:` field in frontmatter by [date]
-- **Behavioral Changes**: [any expected differences]
-
-## Context7 Verification
-
-[If Context7 was used for verification]
-
-**Queries Executed**:
-
-- Topic: "[query topic]"
-- Library: `/websites/github_en_copilot`
-- Key Findings: [summary]
-
-## Additional Considerations
-
-### Subscription Tier Recommendations
-
-[Specific advice based on Free/Pro/Pro+ tier]
-
-### Priority Factor Adjustments
-
-[If user specified Speed/Cost/Quality/Balanced, explain how recommendation aligns]
-
-### Long-Term Model Strategy
-
-[Advice for when to re-evaluate model selection as file evolves]
-
----
-
-## Quick Reference
-
-**TL;DR**: Use **[Primary Model]** for this task due to [one-sentence rationale]. Cost: [X]x multiplier.
-
-**One-Line Update**:
-\`\`\`yaml
-model: "[Recommended Model Name]"
-\`\`\`
 ```
-
-### Output Quality Standards
-
-- **Specific**: Tie all recommendations directly to file content, not generic advice
-- **Actionable**: Provide exact frontmatter code, VS Code steps, clear migration paths
-- **Contextualized**: Consider subscription tier, priority factor, deprecation timelines
-- **Evidence-Based**: Reference model capabilities from Context7 documentation when available
-- **Balanced**: Present trade-offs honestly (speed vs. quality vs. cost)
-- **Up-to-Date**: Flag deprecated models, suggest current alternatives
-
-## Quality Assurance
-
-### Validation Steps
-
-- [ ] File successfully read and parsed
-- [ ] Frontmatter extracted correctly (or noted if missing)
-- [ ] Task complexity accurately categorized (Simple/Moderate/Complex/Advanced)
-- [ ] Primary task category identified from 8 options
-- [ ] Model recommendation aligns with decision tree logic
-- [ ] Multiplier cost explained for user's subscription tier
-- [ ] Alternative models provided with clear trade-off explanations
-- [ ] Auto-selection guidance included (recommended/not recommended/situational)
-- [ ] Deprecated model warnings included if applicable
-- [ ] Frontmatter update example provided (valid YAML)
-- [ ] Tool alignment verified (model capabilities match specified tools)
-- [ ] Context7 used when verification needed for latest model information
-- [ ] Report includes all required sections (summary, analysis, recommendation, implementation)
-
-### Success Criteria
-
-- Recommendation is justified by specific file characteristics
-- Cost impact is clear and appropriate for subscription tier
-- Alternative models cover different priority factors (speed vs. quality vs. cost)
-- Frontmatter update is ready to copy-paste (no placeholders)
-- User can immediately act on recommendation (clear steps)
-- Report is readable and scannable (good structure, tables, emoji markers)
-
-### Failure Triggers
-
-- File path is invalid or unreadable → Stop and request valid path
-- File is not `.agent.md` or `.prompt.md` → Stop and clarify file type
-- Cannot determine task complexity from content → Request more specific file or clarification
-- Model recommendation contradicts documented capabilities → Use Context7 to verify current info
-- Subscription tier is invalid (not Free/Pro/Pro+) → Default to Pro and note assumption
-
-## Advanced Use Cases
-
-### Analyzing Multiple Files
-
-If user provides multiple files:
-
-1. Analyze each file individually
-2. Generate separate recommendations per file
-3. Provide summary table comparing recommendations
-4. Note any patterns (e.g., "All debug-related modes benefit from Claude Sonnet 4.5")
-
-### Comparative Analysis
-
-If user asks "Which model is better between X and Y for this file?":
-
-1. Focus comparison on those two models only
-2. Use side-by-side table format
-3. Declare a winner with specific reasoning
-4. Include cost comparison for subscription tier
-
-### Migration Planning
-
-If file specifies a deprecated model:
-
-1. Prioritize migration guidance in report
-2. Test current behavior expectations vs. replacement model capabilities
-3. Provide phased migration if breaking changes expected
-4. Include rollback plan if needed
-
-## Examples
-
-### Example 1: Simple Formatting Task
-
-**File**: `format-code.prompt.md`
-**Content**: "Format Python code with Black style, add type hints"
-**Recommendation**: GPT-5 mini (0x multiplier, fastest, sufficient for repetitive formatting)
-**Alternative**: Grok Code Fast 1 (0.25x, even faster, preview feature)
-**Rationale**: Task is simple and repetitive; premium reasoning not needed; speed prioritized
-
-### Example 2: Complex Architecture Review
-
-**File**: `architect.agent.md`
-**Content**: "Review system design for scalability, security, maintainability; analyze trade-offs; provide ADR-level recommendations"
-**Recommendation**: Claude Sonnet 4.5 (1x multiplier, expert reasoning, excellent for architecture)
-**Alternative**: Claude Opus 4.1 (10x, use for very large codebases >500K tokens)
-**Rationale**: Requires deep reasoning, architectural expertise, design pattern knowledge; Sonnet 4.5 excels at this
-
-### Example 3: Django Expert Mode
-
-**File**: `django.agent.md`
-**Content**: "Django 5.x expert with ORM optimization, async views, REST API design; uses context7 for up-to-date Django docs"
-**Recommendation**: GPT-5 (1x multiplier, advanced reasoning, excellent code quality)
-**Alternative**: Claude Sonnet 4.5 (1x, alternative perspective, strong with frameworks)
-**Rationale**: Domain expertise + context7 integration benefits from advanced reasoning; 1x cost justified for expert mode
-
-### Example 4: Free Tier User with Planning Mode
-
-**File**: `plan.agent.md`
-**Content**: "Research and planning mode with read-only tools (search, fetch, githubRepo)"
-**Subscription**: Free (2K completions + 50 chat requests/month, 0x models only)
-**Recommendation**: GPT-4.1 (0x, balanced, included in Free tier)
-**Alternative**: GPT-5 mini (0x, faster but less context)
-**Rationale**: Free tier restricted to 0x models; GPT-4.1 provides best balance of quality and context for planning tasks
-
-## Knowledge Base
-
-### Model Multiplier Cost Reference
-
-| Multiplier | Meaning                                          | Free Tier | Pro Usage | Pro+ Usage |
-| ---------- | ------------------------------------------------ | --------- | --------- | ---------- |
-| 0x         | Included in all plans, no premium count          | ✅        | Unlimited | Unlimited  |
-| 0.25x      | 4 requests = 1 premium request                   | ❌        | 4000 uses | 20000 uses |
-| 0.33x      | 3 requests = 1 premium request                   | ❌        | 3000 uses | 15000 uses |
-| 1x         | 1 request = 1 premium request                    | ❌        | 1000 uses | 5000 uses  |
-| 1.25x      | 1 request = 1.25 premium requests                | ❌        | 800 uses  | 4000 uses  |
-| 10x        | 1 request = 10 premium requests (very expensive) | ❌        | 100 uses  | 500 uses   |
-
-### Model Changelog & Deprecations (October 2025)
-
-**Deprecated Models** (Effective 2025-10-23):
-
-- ❌ o3 (1x) → Replace with GPT-5 or Claude Sonnet 4.5 for reasoning
-- ❌ o4-mini (0.33x) → Replace with GPT-5 mini (0x) for cost, GPT-5 (1x) for quality
-- ❌ Claude Sonnet 3.7 (1x) → Replace with Claude Sonnet 4 or 4.5
-- ❌ Claude Sonnet 3.7 Thinking (1.25x) → Replace with Claude Sonnet 4.5
-- ❌ Gemini 2.0 Flash (0.25x) → Replace with Grok Code Fast 1 (0.25x) or GPT-5 mini (0x)
-
-**Preview Models** (Subject to Change):
-
-- 🧪 Claude Sonnet 4.5 (1x) - Preview status, may have API changes
-- 🧪 Grok Code Fast 1 (0.25x) - Preview, free during preview period
-
-**Stable Production Models**:
-
-- ✅ GPT-4.1, GPT-5, GPT-5 mini, GPT-5 Codex (OpenAI)
-- ✅ Claude Sonnet 3.5, Claude Sonnet 4, Claude Opus 4.1 (Anthropic)
-- ✅ Gemini 2.5 Pro (Google)
-
-### Auto Model Selection Behavior (Sept 2025+)
-
-**Included in Auto Selection**:
-
-- GPT-4.1 (0x)
-- GPT-5 mini (0x)
-- GPT-5 (1x)
-- Claude Sonnet 3.5 (1x)
-- Claude Sonnet 4.5 (1x)
-
-**Excluded from Auto Selection**:
-
-- Models with multiplier > 1 (Claude Opus 4.1, deprecated o3)
-- Models blocked by admin policies
-- Models unavailable in subscription plan (1x models in Free tier)
-
-**When Auto Selects**:
-
-- Copilot analyzes prompt complexity, context size, task type
-- Chooses from eligible pool based on availability and rate limits
-- Applies 10% multiplier discount on auto-selected models
-- Shows selected model on hover over response in Chat view
-
-## Context7 Query Templates
-
-Use these query patterns when verification needed:
-
-**Model Capabilities**:
-
-```
-Topic: "[Model Name] code generation quality capabilities"
-Library: /websites/github_en_copilot
-```
-
-**Model Multipliers**:
-
-```
-Topic: "[Model Name] request multiplier cost billing"
-Library: /websites/github_en_copilot
-```
-
-**Deprecation Status**:
-
-```
-Topic: "deprecated models October 2025 timeline"
-Library: /websites/github_en_copilot
-```
-
-**Vision Support**:
-
-```
-Topic: "[Model Name] image vision multimodal support"
-Library: /websites/github_en_copilot
-```
-
-**Auto Selection**:
-
-```
-Topic: "auto model selection behavior eligible models"
-Library: /websites/github_en_copilot
-```
-
----
-
-**Last Updated**: 2025-10-28
-**Model Data Current As Of**: October 2025
-**Deprecation Deadline**: 2025-10-23 for o3, o4-mini, Claude Sonnet 3.7 variants, Gemini 2.0 Flash

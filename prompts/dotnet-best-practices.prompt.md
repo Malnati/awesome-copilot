@@ -1,84 +1,84 @@
 ---
 agent: 'agent'
-description: 'Ensure .NET/C# code meets best practices for the solution/project.'
+description: 'Garanta que codigo .NET/C# siga boas praticas do solution/projeto.'
 ---
-# .NET/C# Best Practices
+# Boas Praticas .NET/C#
 
-Your task is to ensure .NET/C# code in ${selection} meets the best practices specific to this solution/project. This includes:
+Sua tarefa e garantir que o codigo .NET/C# em ${selection} siga as boas praticas especificas deste solution/projeto. Isso inclui:
 
-## Documentation & Structure
+## Documentacao e Estrutura
 
-- Create comprehensive XML documentation comments for all public classes, interfaces, methods, and properties
-- Include parameter descriptions and return value descriptions in XML comments
-- Follow the established namespace structure: {Core|Console|App|Service}.{Feature}
+- Crie comentarios XML abrangentes para todas as classes, interfaces, metodos e propriedades publicas
+- Inclua descricoes de parametros e retorno nos comentarios XML
+- Siga a estrutura de namespace estabelecida: {Core|Console|App|Service}.{Feature}
 
-## Design Patterns & Architecture
+## Design Patterns e Arquitetura
 
-- Use primary constructor syntax for dependency injection (e.g., `public class MyClass(IDependency dependency)`)
-- Implement the Command Handler pattern with generic base classes (e.g., `CommandHandler<TOptions>`)
-- Use interface segregation with clear naming conventions (prefix interfaces with 'I')
-- Follow the Factory pattern for complex object creation.
+- Use sintaxe de primary constructor para dependency injection (ex.: `public class MyClass(IDependency dependency)`)
+- Implemente o Command Handler pattern com classes base genericas (ex.: `CommandHandler<TOptions>`)
+- Use interface segregation com convencoes claras (prefixe interfaces com 'I')
+- Siga o Factory pattern para criacao complexa de objetos
 
-## Dependency Injection & Services
+## Dependency Injection e Services
 
-- Use constructor dependency injection with null checks via ArgumentNullException
-- Register services with appropriate lifetimes (Singleton, Scoped, Transient)
-- Use Microsoft.Extensions.DependencyInjection patterns
-- Implement service interfaces for testability
+- Use dependency injection via construtor com null checks usando ArgumentNullException
+- Registre services com lifetimes apropriados (Singleton, Scoped, Transient)
+- Use patterns do Microsoft.Extensions.DependencyInjection
+- Implemente interfaces de service para testabilidade
 
-## Resource Management & Localization
+## Resource Management e Localizacao
 
-- Use ResourceManager for localized messages and error strings
-- Separate LogMessages and ErrorMessages resource files
-- Access resources via `_resourceManager.GetString("MessageKey")`
+- Use ResourceManager para mensagens localizadas e strings de erro
+- Separe arquivos de resources LogMessages e ErrorMessages
+- Acesse resources via `_resourceManager.GetString("MessageKey")`
 
-## Async/Await Patterns
+## Patterns de Async/Await
 
-- Use async/await for all I/O operations and long-running tasks
-- Return Task or Task<T> from async methods
-- Use ConfigureAwait(false) where appropriate
-- Handle async exceptions properly
+- Use async/await para todas as operacoes de I/O e tasks longas
+- Retorne Task ou Task<T> de metodos async
+- Use ConfigureAwait(false) quando apropriado
+- Trate excecoes async adequadamente
 
-## Testing Standards
+## Padroes de Teste
 
-- Use MSTest framework with FluentAssertions for assertions
-- Follow AAA pattern (Arrange, Act, Assert)
-- Use Moq for mocking dependencies
-- Test both success and failure scenarios
-- Include null parameter validation tests
+- Use framework MSTest com FluentAssertions para assertions
+- Siga o pattern AAA (Arrange, Act, Assert)
+- Use Moq para mocking de dependencias
+- Teste cenarios de sucesso e falha
+- Inclua testes de validacao de parametros nulos
 
-## Configuration & Settings
+## Configuracao e Settings
 
-- Use strongly-typed configuration classes with data annotations
-- Implement validation attributes (Required, NotEmptyOrWhitespace)
-- Use IConfiguration binding for settings
-- Support appsettings.json configuration files
+- Use classes de configuracao tipadas com data annotations
+- Implemente atributos de validacao (Required, NotEmptyOrWhitespace)
+- Use IConfiguration binding para settings
+- Suporte arquivos appsettings.json
 
-## Semantic Kernel & AI Integration
+## Semantic Kernel e Integracao de IA
 
-- Use Microsoft.SemanticKernel for AI operations
-- Implement proper kernel configuration and service registration
-- Handle AI model settings (ChatCompletion, Embedding, etc.)
-- Use structured output patterns for reliable AI responses
+- Use Microsoft.SemanticKernel para operacoes de IA
+- Implemente configuracao adequada do kernel e registro de services
+- Trate settings de modelos de IA (ChatCompletion, Embedding, etc.)
+- Use patterns de output estruturado para respostas confiaveis
 
-## Error Handling & Logging
+## Tratamento de Erros e Logging
 
-- Use structured logging with Microsoft.Extensions.Logging
-- Include scoped logging with meaningful context
-- Throw specific exceptions with descriptive messages
-- Use try-catch blocks for expected failure scenarios
+- Use logging estruturado com Microsoft.Extensions.Logging
+- Inclua scoped logging com contexto significativo
+- Lance excecoes especificas com mensagens descritivas
+- Use try-catch para cenarios de falha esperados
 
-## Performance & Security
+## Performance e Seguranca
 
-- Use C# 12+ features and .NET 8 optimizations where applicable
-- Implement proper input validation and sanitization
-- Use parameterized queries for database operations
-- Follow secure coding practices for AI/ML operations
+- Use features de C# 12+ e otimizacoes .NET 8 quando aplicavel
+- Implemente validacao e sanitizacao adequada de input
+- Use queries parametrizadas para operacoes de banco
+- Siga praticas de codigo seguro para operacoes de IA/ML
 
-## Code Quality
+## Qualidade de Codigo
 
-- Ensure SOLID principles compliance
-- Avoid code duplication through base classes and utilities
-- Use meaningful names that reflect domain concepts
-- Keep methods focused and cohesive
-- Implement proper disposal patterns for resources
+- Garanta conformidade com SOLID
+- Evite duplicacao com classes base e utilitarios
+- Use nomes significativos que reflitam conceitos de dominio
+- Mantenha metodos focados e coesos
+- Implemente patterns de disposal adequados para resources

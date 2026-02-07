@@ -1,11 +1,11 @@
 ---
-description: 'Comprehensive technology stack blueprint generator that analyzes codebases to create detailed architectural documentation. Automatically detects technology stacks, programming languages, and implementation patterns across multiple platforms (.NET, Java, JavaScript, React, Python). Generates configurable blueprints with version information, licensing details, usage patterns, coding conventions, and visual diagrams. Provides implementation-ready templates and maintains architectural consistency for guided development.'
+description: 'Gerador abrangente de blueprint de technology stack que analisa codebases para criar documentacao arquitetural detalhada. Detecta automaticamente stacks, linguagens e padroes de implementacao em multiplas plataformas (.NET, Java, JavaScript, React, Python). Gera blueprints configuraveis com versoes, licencas, padroes de uso, convencoes de codigo e diagramas visuais. Fornece templates prontos para implementacao e mantem consistencia arquitetural para desenvolvimento guiado.'
 agent: 'agent'
 ---
 
-# Comprehensive Technology Stack Blueprint Generator
+# Gerador Abrangente de Blueprint de Technology Stack
 
-## Configuration Variables
+## Variaveis de Configuracao
 ${PROJECT_TYPE="Auto-detect|.NET|Java|JavaScript|React.js|React Native|Angular|Python|Other"} <!-- Primary technology -->
 ${DEPTH_LEVEL="Basic|Standard|Comprehensive|Implementation-Ready"} <!-- Analysis depth -->
 ${INCLUDE_VERSIONS=true|false} <!-- Include version information -->
@@ -16,7 +16,7 @@ ${INCLUDE_CONVENTIONS=true|false} <!-- Document coding conventions -->
 ${OUTPUT_FORMAT="Markdown|JSON|YAML|HTML"} <!-- Select output format -->
 ${CATEGORIZATION="Technology Type|Layer|Purpose"} <!-- Organization method -->
 
-## Generated Prompt
+## Prompt Gerado
 
 "Analyze the codebase and generate a ${DEPTH_LEVEL} technology stack blueprint that thoroughly documents technologies and implementation patterns to facilitate consistent code generation. Use the following approach:
 

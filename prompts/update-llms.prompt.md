@@ -1,173 +1,173 @@
 ---
 agent: 'agent'
-description: 'Update the llms.txt file in the root folder to reflect changes in documentation or specifications following the llms.txt specification at https://llmstxt.org/'
+description: 'Atualize o arquivo llms.txt na pasta raiz para refletir mudancas na documentacao ou especificacoes seguindo a especificacao llms.txt em https://llmstxt.org/'
 tools: ['changes', 'search/codebase', 'edit/editFiles', 'extensions', 'web/fetch', 'githubRepo', 'openSimpleBrowser', 'problems', 'runTasks', 'search', 'search/searchResults', 'runCommands/terminalLastCommand', 'runCommands/terminalSelection', 'testFailure', 'usages', 'vscodeAPI']
 ---
-# Update LLMs.txt File
+# Atualizar Arquivo LLMs.txt
 
-Update the existing `llms.txt` file in the root of the repository to reflect changes in documentation, specifications, or repository structure. This file provides high-level guidance to large language models (LLMs) on where to find relevant content for understanding the repository's purpose and specifications.
+Atualize o arquivo `llms.txt` existente na raiz do repositorio para refletir mudancas na documentacao, especificacoes ou estrutura do repositorio. Este arquivo fornece orientacao de alto nivel para large language models (LLMs) sobre onde encontrar conteudo relevante para entender o proposito e as especificacoes do repositorio.
 
-## Primary Directive
+## Diretriz Primaria
 
-Update the existing `llms.txt` file to maintain accuracy and compliance with the llms.txt specification while reflecting current repository structure and content. The file must remain optimized for LLM consumption while staying human-readable.
+Atualize o arquivo `llms.txt` existente para manter precisao e conformidade com a especificacao llms.txt enquanto reflete a estrutura e o conteudo atuais do repositorio. O arquivo deve permanecer otimizado para consumo por LLMs enquanto permanece legivel para humanos.
 
-## Analysis and Planning Phase
+## Fase de Analise e Planejamento
 
-Before updating the `llms.txt` file, you must complete a thorough analysis:
+Antes de atualizar o arquivo `llms.txt`, voce deve concluir uma analise completa:
 
-### Step 1: Review Current File and Specification
-- Read the existing `llms.txt` file to understand current structure
-- Review the official specification at https://llmstxt.org/ to ensure continued compliance
-- Identify areas that may need updates based on repository changes
+### Etapa 1: Revisar Arquivo Atual e Especificacao
+- Leia o arquivo `llms.txt` existente para entender a estrutura atual
+- Revise a especificacao oficial em https://llmstxt.org/ para garantir conformidade continua
+- Identifique areas que podem precisar de atualizacoes com base em mudancas no repositorio
 
-### Step 2: Repository Structure Analysis
-- Examine the current repository structure using appropriate tools
-- Compare current structure with what's documented in existing `llms.txt`
-- Identify new directories, files, or documentation that should be included
-- Note any removed or relocated files that need to be updated
+### Etapa 2: Analise da Estrutura do Repositorio
+- Examine a estrutura atual do repositorio usando ferramentas apropriadas
+- Compare a estrutura atual com o que esta documentado no `llms.txt` existente
+- Identifique novos diretorios, arquivos ou documentacao que devem ser incluidos
+- Observe arquivos removidos ou realocados que precisam ser atualizados
 
-### Step 3: Content Discovery and Change Detection
-- Identify new README files and their locations
-- Find new documentation files (`.md` files in `/docs/`, `/spec/`, etc.)
-- Locate new specification files and their purposes
-- Discover new configuration files and their relevance
-- Find new example files and code samples
-- Identify any changes to existing documentation structure
+### Etapa 3: Descoberta de Conteudo e Deteccao de Mudancas
+- Identifique novos arquivos README e suas localizacoes
+- Encontre novos arquivos de documentacao (arquivos `.md` em `/docs/`, `/spec/`, etc.)
+- Localize novos arquivos de especificacao e seus propositos
+- Descubra novos arquivos de configuracao e sua relevancia
+- Encontre novos arquivos de exemplo e amostras de codigo
+- Identifique quaisquer mudancas na estrutura de documentacao existente
 
-### Step 4: Create Update Plan
-Based on your analysis, create a structured plan that includes:
-- Changes needed to maintain accuracy
-- New files to be added to the llms.txt
-- Outdated references to be removed or updated
-- Organizational improvements to maintain clarity
+### Etapa 4: Criar Plano de Atualizacao
+Com base na sua analise, crie um plano estruturado que inclua:
+- Mudancas necessarias para manter precisao
+- Novos arquivos a serem adicionados ao llms.txt
+- Referencias desatualizadas a serem removidas ou atualizadas
+- Melhorias organizacionais para manter a clareza
 
-## Implementation Requirements
+## Requisitos de Implementacao
 
-### Format Compliance
-The updated `llms.txt` file must maintain this exact structure per the specification:
+### Conformidade de Formato
+O arquivo `llms.txt` atualizado deve manter esta estrutura exata conforme a especificacao:
 
-1. **H1 Header**: Single line with repository/project name (required)
-2. **Blockquote Summary**: Brief description in blockquote format (optional but recommended)
-3. **Additional Details**: Zero or more markdown sections without headings for context
-4. **File List Sections**: Zero or more H2 sections containing markdown lists of links
+1. **H1 Header**: Linha unica com o nome do repositorio/projeto (obrigatorio)
+2. **Blockquote Summary**: Breve descricao em formato de blockquote (opcional, mas recomendado)
+3. **Additional Details**: Zero ou mais secoes de markdown sem cabecalhos para contexto
+4. **File List Sections**: Zero ou mais secoes H2 contendo listas de links em markdown
 
-### Content Requirements
+### Requisitos de Conteudo
 
-#### Required Elements
-- **Project Name**: Clear, descriptive title as H1
-- **Summary**: Concise blockquote explaining the repository's purpose
-- **Key Files**: Essential files organized by category (H2 sections)
+#### Elementos Obrigatorios
+- **Project Name**: Titulo claro e descritivo como H1
+- **Summary**: Blockquote conciso explicando o proposito do repositorio
+- **Key Files**: Arquivos essenciais organizados por categoria (secoes H2)
 
-#### File Link Format
-Each file link must follow: `[descriptive-name](relative-url): optional description`
+#### Formato de Link de Arquivo
+Cada link de arquivo deve seguir: `[descriptive-name](relative-url): optional description`
 
-#### Section Organization
-Organize files into logical H2 sections such as:
-- **Documentation**: Core documentation files
-- **Specifications**: Technical specifications and requirements
-- **Examples**: Sample code and usage examples
-- **Configuration**: Setup and configuration files
-- **Optional**: Secondary files (special meaning - can be skipped for shorter context)
+#### Organizacao de Secoes
+Organize arquivos em secoes H2 logicas como:
+- **Documentation**: Arquivos centrais de documentacao
+- **Specifications**: Especificacoes tecnicas e requisitos
+- **Examples**: Codigo de exemplo e exemplos de uso
+- **Configuration**: Arquivos de configuracao e setup
+- **Optional**: Arquivos secundarios (significado especial - pode ser omitido para contexto mais curto)
 
-### Content Guidelines
+### Diretrizes de Conteudo
 
-#### Language and Style
-- Use concise, clear, unambiguous language
-- Avoid jargon without explanation
-- Write for both human and LLM readers
-- Be specific and informative in descriptions
+#### Linguagem e Estilo
+- Use linguagem concisa, clara e sem ambiguidades
+- Evite jargao sem explicacao
+- Escreva para leitores humanos e LLMs
+- Seja especifico e informativo nas descricoes
 
-#### File Selection Criteria
-Include files that:
-- Explain the repository's purpose and scope
-- Provide essential technical documentation
-- Show usage examples and patterns
-- Define interfaces and specifications
-- Contain configuration and setup instructions
+#### Criterios de Selecao de Arquivos
+Inclua arquivos que:
+- Expliquem o proposito e o escopo do repositorio
+- Fornecam documentacao tecnica essencial
+- Mostrem exemplos de uso e padroes
+- Definam interfaces e especificacoes
+- Contenham instrucoes de configuracao e setup
 
-Exclude files that:
-- Are purely implementation details
-- Contain redundant information
-- Are build artifacts or generated content
-- Are not relevant to understanding the project
+Exclua arquivos que:
+- Sejam apenas detalhes de implementacao
+- Contenham informacao redundante
+- Sejam artifacts de build ou conteudo gerado
+- Nao sejam relevantes para entender o projeto
 
-## Execution Steps
+## Etapas de Execucao
 
-### Step 1: Current State Analysis
-1. Read the existing `llms.txt` file thoroughly
-2. Examine the current repository structure completely
-3. Compare existing file references with actual repository content
-4. Identify outdated, missing, or incorrect references
-5. Note any structural issues with the current file
+### Etapa 1: Analise do Estado Atual
+1. Leia o arquivo `llms.txt` existente completamente
+2. Examine toda a estrutura atual do repositorio
+3. Compare referencias de arquivo existentes com o conteudo real do repositorio
+4. Identifique referencias desatualizadas, ausentes ou incorretas
+5. Observe quaisquer problemas estruturais no arquivo atual
 
-### Step 2: Content Planning
-1. Determine if the primary purpose statement needs updates
-2. Review and update the summary blockquote if needed
-3. Plan additions for new files and directories
-4. Plan removals for outdated or moved content
-5. Reorganize sections if needed for better clarity
+### Etapa 2: Planejamento de Conteudo
+1. Determine se a declaracao de proposito principal precisa de atualizacoes
+2. Revise e atualize o blockquote de resumo, se necessario
+3. Planeje adicoes para novos arquivos e diretorios
+4. Planeje remocoes para conteudo desatualizado ou movido
+5. Reorganize secoes, se necessario, para melhor clareza
 
-### Step 3: File Updates
-1. Update the existing `llms.txt` file in the repository root
-2. Maintain compliance with the exact format specification
-3. Add new file references with appropriate descriptions
-4. Remove or update outdated references
-5. Ensure all links are valid relative paths
+### Etapa 3: Atualizacoes de Arquivo
+1. Atualize o arquivo `llms.txt` existente na raiz do repositorio
+2. Mantenha conformidade com a especificacao exata de formato
+3. Adicione novas referencias de arquivo com descricoes apropriadas
+4. Remova ou atualize referencias desatualizadas
+5. Garanta que todos os links sejam caminhos relativos validos
 
-### Step 4: Validation
-1. Verify continued compliance with https://llmstxt.org/ specification
-2. Check that all links are valid and accessible
-3. Ensure the file still serves as an effective LLM navigation tool
-4. Confirm the file remains both human and machine readable
+### Etapa 4: Validacao
+1. Verifique conformidade continua com a especificacao https://llmstxt.org/
+2. Verifique se todos os links sao validos e acessiveis
+3. Garanta que o arquivo ainda serve como ferramenta eficaz de navegacao para LLMs
+4. Confirme que o arquivo permanece legivel tanto por humanos quanto por maquinas
 
-## Quality Assurance
+## Garantia de Qualidade
 
-### Format Validation
-- ✅ H1 header with project name
-- ✅ Blockquote summary (if included)
-- ✅ H2 sections for file lists
-- ✅ Proper markdown link format
-- ✅ No broken or invalid links
-- ✅ Consistent formatting throughout
+### Validacao de Formato
+- ✅ H1 header com nome do projeto
+- ✅ Blockquote summary (se incluido)
+- ✅ Secoes H2 para listas de arquivos
+- ✅ Formato correto de link em markdown
+- ✅ Sem links quebrados ou invalidos
+- ✅ Formatacao consistente em todo o arquivo
 
-### Content Validation
-- ✅ Clear, unambiguous language
-- ✅ Comprehensive coverage of essential files
-- ✅ Logical organization of content
-- ✅ Appropriate file descriptions
-- ✅ Serves as effective LLM navigation tool
+### Validacao de Conteudo
+- ✅ Linguagem clara e sem ambiguidades
+- ✅ Cobertura abrangente de arquivos essenciais
+- ✅ Organizacao logica do conteudo
+- ✅ Descricoes de arquivos apropriadas
+- ✅ Serve como ferramenta eficaz de navegacao para LLMs
 
-### Specification Compliance
-- ✅ Follows https://llmstxt.org/ format exactly
-- ✅ Uses required markdown structure
-- ✅ Implements optional sections appropriately
-- ✅ File located at repository root (`/llms.txt`)
+### Conformidade com Especificacao
+- ✅ Segue exatamente o formato de https://llmstxt.org/
+- ✅ Usa estrutura markdown obrigatoria
+- ✅ Implementa secoes opcionais adequadamente
+- ✅ Arquivo localizado na raiz do repositorio (`/llms.txt`)
 
-## Update Strategy
+## Estrategia de Atualizacao
 
-### Addition Process
-When adding new content:
-1. Identify the appropriate section for new files
-2. Create clear, descriptive names for links
-3. Write concise but informative descriptions
-4. Maintain alphabetical or logical ordering within sections
-5. Consider if new sections are needed for new content types
+### Processo de Adicao
+Ao adicionar novo conteudo:
+1. Identifique a secao apropriada para novos arquivos
+2. Crie nomes claros e descritivos para os links
+3. Escreva descricoes concisas, mas informativas
+4. Mantenha ordenacao alfabetica ou logica dentro das secoes
+5. Considere se novas secoes sao necessarias para novos tipos de conteudo
 
-### Removal Process
-When removing outdated content:
-1. Verify files are actually removed or relocated
-2. Check if relocated files should be updated rather than removed
-3. Remove entire sections if they become empty
-4. Update cross-references if needed
+### Processo de Remocao
+Ao remover conteudo desatualizado:
+1. Verifique se os arquivos foram realmente removidos ou realocados
+2. Verifique se arquivos realocados devem ser atualizados em vez de removidos
+3. Remova secoes inteiras se ficarem vazias
+4. Atualize referencias cruzadas, se necessario
 
-### Reorganization Process
-When restructuring content:
-1. Maintain logical flow from general to specific
-2. Keep essential documentation in primary sections
-3. Move secondary content to "Optional" section if appropriate
-4. Ensure new organization improves LLM navigation
+### Processo de Reorganizacao
+Ao reestruturar conteudo:
+1. Mantenha fluxo logico do geral para o especifico
+2. Mantenha documentacao essencial nas secoes primarias
+3. Mova conteudo secundario para a secao "Optional" se apropriado
+4. Garanta que a nova organizacao melhore a navegacao para LLMs
 
-Example structure for `llms.txt`:
+Exemplo de estrutura para `llms.txt`:
 
 ```txt
 # [Repository Name]
@@ -203,14 +203,14 @@ Example structure for `llms.txt`:
 - [Design Decisions](docs/decisions.md): Historical design decision records
 ```
 
-## Success Criteria
+## Criterios de Sucesso
 
-The updated `llms.txt` file should:
-1. Accurately reflect the current repository structure and content
-2. Maintain compliance with the llms.txt specification
-3. Provide clear navigation to essential documentation
-4. Remove outdated or incorrect references
-5. Include new important files and documentation
-6. Maintain logical organization for easy LLM consumption
-7. Use clear, unambiguous language throughout
-8. Continue to serve both human and machine readers effectively
+O arquivo `llms.txt` atualizado deve:
+1. Refletir com precisao a estrutura e o conteudo atuais do repositorio
+2. Manter conformidade com a especificacao llms.txt
+3. Fornecer navegacao clara para documentacao essencial
+4. Remover referencias desatualizadas ou incorretas
+5. Incluir novos arquivos e documentacao importantes
+6. Manter organizacao logica para consumo facil por LLMs
+7. Usar linguagem clara e sem ambiguidades em todo o arquivo
+8. Continuar a servir leitores humanos e de maquina de forma eficaz
