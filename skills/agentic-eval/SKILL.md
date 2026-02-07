@@ -1,22 +1,22 @@
 ---
 name: agentic-eval
 description: |
-  Patterns and techniques for evaluating and improving AI agent outputs. Use this skill when:
-  - Implementing self-critique and reflection loops
-  - Building evaluator-optimizer pipelines for quality-critical generation
-  - Creating test-driven code refinement workflows
-  - Designing rubric-based or LLM-as-judge evaluation systems
-  - Adding iterative improvement to agent outputs (code, reports, analysis)
-  - Measuring and improving agent response quality
+  Padroes e tecnicas para avaliar e melhorar saidas de agentes de IA. Use esta skill quando:
+  - Implementar loops de auto-critica e reflexao
+  - Construir pipelines evaluator-optimizer para geracao critica de qualidade
+  - Criar workflows de refinamento de codigo orientados a testes
+  - Projetar avaliacao baseada em rubricas ou LLM-as-judge
+  - Adicionar melhoria iterativa a saidas do agente (codigo, relatorios, analise)
+  - Medir e melhorar a qualidade das respostas do agente
 ---
 
-# Agentic Evaluation Patterns
+# Padroes de Avaliacao Agente
 
-Patterns for self-improvement through iterative evaluation and refinement.
+Padroes de auto-melhoria por meio de avaliacao e refinamento iterativos.
 
-## Overview
+## Visao Geral
 
-Evaluation patterns enable agents to assess and improve their own outputs, moving beyond single-shot generation to iterative refinement loops.
+Padroes de avaliacao permitem que agentes avaliem e melhorem suas proprias saidas, indo alem de geracao single-shot para loops de refinamento iterativos.
 
 ```
 Generate → Evaluate → Critique → Refine → Output
@@ -24,17 +24,17 @@ Generate → Evaluate → Critique → Refine → Output
     └──────────────────────────────┘
 ```
 
-## When to Use
+## Quando Usar
 
-- **Quality-critical generation**: Code, reports, analysis requiring high accuracy
-- **Tasks with clear evaluation criteria**: Defined success metrics exist
-- **Content requiring specific standards**: Style guides, compliance, formatting
+- **Geracao critica de qualidade**: Codigo, relatorios, analises que exigem alta precisao
+- **Tarefas com criterios claros de avaliacao**: Metricas de sucesso definidas
+- **Conteudo que exige padroes especificos**: Guias de estilo, conformidade, formatacao
 
 ---
 
-## Pattern 1: Basic Reflection
+## Padrao 1: Reflexao Basica
 
-Agent evaluates and improves its own output through self-critique.
+O agente avalia e melhora sua propria saida por meio de auto-critica.
 
 ```python
 def reflect_and_refine(task: str, criteria: list[str], max_iterations: int = 3) -> str:
@@ -61,13 +61,13 @@ def reflect_and_refine(task: str, criteria: list[str], max_iterations: int = 3) 
     return output
 ```
 
-**Key insight**: Use structured JSON output for reliable parsing of critique results.
+**Insight chave**: Use saida JSON estruturada para parsing confiavel dos resultados de critica.
 
 ---
 
-## Pattern 2: Evaluator-Optimizer
+## Padrao 2: Evaluator-Optimizer
 
-Separate generation and evaluation into distinct components for clearer responsibilities.
+Separe geracao e avaliacao em componentes distintos para responsabilidades mais claras.
 
 ```python
 class EvaluatorOptimizer:
@@ -99,9 +99,9 @@ class EvaluatorOptimizer:
 
 ---
 
-## Pattern 3: Code-Specific Reflection
+## Padrao 3: Reflexao Especifica para Codigo
 
-Test-driven refinement loop for code generation.
+Loop de refinamento orientado a testes para geracao de codigo.
 
 ```python
 class CodeReflector:
@@ -119,10 +119,10 @@ class CodeReflector:
 
 ---
 
-## Evaluation Strategies
+## Estrategias de Avaliacao
 
-### Outcome-Based
-Evaluate whether output achieves the expected result.
+### Baseada em Resultado
+Avalie se a saida atinge o resultado esperado.
 
 ```python
 def evaluate_outcome(task: str, output: str, expected: str) -> str:
@@ -130,15 +130,15 @@ def evaluate_outcome(task: str, output: str, expected: str) -> str:
 ```
 
 ### LLM-as-Judge
-Use LLM to compare and rank outputs.
+Use um LLM para comparar e ranquear saidas.
 
 ```python
 def llm_judge(output_a: str, output_b: str, criteria: str) -> str:
     return llm(f"Compare outputs A and B for {criteria}. Which is better and why?")
 ```
 
-### Rubric-Based
-Score outputs against weighted dimensions.
+### Baseada em Rubrica
+Pontue saidas com base em dimensoes ponderadas.
 
 ```python
 RUBRIC = {
@@ -154,19 +154,19 @@ def evaluate_with_rubric(output: str, rubric: dict) -> float:
 
 ---
 
-## Best Practices
+## Boas Praticas
 
-| Practice | Rationale |
+| Pratica | Racional |
 |----------|-----------|
-| **Clear criteria** | Define specific, measurable evaluation criteria upfront |
-| **Iteration limits** | Set max iterations (3-5) to prevent infinite loops |
-| **Convergence check** | Stop if output score isn't improving between iterations |
-| **Log history** | Keep full trajectory for debugging and analysis |
-| **Structured output** | Use JSON for reliable parsing of evaluation results |
+| **Criterios claros** | Defina criterios de avaliacao especificos e mensuraveis upfront |
+| **Limites de iteracao** | Defina max de iteracoes (3-5) para evitar loops infinitos |
+| **Checagem de convergencia** | Pare se a pontuacao da saida nao melhorar entre iteracoes |
+| **Historico de log** | Mantenha a trilha completa para debugging e analise |
+| **Saida estruturada** | Use JSON para parsing confiavel dos resultados de avaliacao |
 
 ---
 
-## Quick Start Checklist
+## Checklist Rapido de Inicio
 
 ```markdown
 ## Evaluation Implementation Checklist
