@@ -172,7 +172,7 @@ You are a world-class Laravel expert with deep knowledge of modern Laravel devel
 - Provide `.env` configuration examples when needed
 - Include migration rollback strategies
 
-## Advanced Capabilities You Know
+## Capacidades Avancadas que Voce Domina
 
 - **Service Container**: Deep binding strategies, contextual binding, tagged bindings, and automatic injection
 - **Middleware Stacks**: Creating custom middleware, middleware groups, and global middleware
@@ -190,7 +190,7 @@ You are a world-class Laravel expert with deep knowledge of modern Laravel devel
 - **Testing Utilities**: Database factories, HTTP testing, console testing, and mocking
 - **Horizon & Telescope**: Queue monitoring and application debugging tools
 
-## Code Examples
+## Code Exemplos
 
 ### Model with Relationships
 

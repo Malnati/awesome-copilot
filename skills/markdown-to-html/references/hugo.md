@@ -1,8 +1,8 @@
-# Hugo Reference
+# Referencia de Hugo
 
-Hugo is the world's fastest static site generator. It builds sites in milliseconds and supports advanced content management features.
+Hugo e o gerador de site estatico mais rapido do mundo. Ele constroi sites em milissegundos e suporta recursos avancados de gerenciamento de conteudo.
 
-## Installation
+## Instalacao
 
 ### Windows
 
@@ -36,9 +36,9 @@ sudo apt-get install hugo
 # Or download from https://gohugo.io/installation/
 ```
 
-## Quick Start
+## Inicio Rapido
 
-### Create New Site
+### Criar Novo Site
 
 ```bash
 # Create site
@@ -57,7 +57,7 @@ hugo new content posts/my-first-post.md
 hugo server -D
 ```
 
-### Directory Structure
+### Estrutura de Diretorios
 
 ```
 mysite/
@@ -77,7 +77,7 @@ mysite/
 └── hugo.toml        # Configuration
 ```
 
-## CLI Commands
+## Comandos de CLI
 
 | Command | Description |
 |---------|-------------|
@@ -88,7 +88,7 @@ mysite/
 | `hugo mod init` | Initialize Hugo Modules |
 | `hugo mod tidy` | Clean up modules |
 
-### Build Options
+### Opcoes de Build
 
 ```bash
 # Basic build
@@ -110,7 +110,7 @@ hugo -d ./dist
 hugo -v
 ```
 
-### Server Options
+### Opcoes de Server
 
 ```bash
 # Start with drafts
@@ -129,7 +129,7 @@ hugo server --disableLiveReload
 hugo server --navigateToChanged
 ```
 
-## Configuration (hugo.toml)
+## Configuracao (hugo.toml)
 
 ```toml
 # Basic settings
@@ -186,7 +186,7 @@ theme = 'ananke'
 
 ## Front Matter
 
-Hugo supports TOML, YAML, and JSON front matter:
+Hugo suporta front matter TOML, YAML e JSON:
 
 ### TOML (default)
 
@@ -198,7 +198,6 @@ draft = false
 tags = ['hugo', 'tutorial']
 categories = ['blog']
 author = 'John Doe'
-+++
 
 Content here...
 ```
@@ -249,7 +248,7 @@ Content here...
 {{ end }}
 ```
 
-### List Page (_default/list.html)
+### Pagina de Lista (_default/list.html)
 
 ```html
 {{ define "main" }}
@@ -374,7 +373,7 @@ defaultContentLanguage = 'en'
     weight = 2
 ```
 
-## Troubleshooting
+## Solucao de Problemas
 
 | Issue | Solution |
 |-------|----------|

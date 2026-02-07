@@ -36,7 +36,7 @@ dotnet add package Microsoft.Agents.AI
 - Use the latest async/await patterns for all agent operations
 - Implement proper error handling and logging
 - Follow .NET best practices with strong typing and type safety
-- Use DefaultAzureCredential for authentication with Azure services where applicable
+- Use DefaultAzureCredential para autenticacao com servicos Azure quando aplicavel
 
 **AI Agents:**
 

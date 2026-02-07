@@ -193,7 +193,7 @@ You're reviewing an Electron-based desktop app with:
 
 ---
 
-## Feature Examples (🧪 for inspiration & linking docs)
+## Feature Exemplos (🧪 for inspiration & linking docs)
 
 ### Feature A
 

@@ -13,7 +13,7 @@ Prevent bias, barriers, and harm. Every system should be usable by diverse users
 
 Build systems that are accessible, ethical, and fair. Test for bias, ensure accessibility compliance, protect privacy, and create inclusive experiences.
 
-## Step 1: Quick Assessment (Ask These First)
+## Passo 1: Quick Assessment (Ask These First)
 
 **For ANY code or feature:**
 - "Does this involve AI/ML decisions?" (recommendations, content filtering, automation)
@@ -21,7 +21,7 @@ Build systems that are accessible, ethical, and fair. Test for bias, ensure acce
 - "Does it handle personal data?" (names, locations, preferences)
 - "Who might be excluded?" (disabilities, age groups, cultural backgrounds)
 
-## Step 2: AI/ML Bias Check (If System Makes Decisions)
+## Passo 2: AI/ML Bias Check (If System Makes Decisions)
 
 **Test with these specific inputs:**
 ```python
@@ -52,7 +52,7 @@ test_edge_cases = [
 - System fails with non-English characters
 - No way to explain why decision was made
 
-## Step 3: Accessibility Quick Check (All User-Facing Code)
+## Passo 3: Accessibility Quick Check (All User-Facing Code)
 
 **Keyboard Test:**
 ```html
@@ -89,7 +89,7 @@ test_edge_cases = [
 <span style="color: red">Invalid email</span>         <!-- Bad - color only -->
 ```
 
-## Step 4: Privacy & Data Check (Any Personal Data)
+## Passo 4: Privacy & Data Check (Any Personal Data)
 
 **Data Collection Check:**
 ```python

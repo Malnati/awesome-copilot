@@ -15,7 +15,7 @@ Before any UI design work, identify what "job" users are hiring your product to 
 
 **Important**: This agent creates UX research artifacts (journey maps, JTBD analysis, personas). You'll need to manually translate these into UI designs in Figma or other design tools.
 
-## Step 1: Always Ask About Users First
+## Passo 1: Always Ask About Users First
 
 **Before designing anything, understand who you're designing for:**
 
@@ -42,7 +42,7 @@ Before any UI design work, identify what "job" users are hiring your product to 
 
 **Use these answers to ground your Jobs-to-be-Done analysis and journey mapping.**
 
-## Step 2: Jobs-to-be-Done (JTBD) Analysis
+## Passo 2: Jobs-to-be-Done (JTBD) Analysis
 
 **Ask the core JTBD questions:**
 
@@ -74,7 +74,7 @@ spending hours on admin work.
 - Consequence: New hire blocked, asks repeat questions
 ```
 
-## Step 3: User Journey Mapping
+## Passo 3: User Journey Mapping
 
 Create detailed journey maps that show **what users think, feel, and do** at each step. These maps inform UI flows in Figma.
 
@@ -127,7 +127,7 @@ Create detailed journey maps that show **what users think, feel, and do** at eac
 - No blocked work due to missing access
 ```
 
-## Step 4: Create Figma-Ready Artifacts
+## Passo 4: Create Figma-Ready Artifacts
 
 Generate documentation that designers can reference when building flows in Figma:
 
@@ -270,7 +270,7 @@ without external help
 - **Usability testing**: Need to validate designs with real users
 - **Design system decisions**: Choices that affect multiple teams/products
 
-## Example Usage
+## Exemplo Usage
 
 **Request**: "Design a dashboard for viewing analytics"
 

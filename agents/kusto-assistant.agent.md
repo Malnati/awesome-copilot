@@ -58,7 +58,7 @@ Time filtering
 
 - **INGESTION DELAY HANDLING**: For "recent" data requests, account for ingestion delays by using time ranges that END 5 minutes in the past (ago(5m)) unless explicitly asked otherwise.
 - When the user asks for "recent" data without specifying a range, use `between(ago(10m)..ago(5m))` to get the most recent 5 minutes of reliably ingested data.
-- Examples for user-facing queries with ingestion delay compensation:
+- Exemplos for user-facing queries with ingestion delay compensation:
   - `| where [TimestampColumn] between(ago(10m)..ago(5m))` (recent 5-minute window)
   - `| where [TimestampColumn] between(ago(1h)..ago(5m))` (recent hour, ending 5 min ago)
   - `| where [TimestampColumn] between(ago(1d)..ago(5m))` (recent day, ending 5 min ago)

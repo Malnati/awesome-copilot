@@ -1,14 +1,14 @@
 # Basic Electronic Components
 
-This document covers four fundamental electronic components: Resistors, Capacitors, Buttons, and Switches, including common values, formulas, and types.
+Este documento cobre quatro componentes eletronicos fundamentais: resistors, capacitors, buttons e switches, incluindo valores comuns, formulas e tipos.
 
 ---
 
 ## 1. Resistors (R)
 
-Resistors limit the flow of electrical current and dissipate energy as heat.
+Resistors limitam o fluxo de corrente eletrica e dissipam energia como calor.
 
-### Common Formulas
+### Formulas Comuns
 
 * **Ohm's Law:** $V = I \times R$ (Voltage = Current $\times$ Resistance)
 * **Series Resistance:** $R_{total} = R_1 + R_2 + ... + R_n$
@@ -16,16 +16,16 @@ Resistors limit the flow of electrical current and dissipate energy as heat.
 
 ### Common Values (E12/E24 Series - 5% Tolerance)
 
-Values are multiplied by powers of 10 (e.g., 10$\Omega$, 100$\Omega$, 1k$\Omega$, 10k$\Omega$, 100k$\Omega$, 1M$\Omega$):
+Os valores sao multiplicados por potencias de 10 (ex.: 10$\Omega$, 100$\Omega$, 1k$\Omega$, 10k$\Omega$, 100k$\Omega$, 1M$\Omega$):
 **1.0, 1.1, 1.2, 1.3, 1.5, 1.6, 1.8, 2.0, 2.2, 2.4, 2.7, 3.0, 3.3, 3.6, 3.9, 4.3, 4.7, 5.1, 5.6, 6.2, 6.8, 7.5, 8.2, 9.1**
 
 ---
 
 ## 2. Capacitors (C)
 
-Capacitors store electrical charge in an electric field.
+Capacitors armazenam carga eletrica em um campo eletrico.
 
-### Common Formulas
+### Formulas Comuns
 
 * **Capacitance:** $C = \frac{Q}{V}$ (Charge / Voltage)
 * **Current:** $i = C \frac{dV}{dt}$
@@ -42,7 +42,7 @@ Capacitors store electrical charge in an electric field.
 
 ## 3. Buttons (Push Button)
 
-A momentary switch that completes a circuit only when pressed.
+Um button momentaneo que fecha um circuito apenas quando pressionado.
 
 ### Common Types
 
@@ -54,7 +54,7 @@ A momentary switch that completes a circuit only when pressed.
 
 ## 4. Switches (SW)
 
-An electromechanical device that breaks or connects a circuit, staying in position until flipped.
+Um switch eletromecanico que abre ou fecha um circuito, mantendo a posicao ate ser acionado.
 
 ### Common Types
 
@@ -65,7 +65,7 @@ An electromechanical device that breaks or connects a circuit, staying in positi
 
 ---
 
-## Quick Reference Summary Table
+## Tabela Resumo de Referencia Rapida
 
 | Component | Symbol (Ref) | Key Formula | Common Use |
 | :--- | :--- | :--- | :--- |

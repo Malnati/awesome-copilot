@@ -1,8 +1,8 @@
-# Excalidraw JSON Schema Reference
+# Referencia do JSON Schema do Excalidraw
 
-This document describes the structure of Excalidraw `.excalidraw` files for diagram generation.
+Este documento descreve a estrutura de arquivos `.excalidraw` do Excalidraw para geracao de diagramas.
 
-## Top-Level Structure
+## Estrutura de Alto Nivel
 
 ```typescript
 interface ExcalidrawFile {
@@ -24,9 +24,9 @@ interface AppState {
 }
 ```
 
-## ExcalidrawElement Base Properties
+## Propriedades Base de ExcalidrawElement
 
-All elements share these common properties:
+Todos os elementos compartilham estas propriedades comuns:
 
 ```typescript
 interface BaseElement {
@@ -59,7 +59,7 @@ interface BaseElement {
 }
 ```
 
-## Element Types
+## Tipos de Elemento
 
 ### Rectangle
 
@@ -75,7 +75,7 @@ interface RectangleElement extends BaseElement {
 }
 ```
 
-**Example:**
+**Exemplo:**
 ```json
 {
   "id": "rect1",
@@ -132,7 +132,7 @@ interface ArrowElement extends BaseElement {
 }
 ```
 
-**Example:**
+**Exemplo:**
 ```json
 {
   "id": "arrow1",
@@ -183,7 +183,7 @@ interface TextElement extends BaseElement {
 }
 ```
 
-**Example:**
+**Exemplo:**
 ```json
 {
   "id": "text1",
@@ -201,13 +201,13 @@ interface TextElement extends BaseElement {
 }
 ```
 
-**Width/Height calculation:**
-- Width ≈ `text.length * fontSize * 0.6`
+**Calculo de Largura/Altura:**
+- Largura ≈ `text.length * fontSize * 0.6`
 - Height ≈ `fontSize * 1.2 * numberOfLines`
 
 ## Bindings
 
-Bindings connect arrows to shapes:
+Bindings conectam arrows a shapes:
 
 ```typescript
 interface Binding {
@@ -219,20 +219,20 @@ interface Binding {
 
 ## Common Colors
 
-| Color Name | Hex Code | Use Case |
+| Nome da Cor | Codigo Hex | Caso de Uso |
 |------------|----------|----------|
-| Black | `#1e1e1e` | Default stroke |
+| Black | `#1e1e1e` | Stroke padrao |
 | Light Blue | `#a5d8ff` | Primary entities |
 | Light Green | `#b2f2bb` | Process steps |
 | Yellow | `#ffd43b` | Important/Central |
-| Light Red | `#ffc9c9` | Warnings/Errors |
+| Light Red | `#ffc9c9` | Avisos/Erros |
 | Cyan | `#96f2d7` | Secondary items |
 | Transparent | `transparent` | No fill |
 | White | `#ffffff` | Background |
 
 ## ID Generation
 
-IDs should be unique strings. Common patterns:
+IDs devem ser strings unicas. Padroes comuns:
 
 ```javascript
 // Timestamp-based
@@ -247,7 +247,7 @@ const id = "step-1", "entity-user", "arrow-1-to-2";
 
 ## Seed Generation
 
-Seeds are used for deterministic randomness in hand-drawn effect:
+Seeds sao usados para aleatoriedade deterministica no efeito hand-drawn:
 
 ```javascript
 const seed = Math.floor(Math.random() * 2147483647);
@@ -278,7 +278,7 @@ const versionNonce = Math.floor(Math.random() * 2147483647);
 
 ## Font Families
 
-| ID | Name | Description |
+| ID | Nome | Descricao |
 |----|------|-------------|
 | 1 | Virgil | Hand-drawn style (default) |
 | 2 | Helvetica | Clean sans-serif |
@@ -299,7 +299,7 @@ const versionNonce = Math.floor(Math.random() * 2147483647);
 - Set `locked` to `false`
 - Keep `frameId`, `boundElements`, `link` as `null`
 
-## Complete Minimal Example
+## Exemplo Minimo Completo
 
 ```json
 {

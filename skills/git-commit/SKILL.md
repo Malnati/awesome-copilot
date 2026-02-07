@@ -1,17 +1,17 @@
 ---
 name: git-commit
-description: 'Execute git commit with conventional commit message analysis, intelligent staging, and message generation. Use when user asks to commit changes, create a git commit, or mentions "/commit". Supports: (1) Auto-detecting type and scope from changes, (2) Generating conventional commit messages from diff, (3) Interactive commit with optional type/scope/description overrides, (4) Intelligent file staging for logical grouping'
+description: 'Execute git commit com analise de mensagem convencional, staging inteligente e geracao de mensagem. Use quando o usuario pedir para commitar mudancas, criar um git commit ou mencionar "/commit". Suporta: (1) Auto-detectar tipo e escopo a partir das mudancas, (2) Gerar mensagens Conventional Commits a partir do diff, (3) Commit interativo com overrides opcionais de tipo/escopo/descricao, (4) Staging inteligente de arquivos para agrupamento logico'
 license: MIT
 allowed-tools: Bash
 ---
 
-# Git Commit with Conventional Commits
+# Git Commit com Conventional Commits
 
-## Overview
+## Visao Geral
 
-Create standardized, semantic git commits using the Conventional Commits specification. Analyze the actual diff to determine appropriate type, scope, and message.
+Crie commits git padronizados e semanticos usando a especificacao Conventional Commits. Analise o diff real para determinar tipo, escopo e mensagem apropriados.
 
-## Conventional Commit Format
+## Formato de Conventional Commit
 
 ```
 <type>[optional scope]: <description>
@@ -21,21 +21,21 @@ Create standardized, semantic git commits using the Conventional Commits specifi
 [optional footer(s)]
 ```
 
-## Commit Types
+## Tipos de Commit
 
-| Type       | Purpose                        |
+| Tipo       | Finalidade                     |
 | ---------- | ------------------------------ |
-| `feat`     | New feature                    |
+| `feat`     | Nova feature                   |
 | `fix`      | Bug fix                        |
-| `docs`     | Documentation only             |
-| `style`    | Formatting/style (no logic)    |
-| `refactor` | Code refactor (no feature/fix) |
-| `perf`     | Performance improvement        |
-| `test`     | Add/update tests               |
+| `docs`     | Apenas documentacao            |
+| `style`    | Formatacao/estilo (sem logica) |
+| `refactor` | Refatoracao (sem feature/fix)  |
+| `perf`     | Melhoria de performance        |
+| `test`     | Adiciona/atualiza testes       |
 | `build`    | Build system/dependencies      |
-| `ci`       | CI/config changes              |
-| `chore`    | Maintenance/misc               |
-| `revert`   | Revert commit                  |
+| `ci`       | Mudancas de CI/config          |
+| `chore`    | Manutencao/misc                |
+| `revert`   | Reverter commit                |
 
 ## Breaking Changes
 
@@ -51,7 +51,7 @@ BREAKING CHANGE: `extends` key behavior changed
 
 ## Workflow
 
-### 1. Analyze Diff
+### 1. Analisar Diff
 
 ```bash
 # If files are staged, use staged diff
@@ -64,9 +64,9 @@ git diff
 git status --porcelain
 ```
 
-### 2. Stage Files (if needed)
+### 2. Fazer Stage dos Arquivos (se necessario)
 
-If nothing is staged or you want to group changes differently:
+Se nada estiver em stage ou se voce quiser agrupar as mudancas de forma diferente:
 
 ```bash
 # Stage specific files
@@ -80,17 +80,17 @@ git add src/components/*
 git add -p
 ```
 
-**Never commit secrets** (.env, credentials.json, private keys).
+**Nunca commite secrets** (.env, credentials.json, private keys).
 
-### 3. Generate Commit Message
+### 3. Gerar Mensagem de Commit
 
-Analyze the diff to determine:
+Analise o diff para determinar:
 
-- **Type**: What kind of change is this?
-- **Scope**: What area/module is affected?
-- **Description**: One-line summary of what changed (present tense, imperative mood, <72 chars)
+- **Type**: Que tipo de mudanca e esta?
+- **Scope**: Que area/modulo foi afetado?
+- **Descricao**: Resumo em uma linha do que mudou (tempo presente, modo imperativo, <72 chars)
 
-### 4. Execute Commit
+### 4. Executar Commit
 
 ```bash
 # Single line
@@ -107,18 +107,20 @@ EOF
 )"
 ```
 
-## Best Practices
+## Boas Praticas
 
-- One logical change per commit
-- Present tense: "add" not "added"
-- Imperative mood: "fix bug" not "fixes bug"
-- Reference issues: `Closes #123`, `Refs #456`
-- Keep description under 72 characters
+- Um commit por mudanca logica
+- Tempo presente: "add" e nao "added"
+- Modo imperativo: "fix bug" e nao "fixes bug"
+- Referencie issues: `Closes #123`, `Refs #456`
+- Mantenha a descricao abaixo de 72 caracteres
 
-## Git Safety Protocol
+## Protocolo de Seguranca do Git
 
-- NEVER update git config
-- NEVER run destructive commands (--force, hard reset) without explicit request
-- NEVER skip hooks (--no-verify) unless user asks
-- NEVER force push to main/master
-- If commit fails due to hooks, fix and create NEW commit (don't amend)
+- NUNCA atualize git config
+- NUNCA faca commit automaticamente com `--no-verify`
+- NUNCA faca push sem confirmacao explicita do usuario
+- NUNCA sobrescreva historico com `git rebase` ou `git push --force` sem confirmacao explicita
+- NUNCA faca commit de segredos ou dados sensiveis
+- Sempre pergunte antes de executar `git commit`
+- Sempre mostre o resumo do commit antes de finalizar

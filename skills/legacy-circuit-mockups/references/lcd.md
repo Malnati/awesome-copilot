@@ -1,143 +1,143 @@
 # DFRobot FIT0127 LCD Character Display Specification
 
-## 1. Overview
+## 1. Visao geral
 
-The **DFRobot FIT0127** is a family of **HD44780-compatible character LCD modules** commonly used in embedded systems and hobbyist projects. These displays provide alphanumeric output using a dot-matrix character generator and support both 8-bit and 4-bit parallel interfaces.
+O **DFRobot FIT0127** e uma familia de **modulos de LCD de caracteres compativeis com HD44780**, comumente usados em sistemas embarcados e projetos hobby. Esses displays fornecem saida alfanumerica usando um gerador de caracteres dot-matrix e suportam interfaces paralelas 8-bit e 4-bit.
 
-FIT0127 modules are frequently paired with microcontrollers and 8-bit CPUs such as the **6502**, **AVR**, **PIC**, and **Arduino** platforms.
-
----
-
-## 2. General Characteristics
-
-| Feature           | Description                                         |
-| ----------------- | --------------------------------------------------- |
-| Display type      | Character LCD (STN, Yellow-Green backlight typical) |
-| Controller        | HD44780 or compatible                               |
-| Interface         | Parallel (4-bit or 8-bit)                           |
-| Character size    | 5 x 8 dot matrix                                    |
-| Operating voltage | 5 V logic (some variants support 3.3 V)             |
-| Backlight         | LED (separate power pins)                           |
-| Viewing mode      | Transflective                                       |
+Os modulos FIT0127 sao frequentemente combinados com microcontroladores e CPUs 8-bit como **6502**, **AVR**, **PIC** e plataformas **Arduino**.
 
 ---
 
-## 3. Display Variants
+## 2. Caracteristicas gerais
 
-The FIT0127 designation is commonly associated with **16x2 character LCD modules**.
-
-| Variant | Characters          |
-| ------- | ------------------- |
-| FIT0127 | 16 columns x 2 rows |
-
----
-
-## 4. Pin Configuration
-
-### 4.1 Pinout (Standard 16-pin Header)
-
-| Pin | Name | Description           |
-| --: | ---- | --------------------- |
-|   1 | VSS  | Ground                |
-|   2 | VDD  | +5 V supply           |
-|   3 | VO   | Contrast adjust       |
-|   4 | RS   | Register Select       |
-|   5 | R/W  | Read/Write select     |
-|   6 | E    | Enable                |
-|   7 | D0   | Data bit 0            |
-|   8 | D1   | Data bit 1            |
-|   9 | D2   | Data bit 2            |
-|  10 | D3   | Data bit 3            |
-|  11 | D4   | Data bit 4            |
-|  12 | D5   | Data bit 5            |
-|  13 | D6   | Data bit 6            |
-|  14 | D7   | Data bit 7            |
-|  15 | A    | Backlight Anode (+)   |
-|  16 | K    | Backlight Cathode (-) |
+| Recurso            | Descricao                                           |
+| ------------------ | --------------------------------------------------- |
+| Tipo de display    | Character LCD (STN, Yellow-Green backlight typical) |
+| Controlador        | HD44780 ou compativel                               |
+| Interface          | Parallel (4-bit or 8-bit)                           |
+| Tamanho caractere  | 5 x 8 dot matrix                                    |
+| Tensao operacao    | Logica 5 V (algumas variantes suportam 3.3 V)       |
+| Backlight          | LED (pinos de energia separados)                   |
+| Modo de visualizacao | Transflective                                    |
 
 ---
 
-## 5. Electrical Characteristics (Typical)
+## 3. Variantes do display
 
-| Parameter           | Value       |
-| ------------------- | ----------- |
-| Logic voltage (VDD) | 4.5 - 5.5 V |
-| Logic current       | ~1-2 mA     |
-| Backlight voltage   | ~4.2 V      |
-| Backlight current   | 15-30 mA    |
+A designacao FIT0127 e comumente associada a **modulos LCD de caracteres 16x2**.
+
+| Variante | Caracteres         |
+| -------- | ------------------ |
+| FIT0127  | 16 colunas x 2 linhas |
 
 ---
 
-## 6. Interface Signals
+## 4. Configuracao de pinos
+
+### 4.1 Pinout (Header padrao 16 pinos)
+
+| Pino | Nome | Descricao              |
+| --:  | ---- | ---------------------- |
+|   1  | VSS  | Ground                 |
+|   2  | VDD  | Alimentacao +5 V       |
+|   3  | VO   | Ajuste de contraste    |
+|   4  | RS   | Register Select        |
+|   5  | R/W  | Read/Write select      |
+|   6  | E    | Enable                 |
+|   7  | D0   | Data bit 0             |
+|   8  | D1   | Data bit 1             |
+|   9  | D2   | Data bit 2             |
+|  10  | D3   | Data bit 3             |
+|  11  | D4   | Data bit 4             |
+|  12  | D5   | Data bit 5             |
+|  13  | D6   | Data bit 6             |
+|  14  | D7   | Data bit 7             |
+|  15  | A    | Backlight Anode (+)    |
+|  16  | K    | Backlight Cathode (-)  |
+
+---
+
+## 5. Caracteristicas eletricas (tipicas)
+
+| Parametro          | Valor       |
+| ------------------ | ----------- |
+| Tensao logica (VDD) | 4.5 - 5.5 V |
+| Corrente logica    | ~1-2 mA     |
+| Tensao backlight   | ~4.2 V      |
+| Corrente backlight | 15-30 mA    |
+
+---
+
+## 6. Sinais de interface
 
 ### 6.1 RS (Register Select)
 
-| RS | Function             |
+| RS | Funcao               |
 | -- | -------------------- |
 | 0  | Instruction register |
 | 1  | Data register        |
 
 ### 6.2 R/W
 
-| R/W | Operation     |
-| --- | ------------- |
-| 0   | Write to LCD  |
-| 1   | Read from LCD |
+| R/W | Operacao       |
+| --- | -------------- |
+| 0   | Write to LCD   |
+| 1   | Read from LCD  |
 
 ### 6.3 Enable (E)
 
-* Data is latched on the **falling edge** of E
-* E must be pulsed HIGH  LOW for each transfer
+* Dados sao capturados na **borda de descida** de E
+* E deve ser pulsado HIGH -> LOW para cada transferencia
 
 ---
 
-## 7. Data Bus Operation
+## 7. Operacao do barramento de dados
 
-### 7.1 8-bit Mode
+### 7.1 Modo 8-bit
 
-* Uses D0-D7
-* Faster operation
+* Usa D0-D7
+* Operacao mais rapida
 
-### 7.2 4-bit Mode
+### 7.2 Modo 4-bit
 
-* Uses D4-D7 only
-* Data transferred in two nibbles (high first)
-* Saves I/O pins
+* Usa apenas D4-D7
+* Dados transferidos em dois nibbles (high primeiro)
+* Economiza pinos de I/O
 
 ---
 
-## 8. Internal Memory Map
+## 8. Mapa de memoria interno
 
 ### 8.1 DDRAM (Display Data RAM)
 
-|   Address | Display Position |
-| --------: | ---------------- |
-| 0x00-0x0F | Line 1, Col 1-16 |
-| 0x40-0x4F | Line 2, Col 1-16 |
+| Endereco | Posicao no display |
+| -------: | ------------------ |
+| 0x00-0x0F | Linha 1, Col 1-16 |
+| 0x40-0x4F | Linha 2, Col 1-16 |
 
 ### 8.2 CGRAM (Character Generator RAM)
 
-* Supports up to **8 custom characters**
-* Each character uses 8 bytes
+* Suporta ate **8 caracteres customizados**
+* Cada caractere usa 8 bytes
 
 ---
 
-## 9. Instruction Set (Summary)
+## 9. Conjunto de instrucoes (resumo)
 
-| Instruction | Description            |
-| ----------- | ---------------------- |
-| 0x01        | Clear display          |
-| 0x02        | Return home            |
-| 0x04-0x07   | Entry mode set         |
-| 0x08-0x0F   | Display on/off control |
-| 0x10-0x1F   | Cursor/display shift   |
-| 0x20-0x3F   | Function set           |
-| 0x40-0x7F   | Set CGRAM address      |
-| 0x80-0xFF   | Set DDRAM address      |
+| Instrucao | Descricao               |
+| --------- | ----------------------- |
+| 0x01      | Clear display           |
+| 0x02      | Return home             |
+| 0x04-0x07 | Entry mode set          |
+| 0x08-0x0F | Display on/off control  |
+| 0x10-0x1F | Cursor/display shift    |
+| 0x20-0x3F | Function set            |
+| 0x40-0x7F | Set CGRAM address       |
+| 0x80-0xFF | Set DDRAM address       |
 
 ---
 
-## 10. Initialization Sequence (4-bit Mode)
+## 10. Sequencia de inicializacao (modo 4-bit)
 
 ```text
 Wait >15 ms after VDD rises
@@ -151,55 +151,55 @@ Clear display: 0x01
 
 ---
 
-## 11. Timing Characteristics (Typical)
+## 11. Caracteristicas de timing (tipicas)
 
-| Operation          | Time     |
-| ------------------ | -------- |
-| Enable pulse width | ≥ 450 ns |
-| Command execution  | ~37 µs   |
-| Clear / Home       | ~1.52 ms |
+| Operacao            | Tempo    |
+| ------------------- | -------- |
+| Enable pulse width  | >= 450 ns |
+| Command execution   | ~37 us   |
+| Clear / Home        | ~1.52 ms |
 
 ---
 
-## 12. Typical System Integration (6502 Example)
+## 12. Integracao tipica no sistema (exemplo 6502)
 
 ```text
-RS   VIA output
-E    VIA output
-D4-D7  VIA Port B
-R/W  Grounded (write-only)
+RS  -> VIA output
+E   -> VIA output
+D4-D7 -> VIA Port B
+R/W -> Grounded (write-only)
 ```
 
 ---
 
-## 13. Contrast and Backlight Control
+## 13. Controle de contraste e backlight
 
-* Contrast adjusted via potentiometer on VO pin
-* Backlight may require series resistor
-* PWM dimming supported via external control
-
----
-
-## 14. Absolute Maximum Ratings (Summary)
-
-| Parameter      | Rating                |
-| -------------- | --------------------- |
-| VDD            | -0.3 V to +6.0 V      |
-| Input voltage  | -0.3 V to VDD + 0.3 V |
-| Operating temp | -20 °C to +70 °C      |
+* Contraste ajustado via potenciometro no pino VO
+* Backlight pode exigir resistor em serie
+* PWM dimming suportado via controle externo
 
 ---
 
-## 15. Common Use Cases
+## 14. Ratings maximos absolutos (resumo)
+
+| Parametro       | Rating                |
+| --------------- | --------------------- |
+| VDD             | -0.3 V to +6.0 V      |
+| Input voltage   | -0.3 V to VDD + 0.3 V |
+| Operating temp  | -20 C to +70 C        |
+
+---
+
+## 15. Casos de uso comuns
 
 * Status displays
-* Debug output for SBCs
-* User interfaces for embedded systems
+* Debug output para SBCs
+* User interfaces para sistemas embarcados
 * Retrocomputer front panels
 
 ---
 
-## 16. References
+## 16. Referencias
 
 * <https://static6.arrow.com/aropdfconversion/1f68489996f057bb6611f71d5fdb5f60f44faa72/pgurl_58439499065092.pdf>
 * <https://cdn.sparkfun.com/assets/9/5/f/7/b/HD44780.pdf>

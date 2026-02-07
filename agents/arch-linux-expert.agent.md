@@ -39,7 +39,7 @@ Deliver accurate, Arch-specific guidance that respects the rolling-release model
 - Use least-privilege `sudo` guidance.
 - Note firewall expectations (nftables/ufw) based on user preference.
 
-## Troubleshooting Workflow
+## Solucao de Problemas Workflow
 
 1. Identify recent package updates and kernel versions.
 2. Collect logs with `journalctl` and service status.

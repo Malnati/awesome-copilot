@@ -1,6 +1,6 @@
 # Common Breadboard Electronic Components
 
-A practical reference for **breadboard-based electronics**, covering common components, formulas, tables, pinouts, and learning references. Suitable for beginners through intermediate hardware builders.
+Uma referencia pratica para **breadboard-based electronics**, cobrindo componentes comuns, formulas, tabelas, pinouts e referencias de aprendizado. Adequado para iniciantes ate construtores de hardware intermediarios.
 
 ---
 
@@ -8,11 +8,11 @@ A practical reference for **breadboard-based electronics**, covering common comp
 
 ### Description
 
-Resistors limit current, divide voltage, and set bias points.
+Resistors limitam corrente, dividem tensao e definem pontos de bias.
 
 ### Common Types
 
-| Type          | Notes       | Typical Use        |
+| Tipo          | Notas       | Uso Tipico        |
 | ------------- | ----------- | ------------------ |
 | Carbon Film   | Cheap, ±5%  | General purpose    |
 | Metal Film    | Stable, ±1% | Precision circuits |
@@ -55,7 +55,7 @@ Resistors limit current, divide voltage, and set bias points.
 
 ### Description
 
-Capacitors store electrical energy and block DC while passing AC.
+Capacitors armazenam energia eletrica e bloqueiam DC enquanto passam AC.
 
 ### Common Types
 
@@ -68,7 +68,7 @@ Capacitors store electrical energy and block DC while passing AC.
 
 ### Common Values
 
-| Range | Example          |
+| Faixa | Exemplo          |
 | ----- | ---------------- |
 | pF    | 10pF, 100pF      |
 | nF    | 100nF (0.1µF)    |
@@ -93,7 +93,7 @@ Capacitors store electrical energy and block DC while passing AC.
 
 ### Description
 
-Inductors store energy in a magnetic field and resist changes in current.
+Inductors armazenam energia em um campo magnetico e resistem a mudancas de corrente.
 
 ### Common Types
 
@@ -117,7 +117,7 @@ Inductors store energy in a magnetic field and resist changes in current.
 
 ### Description
 
-Diodes allow current flow in one direction only.
+Diodes permitem fluxo de corrente em apenas uma direcao.
 
 ### Common Types
 
@@ -145,7 +145,7 @@ Diodes allow current flow in one direction only.
 
 ### Description
 
-LEDs emit light when forward biased.
+LEDs emitem luz quando polarizados diretamente.
 
 ### Typical Forward Voltage
 
@@ -169,7 +169,7 @@ LEDs emit light when forward biased.
 
 ### BJT (Bipolar Junction Transistor)
 
-| Type | Example | Use                      |
+| Tipo | Exemplo | Uso                      |
 | ---- | ------- | ------------------------ |
 | NPN  | 2N3904  | Switching, amplification |
 | PNP  | 2N3906  | High-side switching      |
@@ -180,7 +180,7 @@ LEDs emit light when forward biased.
 
 ### MOSFET
 
-| Type      | Example | Use                   |
+| Tipo      | Exemplo | Uso                   |
 | --------- | ------- | --------------------- |
 | N-channel | IRLZ44N | Logic-level switching |
 | P-channel | IRF9540 | High-side control     |

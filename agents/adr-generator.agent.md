@@ -155,7 +155,7 @@ For each alternative:
 
 `adr-NNNN-[title-slug].md`
 
-**Examples:**
+**Exemplos:**
 
 - `adr-0001-database-selection.md`
 - `adr-0015-microservices-architecture.md`
@@ -174,7 +174,7 @@ All ADRs must be saved in: `/docs/adr/`
 
 ---
 
-## Quality Checklist
+## Checklist de Qualidade
 
 Before finalizing the ADR, verify:
 

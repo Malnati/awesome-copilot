@@ -1,6 +1,6 @@
-# Collapsed Sections to HTML
+# Secoes Colapsadas para HTML
 
-## `<details>` Block (Raw HTML in Markdown)
+## Bloco `<details>` (Raw HTML em Markdown)
 
 ### Markdown
 
@@ -24,7 +24,7 @@ You can add an image or a code block, too.
 
 ---
 
-### Parsed HTML
+### HTML Parseado
 
 ```html
 <details>
@@ -42,14 +42,14 @@ puts "Hello World"
 </details>
 ```
 
-#### Notes:
+#### Notas:
 
-* Markdown **inside `<details>`** is still parsed normally.
-* Syntax highlighting is preserved via `class="language-ruby"`.
+* Markdown **dentro de `<details>`** ainda e parseado normalmente.
+* Syntax highlighting e preservado via `class="language-ruby"`.
 
 ---
 
-## Open by Default (`open` attribute)
+## Aberto por Padrao (atributo `open`)
 
 ### Markdown
 
@@ -71,7 +71,7 @@ You can add an image or a code block, too.
 </details>
 ````
 
-### Parsed HTML
+### HTML Parseado
 
 ```html
 <details open>
@@ -89,14 +89,14 @@ puts "Hello World"
 </details>
 ```
 
-## Key Rules
+## Regras Principais
 
-* `<details>` and `<summary>` are **raw HTML**, not Markdown syntax
-* Markdown inside `<details>` **is still parsed**
-* Syntax highlighting works normally inside collapsed sections
-* Use `<summary>` as the **clickable label**
+* `<details>` e `<summary>` sao **raw HTML**, nao sintaxe Markdown
+* Markdown dentro de `<details>` **ainda e parseado**
+* Syntax highlighting funciona normalmente dentro de secoes colapsadas
+* Use `<summary>` como **rotulo clicavel**
 
-## Paragraphs with Inline HTML & SVG
+## Paragrafos com HTML Inline e SVG
 
 ### Markdown
 
@@ -104,7 +104,7 @@ puts "Hello World"
 You can streamline your Markdown by creating a collapsed section with the `<details>` tag.
 ```
 
-### Parsed HTML
+### HTML Parseado
 
 ```html
 <p>
@@ -120,7 +120,7 @@ You can streamline your Markdown by creating a collapsed section with the `<deta
 Any Markdown within the `<details>` block will be collapsed until the reader clicks <svg ...></svg> to expand the details.
 ```
 
-### Parsed HTML
+### HTML Parseado
 
 ```html
 <p>

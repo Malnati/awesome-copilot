@@ -1,22 +1,22 @@
 # 6502 Assembly Language with AT28C256 EEPROM
 
-A practical specification for writing **6502/65C02 assembly language programs** intended to be stored in and executed from an **AT28C256 (32 KB) parallel EEPROM** in single-board computers (SBCs) and retro systems.
+Uma especificacao pratica para escrever programas em **assembly 6502/65C02** destinados a serem armazenados e executados em uma **AT28C256 (32 KB) EEPROM paralela** em single-board computers (SBCs) e sistemas retro.
 
 ---
 
 ## 1. Scope and Assumptions
 
-This document assumes:
+Este documento assume:
 
-* A **6502-family CPU** (6502, 65C02, or compatible)
-* Program code stored in an **AT28C256 (32K x 8) EEPROM**
-* Memory-mapped I/O (e.g., 6522 VIA)
-* Reset and interrupt vectors located in EEPROM
-* External RAM mapped elsewhere (e.g., 62256 SRAM)
+* Uma **CPU da familia 6502** (6502, 65C02 ou compatível)
+* Codigo do programa armazenado em uma **AT28C256 (32K x 8) EEPROM**
+* I/O mapeado em memoria (ex.: 6522 VIA)
+* Vetores de reset e interrupcao localizados na EEPROM
+* RAM externa mapeada em outro endereco (ex.: 62256 SRAM)
 
 ---
 
-## 2. AT28C256 EEPROM Overview
+## 2. Visao Geral da EEPROM AT28C256
 
 | Parameter      | Value               |
 | -------------- | ------------------- |
@@ -36,7 +36,7 @@ This document assumes:
 
 ---
 
-## 3. 6502 Memory Map Example
+## 3. Exemplo de Mapa de Memoria 6502
 
 ```
 $0000-$00FF  Zero Page (RAM)
@@ -49,7 +49,7 @@ $8000-$FFFF  AT28C256 EEPROM
 
 ## 4. Reset and Interrupt Vectors
 
-The 6502 reads vectors from the **top of memory**:
+O 6502 le vetores no **topo da memoria**:
 
 | Vector  | Address       | Description            |
 | ------- | ------------- | ---------------------- |
@@ -57,7 +57,7 @@ The 6502 reads vectors from the **top of memory**:
 | RESET   | `$FFFC-$FFFD` | Reset entry point      |
 | IRQ/BRK | `$FFFE-$FFFF` | Maskable interrupt     |
 
-### Vector Definition Example
+### Exemplo de Definicao de Vetor
 
 ```asm
         .org $FFFA
@@ -114,7 +114,7 @@ main:
 
 ## 7. Addressing Modes (Common)
 
-| Mode      | Example       | Notes        |
+| Modo      | Exemplo       | Notas        |
 | --------- | ------------- | ------------ |
 | Immediate | `LDA #$01`    | Constant     |
 | Zero Page | `LDA $00`     | Fast         |
@@ -128,12 +128,12 @@ main:
 
 ### Key Considerations
 
-* Code is **read-only at runtime**
-* Self-modifying code not recommended
-* Place jump tables and constants in EEPROM
-* Use RAM for variables and stack
+* Codigo e **read-only em runtime**
+* Self-modifying code nao e recomendado
+* Coloque jump tables e constantes na EEPROM
+* Use RAM para variaveis e stack
 
-### Zero Page Variable Example
+### Exemplo de Variavel de Zero Page
 
 ```asm
 counter = $00
@@ -146,13 +146,13 @@ counter = $00
 
 ## 9. Timing and Performance
 
-* EEPROM access time must meet CPU clock requirements
-* AT28C256 supports ~1 MHz comfortably
-* Faster clocks may require wait states or ROM shadowing
+* O tempo de acesso da EEPROM deve atender aos requisitos de clock da CPU
+* AT28C256 suporta ~1 MHz confortavelmente
+* Clocks mais rapidos podem exigir wait states ou ROM shadowing
 
 ---
 
-## 10. Example: Simple LED Toggle (Memory-Mapped I/O)
+## 10. Exemplo: Toggle de LED Simples (I/O com Memoria Mapeada)
 
 ```asm
 PORTB = $6000

@@ -10,13 +10,13 @@ Act as an expert in Azure Cloud Engineering, specialising in Azure Terraform Inf
 
 ## Pre-flight: Spec Check & Intent Capture
 
-### Step 1: Existing Specs Check
+### Passo 1: Existing Specs Check
 
 - Check for existing `.terraform-planning-files/*.md` or user-provided specs/docs.
 - If found: Review and confirm adequacy. If sufficient, proceed to plan creation with minimal questions.
 - If absent: Proceed to initial assessment.
 
-### Step 2: Initial Assessment (If No Specs)
+### Passo 2: Initial Assessment (If No Specs)
 
 **Classification Question:**
 

@@ -17,7 +17,7 @@ Your final output will be the full corrected prompt verbatim. However, before th
     - Conclusion: (yes/no) is the chain of thought used to determine a conclusion?
     - Ordering: (before/after) is the chain of thought located before or after 
 - Structure: (yes/no) does the input prompt have a well defined structure
-- Examples: (yes/no) does the input prompt have few-shot examples
+- Exemplos: (yes/no) does the input prompt have few-shot examples
     - Representative: (1-5) if present, how representative are the examples?
 - Complexity: (1-5) how complex is the input prompt?
     - Task: (1-5) how complex is the implied task?
@@ -36,7 +36,7 @@ After the <reasoning> section, you will output the full prompt verbatim, without
 - Reasoning Before Conclusions**: Encourage reasoning steps before any conclusions are reached. ATTENTION! If the user provides examples where the reasoning happens afterward, REVERSE the order! NEVER START EXAMPLES WITH CONCLUSIONS!
     - Reasoning Order: Call out reasoning portions of the prompt and conclusion parts (specific fields by name). For each, determine the ORDER in which this is done, and whether it needs to be reversed.
     - Conclusion, classifications, or results should ALWAYS appear last.
-- Examples: Include high-quality examples if helpful, using placeholders [in brackets] for complex elements.
+- Exemplos: Include high-quality examples if helpful, using placeholders [in brackets] for complex elements.
 - What kinds of examples may need to be included, how many, and whether they are complex enough to benefit from placeholders.
 - Clarity and Conciseness: Use clear, specific language. Avoid unnecessary instructions or bland statements.
 - Formatting: Use markdown features for readability. DO NOT USE ``` CODE BLOCKS UNLESS SPECIFICALLY REQUESTED.
@@ -62,7 +62,7 @@ The final prompt you output should adhere to the following structure below. Do n
 
 [Specifically call out how the output should be formatted, be it response length, structure e.g. JSON, markdown, etc]
 
-# Examples [optional]
+# Exemplos [optional]
 
 [Optional: 1-3 well-defined examples with placeholders if necessary. Clearly mark where examples start and end, and what the input and output are. User placeholders as necessary.]
 [If the examples are shorter than what a realistic example is expected to be, make a reference with () explaining how real examples should be longer / shorter / different. AND USE PLACEHOLDERS! ]

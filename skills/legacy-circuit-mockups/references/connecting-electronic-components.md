@@ -1,6 +1,6 @@
 # Connecting Electronic Components
 
-This guide provides step-by-step instructions for building electronic circuits on a breadboard. Each build progressively introduces new components and concepts.
+Este guia fornece instrucoes passo a passo para montar circuitos eletricos em uma breadboard. Cada montagem introduz novos componentes e conceitos de forma progressiva.
 
 ---
 
@@ -10,20 +10,20 @@ This guide provides step-by-step instructions for building electronic circuits o
 
 **Components:** Red LED, black jumper wire, red jumper wire, battery with holder
 
-**Steps:**
+**Passos:**
 
-1. Insert the black jumper wire into the breadboard from **A5** to **A14**.
-2. Insert the red jumper wire into the breadboard from **J5** to **J14**.
-3. Place the red LED into row 14 with the positive leg (the longer of the two legs) on the right side, aligned with the red wire, and the negative leg on the left, aligned with the black wire.
-4. Insert the battery into its holder and place it in the breadboard, connecting negative to black and positive to red.
+1. Insira o black jumper wire na breadboard de **A5** ate **A14**.
+2. Insira o red jumper wire na breadboard de **J5** ate **J14**.
+3. Coloque o red LED na linha 14 com a perna positiva (a mais longa) do lado direito, alinhada ao red wire, e a perna negativa do lado esquerdo, alinhada ao black wire.
+4. Insira a bateria no holder e coloque-o na breadboard, conectando negativo ao black e positivo ao red.
 
-**Result:** When you insert the battery, the LED will light up.
+**Result:** Ao inserir a bateria, o LED acende.
 
-**Troubleshooting:**
+**Solucao de Problemas:**
 
-- Is your LED inserted backwards?
-- Are the jumper wires in the same row as the LED leads?
-- Are the jumper wires in the same row as the battery terminals?
+- O LED esta invertido?
+- Os jumper wires estao na mesma linha dos terminais do LED?
+- Os jumper wires estao na mesma linha dos terminais da bateria?
 
 ---
 
@@ -31,21 +31,21 @@ This guide provides step-by-step instructions for building electronic circuits o
 
 **Components:** Red LED, push button, black jumper wire, red jumper wire, battery with holder
 
-**Steps:**
+**Passos:**
 
-1. Insert the black jumper wire into the breadboard from **A5** to **A16**.
-2. Insert the red jumper wire into the breadboard from **J5** to **J12**.
-3. Place the red LED into the breadboard with the positive leg (the longer of the two legs) inserted into **H15** and the negative leg into **G17**.
-4. Place the push button horizontally in the middle of the breadboard so the bottom-left pin is on row 16 (aligned with the black jumper wire) and the top-right pin is on row 14 (aligned with the negative leg of the red LED).
-5. Insert the battery into its holder and place it in the breadboard, connecting negative to black and positive to red.
+1. Insira o black jumper wire na breadboard de **A5** ate **A16**.
+2. Insira o red jumper wire na breadboard de **J5** ate **J12**.
+3. Coloque o red LED na breadboard com a perna positiva (a mais longa) em **H15** e a perna negativa em **G17**.
+4. Posicione o push button horizontalmente no meio da breadboard de modo que o pino inferior esquerdo fique na linha 16 (alinhado ao black jumper wire) e o pino superior direito na linha 14 (alinhado a perna negativa do red LED).
+5. Insira a bateria no holder e coloque-o na breadboard, conectando negativo ao black e positivo ao red.
 
-**Result:** When you press the push button, the LED will light up.
+**Result:** Ao pressionar o push button, o LED acende.
 
-**Troubleshooting:**
+**Solucao de Problemas:**
 
-- Is your LED inserted backwards?
-- Are the jumper wires in the same row as the LED leads?
-- Are the jumper wires in the same row as the battery terminals?
+- O LED esta invertido?
+- Os jumper wires estao na mesma linha dos terminais do LED?
+- Os jumper wires estao na mesma linha dos terminais da bateria?
 
 ---
 
@@ -53,15 +53,15 @@ This guide provides step-by-step instructions for building electronic circuits o
 
 **Components:** Green LED, photoresistor, black jumper wire, red jumper wire, battery with holder
 
-**Steps:**
+**Passos:**
 
-1. Insert the black jumper wire into the breadboard from **A5** to **A12**.
-2. Insert the red jumper wire into the breadboard from **J5** to **J13**.
-3. Place the green LED into the breadboard with the positive leg (the longer of the two legs) inserted into **F13** and the negative leg into **E13**.
-4. Insert the photoresistor into the breadboard from **C12** to **D13**.
-5. Insert the battery into its holder and place it in the breadboard, connecting negative to black and positive to red.
+1. Insira o black jumper wire na breadboard de **A5** ate **A12**.
+2. Insira o red jumper wire na breadboard de **J5** ate **J13**.
+3. Coloque o green LED na breadboard com a perna positiva (a mais longa) em **F13** e a perna negativa em **E13**.
+4. Insira o photoresistor na breadboard de **C12** ate **D13**.
+5. Insira a bateria no holder e coloque-o na breadboard, conectando negativo ao black e positivo ao red.
 
-**Result:** When you insert the battery, the LED will light up. Covering the photoresistor will cause the LED to dim.
+**Result:** Ao inserir a bateria, o LED acende. Cobrir o photoresistor faz o LED diminuir o brilho.
 
 ---
 
@@ -69,39 +69,39 @@ This guide provides step-by-step instructions for building electronic circuits o
 
 **Components:** Red LED, green LED, 220Ω resistor, push button, black jumper wire, red jumper wire, battery with holder
 
-**Steps:**
+**Passos:**
 
-1. Insert the black jumper wire into the breadboard from **A5** to **A11**.
-2. Insert the red jumper wire into the breadboard from **J5** to **J11**.
-3. Insert the 220Ω resistor into the breadboard from **I11** to **I15**.
-4. Place the push button horizontally in the middle of the breadboard so the top pins are on row 15 and on opposite sides of the breadboard.
-5. Place the red LED into the breadboard with the positive leg (the longer of the two legs) inserted into **C17** and the negative leg into **B11**.
-6. Place the green LED into the breadboard with the positive leg inserted into **G15** and the negative leg into **E11**.
-7. Insert the battery into its holder and place it in the breadboard, connecting negative to black and positive to red.
+1. Insira o black jumper wire na breadboard de **A5** ate **A11**.
+2. Insira o red jumper wire na breadboard de **J5** ate **J11**.
+3. Insira o resistor de 220Ω na breadboard de **I11** ate **I15**.
+4. Posicione o push button horizontalmente no meio da breadboard de modo que os pinos superiores fiquem na linha 15 e em lados opostos da breadboard.
+5. Coloque o red LED na breadboard com a perna positiva (a mais longa) em **C17** e a perna negativa em **B11**.
+6. Coloque o green LED na breadboard com a perna positiva em **G15** e a perna negativa em **E11**.
+7. Insira a bateria no holder e coloque-o na breadboard, conectando negativo ao black e positivo ao red.
 
-**Result:** When you insert the battery, the green LED will light up. When you press the push button, the green LED will turn off and the red LED will light up.
+**Result:** Ao inserir a bateria, o green LED acende. Ao pressionar o push button, o green LED apaga e o red LED acende.
 
 ### Build 5 - Photoresistor Blinking LEDs
 
-- Insert the black jumper wire into the breadboard from A3 to A12.
-- Insert the red jumper wire into the breadboard from J3 to J12.
-- Place the 555 integrated circuit chip into the middle of the breadboard with the top pins on row 12.
-- Insert a jumper wire into the breadboard connecting D15 to G12.
-- Insert a jumper wire into the breadboard connecting D13 to G14.
-- Insert the 1000Ω resistor into the breadboard from C14 to H17.
-- Insert the photoresistor into the breadboard from B14 to B15.
-- Insert the capacitor into the breadboard from A13 to B12.
-- Place the green LED into the breadboard with the positive leg (longer of the two legs) inserted into F17 and the negative leg into C12.
-- Place the red LED into the breadboard with the positive leg inserted into I12 and the negative leg into J17.
-- Insert the battery into its battery holder and place it in the breadboard, connecting negative to black and positive to red.
+- Insira o black jumper wire na breadboard de A3 ate A12.
+- Insira o red jumper wire na breadboard de J3 ate J12.
+- Posicione o chip 555 no meio da breadboard com os pinos superiores na linha 12.
+- Insira um jumper wire conectando D15 a G12.
+- Insira um jumper wire conectando D13 a G14.
+- Insira o resistor de 1000Ω na breadboard de C14 ate H17.
+- Insira o photoresistor na breadboard de B14 ate B15.
+- Insira o capacitor na breadboard de A13 ate B12.
+- Coloque o green LED na breadboard com a perna positiva (a mais longa) em F17 e a perna negativa em C12.
+- Coloque o red LED na breadboard com a perna positiva em I12 e a perna negativa em J17.
+- Insira a bateria no holder e coloque-o na breadboard, conectando negativo ao black e positivo ao red.
 
-When you insert the battery, both LED’s will begin rapidly blinking. Covering the photoresistor from light will slow the LEDs blinking frequency.
+Ao inserir a bateria, os dois LEDs comecam a piscar rapidamente. Cobrir o photoresistor da luz diminui a frequencia de piscada dos LEDs.
 
 ---
 
 ## 555 Timer IC Reference
 
-The 555 timer is a versatile integrated circuit used in timing, pulse generation, and oscillator applications. The following sections provide pinout information and internal circuit details.
+O 555 timer e um circuito integrado versatil usado em temporizacao, geracao de pulsos e osciladores. As secoes a seguir fornecem informacoes de pinout e detalhes do circuito interno.
 
 ### 555 Pinout Diagram
 
@@ -199,23 +199,23 @@ flowchart TB
 
 **Components:** 555 timer IC, piezo speaker, 220Ω resistor, 1000Ω resistor, capacitor, push button, jumper wires, battery with holder
 
-**Steps:**
+**Passos:**
 
-1. Insert the black jumper wire into the breadboard from **A1** to **A11**.
-2. Insert the red jumper wire into the breadboard from **J1** to **J11**.
-3. Place the 555 integrated circuit chip into the middle of the breadboard with the top pins on row 11.
-4. Insert a jumper wire into the breadboard connecting **D12** to **G13**.
-5. Insert a jumper wire into the breadboard connecting **D14** to **G11**.
-6. Insert the capacitor into the breadboard from **A12** to **B11**.
-7. Insert the 220Ω resistor into the breadboard from **C12** to **C13**.
-8. Place the push button horizontally in the middle of the breadboard so the top pins are on row 15 and on opposite sides of the breadboard.
-9. Insert the piezo speaker into the breadboard with the positive pin in **A9** and the negative pin in **A6**.
-10. Insert the 1000Ω resistor into the breadboard from **E6** to **A13**.
-11. Insert a jumper wire into the breadboard connecting **C9** to **D15**.
-12. Insert a jumper wire into the breadboard connecting **G17** to **I11**.
-13. Insert the battery into its holder and place it in the breadboard, connecting negative to black and positive to red.
+1. Insira o black jumper wire na breadboard de **A1** ate **A11**.
+2. Insira o red jumper wire na breadboard de **J1** ate **J11**.
+3. Posicione o chip 555 no meio da breadboard com os pinos superiores na linha 11.
+4. Insira um jumper wire conectando **D12** a **G13**.
+5. Insira um jumper wire conectando **D14** a **G11**.
+6. Insira o capacitor na breadboard de **A12** ate **B11**.
+7. Insira o resistor de 220Ω na breadboard de **C12** ate **C13**.
+8. Posicione o push button horizontalmente no meio da breadboard de modo que os pinos superiores estejam na linha 15 e em lados opostos da breadboard.
+9. Insira o piezo speaker na breadboard com o pino positivo em **A9** e o pino negativo em **A6**.
+10. Insira o resistor de 1000Ω na breadboard de **E6** ate **A13**.
+11. Insira um jumper wire conectando **C9** a **D15**.
+12. Insira um jumper wire conectando **G17** a **I11**.
+13. Insira a bateria no holder e coloque-o na breadboard, conectando negativo ao black e positivo ao red.
 
-**Result:** When you press the push button, the buzzer will sound.
+**Result:** Ao pressionar o push button, o buzzer soara.
 
 ---
 
@@ -223,23 +223,23 @@ flowchart TB
 
 **Components:** 555 timer IC, piezo speaker, photoresistor, 1000Ω resistor, capacitor, push button, jumper wires, battery with holder
 
-**Steps:**
+**Passos:**
 
-1. Insert the black jumper wire into the breadboard from **A1** to **A11**.
-2. Insert the red jumper wire into the breadboard from **J1** to **J11**.
-3. Place the 555 integrated circuit chip into the middle of the breadboard with the top pins on row 11.
-4. Insert a jumper wire into the breadboard connecting **D12** to **G13**.
-5. Insert a jumper wire into the breadboard connecting **D14** to **G11**.
-6. Insert the capacitor into the breadboard from **A12** to **B11**.
-7. Insert the photoresistor into the breadboard from **C12** to **C13**.
-8. Place the push button horizontally in the middle of the breadboard so the top pins are on row 15 and on opposite sides of the breadboard.
-9. Insert the piezo speaker into the breadboard with the positive pin in **A9** and the negative pin in **A6**.
-10. Insert the 1000Ω resistor into the breadboard from **E6** to **A13**.
-11. Insert a jumper wire into the breadboard connecting **C9** to **D15**.
-12. Insert a jumper wire into the breadboard connecting **G17** to **I11**.
-13. Insert the battery into its holder and place it in the breadboard, connecting negative to black and positive to red.
+1. Insira o black jumper wire na breadboard de **A1** ate **A11**.
+2. Insira o red jumper wire na breadboard de **J1** ate **J11**.
+3. Posicione o chip 555 no meio da breadboard com os pinos superiores na linha 11.
+4. Insira um jumper wire conectando **D12** a **G13**.
+5. Insira um jumper wire conectando **D14** a **G11**.
+6. Insira o capacitor na breadboard de **A12** ate **B11**.
+7. Insira o photoresistor na breadboard de **C12** ate **C13**.
+8. Posicione o push button horizontalmente no meio da breadboard de modo que os pinos superiores estejam na linha 15 e em lados opostos da breadboard.
+9. Insira o piezo speaker na breadboard com o pino positivo em **A9** e o pino negativo em **A6**.
+10. Insira o resistor de 1000Ω na breadboard de **E6** ate **A13**.
+11. Insira um jumper wire conectando **C9** a **D15**.
+12. Insira um jumper wire conectando **G17** a **I11**.
+13. Insira a bateria no holder e coloque-o na breadboard, conectando negativo ao black e positivo ao red.
 
-**Result:** When you press the push button, the buzzer will sound. Covering the photoresistor will change the pitch of the buzzer.
+**Result:** Ao pressionar o push button, o buzzer soara. Cobrir o photoresistor altera o pitch do buzzer.
 
 ---
 
@@ -247,16 +247,16 @@ flowchart TB
 
 **Components:** Green LED, potentiometer, 220Ω resistor, black jumper wire, red jumper wire, battery with holder
 
-**Steps:**
+**Passos:**
 
-1. Insert the black jumper wire into the breadboard from **A1** to **A13**.
-2. Insert the red jumper wire into the breadboard from **J1** to **J9**.
-3. Place the potentiometer with the two-pin side on the left, top pin in **E13** and bottom pin in **E15**.
-4. Insert the 220Ω resistor into the breadboard from **H9** to **H14**.
-5. Place the green LED into the breadboard with the positive leg (the longer of the two legs) inserted into **C15** and the negative leg in **B13**.
-6. Insert the battery into its holder and place it in the breadboard, connecting negative to black and positive to red.
+1. Insira o black jumper wire na breadboard de **A1** ate **A13**.
+2. Insira o red jumper wire na breadboard de **J1** ate **J9**.
+3. Posicione o potentiometer com o lado de dois pinos a esquerda, pino superior em **E13** e pino inferior em **E15**.
+4. Insira o resistor de 220Ω na breadboard de **H9** ate **H14**.
+5. Coloque o green LED na breadboard com a perna positiva (a mais longa) em **C15** e a perna negativa em **B13**.
+6. Insira a bateria no holder e coloque-o na breadboard, conectando negativo ao black e positivo ao red.
 
-**Result:** When you insert the battery, the LED will turn on. Rotating the potentiometer will increase or decrease the brightness of the LED.
+**Result:** Ao inserir a bateria, o LED acende. Girar o potentiometer aumenta ou diminui o brilho do LED.
 
 ---
 
@@ -264,23 +264,23 @@ flowchart TB
 
 **Components:** RGB LED (common cathode), three push buttons, two 220Ω resistors, black jumper wire, red jumper wire, jumper wires, battery with holder
 
-**Steps:**
+**Passos:**
 
-1. Insert the black jumper wire into the breadboard from **A1** to **B7**.
-2. Insert the red jumper wire into the breadboard from **J1** to **J7**.
-3. Insert the RGB LED into the breadboard from **A4** to **A8**. The longest of the four legs is the ground and should be in **A7**.
-4. Place three push buttons horizontally in the middle of the breadboard with pins at:
-   - Button 1: **E9–F9** and **E11–F11**
-   - Button 2: **E12–F12** and **E14–F14**
-   - Button 3: **E15–F15** and **E17–F17**
-5. Insert a jumper wire into the breadboard connecting **C5** to **D9**.
-6. Insert a jumper wire into the breadboard connecting **C6** to **C12**.
-7. Insert a jumper wire into the breadboard connecting **B8** to **B15**.
-8. Insert the first 220Ω resistor into the breadboard from **G7** to **G11**.
-9. Insert the second 220Ω resistor into the breadboard from **H7** to **H14**.
-10. Insert the battery into its holder and place it in the breadboard, connecting negative to black and positive to red.
+1. Insira o black jumper wire na breadboard de **A1** ate **B7**.
+2. Insira o red jumper wire na breadboard de **J1** ate **J7**.
+3. Insira o RGB LED na breadboard de **A4** ate **A8**. A perna mais longa das quatro e o ground e deve ficar em **A7**.
+4. Posicione tres push buttons horizontalmente no meio da breadboard com pinos em:
+   - Button 1: **E9–F9** e **E11–F11**
+   - Button 2: **E12–F12** e **E14–F14**
+   - Button 3: **E15–F15** e **E17–F17**
+5. Insira um jumper wire conectando **C5** a **D9**.
+6. Insira um jumper wire conectando **C6** a **C12**.
+7. Insira um jumper wire conectando **B8** a **B15**.
+8. Insira o primeiro resistor de 220Ω na breadboard de **G7** ate **G11**.
+9. Insira o segundo resistor de 220Ω na breadboard de **H7** ate **H14**.
+10. Insira a bateria no holder e coloque-o na breadboard, conectando negativo ao black e positivo ao red.
 
-**Result:** Pressing each push button will activate a different color channel of the RGB LED.
+**Result:** Pressionar cada push button ativa um canal de cor diferente do RGB LED.
 
 ---
 
@@ -288,23 +288,23 @@ flowchart TB
 
 **Components:** 555 timer IC, piezo speaker, potentiometer, 220Ω resistor, capacitor, push button, jumper wires, battery with holder
 
-**Steps:**
+**Passos:**
 
-1. Insert the black jumper wire into the breadboard from **A1** to **A11**.
-2. Insert the red jumper wire into the breadboard from **J1** to **J11**.
-3. Place the 555 integrated circuit chip into the middle of the breadboard with the top pins on row 11.
-4. Insert a jumper wire into the breadboard connecting **D12** to **G13**.
-5. Insert a jumper wire into the breadboard connecting **D14** to **G11**.
-6. Insert the capacitor into the breadboard from **A12** to **B11**.
-7. Insert the piezo speaker into the breadboard from **A6** to **A9** (place the positive end on the bottom).
-8. Place the push button horizontally in the middle of the breadboard so the top pins are in **E15** and **F15**.
-9. Insert the 220Ω resistor into the breadboard from **E6** to **A13**.
-10. Insert a jumper wire into the breadboard connecting **E9** to **D15**.
-11. Insert a jumper wire into the breadboard connecting **G17** to **I11**.
-12. Place the potentiometer with the two-pin side on the right, top pin in **F7** and bottom pin in **F9**.
-13. Insert a jumper wire into the breadboard connecting **D8** to **B13**.
-14. Insert a jumper wire into the breadboard connecting **H7** to **C12**.
-15. Insert a jumper wire into the breadboard connecting **H9** to **D11**.
-16. Insert the battery into its holder and place it in the breadboard, connecting negative to black and positive to red.
+1. Insira o black jumper wire na breadboard de **A1** ate **A11**.
+2. Insira o red jumper wire na breadboard de **J1** ate **J11**.
+3. Posicione o chip 555 no meio da breadboard com os pinos superiores na linha 11.
+4. Insira um jumper wire conectando **D12** a **G13**.
+5. Insira um jumper wire conectando **D14** a **G11**.
+6. Insira o capacitor na breadboard de **A12** ate **B11**.
+7. Insira o piezo speaker na breadboard de **A6** ate **A9** (coloque o positivo embaixo).
+8. Posicione o push button horizontalmente no meio da breadboard de modo que os pinos superiores estejam em **E15** e **F15**.
+9. Insira o resistor de 220Ω na breadboard de **E6** ate **A13**.
+10. Insira um jumper wire conectando **E9** a **D15**.
+11. Insira um jumper wire conectando **G17** a **I11**.
+12. Posicione o potentiometer com o lado de dois pinos a direita, pino superior em **F7** e pino inferior em **F9**.
+13. Insira um jumper wire conectando **D8** a **B13**.
+14. Insira um jumper wire conectando **H7** a **C12**.
+15. Insira um jumper wire conectando **H9** a **D11**.
+16. Insira a bateria no holder e coloque-o na breadboard, conectando negativo ao black e positivo ao red.
 
-**Result:** Pressing the push button will cause the buzzer to sound. Rotating the potentiometer will alter the pitch of the buzzer.
+**Result:** Pressionar o push button faz o buzzer soar. Girar o potentiometer altera o pitch do buzzer.

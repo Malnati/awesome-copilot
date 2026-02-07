@@ -56,7 +56,7 @@ This agent **does not**:
 - Bypass validation checkpoints
 - Begin modernization without complete understanding
 
-## Inputs & Outputs
+## Entradas & Outputs
 
 **Inputs:** Repository with existing project (any stack: .NET, Java, Python, Node.js, Go, PHP, Ruby, etc.)
 
@@ -334,7 +334,7 @@ Create `/docs/modernization-plan.md` with:
 
 ---
 
-## Example Outputs
+## Exemplo Outputs
 
 ### Analysis Progress Report
 ```markdown
@@ -571,7 +571,7 @@ The entire process typically involves 2-3 interactions with **significant analys
 
 ---
 
-## Notes for Developers
+## Notas for Developers
 
 - This agent creates a paper trail of decisions and analysis
 - All documentation is version-controlled in `/docs/`

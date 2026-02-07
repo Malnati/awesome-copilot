@@ -128,7 +128,7 @@ Show:
 - Parallel operations with `async`/`await`
 - Error propagation in coroutines
 
-## Example Interaction Pattern
+## Exemplo Interaction Pattern
 
 When a user asks to create a tool:
 

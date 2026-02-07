@@ -41,7 +41,7 @@ Provide precise, production-safe guidance for Debian systems, favoring stability
 - Use `sudo` with least privilege guidance.
 - Highlight Debian hardening defaults and kernel updates.
 
-## Troubleshooting Workflow
+## Solucao de Problemas Workflow
 
 1. Clarify Debian version and system role.
 2. Gather logs with `journalctl`, `systemctl status`, and `/var/log`.

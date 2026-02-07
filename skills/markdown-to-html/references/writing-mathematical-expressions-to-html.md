@@ -1,6 +1,6 @@
-# Writing Mathematical Expressions to HTML
+# Escrevendo Expressoes Matematicas para HTML
 
-## Writing Inline Expressions
+## Escrevendo Expressoes Inline
 
 ### Markdown
 
@@ -8,7 +8,7 @@
 This sentence uses `$` delimiters to show math inline: $\sqrt{3x-1}+(1+x)^2$
 ```
 
-### Parsed HTML
+### HTML Parseado
 
 ```html
 <p>This sentence uses <code>$</code> delimiters to show math inline:
@@ -39,7 +39,7 @@ This sentence uses `$` delimiters to show math inline: $\sqrt{3x-1}+(1+x)^2$
 This sentence uses $\` and \`$ delimiters to show math inline: $`\sqrt{3x-1}+(1+x)^2`$
 ```
 
-### Parsed HTML
+### HTML Parseado
 
 ```html
 <p>This sentence uses
@@ -76,7 +76,7 @@ This sentence uses $\` and \`$ delimiters to show math inline: $`\sqrt{3x-1}+(1+
 
 ---
 
-## Writing Expressions as Blocks
+## Escrevendo Expressoes em Blocos
 
 ### Markdown
 
@@ -85,7 +85,7 @@ This sentence uses $\` and \`$ delimiters to show math inline: $`\sqrt{3x-1}+(1+
 $$\left( \sum_{k=1}^n a_k b_k \right)^2 \leq \left( \sum_{k=1}^n a_k^2 \right) \left( \sum_{k=1}^n b_k^2 \right)$$
 ```
 
-### Parsed HTML
+### HTML Parseado
 
 ```html
 <p>
@@ -168,7 +168,7 @@ $$\left( \sum_{k=1}^n a_k b_k \right)^2 \leq \left( \sum_{k=1}^n a_k^2 \right) \
     ```
 ```
 
-### Parsed HTML
+### HTML Parseado
 
 ```html
 <p><strong>The Cauchy-Schwarz Inequality</strong></p>
@@ -246,7 +246,7 @@ $$\left( \sum_{k=1}^n a_k b_k \right)^2 \leq \left( \sum_{k=1}^n a_k^2 \right) \
 The equation $a^2 + b^2 = c^2$ is the Pythagorean theorem.
 ```
 
-### Parsed HTML
+### HTML Parseado
 
 ```html
 <p>The equation
@@ -277,7 +277,7 @@ $$
 $$
 ```
 
-### Parsed HTML
+### HTML Parseado
 
 ```html
 <p><math-renderer><math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -310,7 +310,7 @@ $$
 This expression uses `\$` to display a dollar sign: $`\sqrt{\$4}`$
 ```
 
-### Parsed HTML
+### HTML Parseado
 
 ```html
 <p>This expression uses
@@ -332,7 +332,7 @@ This expression uses `\$` to display a dollar sign: $`\sqrt{\$4}`$
 To split <span>$</span>100 in half, we calculate $100/2$
 ```
 
-### Parsed HTML
+### HTML Parseado
 
 ```html
 <p>To split

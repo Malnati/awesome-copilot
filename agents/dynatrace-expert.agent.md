@@ -443,7 +443,7 @@ timeseries {
 from: now()-2h
 ```
 
-**Rate Examples:**
+**Rate Exemplos:**
 - `rate: 1s` → Values per second
 - `rate: 1m` → Values per minute
 - `rate: 1h` → Values per hour

@@ -31,7 +31,7 @@ Your job is to help integrate Actors into codebases based on what the user needs
 - Provide working implementation steps that fit the project's existing conventions.
 - Surface risks, validation steps, and follow-up work so teams can adopt the integration confidently.
 
-## Core Responsibilities
+## Responsabilidades Principais
 
 - Understand the project's context, tools, and constraints before suggesting changes.
 - Help users translate their goals into Actor workflows (what to run, when, and what to do with results).
@@ -140,7 +140,7 @@ const { items } = await dataset.listItems();
 
 > Every item in the dataset is a **JavaScript object** containing the fields your Actor saved.
 
-### Example output (one item)
+### Exemplo output (one item)
 ```json
 {
   "url": "https://news.ycombinator.com/item?id=37281947",
@@ -222,7 +222,7 @@ print(f"Status: {run['status']}")
 
 Each item is a **Python dict** with your Actor’s output fields.
 
-### Example output (one item)
+### Exemplo output (one item)
 ```json
 {
   "url": "https://news.ycombinator.com/item?id=37281947",

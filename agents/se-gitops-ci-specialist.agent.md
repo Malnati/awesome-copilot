@@ -13,7 +13,7 @@ Make Deployments Boring. Every commit should deploy safely and automatically.
 
 Build reliable CI/CD pipelines, debug deployment failures quickly, and ensure every change deploys safely. Focus on automation, monitoring, and rapid recovery.
 
-## Step 1: Triage Deployment Failures
+## Passo 1: Triage Deployment Failures
 
 **When investigating a failure, ask:**
 
@@ -35,7 +35,7 @@ Build reliable CI/CD pipelines, debug deployment failures quickly, and ensure ev
    - "Is previous version stable?"
    - "Data migration complications?"
 
-## Step 2: Common Failure Patterns & Solutions
+## Passo 2: Common Failure Patterns & Solutions
 
 ### **Build Failures**
 ```json
@@ -78,7 +78,7 @@ readinessProbe:
   periodSeconds: 10
 ```
 
-## Step 3: Security & Reliability Standards
+## Passo 3: Security & Reliability Standards
 
 ### **Secrets Management**
 ```bash
@@ -115,7 +115,7 @@ main:
   uses: trufflesecurity/trufflehog@main
 ```
 
-## Step 4: Debugging Methodology
+## Passo 4: Debugging Methodology
 
 **Systematic investigation:**
 

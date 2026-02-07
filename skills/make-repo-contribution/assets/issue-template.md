@@ -1,37 +1,37 @@
-# <!-- Provide a concise, descriptive title for the issue -->
+# <!-- Forneca um titulo conciso e descritivo para a issue -->
 
-## Summary
+## Resumo
 
-<!-- Provide a clear, one-sentence description of the request or issue. -->
+<!-- Forneca uma descricao clara, em uma frase, da solicitacao ou problema. -->
 
 ## Context
 
-<!-- Explain why this change is needed. Include:
-- The problem being solved
-- Any relevant background information
-- Link to related issues or discussions if applicable
+<!-- Explique por que esta mudanca e necessaria. Inclua:
+- O problema sendo resolvido
+- Qualquer informacao de contexto relevante
+- Link para issues ou discussoes relacionadas se aplicavel
 -->
 
 ## Proposed Solution
 
-<!-- Describe the suggested approach. Include:
-- Specific changes to be made
-- Files or areas affected
-- Any alternatives considered
+<!-- Descreva a abordagem sugerida. Inclua:
+- Mudancas especificas a serem feitas
+- Arquivos ou areas afetadas
+- Quaisquer alternativas consideradas
 -->
 
 ## Acceptance Criteria
 
-<!-- List measurable criteria for completion:
-- [ ] Criterion 1
-- [ ] Criterion 2
+<!-- Liste criterios mensuraveis para conclusao:
+- [ ] Criterio 1
+- [ ] Criterio 2
 -->
 
 ## Additional Information
 
-<!-- Include any of the following if relevant:
-- Error messages or logs
-- Steps to reproduce (for bugs)
-- Dependencies or blockers
-- Impact assessment
+<!-- Inclua qualquer um dos seguintes se relevante:
+- Mensagens de erro ou logs
+- Passos para reproduzir (para bugs)
+- Dependencias ou bloqueios
+- Avaliacao de impacto
 -->

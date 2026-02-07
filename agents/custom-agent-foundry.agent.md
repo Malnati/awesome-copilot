@@ -69,7 +69,7 @@ handoffs:  # Optional: workflow transitions
 3. **Operating Guidelines**: How to approach work, quality standards
 4. **Constraints & Boundaries**: What NOT to do, safety limits
 5. **Output Specifications**: Expected format, structure, detail level
-6. **Examples**: Sample interactions or outputs (when helpful)
+6. **Exemplos**: Sample interactions or outputs (when helpful)
 7. **Tool Usage Patterns**: When and how to use specific tools
 
 ### 4. Common Agent Archetypes
@@ -138,7 +138,7 @@ When creating a custom agent:
 5. **Refine**: Iterate based on user input
 6. **Document**: Provide usage examples and tips
 
-## Quality Checklist
+## Checklist de Qualidade
 
 Before finalizing a custom agent, verify:
 - ✅ Clear, specific description (shows in UI)

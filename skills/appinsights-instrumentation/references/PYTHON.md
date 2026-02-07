@@ -1,14 +1,14 @@
-## Modify code
+## Modificar codigo
 
-Make these necessary changes to the app.
+Faca as mudancas necessarias no app.
 
-- Install client library
+- Instale a client library
 ```
 pip install azure-monitor-opentelemetry
 ```
 
-- Configure the app to use Azure Monitor
-Python applications send telemetry via the logger class in Python standard library. Create a module that configures and creates a logger that can send telemetry.
+- Configure o app para usar Azure Monitor
+Aplicacoes Python enviam telemetria via a classe logger da biblioteca padrao do Python. Crie um modulo que configure e crie um logger que possa enviar telemetria.
 
 ```python
 import logging
@@ -20,29 +20,29 @@ configure_azure_monitor(
 logger = logging.getLogger("<your_logger_namespace>")
 ```
 
-> Note: since we modified the code of the app, it needs to be deployed to take effect.
+> Nota: como modificamos o codigo do app, ele precisa ser feito deploy para surtir efeito.
 
-## Configure App Insights connection string
+## Configurar connection string do App Insights
 
-The App Insights resource has a connection string. Add the connection string as an environment variable of the running app. You can use Azure CLI to query the connection string of the App Insights resource. See [scripts/appinsights.ps1] for what Azure CLI command to execute for querying the connection string.
+O recurso App Insights tem uma connection string. Adicione a connection string como variavel de ambiente do app em execucao. Voce pode usar Azure CLI para consultar a connection string do recurso App Insights. Veja [scripts/appinsights.ps1] para o comando Azure CLI a executar para consultar a connection string.
 
-After getting the connection string, set this environment variable with its value.
+Depois de obter a connection string, defina esta variavel de ambiente com o valor.
 
 ```
 "APPLICATIONINSIGHTS_CONNECTION_STRING={your_application_insights_connection_string}"
 ```
 
-If the app has IaC template such as Bicep or terraform files representing its cloud instance, this environment variable should be added to the IaC template to be applied in each deployment. Otherwise, use Azure CLI to manually apply the environment variable to the cloud instance of the app. See what Azure CLI command to execute for setting this environment variable.
+Se o app tiver template de IaC como arquivos Bicep ou terraform representando a instancia na nuvem, essa variavel de ambiente deve ser adicionada ao template IaC para ser aplicada em cada deployment. Caso contrario, use Azure CLI para aplicar manualmente a variavel de ambiente na instancia em nuvem do app. Veja o comando Azure CLI a executar para configurar essa variavel de ambiente.
 
-## Send data
+## Enviar dados
 
-Create a logger that is configured to send telemetry.
+Crie um logger configurado para enviar telemetria.
 ```python
 logger = logging.getLogger("<your_logger_namespace>")
 logger.setLevel(logging.INFO)
 ```
 
-Then send telemetry events by calling its logging methods.
+Em seguida, envie eventos de telemetria chamando os metodos de logging.
 ```python
 logger.info("info log")
 ```

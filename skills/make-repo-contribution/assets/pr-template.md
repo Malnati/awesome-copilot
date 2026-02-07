@@ -1,36 +1,36 @@
-# <!-- Provide a concise, descriptive title for the pull request -->
+# <!-- Forneca um titulo conciso e descritivo para o pull request -->
 
-## Summary
+## Resumo
 
-<!-- Provide a three to four sentence description of what this PR accomplishes. -->
+<!-- Forneca uma descricao de tres a quatro frases do que este PR realiza. -->
 
 ## Background
 
-<!-- Explain why this change is needed. Include:
-- The problem being solved or feature being added
-- Link to related issues (use "Closes #123" to auto-close)
-- Any relevant context or discussions
+<!-- Explique por que esta mudanca e necessaria. Inclua:
+- O problema sendo resolvido ou feature sendo adicionada
+- Link para issues relacionadas (use "Closes #123" para fechar automaticamente)
+- Qualquer contexto ou discussoes relevantes
 -->
 
 ## Changes
 
-<!-- List the changes being made, logically grouped. Include:
-- Files added, modified, or deleted
-- Key code changes with brief explanations
-- Any architectural or design decisions made
+<!-- Liste as mudancas sendo feitas, agrupadas de forma logica. Inclua:
+- Arquivos adicionados, modificados ou removidos
+- Mudancas-chave de codigo com breves explicacoes
+- Decisoes arquiteturais ou de design tomadas
 -->
 
 ## Testing
 
-<!-- Describe how the changes were validated:
-- Commands run (e.g., `npm run build`, `npm run validate`)
-- Manual testing performed
-- Edge cases considered
+<!-- Descreva como as mudancas foram validadas:
+- Comandos executados (ex.: `npm run build`, `npm run validate`)
+- Testes manuais realizados
+- Edge cases considerados
 -->
 
 ## Additional Notes
 
-<!-- Include any of the following if relevant:
-- Breaking changes or migration steps
-- Highlights for human reviewers
+<!-- Inclua qualquer um dos seguintes se relevante:
+- Breaking changes ou passos de migracao
+- Destaques para revisores humanos
 -->

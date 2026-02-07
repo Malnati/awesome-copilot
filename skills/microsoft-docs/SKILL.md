@@ -1,7 +1,7 @@
 ---
 name: microsoft-docs
-description: Query official Microsoft documentation to understand concepts, find tutorials, and learn how services work. Use for Azure, .NET, Microsoft 365, Windows, Power Platform, and all Microsoft technologies. Get accurate, current information from learn.microsoft.com and other official Microsoft websites—architecture overviews, quickstarts, configuration guides, limits, and best practices.
-compatibility: Requires Microsoft Learn MCP Server (https://learn.microsoft.com/api/mcp)
+description: Consulte documentacao oficial da Microsoft para entender conceitos, encontrar tutoriais e aprender como servicos funcionam. Use para Azure, .NET, Microsoft 365, Windows, Power Platform e todas as tecnologias Microsoft. Obtenha informacoes precisas e atuais do learn.microsoft.com e outros sites oficiais da Microsoft — visoes de arquitetura, quickstarts, guias de configuracao, limites e boas praticas.
+compatibility: Requer Microsoft Learn MCP Server (https://learn.microsoft.com/api/mcp)
 ---
 
 # Microsoft Docs
@@ -10,21 +10,21 @@ compatibility: Requires Microsoft Learn MCP Server (https://learn.microsoft.com/
 
 | Tool | Use For |
 |------|---------|
-| `microsoft_docs_search` | Find documentation—concepts, guides, tutorials, configuration |
-| `microsoft_docs_fetch` | Get full page content (when search excerpts aren't enough) |
+| `microsoft_docs_search` | Encontrar documentacao — conceitos, guias, tutoriais, configuracao |
+| `microsoft_docs_fetch` | Obter conteudo completo da pagina (quando trechos de busca nao bastam) |
 
-## When to Use
+## Quando Usar
 
-- **Understanding concepts** — "How does Cosmos DB partitioning work?"
-- **Learning a service** — "Azure Functions overview", "Container Apps architecture"
-- **Finding tutorials** — "quickstart", "getting started", "step-by-step"
-- **Configuration options** — "App Service configuration settings"
-- **Limits & quotas** — "Azure OpenAI rate limits", "Service Bus quotas"
-- **Best practices** — "Azure security best practices"
+- **Entender conceitos** — "How does Cosmos DB partitioning work?"
+- **Aprender um servico** — "Azure Functions overview", "Container Apps architecture"
+- **Encontrar tutoriais** — "quickstart", "getting started", "step-by-step"
+- **Opcoes de configuracao** — "App Service configuration settings"
+- **Limites e quotas** — "Azure OpenAI rate limits", "Service Bus quotas"
+- **Boas praticas** — "Azure security best practices"
 
-## Query Effectiveness
+## Eficacia de Queries
 
-Good queries are specific:
+Boas queries sao especificas:
 
 ```
 # ❌ Too broad
@@ -36,21 +36,21 @@ Good queries are specific:
 "Container Apps scaling rules KEDA"
 ```
 
-Include context:
-- **Version** when relevant (`.NET 8`, `EF Core 8`)
-- **Task intent** (`quickstart`, `tutorial`, `overview`, `limits`)
-- **Platform** for multi-platform docs (`Linux`, `Windows`)
+Inclua contexto:
+- **Versao** quando relevante (`.NET 8`, `EF Core 8`)
+- **Intencao da tarefa** (`quickstart`, `tutorial`, `overview`, `limits`)
+- **Plataforma** para docs multiplataforma (`Linux`, `Windows`)
 
-## When to Fetch Full Page
+## Quando Buscar a Pagina Completa
 
-Fetch after search when:
-- **Tutorials** — need complete step-by-step instructions
-- **Configuration guides** — need all options listed
-- **Deep dives** — user wants comprehensive coverage
-- **Search excerpt is cut off** — full context needed
+Busque apos o search quando:
+- **Tutoriais** — precisa de instrucoes completas passo a passo
+- **Guias de configuracao** — precisa de todas as opcoes listadas
+- **Deep dives** — usuario quer cobertura abrangente
+- **Trecho de busca cortado** — contexto completo necessario
 
-## Why Use This
+## Por Que Usar
 
-- **Accuracy** — live docs, not training data that may be outdated
-- **Completeness** — tutorials have all steps, not fragments
-- **Authority** — official Microsoft documentation
+- **Precisao** — docs atuais, nao dados de treinamento desatualizados
+- **Completude** — tutoriais tem todos os passos, nao fragmentos
+- **Autoridade** — documentacao oficial Microsoft

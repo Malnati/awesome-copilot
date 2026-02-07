@@ -1,8 +1,8 @@
-# Issue Templates
+# Templates de Issues
 
-Copy and customize these templates for issue bodies.
+Copie e personalize estes templates para corpos de issues.
 
-## Bug Report Template
+## Template de Bug Report
 
 ```markdown
 ## Description
@@ -31,7 +31,7 @@ Copy and customize these templates for issue bodies.
 [Any other relevant information]
 ```
 
-## Feature Request Template
+## Template de Feature Request
 
 ```markdown
 ## Summary
@@ -55,7 +55,7 @@ Copy and customize these templates for issue bodies.
 [Mockups, examples, or related issues]
 ```
 
-## Task Template
+## Template de Task
 
 ```markdown
 ## Objective
@@ -76,9 +76,9 @@ Copy and customize these templates for issue bodies.
 [Additional context or considerations]
 ```
 
-## Minimal Template
+## Template Minimo
 
-For simple issues:
+Para issues simples:
 
 ```markdown
 ## Description

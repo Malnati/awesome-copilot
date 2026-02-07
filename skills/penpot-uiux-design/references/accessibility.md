@@ -1,36 +1,36 @@
-# Accessibility Guidelines Reference (WCAG)
+# Referencia de Diretrizes de Acessibilidade (WCAG)
 
-## Quick Compliance Checklist
+## Checklist Rapido de Conformidade
 
-### Level AA Requirements (Minimum Standard)
+### Requisitos Nivel AA (Padrao Minimo)
 
-- [ ] Color contrast 4.5:1 for normal text
-- [ ] Color contrast 3:1 for large text (18px+ or 14px bold)
-- [ ] Touch targets minimum 44×44px
-- [ ] All functionality available via keyboard
-- [ ] Visible focus indicators
-- [ ] No content flashes more than 3 times/second
-- [ ] Page has descriptive title
-- [ ] Link purpose clear from text
-- [ ] Form inputs have labels
-- [ ] Error messages are descriptive
+- [ ] Contraste de cor 4.5:1 para texto normal
+- [ ] Contraste de cor 3:1 para texto grande (18px+ ou 14px bold)
+- [ ] Touch targets minimo de 44×44px
+- [ ] Toda funcionalidade disponivel via teclado
+- [ ] Indicadores de foco visiveis
+- [ ] Nenhum conteudo pisca mais de 3 vezes/segundo
+- [ ] Pagina tem titulo descritivo
+- [ ] Proposito do link claro pelo texto
+- [ ] Inputs de formulario com labels
+- [ ] Mensagens de erro descritivas
 
 ---
 
-## Color and Contrast
+## Cor e Contraste
 
-### Contrast Ratios
+### Razoes de Contraste
 
-| Element | Minimum Ratio | Enhanced (AAA) |
+| Elemento | Razao Minima | Aprimorado (AAA) |
 | ------- | ------------- | -------------- |
 | Body text | 4.5:1 | 7:1 |
 | Large text (18px+) | 3:1 | 4.5:1 |
 | UI components | 3:1 | - |
 | Graphical objects | 3:1 | - |
 
-### Color Independence
+### Independencia de Cor
 
-Never use color as the only means of conveying information:
+Nunca use cor como unico meio de transmitir informacao:
 
 ```text
 ✗ Error fields shown only in red
@@ -44,36 +44,36 @@ Never use color as the only means of conveying information:
 
 ```
 
-### Accessible Color Combinations
+### Combinacoes de Cores Acessiveis
 
-**Safe text colors on backgrounds:**
+**Cores seguras de texto em fundos:**
 
-| Background | Text Color | Contrast |
+| Fundo | Cor do Texto | Contraste |
 | ---------- | ---------- | -------- |
 | White (#FFFFFF) | Dark gray (#1F2937) | 15.5:1 ✓ |
 | Light gray (#F3F4F6) | Dark gray (#374151) | 10.9:1 ✓ |
 | Primary blue (#2563EB) | White (#FFFFFF) | 4.6:1 ✓ |
 | Dark (#111827) | White (#FFFFFF) | 18.1:1 ✓ |
 
-**Colors to avoid for text:**
+**Cores a evitar para texto:**
 
-- Yellow on white (insufficient contrast)
-- Light gray on white
-- Orange on white (marginal at best)
+- Amarelo no branco (contraste insuficiente)
+- Cinza claro no branco
+- Laranja no branco (marginal)
 
 ---
 
-## Keyboard Navigation
+## Navegacao por Teclado
 
-### Requirements
+### Requisitos
 
-1. **All interactive elements** must be reachable via Tab key
+1. **Todos os elementos interativos** devem ser alcancaveis pela tecla Tab
 2. **Logical tab order** following visual layout
 3. **No keyboard traps** (user can always Tab away)
 4. **Focus visible** at all times during keyboard navigation
 5. **Skip links** to bypass repetitive navigation
 
-### Focus Indicators
+### Indicadores de Foco
 
 ```css
 /* Example focus styles */
@@ -93,26 +93,26 @@ Never use color as the only means of conveying information:
 
 ```
 
-### Keyboard Shortcuts
+### Atalhos de Teclado
 
-| Key | Expected Behavior |
+| Tecla | Comportamento Esperado |
 | --- | ----------------- |
-| Tab | Move to next interactive element |
-| Shift+Tab | Move to previous element |
-| Enter | Activate button/link |
-| Space | Activate button, toggle checkbox |
-| Escape | Close modal/dropdown |
-| Arrow keys | Navigate within components |
+| Tab | Ir para o proximo elemento interativo |
+| Shift+Tab | Ir para o elemento anterior |
+| Enter | Ativar botao/link |
+| Space | Ativar botao, alternar checkbox |
+| Escape | Fechar modal/dropdown |
+| Arrow keys | Navegar dentro de componentes |
 
 ---
 
-## Screen Reader Support
+## Suporte a Leitor de Tela
 
-### Semantic HTML Elements
+### Elementos HTML Semanticos
 
-Use appropriate elements for their purpose:
+Use elementos apropriados para cada proposito:
 
-| Purpose | Element | Not This |
+| Finalidade | Elemento | Nao Isto |
 | ------- | ------- | -------- |
 | Navigation | `<nav>` | `<div class="nav">` |
 | Main content | `<main>` | `<div id="main">` |
@@ -121,31 +121,31 @@ Use appropriate elements for their purpose:
 | Button | `<button>` | `<div onclick>` |
 | Link | `<a href>` | `<span onclick>` |
 
-### Heading Hierarchy
+### Hierarquia de Titulos
 
 ```text
-h1 - Page Title (one per page)
-  h2 - Major Section
-    h3 - Subsection
-      h4 - Sub-subsection
-    h3 - Another Subsection
-  h2 - Another Major Section
+h1 - Titulo da Pagina (um por pagina)
+  h2 - Secao Principal
+    h3 - Subsecao
+      h4 - Sub-subsecao
+    h3 - Outra Subsecao
+  h2 - Outra Secao Principal
 
 ```
 
-**Never skip levels** (h1 → h3 without h2)
+**Nunca pule niveis** (h1 → h3 sem h2)
 
-### Image Alt Text
+### Texto Alt de Imagens
 
 ```text
-Decorative: alt="" (empty, not omitted)
-Informative: alt="Description of what image shows"
-Functional: alt="Action the image performs"
-Complex: alt="Brief description" + detailed description nearby
+Decorativa: alt="" (vazio, nao omitido)
+Informativa: alt="Descricao do que a imagem mostra"
+Funcional: alt="Acao que a imagem executa"
+Complexa: alt="Descricao breve" + descricao detalhada proxima
 
 ```
 
-**Alt text examples:**
+**Exemplos de texto alt:**
 
 ```text
 ✓ alt="Bar chart showing sales growth from $10M to $15M in Q4"
@@ -160,35 +160,35 @@ Complex: alt="Brief description" + detailed description nearby
 
 ---
 
-## Touch and Pointer
+## Toque e Ponteiro
 
-### Touch Target Sizes
+### Tamanhos de Alvo de Toque
 
-| Platform | Minimum | Recommended |
+| Plataforma | Minimo | Recomendado |
 | -------- | ------- | ----------- |
 | WCAG 2.1 | 44×44px | 48×48px |
 | iOS (Apple) | 44×44pt | - |
 | Android | 48×48dp | - |
 
-### Touch Target Spacing
+### Espacamento entre Alvos de Toque
 
-- Minimum 8px between adjacent targets
-- Prefer 16px+ for comfort
-- Larger targets for primary actions
+- Minimo de 8px entre alvos adjacentes
+- Prefira 16px+ para conforto
+- Alvos maiores para acoes primarias
 
-### Pointer Gestures
+### Gestos de Ponteiro
 
-- Complex gestures must have single-pointer alternatives
-- Drag operations need equivalent click actions
-- Avoid hover-only functionality on touch devices
+- Gestos complexos devem ter alternativas de ponteiro unico
+- Operacoes de arrastar precisam de acoes equivalentes por clique
+- Evite funcionalidade apenas por hover em dispositivos touch
 
 ---
 
-## Forms Accessibility
+## Acessibilidade de Formularios
 
 ### Labels
 
-Every input must have an associated label:
+Todo input deve ter um label associado:
 
 ```text
 <label for="email">Email Address</label>
@@ -196,7 +196,7 @@ Every input must have an associated label:
 
 ```
 
-### Required Fields
+### Campos Obrigatorios
 
 ```text
 <!-- Announce to screen readers -->
@@ -207,7 +207,7 @@ Every input must have an associated label:
 
 ```
 
-### Error Handling
+### Tratamento de Erros
 
 ```text
 <label for="email">Email</label>
@@ -218,19 +218,19 @@ Every input must have an associated label:
 
 ```
 
-### Form Instructions
+### Instrucoes de Formulario
 
-- Provide format hints before input
-- Show password requirements before errors
-- Group related fields with fieldset/legend
+- Forneca dicas de formato antes do input
+- Mostre requisitos de senha antes dos erros
+- Agrupe campos relacionados com fieldset/legend
 
 ---
 
-## Dynamic Content
+## Conteudo Dinamico
 
 ### Live Regions
 
-For content that updates dynamically:
+Para conteudo que atualiza dinamicamente:
 
 ```text
 aria-live="polite" - Announce when convenient
@@ -240,7 +240,7 @@ role="status" - Status updates (like polite)
 
 ```
 
-### Loading States
+### Estados de Carregamento
 
 ```text
 <button aria-busy="true" aria-live="polite">
@@ -250,77 +250,77 @@ role="status" - Status updates (like polite)
 
 ```
 
-### Modal Dialogs
+### Dialogs Modais
 
-- Focus moves into modal when opened
-- Focus trapped within modal
-- Escape key closes modal
-- Focus returns to trigger element when closed
+- O foco vai para o modal quando aberto
+- Foco preso dentro do modal
+- A tecla Escape fecha o modal
+- O foco volta ao elemento que disparou ao fechar
 
 ---
 
-## Testing Accessibility
+## Teste de Acessibilidade
 
-### Manual Testing Checklist
+### Checklist de Teste Manual
 
-1. **Keyboard only:** Navigate entire page with Tab/Enter
-2. **Screen reader:** Test with VoiceOver (Mac) or NVDA (Windows)
-3. **Zoom 200%:** Content remains readable and usable
-4. **High contrast:** Test with system high contrast mode
-5. **No mouse:** Complete all tasks without pointing device
+1. **Somente teclado:** Navegue toda a pagina com Tab/Enter
+2. **Leitor de tela:** Teste com VoiceOver (Mac) ou NVDA (Windows)
+3. **Zoom 200%:** Conteudo permanece legivel e utilizavel
+4. **Alto contraste:** Teste com modo de alto contraste do sistema
+5. **Sem mouse:** Conclua todas as tarefas sem dispositivo de apontamento
 
-### Automated Tools
+### Ferramentas Automatizadas
 
-- axe DevTools (browser extension)
-- WAVE (WebAIM browser extension)
+- axe DevTools (extensao de navegador)
+- WAVE (extensao de navegador WebAIM)
 - Lighthouse (Chrome DevTools)
-- Color contrast checkers (WebAIM, Contrast Ratio)
+- Verificadores de contraste de cor (WebAIM, Contrast Ratio)
 
-### Common Issues to Check
+### Problemas Comuns para Verificar
 
-- [ ] Missing or empty alt text
-- [ ] Empty links or buttons
-- [ ] Missing form labels
-- [ ] Insufficient color contrast
-- [ ] Missing language attribute
-- [ ] Incorrect heading structure
-- [ ] Missing skip navigation link
-- [ ] Inaccessible custom widgets
+- [ ] Texto alt ausente ou vazio
+- [ ] Links ou botoes vazios
+- [ ] Labels de formulario ausentes
+- [ ] Contraste de cor insuficiente
+- [ ] Atributo de idioma ausente
+- [ ] Estrutura incorreta de titulos
+- [ ] Link de pular navegacao ausente
+- [ ] Widgets customizados inacessiveis
 
 ---
 
-## ARIA Quick Reference
+## Referencia Rapida de ARIA
 
 ### Roles
 
-| Role | Purpose |
+| Role | Finalidade |
 | ---- | ------- |
-| `button` | Clickable button |
-| `link` | Navigation link |
-| `dialog` | Modal dialog |
-| `alert` | Important message |
-| `navigation` | Navigation region |
-| `main` | Main content |
-| `search` | Search functionality |
-| `tab/tablist/tabpanel` | Tab interface |
+| `button` | Botao clicavel |
+| `link` | Link de navegacao |
+| `dialog` | Dialog de modal |
+| `alert` | Mensagem importante |
+| `navigation` | Regiao de navegacao |
+| `main` | Conteudo principal |
+| `search` | Funcionalidade de busca |
+| `tab/tablist/tabpanel` | Interface de tabs |
 
 ### Properties
 
-| Property | Purpose |
+| Propriedade | Finalidade |
 | -------- | ------- |
-| `aria-label` | Accessible name |
-| `aria-labelledby` | Reference to labeling element |
-| `aria-describedby` | Reference to description |
-| `aria-hidden` | Hide from assistive tech |
-| `aria-expanded` | Expandable state |
-| `aria-selected` | Selection state |
-| `aria-disabled` | Disabled state |
-| `aria-required` | Required field |
-| `aria-invalid` | Invalid input |
+| `aria-label` | Nome acessivel |
+| `aria-labelledby` | Referencia ao elemento de label |
+| `aria-describedby` | Referencia a descricao |
+| `aria-hidden` | Ocultar de tecnologia assistiva |
+| `aria-expanded` | Estado expansivel |
+| `aria-selected` | Estado de selecao |
+| `aria-disabled` | Estado desabilitado |
+| `aria-required` | Campo obrigatorio |
+| `aria-invalid` | Input invalido |
 
-### Golden Rule
+### Regra de Ouro
 
-**First rule of ARIA:** Don't use ARIA if native HTML works.
+**Primeira regra do ARIA:** Nao use ARIA se HTML nativo funcionar.
 
 ```text
 ✗ <div role="button" tabindex="0">Click</div>

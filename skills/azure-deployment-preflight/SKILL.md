@@ -133,8 +133,8 @@ Parseie a saida do what-if para categorizar mudancas de recursos:
 
 | Tipo de Mudanca | Simbolo | Significado |
 |-----------------|---------|-------------|
-| Create | `+` | Recurso novo sera criado |
-| Delete | `-` | Recurso sera deletado |
+| Criar | `+` | Recurso novo sera criado |
+| Deletar | `-` | Recurso sera deletado |
 | Modify | `~` | Propriedades do recurso mudarao |
 | NoChange | `=` | Recurso sem mudancas |
 | Ignore | `*` | Recurso nao analisado (limites atingidos) |

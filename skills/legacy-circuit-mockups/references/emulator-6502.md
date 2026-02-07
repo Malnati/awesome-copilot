@@ -1,25 +1,25 @@
 # 6502 CPU Emulation Specification
 
-A technical Markdown specification for **emulating the MOS Technology 6502 CPU family**, suitable for software emulators, educational tools, testing frameworks, and retrocomputing projects.
+Uma especificacao tecnica em Markdown para **emular a familia de CPU MOS Technology 6502**, adequada para emuladores de software, ferramentas educacionais, frameworks de teste e projetos de retrocomputing.
 
 ---
 
 ## 1. Scope
 
-This specification describes the functional requirements for emulating:
+Esta especificacao descreve os requisitos funcionais para emular:
 
 * MOS 6502
-* WDC 65C02 (where noted)
+* WDC 65C02 (quando indicado)
 
-Out of scope:
+Fora de escopo:
 
-* Cycle-exact analog behavior
-* Physical bus contention
-* Undocumented silicon defects (unless explicitly implemented)
+* Comportamento analogico ciclo-exato
+* Contencao fisica do barramento
+* Defeitos de silicio nao documentados (a menos que implementados explicitamente)
 
 ---
 
-## 2. CPU Overview
+## 2. Visao Geral da CPU
 
 ### Core Characteristics
 
@@ -117,7 +117,7 @@ increment cycles
 
 ## 7. Addressing Modes
 
-| Mode             | Example       | Notes                 |
+| Modo             | Exemplo       | Notas                 |
 | ---------------- | ------------- | --------------------- |
 | Immediate        | `LDA #$10`    | Constant              |
 | Zero Page        | `LDA $20`     | Wraps at $00FF        |
@@ -129,7 +129,7 @@ increment cycles
 
 ---
 
-## 8. Instruction Set Requirements
+## 8. Requisitos do Conjunto de Instrucoes
 
 ### Categories
 
@@ -213,7 +213,7 @@ if address in IO range:
     delegate to device
 ```
 
-Examples:
+Exemplos:
 
 * 6522 VIA
 * UART

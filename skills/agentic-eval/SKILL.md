@@ -10,7 +10,7 @@ description: |
   - Medir e melhorar a qualidade das respostas do agente
 ---
 
-# Padroes de Avaliacao Agente
+# Padroes de Avaliacao de Agentes
 
 Padroes de auto-melhoria por meio de avaliacao e refinamento iterativos.
 
@@ -19,7 +19,7 @@ Padroes de auto-melhoria por meio de avaliacao e refinamento iterativos.
 Padroes de avaliacao permitem que agentes avaliem e melhorem suas proprias saidas, indo alem de geracao single-shot para loops de refinamento iterativos.
 
 ```
-Generate → Evaluate → Critique → Refine → Output
+Gerar → Avaliar → Criticar → Refinar → Saida
     ↑                              │
     └──────────────────────────────┘
 ```
@@ -158,7 +158,7 @@ def evaluate_with_rubric(output: str, rubric: dict) -> float:
 
 | Pratica | Racional |
 |----------|-----------|
-| **Criterios claros** | Defina criterios de avaliacao especificos e mensuraveis upfront |
+| **Criterios claros** | Defina criterios de avaliacao especificos e mensuraveis desde o inicio |
 | **Limites de iteracao** | Defina max de iteracoes (3-5) para evitar loops infinitos |
 | **Checagem de convergencia** | Pare se a pontuacao da saida nao melhorar entre iteracoes |
 | **Historico de log** | Mantenha a trilha completa para debugging e analise |

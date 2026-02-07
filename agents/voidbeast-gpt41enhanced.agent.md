@@ -28,12 +28,12 @@ After **every** file modification, you MUST:
 
 **PROMPT GENERATOR MODE activates when:**
 - User says "generate", "create", "develop", "build" + requests for content creation
-- Examples: "generate a landing page", "create a dashboard", "build a React app"
+- Exemplos: "generate a landing page", "create a dashboard", "build a React app"
 - **CRITICAL**: You MUST NOT code directly - you must research and generate prompts first
 
 **PLAN MODE activates when:**
 - User requests analysis, planning, or investigation without immediate creation
-- Examples: "analyze this codebase", "plan a migration", "investigate this bug"
+- Exemplos: "analyze this codebase", "plan a migration", "investigate this bug"
 
 **ACT MODE activates when:**
 - User has approved a plan from PLAN MODE
@@ -144,18 +144,18 @@ After **every** file modification, you MUST:
 
 ## Core Workflow Framework
 
-### Phase 1: Deep Problem Understanding (PLAN MODE)
+### Fase 1: Deep Problem Understanding (PLAN MODE)
 - **Classify**: 🔴CRITICAL bug, 🟡FEATURE request, 🟢OPTIMIZATION, 🔵INVESTIGATION
 - **Analyze**: Use `codebase` and `search` to understand requirements and context
 - **Clarify**: Ask questions if requirements are ambiguous
 
-### Phase 2: Strategic Planning (PLAN MODE)
+### Fase 2: Strategic Planning (PLAN MODE)
 - **Investigate**: Map data flows, identify dependencies, find relevant functions
 - **Evaluate**: Use Technology Decision Matrix (below) to select appropriate tools
 - **Plan**: Create comprehensive todo list with success criteria
 - **Approve**: Request user approval to switch to ACT MODE
 
-### Phase 3: Implementation (ACT MODE)
+### Fase 3: Implementation (ACT MODE)
 - **Execute**: Follow plan step-by-step using appropriate tools
 - **Validate**: Apply Strict QA Rule after every modification
 - **Debug**: Use `problems`, `testFailure`, `runTests` systematically

@@ -1,10 +1,10 @@
-# Excalidraw Element Types Guide
+# Guia de Tipos de Elemento do Excalidraw
 
-Detailed specifications for each Excalidraw element type with visual examples and use cases.
+Especificacoes detalhadas para cada tipo de elemento do Excalidraw, com exemplos visuais e casos de uso.
 
-## Element Type Overview
+## Visao Geral dos Tipos de Elemento
 
-| Type | Visual | Primary Use | Text Support |
+| Tipo | Visual | Uso Principal | Suporte a Texto |
 |------|--------|-------------|--------------|
 | `rectangle` | □ | Boxes, containers, process steps | ✅ Yes |
 | `ellipse` | ○ | Emphasis, terminals, states | ✅ Yes |
@@ -17,9 +17,9 @@ Detailed specifications for each Excalidraw element type with visual examples an
 
 ## Rectangle
 
-**Best for:** Process steps, entities, data stores, components
+**Melhor para:** Process steps, entities, data stores, components
 
-### Properties
+### Propriedades
 
 ```typescript
 {
@@ -32,24 +32,24 @@ Detailed specifications for each Excalidraw element type with visual examples an
 }
 ```
 
-### Use Cases
+### Casos de Uso
 
-| Scenario | Configuration |
+| Cenario | Configuracao |
 |----------|---------------|
 | **Process step** | Green background (`#b2f2bb`), centered text |
 | **Entity/Object** | Blue background (`#a5d8ff`), medium size |
 | **System component** | Light color, descriptive text |
 | **Data store** | Gray/white, database-like label |
 
-### Size Guidelines
+### Diretrizes de Tamanho
 
-| Content | Width | Height |
+| Conteudo | Largura | Altura |
 |---------|-------|--------|
-| Single word | 120-150px | 60-80px |
-| Short phrase (2-4 words) | 180-220px | 80-100px |
-| Sentence | 250-300px | 100-120px |
+| Palavra unica | 120-150px | 60-80px |
+| Frase curta (2-4 palavras) | 180-220px | 80-100px |
+| Frase | 250-300px | 100-120px |
 
-### Example
+### Exemplo
 
 ```json
 {
@@ -71,9 +71,9 @@ Detailed specifications for each Excalidraw element type with visual examples an
 
 ## Ellipse
 
-**Best for:** Start/end points, states, emphasis circles
+**Melhor para:** Start/end points, states, emphasis circles
 
-### Properties
+### Propriedades
 
 ```typescript
 {
@@ -85,26 +85,26 @@ Detailed specifications for each Excalidraw element type with visual examples an
 }
 ```
 
-### Use Cases
+### Casos de Uso
 
-| Scenario | Configuration |
+| Cenario | Configuracao |
 |----------|---------------|
 | **Flow start** | Light green, "Start" text |
 | **Flow end** | Light red, "End" text |
 | **State** | Soft color, state name |
 | **Highlight** | Bright color, emphasis text |
 
-### Size Guidelines
+### Diretrizes de Tamanho
 
-For circular shapes, use `width === height`:
+Para formas circulares, use `width === height`:
 
-| Content | Diameter |
+| Conteudo | Diametro |
 |---------|----------|
 | Icon/Symbol | 60-80px |
-| Short text | 100-120px |
-| Longer text | 150-180px |
+| Texto curto | 100-120px |
+| Texto mais longo | 150-180px |
 
-### Example
+### Exemplo
 
 ```json
 {
@@ -125,9 +125,9 @@ For circular shapes, use `width === height`:
 
 ## Diamond
 
-**Best for:** Decision points, conditional branches
+**Melhor para:** Decision points, conditional branches
 
-### Properties
+### Propriedades
 
 ```typescript
 {
@@ -135,29 +135,29 @@ For circular shapes, use `width === height`:
   text: "Valid?",
   fontSize: 18,
   textAlign: "center",
-  verticalAlign": "middle"
+  verticalAlign: "middle"
 }
 ```
 
-### Use Cases
+### Casos de Uso
 
-| Scenario | Text Example |
+| Cenario | Exemplo de Texto |
 |----------|--------------|
-| **Yes/No decision** | "Is Valid?", "Exists?" |
-| **Multiple choice** | "Type?", "Status?" |
-| **Conditional** | "Score > 50?" |
+| **Decisao Sim/Nao** | "Is Valid?", "Exists?" |
+| **Escolha multipla** | "Type?", "Status?" |
+| **Condicional** | "Score > 50?" |
 
-### Size Guidelines
+### Diretrizes de Tamanho
 
-Diamonds need more space than rectangles for the same text:
+Diamonds precisam de mais espaco que retangulos para o mesmo texto:
 
-| Content | Width | Height |
+| Conteudo | Largura | Altura |
 |---------|-------|--------|
 | Yes/No | 120-140px | 120-140px |
 | Short question | 160-180px | 160-180px |
 | Longer question | 200-220px | 200-220px |
 
-### Example
+### Exemplo
 
 ```json
 {
@@ -178,9 +178,9 @@ Diamonds need more space than rectangles for the same text:
 
 ## Arrow
 
-**Best for:** Flow direction, relationships, dependencies
+**Melhor para:** Flow direction, relationships, dependencies
 
-### Properties
+### Propriedades
 
 ```typescript
 {
@@ -192,9 +192,9 @@ Diamonds need more space than rectangles for the same text:
 }
 ```
 
-### Arrow Directions
+### Direcoes da Seta
 
-#### Horizontal (Left to Right)
+#### Horizontal (Esquerda para Direita)
 
 ```json
 {
@@ -206,7 +206,7 @@ Diamonds need more space than rectangles for the same text:
 }
 ```
 
-#### Vertical (Top to Bottom)
+#### Vertical (Topo para Base)
 
 ```json
 {
@@ -232,12 +232,12 @@ Diamonds need more space than rectangles for the same text:
 
 ### Arrow Styles
 
-| Style | `strokeStyle` | `strokeWidth` | Use Case |
+| Estilo | `strokeStyle` | `strokeWidth` | Caso de Uso |
 |-------|---------------|---------------|----------|
-| **Normal flow** | `"solid"` | 2 | Standard connections |
-| **Optional/Weak** | `"dashed"` | 2 | Optional paths |
-| **Important** | `"solid"` | 3-4 | Emphasized flow |
-| **Dotted** | `"dotted"` | 2 | Indirect relationships |
+| **Normal flow** | "solid" | 2 | Standard connections |
+| **Optional/Weak** | "dashed" | 2 | Optional paths |
+| **Important** | "solid" | 3-4 | Emphasized flow |
+| **Dotted** | "dotted" | 2 | Indirect relationships |
 
 ### Adding Arrow Labels
 
@@ -266,9 +266,9 @@ Use separate text elements positioned near arrow midpoint:
 
 ## Line
 
-**Best for:** Non-directional connections, dividers, borders
+**Melhor para:** Non-directional connections, dividers, borders
 
-### Properties
+### Propriedades
 
 ```typescript
 {
@@ -278,16 +278,16 @@ Use separate text elements positioned near arrow midpoint:
 }
 ```
 
-### Use Cases
+### Casos de Uso
 
-| Scenario | Configuration |
+| Cenario | Configuracao |
 |----------|---------------|
 | **Divider** | Horizontal, thin stroke |
 | **Border** | Closed path (polygon) |
 | **Connection** | Multi-point path |
 | **Underline** | Short horizontal line |
 
-### Multi-Point Line Example
+### Exemplo de Linha com Multiplos Pontos
 
 ```json
 {
@@ -306,9 +306,9 @@ Use separate text elements positioned near arrow midpoint:
 
 ## Text
 
-**Best for:** Labels, titles, annotations, standalone text
+**Melhor para:** Labels, titles, annotations, standalone text
 
-### Properties
+### Propriedades
 
 ```typescript
 {
@@ -347,13 +347,13 @@ const height = fontSize * 1.2 * lines;
 
 ### Text Positioning
 
-| Position | textAlign | verticalAlign | Use Case |
+| Posicao | textAlign | verticalAlign | Caso de Uso |
 |----------|-----------|---------------|----------|
-| **Top-left** | `"left"` | `"top"` | Default labels |
-| **Centered** | `"center"` | `"middle"` | Titles |
-| **Bottom-right** | `"right"` | `"bottom"` | Footnotes |
+| **Top-left** | "left" | "top" | Labels padrao |
+| **Centered** | "center" | "middle" | Titles |
+| **Bottom-right** | "right" | "bottom" | Footnotes |
 
-### Example: Title
+### Exemplo: Title
 
 ```json
 {
@@ -370,7 +370,7 @@ const height = fontSize * 1.2 * lines;
 }
 ```
 
-### Example: Annotation
+### Exemplo: Annotation
 
 ```json
 {
@@ -483,7 +483,7 @@ const height = fontSize * 1.2 * lines;
 
 ---
 
-## Summary
+## Resumo
 
 | When you need... | Use this element |
 |------------------|------------------|

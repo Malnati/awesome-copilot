@@ -1,23 +1,23 @@
-# Jekyll Reference
+# Referencia de Jekyll
 
-Jekyll is a static site generator that transforms Markdown content into complete websites. It's blog-aware and powers GitHub Pages.
+Jekyll e um gerador de sites estaticos que transforma conteudo Markdown em sites completos. Ele e blog-aware e alimenta o GitHub Pages.
 
-## Installation
+## Instalacao
 
-### Prerequisites
+### Pre-requisitos
 
-- Ruby 2.7.0 or higher
+- Ruby 2.7.0 ou superior
 - RubyGems
-- GCC and Make
+- GCC e Make
 
-### Install Jekyll
+### Instalar Jekyll
 
 ```bash
 # Install Jekyll and Bundler
 gem install jekyll bundler
 ```
 
-### Platform-Specific Installation
+### Instalacao por Plataforma
 
 ```bash
 # macOS (install Xcode CLI tools first)
@@ -33,9 +33,9 @@ gem install jekyll bundler
 gem install jekyll bundler
 ```
 
-## Quick Start
+## Inicio Rapido
 
-### Create New Site
+### Criar Novo Site
 
 ```bash
 # Create new Jekyll site
@@ -50,7 +50,7 @@ bundle exec jekyll serve
 # Open http://localhost:4000
 ```
 
-### Directory Structure
+### Estrutura de Diretorios
 
 ```
 myblog/
@@ -66,17 +66,17 @@ myblog/
 └── Gemfile          # Ruby dependencies
 ```
 
-## CLI Commands
+## Comandos de CLI
 
-| Command | Description |
-|---------|-------------|
+| Comando | Descricao |
+|---------|-----------|
 | `jekyll new <name>` | Create new site |
 | `jekyll build` | Build to `_site/` |
 | `jekyll serve` | Build and serve locally |
 | `jekyll clean` | Remove generated files |
 | `jekyll doctor` | Check for issues |
 
-### Build Options
+### Opcoes de Build
 
 ```bash
 # Build site
@@ -92,7 +92,7 @@ bundle exec jekyll build --destination ./public
 bundle exec jekyll build --incremental
 ```
 
-### Serve Options
+### Opcoes de Serve
 
 ```bash
 # Serve with live reload
@@ -108,7 +108,7 @@ bundle exec jekyll serve --port 8080
 bundle exec jekyll serve --host 0.0.0.0
 ```
 
-## Configuration (_config.yml)
+## Configuracao (_config.yml)
 
 ```yaml
 # Site settings
@@ -154,7 +154,7 @@ exclude:
 
 ## Front Matter
 
-Every content file needs YAML front matter:
+Todo arquivo de conteudo precisa de YAML front matter:
 
 ```markdown
 ---
@@ -173,7 +173,7 @@ Your content here...
 
 ## Markdown Processors
 
-### Kramdown (Default)
+### Kramdown (Padrao)
 
 ```yaml
 # _config.yml
@@ -198,124 +198,3 @@ gem 'jekyll-commonmark-ghpages'
 markdown: CommonMarkGhPages
 commonmark:
   options: ["SMART", "FOOTNOTES"]
-  extensions: ["strikethrough", "autolink", "table"]
-```
-
-## Liquid Templating
-
-### Variables
-
-```liquid
-{{ page.title }}
-{{ site.title }}
-{{ content }}
-{{ page.date | date: "%B %d, %Y" }}
-```
-
-### Loops
-
-```liquid
-{% for post in site.posts %}
-  <article>
-    <h2><a href="{{ post.url }}">{{ post.title }}</a></h2>
-    <p>{{ post.excerpt }}</p>
-  </article>
-{% endfor %}
-```
-
-### Conditionals
-
-```liquid
-{% if page.title %}
-  <h1>{{ page.title }}</h1>
-{% endif %}
-
-{% unless page.draft %}
-  {{ content }}
-{% endunless %}
-```
-
-### Includes
-
-```liquid
-{% include header.html %}
-{% include footer.html param="value" %}
-```
-
-## Layouts
-
-### Basic Layout (_layouts/default.html)
-
-```html
-<!DOCTYPE html>
-<html>
-<head>
-  <title>{{ page.title }} | {{ site.title }}</title>
-  <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
-</head>
-<body>
-  {% include header.html %}
-  <main>
-    {{ content }}
-  </main>
-  {% include footer.html %}
-</body>
-</html>
-```
-
-### Post Layout (_layouts/post.html)
-
-```html
----
-layout: default
----
-<article>
-  <h1>{{ page.title }}</h1>
-  <time>{{ page.date | date: "%B %d, %Y" }}</time>
-  {{ content }}
-</article>
-```
-
-## Plugins
-
-### Common Plugins
-
-```ruby
-# Gemfile
-group :jekyll_plugins do
-  gem 'jekyll-feed'        # RSS feed
-  gem 'jekyll-seo-tag'     # SEO meta tags
-  gem 'jekyll-sitemap'     # XML sitemap
-  gem 'jekyll-paginate'    # Pagination
-  gem 'jekyll-archives'    # Archive pages
-end
-```
-
-### Using Plugins
-
-```yaml
-# _config.yml
-plugins:
-  - jekyll-feed
-  - jekyll-seo-tag
-  - jekyll-sitemap
-```
-
-## Troubleshooting
-
-| Issue | Solution |
-|-------|----------|
-| Ruby 3.0+ webrick error | `bundle add webrick` |
-| Permission denied | Use `--user-install` or rbenv |
-| Slow builds | Use `--incremental` |
-| Liquid errors | Check for unescaped `{` `}` |
-| Encoding issues | Add `encoding: utf-8` to config |
-| Plugin not loading | Add to both Gemfile and _config.yml |
-
-## Resources
-
-- [Jekyll Documentation](https://jekyllrb.com/docs/)
-- [Liquid Template Language](https://shopify.github.io/liquid/)
-- [Kramdown Documentation](https://kramdown.gettalong.org/)
-- [GitHub Repository](https://github.com/jekyll/jekyll)
-- [Jekyll Themes](https://jekyllthemes.io/)

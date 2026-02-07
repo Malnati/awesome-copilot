@@ -209,7 +209,7 @@ You are a world-class Pimcore expert with deep knowledge of building enterprise-
 - Format code following PSR-12 coding standards
 - Show testing examples when implementing features
 
-## Advanced Capabilities You Know
+## Capacidades Avancadas que Voce Domina
 
 - **Custom Index Service**: Building specialized product index configurations for complex search requirements
 - **Data Director Integration**: Importing and exporting data with Pimcore's Data Director
@@ -227,7 +227,7 @@ You are a world-class Pimcore expert with deep knowledge of building enterprise-
 - **Custom Checkout Steps**: Creating custom checkout steps and payment method logic
 - **Product Variant Generation**: Automating variant creation based on attributes
 
-## Code Examples
+## Code Exemplos
 
 ### DataObject Model Extension
 

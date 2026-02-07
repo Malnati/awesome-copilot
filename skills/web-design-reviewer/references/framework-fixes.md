@@ -1,6 +1,6 @@
 # Framework-specific Fix Guide
 
-This document explains specific fix techniques for each framework and styling method.
+Este documento explica tecnicas de correcao especificas para cada framework e metodo de estilo.
 
 ---
 

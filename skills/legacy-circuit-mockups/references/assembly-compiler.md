@@ -1,8 +1,8 @@
 # 6502 SBC Assembly Compilation & ROM Build Specification
 
-## Overview
+## Visao geral
 
-This document defines a **complete specification for compiling 6502 assembly language** for a single-board computer consisting of:
+Este documento define uma **especificacao completa para compilar assembly 6502** para um single-board computer composto por:
 
 * **MOS 6502 CPU**
 * **MOS 6522 VIA**
@@ -10,13 +10,13 @@ This document defines a **complete specification for compiling 6502 assembly lan
 * **AT28C256 (32 KB EEPROM / ROM)**
 * **DFRobot FIT0127 (HD44780-compatible 16x2 LCD)**
 
-The focus is on **toolchain behavior, memory layout, ROM construction, and firmware conventions**, not electrical wiring.
+O foco e **comportamento da toolchain, layout de memoria, construcao de ROM e convencoes de firmware**, nao a fiação eletrica.
 
 ---
 
-## Target System Architecture
+## Arquitetura do sistema alvo
 
-### Memory Map (Canonical)
+### Mapa de memoria (canonico)
 
 ```
 $0000-$00FF  Zero Page (RAM)
@@ -26,48 +26,48 @@ $8000-$8FFF  6522 VIA I/O space
 $9000-$FFFF  ROM (AT28C256)
 ```
 
-> Address decoding may mirror devices; assembler assumes this canonical layout.
+> Address decoding pode espelhar dispositivos; o assembler assume este layout canonico.
 
 ---
 
-## ROM Organization (AT28C256)
+## Organizacao de ROM (AT28C256)
 
-| Address     | Purpose              |
-| ----------- | -------------------- |
-| $9000-$FFEF | Program code + data  |
+| Endereco   | Proposito           |
+| ---------- | ------------------- |
+| $9000-$FFEF | Program code + data |
 | $FFF0-$FFF9 | Optional system data |
-| $FFFA-$FFFB | NMI vector           |
-| $FFFC-$FFFD | RESET vector         |
-| $FFFE-$FFFF | IRQ/BRK vector       |
+| $FFFA-$FFFB | NMI vector          |
+| $FFFC-$FFFD | RESET vector        |
+| $FFFE-$FFFF | IRQ/BRK vector      |
 
-ROM image size: **32,768 bytes**
-
----
-
-## Reset & Startup Convention
-
-On reset:
-
-1. CPU fetches RESET vector at `$FFFC`
-2. Code initializes stack pointer
-3. Zero-page variables initialized
-4. VIA configured
-5. LCD initialized
-6. Main program entered
+Tamanho da imagem ROM: **32,768 bytes**
 
 ---
 
-## Assembler Requirements
+## Convencao de reset e startup
 
-Assembler **MUST** support:
+No reset:
+
+1. CPU busca o RESET vector em `$FFFC`
+2. Codigo inicializa o stack pointer
+3. Variaveis de zero-page inicializadas
+4. VIA configurada
+5. LCD inicializado
+6. Programa principal iniciado
+
+---
+
+## Requisitos do assembler
+
+O assembler **DEVE** suportar:
 
 * `.org` absolute addressing
-* Symbolic labels
-* Binary output (`.bin`)
-* Little-endian word emission
+* Labels simbolicos
+* Saida binaria (`.bin`)
+* Emissao de word little-endian
 * Zero-page optimization
 
-Recommended assemblers:
+Assemblers recomendados:
 
 * **ca65** (cc65 toolchain)
 * **vasm6502**
@@ -75,7 +75,7 @@ Recommended assemblers:
 
 ---
 
-## Assembly Source Structure
+## Estrutura do source assembly
 
 ```asm
 ;---------------------------
@@ -96,7 +96,7 @@ MAIN:
 
 ---
 
-## Vector Table Definition
+## Definicao da tabela de vetores
 
 ```asm
         .org $FFFA
@@ -107,9 +107,9 @@ MAIN:
 
 ---
 
-## 6522 VIA Programming Model
+## Modelo de programacao do 6522 VIA
 
-### Register Map (Base = $8000)
+### Mapa de registradores (Base = $8000)
 
 | Offset | Register |
 | ------ | -------- |
@@ -130,9 +130,9 @@ MAIN:
 
 ---
 
-## LCD Interface Convention
+## Convencao de interface LCD
 
-### LCD Wiring Assumption
+### Assuncao de fiação do LCD
 
 | LCD   | VIA     |
 | ----- | ------- |
@@ -141,11 +141,11 @@ MAIN:
 | E     | PA1     |
 | R/W   | GND     |
 
-4-bit mode assumed.
+Modo 4-bit assumido.
 
 ---
 
-## LCD Initialization Sequence
+## Sequencia de inicializacao do LCD
 
 ```asm
 lcd_init:
@@ -166,35 +166,35 @@ lcd_init:
 
 ---
 
-## LCD Command/Data Interface
+## Interface de comando/dados do LCD
 
-| Operation | RS | Data            |
-| --------- | -- | --------------- |
-| Command   | 0  | Instruction     |
-| Data      | 1  | ASCII character |
-
----
-
-## Zero Page Usage Convention
-
-| Address | Purpose      |
-| ------- | ------------ |
-| $00-$0F | Scratch      |
-| $10-$1F | LCD routines |
-| $20-$2F | VIA state    |
-| $30-$FF | User-defined |
+| Operacao | RS | Data            |
+| -------- | -- | --------------- |
+| Command  | 0  | Instruction     |
+| Data     | 1  | ASCII character |
 
 ---
 
-## RAM Usage (AS6C62256)
+## Convencao de uso de zero page
 
-* Stack uses page `$01`
-* All RAM assumed volatile
-* No ROM shadowing
+| Endereco | Proposito   |
+| -------- | ----------- |
+| $00-$0F  | Scratch     |
+| $10-$1F  | LCD routines |
+| $20-$2F  | VIA state   |
+| $30-$FF  | User-defined |
 
 ---
 
-## Build Pipeline
+## Uso de RAM (AS6C62256)
+
+* Stack usa a page `$01`
+* Toda RAM e assumida volatil
+* Sem ROM shadowing
+
+---
+
+## Pipeline de build
 
 ### Step 1: Assemble
 
@@ -210,40 +210,40 @@ ld65 -C rom.cfg main.o -o rom.bin
 
 ### Step 3: Pad ROM
 
-Ensure `rom.bin` is exactly **32768 bytes**.
+Garanta que `rom.bin` tenha exatamente **32768 bytes**.
 
 ---
 
-## EEPROM Programming
+## Programacao de EEPROM
 
-* Target device: **AT28C256**
-* Programmer: **MiniPro / T48**
-* Verify after write
-
----
-
-## Emulator Expectations
-
-Emulator must:
-
-* Load ROM at `$9000-$FFFF`
-* Emulate VIA I/O side effects
-* Render LCD output
-* Honor RESET vector
+* Dispositivo alvo: **AT28C256**
+* Programador: **MiniPro / T48**
+* Verificar apos escrever
 
 ---
 
-## Testing Checklist
+## Expectativas do emulador
 
-* Reset vector execution
-* VIA register writes
-* LCD displays correct text
-* Stack operations valid
-* ROM image maps correctly
+O emulador deve:
+
+* Carregar ROM em `$9000-$FFFF`
+* Emular efeitos colaterais de I/O da VIA
+* Renderizar saida do LCD
+* Respeitar RESET vector
 
 ---
 
-## References
+## Checklist de testes
+
+* Execucao do RESET vector
+* Escritas nos registradores VIA
+* LCD exibe texto correto
+* Operacoes de stack validas
+* Imagem ROM mapeia corretamente
+
+---
+
+## Referencias
 
 * [MOS 6502 Programming Manual](http://archive.6502.org/datasheets/synertek_programming_manual.pdf)
 * [MOS 6522 VIA Datasheet](http://archive.6502.org/datasheets/mos_6522_preliminary_nov_1977.pdf)
@@ -253,6 +253,6 @@ Emulator must:
 
 ---
 
-## Notes
+## Notas
 
-This specification is intentionally **end-to-end**: from assembly source to EEPROM image to running hardware or emulator. It defines a stable contract so ROMs, emulators, and real SBCs behave identically.
+Esta especificacao e intencionalmente **end-to-end**: do source assembly ate a imagem EEPROM e a execucao em hardware ou emulador. Ela define um contrato estavel para que ROMs, emuladores e SBCs reais se comportem de forma identica.

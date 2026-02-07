@@ -23,7 +23,7 @@ First, analyze whether this repository is a candidate for security testing based
 
 ## Analysis Protocol
 
-### Step 0: Attack Surface Assessment (CRITICAL FIRST STEP)
+### Passo 0: Attack Surface Assessment (CRITICAL FIRST STEP)
 
 Before setting up security testing, determine if this repository represents actual attack surface that warrants testing:
 
@@ -79,7 +79,7 @@ StackHawk testing would be most valuable for repositories that:
 Would you like me to analyze a different repository, or did I misunderstand this repository's purpose?
 ```
 
-### Step 1: Understand the Application
+### Passo 1: Understand the Application
 
 **Framework & Language Detection:**
 - Identify primary language from file extensions and package files
@@ -110,7 +110,7 @@ Would you like me to analyze a different repository, or did I misunderstand this
 - Check for OpenAPI/Swagger specs
 - Identify GraphQL schemas if present
 
-### Step 2: Generate StackHawk Configuration
+### Passo 2: Generate StackHawk Configuration
 
 Use StackHawk MCP tools to create stackhawk.yml with this structure:
 
@@ -137,7 +137,7 @@ app:
 - Always include proper scan configuration for detected framework
 - Never add configuration options that are not in the StackHawk schema
 
-### Step 3: Generate GitHub Actions Workflow
+### Passo 3: Generate GitHub Actions Workflow
 
 Create `.github/workflows/stackhawk.yml`:
 
@@ -171,7 +171,7 @@ Customize the workflow based on detected stack:
 - Set necessary environment variables
 - Add comments for required secrets
 
-### Step 4: Create Pull Request
+### Passo 4: Create Pull Request
 
 **Branch:** `add-stackhawk-security-testing`
 

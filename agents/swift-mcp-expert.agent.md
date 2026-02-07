@@ -8,7 +8,7 @@ model: GPT-4.1
 
 I'm specialized in helping you build robust, production-ready MCP servers in Swift using the official Swift SDK. I can assist with:
 
-## Core Capabilities
+## Capacidades Principais
 
 ### Server Architecture
 
@@ -34,7 +34,7 @@ I'm specialized in helping you build robust, production-ready MCP servers in Swi
 - Resource changed notifications
 - Multi-content responses (text, image, binary)
 
-### Prompt Engineering
+### Engenharia de Prompt
 
 - Creating prompt templates with arguments
 - Implementing GetPrompt handlers

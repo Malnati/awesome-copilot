@@ -1,236 +1,236 @@
 # Visual Inspection Checklist
 
-This document is a comprehensive checklist of items to verify during web design visual inspection.
+Este documento e um checklist abrangente de itens para verificar durante a inspecao visual de design web.
 
 ---
 
-## 1. Layout Verification
+## 1. Verificacao de Layout
 
-### Structural Integrity
+### Integridade Estrutural
 
-- [ ] Header is correctly fixed/positioned at the top of the screen
-- [ ] Footer is positioned at the bottom of the screen or end of content
-- [ ] Main content area is center-aligned with appropriate width
-- [ ] Sidebar (if present) is positioned correctly
-- [ ] Navigation is displayed in the intended position
+- [ ] Header esta corretamente fixo/posicionado no topo da tela
+- [ ] Footer esta posicionado no final da tela ou do conteudo
+- [ ] Area principal esta centralizada com largura apropriada
+- [ ] Sidebar (se houver) esta posicionada corretamente
+- [ ] Navegacao e exibida na posicao esperada
 
 ### Overflow
 
-- [ ] Horizontal scrollbar is not unintentionally displayed
-- [ ] Content does not overflow from parent elements
-- [ ] Images fit within parent containers
-- [ ] Tables do not exceed container width
-- [ ] Code blocks wrap or scroll appropriately
+- [ ] Barra de rolagem horizontal nao aparece de forma nao intencional
+- [ ] Conteudo nao transborda dos elementos pais
+- [ ] Imagens cabem dentro dos containers
+- [ ] Tabelas nao excedem a largura do container
+- [ ] Blocos de codigo quebram ou rolam adequadamente
 
-### Alignment
+### Alinhamento
 
-- [ ] Grid items are evenly distributed
-- [ ] Flex item alignment is correct
-- [ ] Text alignment (left/center/right) is consistent
-- [ ] Icons and text are vertically aligned
-- [ ] Form labels and input fields are correctly positioned
-
----
-
-## 2. Typography Verification
-
-### Readability
-
-- [ ] Body text font size is sufficient (minimum 16px recommended)
-- [ ] Line height is appropriate (1.5-1.8 recommended)
-- [ ] Characters per line is appropriate (40-80 characters recommended)
-- [ ] Spacing between paragraphs is sufficient
-- [ ] Heading size hierarchy is clear
-
-### Text Handling
-
-- [ ] Long words wrap appropriately
-- [ ] URLs and code are handled properly
-- [ ] No text clipping occurs
-- [ ] Ellipsis (...) displays correctly
-- [ ] Language-specific line breaking rules work correctly
-
-### Fonts
-
-- [ ] Web fonts load correctly
-- [ ] Fallback fonts are appropriate
-- [ ] Font weights are as intended
-- [ ] Special characters and emoji display correctly
+- [ ] Itens em grid distribuem de forma uniforme
+- [ ] Alinhamento de itens em flex esta correto
+- [ ] Alinhamento de texto (left/center/right) e consistente
+- [ ] Icones e texto estao alinhados verticalmente
+- [ ] Labels de formularios e campos de entrada estao posicionados corretamente
 
 ---
 
-## 3. Color & Contrast Verification
+## 2. Verificacao de Tipografia
 
-### Accessibility (WCAG Standards)
+### Legibilidade
 
-- [ ] Body text: Contrast ratio 4.5:1 or higher (AA)
-- [ ] Large text (18px+ bold or 24px+): 3:1 or higher
-- [ ] Interactive element borders: 3:1 or higher
-- [ ] Focus indicators: Sufficient contrast with background
+- [ ] Tamanho do texto do corpo e suficiente (minimo 16px recomendado)
+- [ ] Altura de linha adequada (1.5-1.8 recomendado)
+- [ ] Numero de caracteres por linha e adequado (40-80 recomendado)
+- [ ] Espacamento entre paragrafos e suficiente
+- [ ] Hierarquia de tamanhos de titulos e clara
 
-### Color Consistency
+### Tratamento de Texto
 
-- [ ] Brand colors are unified
-- [ ] Link colors are consistent
-- [ ] Error state red is unified
-- [ ] Success state green is unified
-- [ ] Hover/active state colors are appropriate
+- [ ] Palavras longas quebram adequadamente
+- [ ] URLs e codigo sao tratados corretamente
+- [ ] Nao ocorre text clipping
+- [ ] Ellipsis (...) exibe corretamente
+- [ ] Regras de quebra de linha especificas do idioma funcionam
 
-### Color Vision Diversity
+### Fontes
 
-- [ ] Information conveyed by shape and text, not just color
-- [ ] Charts and diagrams consider color vision diversity
-- [ ] Error messages don't rely solely on color
+- [ ] Web fonts carregam corretamente
+- [ ] Fallback fonts sao apropriadas
+- [ ] Pesos de fonte estao conforme esperado
+- [ ] Caracteres especiais e emoji exibem corretamente
 
 ---
 
-## 4. Responsive Verification
+## 3. Verificacao de Cor e Contraste
+
+### Acessibilidade (WCAG Standards)
+
+- [ ] Texto do corpo: contraste 4.5:1 ou maior (AA)
+- [ ] Texto grande (18px+ bold ou 24px+): 3:1 ou maior
+- [ ] Bordas de elementos interativos: 3:1 ou maior
+- [ ] Indicadores de foco: contraste suficiente com o fundo
+
+### Consistencia de Cores
+
+- [ ] Cores de marca estao unificadas
+- [ ] Cores de link sao consistentes
+- [ ] Vermelho de erro e unificado
+- [ ] Verde de sucesso e unificado
+- [ ] Cores de hover/active sao apropriadas
+
+### Diversidade de Visao de Cores
+
+- [ ] Informacao transmitida por forma e texto, nao apenas por cor
+- [ ] Graficos e diagramas consideram diversidade de visao de cores
+- [ ] Mensagens de erro nao dependem apenas de cor
+
+---
+
+## 4. Verificacao de Responsividade
 
 ### Mobile (~640px)
 
-- [ ] Content fits within screen width
-- [ ] Touch targets are 44x44px or larger
-- [ ] Text is readable size
-- [ ] No horizontal scrolling occurs
-- [ ] Navigation is mobile-friendly (hamburger menu, etc.)
-- [ ] Form inputs are easy to use
+- [ ] Conteudo cabe dentro da largura da tela
+- [ ] Touch targets tem 44x44px ou mais
+- [ ] Texto esta legivel
+- [ ] Nao ocorre rolagem horizontal
+- [ ] Navegacao e mobile-friendly (hamburger menu, etc.)
+- [ ] Inputs de formulario sao faceis de usar
 
 ### Tablet (641px~1024px)
 
-- [ ] Layout is optimized for tablet
-- [ ] Two-column layouts display appropriately
-- [ ] Image sizes are appropriate
-- [ ] Sidebar show/hide is appropriate
+- [ ] Layout esta otimizado para tablet
+- [ ] Layouts de duas colunas exibem corretamente
+- [ ] Tamanhos de imagem sao apropriados
+- [ ] Exibicao/ocultacao de sidebar e apropriada
 
 ### Desktop (1025px~)
 
-- [ ] Maximum width is set and doesn't break on extra-large screens
-- [ ] Spacing is sufficient
-- [ ] Multi-column layouts function correctly
-- [ ] Hover states are implemented
+- [ ] Largura maxima esta definida e nao quebra em telas muito grandes
+- [ ] Espacamento e suficiente
+- [ ] Layouts multi-coluna funcionam corretamente
+- [ ] Estados de hover estao implementados
 
-### Breakpoint Transitions
+### Transicoes de Breakpoint
 
-- [ ] Layout transitions smoothly when screen size changes
-- [ ] Layout doesn't break at intermediate sizes
-- [ ] No content disappears or duplicates
+- [ ] Layout transita suavemente ao mudar o tamanho da tela
+- [ ] Layout nao quebra em tamanhos intermediarios
+- [ ] Nenhum conteudo desaparece ou duplica
 
 ---
 
-## 5. Interactive Element Verification
+## 5. Verificacao de Elementos Interativos
 
-### Buttons
+### Botoes
 
-- [ ] Default state is clear
-- [ ] Hover state exists (desktop)
-- [ ] Focus state is visually clear
-- [ ] Active (pressed) state exists
-- [ ] Disabled state is distinguishable
-- [ ] Loading state (if applicable)
+- [ ] Estado default e claro
+- [ ] Estado de hover existe (desktop)
+- [ ] Estado de foco e visualmente claro
+- [ ] Estado ativo (pressed) existe
+- [ ] Estado desabilitado e distinguivel
+- [ ] Estado de loading (se aplicavel)
 
 ### Links
 
-- [ ] Links are visually identifiable
-- [ ] Visited links are distinguishable (if needed)
-- [ ] Hover state exists
-- [ ] Focus state is clear
+- [ ] Links sao visualmente identificaveis
+- [ ] Links visitados sao distinguiveis (se necessario)
+- [ ] Estado de hover existe
+- [ ] Estado de foco e claro
 
-### Form Elements
+### Elementos de Formulario
 
-- [ ] Input field boundaries are clear
-- [ ] Placeholder text contrast is appropriate
-- [ ] Visual feedback on focus
-- [ ] Error state display
-- [ ] Required field indication
-- [ ] Dropdowns function correctly
-
----
-
-## 6. Images & Media Verification
-
-### Images
-
-- [ ] Images display at appropriate size
-- [ ] Aspect ratio is maintained
-- [ ] High resolution display support (@2x)
-- [ ] Display when image fails to load
-- [ ] Lazy loading behavior works
-
-### Video & Embeds
-
-- [ ] Videos fit within containers
-- [ ] Aspect ratio is maintained
-- [ ] Embedded content is responsive
-- [ ] iframes don't overflow
+- [ ] Limites do campo de input sao claros
+- [ ] Contraste do placeholder e apropriado
+- [ ] Feedback visual no foco
+- [ ] Exibicao do estado de erro
+- [ ] Indicacao de campo obrigatorio
+- [ ] Dropdowns funcionam corretamente
 
 ---
 
-## 7. Accessibility Verification
+## 6. Verificacao de Imagens e Midia
 
-### Keyboard Navigation
+### Imagens
 
-- [ ] All interactive elements accessible via Tab key
-- [ ] Focus order is logical
-- [ ] Focus traps are appropriate (modals, etc.)
-- [ ] Skip to content link exists
+- [ ] Imagens exibem no tamanho adequado
+- [ ] Proporcao e mantida
+- [ ] Suporte a alta resolucao (@2x)
+- [ ] Exibicao quando a imagem falha
+- [ ] Lazy loading funciona
 
-### Screen Reader Support
+### Video e Embeds
 
-- [ ] Images have alt text
-- [ ] Forms have labels
-- [ ] ARIA labels are appropriately set
-- [ ] Heading hierarchy is correct (h1→h2→h3...)
-
-### Motion
-
-- [ ] Animations are not excessive
-- [ ] prefers-reduced-motion is supported (if possible)
+- [ ] Videos cabem nos containers
+- [ ] Proporcao e mantida
+- [ ] Conteudo incorporado e responsivo
+- [ ] iframes nao transbordam
 
 ---
 
-## 8. Performance-related Visual Issues
+## 7. Verificacao de Acessibilidade
+
+### Navegacao por Teclado
+
+- [ ] Todos os elementos interativos acessiveis via Tab
+- [ ] Ordem de foco e logica
+- [ ] Focus traps sao apropriados (modals, etc.)
+- [ ] Link de pular para conteudo existe
+
+### Suporte a Leitor de Tela
+
+- [ ] Imagens possuem alt text
+- [ ] Formularios possuem labels
+- [ ] ARIA labels estao configurados adequadamente
+- [ ] Hierarquia de titulos correta (h1→h2→h3...)
+
+### Movimento
+
+- [ ] Animacoes nao sao excessivas
+- [ ] prefers-reduced-motion e suportado (se possivel)
+
+---
+
+## 8. Problemas Visuais Relacionados a Performance
 
 ### Loading
 
-- [ ] Font FOUT/FOIT is minimal
-- [ ] No layout shift (CLS) occurs
-- [ ] No jumping when images load
-- [ ] Skeleton screens are appropriate (if applicable)
+- [ ] Font FOUT/FOIT e minimo
+- [ ] Nao ocorre layout shift (CLS)
+- [ ] Nao ha saltos quando imagens carregam
+- [ ] Skeleton screens sao apropriados (se aplicavel)
 
-### Animation
+### Animacao
 
-- [ ] Animations are smooth (60fps)
-- [ ] No performance issues when scrolling
-- [ ] Transitions are natural
-
----
-
-## Priority Matrix
-
-| Priority | Category | Examples |
-|----------|----------|----------|
-| P0 (Critical) | Functionality breaking | Complete element overlap, content disappearance |
-| P1 (High) | Serious UX issues | Unreadable text, inoperable buttons |
-| P2 (Medium) | Moderate issues | Alignment issues, spacing inconsistencies |
-| P3 (Low) | Minor issues | Slight positioning differences, minor color variations |
+- [ ] Animacoes sao suaves (60fps)
+- [ ] Sem problemas de performance ao rolar
+- [ ] Transicoes sao naturais
 
 ---
 
-## Verification Tools
+## Matriz de Prioridade
+
+| Prioridade | Categoria | Exemplos |
+|------------|----------|----------|
+| P0 (Critico) | Quebra de funcionalidade | Sobreposicao total, desaparecimento de conteudo |
+| P1 (Alta) | Problemas serios de UX | Texto ilegivel, botoes inoperantes |
+| P2 (Media) | Problemas moderados | Problemas de alinhamento, inconsistencias de espacamento |
+| P3 (Baixa) | Problemas menores | Diferencas leves de posicionamento, variacoes menores de cor |
+
+---
+
+## Ferramentas de Verificacao
 
 ### Browser DevTools
 
-- Elements panel: DOM and style inspection
-- Lighthouse: Performance and accessibility audits
-- Device toolbar: Responsive testing
+- Elements panel: inspecao de DOM e estilos
+- Lighthouse: auditorias de performance e acessibilidade
+- Device toolbar: teste responsivo
 
-### Accessibility Tools
+### Ferramentas de Acessibilidade
 
 - axe DevTools
 - WAVE
 - Color Contrast Analyzer
 
-### Automation Tools
+### Ferramentas de Automacao
 
-- Playwright (screenshot comparison)
+- Playwright (comparacao de screenshots)
 - Percy / Chromatic (Visual Regression Testing)

@@ -2,7 +2,7 @@
 
 ## Quick Conversion Methods
 
-Expanded portions of `SKILL.md` at `### Quick Conversion Methods`.
+Partes expandidas de `SKILL.md` em `### Quick Conversion Methods`.
 
 ### Method 1: CLI (Recommended for Single Files)
 
@@ -39,19 +39,19 @@ writeFileSync('output.html', html);
 
 ---
 
-## Step-by-Step Workflows
+## Workflows Passo a Passo
 
-Expanded portions of `SKILL.md` at `### Step-by-Step Workflows`.
+Partes expandidas de `SKILL.md` em `### Workflows Passo a Passo`.
 
 ### Workflow 1: Single File Conversion
 
-1. Ensure marked is installed: `npm install -g marked`
-2. Run conversion: `marked -i README.md -o README.html`
-3. Verify output file was created
+1. Garanta que o marked esta instalado: `npm install -g marked`
+2. Execute a conversao: `marked -i README.md -o README.html`
+3. Verifique se o arquivo de saida foi criado
 
 ### Workflow 2: Batch Conversion (Multiple Files)
 
-Create a script `convert-all.js`:
+Crie um script `convert-all.js`:
 
 ```javascript
 import { marked } from 'marked';
@@ -72,7 +72,7 @@ readdirSync(inputDir)
   });
 ```
 
-Run with: `node convert-all.js`
+Execute com: `node convert-all.js`
 
 ### Workflow 3: Conversion with Custom Options
 
@@ -91,7 +91,7 @@ const html = marked.parse(markdownContent);
 
 ### Workflow 4: Complete HTML Document
 
-Wrap converted content in a full HTML template:
+Envolva o conteudo convertido em um template HTML completo:
 
 ```javascript
 import { marked } from 'marked';

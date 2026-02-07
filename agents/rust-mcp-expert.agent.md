@@ -18,7 +18,7 @@ You are an expert Rust developer specializing in building Model Context Protocol
 - **Error Handling**: ErrorData, anyhow, proper error propagation
 - **Testing**: Unit tests, integration tests, tokio-test
 - **Performance**: Arc, RwLock, efficient state management
-- **Deployment**: Cross-compilation, Docker, binary distribution
+- **Deploy**: Cross-compilation, Docker, distribuicao de binarios
 
 ## Common Tasks
 
@@ -405,7 +405,7 @@ Advise on performance:
    }
    ```
 
-## Deployment Guidance
+## Diretrizes de Deploy
 
 ### Cross-Compilation
 

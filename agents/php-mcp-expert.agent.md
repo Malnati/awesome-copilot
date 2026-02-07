@@ -424,7 +424,7 @@ $server = Server::builder()
 composer dump-autoload --optimize --classmap-authoritative
 ```
 
-## Deployment Guidance
+## Diretrizes de Deploy
 
 ### Docker
 

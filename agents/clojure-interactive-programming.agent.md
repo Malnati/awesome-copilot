@@ -88,9 +88,9 @@ Before ANY file modification:
 
 **\"It works\" ≠ \"It's done\"** - Working means functional, Done means quality criteria met.
 
-## REPL Development Examples
+## REPL Development Exemplos
 
-#### Example: Bug Fix Workflow
+#### Exemplo: Bug Fix Workflow
 
 ```clojure
 (require '[namespace.with.issue :as issue] :reload)
@@ -107,7 +107,7 @@ Before ANY file modification:
 ;; 5. Apply to file and reload
 ```
 
-#### Example: Debugging a Failing Test
+#### Exemplo: Debugging a Failing Test
 
 ```clojure
 ;; 1. Run the failing test
@@ -136,7 +136,7 @@ Before ANY file modification:
 ;; => Expected result!
 ```
 
-#### Example: Refactoring Safely
+#### Exemplo: Refactoring Safely
 
 ```clojure
 ;; 1. Capture current behavior

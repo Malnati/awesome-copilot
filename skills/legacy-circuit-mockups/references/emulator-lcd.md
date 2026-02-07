@@ -1,29 +1,29 @@
 # DFRobot FIT0127 LCD Character Display Emulation Specification
 
-## Overview
+## Visao geral
 
-This document specifies how to **emulate the DFRobot FIT0127 LCD Character Display module**. FIT0127 is a **16x2 character LCD** compatible with the **HD44780 controller**, commonly used in 6502 and microcontroller breadboard systems.
+Este documento especifica como **emular o modulo DFRobot FIT0127 LCD Character Display**. O FIT0127 e um **LCD de caracteres 16x2** compativel com o **controlador HD44780**, comumente usado em sistemas breadboard 6502 e microcontroladores.
 
-The goal is **functional correctness** for SBC emulators, firmware testing, and UI visualization rather than electrical signal simulation.
+O objetivo e **correcao funcional** para emuladores de SBC, testes de firmware e visualizacao de UI, em vez de simulacao de sinais eletricos.
 
 ---
 
-## Module Summary
+## Resumo do modulo
 
-| Feature          | Value                   |
+| Recurso          | Valor                   |
 | ---------------- | ----------------------- |
-| Display Type     | Character LCD           |
-| Resolution       | 16 columns x 2 rows     |
-| Controller       | HD44780-compatible      |
+| Tipo de display  | Character LCD           |
+| Resolucao        | 16 colunas x 2 linhas   |
+| Controlador      | HD44780-compatible      |
 | Interface        | 8-bit or 4-bit parallel |
-| Character Matrix | 5x8 dots                |
-| Supply Voltage   | 5V                      |
+| Matriz de caract | 5x8 dots                |
+| Tensao de alim.  | 5V                      |
 
 ---
 
-## Pin Definitions
+## Definicoes de pinos
 
-| Pin  | Name  | Function         |
+| Pino | Nome  | Funcao           |
 | ---- | ----- | ---------------- |
 | 1    | GND   | Ground           |
 | 2    | VCC   | +5V              |
@@ -37,18 +37,18 @@ The goal is **functional correctness** for SBC emulators, firmware testing, and 
 
 ---
 
-## Logical Registers
+## Registradores logicos
 
-| RS | Register             |
+| RS | Registrador          |
 | -- | -------------------- |
 | 0  | Instruction Register |
 | 1  | Data Register        |
 
 ---
 
-## Instruction Set (Subset)
+## Conjunto de instrucoes (subconjunto)
 
-| Command         | Code        | Description               |
+| Comando         | Codigo      | Descricao                 |
 | --------------- | ----------- | ------------------------- |
 | Clear Display   | `0x01`      | Clears DDRAM, cursor home |
 | Return Home     | `0x02`      | Cursor to home position   |
@@ -61,15 +61,15 @@ The goal is **functional correctness** for SBC emulators, firmware testing, and 
 
 ---
 
-## Internal Memory Model
+## Modelo de memoria interno
 
 ### DDRAM (Display Data RAM)
 
-* Size: 80 bytes
-* Line 1 base: `0x00`
-* Line 2 base: `0x40`
+* Tamanho: 80 bytes
+* Base linha 1: `0x00`
+* Base linha 2: `0x40`
 
-Emulator mapping:
+Mapeamento no emulador:
 
 ```text
 Row 0: DDRAM[0x00-0x0F]
@@ -78,44 +78,44 @@ Row 1: DDRAM[0x40-0x4F]
 
 ### CGRAM (Character Generator RAM)
 
-* Stores up to 8 custom characters
-* 8 bytes per character
+* Armazena ate 8 caracteres customizados
+* 8 bytes por caractere
 
 ---
 
-## Data Write Cycle
+## Ciclo de escrita de dados
 
-A write occurs when:
+Uma escrita ocorre quando:
 
 ```
 RS = 1
 R/W = 0
-E: HIGH  LOW
+E: HIGH -> LOW
 ```
 
-### Emulator Behavior
+### Comportamento do emulador
 
-* On falling edge of `E`, latch data
-* Write data to DDRAM or CGRAM depending on address mode
-* Auto-increment or decrement address based on entry mode
+* Na borda de descida de `E`, captura os dados
+* Escreve os dados em DDRAM ou CGRAM dependendo do modo de endereco
+* Auto-incrementa ou decrementa o endereco conforme o entry mode
 
 ---
 
-## Instruction Write Cycle
+## Ciclo de escrita de instrucao
 
-A command write occurs when:
+Uma escrita de comando ocorre quando:
 
 ```
 RS = 0
 R/W = 0
-E: HIGH  LOW
+E: HIGH -> LOW
 ```
 
 ---
 
-## Read Cycle (Optional)
+## Ciclo de leitura (opcional)
 
-Reads are uncommon in hobby systems.
+Leituras sao incomuns em sistemas hobby.
 
 ```
 RS = 0/1
@@ -123,51 +123,51 @@ R/W = 1
 E: HIGH
 ```
 
-Emulator may simplify:
+O emulador pode simplificar:
 
-* Ignore reads entirely
-* Or return busy flag + address counter
+* Ignorar leituras por completo
+* Ou retornar busy flag + address counter
 
 ---
 
-## Busy Flag Emulation
+## Emulacao do busy flag
 
-### Real Hardware
+### Hardware real
 
 * Busy flag = D7
-* Commands take 37-1520 µs
+* Comandos levam 37-1520 us
 
-### Emulator Options
+### Opcoes de emulacao
 
-| Mode       | Behavior          |
-| ---------- | ----------------- |
-| Simplified | Always ready      |
-| Timed      | Busy for N cycles |
+| Modo       | Comportamento |
+| ---------- | ------------- |
+| Simplified | Always ready  |
+| Timed      | Busy por N ciclos |
 
-Recommended default: **Always ready**
+Padrao recomendado: **Always ready**
 
 ---
 
-## Power-Up State
+## Estado de power-up
 
-On reset:
+No reset:
 
 * Display OFF
 * Cursor OFF
-* DDRAM cleared or undefined
+* DDRAM limpa ou indefinida
 * Address counter = 0
 
-Emulator should:
+O emulador deve:
 
-* Clear DDRAM
-* Set cursor to (0,0)
-* Display enabled
+* Limpar DDRAM
+* Definir cursor em (0,0)
+* Display habilitado
 
 ---
 
-## Cursor and Display Model
+## Modelo de cursor e display
 
-State variables:
+Variaveis de estado:
 
 ```text
 cursor_row
@@ -177,40 +177,40 @@ cursor_on
 blink_on
 ```
 
-Cursor moves automatically after writes based on entry mode.
+O cursor se move automaticamente apos escritas conforme o entry mode.
 
 ---
 
-## 4-bit vs 8-bit Interface
+## Interface 4-bit vs 8-bit
 
-### 8-bit Mode
+### Modo 8-bit
 
-* Full byte transferred on D0-D7
+* Byte completo transferido em D0-D7
 
-### 4-bit Mode
+### Modo 4-bit
 
-* High nibble sent first
-* Two enable pulses per byte
+* High nibble enviado primeiro
+* Dois pulsos de enable por byte
 
-Emulator simplification:
+Simplificacao do emulador:
 
-* Accept full byte writes
-* Ignore nibble timing
-
----
-
-## Rendering Model (Emulator UI)
-
-Recommended approach:
-
-* Maintain 16x2 character buffer
-* Render ASCII subset
-* Substitute unsupported glyphs
-* Optionally render custom CGRAM chars
+* Aceitar escritas de byte completo
+* Ignorar timing de nibble
 
 ---
 
-## Emulator API Model
+## Modelo de renderizacao (UI do emulador)
+
+Abordagem recomendada:
+
+* Manter buffer de caracteres 16x2
+* Renderizar subconjunto ASCII
+* Substituir glifos nao suportados
+* Opcionalmente renderizar caracteres CGRAM customizados
+
+---
+
+## Modelo de API do emulador
 
 ```c
 typedef struct {
@@ -226,28 +226,28 @@ typedef struct {
 
 ---
 
-## Common Wiring in 6502 Systems
+## Cabos comuns em sistemas 6502
 
 ```
-VIA Port  LCD D4-D7 (4-bit mode)
-RS  VIA bit
-E   VIA bit
-R/W  GND
+VIA Port -> LCD D4-D7 (4-bit mode)
+RS -> VIA bit
+E  -> VIA bit
+R/W -> GND
 ```
 
 ---
 
-## Testing Checklist
+## Checklist de testes
 
 * Clear display command
 * Cursor positioning via DDRAM addresses
-* Sequential character writes
-* Line wrap behavior
-* Custom character display
+* Escritas sequenciais de caracteres
+* Comportamento de line wrap
+* Exibicao de caracteres customizados
 
 ---
 
-## References
+## Referencias
 
 * [HD44780U Datasheet (Hitachi)](https://academy.cba.mit.edu/classes/output_devices/44780.pdf)
 * [Ben Eater LCD Interface Notes](https://hackaday.io/project/174128-db6502/log/181838-adventures-with-hd44780-lcd-controller)
@@ -256,11 +256,11 @@ R/W  GND
 
 ---
 
-## Notes
+## Notas
 
-This spec intentionally prioritizes **firmware-visible behavior** over electrical accuracy, making it ideal for:
+Esta especificacao prioriza intencionalmente o **comportamento visivel ao firmware** em vez da precisao eletrica, tornando-a ideal para:
 
-* SBC emulators
-* ROM and monitor development
-* Automated testing of LCD output
-* Educational CPU projects
+* Emuladores de SBC
+* Desenvolvimento de ROM e monitor
+* Testes automatizados de saida de LCD
+* Projetos educacionais de CPU

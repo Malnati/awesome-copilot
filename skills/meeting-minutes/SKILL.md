@@ -1,117 +1,117 @@
 ---
 name: meeting-minutes
-description: 'Generate concise, actionable meeting minutes for internal meetings. Includes metadata, attendees, agenda, decisions, action items (owner + due date), and follow-up steps.'
+description: 'Gere atas de reuniao concisas e acionaveis para reunioes internas. Inclui metadados, participantes, agenda, decisoes, itens de acao (owner + data limite) e passos de follow-up.'
 ---
 
-# Meeting Minutes Skill — Short Internal Meetings
+# Skill de Atas de Reuniao — Reunioes Internas Curtas
 
-## Purpose / Overview
+## Proposito / Visao Geral
 
-This Skill produces high-quality, consistent meeting minutes for internal meetings that are 60 minutes or shorter. Output is designed to be clear, actionable, and easy to convert into task trackers (e.g., GitHub Issues, Jira). The generated minutes prioritize decisions and action items so teams can move quickly from discussion to execution.
+Esta skill produz atas de reuniao de alta qualidade e consistencia para reunioes internas de 60 minutos ou menos. A saida e clara, acionavel e facil de converter em rastreadores de tarefas (ex.: GitHub Issues, Jira). As atas geradas priorizam decisoes e itens de acao para que os times avancem rapidamente da discussao para execucao.
 
-## When to Use
+## Quando Usar
 
-Use this skill when:
+Use esta skill quando:
 
-- Internal syncs, standups, design reviews, triage, planning or ad-hoc meetings with short duration
-- Situations that require a concise record of decisions, assigned action items, and follow-ups
-- Creating a standardized minutes document from a live meeting, transcript, recording, or notes
-
----
-
-## Operational Workflow
-
-### Phase 1: Intake (before drafting)
-
-- Obtain meeting metadata: title, date, start/end time (or duration), organizer, and intended audience.
-- Confirm available inputs: agenda, slides, recording, transcript, or raw notes.
-- If key details are missing, ask up to 3 clarifying questions before producing minutes (see "Discovery" below).
-
-### Phase 2: Capture (during / immediately after meeting)
-
-- Record attendees and absentees.
-- Capture brief notes per agenda item with time markers if available.
-- Record explicit decisions, rationale summary (1–2 sentences), and action items (owner + due date).
-
-### Phase 3: Drafting
-
-- Generate minutes following the **Strict Minutes Schema** (below).
-- Ensure every action item includes owner, due date (or timeframe), and acceptance criteria when applicable.
-- Mark unresolved issues or items requiring follow-up in the Parking Lot.
-
-### Phase 4: Review & Publish
-
-- If possible, send draft to meeting organizer or a designated reviewer for quick verification (within 24 hours).
-- Publish final minutes to the agreed channel (shared drive, repo, ticket, or email) and optionally create tasks in the team's tracker.
+- Syncs internas, standups, design reviews, triage, planning ou reunioes ad-hoc de curta duracao
+- Situacoes que exigem um registro conciso de decisoes, itens de acao atribuídos e follow-ups
+- Criar um documento padronizado de atas a partir de reuniao ao vivo, transcricao, gravacao ou notas
 
 ---
 
-## Discovery (required clarifying questions)
+## Workflow Operacional
 
-Before generating minutes, the agent **MUST** ask up to three clarifying questions if any of these are missing:
+### Fase 1: Intake (antes de redigir)
 
-- What is the meeting title, date, start time (or duration), and organizer?
-- Is there an agenda or transcript/recording to reference? If yes, please provide.
-- Who should be assigned as the reviewer or approver for the minutes?
+- Obtenha metadados da reuniao: titulo, data, hora inicio/fim (ou duracao), organizador e publico-alvo.
+- Confirme entradas disponiveis: agenda, slides, gravacao, transcricao ou notas brutas.
+- Se detalhes-chave estiverem faltando, faca ate 3 perguntas de esclarecimento antes de produzir as atas (ver "Discovery" abaixo).
 
-If the user responds "no transcript" or "no agenda," proceed but mark source material as "ad-hoc notes" and flag potential gaps.
+### Fase 2: Captura (durante / imediatamente apos a reuniao)
+
+- Registre participantes e ausentes.
+- Capture notas breves por item de agenda com marcadores de tempo se disponiveis.
+- Registre decisoes explicitas, resumo de racional (1-2 frases) e itens de acao (owner + data limite).
+
+### Fase 3: Redacao
+
+- Gere as atas seguindo o **Schema Estrito de Atas** (abaixo).
+- Garanta que cada item de acao inclua owner, data limite (ou prazo) e criterios de aceitacao quando aplicavel.
+- Marque issues nao resolvidas ou itens que exigem follow-up no Parking Lot.
+
+### Fase 4: Revisao e Publicacao
+
+- Se possivel, envie o draft ao organizador ou revisor designado para verificacao rapida (em ate 24 horas).
+- Publique as atas finais no canal combinado (drive compartilhado, repo, ticket ou email) e opcionalmente crie tarefas no tracker do time.
 
 ---
 
-## Strict Minutes Schema (Output Structure)
+## Discovery (perguntas de esclarecimento obrigatorias)
 
-You **MUST** produce meeting minutes following this exact structure. If information is unavailable, use `TBD` or `Unknown` and explain how to obtain it.
+Antes de gerar as atas, o agente **DEVE** fazer ate tres perguntas de esclarecimento se algum destes itens estiver faltando:
 
-### 1. Metadata
+- Qual e o titulo da reuniao, data, hora de inicio (ou duracao) e organizador?
+- Ha agenda ou transcricao/gravacao para referencia? Se sim, forneca.
+- Quem deve ser o revisor ou aprovador das atas?
 
-- **Title**:
-- **Date (YYYY-MM-DD)**:
-- **Start Time (UTC)**:
-- **End Time (UTC) or Duration**:
-- **Organizer**:
-- **Location / Virtual Link**:
-- **Minutes Author** (agent or person):
-- **Distribution List** (who receives the minutes):
+Se o usuario responder "sem transcricao" ou "sem agenda", prossiga mas marque a fonte como "notas ad-hoc" e sinalize possiveis lacunas.
 
-### 2. Attendance
+---
 
-- **Present**: [list of names + roles]
-- **Regrets / Absent**: [list]
-- **Notetaker / Recorder**: [name or "agent"]
+## Schema Estrito de Atas (Estrutura de Saida)
+
+Voce **DEVE** produzir atas seguindo esta estrutura exata. Se alguma informacao estiver indisponivel, use `TBD` ou `Unknown` e explique como obter.
+
+### 1. Metadados
+
+- **Titulo**:
+- **Data (YYYY-MM-DD)**:
+- **Hora Inicio (UTC)**:
+- **Hora Fim (UTC) ou Duracao**:
+- **Organizador**:
+- **Local / Link Virtual**:
+- **Autor da Ata** (agente ou pessoa):
+- **Lista de Distribuicao** (quem recebe as atas):
+
+### 2. Presenca
+
+- **Presentes**: [lista de nomes + roles]
+- **Ausentes / Regrets**: [lista]
+- **Notetaker / Recorder**: [nome ou "agente"]
 
 ### 3. Agenda
 
-Bullet list of agenda items, in order:
+Lista de itens da agenda, em ordem:
 
-- Item 1: short title
-- Item 2: short title
+- Item 1: titulo curto
+- Item 2: titulo curto
 - ...
 
-### 4. Summary
+### 4. Resumo
 
-A concise one-paragraph summary (1–3 sentences) of the meeting's objective and high-level outcome.
+Um paragrafo conciso (1-3 frases) com o objetivo da reuniao e o resultado de alto nivel.
 
-### 5. Decisions Made
+### 5. Decisoes Tomadas
 
-Each as a separate bullet:
+Cada decisao como bullet separado:
 
-- **Decision 1**: statement of decision.
-  - Who decided / approved: [name(s) or group]
-  - Rationale (1–2 sentences): brief reason.
-  - Effective date (if applicable): YYYY-MM-DD
-- **Decision 2**: ...
+- **Decisao 1**: declaracao da decisao.
+  - Quem decidiu / aprovou: [nome(s) ou grupo]
+  - Racional (1-2 frases): motivo breve.
+  - Data efetiva (se aplicavel): YYYY-MM-DD
+- **Decisao 2**: ...
 
-### 6. Action Items
+### 6. Itens de Acao
 
-Table-style bullets; **must include owner and due date**:
+Bullets estilo tabela; **devem incluir owner e data limite**:
 
-- **[ID] Action**: short description
-  - **Owner**: Name (team)
-  - **Due**: YYYY-MM-DD or "ASAP" / timeframe
-  - **Acceptance Criteria**: (what completes this action)
-  - **Linked artifacts / tickets**: (optional URL or ticket id)
+- **[ID] Acao**: descricao curta
+  - **Owner**: Nome (time)
+  - **Due**: YYYY-MM-DD ou "ASAP" / prazo
+  - **Criterios de Aceitacao**: (o que conclui esta acao)
+  - **Artefatos / tickets vinculados**: (URL opcional ou id)
 
-**Example:**
+**Exemplo:**
 
 - [A1] Draft deployment runbook for feature X
   - Owner: Alex (Engineering)
@@ -119,117 +119,42 @@ Table-style bullets; **must include owner and due date**:
   - Acceptance Criteria: runbook includes steps for rollback, health checks, and monitoring links
   - Linked artifacts: https://github.com/owner/repo/issues/123
 
-### 7. Notes by Agenda Item
+### 7. Notas por Item de Agenda
 
-Brief, factual, timestamp optional:
+Breve, factual, timestamp opcional:
 
-- **Agenda Item 1**: title
+- **Agenda Item 1**: titulo
   - Key points:
     - Point A (timestamp 00:05)
     - Point B (timestamp 00:12)
   - Open issues / questions:
-    - Q1: question text (owner if assigned)
+    - Q1: texto da pergunta (owner se atribuido)
 - **Agenda Item 2**: ...
 
-### 8. Parking Lot / Unresolved Items
+### 8. Parking Lot / Itens Nao Resolvidos
 
-- **Item**: short description
-  - Why parked / next step:
-  - Suggested owner or next meeting to resolve
+- **Item**: descricao curta
+  - Por que foi estacionado / proximo passo:
+  - Owner sugerido ou proxima reuniao para resolver
 
-### 9. Risks / Blockers (if any)
+### 9. Riscos / Bloqueios (se houver)
 
-- **Risk 1**: short description, impact, mitigation owner
-- **Risk 2**: ...
+- **Risco 1**: descricao curta, impacto, owner de mitigacao
+- **Risco 2**: ...
 
-### 10. Next Meeting / Follow-up
+### 10. Proxima Reuniao / Follow-up
 
-- Proposed date/time (if any)
-- Objectives for next meeting
+- Data/hora proposta (se houver)
+- Objetivos para a proxima reuniao
 
-### 11. Attachments / References
+### 11. Anexos / Referencias
 
-- Agenda document: URL
+- Documento de agenda: URL
 - Slides: URL
-- Transcript / Recording: URL
-- Related tickets: list of URLs or IDs
+- Transcricao / Gravacao: URL
+- Tickets relacionados: lista de URLs ou IDs
 
-### 12. Version & Change Log
+### 12. Versao e Change Log
 
-- **Version**: 1.0
-- **Last updated**: YYYY-MM-DDTHH:MM:SSZ
-- **Changes**: short notes on edits and who made them
-
----
-
-## Style & Quality Rules
-
-- Keep minutes concise: total length should typically be under 1 A4 page for meetings <= 30 minutes and under 2 pages for meetings close to 60 minutes.
-- Use plain language and bullet lists for readability.
-- Prioritize decisions and action items at the top of the document.
-- Do NOT include speculative language or unverified claims. If something is uncertain, label it `TBD` and note the missing info source.
-- Use consistent timestamps and ISO 8601 dates (YYYY-MM-DD or full UTC timestamp).
-
----
-
-## DO / DON'T
-
-**DO:**
-
-- Include owner and due date for every action item.
-- Provide acceptance criteria for action items when possible.
-- Link to artifacts (tickets, slides, recordings) for traceability.
-- Send draft for quick review if minutes contain significant decisions.
-
-**DON'T:**
-
-- Omit decisions or action items — these are the primary value of minutes.
-- Mix personal opinions with facts. Keep commentary clearly marked as "Opinion" or exclude it.
-- Publish raw PII gathered during discussion unless required and authorized.
-
----
-
-## Example Prompts (for Copilot / Agent)
-
-**Prompt to generate minutes from transcript:**
-
-> "Generate meeting minutes from the following meeting transcript. Meeting title: 'Platform Weekly Sync'. Date: 2026-02-10. Duration: 45 minutes. Organizer: Priya (Platform Lead). Transcript: <paste transcript>. Follow the Strict Minutes Schema. Highlight decisions and create action items with owners and due dates where implied."
-
-**Prompt to generate minutes from notes:**
-
-> "I have raw notes from a 30-minute design review. Title: 'Feature Y Design Review'. Date: 2026-02-11. Notes: <paste notes>. Produce concise minutes following the Strict Minutes Schema. Ask up to 3 clarifying questions if critical fields are missing."
-
----
-
-## Quick Templates (copyable)
-
-### Concise minutes template (short):
-
-```
-- Title:
-- Date:
-- Organizer:
-- Present:
-- Summary:
-- Decisions:
-  - Decision 1 — Who — Effective:
-- Action Items:
-  - [A1] Action — Owner — Due — Acceptance Criteria
-- Next Steps / Next Meeting:
-```
-
-### Detailed minutes template (full schema):
-
-Use the Strict Minutes Schema above.
-
----
-
-## Verification & Acceptance Criteria for Generated Minutes
-
-A generated minutes document is acceptable if:
-
-- It contains Metadata, Attendance, Decisions, and Action Items sections.
-- Every action item has an assigned owner and a due date or a clear timeframe.
-- All significant decisions are captured with at least 1-line rationale.
-- Attachments or references are listed or explicitly marked `None`.
-- The document is factual; uncertain items are labeled `TBD`.
+- **Versao**: 1.0
+- **Ultima atualizacao**: YYYY-MM-DDTHH:MM:SSZ

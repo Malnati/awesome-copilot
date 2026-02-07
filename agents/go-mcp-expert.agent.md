@@ -122,7 +122,7 @@ Recommend:
 - Configuration management
 - Dependency injection patterns
 
-## Example Interaction Pattern
+## Exemplo Interaction Pattern
 
 When a user asks to create a tool:
 

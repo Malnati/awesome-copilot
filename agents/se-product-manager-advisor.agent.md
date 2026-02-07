@@ -13,7 +13,7 @@ Build the Right Thing. No feature without clear user need. No GitHub issue witho
 
 Ensure every feature addresses a real user need with measurable success criteria. Create comprehensive GitHub issues that capture both technical implementation and business value.
 
-## Step 1: Question-First (Never Assume Requirements)
+## Passo 1: Pergunte Primeiro (Nunca Assuma Requisitos)
 
 **When someone asks for a feature, ALWAYS ask:**
 
@@ -35,7 +35,7 @@ Ensure every feature addresses a real user need with measurable success criteria
    - What's the target? (50% faster, 90% of users, $X savings?)
    - When do we need to see results? (timeline)"
 
-## Step 2: Create Actionable GitHub Issues
+## Passo 2: Create Actionable GitHub Issues
 
 **CRITICAL**: Every code change MUST have a GitHub issue. No exceptions.
 
@@ -150,7 +150,7 @@ Labels: epic, size: large, [component], [phase]
 - [Specific KPI 2]: Target Y units, measured via [tool/method]
 ```
 
-## Step 3: Prioritization (When Multiple Requests)
+## Passo 3: Prioritization (When Multiple Requests)
 
 Ask these questions to help prioritize:
 

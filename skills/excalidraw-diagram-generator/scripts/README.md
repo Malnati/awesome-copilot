@@ -1,43 +1,43 @@
-# Excalidraw Library Tools
+# Ferramentas de Biblioteca do Excalidraw
 
-This directory contains scripts for working with Excalidraw libraries.
+Este diretorio contem scripts para trabalhar com bibliotecas do Excalidraw.
 
 ## split-excalidraw-library.py
 
-Splits an Excalidraw library file (`*.excalidrawlib`) into individual icon JSON files for efficient token usage by AI assistants.
+Divide um arquivo de biblioteca Excalidraw (`*.excalidrawlib`) em arquivos JSON individuais de icones para uso eficiente de tokens por assistentes de IA.
 
-### Prerequisites
+### Pre-requisitos
 
-- Python 3.6 or higher
-- No additional dependencies required (uses only standard library)
+- Python 3.6 ou superior
+- Sem dependencias adicionais (usa apenas a standard library)
 
-### Usage
+### Uso
 
 ```bash
 python split-excalidraw-library.py <path-to-library-directory>
 ```
 
-### Step-by-Step Workflow
+### Fluxo Passo a Passo
 
-1. **Create library directory**:
+1. **Criar diretorio da biblioteca**:
    ```bash
    mkdir -p skills/excalidraw-diagram-generator/libraries/aws-architecture-icons
    ```
 
-2. **Download and place library file**:
-   - Visit: https://libraries.excalidraw.com/
-   - Search for "AWS Architecture Icons" and download the `.excalidrawlib` file
-   - Rename it to match the directory name: `aws-architecture-icons.excalidrawlib`
-   - Place it in the directory created in step 1
+2. **Baixar e posicionar o arquivo de biblioteca**:
+   - Visite: https://libraries.excalidraw.com/
+   - Busque por "AWS Architecture Icons" e baixe o arquivo `.excalidrawlib`
+   - Renomeie para combinar com o nome do diretorio: `aws-architecture-icons.excalidrawlib`
+   - Coloque no diretorio criado no passo 1
 
-3. **Run the script**:
+3. **Executar o script**:
    ```bash
    python skills/excalidraw-diagram-generator/scripts/split-excalidraw-library.py skills/excalidraw-diagram-generator/libraries/aws-architecture-icons/
    ```
 
-### Output Structure
+### Estrutura de Saida
 
-The script creates the following structure in the library directory:
+O script cria a seguinte estrutura no diretorio da biblioteca:
 
 ```
 skills/excalidraw-diagram-generator/libraries/aws-architecture-icons/
@@ -51,74 +51,74 @@ skills/excalidraw-diagram-generator/libraries/aws-architecture-icons/
     ...
 ```
 
-### What the Script Does
+### O que o Script Faz
 
-1. **Reads** the `.excalidrawlib` file
-2. **Extracts** each icon from the `libraryItems` array
-3. **Sanitizes** icon names to create valid filenames (spaces → hyphens, removes special characters)
-4. **Saves** each icon as a separate JSON file in the `icons/` directory
-5. **Generates** a `reference.md` file with a table mapping icon names to filenames
+1. **Le** o arquivo `.excalidrawlib`
+2. **Extrai** cada icone do array `libraryItems`
+3. **Sanitiza** nomes de icone para criar nomes de arquivo validos (espacos → hifens, remove caracteres especiais)
+4. **Salva** cada icone como um arquivo JSON separado no diretorio `icons/`
+5. **Gera** um arquivo `reference.md` com uma tabela mapeando nomes de icone para nomes de arquivo
 
-### Benefits
+### Beneficios
 
-- **Token Efficiency**: AI can first read the lightweight `reference.md` to find relevant icons, then load only the specific icon files needed
-- **Organization**: Icons are organized in a clear directory structure
-- **Extensibility**: Users can add multiple library sets side-by-side
+- **Eficiencia de Tokens**: a IA pode ler primeiro o `reference.md` leve para encontrar icones relevantes e depois carregar apenas os arquivos de icone necessarios
+- **Organizacao**: icones organizados em uma estrutura de diretorios clara
+- **Extensibilidade**: usuarios podem adicionar multiplos conjuntos de bibliotecas lado a lado
 
-### Recommended Workflow
+### Fluxo Recomendado
 
-1. Download desired Excalidraw libraries from https://libraries.excalidraw.com/
-2. Run this script on each library file
-3. Move the generated folders to `../libraries/`
-4. The AI assistant will use `reference.md` files to locate and use icons efficiently
+1. Baixe bibliotecas Excalidraw desejadas em https://libraries.excalidraw.com/
+2. Execute este script em cada arquivo de biblioteca
+3. Mova as pastas geradas para `../libraries/`
+4. O assistente de IA usara arquivos `reference.md` para localizar e usar icones com eficiencia
 
-### Library Sources (Examples — verify availability)
+### Fontes de Bibliotecas (Exemplos — verifique disponibilidade)
 
-- Examples found on https://libraries.excalidraw.com/ may include cloud/service icon sets.
-- Availability changes over time; verify the exact library names on the site before use.
-- This script works with any valid `.excalidrawlib` file you provide.
+- Exemplos encontrados em https://libraries.excalidraw.com/ podem incluir conjuntos de icones de cloud/servicos.
+- A disponibilidade muda ao longo do tempo; verifique os nomes exatos das bibliotecas no site antes de usar.
+- Este script funciona com qualquer arquivo `.excalidrawlib` valido que voce fornecer.
 
-### Troubleshooting
+### Solucao de Problemas
 
-**Error: File not found**
-- Check that the file path is correct
-- Make sure the file has a `.excalidrawlib` extension
+**Erro: Arquivo nao encontrado**
+- Verifique se o caminho do arquivo esta correto
+- Garanta que o arquivo tem extensao `.excalidrawlib`
 
-**Error: Invalid library file format**
-- Ensure the file is a valid Excalidraw library file
-- Check that it contains a `libraryItems` array
+**Erro: Formato de arquivo de biblioteca invalido**
+- Garanta que o arquivo e uma biblioteca Excalidraw valida
+- Verifique se contem o array `libraryItems`
 
-### License Considerations
+### Consideracoes de Licenca
 
-When using third-party icon libraries:
-- **AWS Architecture Icons**: Subject to AWS Content License
-- **GCP Icons**: Subject to Google's terms
-- **Other libraries**: Check each library's license
+Ao usar bibliotecas de icones de terceiros:
+- **AWS Architecture Icons**: Sujeito a AWS Content License
+- **GCP Icons**: Sujeito aos termos do Google
+- **Outras bibliotecas**: Check each library's license
 
-This script is for personal/organizational use. Redistribution of split icon files should comply with the original library's license terms.
+Este script e para uso pessoal/organizacional. Redistribuicao de arquivos de icones divididos deve cumprir os termos de licenca da biblioteca original.
 
 ## add-icon-to-diagram.py
 
-Adds a specific icon from a split Excalidraw library into an existing `.excalidraw` diagram. The script handles coordinate translation and ID collision avoidance, and can optionally add a label under the icon.
+Adiciona um icone especifico de uma biblioteca Excalidraw dividida a um diagrama `.excalidraw` existente. O script lida com traducao de coordenadas e evita colisao de IDs, e pode opcionalmente adicionar um rotulo abaixo do icone.
 
-### Prerequisites
+### Pre-requisitos
 
-- Python 3.6 or higher
-- A diagram file (`.excalidraw`)
-- A split icon library directory (created by `split-excalidraw-library.py`)
+- Python 3.6 ou superior
+- Um arquivo de diagrama (`.excalidraw`)
+- Um diretorio de biblioteca de icones divididos (criado por `split-excalidraw-library.py`)
 
-### Usage
+### Uso
 
 ```bash
 python add-icon-to-diagram.py <diagram-path> <icon-name> <x> <y> [OPTIONS]
 ```
 
-**Options**
+**Opcoes**
 - `--library-path PATH` : Path to the icon library directory (default: `aws-architecture-icons`)
-- `--label TEXT` : Add a text label below the icon
+- `--label TEXT` : Adicionar um rotulo de texto abaixo do icone
 -- `--use-edit-suffix` : Edit via `.excalidraw.edit` to avoid editor overwrite issues (enabled by default; pass `--no-use-edit-suffix` to disable)
 
-### Examples
+### Exemplos
 
 ```bash
 # Add EC2 icon at position (400, 300)
@@ -136,39 +136,39 @@ python add-icon-to-diagram.py diagram.excalidraw Compute-Engine 500 200 \
    --library-path libraries/gcp-icons --label "API Server"
 ```
 
-### What the Script Does
+### O que o Script Faz
 
-1. **Loads** the icon JSON from the library’s `icons/` directory
-2. **Calculates** the icon’s bounding box
-3. **Offsets** all coordinates to the target position
-4. **Generates** unique IDs for all elements and groups
-5. **Appends** the transformed elements to the diagram
-6. **(Optional)** Adds a label beneath the icon
+1. **Loads** o JSON do icone a partir do diretorio `icons/` da biblioteca
+2. **Calcula** o bounding box do icone
+3. **Desloca** todas as coordenadas para a posicao alvo
+4. **Gera** IDs unicos para todos os elementos e grupos
+5. **Anexa** os elementos transformados ao diagrama
+6. **(Optional)** Adiciona um rotulo abaixo do icone
 
 ---
 
 ## add-arrow.py
 
-Adds a straight arrow between two points in an existing `.excalidraw` diagram. Supports optional labels and line styles.
+Adiciona uma seta reta entre dois pontos em um diagrama `.excalidraw` existente. Suporta rotulos opcionais e estilos de linha.
 
-### Prerequisites
+### Pre-requisitos
 
-- Python 3.6 or higher
-- A diagram file (`.excalidraw`)
+- Python 3.6 ou superior
+- Um arquivo de diagrama (`.excalidraw`)
 
-### Usage
+### Uso
 
 ```bash
 python add-arrow.py <diagram-path> <from-x> <from-y> <to-x> <to-y> [OPTIONS]
 ```
 
-**Options**
-- `--style {solid|dashed|dotted}` : Line style (default: `solid`)
-- `--color HEX` : Arrow color (default: `#1e1e1e`)
-- `--label TEXT` : Add a text label on the arrow
+**Opcoes**
+- `--style {solid|dashed|dotted}` : Estilo de linha (default: `solid`)
+- `--color HEX` : Cor da seta (default: `#1e1e1e`)
+- `--label TEXT` : Adicionar um rotulo de texto na seta
 -- `--use-edit-suffix` : Edit via `.excalidraw.edit` to avoid editor overwrite issues (enabled by default; pass `--no-use-edit-suffix` to disable)
 
-### Examples
+### Exemplos
 
 ```bash
 # Simple arrow
@@ -185,9 +185,9 @@ python add-arrow.py diagram.excalidraw 400 350 600 400 --style dashed --color "#
 python add-arrow.py diagram.excalidraw 300 200 500 300
 ```
 
-### What the Script Does
+### O que o Script Faz
 
-1. **Creates** an arrow element from the given coordinates
-2. **(Optional)** Adds a label near the arrow midpoint
-3. **Appends** elements to the diagram
-4. **Saves** the updated file
+1. **Cria** um elemento de seta a partir das coordenadas fornecidas
+2. **(Optional)** Adiciona um rotulo proximo ao ponto medio da seta
+3. **Anexa** os elementos ao diagrama
+4. **Salva** o arquivo atualizado

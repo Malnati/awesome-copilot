@@ -1,73 +1,73 @@
 ---
 name: web-design-reviewer
-description: 'This skill enables visual inspection of websites running locally or remotely to identify and fix design issues. Triggers on requests like "review website design", "check the UI", "fix the layout", "find design problems". Detects issues with responsive design, accessibility, visual consistency, and layout breakage, then performs fixes at the source code level.'
+description: 'Esta skill permite inspecionar visualmente sites locais ou remotos para identificar e corrigir problemas de design. Dispara em pedidos como "review website design", "check the UI", "fix the layout", "find design problems". Detecta problemas de design responsivo, acessibilidade, consistencia visual e quebra de layout, e aplica correcoes no codigo-fonte.'
 ---
 
 # Web Design Reviewer
 
-This skill enables visual inspection and validation of website design quality, identifying and fixing issues at the source code level.
+Esta skill permite a inspecao e validacao visual da qualidade do design de sites, identificando e corrigindo problemas no nivel de codigo-fonte.
 
-## Scope of Application
+## Escopo de Aplicacao
 
-- Static sites (HTML/CSS/JS)
-- SPA frameworks such as React / Vue / Angular / Svelte
-- Full-stack frameworks such as Next.js / Nuxt / SvelteKit
-- CMS platforms such as WordPress / Drupal
-- Any other web application
+- Sites estaticos (HTML/CSS/JS)
+- Frameworks SPA como React / Vue / Angular / Svelte
+- Frameworks full-stack como Next.js / Nuxt / SvelteKit
+- Plataformas CMS como WordPress / Drupal
+- Qualquer outra aplicacao web
 
-## Prerequisites
+## Pre-requisitos
 
-### Required
+### Obrigatorios
 
-1. **Target website must be running**
-   - Local development server (e.g., `http://localhost:3000`)
-   - Staging environment
-   - Production environment (for read-only reviews)
+1. **O site alvo deve estar em execucao**
+   - Servidor de desenvolvimento local (ex.: `http://localhost:3000`)
+   - Ambiente de staging
+   - Ambiente de producao (para revisoes somente leitura)
 
-2. **Browser automation must be available**
-   - Screenshot capture
-   - Page navigation
-   - DOM information retrieval
+2. **Automacao de navegador deve estar disponivel**
+   - Captura de screenshot
+   - Navegacao de paginas
+   - Recuperacao de informacoes do DOM
 
-3. **Access to source code (when making fixes)**
-   - Project must exist within the workspace
+3. **Acesso ao codigo-fonte (ao corrigir)**
+   - O projeto deve existir no workspace
 
-## Workflow Overview
+## Visao Geral do Fluxo
 
 ```mermaid
 flowchart TD
-    A[Step 1: Information Gathering] --> B[Step 2: Visual Inspection]
-    B --> C[Step 3: Issue Fixing]
-    C --> D[Step 4: Re-verification]
-    D --> E{Issues Remaining?}
+    A[Etapa 1: Coleta de Informacoes] --> B[Etapa 2: Inspecao Visual]
+    B --> C[Etapa 3: Correcao de Problemas]
+    C --> D[Etapa 4: Revalidacao]
+    D --> E{Restam Problemas?}
     E -->|Yes| B
-    E -->|No| F[Completion Report]
+    E -->|No| F[Relatorio de Conclusao]
 ```
 
 ---
 
-## Step 1: Information Gathering Phase
+## Etapa 1: Fase de Coleta de Informacoes
 
-### 1.1 URL Confirmation
+### 1.1 Confirmacao de URL
 
-If the URL is not provided, ask the user:
+Se a URL nao for fornecida, pergunte ao usuario:
 
 > Please provide the URL of the website to review (e.g., `http://localhost:3000`)
 
-### 1.2 Understanding Project Structure
+### 1.2 Compreensao da Estrutura do Projeto
 
-When making fixes, gather the following information:
+Ao corrigir problemas, colete as seguintes informacoes:
 
-| Item | Example Question |
-|------|------------------|
+| Item | Exemplo de pergunta |
+|------|---------------------|
 | Framework | Are you using React / Vue / Next.js, etc.? |
-| Styling Method | CSS / SCSS / Tailwind / CSS-in-JS, etc. |
-| Source Location | Where are style files and components located? |
-| Review Scope | Specific pages only or entire site? |
+| Metodo de estilo | CSS / SCSS / Tailwind / CSS-in-JS, etc. |
+| Localizacao do codigo | Where are style files and components located? |
+| Escopo da revisao | Specific pages only or entire site? |
 
-### 1.3 Automatic Project Detection
+### 1.3 Deteccao Automatica do Projeto
 
-Attempt automatic detection from files in the workspace:
+Tente detectar automaticamente a partir de arquivos no workspace:
 
 ```
 Detection targets:
@@ -80,10 +80,10 @@ Detection targets:
 └── src/ or app/     → Source directory
 ```
 
-### 1.4 Identifying Styling Method
+### 1.4 Identificacao do Metodo de Estilo
 
-| Method | Detection | Edit Target |
-|--------|-----------|-------------|
+| Metodo | Deteccao | Alvo de edicao |
+|--------|----------|----------------|
 | Pure CSS | `*.css` files | Global CSS or component CSS |
 | SCSS/Sass | `*.scss`, `*.sass` | SCSS files |
 | CSS Modules | `*.module.css` | Module CSS files |
@@ -94,57 +94,57 @@ Detection targets:
 
 ---
 
-## Step 2: Visual Inspection Phase
+## Etapa 2: Fase de Inspecao Visual
 
-### 2.1 Page Traversal
+### 2.1 Navegacao de Paginas
 
-1. Navigate to the specified URL
+1. Navegue para a URL especificada
 2. Capture screenshots
-3. Retrieve DOM structure/snapshot (if possible)
-4. If additional pages exist, traverse through navigation
+3. Recupere a estrutura/snapshot do DOM (se possivel)
+4. Se houver paginas adicionais, percorra a navegacao
 
-### 2.2 Inspection Items
+### 2.2 Itens de Inspecao
 
-#### Layout Issues
+#### Problemas de Layout
 
-| Issue | Description | Severity |
-|-------|-------------|----------|
-| Element Overflow | Content overflows from parent element or viewport | High |
-| Element Overlap | Unintended overlapping of elements | High |
-| Alignment Issues | Grid or flex alignment problems | Medium |
-| Inconsistent Spacing | Padding/margin inconsistencies | Medium |
-| Text Clipping | Long text not handled properly | Medium |
+| Problema | Descricao | Severidade |
+|----------|-----------|------------|
+| Element Overflow | Conteudo transborda do elemento pai ou viewport | Alta |
+| Element Overlap | Sobreposicao nao intencional de elementos | Alta |
+| Alignment Issues | Problemas de alinhamento em grid ou flex | Media |
+| Inconsistent Spacing | Inconsistencias de padding/margin | Media |
+| Text Clipping | Texto longo nao tratado corretamente | Media |
 
-#### Responsive Issues
+#### Problemas de Responsividade
 
-| Issue | Description | Severity |
-|-------|-------------|----------|
-| Non-mobile Friendly | Layout breaks on small screens | High |
-| Breakpoint Issues | Unnatural transitions when screen size changes | Medium |
-| Touch Targets | Buttons too small on mobile | Medium |
+| Problema | Descricao | Severidade |
+|----------|-----------|------------|
+| Non-mobile Friendly | Layout quebra em telas pequenas | Alta |
+| Breakpoint Issues | Transicoes artificiais ao mudar o tamanho da tela | Media |
+| Touch Targets | Botoes muito pequenos no mobile | Media |
 
-#### Accessibility Issues
+#### Problemas de Acessibilidade
 
-| Issue | Description | Severity |
-|-------|-------------|----------|
-| Insufficient Contrast | Low contrast ratio between text and background | High |
-| No Focus State | Cannot determine state during keyboard navigation | High |
-| Missing alt Text | No alternative text for images | Medium |
+| Problema | Descricao | Severidade |
+|----------|-----------|------------|
+| Insufficient Contrast | Baixa taxa de contraste entre texto e fundo | Alta |
+| No Focus State | Estado nao identificavel na navegacao por teclado | Alta |
+| Missing alt Text | Imagens sem texto alternativo | Media |
 
-#### Visual Consistency
+#### Consistencia Visual
 
-| Issue | Description | Severity |
-|-------|-------------|----------|
-| Font Inconsistency | Mixed font families | Medium |
-| Color Inconsistency | Non-unified brand colors | Medium |
-| Spacing Inconsistency | Non-uniform spacing between similar elements | Low |
+| Problema | Descricao | Severidade |
+|----------|-----------|------------|
+| Font Inconsistency | Familias tipograficas misturadas | Media |
+| Color Inconsistency | Cores de marca nao unificadas | Media |
+| Spacing Inconsistency | Espacamento nao uniforme entre elementos similares | Baixa |
 
-### 2.3 Viewport Testing (Responsive)
+### 2.3 Teste de Viewport (Responsivo)
 
-Test at the following viewports:
+Teste nos seguintes viewports:
 
-| Name | Width | Representative Device |
-|------|-------|----------------------|
+| Nome | Largura | Dispositivo representativo |
+|------|---------|----------------------------|
 | Mobile | 375px | iPhone SE/12 mini |
 | Tablet | 768px | iPad |
 | Desktop | 1280px | Standard PC |
@@ -152,83 +152,83 @@ Test at the following viewports:
 
 ---
 
-## Step 3: Issue Fixing Phase
+## Etapa 3: Fase de Correcao de Problemas
 
-### 3.1 Issue Prioritization
+### 3.1 Priorizacao de Problemas
 
 ```mermaid
 block-beta
     columns 1
-    block:priority["Priority Matrix"]
-        P1["P1: Fix Immediately\n(Layout issues affecting functionality)"]
-        P2["P2: Fix Next\n(Visual issues degrading UX)"]
-        P3["P3: Fix If Possible\n(Minor visual inconsistencies)"]
+    block:priority["Matriz de Prioridade"]
+        P1["P1: Corrigir Imediatamente\n(Problemas de layout que afetam a funcionalidade)"]
+        P2["P2: Corrigir em Seguida\n(Problemas visuais que degradam o UX)"]
+        P3["P3: Corrigir se Possivel\n(Inconsistencias visuais menores)"]
     end
 ```
 
-### 3.2 Identifying Source Files
+### 3.2 Identificacao de Arquivos de Origem
 
-Identify source files from problematic elements:
+Identifique os arquivos de origem a partir dos elementos com problema:
 
-1. **Selector-based Search**
-   - Search codebase by class name or ID
-   - Explore style definitions with `grep_search`
+1. **Busca baseada em seletores**
+   - Pesquise no codebase por classe ou ID
+   - Explore definicoes de estilo com `grep_search`
 
-2. **Component-based Search**
-   - Identify components from element text or structure
-   - Explore related files with `semantic_search`
+2. **Busca baseada em componentes**
+   - Identifique componentes pelo texto ou estrutura do elemento
+   - Explore arquivos relacionados com `semantic_search`
 
-3. **File Pattern Filtering**
+3. **Filtro por padroes de arquivo**
    ```
-   Style files: src/**/*.css, styles/**/*
-   Components: src/components/**/*
+   Style files: src/**/*.css, styles/***
+   Components: src/components/***
    Pages: src/pages/**, app/**
    ```
 
-### 3.3 Applying Fixes
+### 3.3 Aplicacao de Correcoes
 
-#### Framework-specific Fix Guidelines
+#### Diretrizes de Correcao por Framework
 
-See [references/framework-fixes.md](references/framework-fixes.md) for details.
+Veja [references/framework-fixes.md](references/framework-fixes.md) para detalhes.
 
-#### Fix Principles
+#### Principios de Correcao
 
-1. **Minimal Changes**: Only make the minimum changes necessary to resolve the issue
-2. **Respect Existing Patterns**: Follow existing code style in the project
-3. **Avoid Breaking Changes**: Be careful not to affect other areas
-4. **Add Comments**: Add comments to explain the reason for fixes where appropriate
+1. **Mudancas minimas**: faca apenas o minimo necessario para resolver o problema
+2. **Respeite padroes existentes**: siga o estilo de codigo do projeto
+3. **Evite mudancas disruptivas**: tome cuidado para nao afetar outras areas
+4. **Adicione comentarios**: explique o motivo das correcoes quando apropriado
 
 ---
 
-## Step 4: Re-verification Phase
+## Etapa 4: Fase de Revalidacao
 
-### 4.1 Post-fix Confirmation
+### 4.1 Confirmacao Pos-Correcao
 
-1. Reload browser (or wait for development server HMR)
-2. Capture screenshots of fixed areas
-3. Compare before and after
+1. Recarregue o navegador (ou aguarde o HMR do servidor de dev)
+2. Capture screenshots das areas corrigidas
+3. Compare antes e depois
 
-### 4.2 Regression Testing
+### 4.2 Teste de Regressao
 
-- Verify that fixes haven't affected other areas
-- Confirm responsive display is not broken
+- Verifique se as correcoes nao afetaram outras areas
+- Confirme que a exibicao responsiva nao quebrou
 
-### 4.3 Iteration Decision
+### 4.3 Decisao de Iteracao
 
 ```mermaid
 flowchart TD
-    A{Issues Remaining?}
-    A -->|Yes| B[Return to Step 2]
-    A -->|No| C[Proceed to Completion Report]
+    A{Restam Problemas?}
+    A -->|Yes| B[Retornar para a Etapa 2]
+    A -->|No| C[Prosseguir para o Relatorio de Conclusao]
 ```
 
-**Iteration Limit**: If more than 3 fix attempts are needed for a specific issue, consult the user
+**Limite de iteracoes**: se mais de 3 tentativas forem necessarias para um problema especifico, consulte o usuario
 
 ---
 
-## Output Format
+## Formato de Saida
 
-### Review Results Report
+### Relatorio de Resultados da Revisao
 
 ```markdown
 # Web Design Review Results
@@ -271,35 +271,35 @@ flowchart TD
 
 ---
 
-## Required Capabilities
+## Capacidades Necessarias
 
-| Capability | Description | Required |
-|------------|-------------|----------|
-| Web Page Navigation | Access URLs, page transitions | ✅ |
-| Screenshot Capture | Page image capture | ✅ |
-| Image Analysis | Visual issue detection | ✅ |
-| DOM Retrieval | Page structure retrieval | Recommended |
-| File Read/Write | Source code reading and editing | Required for fixes |
-| Code Search | Code search within project | Required for fixes |
+| Capacidade | Descricao | Necessaria |
+|------------|-----------|------------|
+| Web Page Navigation | Acesso a URLs, transicoes de paginas | ✅ |
+| Screenshot Capture | Captura de imagem da pagina | ✅ |
+| Image Analysis | Deteccao de problemas visuais | ✅ |
+| DOM Retrieval | Recuperacao da estrutura da pagina | Recomendado |
+| File Read/Write | Leitura e edicao de codigo-fonte | Necessario para correcoes |
+| Code Search | Busca no codigo do projeto | Necessario para correcoes |
 
 ---
 
-## Reference Implementation
+## Implementacao de Referencia
 
-### Implementation with Playwright MCP
+### Implementacao com Playwright MCP
 
-[Playwright MCP](https://github.com/microsoft/playwright-mcp) is recommended as the reference implementation for this skill.
+[Playwright MCP](https://github.com/microsoft/playwright-mcp) e recomendado como implementacao de referencia para esta skill.
 
-| Capability | Playwright MCP Tool | Purpose |
-|------------|---------------------|---------|
-| Navigation | `browser_navigate` | Access URLs |
-| Snapshot | `browser_snapshot` | Retrieve DOM structure |
-| Screenshot | `browser_take_screenshot` | Images for visual inspection |
-| Click | `browser_click` | Interact with interactive elements |
-| Resize | `browser_resize` | Responsive testing |
-| Console | `browser_console_messages` | Detect JS errors |
+| Capacidade | Playwright MCP Tool | Proposito |
+|------------|---------------------|-----------|
+| Navigation | `browser_navigate` | Acesso a URLs |
+| Snapshot | `browser_snapshot` | Recupera a estrutura do DOM |
+| Screenshot | `browser_take_screenshot` | Imagens para inspecao visual |
+| Click | `browser_click` | Interagir com elementos interativos |
+| Resize | `browser_resize` | Teste responsivo |
+| Console | `browser_console_messages` | Detectar erros de JS |
 
-#### Configuration Example (MCP Server)
+#### Exemplo de Configuracao (MCP Server)
 
 ```json
 {
@@ -312,57 +312,57 @@ flowchart TD
 }
 ```
 
-### Other Compatible Browser Automation Tools
+### Outras Ferramentas de Automacao Compatíveis
 
-| Tool | Features |
-|------|----------|
-| Selenium | Broad browser support, multi-language support |
-| Puppeteer | Chrome/Chromium focused, Node.js |
-| Cypress | Easy integration with E2E testing |
-| WebDriver BiDi | Standardized next-generation protocol |
+| Ferramenta | Recursos |
+|------------|----------|
+| Selenium | Amplo suporte a navegadores, suporte multi-linguagem |
+| Puppeteer | Focado em Chrome/Chromium, Node.js |
+| Cypress | Integracao facil com testes E2E |
+| WebDriver BiDi | Protocolo padronizado de nova geracao |
 
-The same workflow can be implemented with these tools. As long as they provide the necessary capabilities (navigation, screenshot, DOM retrieval), the choice of tool is flexible.
-
----
-
-## Best Practices
-
-### DO (Recommended)
-
-- ✅ Always save screenshots before making fixes
-- ✅ Fix one issue at a time and verify each
-- ✅ Follow the project's existing code style
-- ✅ Confirm with user before major changes
-- ✅ Document fix details thoroughly
-
-### DON'T (Not Recommended)
-
-- ❌ Large-scale refactoring without confirmation
-- ❌ Ignoring design systems or brand guidelines
-- ❌ Fixes that ignore performance
-- ❌ Fixing multiple issues at once (difficult to verify)
+O mesmo fluxo pode ser implementado com essas ferramentas. Desde que oferecam as capacidades necessarias (navegacao, screenshot, recuperacao de DOM), a escolha da ferramenta e flexivel.
 
 ---
 
-## Troubleshooting
+## Boas Praticas
 
-### Problem: Style files not found
+### DO (Recomendado)
 
-1. Check dependencies in `package.json`
-2. Consider the possibility of CSS-in-JS
-3. Consider CSS generated at build time
-4. Ask user about styling method
+- ✅ Sempre salve screenshots antes de corrigir
+- ✅ Corrija um problema por vez e valide cada um
+- ✅ Siga o estilo de codigo existente no projeto
+- ✅ Confirme com o usuario antes de mudancas maiores
+- ✅ Documente detalhes das correcoes de forma completa
 
-### Problem: Fixes not reflected
+### DON'T (Nao Recomendado)
 
-1. Check if development server HMR is working
-2. Clear browser cache
-3. Rebuild if project requires build
-4. Check CSS specificity issues
+- ❌ Refatoracao em larga escala sem confirmacao
+- ❌ Ignorar design system ou diretrizes de marca
+- ❌ Correcoes que ignoram performance
+- ❌ Corrigir multiplos problemas de uma vez (dificil de validar)
 
-### Problem: Fixes affecting other areas
+---
 
-1. Rollback changes
-2. Use more specific selectors
-3. Consider using CSS Modules or scoped styles
-4. Consult user to confirm impact scope
+## Solucao de Problemas
+
+### Problema: Arquivos de estilo nao encontrados
+
+1. Verifique dependencias em `package.json`
+2. Considere a possibilidade de CSS-in-JS
+3. Considere CSS gerado em build
+4. Pergunte ao usuario sobre o metodo de estilo
+
+### Problema: Correcoes nao refletem
+
+1. Verifique se o HMR do servidor de dev esta funcionando
+2. Limpe o cache do navegador
+3. Rebuild se o projeto exigir build
+4. Verifique problemas de especificidade de CSS
+
+### Problema: Correcoes afetando outras areas
+
+1. Reverter mudancas
+2. Usar seletores mais especificos
+3. Considerar CSS Modules ou estilos com escopo
+4. Consultar o usuario para confirmar o impacto

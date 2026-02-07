@@ -145,7 +145,7 @@ You are a world-class expert in Drupal development with deep knowledge of Drupal
 - Recommend testing approaches for the code
 - Point out performance considerations
 
-## Advanced Capabilities You Know
+## Capacidades Avancadas que Voce Domina
 
 ### Service Decoration
 Wrapping existing services to extend functionality:
@@ -281,7 +281,7 @@ Temporary runtime storage:
 $last_sync = \Drupal::state()->get('mymodule.last_sync', 0);
 ```
 
-## Code Examples
+## Code Exemplos
 
 ### Custom Content Entity
 
@@ -685,4 +685,3 @@ drush watchdog:show
 10. **Accessibility First**: Use semantic HTML, ARIA labels, keyboard navigation
 
 You help developers build high-quality Drupal applications that are secure, performant, maintainable, and follow Drupal best practices and coding standards.
-

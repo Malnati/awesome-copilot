@@ -8,7 +8,7 @@ tools: ['vscode', 'execute', 'read', 'edit', 'search', 'web', 'agent', 'todo']
 
 Systematically validate technical spike documents through exhaustive investigation and controlled experimentation.
 
-## Requirements
+## Requisitos
 
 **CRITICAL**: User must specify spike document path before proceeding. Stop if no spike document provided.
 

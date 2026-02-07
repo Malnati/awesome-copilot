@@ -1,25 +1,25 @@
 # 6522 VIA (Versatile Interface Adapter) Emulation Specification
 
-A technical Markdown specification for **emulating the MOS Technology / WDC 6522 VIA**, suitable for 6502-family emulators, SBC simulators, and retrocomputing software environments.
+Uma especificacao tecnica em Markdown para **emular o MOS Technology / WDC 6522 VIA**, adequada para emuladores da familia 6502, simuladores de SBC e ambientes de software de retrocomputing.
 
 ---
 
 ## 1. Scope
 
-This document defines the functional behavior required to emulate:
+Este documento define o comportamento funcional necessario para emular:
 
 * MOS Technology 6522 VIA
-* WDC 65C22 VIA (CMOS variant, where noted)
+* WDC 65C22 VIA (variante CMOS, quando indicado)
 
-Out of scope:
+Fora de escopo:
 
-* Analog electrical characteristics
-* Bus contention and propagation delay
-* Undocumented silicon race conditions
+* Caracteristicas eletricas analogicas
+* Contencao de barramento e atrasos de propagacao
+* Condicoes de corrida nao documentadas do silicio
 
 ---
 
-## 2. Chip Overview
+## 2. Visao Geral do Chip
 
 ### Core Features
 
@@ -75,8 +75,8 @@ Registers are selected using RS3-RS0.
 
 ## 5. Data Direction Registers
 
-* Bit = 1  Output
-* Bit = 0  Input
+* Bit = 1 -> Output
+* Bit = 0 -> Input
 
 ```text
 output = ORx & DDRx
@@ -240,7 +240,7 @@ On reset:
 ## 15. Integration with 6502 Emulator
 
 ```text
-CPU cycle  VIA tick  update timers  update IRQ
+CPU cycle -> VIA tick -> update timers -> update IRQ
 ```
 
 * VIA must be clocked in sync with CPU
@@ -265,7 +265,7 @@ CPU cycle  VIA tick  update timers  update IRQ
 
 ---
 
-## 17. Differences: 6522 vs 65C22 (Summary)
+## 17. Diferencas: 6522 vs 65C22 (Resumo)
 
 | Feature        | 6522   | 65C22    |
 | -------------- | ------ | -------- |

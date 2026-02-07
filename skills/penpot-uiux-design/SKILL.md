@@ -1,37 +1,37 @@
 ---
 name: penpot-uiux-design
-description: 'Comprehensive guide for creating professional UI/UX designs in Penpot using MCP tools. Use this skill when: (1) Creating new UI/UX designs for web, mobile, or desktop applications, (2) Building design systems with components and tokens, (3) Designing dashboards, forms, navigation, or landing pages, (4) Applying accessibility standards and best practices, (5) Following platform guidelines (iOS, Android, Material Design), (6) Reviewing or improving existing Penpot designs for usability. Triggers: "design a UI", "create interface", "build layout", "design dashboard", "create form", "design landing page", "make it accessible", "design system", "component library".'
+description: 'Guia abrangente para criar designs profissionais de UI/UX no Penpot usando tools MCP. Use esta skill quando: (1) Criar novos designs de UI/UX para apps web, mobile ou desktop, (2) Construir design systems com componentes e tokens, (3) Projetar dashboards, forms, navegacao ou landing pages, (4) Aplicar padroes de acessibilidade e boas praticas, (5) Seguir diretrizes de plataforma (iOS, Android, Material Design), (6) Revisar ou melhorar designs existentes no Penpot para usabilidade. Gatilhos: "design a UI", "create interface", "build layout", "design dashboard", "create form", "design landing page", "make it accessible", "design system", "component library".'
 ---
 
-# Penpot UI/UX Design Guide
+# Guia de Design UI/UX no Penpot
 
-Create professional, user-centered designs in Penpot using the `penpot/penpot-mcp` MCP server and proven UI/UX principles.
+Crie designs profissionais e centrados no usuario no Penpot usando o servidor MCP `penpot/penpot-mcp` e principios comprovados de UI/UX.
 
-## Available MCP Tools
+## MCP Tools Disponiveis
 
-| Tool | Purpose |
+| Tool | Finalidade |
 | ---- | ------- |
-| `mcp__penpot__execute_code` | Run JavaScript in Penpot plugin context to create/modify designs |
-| `mcp__penpot__export_shape` | Export shapes as PNG/SVG for visual inspection |
-| `mcp__penpot__import_image` | Import images (icons, photos, logos) into designs |
-| `mcp__penpot__penpot_api_info` | Retrieve Penpot API documentation |
+| `mcp__penpot__execute_code` | Executar JavaScript no contexto do plugin Penpot para criar/modificar designs |
+| `mcp__penpot__export_shape` | Exportar shapes como PNG/SVG para inspecao visual |
+| `mcp__penpot__import_image` | Importar imagens (icones, fotos, logos) nos designs |
+| `mcp__penpot__penpot_api_info` | Recuperar documentacao da API do Penpot |
 
-## MCP Server Setup
+## Configuracao do Servidor MCP
 
-The Penpot MCP tools require the `penpot/penpot-mcp` server running locally. For detailed installation and troubleshooting, see [setup-troubleshooting.md](references/setup-troubleshooting.md).
+As tools MCP do Penpot requerem o servidor `penpot/penpot-mcp` rodando localmente. Para instalacao e troubleshooting detalhados, veja [setup-troubleshooting.md](references/setup-troubleshooting.md).
 
-### Before Setup: Check If Already Running
+### Antes da Configuracao: Verifique se Ja Esta Rodando
 
-**Always check if the MCP server is already available before attempting setup:**
+**Sempre verifique se o servidor MCP ja esta disponivel antes de tentar setup:**
 
-1. **Try calling a tool first**: Attempt `mcp__penpot__penpot_api_info` - if it succeeds, the server is running and connected. No setup needed.
+1. **Tente chamar uma tool primeiro**: Tente `mcp__penpot__penpot_api_info` - se funcionar, o servidor esta rodando e conectado. Nao e necessario setup.
 
-2. **If the tool fails**, ask the user:
-   > "The Penpot MCP server doesn't appear to be connected. Is the server already installed and running? If so, I can help troubleshoot. If not, I can guide you through the setup."
+2. **Se a tool falhar**, pergunte ao usuario:
+   > "O servidor MCP do Penpot nao parece estar conectado. Ele ja esta instalado e rodando? Se sim, posso ajudar a fazer troubleshooting. Se nao, posso guiar o setup."
 
-3. **Only proceed with setup instructions if the user confirms the server is not installed.**
+3. **So prossiga com instrucoes de setup se o usuario confirmar que o servidor nao esta instalado.**
 
-### Quick Start (Only If Not Installed)
+### Inicio Rapido (somente se nao estiver instalado)
 
 ```bash
 # Clone and install
@@ -43,15 +43,15 @@ npm install
 npm run bootstrap
 ```
 
-Then in Penpot:
-1. Open a design file
-2. Go to **Plugins** → **Load plugin from URL**
-3. Enter: `http://localhost:4400/manifest.json`
-4. Click **"Connect to MCP server"** in the plugin UI
+Depois no Penpot:
+1. Abra um arquivo de design
+2. Va em **Plugins** → **Load plugin from URL**
+3. Insira: `http://localhost:4400/manifest.json`
+4. Clique em **"Connect to MCP server"** na UI do plugin
 
-### VS Code Configuration
+### Configuracao do VS Code
 
-Add to `settings.json`:
+Adicione em `settings.json`:
 ```json
 {
   "mcp": {
@@ -64,58 +64,58 @@ Add to `settings.json`:
 }
 ```
 
-### Troubleshooting (If Server Is Installed But Not Working)
+### Solucao de Problemas (se o servidor estiver instalado mas nao funcionar)
 
 | Issue | Solution |
 | ----- | -------- |
-| Plugin won't connect | Check servers are running (`npm run start:all` in penpot-mcp dir) |
-| Browser blocks localhost | Allow local network access prompt, or disable Brave Shield, or try Firefox |
-| Tools not appearing in client | Restart VS Code/Claude completely after config changes |
-| Tool execution fails/times out | Ensure Penpot plugin UI is open and shows "Connected" |
-| "WebSocket connection failed" | Check firewall allows ports 4400, 4401, 4402 |
+| Plugin nao conecta | Verifique se os servidores estao rodando (`npm run start:all` no dir penpot-mcp) |
+| Browser bloqueia localhost | Permita acesso de rede local, desative Brave Shield ou tente Firefox |
+| Tools nao aparecem no client | Reinicie completamente VS Code/Claude apos mudancas de config |
+| Execucao de tool falha/timeout | Garanta que a UI do plugin Penpot esteja aberta e mostre "Connected" |
+| "WebSocket connection failed" | Verifique se o firewall permite portas 4400, 4401, 4402 |
 
-## Quick Reference
+## Referencia Rapida
 
-| Task | Reference File |
+| Tarefa | Arquivo de Referencia |
 | ---- | -------------- |
-| MCP server installation & troubleshooting | [setup-troubleshooting.md](references/setup-troubleshooting.md) |
-| Component specs (buttons, forms, nav) | [component-patterns.md](references/component-patterns.md) |
-| Accessibility (contrast, touch targets) | [accessibility.md](references/accessibility.md) |
-| Screen sizes & platform specs | [platform-guidelines.md](references/platform-guidelines.md) |
+| Instalacao e troubleshooting do servidor MCP | [setup-troubleshooting.md](references/setup-troubleshooting.md) |
+| Specs de componentes (buttons, forms, nav) | [component-patterns.md](references/component-patterns.md) |
+| Acessibilidade (contraste, touch targets) | [accessibility.md](references/accessibility.md) |
+| Tamanhos de tela e specs de plataforma | [platform-guidelines.md](references/platform-guidelines.md) |
 
-## Core Design Principles
+## Principios Centrais de Design
 
-### The Golden Rules
+### Regras de Ouro
 
-1. **Clarity over cleverness**: Every element must have a purpose
-2. **Consistency builds trust**: Reuse patterns, colors, and components
-3. **User goals first**: Design for tasks, not features
-4. **Accessibility is not optional**: Design for everyone
-5. **Test with real users**: Validate assumptions early
+1. **Clareza acima de esperteza**: Cada elemento deve ter um proposito
+2. **Consistencia gera confianca**: Reuse padroes, cores e componentes
+3. **Metas do usuario primeiro**: Projete para tarefas, nao para features
+4. **Acessibilidade nao e opcional**: Desenhe para todos
+5. **Teste com usuarios reais**: Valide suposicoes cedo
 
-### Visual Hierarchy (Priority Order)
+### Hierarquia Visual (Ordem de Prioridade)
 
-1. **Size**: Larger = more important
-2. **Color/Contrast**: High contrast draws attention
-3. **Position**: Top-left (LTR) gets seen first
-4. **Whitespace**: Isolation emphasizes importance
-5. **Typography weight**: Bold stands out
+1. **Tamanho**: Maior = mais importante
+2. **Cor/Contraste**: Alto contraste chama atencao
+3. **Posicao**: Top-left (LTR) e visto primeiro
+4. **Espaco em branco**: Isolamento enfatiza importancia
+5. **Peso tipografico**: Bold se destaca
 
-## Design Workflow
+## Workflow de Design
 
-1. **Check for design system first**: Ask user if they have existing tokens/specs, or discover from current Penpot file
-2. **Understand the page**: Call `mcp__penpot__execute_code` with `penpotUtils.shapeStructure()` to see hierarchy
-3. **Find elements**: Use `penpotUtils.findShapes()` to locate elements by type or name
-4. **Create/modify**: Use `penpot.createBoard()`, `penpot.createRectangle()`, `penpot.createText()` etc.
-5. **Apply layout**: Use `addFlexLayout()` for responsive containers
-6. **Validate**: Call `mcp__penpot__export_shape` to visually check your work
+1. **Cheque por design system primeiro**: Pergunte se ha tokens/specs existentes, ou descubra a partir do arquivo do Penpot
+2. **Entenda a pagina**: Chame `mcp__penpot__execute_code` com `penpotUtils.shapeStructure()` para ver a hierarquia
+3. **Encontre elementos**: Use `penpotUtils.findShapes()` para localizar elementos por tipo ou nome
+4. **Criar/modificar**: Use `penpot.createBoard()`, `penpot.createRectangle()`, `penpot.createText()` etc.
+5. **Aplicar layout**: Use `addFlexLayout()` para containers responsivos
+6. **Validar**: Chame `mcp__penpot__export_shape` para checar visualmente o trabalho
 
-## Design System Handling
+## Tratamento de Design System
 
-**Before creating designs, determine if the user has an existing design system:**
+**Antes de criar designs, determine se o usuario tem um design system existente:**
 
-1. **Ask the user**: "Do you have a design system or brand guidelines to follow?"
-2. **Discover from Penpot**: Check for existing components, colors, and patterns
+1. **Pergunte ao usuario**: "Voce tem um design system ou brand guidelines a seguir?"
+2. **Descubra no Penpot**: Verifique componentes, cores e padroes existentes
 
 ```javascript
 // Discover existing design patterns in current file
@@ -138,205 +138,22 @@ const components = penpot.library.local.components;
 return { colors: [...colors], textStyles, componentCount: components.length };
 ```
 
-**If user HAS a design system:**
+**Se o usuario TEM um design system:**
 
-- Use their specified colors, spacing, typography
-- Match their existing component patterns
-- Follow their naming conventions
+- Use cores, espacamento e tipografia especificados
+- Combine com os padroes de componentes existentes
+- Siga as convencoes de nomeacao
 
-**If user has NO design system:**
+**Se o usuario NAO tem design system:**
 
-- Use the default tokens below as a starting point
-- Offer to help establish consistent patterns
-- Reference specs in [component-patterns.md](references/component-patterns.md)
+- Use os tokens default abaixo como ponto de partida
+- Ofereca ajuda para estabelecer padroes consistentes
+- Referencie specs em [component-patterns.md](references/component-patterns.md)
 
-## Key Penpot API Gotchas
+## Gotchas Principais da API do Penpot
 
-- `width`/`height` are READ-ONLY → use `shape.resize(w, h)`
-- `parentX`/`parentY` are READ-ONLY → use `penpotUtils.setParentXY(shape, x, y)`
-- Use `insertChild(index, shape)` for z-ordering (not `appendChild`)
-- Flex children array order is REVERSED for `dir="column"` or `dir="row"`
-- After `text.resize()`, reset `growType` to `"auto-width"` or `"auto-height"`
-
-## Positioning New Boards
-
-**Always check existing boards before creating new ones** to avoid overlap:
-
-```javascript
-// Find all existing boards and calculate next position
-const boards = penpotUtils.findShapes(s => s.type === 'board', penpot.root);
-let nextX = 0;
-const gap = 100; // Space between boards
-
-if (boards.length > 0) {
-  // Find rightmost board edge
-  boards.forEach(b => {
-    const rightEdge = b.x + b.width;
-    if (rightEdge + gap > nextX) {
-      nextX = rightEdge + gap;
-    }
-  });
-}
-
-// Create new board at calculated position
-const newBoard = penpot.createBoard();
-newBoard.x = nextX;
-newBoard.y = 0;
-newBoard.resize(375, 812);
-```
-
-**Board spacing guidelines:**
-
-- Use 100px gap between related screens (same flow)
-- Use 200px+ gap between different sections/flows
-- Align boards vertically (same y) for visual organization
-- Group related screens horizontally in user flow order
-
-## Default Design Tokens
-
-**Use these defaults only when user has no design system. Always prefer user's tokens if available.**
-
-### Spacing Scale (8px base)
-
-| Token | Value | Usage |
-| ----- | ----- | ----- |
-| `spacing-xs` | 4px | Tight inline elements |
-| `spacing-sm` | 8px | Related elements |
-| `spacing-md` | 16px | Default padding |
-| `spacing-lg` | 24px | Section spacing |
-| `spacing-xl` | 32px | Major sections |
-| `spacing-2xl` | 48px | Page-level spacing |
-
-### Typography Scale
-
-| Level | Size | Weight | Usage |
-| ----- | ---- | ------ | ----- |
-| Display | 48-64px | Bold | Hero headlines |
-| H1 | 32-40px | Bold | Page titles |
-| H2 | 24-28px | Semibold | Section headers |
-| H3 | 20-22px | Semibold | Subsections |
-| Body | 16px | Regular | Main content |
-| Small | 14px | Regular | Secondary text |
-| Caption | 12px | Regular | Labels, hints |
-
-### Color Usage
-
-| Purpose | Recommendation |
-| ------- | -------------- |
-| Primary | Main brand color, CTAs |
-| Secondary | Supporting actions |
-| Success | #22C55E range (confirmations) |
-| Warning | #F59E0B range (caution) |
-| Error | #EF4444 range (errors) |
-| Neutral | Gray scale for text/borders |
-
-## Common Layouts
-
-### Mobile Screen (375×812)
-
-```text
-┌─────────────────────────────┐
-│ Status Bar (44px)           │
-├─────────────────────────────┤
-│ Header/Nav (56px)           │
-├─────────────────────────────┤
-│                             │
-│ Content Area                │
-│ (Scrollable)                │
-│ Padding: 16px horizontal    │
-│                             │
-├─────────────────────────────┤
-│ Bottom Nav/CTA (84px)       │
-└─────────────────────────────┘
-
-```
-
-### Desktop Dashboard (1440×900)
-
-```text
-┌──────┬──────────────────────────────────┐
-│      │ Header (64px)                    │
-│ Side │──────────────────────────────────│
-│ bar  │ Page Title + Actions             │
-│      │──────────────────────────────────│
-│ 240  │ Content Grid                     │
-│ px   │ ┌─────┐ ┌─────┐ ┌─────┐ ┌─────┐ │
-│      │ │Card │ │Card │ │Card │ │Card │ │
-│      │ └─────┘ └─────┘ └─────┘ └─────┘ │
-│      │                                  │
-└──────┴──────────────────────────────────┘
-
-```
-
-## Component Checklist
-
-### Buttons
-
-- [ ] Clear, action-oriented label (2-3 words)
-- [ ] Minimum touch target: 44×44px
-- [ ] Visual states: default, hover, active, disabled, loading
-- [ ] Sufficient contrast (3:1 against background)
-- [ ] Consistent border radius across app
-
-### Forms
-
-- [ ] Labels above inputs (not just placeholders)
-- [ ] Required field indicators
-- [ ] Error messages adjacent to fields
-- [ ] Logical tab order
-- [ ] Input types match content (email, tel, etc.)
-
-### Navigation
-
-- [ ] Current location clearly indicated
-- [ ] Consistent position across screens
-- [ ] Maximum 7±2 top-level items
-- [ ] Touch-friendly on mobile (48px targets)
-
-## Accessibility Quick Checks
-
-1. **Color contrast**: Text 4.5:1, Large text 3:1
-2. **Touch targets**: Minimum 44×44px
-3. **Focus states**: Visible keyboard focus indicators
-4. **Alt text**: Meaningful descriptions for images
-5. **Hierarchy**: Proper heading levels (H1→H2→H3)
-6. **Color independence**: Never rely solely on color
-
-## Design Review Checklist
-
-Before finalizing any design:
-
-- [ ] Visual hierarchy is clear
-- [ ] Consistent spacing and alignment
-- [ ] Typography is readable (16px+ body text)
-- [ ] Color contrast meets WCAG AA
-- [ ] Interactive elements are obvious
-- [ ] Mobile-friendly touch targets
-- [ ] Loading/empty/error states considered
-- [ ] Consistent with design system
-
-## Validating Designs
-
-Use these validation approaches with `mcp__penpot__execute_code`:
-
-| Check | Method |
-| ----- | ------ |
-| Elements outside bounds | `penpotUtils.analyzeDescendants()` with `isContainedIn()` |
-| Text too small (<12px) | `penpotUtils.findShapes()` filtering by `fontSize` |
-| Missing contrast | Call `mcp__penpot__export_shape` and visually inspect |
-| Hierarchy structure | `penpotUtils.shapeStructure()` to review nesting |
-
-### Export CSS
-
-Use `penpot.generateStyle(selection, { type: 'css', includeChildren: true })` via `mcp__penpot__execute_code` to extract CSS from designs.
-
-## Tips for Great Designs
-
-1. **Start with content**: Real content reveals layout needs
-2. **Design mobile-first**: Constraints breed creativity
-3. **Use a grid**: 8px base grid keeps things aligned
-4. **Limit colors**: 1 primary + 1 secondary + neutrals
-5. **Limit fonts**: 1-2 typefaces maximum
-6. **Embrace whitespace**: Breathing room improves comprehension
-7. **Be consistent**: Same action = same appearance everywhere
-8. **Provide feedback**: Every action needs a response
+- `width`/`height` sao READ-ONLY → use `shape.resize(w, h)`
+- `parentX`/`parentY` sao READ-ONLY → use `penpotUtils.setParentXY(shape, x, y)`
+- Use `insertChild(index, shape)` para z-order (nao `appendChild`)
+- A ordem do array de flex children e REVERSED para `dir="column"` ou `dir="row"`
+- Apos `text.resize()`, resete `growType` para "auto-width" ou "auto-height"

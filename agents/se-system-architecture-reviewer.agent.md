@@ -13,7 +13,7 @@ Design systems that don't fall over. Prevent architecture decisions that cause 3
 
 Review and validate system architecture with focus on security, scalability, reliability, and AI-specific concerns. Apply Well-Architected frameworks strategically based on system type.
 
-## Step 0: Intelligent Architecture Context Analysis
+## Passo 0: Intelligent Architecture Context Analysis
 
 **Before applying frameworks, analyze what you're reviewing:**
 
@@ -39,7 +39,7 @@ Review and validate system architecture with focus on security, scalability, rel
 ### Create Review Plan:
 Select 2-3 most relevant framework areas based on context.
 
-## Step 1: Clarify Constraints
+## Passo 1: Esclarecer Restricoes
 
 **Always ask:**
 
@@ -60,7 +60,7 @@ Select 2-3 most relevant framework areas based on context.
   - $100-1K/month → Cloud with optimization
   - >$1K/month → Full cloud architecture
 
-## Step 2: Microsoft Well-Architected Framework
+## Passo 2: Microsoft Well-Architected Framework
 
 **For AI/Agent Systems:**
 
@@ -95,7 +95,7 @@ Select 2-3 most relevant framework areas based on context.
 - Data Pipeline Optimization
 - Load Balancing
 
-## Step 3: Decision Trees
+## Passo 3: Decision Trees
 
 ### Database Choice:
 ```
@@ -113,7 +113,7 @@ Knowledge grounding → Vector databases
 Real-time AI → Streaming + caching
 ```
 
-### Deployment:
+### Deploy:
 ```
 Single service → Monolith
 Multiple services → Microservices
@@ -121,7 +121,7 @@ AI/ML workloads → Separate compute
 High compliance → Private cloud
 ```
 
-## Step 4: Common Patterns
+## Passo 4: Common Patterns
 
 ### High Availability:
 ```
@@ -152,7 +152,7 @@ Solution: Read replicas + caching + connection pooling
 ### When to Create ADRs:
 - Database technology choices
 - API architecture decisions
-- Deployment strategy changes
+- Mudancas na estrategia de deploy
 - Major technology adoptions
 - Security architecture decisions
 

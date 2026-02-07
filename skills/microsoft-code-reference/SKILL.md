@@ -1,22 +1,22 @@
 ---
 name: microsoft-code-reference
-description: Look up Microsoft API references, find working code samples, and verify SDK code is correct. Use when working with Azure SDKs, .NET libraries, or Microsoft APIs—to find the right method, check parameters, get working examples, or troubleshoot errors. Catches hallucinated methods, wrong signatures, and deprecated patterns by querying official docs.
-compatibility: Requires Microsoft Learn MCP Server (https://learn.microsoft.com/api/mcp)
+description: Consulte referencias de API da Microsoft, encontre amostras de codigo funcionais e valide se o codigo do SDK esta correto. Use ao trabalhar com SDKs Azure, bibliotecas .NET ou APIs Microsoft — para encontrar o metodo certo, checar parametros, obter exemplos funcionais ou solucionar erros. Evita metodos alucinados, assinaturas erradas e padroes obsoletos consultando docs oficiais.
+compatibility: Requer Microsoft Learn MCP Server (https://learn.microsoft.com/api/mcp)
 ---
 
-# Microsoft Code Reference
+# Referencia de Codigo da Microsoft
 
 ## Tools
 
-| Need | Tool | Example |
+| Necessidade | Tool | Exemplo |
 |------|------|---------|
-| API method/class lookup | `microsoft_docs_search` | `"BlobClient UploadAsync Azure.Storage.Blobs"` |
-| Working code sample | `microsoft_code_sample_search` | `query: "upload blob managed identity", language: "python"` |
-| Full API reference | `microsoft_docs_fetch` | Fetch URL from `microsoft_docs_search` (for overloads, full signatures) |
+| Buscar metodo/classe de API | `microsoft_docs_search` | `"BlobClient UploadAsync Azure.Storage.Blobs"` |
+| Amostra de codigo funcional | `microsoft_code_sample_search` | `query: "upload blob managed identity", language: "python"` |
+| Referencia completa de API | `microsoft_docs_fetch` | Buscar URL de `microsoft_docs_search` (overloads, assinaturas completas) |
 
-## Finding Code Samples
+## Encontrar Amostras de Codigo
 
-Use `microsoft_code_sample_search` to get official, working examples:
+Use `microsoft_code_sample_search` para obter exemplos oficiais e funcionais:
 
 ```
 microsoft_code_sample_search(query: "upload file to blob storage", language: "csharp")
@@ -24,55 +24,55 @@ microsoft_code_sample_search(query: "authenticate with managed identity", langua
 microsoft_code_sample_search(query: "send message service bus", language: "javascript")
 ```
 
-**When to use:**
-- Before writing code—find a working pattern to follow
-- After errors—compare your code against a known-good sample
-- Unsure of initialization/setup—samples show complete context
+**Quando usar:**
+- Antes de escrever codigo — encontre um padrao funcional para seguir
+- Depois de erros — compare seu codigo com um exemplo conhecido
+- Em duvida sobre inicializacao/setup — exemplos mostram contexto completo
 
-## API Lookups
+## Buscas de API
 
 ```
-# Verify method exists (include namespace for precision)
+# Verifique se o metodo existe (inclua namespace para precisao)
 "BlobClient UploadAsync Azure.Storage.Blobs"
 "GraphServiceClient Users Microsoft.Graph"
 
-# Find class/interface
+# Encontrar classe/interface
 "DefaultAzureCredential class Azure.Identity"
 
-# Find correct package
+# Encontrar pacote correto
 "Azure Blob Storage NuGet package"
 "azure-storage-blob pip package"
 ```
 
-Fetch full page when method has multiple overloads or you need complete parameter details.
+Busque a pagina completa quando o metodo tiver multiplos overloads ou quando precisar de detalhes completos de parametros.
 
-## Error Troubleshooting
+## Solucao de Problemas de Erros
 
-Use `microsoft_code_sample_search` to find working code samples and compare with your implementation. For specific errors, use `microsoft_docs_search` and `microsoft_docs_fetch`:
+Use `microsoft_code_sample_search` para encontrar amostras funcionais e comparar com sua implementacao. Para erros especificos, use `microsoft_docs_search` e `microsoft_docs_fetch`:
 
-| Error Type | Query |
+| Tipo de Erro | Query |
 |------------|-------|
-| Method not found | `"[ClassName] methods [Namespace]"` |
-| Type not found | `"[TypeName] NuGet package namespace"` |
-| Wrong signature | `"[ClassName] [MethodName] overloads"` → fetch full page |
-| Deprecated warning | `"[OldType] migration v12"` |
-| Auth failure | `"DefaultAzureCredential troubleshooting"` |
+| Metodo nao encontrado | `"[ClassName] methods [Namespace]"` |
+| Tipo nao encontrado | `"[TypeName] NuGet package namespace"` |
+| Assinatura errada | `"[ClassName] [MethodName] overloads"` → buscar pagina completa |
+| Aviso deprecado | `"[OldType] migration v12"` |
+| Falha de auth | `"DefaultAzureCredential troubleshooting"` |
 | 403 Forbidden | `"[ServiceName] RBAC permissions"` |
 
-## When to Verify
+## Quando Verificar
 
-Always verify when:
-- Method name seems "too convenient" (`UploadFile` vs actual `Upload`)
-- Mixing SDK versions (v11 `CloudBlobClient` vs v12 `BlobServiceClient`)
-- Package name doesn't follow conventions (`Azure.*` for .NET, `azure-*` for Python)
-- Using an API for the first time
+Sempre verifique quando:
+- Nome de metodo parece "conveniente demais" (`UploadFile` vs `Upload` real)
+- Mistura versoes de SDK (v11 `CloudBlobClient` vs v12 `BlobServiceClient`)
+- Nome de pacote nao segue convencoes (`Azure.*` para .NET, `azure-*` para Python)
+- Usa uma API pela primeira vez
 
-## Validation Workflow
+## Workflow de Validacao
 
-Before generating code using Microsoft SDKs, verify it's correct:
+Antes de gerar codigo usando SDKs Microsoft, valide se esta correto:
 
-1. **Confirm method or package exists** — `microsoft_docs_search(query: "[ClassName] [MethodName] [Namespace]")`
-2. **Fetch full details** (for overloads/complex params) — `microsoft_docs_fetch(url: "...")`
-3. **Find working sample** — `microsoft_code_sample_search(query: "[task]", language: "[lang]")`
+1. **Confirmar metodo ou pacote existe** — `microsoft_docs_search(query: "[ClassName] [MethodName] [Namespace]")`
+2. **Buscar detalhes completos** (para overloads/params complexos) — `microsoft_docs_fetch(url: "...")`
+3. **Encontrar amostra funcional** — `microsoft_code_sample_search(query: "[task]", language: "[lang]")`
 
-For simple lookups, step 1 alone may suffice. For complex API usage, complete all three steps.
+Para buscas simples, o passo 1 pode bastar. Para uso complexo de API, complete os tres passos.

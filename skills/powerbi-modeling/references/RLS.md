@@ -1,38 +1,38 @@
-# Row-Level Security (RLS) in Power BI
+# Seguranca em Nivel de Linha (RLS) no Power BI
 
-## Overview
+## Visao Geral
 
-Row-Level Security restricts data access at the row level based on user identity. Users see only the data they're authorized to view.
+Seguranca em Nivel de Linha (RLS) restringe o acesso aos dados no nivel de linha com base na identidade do usuario. Os usuarios veem apenas os dados que estao autorizados a visualizar.
 
-## Design Principles
+## Principios de Design
 
-### 1. Filter on Dimension Tables
-Apply RLS to dimensions, not fact tables:
-- More efficient (smaller tables)
-- Filters propagate through relationships
-- Easier to maintain
+### 1. Filtre em Tabelas de Dimensao
+Aplique RLS em dimensions, nao em fact tables:
+- Mais eficiente (tabelas menores)
+- Filtros propagam pelos relacionamentos
+- Mais facil de manter
 
 ```dax
 // On Customer dimension - filters propagate to Sales
 [Region] = "West"
 ```
 
-### 2. Create Minimal Roles
-Avoid many role combinations:
-- Each role = separate cache
-- Roles are additive (union, not intersection)
-- Consolidate where possible
+### 2. Crie Roles Minimas
+Evite muitas combinacoes de roles:
+- Cada role = cache separado
+- Roles sao aditivas (uniao, nao interseccao)
+- Consolide quando possivel
 
-### 3. Use Dynamic RLS When Possible
-Data-driven rules scale better:
-- User mapping in a table
-- USERPRINCIPALNAME() for identity
-- No role changes when users change
+### 3. Use Dynamic RLS Quando Possivel
+Regras orientadas a dados escalam melhor:
+- Mapeamento de usuarios em uma tabela
+- USERPRINCIPALNAME() para identidade
+- Sem mudancas de role quando usuarios mudam
 
 ## Static vs Dynamic RLS
 
 ### Static RLS
-Fixed rules per role:
+Regras fixas por role:
 ```dax
 // Role: West Region
 [Region] = "West"
@@ -41,30 +41,30 @@ Fixed rules per role:
 [Region] = "East"
 ```
 
-**Pros:** Simple, clear
-**Cons:** Doesn't scale, requires role per group
+**Pros:** Simples, claro
+**Cons:** Nao escala, exige role por grupo
 
 ### Dynamic RLS
-User identity drives filtering:
+Identidade do usuario direciona o filtro:
 ```dax
 // Single role filters based on logged-in user
 [ManagerEmail] = USERPRINCIPALNAME()
 ```
 
-**Pros:** Scales, self-maintaining
-**Cons:** Requires user mapping data
+**Pros:** Escala, auto-maintaining
+**Cons:** Exige dados de mapeamento de usuarios
 
-## Implementation Patterns
+## Padroes de Implementacao
 
-### Pattern 1: Direct User Mapping
-User email in dimension table:
+### Padrao 1: Mapeamento Direto de Usuario
+Email do usuario na tabela de dimensao:
 ```dax
 // On Customer table
 [CustomerEmail] = USERPRINCIPALNAME()
 ```
 
-### Pattern 2: Security Table
-Separate table mapping users to data:
+### Padrao 2: Tabela de Seguranca
+Tabela separada mapeando usuarios para dados:
 ```
 SecurityMapping table:
 | UserEmail | Region |
@@ -82,30 +82,30 @@ SecurityMapping table:
     )
 ```
 
-### Pattern 3: Manager Hierarchy
-Users see their data plus subordinates:
+### Padrao 3: Hierarquia de Managers
+Usuarios veem seus dados e os de subordinados:
 ```dax
 // Using PATH functions for hierarchy
 PATHCONTAINS(Employee[ManagerPath], 
     LOOKUPVALUE(Employee[EmployeeID], Employee[Email], USERPRINCIPALNAME()))
 ```
 
-### Pattern 4: Multiple Rules
-Combine conditions:
+### Padrao 4: Multiplas Regras
+Combine condicoes:
 ```dax
 // Users see their region OR if they're a global viewer
 [Region] = LOOKUPVALUE(Users[Region], Users[Email], USERPRINCIPALNAME())
 || LOOKUPVALUE(Users[IsGlobal], Users[Email], USERPRINCIPALNAME()) = TRUE()
 ```
 
-## Creating Roles via MCP
+## Criar Roles via MCP
 
-### List Existing Roles
+### Listar Roles Existentes
 ```
 security_role_operations(operation: "List")
 ```
 
-### Create Role with Permission
+### Criar Role com Permissao
 ```
 security_role_operations(
   operation: "Create",
@@ -117,7 +117,7 @@ security_role_operations(
 )
 ```
 
-### Add Table Permission (Filter)
+### Adicionar Permissao de Tabela (Filtro)
 ```
 security_role_operations(
   operation: "CreatePermissions",
@@ -129,7 +129,7 @@ security_role_operations(
 )
 ```
 
-### Get Effective Permissions
+### Obter Permissoes Efetivas
 ```
 security_role_operations(
   operation: "GetEffectivePermissions",
@@ -137,19 +137,19 @@ security_role_operations(
 )
 ```
 
-## Testing RLS
+## Testar RLS
 
-### In Power BI Desktop
+### No Power BI Desktop
 1. Modeling tab > View As
 2. Select role(s) to test
 3. Optionally specify user identity
 4. Verify data filtering
 
-### Test Unexpected Values
-For dynamic RLS, test:
-- Valid users
-- Unknown users (should see nothing or error gracefully)
-- NULL/blank values
+### Testar Valores Inesperados
+Para dynamic RLS, teste:
+- Usuarios validos
+- Usuarios desconhecidos (devem ver nada ou falhar com elegancia)
+- Valores NULL/blank
 
 ```dax
 // Defensive pattern - returns no data for unknown users
@@ -160,67 +160,67 @@ IF(
 )
 ```
 
-## Common Mistakes
+## Erros Comuns
 
-### 1. RLS on Fact Tables Only
-**Problem:** Large table scans, poor performance
-**Solution:** Apply to dimension tables, let relationships propagate
+### 1. RLS Apenas em Fact Tables
+**Problema:** Varreduras grandes de tabela, baixa performance
+**Solucao:** Aplique em dimension tables, deixe os relacionamentos propagarem
 
-### 2. Using LOOKUPVALUE Instead of Relationships
-**Problem:** Expensive, doesn't scale
-**Solution:** Create proper relationships, let filters flow
+### 2. Usar LOOKUPVALUE em vez de Relacionamentos
+**Problema:** Caro, nao escala
+**Solucao:** Crie relacionamentos corretos, deixe os filtros fluirem
 
-### 3. Expecting Intersection Behavior
-**Problem:** Multiple roles = UNION (additive), not intersection
-**Solution:** Design roles with union behavior in mind
+### 3. Esperar Comportamento de Interseccao
+**Problema:** Multiplas roles = UNION (aditivo), nao interseccao
+**Solucao:** Projete roles considerando comportamento de uniao
 
-### 4. Forgetting About DirectQuery
-**Problem:** RLS filters become WHERE clauses
-**Solution:** Ensure source database can handle the query patterns
+### 4. Esquecer do DirectQuery
+**Problema:** Filtros de RLS viram clausulas WHERE
+**Solucao:** Garanta que o banco de origem suporte os padroes de query
 
-### 5. Not Testing Edge Cases
-**Problem:** Users see unexpected data
-**Solution:** Test with: valid users, invalid users, multiple roles
+### 5. Nao Testar Casos de Borda
+**Problema:** Usuarios veem dados inesperados
+**Solucao:** Teste com: usuarios validos, invalidos, multiplas roles
 
-## Bidirectional RLS
+## RLS Bidirecional
 
-For bidirectional relationships with RLS:
+Para relacionamentos bidirecionais com RLS:
 ```
 Enable "Apply security filter in both directions"
 ```
 
-Only use when:
+Use somente quando:
 - RLS requires filtering through many-to-many
 - Dimension-to-dimension security needed
 
-**Caution:** Only one bidirectional relationship per path allowed.
+**Cuidado:** Apenas um relacionamento bidirecional por caminho e permitido.
 
-## Performance Considerations
+## Consideracoes de Performance
 
-- RLS adds WHERE clauses to every query
-- Complex DAX in filters hurts performance
-- Test with realistic user counts
-- Consider aggregations for large models
+- RLS adiciona clausulas WHERE a toda query
+- DAX complexo em filtros prejudica a performance
+- Teste com contagens realistas de usuarios
+- Considere agregacoes para modelos grandes
 
 ## Object-Level Security (OLS)
 
-Restrict access to entire tables or columns:
+Restringe acesso a tabelas ou colunas inteiras:
 ```
 // Via XMLA/TMSL - not available in Desktop UI
 ```
 
-Use for:
-- Hiding sensitive columns (salary, SSN)
-- Restricting entire tables
-- Combined with RLS for comprehensive security
+Use para:
+- Ocultar colunas sensiveis (salario, SSN)
+- Restringir tabelas inteiras
+- Combinado com RLS para seguranca completa
 
-## Validation Checklist
+## Checklist de Validacao
 
-- [ ] RLS applied to dimension tables (not fact tables)
-- [ ] Filters propagate correctly through relationships
-- [ ] Dynamic RLS uses USERPRINCIPALNAME()
-- [ ] Tested with valid and invalid users
-- [ ] Edge cases handled (NULL, unknown users)
-- [ ] Performance tested under load
-- [ ] Role mappings documented
-- [ ] Workspace roles understood (Admins bypass RLS)
+- [ ] RLS aplicado em dimension tables (nao em fact tables)
+- [ ] Filtros propagam corretamente pelos relacionamentos
+- [ ] Dynamic RLS usa USERPRINCIPALNAME()
+- [ ] Testado com usuarios validos e invalidos
+- [ ] Casos de borda tratados (NULL, usuarios desconhecidos)
+- [ ] Performance testada sob carga
+- [ ] Mapeamentos de role documentados
+- [ ] Roles de workspace compreendidas (Admins ignoram RLS)

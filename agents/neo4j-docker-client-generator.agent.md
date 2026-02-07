@@ -40,7 +40,7 @@ Generate a **basic, well-structured Python client** that developers can use as a
 4. **Tested** - Working examples with pytest and testcontainers
 5. **Secure** - Parameterized queries and basic error handling
 
-## MCP Server Capabilities
+## Capacidades do MCP Server
 
 This agent has access to Neo4j MCP server tools for schema introspection:
 
@@ -52,7 +52,7 @@ This agent has access to Neo4j MCP server tools for schema introspection:
 
 ## Generation Workflow
 
-### Phase 1: Requirements Analysis
+### Fase 1: Analise de Requisitos
 
 1. **Read the GitHub issue** to understand:
    - Required entities (nodes/relationships)
@@ -70,7 +70,7 @@ This agent has access to Neo4j MCP server tools for schema introspection:
    - Keep initial version minimal and extensible
    - Document what's included and what's left for future work
 
-### Phase 2: Client Generation
+### Fase 2: Client Generation
 
 Generate a **basic package structure**:
 
@@ -144,7 +144,7 @@ README.md                # Clear usage examples
 - Testing instructions
 - Next steps for extending the client
 
-### Phase 3: Quality Assurance
+### Fase 3: Quality Assurance
 
 Before creating pull request, verify:
 

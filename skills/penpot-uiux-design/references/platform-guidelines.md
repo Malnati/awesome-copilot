@@ -1,89 +1,89 @@
-# Platform Design Guidelines Reference
+# Referencia de Diretrizes de Design por Plataforma
 
-## Mobile Design Fundamentals
+## Fundamentos de Design Mobile
 
-### Screen Sizes
+### Tamanhos de Tela
 
-| Device | Size | Design At |
+| Dispositivo | Tamanho | Design em |
 | ------ | ---- | --------- |
-| iPhone SE | 375×667 | Small mobile |
-| iPhone 14/15 | 390×844 | Standard mobile |
-| iPhone 14 Pro Max | 430×932 | Large mobile |
-| Android small | 360×640 | Minimum target |
-| Android large | 412×915 | Large Android |
+| iPhone SE | 375×667 | Mobile pequeno |
+| iPhone 14/15 | 390×844 | Mobile padrao |
+| iPhone 14 Pro Max | 430×932 | Mobile grande |
+| Android small | 360×640 | Alvo minimo |
+| Android large | 412×915 | Android grande |
 
-### Safe Areas
+### Safe Areas (Areas Seguras)
 
 ```text
 ┌─────────────────────────────────┐
-│ ▓▓▓▓▓▓▓ Status Bar ▓▓▓▓▓▓▓▓▓▓ │ 44-47px
+│ ▓▓▓▓▓▓▓ Barra de Status ▓▓▓▓▓▓ │ 44-47px
 ├─────────────────────────────────┤
 │                                 │
-│      Safe Content Area          │
+│      Area Segura de Conteudo    │
 │                                 │
 │                                 │
 ├─────────────────────────────────┤
-│ ▓▓▓▓▓▓ Home Indicator ▓▓▓▓▓▓▓ │ 34px
+│ ▓▓▓▓▓▓ Indicador de Home ▓▓▓▓▓ │ 34px
 └─────────────────────────────────┘
 
 ```
 
-### Touch Targets
+### Touch Targets (Alvos de Toque)
 
-- **Minimum:** 44×44pt (iOS) / 48×48dp (Android)
-- **Recommended:** 48×48px for all platforms
-- **Spacing:** Minimum 8px between targets
+- **Minimo:** 44×44pt (iOS) / 48×48dp (Android)
+- **Recomendado:** 48×48px para todas as plataformas
+- **Espacamento:** Minimo de 8px entre targets
 
 ---
 
 ## iOS Human Interface Guidelines (HIG)
 
-### Design Philosophy
+### Filosofia de Design
 
-- **Clarity:** Text is legible, icons precise, adornments subtle
-- **Deference:** UI helps people understand content, never competes
-- **Depth:** Distinct visual layers convey hierarchy
+- **Clareza:** Texto legivel, icones precisos, adornos sutis
+- **Deferencia:** A UI ajuda as pessoas a entender o conteudo, nunca compete
+- **Profundidade:** Camadas visuais distintas transmitem hierarquia
 
-### Navigation Patterns
+### Padroes de Navegacao
 
-| Pattern | When to Use |
+| Padrao | Quando Usar |
 | ------- | ----------- |
-| Tab Bar | 3-5 top-level destinations |
-| Navigation Bar | Hierarchical content |
-| Sidebar | iPad, rich content apps |
-| Search | Content discovery |
+| Tab Bar | 3-5 destinos de primeiro nivel |
+| Navigation Bar | Conteudo hierarquico |
+| Sidebar | iPad, apps com conteudo rico |
+| Search | Descoberta de conteudo |
 
-### Tab Bar Specifications
+### Especificacoes da Tab Bar
 
 ```text
 ┌─────────────────────────────────┐
 │  🏠    🔍    ➕    💬    👤    │
-│ Home  Search Add  Chat  Profile │ 49pt height
+│ Inicio Buscar Add  Chat  Perfil │ 49pt height
 └─────────────────────────────────┘
 
 ```
 
-- Max 5 tabs
-- Icons 25×25pt with 10pt labels
-- Active tab uses fill/tint color
-- Inactive tabs use gray
+- Maximo de 5 tabs
+- Icones 25×25pt com labels 10pt
+- Tab ativa usa cor de fill/tint
+- Tabs inativas usam cinza
 
-### Navigation Bar
+### Navigation Bar (Barra de Navegacao)
 
 ```text
 ┌─────────────────────────────────┐
-│ ‹ Back    Page Title    Action │ 44pt minimum
+│ ‹ Voltar  Titulo da Pagina  Acao │ 44pt minimo
 └─────────────────────────────────┘
 
 ```
 
-- Left: Back button or cancel
-- Center: Title
-- Right: Primary action (text or icon)
+- Esquerda: Botao de voltar ou cancelar
+- Centro: Titulo
+- Direita: Acao primaria (texto ou icone)
 
-### Typography (SF Pro)
+### Tipografia (SF Pro)
 
-| Style | Size | Weight |
+| Estilo | Tamanho | Peso |
 | ----- | ---- | ------ |
 | Large Title | 34pt | Bold |
 | Title 1 | 28pt | Bold |
@@ -96,9 +96,9 @@
 | Footnote | 13pt | Regular |
 | Caption | 12pt | Regular |
 
-### iOS Colors (System)
+### Cores iOS (System)
 
-| Color | Light | Dark |
+| Cor | Claro | Escuro |
 | ----- | ----- | ---- |
 | Label | #000000 | #FFFFFF |
 | Secondary Label | #3C3C43 @ 60% | #EBEBF5 @ 60% |
@@ -108,9 +108,9 @@
 | System Red | #FF3B30 | #FF453A |
 | System Orange | #FF9500 | #FF9F0A |
 
-### iOS-Specific Patterns
+### Padroes Especificos de iOS
 
-- **Swipe gestures:** Delete, archive, actions
+- **Gestos de swipe:** Delete, archive, actions
 - **Pull to refresh:** Standard list refresh
 - **Long press:** Context menus
 - **Haptic feedback:** Confirm actions
@@ -120,35 +120,35 @@
 
 ## Android Material Design
 
-### Android Design Philosophy
+### Filosofia de Design Android
 
-- **Material as metaphor:** Physical properties, elevation
-- **Bold, graphic, intentional:** Deliberate color, typography, space
-- **Motion provides meaning:** Feedback and continuity
+- **Material as metaphor:** Propriedades fisicas, elevacao
+- **Bold, graphic, intentional:** Cor, tipografia e espaco deliberados
+- **Motion provides meaning:** Feedback e continuidade
 
-### Android Navigation Patterns
+### Padroes de Navegacao Android
 
-| Pattern | When to Use |
+| Padrao | Quando Usar |
 | ------- | ----------- |
-| Bottom Navigation | 3-5 top destinations |
-| Navigation Drawer | 5+ destinations, less frequent |
-| Navigation Rail | Tablet landscape |
-| Tabs | Related content groups |
+| Bottom Navigation | 3-5 destinos principais |
+| Navigation Drawer | 5+ destinos, menos frequentes |
+| Navigation Rail | Tablet em landscape |
+| Tabs | Grupos de conteudo relacionados |
 
 ### Bottom Navigation
 
 ```text
 ┌─────────────────────────────────┐
 │  🏠    🔍    📷    💬    👤    │
-│ Home  Search Camera Chat Account│ 80dp height
+│ Inicio Buscar Camera Chat Conta │ 80dp height
 └─────────────────────────────────┘
 
 ```
 
-- 3-5 destinations
-- Icons 24dp with 12sp labels
-- Active: filled icon + primary color
-- Inactive: outlined icon + on-surface
+- 3-5 destinos
+- Icones 24dp com labels 12sp
+- Ativo: icone preenchido + cor primaria
+- Inativo: icone contornado + on-surface
 
 ### App Bar
 
@@ -159,20 +159,20 @@
 
 ```
 
-- Left: Navigation icon (menu or back)
-- Center: Title (can be left-aligned)
-- Right: Action icons (max 3)
+- Esquerda: icone de navegacao (menu ou voltar)
+- Centro: Titulo (pode ser alinhado a esquerda)
+- Direita: icones de acao (max 3)
 
 ### Floating Action Button (FAB)
 
-- **Size:** 56dp standard, 40dp mini
-- **Position:** Bottom right, 16dp from edges
-- **Purpose:** Primary action only
-- **Behavior:** Can hide on scroll
+- **Tamanho:** 56dp padrao, 40dp mini
+- **Posicao:** Canto inferior direito, 16dp das bordas
+- **Proposito:** Somente acao primaria
+- **Comportamento:** Pode ocultar ao rolar
 
-### Typography (Roboto)
+### Tipografia (Roboto)
 
-| Style | Size | Weight | Tracking |
+| Estilo | Tamanho | Peso | Espacamento |
 | ----- | ---- | ------ | -------- |
 | Display Large | 57sp | Regular | -0.25 |
 | Display Medium | 45sp | Regular | 0 |
@@ -190,178 +190,11 @@
 | Label Medium | 12sp | Medium | 0.5 |
 | Label Small | 11sp | Medium | 0.5 |
 
-### Material Colors
+### Cores do Material
 
-| Role | Purpose |
+| Papel | Finalidade |
 | ---- | ------- |
-| Primary | Main brand color |
-| On Primary | Text/icons on primary |
-| Primary Container | Filled buttons, active states |
-| Secondary | Less prominent components |
-| Tertiary | Contrast, balance |
-| Error | Error states |
-| Surface | Card backgrounds |
-| On Surface | Text on surfaces |
-| Outline | Borders, dividers |
-
-### Elevation (Shadows)
-
-| Level | Elevation | Use Case |
-| ----- | --------- | -------- |
-| 0 | 0dp | Flat surfaces |
-| 1 | 1dp | Cards, raised buttons |
-| 2 | 3dp | Elevated cards |
-| 3 | 6dp | FAB resting |
-| 4 | 8dp | Dialogs, pickers |
-| 5 | 12dp | FAB pressed |
-
-### Android-Specific Patterns
-
-- **Snackbar:** Brief feedback at bottom
-- **Bottom sheet:** Additional content/actions
-- **Chips:** Filter, input, choice, action
-- **Speed dial FAB:** Multiple related actions
-
----
-
-## Responsive Web Design
-
-### Breakpoints
-
-| Name | Width | Typical Device |
-| ---- | ----- | -------------- |
-| xs | <576px | Mobile portrait |
-| sm | 576-767px | Mobile landscape |
-| md | 768-991px | Tablet |
-| lg | 992-1199px | Small desktop |
-| xl | 1200-1399px | Desktop |
-| xxl | ≥1400px | Large desktop |
-
-### Grid System
-
-- **Columns:** 12-column grid standard
-- **Gutters:** 16-24px between columns
-- **Margins:** 16px (mobile) to 64px (desktop)
-- **Max content width:** 1200-1440px
-
-### Responsive Typography
-
-```text
-Mobile (base):
-  Body: 16px
-  H1: 28-32px
-  H2: 22-24px
-  
-Tablet:
-  Body: 16px
-  H1: 32-40px
-  H2: 24-28px
-  
-Desktop:
-  Body: 16-18px
-  H1: 40-56px
-  H2: 28-36px
-
-```
-
-### Mobile-First Approach
-
-1. Design for smallest screen first
-2. Add complexity for larger screens
-3. Content priority: What's essential?
-4. Performance: Minimize for mobile
-5. Touch-first interactions
-
-### Responsive Patterns
-
-| Pattern | Description |
-| ------- | ----------- |
-| Stack | Columns become rows on mobile |
-| Reflow | Content reorders based on priority |
-| Reveal | More content shown at larger sizes |
-| Off-canvas | Navigation slides in on mobile |
-| Scale | Elements scale proportionally |
-
----
-
-## Desktop Applications
-
-### Window Chrome
-
-```text
-┌─────────────────────────────────────────┐
-│ ● ● ●   App Title              ─ □ ×  │ Title bar
-├────────┬────────────────────────────────┤
-│ Sidebar│ Content Area                   │
-│        │                                │
-│        │                                │
-│        │                                │
-│        ├────────────────────────────────┤
-│        │ Status Bar                     │
-└────────┴────────────────────────────────┘
-
-```
-
-### Keyboard-First Design
-
-- All actions accessible via keyboard
-- Visible keyboard shortcuts
-- Focus management for tab order
-- Search/command palette (Cmd/Ctrl+K)
-
-### Hover States
-
-Desktop has hover (mobile doesn't):
-
-- Show additional info on hover
-- Preview actions before click
-- Tooltips for icon-only buttons
-- Dropdown menus on hover
-
-### Dense Information
-
-Desktop allows for:
-
-- Smaller touch targets (32px min)
-- More visible information
-- Complex tables and data grids
-- Multi-column layouts
-- Side-by-side comparisons
-
----
-
-## Cross-Platform Considerations
-
-### Shared Principles
-
-- Consistent brand identity
-- Same core user flows
-- Synchronized data/state
-- Familiar information architecture
-
-### Platform-Specific Adaptations
-
-| Aspect | iOS | Android | Web |
-| ------ | --- | ------- | --- |
-| Back | Left nav | Left or gesture | Browser back |
-| Primary action | Right nav | FAB | Top right button |
-| Lists | Swipe actions | Long press | Hover actions |
-| Menus | Action sheets | Bottom sheet | Dropdown/context |
-| Alerts | Centered modal | Centered modal | Various positions |
-
-### Design Tokens Across Platforms
-
-Create platform-agnostic tokens:
-
-```text
-// Spacing
-spacing-sm: 8
-spacing-md: 16
-spacing-lg: 24
-
-// These map to platform units
-iOS: points (pt)
-Android: density-independent pixels (dp)
-Web: pixels (px) or rem
-
-```
+| Primary | Cor principal da marca |
+| On Primary | Texto/icones sobre primary |
+| Primary Container | Botoes preenchidos, estados ativos |
+| Secondary | Componentes menos proeminentes |

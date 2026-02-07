@@ -1,6 +1,6 @@
-# Basic Markdown to HTML
+# Markdown Basico para HTML
 
-## Headings
+## Titulos
 
 ### Markdown
 
@@ -8,7 +8,7 @@
 # Basic writing and formatting syntax
 ```
 
-### Parsed HTML
+### HTML Parseado
 
 ```html
 <h1>Basic writing and formatting syntax</h1>
@@ -37,7 +37,7 @@ Heading 2
 ---
 ```
 
-### Parsed HTML
+### HTML Parseado
 
 ```html
 <h2>Heading 2</h2>
@@ -45,7 +45,7 @@ Heading 2
 
 ---
 
-## Paragraphs
+## Paragrafos
 
 ### Markdown
 
@@ -53,7 +53,7 @@ Heading 2
 Create sophisticated formatting for your prose and code on GitHub with simple syntax.
 ```
 
-### Parsed HTML
+### HTML Parseado
 
 ```html
 <p>Create sophisticated formatting for your prose and code on GitHub with simple syntax.</p>
@@ -61,9 +61,9 @@ Create sophisticated formatting for your prose and code on GitHub with simple sy
 
 ---
 
-## Inline Formatting
+## Formatacao Inline
 
-### Bold
+### Negrito
 
 ```md
 **This is bold text**
@@ -75,7 +75,7 @@ Create sophisticated formatting for your prose and code on GitHub with simple sy
 
 ---
 
-### Italic
+### Italico
 
 ```md
 _This text is italicized_
@@ -87,7 +87,7 @@ _This text is italicized_
 
 ---
 
-### Bold + Italic
+### Negrito + Italico
 
 ```md
 ***All this text is important***
@@ -99,7 +99,7 @@ _This text is italicized_
 
 ---
 
-### Strikethrough (GFM)
+### Tachado (GFM)
 
 ```md
 ~~This was mistaken text~~
@@ -139,7 +139,7 @@ This is a <sup>superscript</sup> text
 > Text that is a quote
 ```
 
-### Parsed HTML
+### HTML Parseado
 
 ```html
 <blockquote>
@@ -163,7 +163,7 @@ This is a <sup>superscript</sup> text
 </blockquote>
 ```
 
-> ⚠️ The `markdown-alert-*` classes are GitHub-specific, not standard Markdown.
+> ⚠️ As classes `markdown-alert-*` sao especificas do GitHub, nao padrao Markdown.
 
 ---
 
@@ -190,7 +190,7 @@ git add
 ```
 ````
 
-### Parsed HTML
+### HTML Parseado
 
 ```html
 <pre><code class="language-markdown">
@@ -201,7 +201,7 @@ git add
 
 ---
 
-## Tables
+## Tabelas
 
 ### Markdown
 
@@ -211,7 +211,7 @@ git add
 | Bold | ** ** |
 ```
 
-### Parsed HTML
+### HTML Parseado
 
 ```html
 <table>
@@ -240,7 +240,7 @@ git add
 [GitHub Pages](https://pages.github.com/)
 ```
 
-### Parsed HTML
+### HTML Parseado
 
 ```html
 <a href="https://pages.github.com/">GitHub Pages</a>
@@ -248,7 +248,7 @@ git add
 
 ---
 
-## Images
+## Imagens
 
 ### Markdown
 
@@ -256,7 +256,7 @@ git add
 ![Alt text](image.png)
 ```
 
-### Parsed HTML
+### HTML Parseado
 
 ```html
 <img src="image.png" alt="Alt text">
@@ -264,9 +264,9 @@ git add
 
 ---
 
-## Lists
+## Listas
 
-### Unordered List
+### Lista Nao Ordenada
 
 ```md
 - George Washington
@@ -282,7 +282,7 @@ git add
 
 ---
 
-### Ordered List
+### Lista Ordenada
 
 ```md
 1. James Madison
@@ -298,7 +298,7 @@ git add
 
 ---
 
-### Nested Lists
+### Listas Aninhadas
 
 ```md
 1. First item
@@ -360,7 +360,7 @@ Here is a footnote[^1].
 [^1]: My reference.
 ```
 
-### Parsed HTML
+### HTML Parseado
 
 ```html
 <p>

@@ -1,17 +1,17 @@
 ---
 name: gh-cli
-description: GitHub CLI (gh) comprehensive reference for repositories, issues, pull requests, Actions, projects, releases, gists, codespaces, organizations, extensions, and all GitHub operations from the command line.
+description: Referencia abrangente do GitHub CLI (gh) para repositorios, issues, pull requests, Actions, projetos, releases, gists, codespaces, organizacoes, extensoes e todas as operacoes do GitHub via linha de comando.
 ---
 
 # GitHub CLI (gh)
 
-Comprehensive reference for GitHub CLI (gh) - work seamlessly with GitHub from the command line.
+Referencia abrangente para GitHub CLI (gh) - trabalhe de forma integrada com o GitHub pela linha de comando.
 
-**Version:** 2.85.0 (current as of January 2026)
+**Versao:** 2.85.0 (atual em janeiro de 2026)
 
-## Prerequisites
+## Pre-requisitos
 
-### Installation
+### Instalacao
 
 ```bash
 # macOS
@@ -30,7 +30,7 @@ winget install --id GitHub.cli
 gh --version
 ```
 
-### Authentication
+### Autenticacao
 
 ```bash
 # Interactive login (default: github.com)
@@ -52,7 +52,7 @@ gh auth switch --hostname github.com --user username
 gh auth logout --hostname github.com --user username
 ```
 
-### Setup Git Integration
+### Configurar Integracao com Git
 
 ```bash
 # Configure git to use gh as credential helper
@@ -65,7 +65,7 @@ gh auth token
 gh auth refresh --scopes write:org,read:public_key
 ```
 
-## CLI Structure
+## Estrutura do CLI
 
 ```
 gh                          # Root command
@@ -264,9 +264,9 @@ gh                          # Root command
     └── set
 ```
 
-## Configuration
+## Configuracao
 
-### Global Configuration
+### Configuracao Global
 
 ```bash
 # List all configuration
@@ -286,7 +286,7 @@ gh config set pager "less -R"
 gh config clear-cache
 ```
 
-### Environment Variables
+### Variaveis de Ambiente
 
 ```bash
 # GitHub token (for automation)
@@ -314,7 +314,7 @@ export GH_REPO=owner/repo
 export GH_ENTERPRISE_HOSTNAME=hostname
 ```
 
-## Authentication (gh auth)
+## Autenticacao (gh auth)
 
 ### Login
 
@@ -363,7 +363,7 @@ gh auth status --json hosts
 gh auth status --json hosts --jq '.hosts | add'
 ```
 
-### Switch Accounts
+### Trocar Contas
 
 ```bash
 # Interactive switch
@@ -402,7 +402,7 @@ gh auth refresh --reset-scopes
 gh auth refresh --clipboard
 ```
 
-### Setup Git
+### Configurar Git
 
 ```bash
 # Setup git credential helper
@@ -415,7 +415,7 @@ gh auth setup-git --hostname enterprise.internal
 gh auth setup-git --hostname enterprise.internal --force
 ```
 
-## Browse (gh browse)
+## Navegar (gh browse)
 
 ```bash
 # Open repository in browser
@@ -448,9 +448,9 @@ gh browse --wiki          # Wiki page
 gh browse --no-browser
 ```
 
-## Repositories (gh repo)
+## Repositorios (gh repo)
 
-### Create Repository
+### Criar Repositorio
 
 ```bash
 # Create new repository
@@ -490,7 +490,7 @@ gh repo create my-repo --disable-issues
 gh repo create my-repo --disable-wiki
 ```
 
-### Clone Repository
+### Clonar Repositorio
 
 ```bash
 # Clone repository
@@ -503,7 +503,7 @@ gh repo clone owner/repo my-directory
 gh repo clone owner/repo --branch develop
 ```
 
-### List Repositories
+### Listar Repositorios
 
 ```bash
 # List all repositories
@@ -531,7 +531,7 @@ gh repo list --limit 100 | tail -n +2
 gh repo list --json name --jq '.[].name'
 ```
 
-### View Repository
+### Ver Repositorio
 
 ```bash
 # View repository details
@@ -547,7 +547,7 @@ gh repo view --json name,description,defaultBranchRef
 gh repo view --web
 ```
 
-### Edit Repository
+### Editar Repositorio
 
 ```bash
 # Edit description
@@ -579,7 +579,7 @@ gh repo archive
 gh repo unarchive
 ```
 
-### Delete Repository
+### Deletar Repositorio
 
 ```bash
 # Delete repository
@@ -589,7 +589,7 @@ gh repo delete owner/repo
 gh repo delete owner/repo --yes
 ```
 
-### Fork Repository
+### Fazer Fork do Repositorio
 
 ```bash
 # Fork repository
@@ -605,7 +605,7 @@ gh repo fork owner/repo --clone
 gh repo fork owner/repo --remote-name upstream
 ```
 
-### Sync Fork
+### Sincronizar Fork
 
 ```bash
 # Sync fork with upstream
@@ -618,7 +618,7 @@ gh repo sync --branch feature
 gh repo sync --force
 ```
 
-### Set Default Repository
+### Definir Repositorio Padrao
 
 ```bash
 # Set default repository for current directory
@@ -631,7 +631,7 @@ gh repo set-default owner/repo
 gh repo set-default --unset
 ```
 
-### Repository Autolinks
+### Autolinks do Repositorio
 
 ```bash
 # List autolinks
@@ -646,7 +646,7 @@ gh repo autolink add \
 gh repo autolink delete 12345
 ```
 
-### Repository Deploy Keys
+### Deploy Keys do Repositorio
 
 ```bash
 # List deploy keys
@@ -661,7 +661,7 @@ gh repo deploy-key add ~/.ssh/id_rsa.pub \
 gh repo deploy-key delete 12345
 ```
 
-### Gitignore and License
+### Gitignore e Licenca
 
 ```bash
 # View gitignore template
@@ -676,7 +676,7 @@ gh repo license mit --fullname "John Doe"
 
 ## Issues (gh issue)
 
-### Create Issue
+### Criar Issue
 
 ```bash
 # Create issue interactively
@@ -706,7 +706,7 @@ gh issue create --repo owner/repo --title "Issue title"
 gh issue create --web
 ```
 
-### List Issues
+### Listar Issues
 
 ```bash
 # List all open issues
@@ -747,7 +747,7 @@ gh issue list --json number,title,comments --jq '.[] | [.number, .title, .commen
 gh issue list --sort created --order desc
 ```
 
-### View Issue
+### Ver Issue
 
 ```bash
 # View issue
@@ -766,7 +766,7 @@ gh issue view 123 --json title,body,state,labels,comments
 gh issue view 123 --json title --jq '.title'
 ```
 
-### Edit Issue
+### Editar Issue
 
 ```bash
 # Edit interactively
@@ -794,7 +794,7 @@ gh issue edit 123 --remove-assignee user1
 gh issue edit 123 --milestone "v1.0"
 ```
 
-### Close/Reopen Issue
+### Fechar/Reabrir Issue
 
 ```bash
 # Close issue
@@ -807,7 +807,7 @@ gh issue close 123 --comment "Fixed in PR #456"
 gh issue reopen 123
 ```
 
-### Comment on Issue
+### Comentar em Issue
 
 ```bash
 # Add comment
@@ -820,7 +820,7 @@ gh issue comment 123 --edit 456789 --body "Updated comment"
 gh issue comment 123 --delete 456789
 ```
 
-### Issue Status
+### Status da Issue
 
 ```bash
 # Show issue status summary
@@ -830,7 +830,7 @@ gh issue status
 gh issue status --repo owner/repo
 ```
 
-### Pin/Unpin Issues
+### Fixar/Desfixar Issues
 
 ```bash
 # Pin issue (pinned to repo dashboard)
@@ -840,7 +840,7 @@ gh issue pin 123
 gh issue unpin 123
 ```
 
-### Lock/Unlock Issue
+### Bloquear/Desbloquear Issue
 
 ```bash
 # Lock conversation
@@ -853,14 +853,14 @@ gh issue lock 123 --reason off-topic
 gh issue unlock 123
 ```
 
-### Transfer Issue
+### Transferir Issue
 
 ```bash
 # Transfer to another repository
 gh issue transfer 123 --repo owner/new-repo
 ```
 
-### Delete Issue
+### Deletar Issue
 
 ```bash
 # Delete issue
@@ -885,7 +885,7 @@ gh issue develop 123 --base main
 
 ## Pull Requests (gh pr)
 
-### Create Pull Request
+### Criar Pull Request
 
 ```bash
 # Create PR interactively
@@ -930,7 +930,7 @@ gh pr create --repo owner/repo
 gh pr create --web
 ```
 
-### List Pull Requests
+### Listar Pull Requests
 
 ```bash
 # List open PRs
@@ -977,7 +977,7 @@ gh pr list --json number,title,statusCheckRollup --jq '.[] | [.number, .title, .
 gh pr list --sort created --order desc
 ```
 
-### View Pull Request
+### Ver Pull Request
 
 ```bash
 # View PR
@@ -999,7 +999,7 @@ gh pr view 123 --json files --jq '.files[].path'
 gh pr view 123 --json title,state --jq '"\(.title): \(.state)"'
 ```
 
-### Checkout Pull Request
+### Checkout de Pull Request
 
 ```bash
 # Checkout PR branch
@@ -1012,7 +1012,7 @@ gh pr checkout 123 --branch name-123
 gh pr checkout 123 --force
 ```
 
-### Diff Pull Request
+### Diff de Pull Request
 
 ```bash
 # View PR diff
@@ -1028,7 +1028,7 @@ gh pr diff 123 > pr-123.patch
 gh pr diff 123 --name-only
 ```
 
-### Merge Pull Request
+### Merge de Pull Request
 
 ```bash
 # Merge PR
@@ -1069,7 +1069,7 @@ gh pr close 123 --comment "Closing due to..."
 gh pr reopen 123
 ```
 
-### Edit Pull Request
+### Editar Pull Request
 
 ```bash
 # Edit interactively
@@ -1103,14 +1103,14 @@ gh pr edit 123 --remove-reviewer user1
 gh pr edit 123 --ready
 ```
 
-### Ready for Review
+### Pronto para Review
 
 ```bash
 # Mark draft PR as ready
 gh pr ready 123
 ```
 
-### Pull Request Checks
+### Checks de Pull Request
 
 ```bash
 # View PR checks
@@ -1123,7 +1123,7 @@ gh pr checks 123 --watch
 gh pr checks 123 --watch --interval 5
 ```
 
-### Comment on Pull Request
+### Comentar em Pull Request
 
 ```bash
 # Add comment
@@ -1141,7 +1141,7 @@ gh pr comment 123 --edit 456789 --body "Updated"
 gh pr comment 123 --delete 456789
 ```
 
-### Review Pull Request
+### Review de Pull Request
 
 ```bash
 # Review PR (opens editor)
@@ -1162,7 +1162,7 @@ gh pr review 123 --comment --body "Some thoughts..."
 gh pr review 123 --dismiss
 ```
 
-### Update Branch
+### Atualizar Branch
 
 ```bash
 # Update PR branch with latest base branch
@@ -1175,7 +1175,7 @@ gh pr update-branch 123 --force
 gh pr update-branch 123 --merge
 ```
 
-### Lock/Unlock Pull Request
+### Bloquear/Desbloquear Pull Request
 
 ```bash
 # Lock PR conversation
@@ -1188,7 +1188,7 @@ gh pr lock 123 --reason off-topic
 gh pr unlock 123
 ```
 
-### Revert Pull Request
+### Reverter Pull Request
 
 ```bash
 # Revert merged PR
@@ -1198,7 +1198,7 @@ gh pr revert 123
 gh pr revert 123 --branch revert-pr-123
 ```
 
-### Pull Request Status
+### Status de Pull Request
 
 ```bash
 # Show PR status summary
@@ -1769,7 +1769,7 @@ gh status --repo owner/repo
 gh status --json
 ```
 
-## Configuration (gh config)
+## Configuracao (gh config)
 
 ```bash
 # List all config
@@ -1963,17 +1963,17 @@ gh agent-task view 123
 gh agent-task create --description "My task"
 ```
 
-## Global Flags
+## Flags Globais
 
-| Flag                       | Description                            |
+| Flag                       | Descricao                            |
 | -------------------------- | -------------------------------------- |
-| `--help` / `-h`            | Show help for command                  |
-| `--version`                | Show gh version                        |
+| `--help` / `-h`            | Mostrar ajuda do comando               |
+| `--version`                | Mostrar versao do gh                   |
 | `--repo [HOST/]OWNER/REPO` | Select another repository              |
 | `--hostname HOST`          | GitHub hostname                        |
 | `--jq EXPRESSION`          | Filter JSON output                     |
 | `--json FIELDS`            | Output JSON with specified fields      |
-| `--template STRING`        | Format JSON using Go template          |
+| `--template STRING`        | Formatar JSON usando Go template       |
 | `--web`                    | Open in browser                        |
 | `--paginate`               | Make additional API calls              |
 | `--verbose`                | Show verbose output                    |
@@ -1981,9 +1981,9 @@ gh agent-task create --description "My task"
 | `--timeout SECONDS`        | Maximum API request duration           |
 | `--cache CACHE`            | Cache control (default, force, bypass) |
 
-## Output Formatting
+## Formatacao de Saida
 
-### JSON Output
+### Saida JSON
 
 ```bash
 # Basic JSON
@@ -2000,7 +2000,7 @@ gh issue list --json number,title,labels \
   --jq '.[] | {number, title: .title, tags: [.labels[].name]}'
 ```
 
-### Template Output
+### Saida por Template
 
 ```bash
 # Custom template
@@ -2015,9 +2015,9 @@ State: {{.state}}
 '
 ```
 
-## Common Workflows
+## Workflows Comuns
 
-### Create PR from Issue
+### Criar PR a partir de Issue
 
 ```bash
 # Create branch from issue
@@ -2032,7 +2032,7 @@ git push
 gh pr create --title "Fix #123" --body "Closes #123"
 ```
 
-### Bulk Operations
+### Operacoes em Lote
 
 ```bash
 # Close multiple issues
@@ -2048,7 +2048,7 @@ gh pr list --search "review:required" \
   xargs -I {} gh pr edit {} --add-label needs-review
 ```
 
-### Repository Setup Workflow
+### Workflow de Setup de Repositorio
 
 ```bash
 # Create repository with initial setup
@@ -2070,7 +2070,7 @@ gh label create enhancement --color "a2eeef" --description "Feature request"
 gh label create documentation --color "0075ca" --description "Documentation"
 ```
 
-### CI/CD Workflow
+### Workflow de CI/CD
 
 ```bash
 # Run workflow and wait
@@ -2083,7 +2083,7 @@ gh run watch "$RUN_ID"
 gh run download "$RUN_ID" --dir ./artifacts
 ```
 
-### Fork Sync Workflow
+### Workflow de Sincronizacao de Fork
 
 ```bash
 # Fork repository
@@ -2104,9 +2104,9 @@ git merge upstream/main
 git push origin main
 ```
 
-## Environment Setup
+## Setup de Ambiente
 
-### Shell Integration
+### Integracao de Shell
 
 ```bash
 # Add to ~/.bashrc or ~/.zshrc
@@ -2119,7 +2119,7 @@ alias gir='gh issue view --web'
 alias gco='gh pr checkout'
 ```
 
-### Git Configuration
+### Configuracao do Git
 
 ```bash
 # Use gh as credential helper
@@ -2132,38 +2132,38 @@ git config --global credential.helper 'gh !gh auth setup-git'
 git config --global credential.helper github
 ```
 
-## Best Practices
+## Boas Praticas
 
-1. **Authentication**: Use environment variables for automation
+1. **Autenticacao**: Use variaveis de ambiente para automacao
 
    ```bash
    export GH_TOKEN=$(gh auth token)
    ```
 
-2. **Default Repository**: Set default to avoid repetition
+2. **Repositorio Padrao**: Defina um padrao para evitar repeticao
 
    ```bash
    gh repo set-default owner/repo
    ```
 
-3. **JSON Parsing**: Use jq for complex data extraction
+3. **JSON Parsing**: Use jq para extracao de dados complexa
 
    ```bash
    gh pr list --json number,title --jq '.[] | select(.title | contains("fix"))'
    ```
 
-4. **Pagination**: Use --paginate for large result sets
+4. **Paginacao**: Use --paginate para conjuntos grandes de resultados
 
    ```bash
    gh issue list --state all --paginate
    ```
 
-5. **Caching**: Use cache control for frequently accessed data
+5. **Caching**: Use cache control para dados acessados com frequencia
    ```bash
    gh api /user --cache force
    ```
 
-## Getting Help
+## Ajuda
 
 ```bash
 # General help
@@ -2180,7 +2180,7 @@ gh help exit-codes
 gh help accessibility
 ```
 
-## References
+## Referencias
 
 - Official Manual: https://cli.github.com/manual/
 - GitHub Docs: https://docs.github.com/en/github-cli

@@ -1,38 +1,38 @@
-# UI Component Patterns Reference
+# Referencia de Patterns de Componentes de UI
 
 ## Buttons
 
-### Button Types
+### Tipos de Button
 
-| Type | Purpose | Visual Treatment |
+| Tipo | Finalidade | Tratamento Visual |
 | ---- | ------- | ---------------- |
-| Primary | Main action on page | Solid fill, brand color |
-| Secondary | Supporting actions | Outline or muted fill |
-| Tertiary | Low-emphasis actions | Text-only, underline optional |
-| Destructive | Delete/remove actions | Red color, confirmation required |
-| Ghost | Minimal UI, icon buttons | Transparent, subtle hover |
+| Primary | Acao principal na pagina | Preenchimento solido, cor da marca |
+| Secondary | Acoes de suporte | Contorno ou preenchimento discreto |
+| Tertiary | Acoes de baixa enfase | Somente texto, sublinhado opcional |
+| Destructive | Acoes de excluir/remover | Cor vermelha, confirmacao obrigatoria |
+| Ghost | UI minima, botoes de icone | Transparente, hover sutil |
 
-### Button States
+### Estados de Button
 
 ```text
-Default    → Resting state, clearly interactive
-Hover      → Cursor over (desktop): darken 10%, subtle shadow
-Active     → Being pressed: darken 20%, slight scale down
-Focus      → Keyboard selected: visible outline ring
-Disabled   → Not available: 50% opacity, cursor: not-allowed
-Loading    → Processing: spinner replaces or accompanies label
+Default    → Estado de repouso, claramente interativo
+Hover      → Cursor sobre (desktop): escurecer 10%, sombra sutil
+Active     → Sendo pressionado: escurecer 20%, leve reducao de escala
+Focus      → Selecionado via teclado: anel de contorno visivel
+Disabled   → Indisponivel: opacidade 50%, cursor: not-allowed
+Loading    → Processando: spinner substitui ou acompanha o label
 
 ```
 
-### Button Specifications
+### Especificacoes de Button
 
-- **Minimum size:** 44×44px (touch target)
+- **Tamanho minimo:** 44×44px (touch target)
 - **Padding:** 12-16px horizontal, 8-12px vertical
 - **Border radius:** 4-8px (consistent across app)
-- **Font weight:** Medium or Semibold (600-700)
-- **Text:** Sentence case, 2-4 words max
+- **Font weight:** Medium ou Semibold (600-700)
+- **Text:** Sentence case, max 2-4 palavras
 
-### Button Label Patterns
+### Padroes de Label de Button
 
 ```text
 ✓ Save Changes        ✗ Submit
@@ -47,14 +47,14 @@ Loading    → Processing: spinner replaces or accompanies label
 
 ## Forms
 
-### Form Layout Guidelines
+### Diretrizes de Layout de Form
 
-- **Single column preferred:** Reduces cognitive load
-- **Top-aligned labels:** Fastest completion times
-- **Logical grouping:** Related fields together
-- **Smart defaults:** Pre-fill when possible
+- **Single column preferred:** Reduz carga cognitiva
+- **Top-aligned labels:** Tempos de conclusao mais rapidos
+- **Logical grouping:** Campos relacionados juntos
+- **Smart defaults:** Preencha automaticamente quando possivel
 
-### Input Field Anatomy
+### Anatomia de Input Field
 
 ```text
 ┌─ Label (required) ─────────────────────────┐
@@ -67,24 +67,24 @@ Loading    → Processing: spinner replaces or accompanies label
 
 ```
 
-### Input States
+### Estados de Input
 
-| State | Border | Background | Additional |
+| Estado | Borda | Fundo | Adicional |
 | ----- | ------ | ---------- | ---------- |
-| Default | Gray (#D1D5DB) | White | - |
-| Focus | Primary color | White | Shadow/glow |
-| Filled | Gray | White | Checkmark optional |
-| Error | Red (#EF4444) | Light red tint | Error icon + message |
-| Disabled | Light gray | Gray (#F3F4F6) | 50% opacity text |
+| Padrao | Gray (#D1D5DB) | White | - |
+| Focus | Cor primary | White | Sombra/brilho |
+| Filled | Gray | White | Checkmark opcional |
+| Erro | Red (#EF4444) | Tonalidade vermelha clara | Icone de erro + mensagem |
+| Disabled | Light gray | Gray (#F3F4F6) | Texto com 50% de opacidade |
 
-### Validation Timing
+### Timing de Validacao
 
-- **On blur:** Validate when user leaves field
-- **On change (after error):** Clear error as user types correct input
-- **On submit:** Final validation before processing
-- **Never on focus:** Don't show errors before user types
+- **On blur:** Validar quando o usuario sai do campo
+- **On change (after error):** Limpar erro conforme o usuario corrige
+- **On submit:** Validacao final antes do processamento
+- **Never on focus:** Nao mostrar erros antes do usuario digitar
 
-### Error Message Guidelines
+### Guidelines de Mensagens de Erro
 
 ```text
 ✓ "Email address is required"
@@ -97,19 +97,19 @@ Loading    → Processing: spinner replaces or accompanies label
 
 ```
 
-### Form Best Practices
+### Boas Praticas de Form
 
-- Mark optional fields, not required (fewer asterisks)
-- Show password requirements before errors occur
-- Use input masks for formatted data (phone, date)
-- Preserve data on errors (don't clear the form)
-- Provide clear success confirmation
+- Marque campos opcionais, nao obrigatorios (menos asteriscos)
+- Mostre requisitos de senha antes que ocorram erros
+- Use input masks para dados formatados (phone, date)
+- Preserve dados quando houver erros (nao limpe o form)
+- Forneca confirmacao clara de sucesso
 
 ---
 
-## Navigation
+## Navegacao
 
-### Navigation Patterns
+### Padroes de Navegacao
 
 #### Top Navigation Bar
 
@@ -120,9 +120,9 @@ Loading    → Processing: spinner replaces or accompanies label
 
 ```
 
-- **Best for:** Marketing sites, simple apps
-- **Max items:** 5-7 top-level links
-- **Mobile:** Collapse to hamburger menu
+- **Melhor para:** Sites de marketing, apps simples
+- **Maximo de itens:** 5-7 links de primeiro nivel
+- **Mobile:** Recolher para menu hamburger
 
 #### Sidebar Navigation
 
@@ -141,9 +141,9 @@ Loading    → Processing: spinner replaces or accompanies label
 
 ```
 
-- **Best for:** Dashboards, complex apps
+- **Melhor para:** Dashboards, apps complexas
 - **Width:** 200-280px expanded, 64px collapsed
-- **Mobile:** Overlay drawer
+- **Mobile:** Drawer em overlay
 
 #### Bottom Navigation (Mobile)
 
@@ -153,25 +153,25 @@ Loading    → Processing: spinner replaces or accompanies label
 │                                     │
 ├─────────────────────────────────────┤
 │  🏠    🔍    ➕    💬    👤        │
-│ Home  Search Add  Chat  Profile     │
+│ Inicio Buscar Adicionar Chat Perfil │
 └─────────────────────────────────────┘
 
 ```
 
-- **Max items:** 3-5 destinations
-- **Best for:** Primary app sections
-- **Always visible:** Persistent navigation
+- **Maximo de itens:** 3-5 destinos
+- **Melhor para:** Secoes principais do app
+- **Sempre visivel:** Navegacao persistente
 
 #### Breadcrumbs
 
 ```text
-Home > Products > Electronics > Headphones
+Inicio > Produtos > Eletronicos > Fones
 
 ```
 
-- **Use for:** Deep hierarchies (3+ levels)
-- **Current page:** Not clickable, different style
-- **Separator:** > or / or chevron icon
+- **Use para:** Hierarquias profundas (3+ niveis)
+- **Pagina atual:** Nao clicavel, estilo diferente
+- **Separator:** > ou / ou icone chevron
 
 ### Tab Navigation
 
@@ -180,15 +180,15 @@ Home > Products > Electronics > Headphones
 │ Tab 1   │ Tab 2   │ Tab 3   │ Tab 4   │
 └─────────┴─────────┴─────────┴─────────┘
 │                                       │
-│        Tab Content Area               │
+│        Area de Conteudo da Tab        │
 │                                       │
 └───────────────────────────────────────┘
 
 ```
 
-- **Max tabs:** 3-5 for clarity
-- **Active indicator:** Underline or background
-- **Use for:** Related content within same page
+- **Maximo de tabs:** 3-5 para clareza
+- **Indicador ativo:** Sublinhado ou fundo
+- **Use para:** Conteudo relacionado na mesma pagina
 
 ---
 
@@ -198,115 +198,115 @@ Home > Products > Electronics > Headphones
 
 ```text
 ┌─────────────────────────────────┐
-│ ░░░░░░░ Image/Media ░░░░░░░░░░ │
+│ ░░░░░░░ Imagem/Midia ░░░░░░░░░ │
 ├─────────────────────────────────┤
-│ Category Label                  │
-│ Card Title                      │
-│ Description text that may       │
-│ span multiple lines...          │
+│ Label de Categoria              │
+│ Titulo do Card                  │
+│ Texto de descricao que pode     │
+│ ocupar varias linhas...         │
 │                                 │
-│ [Action Button]  [Secondary]    │
+│ [Botao de Acao]  [Secondary]    │
 └─────────────────────────────────┘
 
 ```
 
-### Card Guidelines
+### Guidelines de Card
 
-- **Consistent sizing:** Use grid, equal heights
-- **Content hierarchy:** Image → Title → Description → Actions
-- **Padding:** 16-24px internal spacing
+- **Tamanho consistente:** Use grid, alturas iguais
+- **Hierarquia de conteudo:** Image → Title → Description → Actions
+- **Padding:** 16-24px de espacamento interno
 - **Border radius:** 8-12px (matching buttons)
-- **Shadow:** Subtle elevation (0 2px 4px rgba(0,0,0,0.1))
+- **Shadow:** Elevacao sutil (0 2px 4px rgba(0,0,0,0.1))
 
 ---
 
 ## Modals and Dialogs
 
-### Modal Structure
+### Estrutura de Modal
 
 ```text
 ┌─────────────────────────────────────┐
-│ Modal Title                    [×]  │
+│ Titulo do Modal                [×]  │
 ├─────────────────────────────────────┤
 │                                     │
-│ Modal content goes here.            │
-│ Keep it focused on one task.        │
+│ Conteudo do modal vai aqui.         │
+│ Mantenha focado em uma tarefa.      │
 │                                     │
 ├─────────────────────────────────────┤
-│           [Cancel]  [Confirm]       │
+│           [Cancelar] [Confirmar]    │
 └─────────────────────────────────────┘
 
 ```
 
-### Modal Guidelines
+### Guidelines de Modal
 
-- **Size:** 400-600px width (desktop), full-width minus margins (mobile)
-- **Overlay:** Semi-transparent dark background (rgba(0,0,0,0.5))
-- **Close options:** X button, overlay click, Escape key
-- **Focus trap:** Keep keyboard focus within modal
-- **Primary action:** Right-aligned, visually prominent
+- **Tamanho:** 400-600px de largura (desktop), largura total menos margens (mobile)
+- **Overlay:** Fundo escuro semitransparente (rgba(0,0,0,0.5))
+- **Opcoes de fechamento:** Botao X, clique no overlay, tecla Escape
+- **Focus trap:** Mantenha o foco do teclado dentro do modal
+- **Acao primaria:** Alinhada a direita, visualmente destacada
 
 ---
 
 ## Dashboards
 
-### Dashboard Layout Principles
+### Principios de Layout de Dashboard
 
-1. **Most important metrics at top:** KPIs, summary cards
-2. **Progressive detail:** Overview → Drill-down capability
-3. **Consistent card sizes:** Use grid system
-4. **Minimal chartjunk:** Only data-serving visuals
-5. **Actionable insights:** Highlight anomalies
+1. **Most important metrics at top:** KPIs, cards de resumo
+2. **Progressive detail:** Overview → capacidade de drill-down
+3. **Tamanhos de card consistentes:** Use sistema de grid
+4. **Minimal chartjunk:** Apenas visuais que servem aos dados
+5. **Actionable insights:** Destaque anomalias
 
-### Data Visualization Selection
+### Selecao de Visualizacao de Dados
 
-| Data Type | Chart Type |
+| Tipo de Dado | Tipo de Grafico |
 | --------- | ---------- |
-| Comparison across categories | Bar chart |
-| Trend over time | Line chart |
-| Part of whole | Pie (≤5 slices) or Donut |
-| Distribution | Histogram |
-| Correlation | Scatter plot |
-| Geographic | Map |
-| Single metric | Big number + sparkline |
+| Comparacao entre categorias | Bar chart |
+| Tendencia ao longo do tempo | Line chart |
+| Parte do todo | Pie (≤5 slices) ou Donut |
+| Distribuicao | Histogram |
+| Correlacao | Scatter plot |
+| Geografico | Map |
+| Metrica unica | Big number + sparkline |
 
-### Dashboard Best Practices
+### Boas Praticas de Dashboard
 
-- **Limit to 5-9 widgets** per view
-- **Align to grid:** Consistent gutters and sizing
-- **Filter controls:** Top or sidebar, always visible
-- **Date range selector:** Common need, make prominent
-- **Export options:** PDF, CSV for data tables
-- **Responsive:** Stack cards on smaller screens
+- **Limite a 5-9 widgets** por view
+- **Alinhe ao grid:** Gutters e tamanhos consistentes
+- **Controles de filtro:** Top ou sidebar, sempre visivel
+- **Seletor de intervalo de datas:** Necessidade comum, destaque
+- **Opcoes de exportacao:** PDF, CSV para tabelas de dados
+- **Responsivo:** Empilhe cards em telas menores
 
 ---
 
 ## Empty States
 
-### Empty State Components
+### Componentes de Empty State
 
 ```text
 ┌─────────────────────────────────────┐
 │                                     │
-│         [Illustration/Icon]         │
+│         [Ilustracao/Icone]          │
 │                                     │
-│      No projects yet                │
+│      Nenhum projeto ainda           │
 │                                     │
-│   Create your first project to      │
-│   start organizing your work.       │
+│   Crie seu primeiro projeto para    │
+│   comecar a organizar seu trabalho. │
 │                                     │
-│       [Create Project]              │
+│       [Criar Projeto]               │
 │                                     │
 └─────────────────────────────────────┘
 
 ```
 
-### Empty State Guidelines
+### Guidelines de Empty State
 
-- **Friendly illustration:** Not just "No data"
-- **Explain value:** Why create something?
-- **Clear CTA:** Primary action to fix empty state
-- **Keep it brief:** 1-2 sentences max
+- **Ilustracao amigavel:** Nao apenas "No data"
+- **Explique o valor:** Por que criar algo?
+- **CTA claro:** Acao primaria para resolver o empty state
+- **Seja breve:** 1-2 frases no maximo
 
 ---
 
@@ -314,12 +314,12 @@ Home > Products > Electronics > Headphones
 
 ### Loading Patterns
 
-| Duration | Pattern |
+| Duracao | Padrao |
 | -------- | ------- |
-| <1 second | No indicator (feels instant) |
-| 1-3 seconds | Spinner or progress indicator |
-| 3-10 seconds | Skeleton screens + progress |
-| >10 seconds | Progress bar + explanation |
+| <1 second | Sem indicador (parece instantaneo) |
+| 1-3 seconds | Spinner ou indicador de progresso |
+| 3-10 seconds | Skeleton screens + progresso |
+| >10 seconds | Barra de progresso + explicacao |
 
 ### Skeleton Screen
 
@@ -334,6 +334,6 @@ Home > Products > Electronics > Headphones
 
 ```
 
-- Match layout of loaded content
-- Use subtle animation (shimmer/pulse)
-- Show actual content structure
+- Combine com o layout do conteudo carregado
+- Use animacao sutil (shimmer/pulse)
+- Mostre a estrutura real do conteudo
