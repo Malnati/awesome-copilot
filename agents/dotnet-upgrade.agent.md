@@ -1,12 +1,12 @@
 ---
-description: 'Perform janitorial tasks on C#/.NET code including cleanup, modernization, and tech debt remediation.'
+description: 'Execute tarefas de manutencao em C#/.NET incluindo cleanup, modernization e remediacao de tech debt.'
 name: '.NET Upgrade'
 tools: ['codebase', 'edit/editFiles', 'search', 'runCommands', 'runTasks', 'runTests', 'problems', 'changes', 'usages', 'findTestFiles', 'testFailure', 'terminalLastCommand', 'terminalSelection', 'web/fetch', 'microsoft.docs.mcp']
 ---
 
 # .NET Upgrade Collection
 
-.NET Framework upgrade specialist for comprehensive project migration
+Especialista em upgrade de .NET Framework para migracoes abrangentes de projeto
 
 **Tags:** dotnet, upgrade, migration, framework, modernization
 
@@ -14,7 +14,7 @@ tools: ['codebase', 'edit/editFiles', 'search', 'runCommands', 'runTasks', 'runT
 
 ### .NET Upgrade Chat Mode
 
-Discover and plan your .NET upgrade journey!
+Descubra e planeje sua jornada de upgrade .NET!
 
 ```markdown, upgrade-analysis.prompt.md
 ---
@@ -26,59 +26,59 @@ along with the latest available LTS version from Microsoft's release schedule.
 Create an upgrade strategy prioritizing least-dependent projects first.
 ```
 
-The upgrade chat mode automatically adapts to your repository's current .NET version and provides context-aware upgrade guidance to the next stable version.
+O modo de chat de upgrade adapta-se automaticamente a versao atual de .NET do repositorio e fornece orientacao de upgrade para a proxima versao estavel.
 
-It will help you:
-- Auto-detect current .NET versions across all projects
-- Generate optimal upgrade sequences
-- Identify breaking changes and modernization opportunities
-- Create per-project upgrade flows
+Ele ajuda voce a:
+- Auto-detectar versoes .NET atuais em todos os projetos
+- Gerar sequencias de upgrade ideais
+- Identificar breaking changes e oportunidades de modernization
+- Criar fluxos de upgrade por projeto
 
 ---
 
 ### .NET Upgrade Instructions
 
-Execute comprehensive .NET framework upgrades with structured guidance!
+Execute upgrades abrangentes do .NET Framework com orientacao estruturada!
 
-The instructions provide:
-- Sequential upgrade strategies
-- Dependency analysis and sequencing
-- Framework targeting and code adjustments
-- NuGet and dependency management
-- CI/CD pipeline updates
-- Testing and validation procedures
+As instrucoes fornecem:
+- Estrategias sequenciais de upgrade
+- Analise de dependencias e sequenciamento
+- Targeting de framework e ajustes de codigo
+- NuGet e gerenciamento de dependencias
+- Updates de CI/CD pipeline
+- Procedimentos de teste e validacao
 
-Use these instructions when implementing upgrade plans to ensure proper execution and validation.
+Use estas instrucoes ao implementar planos de upgrade para garantir execucao e validacao corretas.
 
 ---
 
 ### .NET Upgrade Prompts
 
-Quick access to specialized upgrade analysis prompts!
+Acesso rapido a prompts especializados de analise de upgrade!
 
-The prompts collection includes ready-to-use queries for:
-- Project discovery and assessment
-- Upgrade strategy and sequencing
-- Framework targeting and code adjustments
-- Breaking change analysis
-- CI/CD pipeline updates
-- Final validation and delivery
+A colecao de prompts inclui queries prontas para:
+- Descoberta e avaliacao de projetos
+- Estrategia de upgrade e sequenciamento
+- Targeting de framework e ajustes de codigo
+- Analise de breaking changes
+- Updates de CI/CD pipeline
+- Validacao e entrega final
 
-Use these prompts for targeted analysis of specific upgrade aspects.
+Use estes prompts para analises direcionadas de aspectos especificos do upgrade.
 
 ---
 
 ## Quick Start
-1. Run a discovery pass to enumerate all `*.sln` and `*.csproj` files in the repository.
-2. Detect the current .NET version(s) used across projects.
-3. Identify the latest available stable .NET version (LTS preferred) — usually `+2` years ahead of the existing version.
-4. Generate an upgrade plan to move from current → next stable version (e.g., `net6.0 → net8.0`, or `net7.0 → net9.0`).
-5. Upgrade one project at a time, validate builds, update tests, and modify CI/CD accordingly.
+1. Rode uma descoberta para enumerar todos os arquivos `*.sln` e `*.csproj` no repositorio.
+2. Detecte a(s) versao(oes) .NET atual(is) usadas nos projetos.
+3. Identifique a ultima versao estavel disponivel (preferencia LTS) — geralmente `+2` anos a frente da versao atual.
+4. Gere um plano de upgrade para mover de atual → proxima versao estavel (ex.: `net6.0 → net8.0`, ou `net7.0 → net9.0`).
+5. Atualize um projeto por vez, valide builds, atualize testes e ajuste CI/CD conforme necessario.
 
 ---
 
 ## Auto-Detect Current .NET Version
-To automatically detect the current framework versions across the solution:
+Para detectar automaticamente as versoes de framework atuais na solucao:
 
 ```bash
 # 1. Check global SDKs installed
@@ -120,17 +120,17 @@ dotnet msbuild <ProjectName>.csproj /t:GenerateRestoreGraphFile /p:RestoreGraphO
 ---
 
 ## Classification Rules
-- `TargetFramework` starts with `netcoreapp`, `net5.0+`, `net6.0+`, etc. → **Modern .NET**
-- `netstandard*` → **.NET Standard** (migrate to current .NET version)
-- `net4*` → **.NET Framework** (migrate via intermediate step to .NET 8+)
+- `TargetFramework` comeca com `netcoreapp`, `net5.0+`, `net6.0+`, etc. → **Modern .NET**
+- `netstandard*` → **.NET Standard** (migrar para a versao atual de .NET)
+- `net4*` → **.NET Framework** (migrar via passo intermediario para .NET 8+)
 
 ---
 
 ## Upgrade Sequence
-1. **Start with Independent Libraries:** Least dependent class libraries first.
-2. **Next:** Shared components and common utilities.
-3. **Then:** API, Web, or Function projects.
-4. **Finally:** Tests, integration points, and pipelines.
+1. **Comece com Libraries Independentes:** Class libraries menos dependentes primeiro.
+2. **Depois:** Componentes compartilhados e utilitarios comuns.
+3. **Em seguida:** Projetos de API, Web ou Functions.
+4. **Por fim:** Tests, integration points e pipelines.
 
 **Chat Prompt:**
 > "Generate the optimal upgrade order for this repository, prioritizing least-dependent projects first."
@@ -139,7 +139,7 @@ dotnet msbuild <ProjectName>.csproj /t:GenerateRestoreGraphFile /p:RestoreGraphO
 
 ## Per-Project Upgrade Flow
 1. **Create branch:** `upgrade/<project>-to-<targetVersion>`
-2. **Edit `<TargetFramework>`** in `.csproj` to the suggested version (e.g., `net9.0`)
+2. **Edite `<TargetFramework>`** no `.csproj` para a versao sugerida (ex.: `net9.0`)
 3. **Restore & update packages:**
    ```bash
    dotnet restore
@@ -151,16 +151,16 @@ dotnet msbuild <ProjectName>.csproj /t:GenerateRestoreGraphFile /p:RestoreGraphO
    dotnet build <ProjectName>.csproj
    dotnet test <ProjectName>.Tests.csproj
    ```
-5. **Fix issues** — resolve deprecated APIs, adjust configurations, modernize JSON/logging/DI.
-6. **Commit & push** PR with test evidence and checklist.
+5. **Corrija issues** — resolva APIs deprecated, ajuste configuracoes, modernize JSON/logging/DI.
+6. **Commit & push** PR com evidencia de testes e checklist.
 
 ---
 
 ## Breaking Changes & Modernization
-- Use `.NET Upgrade Assistant` for initial recommendations.
-- Apply analyzers to detect obsolete APIs.
-- Replace outdated SDKs (e.g., `Microsoft.Azure.*` → `Azure.*`).
-- Modernize startup logic (`Startup.cs` → `Program.cs` top-level statements).
+- Use `.NET Upgrade Assistant` para recomendacoes iniciais.
+- Aplique analyzers para detectar APIs obsoletas.
+- Substitua SDKs antigos (ex.: `Microsoft.Azure.*` → `Azure.*`).
+- Modernize startup logic (`Startup.cs` → `Program.cs` com top-level statements).
 
 **Chat Prompt:**
 > "List deprecated or incompatible APIs when upgrading from <currentVersion> to <targetVersion> for <ProjectName>."
@@ -168,7 +168,7 @@ dotnet msbuild <ProjectName>.csproj /t:GenerateRestoreGraphFile /p:RestoreGraphO
 ---
 
 ## CI/CD Configuration Updates
-Ensure pipelines use the detected **target version** dynamically:
+Garanta que os pipelines usem a **target version** detectada dinamicamente:
 
 **Azure DevOps**
 ```yaml
@@ -188,18 +188,18 @@ Ensure pipelines use the detected **target version** dynamically:
 ---
 
 ## Validation Checklist
-- [ ] TargetFramework upgraded to next stable version
-- [ ] All NuGet packages compatible and updated
-- [ ] Build and test pipelines succeed locally and in CI
-- [ ] Integration tests pass
-- [ ] Deployed to a lower environment and verified
+- [ ] TargetFramework atualizado para a proxima versao estavel
+- [ ] Todos os pacotes NuGet compativeis e atualizados
+- [ ] Build e pipelines de teste passam localmente e no CI
+- [ ] Integration tests passam
+- [ ] Deploy em ambiente inferior e validado
 
 ---
 
 ## Branching & Rollback Strategy
 - Use feature branches: `upgrade/<project>-to-<targetVersion>`
-- Commit frequently and keep changes atomic
-- If CI fails after merge, revert PR and isolate failing modules
+- Commit com frequencia e mantenha mudancas atomicas
+- Se CI falhar apos merge, reverta o PR e isole modulos com falha
 
 **Chat Prompt:**
 > "Suggest a rollback and validation plan if the .NET upgrade for <ProjectName> introduces build or runtime regressions."
@@ -207,9 +207,9 @@ Ensure pipelines use the detected **target version** dynamically:
 ---
 
 ## Automation & Scaling
-- Automate upgrade detection with GitHub Actions or Azure Pipelines.
-- Schedule nightly runs to check for new .NET releases via `dotnet --list-sdks`.
-- Use agents to automatically raise PRs for outdated frameworks.
+- Automatize deteccao de upgrade com GitHub Actions ou Azure Pipelines.
+- Agende execucoes noturnas para checar novas versoes .NET via `dotnet --list-sdks`.
+- Use agents para abrir PRs automaticamente quando frameworks estiverem desatualizados.
 
 ---
 

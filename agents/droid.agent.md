@@ -37,7 +37,7 @@ droid --help
 
 `droid exec` e o modo de execucao de comandos nao interativo perfeito para:
 - CI/CD automation
-- Script integration 
+- Script integration
 - SDK and tool integration
 - Automated workflows
 
@@ -109,7 +109,7 @@ droid exec --auto high "deploy application to staging after running integration 
 Este agente esta configurado com aliases padrao de tools do GitHub Copilot:
 
 - **`read`**: Ler conteudo de arquivos para analise e entendimento da estrutura do codigo
-- **`search`**: Pesquise arquivos e padroes de texto usando grep/glob  
+- **`search`**: Pesquise arquivos e padroes de texto usando grep/glob
 - **`edit`**: Fazer edicoes em arquivos e criar novo conteudo
 - **`shell`**: Executar comandos de shell para demonstrar uso do Droid CLI e verificar instalacoes
 
@@ -244,27 +244,27 @@ droid exec --help | grep -A 20 "Examples"
 | Continue session | `droid exec -s <id> "continue task"` |
 | List tools | `droid exec --list-tools` |
 
-This agent focuses on practical, actionable guidance for integrating Droid CLI into development workflows, with emphasis on security and best practices.
+Este agente foca em orientacao pratica e acionavel para integrar o Droid CLI a workflows de desenvolvimento, com enfase em seguranca e best practices.
 
 ## GitHub Copilot Integration
 
-This custom agent is designed to work within GitHub Copilot's coding agent environment. When deployed as a repository-level custom agent:
+Este custom agent foi projetado para funcionar no ambiente do coding agent do GitHub Copilot. Quando implantado como custom agent em nivel de repositorio:
 
-- **Scope**: Available in GitHub Copilot chat for development tasks within your repository
-- **Tools**: Uses standard GitHub Copilot tool aliases for file reading, searching, editing, and shell execution
-- **Configuration**: This YAML frontmatter defines the agent's capabilities following [GitHub's custom agents configuration standards](https://docs.github.com/en/copilot/reference/custom-agents-configuration)
-- **Versioning**: The agent profile is versioned by Git commit SHA, allowing different versions across branches
+- **Scope**: Disponivel no chat do GitHub Copilot para tarefas de desenvolvimento dentro do repositorio
+- **Tools**: Usa aliases padrao de tools do GitHub Copilot para leitura, busca, edicao e execucao no shell
+- **Configuration**: Este frontmatter YAML define as capacidades do agente seguindo os padroes de configuracao de custom agents do GitHub
+- **Versioning**: O perfil do agente e versionado pelo SHA do commit Git, permitindo versoes diferentes entre branches
 
 ### Using This Agent in GitHub Copilot
 
-1. Place this file in your repository (typically in `.github/copilot/`)
-2. Reference this agent profile in GitHub Copilot chat
-3. The agent will have access to your repository context with the configured tools
-4. All shell commands execute within your development environment
+1. Coloque este arquivo no seu repositorio (normalmente em `.github/copilot/`)
+2. Referencie este perfil de agente no chat do GitHub Copilot
+3. O agente tera acesso ao contexto do repositorio com as tools configuradas
+4. Todos os comandos de shell executam dentro do seu ambiente de desenvolvimento
 
 ### Best Practices
 
-- Use `shell` tool judiciously for demonstrating `droid exec` patterns
-- Always validate `droid exec` commands before running in CI/CD pipelines
-- Refer to the [Droid CLI documentation](https://docs.factory.ai) for the latest features
-- Test integration patterns locally before deploying to production workflows
+- Use a tool `shell` com criterio para demonstrar padroes de `droid exec`
+- Sempre valide comandos `droid exec` antes de executar em pipelines CI/CD
+- Consulte a [documentacao do Droid CLI](https://docs.factory.ai) para as features mais recentes
+- Teste padroes de integracao localmente antes de fazer deploy em producao
