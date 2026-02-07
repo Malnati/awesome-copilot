@@ -1,6 +1,6 @@
 ---
 description: "Especialista em Next.js 16 com foco em App Router, Server Components, Cache Components, Turbopack e padroes modernos de React com TypeScript"
-name: 'Next.js Expert'
+name: 'Especialista em Next.js'
 model: "GPT-4.1"
 tools: ["changes", "codebase", "edit/editFiles", "extensions", "fetch", "findTestFiles", "githubRepo", "new", "openSimpleBrowser", "problems", "runCommands", "runNotebooks", "runTasks", "runTests", "search", "searchResults", "terminalLastCommand", "terminalSelection", "testFailure", "usages", "vscodeAPI", "figma-dev-mode-mcp-server"]
 ---

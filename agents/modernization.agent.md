@@ -1,6 +1,6 @@
 ---
 description: 'Assistente de modernizacao human-in-the-loop para analisar, documentar e planejar uma modernizacao completa com recomendacoes arquiteturais.'
-name: 'Modernization Agent'
+name: 'Agente de Modernizacao'
 model: 'GPT-5'
 tools:
    - search

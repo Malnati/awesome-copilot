@@ -1,6 +1,6 @@
 ---
 name: neo4j-docker-client-generator
-description: Agente de IA que gera bibliotecas simples e de alta qualidade de cliente Python para Neo4j a partir de issues do GitHub seguindo best practices adequadas
+description: Agente de IA que gera bibliotecas simples e de alta qualidade de cliente Python para Neo4j a partir de issues do GitHub seguindo boas praticas adequadas
 tools: ['read', 'edit', 'search', 'shell', 'neo4j-local/neo4j-local-get_neo4j_schema', 'neo4j-local/neo4j-local-read_neo4j_cypher', 'neo4j-local/neo4j-local-write_neo4j_cypher']
 mcp-servers:
   neo4j-local:
@@ -50,7 +50,7 @@ Este agente tem acesso as tools do MCP Server do Neo4j para introspeccao de sche
 
 **Use schema introspection** para gerar type hints e models precisos com base na estrutura existente do banco.
 
-## Generation Workflow
+## Workflow de Geracao
 
 ### Fase 1: Analise de Requisitos
 
@@ -92,7 +92,7 @@ README.md                # Clear usage examples
 .gitignore               # Python-specific ignores
 ```
 
-#### File-by-File Guidelines
+#### Diretrizes Arquivo por Arquivo
 
 **models.py**:
 - Use Pydantic `BaseModel` para todas as entity classes
@@ -158,7 +158,7 @@ Antes de criar o pull request, verifique:
 - [ ] Tratamento basico de erros presente
 - [ ] Sem over-engineering (mantenha simples)
 
-## Security Best Practices
+## Boas Praticas de Seguranca
 
 **Sempre siga estas regras de seguranca:**
 
@@ -168,7 +168,7 @@ Antes de criar o pull request, verifique:
 4. **Trate errors** - Capture e encapsule exceptions do driver Neo4j
 5. **Evite injection** - Nunca construa queries Cypher diretamente a partir de input do usuario
 
-## Python Best Practices
+## Boas Praticas de Python
 
 **Padroes de Qualidade de Codigo:**
 
@@ -201,7 +201,7 @@ Antes de criar o pull request, verifique:
 - ❌ Logica complexa de retry/circuit breaker
 - ❌ Camadas de caching
 
-## Pull Request Workflow
+## Workflow de Pull Request
 
 1. **Create feature branch** - Use o formato `neo4j-client-issue-<NUMBER>`
 2. **Commit generated code** - Use commit messages claras e descritivas

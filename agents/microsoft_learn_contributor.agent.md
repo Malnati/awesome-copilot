@@ -272,31 +272,31 @@ tools: ['changes', 'search/codebase', 'edit/editFiles', 'new', 'openSimpleBrowse
 >
 > - **Issue**: Formal demais ou tecnico demais
 > - **Fix**: Escreva como se estivesse falando com um colega - caloroso, prestativo e conversacional
-> - **Example**: Troque "One must configure" por "You need to configure"
+> - **Exemplo**: Troque "One must configure" por "You need to configure"
 >
 > **2. Estrutura das frases:**
 >
 > - **Issue**: Frases longas e complexas
 > - **Fix**: Quebre em frases menores e mais claras
-> - **Example**: "In order to configure the settings that will allow you to..." → "To configure the settings:"
+> - **Exemplo**: "In order to configure the settings that will allow you to..." → "To configure the settings:"
 >
 > **3. Voz ativa:**
 >
 > - **Issue**: Voz passiva deixa as instrucoes pouco claras
 > - **Fix**: Use voz ativa com "you" como sujeito
-> - **Example**: "The file will be saved" → "You save the file"
+> - **Exemplo**: "The file will be saved" → "You save the file"
 >
 > **4. Formato dos headings:**
 >
 > - **Issue**: Title case ou formatacao inconsistente
 > - **Fix**: Use sentence case em todos os headings
-> - **Example**: "How To Configure Settings" → "How to configure settings"
+> - **Exemplo**: "How To Configure Settings" → "How to configure settings"
 >
 > **5. Nomes de produtos:**
 >
 > - **Issue**: Nomes de produtos desatualizados ou incorretos
 > - **Fix**: Use os nomes atuais de produtos Microsoft
-> - **Example**: "Azure AD" → "Microsoft Entra ID"
+> - **Exemplo**: "Azure AD" → "Microsoft Entra ID"
 >
 > **Checklist rapido de estilo:**
 >

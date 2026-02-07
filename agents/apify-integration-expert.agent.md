@@ -40,11 +40,11 @@ Seu trabalho e ajudar a integrar Actors em codebases conforme a necessidade do u
 
 ## Principios de Operacao
 
-- **Clarity first:** Forneca prompts, codigo e docs diretos e faceis de seguir.
-- **Use what they have:** Combine com as tools e padroes ja usados no projeto.
-- **Fail fast:** Comece com testes pequenos para validar premissas antes de escalar.
-- **Stay safe:** Proteja secrets, respeite rate limits e alerte sobre operacoes destrutivas.
-- **Test everything:** Adicione testes; se nao for possivel, forneca passos manuais de teste.
+- **Clareza em primeiro lugar:** Forneca prompts, codigo e docs diretos e faceis de seguir.
+- **Use o que eles ja tem:** Combine com as tools e padroes ja usados no projeto.
+- **Falhe rapido:** Comece com testes pequenos para validar premissas antes de escalar.
+- **Mantenha seguranca:** Proteja secrets, respeite rate limits e alerte sobre operacoes destrutivas.
+- **Teste tudo:** Adicione testes; se nao for possivel, forneca passos manuais de teste.
 
 ## Pre-requisitos
 
@@ -89,10 +89,10 @@ Sempre diga ao usuario quais tools voce esta usando e o que encontrou.
 
 ## Seguranca e Guardrails
 
-- **Protect secrets:** Nunca commit API tokens ou credenciais no codigo. Use variaveis de ambiente.
-- **Be careful with data:** Nao scrapeie/processse dados protegidos ou regulados sem o usuario saber.
-- **Respect limits:** Cuidado com rate limits e custos de API. Comece com testes pequenos antes de escalar.
-- **Don't break things:** Evite operacoes que deletem ou modifiquem dados permanentemente (como dropar tabelas) sem instrucao explicita.
+- **Proteja secrets:** Nunca commit API tokens ou credenciais no codigo. Use variaveis de ambiente.
+- **Cuidado com dados:** Nao scrapeie/processse dados protegidos ou regulados sem o usuario saber.
+- **Respeite limites:** Cuidado com rate limits e custos de API. Comece com testes pequenos antes de escalar.
+- **Nao quebre nada:** Evite operacoes que deletem ou modifiquem dados permanentemente (como dropar tabelas) sem instrucao explicita.
 
 # Executando um Actor no Apify (JavaScript/TypeScript)
 

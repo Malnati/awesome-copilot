@@ -33,7 +33,7 @@ droid --version
 droid --help
 ```
 
-## Visao Geral de droid exec
+## Visao Geral do droid exec
 
 `droid exec` e o modo de execucao de comandos nao interativo perfeito para:
 - CI/CD automation
@@ -62,7 +62,7 @@ droid exec "Generate comprehensive API documentation from the codebase"
 droid exec "Analyze the project architecture and create a dependency graph"
 ```
 
-### Safe Operations ( --auto low )
+### Operacoes Seguras ( --auto low )
 Operacoes de baixo risco em arquivos que sao facilmente reversiveis:
 
 ```bash
@@ -76,7 +76,7 @@ droid exec --auto low "add JSDoc comments to all functions lacking documentation
 droid exec --auto low "create unit test templates for all modules in src/"
 ```
 
-### Development Tasks ( --auto medium )
+### Tarefas de Desenvolvimento ( --auto medium )
 Operacoes de desenvolvimento com efeitos colaterais recuperaveis:
 
 ```bash
@@ -90,7 +90,7 @@ droid exec --auto medium "set up development environment and run the test suite"
 droid exec --auto medium "update packages to latest stable versions and resolve conflicts"
 ```
 
-### Production Operations ( --auto high )
+### Operacoes de Producao ( --auto high )
 Operacoes criticas que afetam sistemas de producao:
 
 ```bash
@@ -104,7 +104,7 @@ droid exec --auto high "run database migration and update production configurati
 droid exec --auto high "deploy application to staging after running integration tests"
 ```
 
-## Referencia de Configuracao de Tools
+## Referencia de Configuracao das Tools
 
 Este agente esta configurado com aliases padrao de tools do GitHub Copilot:
 
@@ -117,7 +117,7 @@ Para mais detalhes sobre configuracao de tools, veja [GitHub Copilot Custom Agen
 
 ## Recursos Avancados
 
-### Session Continuation
+### Continuacao de Sessao
 Continue conversas anteriores sem repetir mensagens:
 
 ```bash
@@ -128,7 +128,7 @@ droid exec "analyze authentication system" --output-format json | jq '.sessionId
 droid exec -s <session-id> "what specific improvements did you suggest?"
 ```
 
-### Tool Discovery and Customization
+### Descoberta e Customizacao de Tools
 Explore e controle as tools disponiveis:
 
 ```bash
@@ -142,7 +142,7 @@ droid exec --enabled-tools Read,Grep,Edit "analyze only using read operations"
 droid exec --auto medium --disabled-tools Execute "analyze without running commands"
 ```
 
-### Model Selection
+### Selecao de Modelo
 Escolha modelos de IA especificos para tarefas diferentes:
 
 ```bash
@@ -156,7 +156,7 @@ droid exec --model claude-sonnet-4-5-20250929 "review and refactor this React co
 droid exec --model claude-haiku-4-5-20251001 "format this JSON file"
 ```
 
-### File Input
+### Entrada de Arquivo
 Carregue prompts a partir de arquivos:
 
 ```bash
@@ -203,26 +203,26 @@ docker run --rm -v $(pwd):/workspace alpine:latest sh -c "
 
 ## Boas Praticas de Seguranca
 
-1. **API Key Management**: Defina a variavel de ambiente `FACTORY_API_KEY`
-2. **Autonomy Levels**: Comece com `--auto low` e aumente apenas quando necessario
+1. **Gerenciamento de API Key**: Defina a variavel de ambiente `FACTORY_API_KEY`
+2. **Niveis de autonomia**: Comece com `--auto low` e aumente apenas quando necessario
 3. **Sandboxing**: Use containers Docker para operacoes de alto risco
-4. **Revisar Saidas**: Sempre revise resultados do `droid exec` antes de aplicar
-5. **Session Isolation**: Use session IDs para manter o contexto da conversa
+4. **Revisar saidas**: Sempre revise resultados do `droid exec` antes de aplicar
+5. **Isolamento de sessao**: Use session IDs para manter o contexto da conversa
 
 ## Solucao de Problemas
 
-### Common Issues
+### Problemas Comuns
 - **Permission denied**: O script de instalacao pode precisar de sudo para instalacao em todo o sistema
 - **Command not found**: Garanta que `/usr/local/bin` esteja no PATH
-- **API authentication**: Defina a variavel de ambiente `FACTORY_API_KEY`
+- **Autenticacao da API**: Defina a variavel de ambiente `FACTORY_API_KEY`
 
-### Debug Mode
+### Modo Debug
 ```bash
 # Enable verbose logging
 DEBUG=1 droid exec "test command"
 ```
 
-### Getting Help
+### Obtendo Ajuda
 ```bash
 # Comprehensive help
 droid exec --help
@@ -233,20 +233,20 @@ droid exec --help | grep -A 20 "Examples"
 
 ## Referencia Rapida
 
-| Task | Command |
+| Tarefa | Comando |
 |------|---------|
-| Install | `curl -fsSL https://app.factory.ai/cli | sh` |
-| Verify | `droid --version` |
-| Analyze code | `droid exec "review code for issues"` |
-| Fix typos | `droid exec --auto low "fix typos in docs"` |
-| Run tests | `droid exec --auto medium "install deps and test"` |
+| Instalar | `curl -fsSL https://app.factory.ai/cli | sh` |
+| Verificar | `droid --version` |
+| Analisar codigo | `droid exec "review code for issues"` |
+| Corrigir typos | `droid exec --auto low "fix typos in docs"` |
+| Executar testes | `droid exec --auto medium "install deps and test"` |
 | Deploy | `droid exec --auto high "build and deploy"` |
-| Continue session | `droid exec -s <id> "continue task"` |
-| List tools | `droid exec --list-tools` |
+| Continuar sessao | `droid exec -s <id> "continue task"` |
+| Listar tools | `droid exec --list-tools` |
 
 Este agente foca em orientacao pratica e acionavel para integrar o Droid CLI a workflows de desenvolvimento, com enfase em seguranca e best practices.
 
-## GitHub Copilot Integration
+## Integracao com GitHub Copilot
 
 Este custom agent foi projetado para funcionar no ambiente do coding agent do GitHub Copilot. Quando implantado como custom agent em nivel de repositorio:
 
@@ -255,14 +255,14 @@ Este custom agent foi projetado para funcionar no ambiente do coding agent do Gi
 - **Configuration**: Este frontmatter YAML define as capacidades do agente seguindo os padroes de configuracao de custom agents do GitHub
 - **Versioning**: O perfil do agente e versionado pelo SHA do commit Git, permitindo versoes diferentes entre branches
 
-### Using This Agent in GitHub Copilot
+### Usando Este Agente no GitHub Copilot
 
 1. Coloque este arquivo no seu repositorio (normalmente em `.github/copilot/`)
 2. Referencie este perfil de agente no chat do GitHub Copilot
 3. O agente tera acesso ao contexto do repositorio com as tools configuradas
 4. Todos os comandos de shell executam dentro do seu ambiente de desenvolvimento
 
-### Best Practices
+### Boas Praticas
 
 - Use a tool `shell` com criterio para demonstrar padroes de `droid exec`
 - Sempre valide comandos `droid exec` antes de executar em pipelines CI/CD

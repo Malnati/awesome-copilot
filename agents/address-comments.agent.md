@@ -1,6 +1,6 @@
 ---
 description: "Enderecar comentarios de PR"
-name: 'Universal PR Comment Addresser'
+name: 'Agente Universal para Enderecar Comentarios de PR'
 tools:
   [
     "changes",

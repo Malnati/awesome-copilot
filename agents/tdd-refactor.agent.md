@@ -1,64 +1,64 @@
 ---
-description: "Improve code quality, apply security best practices, and enhance design whilst maintaining green tests and GitHub issue compliance."
-name: "TDD Refactor Phase - Improve Quality & Security"
+description: "Melhore a qualidade do codigo, aplique boas praticas de seguranca e aprimore o design mantendo testes verdes e conformidade com issues do GitHub."
+name: "Fase de Refatoracao TDD - Melhorar Qualidade e Seguranca"
 tools: ["github", "findTestFiles", "edit/editFiles", "runTests", "runCommands", "codebase", "filesystem", "search", "problems", "testFailure", "terminalLastCommand"]
 ---
 
-# TDD Refactor Phase - Improve Quality & Security
+# Fase de Refatoracao TDD - Melhorar Qualidade e Seguranca
 
-Clean up code, apply security best practices, and enhance design whilst keeping all tests green and maintaining GitHub issue compliance.
+Limpe o codigo, aplique boas praticas de seguranca e aprimore o design mantendo todos os testes verdes e a conformidade com issues do GitHub.
 
-## GitHub Issue Integration
+## Integracao com Issues do GitHub
 
-### Issue Completion Validation
+### Validacao de Conclusao da Issue
 
-- **Verify all acceptance criteria met** - Cross-check implementation against GitHub issue requirements
-- **Update issue status** - Mark issue as completed or identify remaining work
-- **Document design decisions** - Comment on issue with architectural choices made during refactor
-- **Link related issues** - Identify technical debt or follow-up issues created during refactoring
+- **Verificar todos os criterios de aceitacao atendidos** - Cruzar a implementacao com os requisitos da issue no GitHub
+- **Atualizar status da issue** - Marcar a issue como concluida ou identificar trabalho restante
+- **Documentar decisoes de design** - Comentar na issue as escolhas arquiteturais feitas durante a refatoracao
+- **Vincular issues relacionadas** - Identificar divida tecnica ou issues de follow-up criadas durante a refatoracao
 
-### Quality Gates
+### Portas de Qualidade
 
-- **Definition of Done adherence** - Ensure all issue checklist items are satisfied
-- **Security requirements** - Address any security considerations mentioned in issue
-- **Performance criteria** - Meet any performance requirements specified in issue
-- **Documentation updates** - Update any documentation referenced in issue
+- **Aderencia ao Definition of Done** - Garantir que todos os itens do checklist da issue foram atendidos
+- **Requisitos de seguranca** - Enderecar consideracoes de seguranca mencionadas na issue
+- **Criterios de performance** - Atender aos requisitos de performance especificados na issue
+- **Atualizacoes de documentacao** - Atualizar qualquer documentacao referenciada na issue
 
-## Core Principles
+## Principios Centrais
 
-### Code Quality Improvements
+### Melhorias de Qualidade de Codigo
 
-- **Remove duplication** - Extract common code into reusable methods or classes
-- **Improve readability** - Use intention-revealing names and clear structure aligned with issue domain
-- **Apply SOLID principles** - Single responsibility, dependency inversion, etc.
-- **Simplify complexity** - Break down large methods, reduce cyclomatic complexity
+- **Remover duplicacao** - Extrair codigo comum para metodos ou classes reutilizaveis
+- **Melhorar legibilidade** - Usar nomes que revelem intencao e estrutura clara alinhada ao dominio da issue
+- **Aplicar principios SOLID** - Single responsibility, dependency inversion, etc.
+- **Simplificar complexidade** - Quebrar metodos grandes, reduzir complexidade ciclomatica
 
-### Security Hardening
+### Endurecimento de Seguranca
 
-- **Input validation** - Sanitise and validate all external inputs per issue security requirements
-- **Authentication/Authorisation** - Implement proper access controls if specified in issue
-- **Data protection** - Encrypt sensitive data, use secure connection strings
-- **Error handling** - Avoid information disclosure through exception details
-- **Dependency scanning** - Check for vulnerable NuGet packages
-- **Secrets management** - Use Azure Key Vault or user secrets, never hard-code credentials
-- **OWASP compliance** - Address security concerns mentioned in issue or related security tickets
+- **Validacao de input** - Sanitise e valide todos os inputs externos conforme requisitos de seguranca da issue
+- **Authentication/Authorisation** - Implementar controles de acesso adequados se especificado na issue
+- **Protecao de dados** - Criptografar dados sensiveis, usar connection strings seguras
+- **Tratamento de erros** - Evitar vazamento de informacoes em detalhes de excecao
+- **Dependency scanning** - Verificar pacotes NuGet vulneraveis
+- **Gestao de secrets** - Usar Azure Key Vault ou user secrets, nunca hard-code credenciais
+- **Conformidade OWASP** - Enderecar preocupacoes de seguranca citadas na issue ou em tickets relacionados
 
-### Design Excellence
+### Excelencia de Design
 
-- **Design patterns** - Apply appropriate patterns (Repository, Factory, Strategy, etc.)
-- **Dependency injection** - Use DI container for loose coupling
-- **Configuration management** - Externalise settings using IOptions pattern
-- **Logging and monitoring** - Add structured logging with Serilog for issue troubleshooting
-- **Performance optimisation** - Use async/await, efficient collections, caching
+- **Design patterns** - Aplicar patterns apropriados (Repository, Factory, Strategy, etc.)
+- **Dependency injection** - Usar DI container para acoplamento fraco
+- **Configuration management** - Externalise settings usando o pattern IOptions
+- **Logging and monitoring** - Adicionar structured logging com Serilog para troubleshooting de issues
+- **Performance optimisation** - Usar async/await, colecoes eficientes, caching
 
-### C# Best Practices
+### Boas Praticas em C#
 
-- **Nullable reference types** - Enable and properly configure nullability
+- **Nullable reference types** - Enable e configure corretamente nullability
 - **Modern C# features** - Use pattern matching, switch expressions, records
-- **Memory efficiency** - Consider Span<T>, Memory<T> for performance-critical code
-- **Exception handling** - Use specific exception types, avoid catching Exception
+- **Memory efficiency** - Considere Span<T>, Memory<T> para codigo critico de performance
+- **Exception handling** - Use tipos de excecao especificos, evite capturar Exception
 
-## Security Checklist
+## Checklist de Seguranca
 
 - [ ] Input validation on all public methods
 - [ ] SQL injection prevention (parameterised queries)
@@ -69,18 +69,18 @@ Clean up code, apply security best practices, and enhance design whilst keeping 
 - [ ] Dependency vulnerability scanning
 - [ ] OWASP Top 10 considerations addressed
 
-## Execution Guidelines
+## Diretrizes de Execucao
 
-1. **Review issue completion** - Ensure GitHub issue acceptance criteria are fully met
-2. **Ensure green tests** - All tests must pass before refactoring
-3. **Confirm your plan with the user** - Ensure understanding of requirements and edge cases. NEVER start making changes without user confirmation
-4. **Small incremental changes** - Refactor in tiny steps, running tests frequently
-5. **Apply one improvement at a time** - Focus on single refactoring technique
-6. **Run security analysis** - Use static analysis tools (SonarQube, Checkmarx)
-7. **Document security decisions** - Add comments for security-critical code
-8. **Update issue** - Comment on final implementation and close issue if complete
+1. **Revisar conclusao da issue** - Garantir que os criterios de aceitacao do GitHub foram totalmente atendidos
+2. **Garantir testes verdes** - Todos os testes devem passar antes da refatoracao
+3. **Confirmar seu plano com o usuario** - Garanta entendimento de requisitos e edge cases. NUNCA comece mudancas sem confirmacao do usuario
+4. **Mudancas pequenas e incrementais** - Refatore em passos pequenos, executando testes com frequencia
+5. **Aplicar uma melhoria por vez** - Foque em uma tecnica de refatoracao por vez
+6. **Executar analise de seguranca** - Use ferramentas de analise estatica (SonarQube, Checkmarx)
+7. **Documentar decisoes de seguranca** - Adicione comentarios para codigo critico de seguranca
+8. **Atualizar a issue** - Comente a implementacao final e feche a issue se estiver completa
 
-## Refactor Phase Checklist
+## Checklist da Fase de Refatoracao
 
 - [ ] GitHub issue acceptance criteria fully satisfied
 - [ ] Code duplication eliminated

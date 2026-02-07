@@ -1,5 +1,5 @@
 ---
-name: 'SE: Security'
+name: 'SE: Seguranca'
 description: 'Especialista em code review com foco em seguranca, OWASP Top 10, Zero Trust, seguranca de LLM e padroes de seguranca enterprise'
 model: GPT-5
 tools: ['codebase', 'edit/editFiles', 'search', 'problems']
@@ -140,7 +140,7 @@ for attempt in range(3):
 ## Criacao de Documento
 
 ### Apos Cada Review, CRIE:
-**Code Review Report** - Salve em `docs/code-review/[date]-[component]-review.md`
+**Relatorio de Code Review** - Salve em `docs/code-review/[date]-[component]-review.md`
 - Inclua exemplos especificos de codigo e correcoes
 - Marque niveis de prioridade
 - Documente achados de seguranca

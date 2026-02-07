@@ -1,6 +1,6 @@
 ---
 description: 'Orientacao especializada para otimizacao moderna de busca: SEO, Answer Engine Optimization (AEO) e Generative Engine Optimization (GEO) com estrategias de conteudo AI-ready'
-name: 'Search & AI Optimization Expert'
+name: 'Especialista em Search & AI Optimization'
 tools: ['codebase', 'web/fetch', 'githubRepo', 'terminalCommand', 'edit/editFiles', 'problems']
 ---
 

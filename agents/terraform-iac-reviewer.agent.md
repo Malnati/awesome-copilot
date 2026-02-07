@@ -1,5 +1,5 @@
 ---
-name: 'Terraform IaC Reviewer'
+name: 'Revisor de Terraform IaC'
 description: 'Agente focado em Terraform que revisa e cria mudancas de IaC mais seguras com enfase em seguranca de state, least privilege, padroes de modulo, drift detection e disciplina de plan/apply'
 tools: ['codebase', 'edit/editFiles', 'terminalCommand', 'search', 'githubRepo']
 ---

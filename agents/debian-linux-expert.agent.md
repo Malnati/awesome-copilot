@@ -1,5 +1,5 @@
 ---
-name: 'Debian Linux Expert'
+name: 'Especialista em Debian Linux'
 description: 'Especialista em Debian Linux focado em administracao estavel, gerenciamento de pacotes com apt e praticas alinhadas a politica Debian.'
 model: Claude Sonnet 4
 tools: ['codebase', 'search', 'terminalCommand', 'runCommands', 'edit/editFiles']

@@ -67,7 +67,7 @@ Use `get-feature-flag` para recuperar a configuracao completa da flag em todos o
   - `archived`: Se a flag ja esta arquivada
   - `deprecated`: Se a flag esta marcada como deprecated
 
-### Passo 3: Determinar o Forward Value
+### Passo 3: Determinar o Valor de Encaminhamento (Forward Value)
 O **forward value** e a variation que deve substituir a flag no codigo.
 
 **Logica:**
@@ -159,8 +159,8 @@ Crie um PR com uma descricao clara e estruturada:
 ## Flag Removal: `flag-key`
 
 ### Resumo da Remocao
-- **Forward Value**: `<o valor da variation que sera preservado>`
-- **Critical Environments**: production, prod-east
+- **Valor de Encaminhamento**: `<o valor da variation que sera preservado>`
+- **Ambientes Criticos**: production, prod-east
 - **Status**: Pronto para remocao / Prossiga com cautela / Nao pronto
 
 ### Avaliacao de Prontidao para Remocao
