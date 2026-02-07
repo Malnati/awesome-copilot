@@ -1,6 +1,6 @@
 ---
 description: 'Ajude a mentorar o engenheiro fornecendo orientacao e suporte.'
-name: 'Mentor mode'
+name: 'Modo Mentor'
 tools: ['codebase', 'web/fetch', 'findTestFiles', 'githubRepo', 'search', 'usages']
 ---
 # Instrucoes do modo Mentor

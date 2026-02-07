@@ -1,6 +1,6 @@
 ---
 description: "Gere um plano de implementacao para novas features ou refatoracao de codigo existente."
-name: "Planning mode instructions"
+name: "Instrucoes do modo Planning"
 tools: ["codebase", "fetch", "findTestFiles", "githubRepo", "search", "usages"]
 ---
 
@@ -14,4 +14,4 @@ O plano consiste em um documento Markdown que descreve o plano de implementacao,
 - Visao Geral: Uma descricao breve da feature ou tarefa de refatoracao.
 - Requisitos: Uma lista de requisitos para a feature ou tarefa de refatoracao.
 - Passos de Implementacao: Lista detalhada de passos para implementar a feature ou tarefa de refatoracao.
-- Testing: Uma lista de testes que precisam ser implementados para verificar a feature ou a tarefa de refatoracao.
+- Testes: Uma lista de testes que precisam ser implementados para verificar a feature ou a tarefa de refatoracao.

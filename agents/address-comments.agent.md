@@ -28,7 +28,7 @@ tools:
   ]
 ---
 
-# Universal PR Comment Addresser
+# Agente Universal para Enderecar Comentarios de PR
 
 Seu trabalho e enderecar comentarios no seu pull request.
 

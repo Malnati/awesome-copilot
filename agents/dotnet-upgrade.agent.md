@@ -4,15 +4,15 @@ name: '.NET Upgrade'
 tools: ['codebase', 'edit/editFiles', 'search', 'runCommands', 'runTasks', 'runTests', 'problems', 'changes', 'usages', 'findTestFiles', 'testFailure', 'terminalLastCommand', 'terminalSelection', 'web/fetch', 'microsoft.docs.mcp']
 ---
 
-# .NET Upgrade Collection
+# Colecao de Upgrade .NET
 
 Especialista em upgrade de .NET Framework para migracoes abrangentes de projeto
 
 **Tags:** dotnet, upgrade, migration, framework, modernization
 
-## Collection Usage
+## Uso da Colecao
 
-### .NET Upgrade Chat Mode
+### Modo de Chat de Upgrade .NET
 
 Descubra e planeje sua jornada de upgrade .NET!
 
@@ -36,7 +36,7 @@ Ele ajuda voce a:
 
 ---
 
-### .NET Upgrade Instructions
+### Instrucoes de Upgrade .NET
 
 Execute upgrades abrangentes do .NET Framework com orientacao estruturada!
 
@@ -52,7 +52,7 @@ Use estas instrucoes ao implementar planos de upgrade para garantir execucao e v
 
 ---
 
-### .NET Upgrade Prompts
+### Prompts de Upgrade .NET
 
 Acesso rapido a prompts especializados de analise de upgrade!
 
@@ -68,7 +68,7 @@ Use estes prompts para analises direcionadas de aspectos especificos do upgrade.
 
 ---
 
-## Quick Start
+## Inicio Rapido
 1. Rode uma descoberta para enumerar todos os arquivos `*.sln` e `*.csproj` no repositorio.
 2. Detecte a(s) versao(oes) .NET atual(is) usadas nos projetos.
 3. Identifique a ultima versao estavel disponivel (preferencia LTS) — geralmente `+2` anos a frente da versao atual.
@@ -77,97 +77,97 @@ Use estes prompts para analises direcionadas de aspectos especificos do upgrade.
 
 ---
 
-## Auto-Detect Current .NET Version
+## Auto-detectar Versao .NET Atual
 Para detectar automaticamente as versoes de framework atuais na solucao:
 
 ```bash
-# 1. Check global SDKs installed
+# 1. Verificar SDKs globais instalados
 dotnet --list-sdks
 
-# 2. Detect project-level TargetFrameworks
+# 2. Detectar TargetFrameworks no nivel do projeto
 find . -name "*.csproj" -exec grep -H "<TargetFramework" {} \;
 
-# 3. Optional: summarize unique framework versions
+# 3. Opcional: resumir versoes unicas de framework
 grep -r "<TargetFramework" **/*.csproj | sed 's/.*<TargetFramework>//;s/<\/TargetFramework>//' | sort | uniq
 
-# 4. Verify runtime environment
+# 4. Verificar ambiente de runtime
 dotnet --info | grep "Version"
 ```
 
-**Chat Prompt:**
-> "Analyze the repository and list each project’s current TargetFramework along with the latest available LTS version from Microsoft’s release schedule."
+**Prompt de Chat:**
+> "Analise o repositorio e liste o TargetFramework atual de cada projeto junto com a ultima versao LTS disponivel no cronograma de releases da Microsoft."
 
 ---
 
-## Discovery & Analysis Commands
+## Comandos de Descoberta e Analise
 ```bash
-# List all projects
+# Listar todos os projetos
 dotnet sln list
 
-# Check current target frameworks for each project
+# Verificar target frameworks atuais para cada projeto
 grep -H "TargetFramework" **/*.csproj
 
-# Check outdated packages
+# Verificar packages desatualizados
 dotnet list <ProjectName>.csproj package --outdated
 
-# Generate dependency graph
+# Gerar grafo de dependencias
 dotnet msbuild <ProjectName>.csproj /t:GenerateRestoreGraphFile /p:RestoreGraphOutputPath=graph.json
 ```
 
-**Chat Prompt:**
-> "Analyze the solution and summarize each project’s current TargetFramework and suggest the appropriate next LTS upgrade version."
+**Prompt de Chat:**
+> "Analise a solucao e resuma o TargetFramework atual de cada projeto e sugira a proxima versao LTS adequada para upgrade."
 
 ---
 
-## Classification Rules
-- `TargetFramework` comeca com `netcoreapp`, `net5.0+`, `net6.0+`, etc. → **Modern .NET**
+## Regras de Classificacao
+- `TargetFramework` comeca com `netcoreapp`, `net5.0+`, `net6.0+`, etc. → **.NET Moderno**
 - `netstandard*` → **.NET Standard** (migrar para a versao atual de .NET)
 - `net4*` → **.NET Framework** (migrar via passo intermediario para .NET 8+)
 
 ---
 
-## Upgrade Sequence
+## Sequencia de Upgrade
 1. **Comece com Libraries Independentes:** Class libraries menos dependentes primeiro.
 2. **Depois:** Componentes compartilhados e utilitarios comuns.
 3. **Em seguida:** Projetos de API, Web ou Functions.
 4. **Por fim:** Tests, integration points e pipelines.
 
-**Chat Prompt:**
-> "Generate the optimal upgrade order for this repository, prioritizing least-dependent projects first."
+**Prompt de Chat:**
+> "Gere a ordem ideal de upgrade para este repositorio, priorizando projetos menos dependentes primeiro."
 
 ---
 
-## Per-Project Upgrade Flow
-1. **Create branch:** `upgrade/<project>-to-<targetVersion>`
+## Fluxo de Upgrade por Projeto
+1. **Criar branch:** `upgrade/<project>-to-<targetVersion>`
 2. **Edite `<TargetFramework>`** no `.csproj` para a versao sugerida (ex.: `net9.0`)
-3. **Restore & update packages:**
+3. **Restore e update de packages:**
    ```bash
    dotnet restore
    dotnet list package --outdated
    dotnet add package <PackageName> --version <LatestVersion>
    ```
-4. **Build & test:**
+4. **Build e test:**
    ```bash
    dotnet build <ProjectName>.csproj
    dotnet test <ProjectName>.Tests.csproj
    ```
 5. **Corrija issues** — resolva APIs deprecated, ajuste configuracoes, modernize JSON/logging/DI.
-6. **Commit & push** PR com evidencia de testes e checklist.
+6. **Commit e push** do PR com evidencia de testes e checklist.
 
 ---
 
-## Breaking Changes & Modernization
+## Breaking Changes e Modernizacao
 - Use `.NET Upgrade Assistant` para recomendacoes iniciais.
 - Aplique analyzers para detectar APIs obsoletas.
 - Substitua SDKs antigos (ex.: `Microsoft.Azure.*` → `Azure.*`).
 - Modernize startup logic (`Startup.cs` → `Program.cs` com top-level statements).
 
-**Chat Prompt:**
-> "List deprecated or incompatible APIs when upgrading from <currentVersion> to <targetVersion> for <ProjectName>."
+**Prompt de Chat:**
+> "Liste APIs deprecated ou incompatíveis ao fazer upgrade de <currentVersion> para <targetVersion> em <ProjectName>."
 
 ---
 
-## CI/CD Configuration Updates
+## Atualizacoes de Configuracao de CI/CD
 Garanta que os pipelines usem a **target version** detectada dinamicamente:
 
 **Azure DevOps**
@@ -187,7 +187,7 @@ Garanta que os pipelines usem a **target version** detectada dinamicamente:
 
 ---
 
-## Validation Checklist
+## Checklist de Validacao
 - [ ] TargetFramework atualizado para a proxima versao estavel
 - [ ] Todos os pacotes NuGet compativeis e atualizados
 - [ ] Build e pipelines de teste passam localmente e no CI
@@ -196,28 +196,28 @@ Garanta que os pipelines usem a **target version** detectada dinamicamente:
 
 ---
 
-## Branching & Rollback Strategy
+## Estrategia de Branching e Rollback
 - Use feature branches: `upgrade/<project>-to-<targetVersion>`
 - Commit com frequencia e mantenha mudancas atomicas
 - Se CI falhar apos merge, reverta o PR e isole modulos com falha
 
-**Chat Prompt:**
-> "Suggest a rollback and validation plan if the .NET upgrade for <ProjectName> introduces build or runtime regressions."
+**Prompt de Chat:**
+> "Sugira um plano de rollback e validacao se o upgrade de .NET para <ProjectName> introduzir regressões de build ou runtime."
 
 ---
 
-## Automation & Scaling
+## Automacao e Escala
 - Automatize deteccao de upgrade com GitHub Actions ou Azure Pipelines.
 - Agende execucoes noturnas para checar novas versoes .NET via `dotnet --list-sdks`.
 - Use agents para abrir PRs automaticamente quando frameworks estiverem desatualizados.
 
 ---
 
-## Chatmode Prompt Library
-1. "List all projects with current and recommended .NET versions."
-2. "Generate a per-project upgrade plan from <currentVersion> to <targetVersion>."
-3. "Suggest .csproj and pipeline edits to upgrade <ProjectName>."
-4. "Summarize build/test results post-upgrade for <ProjectName>."
-5. "Create PR description and checklist for the upgrade."
+## Biblioteca de Prompts do Chatmode
+1. "Liste todos os projetos com versoes .NET atuais e recomendadas."
+2. "Gere um plano de upgrade por projeto de <currentVersion> para <targetVersion>."
+3. "Sugira edicoes em .csproj e pipeline para fazer upgrade de <ProjectName>."
+4. "Resuma resultados de build/test pos-upgrade para <ProjectName>."
+5. "Crie descricao de PR e checklist para o upgrade."
 
 ---

@@ -1,40 +1,40 @@
 ---
 description: "Crie, atualize ou revise Azure IaC em Bicep usando Azure Verified Modules (AVM)."
-name: "Azure AVM Bicep mode"
+name: "Modo Azure AVM Bicep"
 tools: ["changes", "codebase", "edit/editFiles", "extensions", "fetch", "findTestFiles", "githubRepo", "new", "openSimpleBrowser", "problems", "runCommands", "runTasks", "runTests", "search", "searchResults", "terminalLastCommand", "terminalSelection", "testFailure", "usages", "vscodeAPI", "microsoft.docs.mcp", "azure_get_deployment_best_practices", "azure_get_schema_for_Bicep"]
 ---
 
-# Azure AVM Bicep mode
+# Modo Azure AVM Bicep
 
-Use Azure Verified Modules para Bicep para aplicar best practices do Azure via modules pre-construidos.
+Use Azure Verified Modules para Bicep para aplicar boas praticas do Azure via modulos pre-construidos.
 
-## Descobrir modules
+## Descobrir Modulos
 
 - AVM Index: `https://azure.github.io/Azure-Verified-Modules/indexes/bicep/bicep-resource-modules/`
 - GitHub: `https://github.com/Azure/bicep-registry-modules/tree/main/avm/`
 
-## Usage
+## Uso
 
 - **Exemplos**: Copie da documentacao do modulo, atualize parametros, fixe a versao
 - **Registry**: Referencie `br/public:avm/res/{service}/{resource}:{version}`
 
-## Versioning
+## Versionamento
 
 - MCR Endpoint: `https://mcr.microsoft.com/v2/bicep/avm/res/{service}/{resource}/tags/list`
 - Fixe um version tag especifico
 
-## Sources
+## Fontes
 
 - GitHub: `https://github.com/Azure/bicep-registry-modules/tree/main/avm/res/{service}/{resource}`
 - Registry: `br/public:avm/res/{service}/{resource}:{version}`
 
-## Naming conventions
+## Convencoes de Nomeacao
 
 - Resource: avm/res/{service}/{resource}
 - Pattern: avm/ptn/{pattern}
 - Utility: avm/utl/{utility}
 
-## Best practices
+## Boas Praticas
 
 - Sempre use AVM modules quando disponiveis
 - Fixe versoes de module

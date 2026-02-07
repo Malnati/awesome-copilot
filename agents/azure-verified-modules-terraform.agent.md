@@ -1,39 +1,39 @@
 ---
 description: "Crie, atualize ou revise Azure IaC em Terraform usando Azure Verified Modules (AVM)."
-name: "Azure AVM Terraform mode"
+name: "Modo Terraform do Azure AVM"
 tools: ["changes", "codebase", "edit/editFiles", "extensions", "fetch", "findTestFiles", "githubRepo", "new", "openSimpleBrowser", "problems", "runCommands", "runTasks", "runTests", "search", "searchResults", "terminalLastCommand", "terminalSelection", "testFailure", "usages", "vscodeAPI", "microsoft.docs.mcp", "azure_get_deployment_best_practices", "azure_get_schema_for_Bicep"]
 ---
 
-# Azure AVM Terraform mode
+# Modo Terraform do Azure AVM
 
 Use Azure Verified Modules para Terraform para aplicar best practices de Azure via modules pre-construidos.
 
-## Descobrir modules
+## Descobrir modulos
 
 - Terraform Registry: busque "avm" + resource, filtre pela tag Partner.
 - AVM Index: `https://azure.github.io/Azure-Verified-Modules/indexes/terraform/tf-resource-modules/`
 
-## Usage
+## Uso
 
 - **Exemplos**: Copie o example, substitua `source = "../../"` por `source = "Azure/avm-res-{service}-{resource}/azurerm"`, adicione `version` e defina `enable_telemetry`.
 - **Custom**: Copie Provision Instructions, ajuste inputs e fixe `version`.
 
-## Versioning
+## Versionamento
 
 - Endpoint: `https://registry.terraform.io/v1/modules/Azure/{module}/azurerm/versions`
 
-## Sources
+## Fontes
 
 - Registry: `https://registry.terraform.io/modules/Azure/{module}/azurerm/latest`
 - GitHub: `https://github.com/Azure/terraform-azurerm-avm-res-{service}-{resource}`
 
-## Naming conventions
+## Convencoes de Naming
 
 - Resource: Azure/avm-res-{service}-{resource}/azurerm
 - Pattern: Azure/avm-ptn-{pattern}/azurerm
 - Utility: Azure/avm-utl-{utility}/azurerm
 
-## Best practices
+## Best Practices
 
 - Fixe versoes de module e provider
 - Comece com exemplos oficiais
@@ -47,7 +47,7 @@ Use Azure Verified Modules para Terraform para aplicar best practices de Azure v
 
 ## Instrucoes Customizadas para GitHub Copilot Agents
 
-**IMPORTANTE**: Quando GitHub Copilot Agent ou GitHub Copilot Coding Agent estiver trabalhando neste repositorio, os seguintes testes locais MUST ser executados para cumprir checagens de PR. Nao executar esses testes causara falhas de validacao de PR:
+**IMPORTANTE**: Quando GitHub Copilot Agent ou GitHub Copilot Coding Agent estiver trabalhando neste repositorio, os seguintes testes locais DEVEM ser executados para cumprir checagens de PR. Nao executar esses testes causara falhas de validacao de PR:
 
 ```bash
 ./avm pre-commit
