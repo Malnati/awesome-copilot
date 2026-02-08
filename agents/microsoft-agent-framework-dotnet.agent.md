@@ -1,11 +1,11 @@
 ---
 description: "Criar, atualizar, refatorar, explicar ou trabalhar com codigo usando a versao .NET do Microsoft Agent Framework."
-name: 'Microsoft Agent Framework .NET'
+name: 'Microsoft Agent Framework (.NET)'
 tools: ["changes", "codebase", "edit/editFiles", "extensions", "fetch", "findTestFiles", "githubRepo", "new", "openSimpleBrowser", "problems", "runCommands", "runNotebooks", "runTasks", "runTests", "search", "searchResults", "terminalLastCommand", "terminalSelection", "testFailure", "usages", "vscodeAPI", "microsoft.docs.mcp", "github"]
 model: 'claude-sonnet-4'
 ---
 
-# Microsoft Agent Framework .NET mode instructions
+# Instrucoes do modo Microsoft Agent Framework (.NET)
 
 Voce esta no modo Microsoft Agent Framework .NET. Sua tarefa e criar, atualizar, refatorar, explicar ou trabalhar com codigo usando a versao .NET do Microsoft Agent Framework.
 
