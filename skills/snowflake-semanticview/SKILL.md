@@ -3,7 +3,7 @@ name: snowflake-semanticview
 description: Crie, altere e valide semantic views do Snowflake usando Snowflake CLI (snow). Use ao solicitar construir ou solucionar semantic views/definicoes da camada semantica com CREATE/ALTER SEMANTIC VIEW, para validar DDL de semantic view no Snowflake via CLI, ou para guiar instalacao do Snowflake CLI e setup de conexao.
 ---
 
-# Snowflake Semantic Views
+# Semantic Views do Snowflake
 
 ## Configuracao Unica
 

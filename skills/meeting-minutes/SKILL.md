@@ -13,15 +13,15 @@ Esta skill produz atas de reuniao de alta qualidade e consistencia para reunioes
 
 Use esta skill quando:
 
-- Syncs internas, standups, design reviews, triage, planning ou reunioes ad-hoc de curta duracao
+- Sincronizacoes internas (syncs), standups, revisoes de design (design reviews), triage, planning ou reunioes ad-hoc de curta duracao
 - Situacoes que exigem um registro conciso de decisoes, itens de acao atribuídos e follow-ups
 - Criar um documento padronizado de atas a partir de reuniao ao vivo, transcricao, gravacao ou notas
 
 ---
 
-## Workflow Operacional
+## Fluxo de Trabalho Operacional
 
-### Fase 1: Intake (antes de redigir)
+### Fase 1: Coleta (Intake) (antes de redigir)
 
 - Obtenha metadados da reuniao: titulo, data, hora inicio/fim (ou duracao), organizador e publico-alvo.
 - Confirme entradas disponiveis: agenda, slides, gravacao, transcricao ou notas brutas.
@@ -46,7 +46,7 @@ Use esta skill quando:
 
 ---
 
-## Discovery (perguntas de esclarecimento obrigatorias)
+## Descoberta (Discovery) (perguntas de esclarecimento obrigatorias)
 
 Antes de gerar as atas, o agente **DEVE** fazer ate tres perguntas de esclarecimento se algum destes itens estiver faltando:
 
@@ -131,7 +131,7 @@ Breve, factual, timestamp opcional:
     - Q1: texto da pergunta (owner se atribuido)
 - **Agenda Item 2**: ...
 
-### 8. Parking Lot / Itens Nao Resolvidos
+### 8. Parking Lot (Itens Nao Resolvidos)
 
 - **Item**: descricao curta
   - Por que foi estacionado / proximo passo:

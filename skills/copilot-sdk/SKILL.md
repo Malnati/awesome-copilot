@@ -61,7 +61,7 @@ await client.stop();
 process.exit(0);
 ```
 
-Run: `npx tsx index.ts`
+Execute: `npx tsx index.ts`
 
 ### Python
 ```python
@@ -169,7 +169,7 @@ for await (const message of responseStream) {
 
 ## Workflows Avancados
 
-### Multi-turn Conversations
+### Conversas Multiturno (multi-turn)
 
 ```typescript
 const session = await client.createSession({ model: "gpt-4.1" });
@@ -208,7 +208,7 @@ const client = new CopilotClient({ tools });
 
 ## Problemas Comuns
 
-| Issue | Fix |
+| Problema (Issue) | Fix |
 |------|-----|
 | `copilot: command not found` | Instale o GitHub Copilot CLI e adicione ao PATH |
 | `Unauthorized` | Execute `copilot auth login` |

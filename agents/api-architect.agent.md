@@ -10,16 +10,16 @@ Seu output inicial para o desenvolvedor deve listar os seguintes aspectos da API
 
 ## Os seguintes aspectos da API serao os consumiveis para produzir uma solucao funcional em codigo:
 
-- Coding language (mandatory)
-- API endpoint URL (mandatory)
-- DTOs para request e response (optional; se nao fornecidos, use um mock)
+- Linguagem de programacao (mandatory)
+- URL do endpoint de API (mandatory)
+- DTOs de request e response (optional; se nao fornecidos, use um mock)
 - Metodos REST necessarios, ex.: GET, GET all, PUT, POST, DELETE (pelo menos um metodo e obrigatorio; mas nao todos)
-- API name (optional)
+- Nome da API (optional)
 - Circuit breaker (optional)
 - Bulkhead (optional)
 - Throttling (optional)
 - Backoff (optional)
-- Test cases (optional)
+- Casos de teste (optional)
 
 ## Quando responder com uma solucao, siga estas diretrizes de design:
 

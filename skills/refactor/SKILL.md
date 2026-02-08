@@ -4,7 +4,7 @@ description: 'Refatoracao cirurgica de codigo para melhorar manutenibilidade sem
 license: MIT
 ---
 
-# Refactor
+# Refatoracao
 
 ## Visao Geral
 
@@ -43,12 +43,12 @@ Use esta skill quando:
 
 ---
 
-## Code Smells Comuns e Correcoes
+## Code Smells (Maus Cheiros) Comuns e Correcoes
 
 ### 1. Metodo/Funcao Longa
 
 ```diff
-# BAD: 200-line function that does everything
+# RUIM: funcao de 200 linhas que faz tudo
 - async function processOrder(orderId) {
 -   // 50 lines: fetch order
 -   // 30 lines: validate order
@@ -58,7 +58,7 @@ Use esta skill quando:
 -   // 30 lines: send notifications
 - }
 
-# GOOD: Broken into focused functions
+# BOM: quebrada em funcoes focadas
 + async function processOrder(orderId) {
 +   const order = await fetchOrder(orderId);
 +   validateOrder(order);
@@ -73,7 +73,7 @@ Use esta skill quando:
 ### 2. Codigo Duplicado
 
 ```diff
-# BAD: Same logic in multiple places
+# RUIM: mesma logica em varios lugares
 - function calculateUserDiscount(user) {
 -   if (user.membership === 'gold') return user.total * 0.2;
 -   if (user.membership === 'silver') return user.total * 0.1;
@@ -86,7 +86,7 @@ Use esta skill quando:
 -   return 0;
 - }
 
-# GOOD: Extract common logic
+# BOM: extraia logica comum
 + function getMembershipDiscountRate(membership) {
 +   const rates = { gold: 0.2, silver: 0.1 };
 +   return rates[membership] || 0;
@@ -104,7 +104,7 @@ Use esta skill quando:
 ### 3. Classe/Modulo Grande
 
 ```diff
-# BAD: God object that knows too much
+# RUIM: god object que sabe demais
 - class UserManager {
 -   createUser() { /* ... */ }
 -   updateUser() { /* ... */ }
@@ -116,7 +116,7 @@ Use esta skill quando:
 -   // 50 more methods...
 - }
 
-# GOOD: Single responsibility per class
+# BOM: responsabilidade unica por classe
 + class UserService {
 +   create(data) { /* ... */ }
 +   update(id, data) { /* ... */ }
@@ -139,12 +139,12 @@ Use esta skill quando:
 ### 4. Lista Longa de Parametros
 
 ```diff
-# BAD: Too many parameters
+# RUIM: parametros demais
 - function createUser(email, password, name, age, address, city, country, phone) {
 -   /* ... */
 - }
 
-# GOOD: Group related parameters
+# BOM: agrupe parametros relacionados
 + interface UserData {
 +   email: string;
 +   password: string;
@@ -158,7 +158,7 @@ Use esta skill quando:
 +   /* ... */
 + }
 
-# EVEN BETTER: Use builder pattern for complex construction
+# AINDA MELHOR: use builder pattern para construcao complexa
 + const user = UserBuilder
 +   .email('test@example.com')
 +   .password('secure123')
@@ -167,10 +167,10 @@ Use esta skill quando:
 +   .build();
 ```
 
-### 5. Feature Envy
+### 5. Inveja de Funcionalidade (Feature Envy)
 
 ```diff
-# BAD: Method that uses another object's data more than its own
+# RUIM: metodo que usa mais dados de outro objeto do que os proprios
 - class Order {
 -   calculateDiscount(user) {
 -     if (user.membershipLevel === 'gold') {
@@ -183,7 +183,7 @@ Use esta skill quando:
 +   }
 + }
 
-# GOOD: Move logic to the object that owns the data
+# BOM: mova a logica para o objeto que possui os dados
 + class User {
 +   getDiscountRate(orderTotal) {
 +     if (this.membershipLevel === 'gold') return 0.2;

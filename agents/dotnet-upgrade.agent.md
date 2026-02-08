@@ -1,5 +1,5 @@
 ---
-description: 'Execute tarefas de manutencao em C#/.NET incluindo cleanup, modernization e remediacao de tech debt.'
+description: 'Execute tarefas de manutencao em C#/.NET incluindo limpeza, modernizacao e remediacao de tech debt.'
 name: '.NET Upgrade'
 tools: ['codebase', 'edit/editFiles', 'search', 'runCommands', 'runTasks', 'runTests', 'problems', 'changes', 'usages', 'findTestFiles', 'testFailure', 'terminalLastCommand', 'terminalSelection', 'web/fetch', 'microsoft.docs.mcp']
 ---

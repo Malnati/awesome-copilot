@@ -19,7 +19,7 @@ Padroes de auto-melhoria por meio de avaliacao e refinamento iterativos.
 Padroes de avaliacao permitem que agentes avaliem e melhorem suas proprias saidas, indo alem de geracao single-shot para loops de refinamento iterativos.
 
 ```
-Gerar → Avaliar → Criticar → Refinar → Saida
+Generate → Evaluate → Critique → Refine → Output
     ↑                              │
     └──────────────────────────────┘
 ```

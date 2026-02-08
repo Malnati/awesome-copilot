@@ -3,11 +3,11 @@ name: nuget-manager
 description: 'Gerencie pacotes NuGet em projetos/solucoes .NET. Use esta skill ao adicionar, remover ou atualizar versoes de pacotes NuGet. Ela reforca o uso do `dotnet` CLI para gerenciamento e define procedimentos estritos para edicoes diretas de arquivo apenas ao atualizar versoes.'
 ---
 
-# NuGet Manager
+# Gerenciador do NuGet
 
 ## Visao Geral
 
-Esta skill garante gerenciamento consistente e seguro de pacotes NuGet em projetos .NET. Ela prioriza o uso do `dotnet` CLI para manter a integridade do projeto e aplica um workflow estrito de verificacao e restore para atualizacoes de versao.
+Esta skill garante gerenciamento consistente e seguro de pacotes NuGet em projetos .NET. Ela prioriza o uso do `dotnet` CLI para manter a integridade do projeto e aplica um fluxo de trabalho (workflow) estrito de verificacao e restore para atualizacoes de versao.
 
 ## Pre-requisitos
 
@@ -19,7 +19,7 @@ Esta skill garante gerenciamento consistente e seguro de pacotes NuGet em projet
 
 1.  **NUNCA** edite diretamente `.csproj`, `.props` ou `Directory.Packages.props` para **adicionar** ou **remover** pacotes. Sempre use `dotnet add package` e `dotnet remove package`.
 2.  **EDICAO DIRETA** e permitida APENAS para **alterar versoes** de pacotes existentes.
-3.  **ATUALIZACOES DE VERSAO** devem seguir o workflow obrigatorio:
+3.  **ATUALIZACOES DE VERSAO** devem seguir o fluxo de trabalho (workflow) obrigatorio:
     - Verificar se a versao alvo existe no NuGet.
     - Determinar se as versoes sao gerenciadas por projeto (`.csproj`) ou centralmente (`Directory.Packages.props`).
     - Atualizar a string de versao no arquivo apropriado.

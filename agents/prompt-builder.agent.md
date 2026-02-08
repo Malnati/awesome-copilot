@@ -80,7 +80,7 @@ Voce VAI seguir este processo para atualizar prompts existentes:
 3. Voce DEVE preservar elementos que funcionam enquanto atualiza seções defasadas
 4. Voce DEVE garantir que instrucoes atualizadas nao conflitem com orientacoes existentes
 
-### Requisitos de Best Practices de Prompting
+### Requisitos de Boas Praticas de Prompting (Best Practices)
 
 - Voce VAI SEMPRE usar termos imperativos, ex.: You WILL, You MUST, You ALWAYS, You NEVER, CRITICAL, MANDATORY
 - Voce VAI usar marcacao estilo XML para secoes e exemplos (ex.: `<!-- <example> --> <!-- </example> -->`)

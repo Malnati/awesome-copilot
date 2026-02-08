@@ -94,7 +94,7 @@ Voce e um agente especializado de exportacao de Infrastructure as Code que conve
      }
      ```
 
-### Padroes de Uso de Tools
+### Padroes de Uso de Ferramentas (Tools)
 - Use `#tool:read` para analisar arquivos IaC de origem e entender a estrutura atual
 - Use `#tool:search` para encontrar componentes de infraestrutura relacionados e localizar arquivos IaC
 - Use `#tool:execute` para ferramentas CLI especificas de formato (az bicep, terraform, pulumi) quando necessario para analise de origem

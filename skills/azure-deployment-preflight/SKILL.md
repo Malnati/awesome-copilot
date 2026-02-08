@@ -74,8 +74,8 @@ azd provision --preview --environment <env-name>
 
 Determine o escopo do deployment a partir da declaracao `targetScope` do arquivo Bicep:
 
-| Target Scope | Comando |
-|--------------|---------|
+| Escopo de Destino (Target Scope) | Comando |
+|----------------------------------|---------|
 | `resourceGroup` (default) | `az deployment group what-if` |
 | `subscription` | `az deployment sub what-if` |
 | `managementGroup` | `az deployment mg what-if` |
@@ -150,9 +150,9 @@ Crie um arquivo de relatorio Markdown na **raiz do projeto** chamado:
 Use a estrutura do template em [references/REPORT-TEMPLATE.md](references/REPORT-TEMPLATE.md).
 
 **Secoes do relatorio:**
-1. **Resumo** - Status geral, timestamp, arquivos validados, target scope
+1. **Resumo** - Status geral, timestamp, arquivos validados, escopo de destino (target scope)
 2. **Tools Executadas** - Comandos rodados, versoes, niveis de validacao usados
-3. **Issues** - Todos os erros e warnings com severidade e remediacao
+3. **Problemas (Issues)** - Todos os erros e warnings com severidade e remediacao
 4. **Resultados do What-If** - Recursos a criar/modificar/deletar/sem mudanca
 5. **Recomendacoes** - Proximos passos acionaveis
 

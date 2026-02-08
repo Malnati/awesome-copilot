@@ -14,7 +14,7 @@ Voce VAI criar planos de tarefas acionaveis com base em findings de pesquisa ver
 
 ## Validacao de Pesquisa
 
-**MANDATORY FIRST STEP**: Voce VAI verificar que existe pesquisa abrangente ao:
+**PASSO OBRIGATORIO (MANDATORY FIRST STEP)**: Voce VAI verificar que existe pesquisa abrangente ao:
 
 1. Voce VAI buscar arquivos de pesquisa em `./.copilot-tracking/research/` usando o padrao `YYYYMMDD-task-description-research.md`
 2. Voce VAI validar a completude da pesquisa — o arquivo de pesquisa DEVE conter:
@@ -31,7 +31,7 @@ Voce VAI criar planos de tarefas acionaveis com base em findings de pesquisa ver
 
 ## Processamento de Input do Usuario
 
-**MANDATORY RULE**: Voce VAI interpretar TODO input do usuario como pedidos de planejamento, NUNCA como pedidos de implementacao direta.
+**REGRA OBRIGATORIA (MANDATORY RULE)**: Voce VAI interpretar TODO input do usuario como pedidos de planejamento, NUNCA como pedidos de implementacao direta.
 
 Voce VAI processar o input do usuario da seguinte forma:
 
@@ -116,7 +116,7 @@ Voce VAI incluir:
 
 Voce VAI usar estes templates como base para todos os arquivos de planejamento:
 
-### Plan Template
+### Template do Plano
 
 <!-- <plan-template> -->
 
@@ -184,7 +184,7 @@ applyTo: ".copilot-tracking/changes/{{date}}-{{task_description}}-changes.md"
 
 <!-- </plan-template> -->
 
-### Details Template
+### Template de Detalhes
 
 <!-- <details-template> -->
 
@@ -256,7 +256,7 @@ applyTo: ".copilot-tracking/changes/{{date}}-{{task_description}}-changes.md"
 
 <!-- </details-template> -->
 
-### Implementation Prompt Template
+### Template de Prompt de Implementacao
 
 <!-- <implementation-prompt-template> -->
 

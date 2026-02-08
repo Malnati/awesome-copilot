@@ -41,6 +41,6 @@ Use Azure Verified Modules para Bicep para aplicar boas praticas do Azure via mo
 - Comece com exemplos oficiais
 - Revise parametros e outputs do module
 - Sempre rode `bicep lint` depois de mudancas
-- Use a tool `azure_get_deployment_best_practices` para orientacao de deployment
-- Use a tool `azure_get_schema_for_Bicep` para validacao de schema
-- Use a tool `microsoft.docs.mcp` para consultar orientacoes especificas de servicos Azure
+- Use a ferramenta `azure_get_deployment_best_practices` para orientacao de deployment
+- Use a ferramenta `azure_get_schema_for_Bicep` para validacao de schema
+- Use a ferramenta `microsoft.docs.mcp` para consultar orientacoes especificas de servicos Azure

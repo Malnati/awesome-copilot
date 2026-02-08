@@ -80,9 +80,9 @@ Apos o frontmatter, adicione instrucoes em markdown. Secoes recomendadas:
 | Secao | Proposito |
 |---------|---------|
 | `# Title` | Visao geral breve |
-| `## When to Use This Skill` | Reforca gatilhos da descricao |
-| `## Prerequisites` | Tools e dependencias requeridas |
-| `## Step-by-Step Workflows` | Passos numerados para tarefas |
+| `## Quando Usar Esta Skill` | Reforca gatilhos da descricao |
+| `## Pre-requisitos` | Tools e dependencias requeridas |
+| `## Workflows Passo a Passo` | Passos numerados para tarefas |
 | `## Solucao de Problemas` | Issues comuns e solucoes |
 | `## Referencias` | Links para docs incluidos |
 

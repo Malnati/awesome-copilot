@@ -3,7 +3,7 @@ name: azure-devops-cli
 description: Gerencie recursos do Azure DevOps via CLI, incluindo projetos, repos, pipelines, builds, pull requests, work items, artifacts e service endpoints. Use ao trabalhar com Azure DevOps, comandos az, automacao devops, CI/CD ou quando o usuario mencionar Azure DevOps CLI.
 ---
 
-# Azure DevOps CLI
+# CLI do Azure DevOps
 
 Esta skill ajuda a gerenciar recursos do Azure DevOps usando o Azure CLI com a extensao Azure DevOps.
 
@@ -213,7 +213,7 @@ az repos import create \
   --password {password-or-pat}
 ```
 
-## Pull Requests
+## Pull Requests (PRs)
 
 ### Criar Pull Request
 
@@ -608,22 +608,22 @@ az pipelines variable update \
 az pipelines variable delete --name {var-name} --pipeline-id {pipeline-id} --yes
 ```
 
-## Variable Groups
+## Grupos de Variaveis (Variable Groups)
 
-### Listar Variable Groups
+### Listar Grupos de Variaveis (Variable Groups)
 
 ```bash
 az pipelines variable-group list
 az pipelines variable-group list --output table
 ```
 
-### Mostrar Variable Group
+### Mostrar Grupo de Variaveis (Variable Group)
 
 ```bash
 az pipelines variable-group show --id {group-id}
 ```
 
-### Criar Variable Group
+### Criar Grupo de Variaveis (Variable Group)
 
 ```bash
 az pipelines variable-group create \
@@ -632,7 +632,7 @@ az pipelines variable-group create \
   --authorize true
 ```
 
-### Atualizar Variable Group
+### Atualizar Grupo de Variaveis (Variable Group)
 
 ```bash
 az pipelines variable-group update \
@@ -641,13 +641,13 @@ az pipelines variable-group update \
   --description "Updated description"
 ```
 
-### Deletar Variable Group
+### Deletar Grupo de Variaveis (Variable Group)
 
 ```bash
 az pipelines variable-group delete --id {group-id} --yes
 ```
 
-### Variaveis do Variable Group
+### Variaveis do Grupo de Variaveis (Variable Group)
 
 #### Listar Variaveis
 
@@ -722,9 +722,9 @@ az pipelines folder delete --path 'folder/subfolder'
 az pipelines folder update --path 'old-folder' --new-path 'new-folder'
 ```
 
-## Agent Pools
+## Pools de Agentes (Agent Pools)
 
-### Listar Agent Pools
+### Listar Pools de Agentes (Agent Pools)
 
 ```bash
 az pipelines pool list
@@ -732,22 +732,22 @@ az pipelines pool list --pool-type automation
 az pipelines pool list --pool-type deployment
 ```
 
-### Mostrar Agent Pool
+### Mostrar Pool de Agentes (Agent Pool)
 
 ```bash
 az pipelines pool show --pool-id {pool-id}
 ```
 
-## Agent Queues
+## Filas de Agentes (Agent Queues)
 
-### Listar Agent Queues
+### Listar Filas de Agentes (Agent Queues)
 
 ```bash
 az pipelines queue list
 az pipelines queue list --pool-name {pool-name}
 ```
 
-### Mostrar Agent Queue
+### Mostrar Fila de Agentes (Agent Queue)
 
 ```bash
 az pipelines queue show --id {queue-id}
@@ -863,7 +863,7 @@ az boards work-item relation add --id {work-item-id} --relation-type parent --ta
 az boards work-item relation remove --id {work-item-id} --relation-id {relation-id}
 ```
 
-## Area Paths
+## Caminhos de Area (Area Paths)
 
 ### Listar Areas do Projeto
 
@@ -919,7 +919,7 @@ az boards area team update \
   --include-sub-areas true
 ```
 
-## Iterations
+## Iteracoes (Iterations)
 
 ### Listar Iterations do Projeto
 
@@ -1171,7 +1171,7 @@ az repos policy file-size create \
   --maximum-file-size 10485760  # 10MB in bytes
 ```
 
-## Service Endpoints
+## Service Endpoints (Service Connections)
 
 ### Listar Service Endpoints
 
@@ -1199,21 +1199,21 @@ az devops service-endpoint create --service-endpoint-configuration endpoint.json
 az devops service-endpoint delete --id {endpoint-id} --project {project} --yes
 ```
 
-## Teams
+## Times (Teams)
 
-### Listar Teams
+### Listar Teams (Times)
 
 ```bash
 az devops team list --project {project}
 ```
 
-### Mostrar Team
+### Mostrar Team (Time)
 
 ```bash
 az devops team show --team {team-name} --project {project}
 ```
 
-### Criar Team
+### Criar Team (Time)
 
 ```bash
 az devops team create \
@@ -1222,7 +1222,7 @@ az devops team create \
   --project {project}
 ```
 
-### Atualizar Team
+### Atualizar Team (Time)
 
 ```bash
 az devops team update \
@@ -1232,13 +1232,13 @@ az devops team update \
   --description "Updated description"
 ```
 
-### Deletar Team
+### Deletar Team (Time)
 
 ```bash
 az devops team delete --team {team-name} --project {project} --yes
 ```
 
-### Mostrar Team Members
+### Mostrar Membros do Team (Team Members)
 
 ```bash
 az devops team list-member --team {team-name} --project {project}
@@ -1246,20 +1246,20 @@ az devops team list-member --team {team-name} --project {project}
 
 ## Usuarios
 
-### Listar Usuarios
+### Listar Usuarios (Users)
 
 ```bash
 az devops user list --org https://dev.azure.com/{org}
 az devops user list --top 10 --output table
 ```
 
-### Mostrar User
+### Mostrar Usuario (User)
 
 ```bash
 az devops user show --user {user-id-or-email} --org https://dev.azure.com/{org}
 ```
 
-### Adicionar User
+### Adicionar Usuario (User)
 
 ```bash
 az devops user add \
@@ -1268,7 +1268,7 @@ az devops user add \
   --org https://dev.azure.com/{org}
 ```
 
-### Atualizar User
+### Atualizar Usuario (User)
 
 ```bash
 az devops user update \
@@ -1277,7 +1277,7 @@ az devops user update \
   --org https://dev.azure.com/{org}
 ```
 
-### Remover User
+### Remover Usuario (User)
 
 ```bash
 az devops user remove --user {user-id-or-email} --org https://dev.azure.com/{org} --yes
@@ -1298,13 +1298,13 @@ az devops security group list --scope organization
 az devops security group list --project {project} --subject-types vstsgroup
 ```
 
-### Mostrar Detalhes do Group
+### Mostrar Detalhes do Group (Grupo)
 
 ```bash
 az devops security group show --group-id {group-id}
 ```
 
-### Criar Group
+### Criar Group (Grupo)
 
 ```bash
 az devops security group create \
@@ -1313,7 +1313,7 @@ az devops security group create \
   --project {project}
 ```
 
-### Atualizar Group
+### Atualizar Group (Grupo)
 
 ```bash
 az devops security group update \
@@ -1322,13 +1322,13 @@ az devops security group update \
   --description "Updated description"
 ```
 
-### Deletar Group
+### Deletar Group (Grupo)
 
 ```bash
 az devops security group delete --group-id {group-id} --yes
 ```
 
-### Memberships do Group
+### Memberships do Group (Grupo)
 
 ```bash
 # List memberships
@@ -1360,7 +1360,7 @@ az devops security permission namespace list
 az devops security permission namespace show --namespace "GitRepositories"
 ```
 
-### Listar Permissions
+### Listar Permissions (Permissoes)
 
 ```bash
 # List permissions for user/group and namespace
@@ -1377,7 +1377,7 @@ az devops security permission list \
   --token "repoV2/{project}/{repository-id}"
 ```
 
-### Mostrar Permissions
+### Mostrar Permissions (Permissoes)
 
 ```bash
 az devops security permission show \
@@ -1387,7 +1387,7 @@ az devops security permission show \
   --token "repoV2/{project}/{repository-id}"
 ```
 
-### Atualizar Permissions
+### Atualizar Permissions (Permissoes)
 
 ```bash
 # Grant permission
@@ -1407,7 +1407,7 @@ az devops security permission update \
   --permission-mask 0
 ```
 
-### Resetar Permissions
+### Resetar Permissions (Permissoes)
 
 ```bash
 # Reset specific permission bits
@@ -1469,7 +1469,7 @@ az devops wiki create \
 az devops wiki delete --wiki {wiki-id} --project {project} --yes
 ```
 
-### Wiki Pages
+### Paginas da Wiki (Wiki Pages)
 
 ```bash
 # List pages
@@ -1565,9 +1565,9 @@ az devops extension uninstall \
   --org https://dev.azure.com/{org} --yes
 ```
 
-## Universal Packages
+## Universal Packages (Pacotes Universais)
 
-### Publish Package
+### Publicar Pacote (Publish Package)
 
 ```bash
 az artifacts universal publish \
@@ -1578,7 +1578,7 @@ az artifacts universal publish \
   --project {project}
 ```
 
-### Download Package
+### Baixar Pacote (Download Package)
 
 ```bash
 az artifacts universal download \
@@ -1589,7 +1589,7 @@ az artifacts universal download \
   --project {project}
 ```
 
-## Agents
+## Agentes (Agents)
 
 ### Listar Agents no Pool
 
@@ -1603,9 +1603,9 @@ az pipelines agent list --pool-id {pool-id}
 az pipelines agent show --agent-id {agent-id} --pool-id {pool-id}
 ```
 
-## Git Aliases
+## Aliases do Git (Git Aliases)
 
-Depois de habilitar git aliases:
+Depois de habilitar os git aliases:
 
 ```bash
 # Enable Git aliases
@@ -2095,7 +2095,7 @@ az boards work-item relation list --id $PARENT_ID --query "[?rel=='System.LinkTy
 
 ## Padroes de Script para Operacoes Idempotentes
 
-### Padrao Create or Update
+### Padrao Create or Update (Criar ou Atualizar)
 
 ```bash
 # Ensure pipeline exists, update if different
@@ -2114,7 +2114,7 @@ ensure_pipeline() {
 }
 ```
 
-### Garantir Variable Group
+### Garantir Variable Group (Grupo de Variaveis)
 
 ```bash
 # Create variable group with idempotent updates
@@ -2140,7 +2140,7 @@ ensure_variable_group() {
 }
 ```
 
-### Garantir Service Connection
+### Garantir Service Connection (Conexao de Servico)
 
 ```bash
 # Check if service connection exists, create if not
@@ -2221,7 +2221,7 @@ sync_variable_groups() {
 
 ## Workflows do Mundo Real
 
-### Setup de Pipeline CI/CD
+### Configuracao de Pipeline CI/CD (Setup)
 
 ```bash
 # Setup complete CI/CD pipeline
@@ -2384,7 +2384,7 @@ apply_branch_policies() {
 }
 ```
 
-### Deploy Multi-Environment
+### Deploy Multi-Environment (Multiambiente)
 
 ```bash
 # Deploy across multiple environments
@@ -2447,7 +2447,7 @@ deploy_to_environments() {
 | `--detect`                 | Auto-detect organization a partir do git config                     |
 | `--yes` / `-y`             | Pular prompts de confirmacao                                        |
 | `--open`                   | Abrir recurso no web browser                                        |
-| `--subscription`           | Azure subscription (para recursos Azure)                            |
+| `--subscription`           | Subscription do Azure (para recursos Azure)                          |
 
 ## Ajuda
 

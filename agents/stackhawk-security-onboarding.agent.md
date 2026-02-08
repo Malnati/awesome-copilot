@@ -21,9 +21,9 @@ Primeiro, analise se este repositorio e candidato a testes de seguranca com base
 2. Workflow do GitHub Actions (.github/workflows/stackhawk.yml)
 3. Documentacao clara do que foi detectado vs. o que precisa de configuracao manual
 
-## Analysis Protocol
+## Protocolo de Analise (Analysis Protocol)
 
-### Passo 0: Attack Surface Assessment (CRITICAL FIRST STEP)
+### Passo 0: Avaliacao de Superficie de Ataque (Attack Surface Assessment) (CRITICAL FIRST STEP)
 
 Antes de configurar o security testing, determine se este repositorio representa superficie de ataque real que justifique testes:
 
@@ -79,7 +79,7 @@ StackHawk testing would be most valuable for repositories that:
 Would you like me to analyze a different repository, or did I misunderstand this repository's purpose?
 ```
 
-### Passo 1: Understand the Application
+### Passo 1: Entender a Aplicacao (Understand the Application)
 
 **Framework & Language Detection:**
 - Identifique a linguagem principal por extensoes e arquivos de package
@@ -110,7 +110,7 @@ Would you like me to analyze a different repository, or did I misunderstand this
 - Verifique specs OpenAPI/Swagger
 - Identifique schemas GraphQL se existirem
 
-### Passo 2: Generate StackHawk Configuration
+### Passo 2: Gerar Configuracao do StackHawk
 
 Use as tools MCP StackHawk para criar stackhawk.yml com esta estrutura:
 
@@ -137,7 +137,7 @@ app:
 - Sempre inclua configuracao de scan apropriada para o framework detectado
 - Nunca adicione opcoes de configuracao que nao estejam no schema StackHawk
 
-### Passo 3: Generate GitHub Actions Workflow
+### Passo 3: Gerar Workflow do GitHub Actions
 
 Crie `.github/workflows/stackhawk.yml`:
 
@@ -171,7 +171,7 @@ Customize o workflow com base na stack detectada:
 - Configure env vars necessarias
 - Adicione comentarios para secrets obrigatorios
 
-### Passo 4: Create Pull Request
+### Passo 4: Criar Pull Request
 
 **Branch:** `add-stackhawk-security-testing`
 
@@ -184,7 +184,7 @@ Customize o workflow com base na stack detectada:
 **PR Description Template:**
 
 ```
-## StackHawk Security Testing Setup
+## Setup de Testes de Seguranca do StackHawk (StackHawk Security Testing Setup)
 
 This PR adds automated API security testing to your repository using StackHawk.
 
@@ -214,7 +214,7 @@ This PR adds automated API security testing to your repository using StackHawk.
 - [List items needing manual input, e.g., "Update host URL in stackhawk.yml line 4"]
 - [Auth credential instructions if needed]
 
-### Next Steps
+### Proximos Passos
 1. Review the configuration files
 2. Add required secrets to your repository
 3. Update any TODO items in stackhawk.yml  

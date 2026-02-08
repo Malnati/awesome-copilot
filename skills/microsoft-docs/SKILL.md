@@ -4,11 +4,11 @@ description: Consulte documentacao oficial da Microsoft para entender conceitos,
 compatibility: Requer Microsoft Learn MCP Server (https://learn.microsoft.com/api/mcp)
 ---
 
-# Microsoft Docs
+# Documentacao Microsoft (Microsoft Docs)
 
-## Tools
+## Ferramentas (Tools)
 
-| Tool | Use For |
+| Tool | Uso |
 |------|---------|
 | `microsoft_docs_search` | Encontrar documentacao — conceitos, guias, tutoriais, configuracao |
 | `microsoft_docs_fetch` | Obter conteudo completo da pagina (quando trechos de busca nao bastam) |
@@ -22,7 +22,7 @@ compatibility: Requer Microsoft Learn MCP Server (https://learn.microsoft.com/ap
 - **Limites e quotas** — "Azure OpenAI rate limits", "Service Bus quotas"
 - **Boas praticas** — "Azure security best practices"
 
-## Eficacia de Queries
+## Eficacia das Queries
 
 Boas queries sao especificas:
 
@@ -46,7 +46,7 @@ Inclua contexto:
 Busque apos o search quando:
 - **Tutoriais** — precisa de instrucoes completas passo a passo
 - **Guias de configuracao** — precisa de todas as opcoes listadas
-- **Deep dives** — usuario quer cobertura abrangente
+- **Deep dives (analises profundas)** — usuario quer cobertura abrangente
 - **Trecho de busca cortado** — contexto completo necessario
 
 ## Por Que Usar

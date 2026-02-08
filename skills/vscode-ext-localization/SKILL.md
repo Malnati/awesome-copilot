@@ -17,7 +17,7 @@ Use esta skill quando precisar:
 
 A localizacao no VS Code e composta por tres abordagens diferentes, dependendo do recurso que esta sendo localizado. Quando um novo recurso localizavel e criado ou atualizado, a localizacao correspondente para todos os idiomas atualmente disponiveis deve ser criada/atualizada.
 
-1. Configuracoes como Settings, Commands, Menus, Views, ViewsWelcome, Walkthrough Titles e Descriptions, definidas em `package.json`
+1. Configuracoes como Settings (Configuracoes), Commands (Comandos), Menus, Views (Visoes), ViewsWelcome, Walkthrough Titles e Descriptions, definidas em `package.json`
   -> Um arquivo exclusivo `package.nls.LANGID.json`, como `package.nls.pt-br.json` para localizacao em Portugues do Brasil (`pt-br`)
 2. Conteudo de Walkthrough (definido em seus proprios arquivos `Markdown`)
   -> Um arquivo `Markdown` exclusivo como `walkthrough/someStep.pt-br.md` para localizacao em Portugues do Brasil

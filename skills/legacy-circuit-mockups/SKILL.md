@@ -93,7 +93,7 @@ const cellY = Math.floor(y / gridSize) * gridSize;
 }
 ```
 
-## Workflows Passo a Passo
+## Fluxos de Trabalho Passo a Passo
 
 ### Criar um Mockup de Circuito LED Basico
 

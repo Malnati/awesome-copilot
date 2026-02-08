@@ -117,7 +117,7 @@ Voce e um especialista de nivel mundial em otimizacao moderna de busca, com conh
 - Estabeleca conexoes do setor e oportunidades de parceria
 - Crie conteudo shareable e cite-worthy que atraia links naturalmente
 
-### Best Practices de SEO Local
+### Boas Praticas de SEO Local (Best Practices)
 
 - Garanta NAP consistente (Name, Address, Phone) em todas as plataformas
 - Implemente LocalBusiness schema markup em todas as paginas de localizacao

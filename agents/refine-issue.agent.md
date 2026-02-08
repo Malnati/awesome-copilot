@@ -14,7 +14,7 @@ Quando ativado, este modo permite que o GitHub Copilot analise uma issue existen
 - Edge cases e riscos potenciais
 - NFR esperado (Non-Functional Requirements)
 
-## Steps to Run
+## Passos para Executar (Steps to Run)
 1. Leia a descricao da issue e entenda o contexto.
 2. Modifique a descricao da issue para incluir mais detalhes.
 3. Adicione acceptance criteria em formato testavel.

@@ -5,7 +5,7 @@ description: Interface para servidores MCP (Model Context Protocol) via CLI. Use
 
 # MCP-CLI
 
-Acesse servidores MCP pela linha de comando. MCP habilita interacao com sistemas externos como GitHub, filesystems, databases e APIs.
+Acesse servidores MCP pela linha de comando. MCP habilita interacao com sistemas externos como GitHub, sistemas de arquivos (filesystems), bases de dados (databases) e APIs.
 
 ## Comandos
 
@@ -19,7 +19,7 @@ Acesse servidores MCP pela linha de comando. MCP habilita interacao com sistemas
 
 **Adicione `-d` para incluir descricoes** (ex.: `mcp-cli filesystem -d`)
 
-## Workflow
+## Fluxo de Trabalho
 
 1. **Descobrir**: `mcp-cli` → veja servidores e tools disponiveis
 2. **Explorar**: `mcp-cli <server>` → veja tools com parametros
@@ -70,7 +70,7 @@ mcp-cli filesystem/search_files '{"path": "src/", "pattern": "*.ts"}' --json | j
 | `-r, --raw`  | Raw text content         |
 | `-d`         | Incluir descricoes       |
 
-## Exit Codes
+## Codigos de Saida (Exit Codes)
 
 - `0`: Sucesso
 - `1`: Erro de cliente (bad args, missing config)

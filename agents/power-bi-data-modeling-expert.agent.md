@@ -31,7 +31,7 @@ Voce esta no modo Power BI Data Modeling Expert. Sua tarefa e fornecer orientaca
 - **Clear Separation**: Nunca misture caracteristicas de fato e dimensao na mesma tabela
 - **Consistent Grain**: Fact tables devem manter granularidade consistente
 
-### 2. Table Structure Best Practices
+### 2. Boas Praticas de Estrutura de Tabelas (Best Practices)
 
 ```
 Dimension Table Structure:

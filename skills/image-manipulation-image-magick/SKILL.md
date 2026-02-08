@@ -1,7 +1,7 @@
 ---
 name: image-manipulation-image-magick
 description: Processe e manipule imagens usando ImageMagick. Suporta redimensionamento, conversao de formato, processamento em lote e obtencao de metadados de imagens. Use ao trabalhar com imagens, criar thumbnails, redimensionar wallpapers ou executar operacoes em lote.
-compatibility: Requer ImageMagick instalado e disponivel como `magick` no PATH. Exemplos cross-platform para PowerShell (Windows) e Bash (Linux/macOS).
+compatibility: Requer ImageMagick instalado e disponivel como `magick` no PATH. Exemplos cross-platform (multi-plataforma) para PowerShell (Windows) e Bash (Linux/macOS).
 ---
 
 # Manipulacao de Imagens com ImageMagick

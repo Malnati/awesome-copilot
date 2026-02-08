@@ -45,13 +45,13 @@ O Terraform MCP server fornece tools abrangentes para:
 
 ---
 
-## 🎯 Workflow Principal
+## 🎯 Fluxo de Trabalho Principal
 
 ### 1. Regras de Pre-Geracao
 
 #### A. Resolucao de Versao
 
-- **Always** resolver as versoes mais recentes antes de gerar codigo
+- **Sempre (Always)** resolver as versoes mais recentes antes de gerar codigo
 - Se o usuario nao especificar versao:
   - Para providers: chame `get_latest_provider_version`
   - Para modules: chame `get_latest_module_version`
@@ -227,7 +227,7 @@ Depois de gerar codigo Terraform, sempre:
 
 **Gestao de Workspaces:**
 
-1. **Check workspace existence:**
+1. **Checar existencia do workspace (Check workspace existence):**
 
    ```
    get_workspace_details(
@@ -236,7 +236,7 @@ Depois de gerar codigo Terraform, sempre:
    )
    ```
 
-2. **Create workspace if needed:**
+2. **Criar workspace se necessario (Create workspace if needed):**
 
    ```
    create_workspace(
@@ -248,7 +248,7 @@ Depois de gerar codigo Terraform, sempre:
    )
    ```
 
-3. **Verify workspace configuration:**
+3. **Verificar configuracao do workspace (Verify workspace configuration):**
    - Auto-apply settings
    - Terraform version
    - VCS connection
@@ -256,7 +256,7 @@ Depois de gerar codigo Terraform, sempre:
 
 **Gestao de Runs:**
 
-1. **Create and monitor runs:**
+1. **Criar e monitorar runs (Create and monitor runs):**
 
    ```
    create_run(
@@ -266,7 +266,7 @@ Depois de gerar codigo Terraform, sempre:
    )
    ```
 
-2. **Check run status:**
+2. **Checar status do run (Check run status):**
 
    ```
    get_run_details(run_id = "<RUN_ID>")
@@ -278,7 +278,7 @@ Depois de gerar codigo Terraform, sempre:
    - `planned_and_finished` - Run somente plan concluido
    - `applied` - Mudancas aplicadas com sucesso
 
-3. **Review plan before applying:**
+3. **Revisar o plan antes de aplicar (Review plan before applying):**
    - Sempre revise o output do plan
    - Verifique se os recursos esperados serao criados/modificados/destruidos
    - Verifique mudancas inesperadas
@@ -287,7 +287,7 @@ Depois de gerar codigo Terraform, sempre:
 
 ## 🔧 Uso de Tools do MCP Server
 
-### Registry Tools (Sempre Disponiveis)
+### Tools do Registry (Registry Tools) (Sempre Disponiveis)
 
 **Workflow de Descoberta de Providers:**
 1. `get_latest_provider_version` - Resolve a versao mais recente se nao especificada
@@ -304,9 +304,9 @@ Depois de gerar codigo Terraform, sempre:
 1. `search_policies` - Encontre policies relevantes de seguranca e compliance
 2. `get_policy_details` - Obtenha documentacao de policy e orientacao de implementacao
 
-### HCP Terraform Tools (Quando TFE_TOKEN Disponivel)
+### Tools do HCP Terraform (HCP Terraform Tools) (Quando TFE_TOKEN Disponivel)
 
-**Private Registry Priority:**
+**Prioridade do Private Registry (Private Registry Priority):**
 - Sempre verifique o private registry primeiro quando houver token
 - `search_private_providers` → `get_private_provider_details`
 - `search_private_modules` → `get_private_module_details`

@@ -3,7 +3,7 @@ name: web-design-reviewer
 description: 'Esta skill permite inspecionar visualmente sites locais ou remotos para identificar e corrigir problemas de design. Dispara em pedidos como "review website design", "check the UI", "fix the layout", "find design problems". Detecta problemas de design responsivo, acessibilidade, consistencia visual e quebra de layout, e aplica correcoes no codigo-fonte.'
 ---
 
-# Web Design Reviewer
+# Revisor de Design Web
 
 Esta skill permite a inspecao e validacao visual da qualidade do design de sites, identificando e corrigindo problemas no nivel de codigo-fonte.
 
@@ -25,7 +25,7 @@ Esta skill permite a inspecao e validacao visual da qualidade do design de sites
    - Ambiente de producao (para revisoes somente leitura)
 
 2. **Automacao de navegador deve estar disponivel**
-   - Captura de screenshot
+   - Captura de tela (screenshot)
    - Navegacao de paginas
    - Recuperacao de informacoes do DOM
 
@@ -52,7 +52,7 @@ flowchart TD
 
 Se a URL nao for fornecida, pergunte ao usuario:
 
-> Please provide the URL of the website to review (e.g., `http://localhost:3000`)
+> Por favor, forneca a URL do site para revisar (ex.: `http://localhost:3000`)
 
 ### 1.2 Compreensao da Estrutura do Projeto
 
@@ -60,10 +60,10 @@ Ao corrigir problemas, colete as seguintes informacoes:
 
 | Item | Exemplo de pergunta |
 |------|---------------------|
-| Framework | Are you using React / Vue / Next.js, etc.? |
+| Framework | Voce usa React / Vue / Next.js, etc.? |
 | Metodo de estilo | CSS / SCSS / Tailwind / CSS-in-JS, etc. |
-| Localizacao do codigo | Where are style files and components located? |
-| Escopo da revisao | Specific pages only or entire site? |
+| Localizacao do codigo | Onde estao arquivos de estilos e componentes? |
+| Escopo da revisao | Paginas especificas ou site inteiro? |
 
 ### 1.3 Deteccao Automatica do Projeto
 
@@ -84,13 +84,13 @@ Detection targets:
 
 | Metodo | Deteccao | Alvo de edicao |
 |--------|----------|----------------|
-| Pure CSS | `*.css` files | Global CSS or component CSS |
-| SCSS/Sass | `*.scss`, `*.sass` | SCSS files |
-| CSS Modules | `*.module.css` | Module CSS files |
-| Tailwind CSS | `tailwind.config.*` | className in components |
-| styled-components | `styled.` in code | JS/TS files |
-| Emotion | `@emotion/` imports | JS/TS files |
-| CSS-in-JS (other) | Inline styles | JS/TS files |
+| Pure CSS | `*.css` files | CSS global ou CSS de componente |
+| SCSS/Sass | `*.scss`, `*.sass` | Arquivos SCSS |
+| CSS Modules | `*.module.css` | Arquivos CSS de modulo |
+| Tailwind CSS | `tailwind.config.*` | className em componentes |
+| styled-components | `styled.` no codigo | Arquivos JS/TS |
+| Emotion | imports `@emotion/` | Arquivos JS/TS |
+| CSS-in-JS (other) | Inline styles | Arquivos JS/TS |
 
 ---
 
@@ -99,7 +99,7 @@ Detection targets:
 ### 2.1 Navegacao de Paginas
 
 1. Navegue para a URL especificada
-2. Capture screenshots
+2. Capture capturas de tela (screenshots)
 3. Recupere a estrutura/snapshot do DOM (se possivel)
 4. Se houver paginas adicionais, percorra a navegacao
 
@@ -109,11 +109,11 @@ Detection targets:
 
 | Problema | Descricao | Severidade |
 |----------|-----------|------------|
-| Element Overflow | Conteudo transborda do elemento pai ou viewport | Alta |
-| Element Overlap | Sobreposicao nao intencional de elementos | Alta |
-| Alignment Issues | Problemas de alinhamento em grid ou flex | Media |
-| Inconsistent Spacing | Inconsistencias de padding/margin | Media |
-| Text Clipping | Texto longo nao tratado corretamente | Media |
+| Overflow de Elemento (Element Overflow) | Conteudo transborda do elemento pai ou viewport | Alta |
+| Sobreposicao de Elementos (Element Overlap) | Sobreposicao nao intencional de elementos | Alta |
+| Problemas de Alinhamento (Alignment Issues) | Problemas de alinhamento em grid ou flex | Media |
+| Espacamento Inconsistente (Inconsistent Spacing) | Inconsistencias de padding/margin | Media |
+| Corte de Texto (Text Clipping) | Texto longo nao tratado corretamente | Media |
 
 #### Problemas de Responsividade
 
@@ -231,7 +231,7 @@ flowchart TD
 ### Relatorio de Resultados da Revisao
 
 ```markdown
-# Web Design Review Results
+# Resultados da Revisao de Web Design
 
 ## Summary
 

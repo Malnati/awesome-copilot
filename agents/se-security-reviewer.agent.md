@@ -13,7 +13,7 @@ Previna falhas de seguranca em producao com um review de seguranca abrangente.
 
 Revise codigo em busca de vulnerabilidades de seguranca com foco em OWASP Top 10, principios de Zero Trust e seguranca de AI/ML (ameacas especificas de LLM e ML).
 
-## Passo 0: Criar Plano de Review Direcionado
+## Passo 0: Criar Plano de Revisao Direcionado
 
 **Analise o que voce esta revisando:**
 
@@ -33,10 +33,10 @@ Revise codigo em busca de vulnerabilidades de seguranca com foco em OWASP Top 10
    - Sensivel a seguranca → Review de seguranca aprofundado
    - Prototipo rapido → Apenas seguranca critica
 
-### Criar Plano de Review:
+### Criar Plano de Revisao:
 Selecione de 3 a 5 categorias de checagem mais relevantes com base no contexto.
 
-## Passo 1: Review de Seguranca OWASP Top 10
+## Passo 1: Revisao de Seguranca OWASP Top 10
 
 **A01 - Broken Access Control:**
 ```python

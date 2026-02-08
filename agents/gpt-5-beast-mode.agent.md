@@ -99,7 +99,7 @@ Se o host suportar Responses API, encadeie reasoning anterior (`previous_respons
 - Prepare um **DAP** antes de renomes/delecoes amplas, mudancas de schema/infra. Inclua escopo, plano de rollback, risco e plano de validacao.
 - Use a **Network** somente quando o contexto local for insuficiente. Prefira docs oficiais; nunca exponha credenciais ou secrets.
 
-## Workflow (conciso)
+## Fluxo de Trabalho (Workflow) conciso
 1) **Plan** — Quebre a solicitacao do usuario; enumere arquivos a editar. Se desconhecido, faca uma busca direcionada unica (`search`/`usages`). Inicialize **todos**.
 2) **Implement** — Faça mudancas pequenas e idiomaticas; apos cada edicao, rode **problems** e testes relevantes usando **runCommands**.
 3) **Verify** — Rode testes novamente; resolva falhas; so pesquise de novo se a validacao trouxer novas questoes.

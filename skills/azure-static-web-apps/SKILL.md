@@ -1,16 +1,16 @@
 ---
 name: azure-static-web-apps
-description: Ajuda a criar, configurar e fazer deploy de Azure Static Web Apps usando o SWA CLI. Use ao fazer deploy de sites estaticos no Azure, configurar desenvolvimento local do SWA, configurar staticwebapp.config.json, adicionar APIs Azure Functions ao SWA ou configurar CI/CD do GitHub Actions para Static Web Apps.
+description: Ajuda a criar, configurar e fazer implantacao (deploy) de Azure Static Web Apps usando o SWA CLI. Use ao fazer implantacao (deploy) de sites estaticos no Azure, configurar desenvolvimento local do SWA, configurar staticwebapp.config.json, adicionar APIs Azure Functions ao SWA ou configurar CI/CD do GitHub Actions para Static Web Apps.
 ---
 
 ## Visao Geral
 
-Azure Static Web Apps (SWA) hospeda frontends estaticos com backends opcionais de API serverless. O SWA CLI (`swa`) fornece emulacao de desenvolvimento local e capacidades de deploy.
+Azure Static Web Apps (SWA) hospeda frontends estaticos com backends opcionais de API serverless. O SWA CLI (`swa`) fornece emulacao de desenvolvimento local e capacidades de implantacao (deploy).
 
-**Principais features:**
+**Principais funcionalidades:**
 - Emulador local com proxy de API e simulacao de auth
 - Auto-deteccao e configuracao de frameworks
-- Deploy direto para Azure
+- Implantacao (deploy) direta para Azure
 - Suporte a conexoes de banco de dados
 
 **Arquivos de configuracao:**
@@ -27,14 +27,14 @@ npm install -D @azure/static-web-apps-cli
 
 Verifique: `npx swa --version`
 
-### Workflow de Inicio Rapido
+### Fluxo de Trabalho de Inicio Rapido
 
 **IMPORTANTE: Sempre use `swa init` para criar arquivos de configuracao. Nunca crie `swa-cli.config.json` manualmente.**
 
 1. `swa init` - **Primeiro passo obrigatorio** - auto-detecta framework e cria `swa-cli.config.json`
 2. `swa start` - Execute o emulador local em `http://localhost:4280`
 3. `swa login` - Autentique com o Azure
-4. `swa deploy` - Faca deploy no Azure
+4. `swa deploy` - Faca implantacao (deploy) no Azure
 
 ### Arquivos de Configuracao
 
@@ -76,7 +76,7 @@ Exemplo de config gerado (apenas referencia):
 }
 ```
 
-## Referencia de Linha de Comando
+## Referencia de Linha de Comando (CLI Reference)
 
 ### swa login
 
@@ -140,7 +140,7 @@ swa deploy ./dist --app-name my-swa          # Deploy to specific app
 
 ## CI/CD com GitHub Actions
 
-Use o workflow do GitHub Actions gerado pelo Azure Static Web Apps. O deploy e automatico com push para a branch configurada.
+Use o workflow do GitHub Actions gerado pelo Azure Static Web Apps. A implantacao (deploy) e automatica com push para a branch configurada.
 
 ### Dicas
 

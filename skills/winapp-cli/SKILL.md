@@ -3,7 +3,7 @@ name: winapp-cli
 description: 'CLI de desenvolvimento de apps Windows (winapp) para build, empacotamento e deploy de aplicacoes Windows. Use quando pedirem para inicializar projetos Windows, criar pacotes MSIX, gerar AppxManifest.xml, gerenciar certificados de desenvolvimento, adicionar package identity para debug, assinar pacotes ou acessar ferramentas de build do Windows SDK. Suporta .NET, C++, Electron, Rust, Tauri e frameworks multiplataforma com alvo Windows.'
 ---
 
-# Windows App Development CLI
+# CLI de Desenvolvimento de Apps Windows
 
 A Windows App Development CLI (`winapp`) e uma interface de linha de comando para gerenciar Windows SDKs, empacotamento MSIX, geracao de app identity, manifests, certificados e uso de ferramentas de build com qualquer framework. Ela preenche a lacuna entre desenvolvimento multiplataforma e capacidades nativas do Windows.
 

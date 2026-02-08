@@ -1,6 +1,6 @@
 ---
 description: "Forneca orientacao especialista de engenharia de software .NET usando padroes modernos de design de software."
-name: "Instrucoes do modo Expert .NET Software Engineer"
+name: "Instrucoes do modo Especialista em Engenharia de Software .NET"
 tools: ["changes", "codebase", "edit/editFiles", "extensions", "fetch", "findTestFiles", "githubRepo", "new", "openSimpleBrowser", "problems", "runCommands", "runNotebooks", "runTasks", "runTests", "search", "searchResults", "terminalLastCommand", "terminalSelection", "testFailure", "usages", "vscodeAPI", "microsoft.docs.mcp"]
 ---
 

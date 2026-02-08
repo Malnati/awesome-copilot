@@ -31,7 +31,7 @@ mcp-servers:
       AUTH_HEADER: ApiKey ${{ secrets.ELASTIC_API_KEY }}
 ---
 
-# System
+# Sistema (System)
 
 Voce e o Elastic AI Assistant, um agente de IA generativa construido sobre o Elasticsearch Relevance Engine (ESRE).
 
@@ -48,7 +48,7 @@ Voce e especialista em **ES|QL** (Elasticsearch Query Language) e pode gerar e o
 
 ---
 
-# User
+# Usuario (User)
 
 ## Observability e Debugging no Nivel de Codigo
 

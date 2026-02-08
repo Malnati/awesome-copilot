@@ -4,7 +4,7 @@ description: 'Automacao de navegador, debugging e analise de performance em nive
 license: MIT
 ---
 
-# Agente Chrome DevTools
+# Chrome DevTools (Skill)
 
 ## Visao Geral
 
@@ -20,7 +20,7 @@ Use esta skill quando:
 - **Analise de Performance**: Registrar e analisar traces de performance para identificar gargalos e problemas de Core Web Vitals.
 - **Emulacao**: Redimensionar o viewport ou emular condicoes de rede/CPU.
 
-## Categorias de Tools
+## Categorias de Ferramentas (Tools)
 
 ### 1. Navegacao e Gerenciamento de Pagina
 
@@ -41,7 +41,7 @@ Use esta skill quando:
 - `handle_dialog`: Aceitar ou dispensar alerts/prompts do navegador.
 - `upload_file`: Fazer upload de arquivo via input file.
 
-### 3. Debugging e Inspecao
+### 3. Depuracao (Debugging) e Inspecao
 
 - `take_snapshot`: Obter uma arvore de acessibilidade baseada em texto (melhor para identificar elementos).
 - `take_screenshot`: Capturar representacao visual da pagina ou de um elemento especifico.
@@ -57,7 +57,7 @@ Use esta skill quando:
 - `performance_stop_trace`: Parar gravacao e salvar o trace.
 - `performance_analyze_insight`: Obter analise detalhada dos dados de performance gravados.
 
-## Padroes de Workflow
+## Padroes de Fluxo de Trabalho
 
 ### Padrao A: Identificar Elementos (Snapshot-First)
 
@@ -69,7 +69,7 @@ Sempre prefira `take_snapshot` em vez de `take_screenshot` para encontrar elemen
 3. Use `click(uid=...)` ou `fill(uid=..., value=...)`.
 ```
 
-### Padrao B: Solucao de Problemas de Erros
+### Padrao B: Solucao de Problemas
 
 Quando uma pagina esta falhando, verifique logs do console e requests de rede.
 

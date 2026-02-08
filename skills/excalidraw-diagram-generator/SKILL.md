@@ -37,7 +37,7 @@ Use esta skill quando usuarios solicitarem:
 - Identificacao de entidades, etapas ou conceitos-chave
 - Entendimento das relacoes ou fluxo entre elementos
 
-## Workflow Passo a Passo
+## Fluxo de Trabalho Passo a Passo
 
 ### Etapa 1: Entender a Solicitação
 
@@ -146,7 +146,7 @@ Estruture o arquivo Excalidraw completo:
   "version": 2,
   "source": "https://excalidraw.com",
   "elements": [
-    // Array de elementos do diagrama
+    // Diagram elements array
   ],
   "appState": {
     "viewBackgroundColor": "#ffffff",
@@ -238,7 +238,7 @@ Would you like me to start with the high-level view?"
 
 ## Solucao de Problemas
 
-| Issue | Solucao |
+| Problema (Issue) | Solucao |
 |-------|----------|
 | Elementos se sobrepoem | Aumente o espacamento entre coordenadas |
 | Texto nao cabe em caixas | Aumente a largura da caixa ou reduza o tamanho da fonte |
@@ -268,7 +268,7 @@ Use timestamp + string randomica para IDs unicos:
 const id = Date.now().toString(36) + Math.random().toString(36).substr(2);
 ```
 
-## Formato de Saida
+## Formato de Saida (Output)
 
 Sempre forneca:
 1. ✅ Arquivo JSON `.excalidraw` completo

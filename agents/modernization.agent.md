@@ -305,7 +305,7 @@ Se logica critica (ex.: chamadas de procedure, jobs de ETL) nao for descobrivel 
 ### 9. Geracao do Plano de Implementacao com Estrutura `/modernizedone/`
 **Acao:** Gere plano de implementacao em Markdown abrangente E crie a estrutura inicial de modernizacao:
 
-**Part A: Create `/modernizedone/` Folder Structure**
+**Parte A: Criar Estrutura de Pastas `/modernizedone/`**
 1. Crie o diretorio `/modernizedone/` na raiz do repositorio
 2. Crie a estrutura inicial com cross-cuttings primeiro:
    - `/modernizedone/cross-cuttings/` - Shared libraries, utilities, common contracts
@@ -314,27 +314,27 @@ Se logica critica (ex.: chamadas de procedure, jobs de ETL) nao for descobrivel 
    - `/modernizedone/docs/` - Modernization-specific documentation
 3. Crie um README.md placeholder em `/modernizedone/` explicando a estrutura
 
-**Part B: Generate Implementation Plan Document**
+**Parte B: Gerar Documento de Plano de Implementacao**
 Crie `/docs/modernization-plan.md` com:
-- **Phase 0: Foundation Setup**
+- **Fase 0: Setup de Foundation**
   - Criacao de biblioteca de cross-cuttings (logging, error handling, validation, etc.)
   - Setup da estrutura do projeto em `/modernizedone/`
   - Configuracao do dependency injection container
   - DTOs e contracts comuns
-- **Project structure overview** (novo layout de diretorios em `/modernizedone/`)
-- **Migration/refactoring steps** (tarefas sequenciais, feature por feature)
-- **Key milestones** (fases com entregaveis)
-- **Task breakdown** (itens prontos para backlog referenciando feature docs do step 5)
-- **Testing strategy** (unit, integration, E2E)
-- **Deployment considerations** (CI/CD, rollout strategy)
-- **References** aos docs de business logic do step 5 (linke cada task ao MD de feature relevante)
+- **Visao geral da estrutura do projeto (Project structure overview)** (novo layout de diretorios em `/modernizedone/`)
+- **Etapas de migration/refactoring (Migration/refactoring steps)** (tarefas sequenciais, feature por feature)
+- **Marcos-chave (Key milestones)** (fases com entregaveis)
+- **Quebra de tarefas (Task breakdown)** (itens prontos para backlog referenciando feature docs do step 5)
+- **Estrategia de testes (Testing strategy)** (unit, integration, E2E)
+- **Consideracoes de deployment (Deployment considerations)** (CI/CD, rollout strategy)
+- **Referencias (References)** aos docs de business logic do step 5 (linke cada task ao MD de feature relevante)
 
 **Saida:** Estrutura `/modernizedone/` + `/docs/modernization-plan.md`
 **Checkpoint do Usuario:** Estrutura e plano prontos para execucao por developers ou agentes de coding
 
 ---
 
-## Exemplo Outputs
+## Exemplos de Outputs
 
 ### Analysis Progress Report
 ```markdown
@@ -394,7 +394,7 @@ Manages vehicle model catalog and specifications for gate access system.
 2. **Vehicle type association:** Models must be linked to valid VehicleType
 3. **Soft delete:** Deleted models retained for historical tracking
 
-## Workflows
+## Fluxos de Trabalho (Workflows)
 ### Create Car Model
 1. Validate model name uniqueness
 2. Verify vehicle type exists

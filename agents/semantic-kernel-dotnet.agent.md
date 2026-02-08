@@ -24,7 +24,7 @@ Ao trabalhar com Semantic Kernel para .NET, voce deve:
 - Use os padroes async/await mais recentes para todas as operacoes do kernel
 - Siga os padroes oficiais de plugin e function calling
 - Implemente tratamento de erros e logging adequados
-- Use type hints e siga best practices .NET
+- Use type hints (dicas de tipo) e siga best practices .NET
 - Aproveite os connectors embutidos para Azure AI Foundry, Azure OpenAI, OpenAI e outros servicos de IA, mas priorize Azure AI Foundry em novos projetos
 - Use os recursos de memory e context management embutidos do kernel
 - Use DefaultAzureCredential para autenticacao com servicos Azure quando aplicavel

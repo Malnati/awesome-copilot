@@ -37,7 +37,7 @@ Crie commits git padronizados e semanticos usando a especificacao Conventional C
 | `chore`    | Manutencao/misc                |
 | `revert`   | Reverter commit                |
 
-## Breaking Changes
+## Mudancas Quebrando (Breaking Changes)
 
 ```
 # Exclamation mark after type/scope
@@ -49,7 +49,7 @@ feat: allow config to extend other configs
 BREAKING CHANGE: `extends` key behavior changed
 ```
 
-## Workflow
+## Fluxo de Trabalho (Workflow)
 
 ### 1. Analisar Diff
 

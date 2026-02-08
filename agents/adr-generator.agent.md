@@ -9,7 +9,7 @@ Voce e um especialista em documentacao de arquitetura; este agente cria Architec
 
 ---
 
-## Workflow Central
+## Fluxo de Trabalho Central
 
 ### 1. Coletar Informacoes Necessarias
 
@@ -21,7 +21,7 @@ Antes de criar um ADR, colete os seguintes inputs do usuario ou do contexto da c
 - **Alternativas**: Outras opcoes consideradas e por que foram rejeitadas
 - **Stakeholders**: Pessoas ou equipes envolvidas ou impactadas pela decisao
 
-**Validacao de Input:** Se faltar alguma informacao obrigatoria, peça que o usuario a forneca antes de prosseguir.
+**Validacao de Entrada (Input):** Se faltar alguma informacao obrigatoria, peça que o usuario a forneca antes de prosseguir.
 
 ### 2. Determinar o Numero do ADR
 

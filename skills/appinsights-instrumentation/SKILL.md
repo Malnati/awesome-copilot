@@ -3,7 +3,7 @@ name: appinsights-instrumentation
 description: 'Instrumente uma webapp para enviar dados de telemetria uteis ao Azure App Insights'
 ---
 
-# Instrumentacao do AppInsights
+# Instrumentacao do App Insights (AppInsights)
 
 Esta skill habilita o envio de dados de telemetria de uma webapp para o Azure App Insights para melhor observabilidade da saude do app.
 
@@ -32,7 +32,7 @@ Se o app for um app C# ASP.NET Core hospedado no Azure App Service, use [AUTO gu
 
 Instrumente manualmente o app criando o recurso AppInsights e atualizando o codigo do app.
 
-#### Criar recurso AppInsights
+#### Criar recurso App Insights (AppInsights)
 
 Use uma das opcoes abaixo que se encaixe no ambiente.
 

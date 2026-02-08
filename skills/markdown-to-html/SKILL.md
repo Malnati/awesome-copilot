@@ -7,7 +7,7 @@ description: 'Converta arquivos Markdown para HTML semelhante a `marked.js`, `pa
 
 Skill especialista para converter documentos Markdown em HTML usando a biblioteca marked.js, ou escrever scripts de conversao de dados; neste caso scripts similares ao repositorio [markedJS/marked](https://github.com/markedjs/marked). Para scripts customizados, o conhecimento nao se limita a `marked.js`, mas utiliza metodos de conversao de dados de ferramentas como [pandoc](https://github.com/jgm/pandoc) e [gomarkdown/markdown](https://github.com/gomarkdown/markdown); [jekyll/jekyll](https://github.com/jekyll/jekyll) e [gohugoio/hugo](https://github.com/gohugoio/hugo) para sistemas de template.
 
-O script ou tool de conversao deve lidar com arquivos individuais, conversoes em lote e configuracoes avancadas.
+O script ou ferramenta (tool) de conversao deve lidar com arquivos individuais, conversoes em lote e configuracoes avancadas.
 
 ## Quando Usar Esta Skill
 
@@ -100,7 +100,7 @@ Para mais, veja [basic-markdown-to-html.md](references/basic-markdown-to-html.md
     ```
 ```
 
-### Conversoes de Code Block
+### Conversoes de Blocos de Codigo
 
 Para mais, veja [code-blocks-to-html.md](references/code-blocks-to-html.md)
 

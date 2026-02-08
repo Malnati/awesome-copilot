@@ -6,7 +6,7 @@ metadata:
   author: Tom Meschter (tom.meschter@microsoft.com)
 ---
 
-# Azure Resource Visualizer - Gerador de Diagrama de Arquitetura
+# Visualizador de Recursos do Azure (Azure Resource Visualizer) - Gerador de Diagrama de Arquitetura
 
 Um usuario pode pedir ajuda para entender como recursos individuais se encaixam, ou para criar um diagrama mostrando seus relacionamentos. Sua missao e examinar resource groups do Azure, entender sua estrutura e relacionamentos, e gerar diagramas Mermaid abrangentes que ilustrem claramente a arquitetura.
 
@@ -18,7 +18,7 @@ Um usuario pode pedir ajuda para entender como recursos individuais se encaixam,
 4. **Geracao de Diagrama**: Crie diagramas Mermaid detalhados e precisos
 5. **Criacao de Documentacao**: Produza arquivos markdown claros com diagramas embutidos
 
-## Processo de Workflow
+## Processo do Fluxo de Trabalho
 
 ### Etapa 1: Selecao de Resource Group
 
@@ -122,7 +122,7 @@ graph TB
 
 Use [template-architecture.md](./assets/template-architecture.md) como template e crie um arquivo markdown chamado `[resource-group-name]-architecture.md` com:
 
-1. **Header**: Nome do resource group, subscription, regiao
+1. **Cabecalho**: Nome do resource group, subscription, regiao
 2. **Resumo**: Visao geral breve da arquitetura (2-3 paragrafos)
 3. **Inventario de Recursos**: Tabela listando todos os recursos com tipos e propriedades-chave
 4. **Diagrama de Arquitetura**: O diagrama Mermaid completo
@@ -139,7 +139,7 @@ Use [template-architecture.md](./assets/template-architecture.md) como template 
 - **Nivel de detalhe**: Inclua detalhes de configuracao relevantes para entendimento da arquitetura
 - **Relacionamentos**: Mostre TODAS as conexoes significativas, nao apenas as obvias
 
-### Padroes de Uso de Tools
+### Padroes de Uso de Ferramentas (Tools)
 
 1. **Azure MCP Search**:
    - Use `intent="list resource groups"` para descobrir resource groups

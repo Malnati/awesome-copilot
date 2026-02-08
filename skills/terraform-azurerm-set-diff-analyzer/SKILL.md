@@ -4,9 +4,9 @@ description: Analise a saida JSON do terraform plan para o provider AzureRM para
 license: MIT
 ---
 
-# Terraform AzureRM Set Diff Analyzer
+# Analisador de Diff de Set do Terraform AzureRM
 
-Uma skill para identificar "false-positive diffs" em planos Terraform causados por atributos do tipo Set do AzureRM Provider e distingui-los de mudancas reais.
+Uma skill para identificar "false-positive diffs" (diffs falso-positivos) em planos Terraform causados por atributos do tipo Set do AzureRM Provider e distingui-los de mudancas reais.
 
 ## Quando Usar
 
@@ -14,7 +14,7 @@ Uma skill para identificar "false-positive diffs" em planos Terraform causados p
 - Application Gateway, Load Balancer, NSG etc. mostram "todos os elementos mudaram"
 - Voce quer filtrar automaticamente diffs falso-positivos em CI/CD
 
-## Background
+## Contexto
 
 O tipo Set do Terraform compara por posicao em vez de chave, entao ao adicionar ou remover elementos, todos parecem "mudados". Isso e um problema geral do Terraform, mas e especialmente notavel em recursos AzureRM que usam muitos atributos Set como Application Gateway, Load Balancer e NSG.
 

@@ -22,7 +22,7 @@ Use esta skill quando:
 
 ---
 
-## Workflow Operacional
+## Fluxo de Trabalho Operacional (Workflow)
 
 ### Fase 1: Discovery (A Entrevista)
 
@@ -38,8 +38,8 @@ Antes de escrever uma linha do PRD, voce **DEVE** interrogar o usuario para pree
 
 Sintetize a entrada do usuario. Identifique dependencias e complexidades ocultas.
 
-- Mapeie o **User Flow**.
-- Defina **Non-Goals** para proteger o timeline.
+- Mapeie o **Fluxo do Usuario (User Flow)**.
+- Defina **Nao-Objetivos (Non-Goals)** para proteger o cronograma (timeline).
 
 ### Fase 3: Redacao Tecnica
 
@@ -54,11 +54,11 @@ Gere o documento usando o **Schema Estrito de PRD** abaixo.
 Use criterios concretos e mensuraveis. Evite "rapido", "facil" ou "intuitivo".
 
 ```diff
-# Vague (BAD)
+# Vago (RUIM)
 - The search should be fast and return relevant results.
 - The UI must look modern and be easy to use.
 
-# Concrete (GOOD)
+# Concreto (BOM)
 + The search must return results within 200ms for a 10k record dataset.
 + The search algorithm must achieve >= 85% Precision@10 in benchmark evals.
 + The UI must follow the 'Vercel/Next.js' design system and achieve 100% Lighthouse Accessibility score.
@@ -76,7 +76,7 @@ Voce **DEVE** seguir esta estrutura exata para a saida:
 - **Proposed Solution**: 1-2 frases sobre a solucao.
 - **Success Criteria**: 3-5 KPIs mensuraveis.
 
-### 2. User Experience & Functionality
+### 2. Experiencia do Usuario e Funcionalidade (User Experience & Functionality)
 
 - **User Personas**: Para quem e isso?
 - **User Stories**: `As a [user], I want to [action] so that [benefit].`
@@ -88,13 +88,13 @@ Voce **DEVE** seguir esta estrutura exata para a saida:
 - **Requisitos de Tools**: Quais tools e APIs sao necessarias?
 - **Evaluation Strategy**: Como medir qualidade e acuracia da saida.
 
-### 4. Technical Specifications
+### 4. Especificacoes Tecnicas (Technical Specifications)
 
 - **Visao Geral de Arquitetura**: Fluxo de dados e interacao de componentes.
 - **Integration Points**: APIs, DBs e Auth.
 - **Seguranca e Privacidade**: Tratamento de dados e compliance.
 
-### 5. Risks & Roadmap
+### 5. Riscos e Roadmap (Risks & Roadmap)
 
 - **Phased Rollout**: MVP -> v1.1 -> v2.0.
 - **Technical Risks**: Latencia, custo ou falhas de dependencias.

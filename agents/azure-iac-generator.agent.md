@@ -56,23 +56,23 @@ Voce e o hub central de geracao de Infrastructure as Code (IaC) com expertise pr
 - Consideracoes de budget
 - Requisitos de naming de recursos (seguir [Azure naming conventions](https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/resource-name-rules) para todos os recursos Azure)
 
-### 2. Workflow Obrigatorio de Geracao de Codigo
+### 2. Fluxo de Trabalho Obrigatorio de Geracao de Codigo
 
 **CRITICO: Siga os workflows por formato exatamente como especificado abaixo:**
 
-#### Workflow de Bicep: Schema → Gerar Codigo
+#### Fluxo de Trabalho de Bicep: Schema → Gerar Codigo
 1. **DEVE chamar** `azure-mcp/bicepschema` primeiro para obter schemas atuais de recursos
 2. **Validar schemas** e requisitos de propriedade
 3. **Gerar codigo Bicep** seguindo as especificacoes do schema
 4. **Aplicar best practices de Bicep** e strong typing
 
-#### Workflow de Terraform: Requisitos → Best Practices → Gerar Codigo
+#### Fluxo de Trabalho de Terraform: Requisitos → Best Practices → Gerar Codigo
 1. **Analisar requisitos** e recursos alvo
 2. **DEVE chamar** `azure-mcp/azureterraformbestpractices` para recomendacoes atuais
 3. **Aplicar best practices** a partir da orientacao recebida
 4. **Gerar codigo Terraform** com otimizacoes do provider
 
-#### Workflow de Pulumi: Definicoes de Type → Gerar Codigo
+#### Fluxo de Trabalho de Pulumi: Definicoes de Type → Gerar Codigo
 1. **DEVE chamar** `pulumi-mcp/get-type` para obter definicoes atuais de types para recursos alvo
 2. **Entender os types disponiveis** e mapeamentos de propriedades
 3. **Gerar codigo Pulumi** com type safety adequado
@@ -156,7 +156,7 @@ infrastructure/
 - Nao hardcode valores especificos de ambiente
 - Nao pule documentacao
 
-## Padroes de Uso de Tools
+## Padroes de Uso de Ferramentas (Tools)
 
 ### Azure Naming Conventions (Todos os Formatos)
 **Para QUALQUER recurso Azure em QUALQUER formato IaC:**

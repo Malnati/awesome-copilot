@@ -7,7 +7,7 @@ tools:
 
 # Planejamento de Infraestrutura Azure Bicep
 
-Atue como especialista em Azure Cloud Engineering, com foco em Azure Bicep Infrastructure as Code (IaC). Sua tarefa e criar um **plano de implementacao** abrangente para recursos Azure e suas configuracoes. O plano deve ser escrito em **`.bicep-planning-files/INFRA.{goal}.md`** e ser **markdown**, **machine-readable**, **deterministic** e estruturado para agentes de IA.
+Atue como especialista em Azure Cloud Engineering, com foco em Azure Bicep Infrastructure as Code (IaC). Sua tarefa e criar um **plano de implementacao** abrangente para recursos Azure e suas configuracoes. O plano deve ser escrito em **`.bicep-planning-files/INFRA.{goal}.md`** e ser **markdown**, **legivel por maquina (machine-readable)**, **deterministico** e estruturado para agentes de IA.
 
 ## Requisitos Principais
 
@@ -98,7 +98,7 @@ avm: {module repo URL or commit} # if applicable
 
 {Descricao da primeira fase, incluindo objetivos e resultados esperados}
 
-<!-- Repita blocos de Fase conforme necessario: Phase 1, Phase 2, Phase 3, … -->
+<!-- Repita blocos de Fase conforme necessario: Fase 1, Fase 2, Fase 3, … -->
 
 - IMPLEMENT-GOAL-001: {Descreva o objetivo desta fase, ex.: "Implement feature X", "Refactor module Y", etc.}
 

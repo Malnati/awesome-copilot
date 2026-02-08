@@ -34,14 +34,14 @@ sudo yum install plantuml      # RHEL/CentOS
 wget https://github.com/plantuml/plantuml/releases/download/v1.2024.0/plantuml-1.2024.0.jar
 ```
 
-## Formatos de Saida
+## Formatos de Saida (Output)
 
 | Flag    | Formato        | Descricao                          |
 | ------- | ------------- | ------------------------------------ |
 | `-txt`  | ASCII         | Caracteres ASCII puros               |
 | `-utxt` | Unicode ASCII | Melhorado com caracteres de box-drawing |
 
-## Workflow Basico
+## Fluxo de Trabalho Basico (Workflow)
 
 ### 1. Criar Arquivo de Diagrama PlantUML
 
@@ -69,7 +69,7 @@ java -jar plantuml.jar -txt diagram.puml
 java -jar plantuml.jar -utxt diagram.puml
 ```
 
-### 3. Ver a Saida
+### 3. Ver a Saida (Output)
 
 A saida e salva como `diagram.atxt` (ASCII) ou `diagram.utxt` (Unicode).
 

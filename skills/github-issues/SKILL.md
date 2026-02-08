@@ -3,11 +3,11 @@ name: github-issues
 description: 'Crie, atualize e gerencie GitHub issues usando tools MCP. Use esta skill quando usuarios quiserem criar bug reports, feature requests ou task issues, atualizar issues existentes, adicionar labels/assignees/milestones ou gerenciar workflows de issues. Dispara em solicitacoes como "create an issue", "file a bug", "request a feature", "update issue X" ou qualquer tarefa de gerenciamento de GitHub issues.'
 ---
 
-# GitHub Issues
+# Issues do GitHub
 
 Gerencie GitHub issues usando o servidor MCP `@modelcontextprotocol/server-github`.
 
-## Tools MCP Disponiveis
+## Ferramentas MCP Disponiveis (Tools)
 
 | Tool | Finalidade |
 |------|------------|
@@ -18,10 +18,10 @@ Gerencie GitHub issues usando o servidor MCP `@modelcontextprotocol/server-githu
 | `mcp__github__add_issue_comment` | Adicionar comentarios |
 | `mcp__github__list_issues` | Listar issues do repositorio |
 
-## Workflow
+## Fluxo de Trabalho
 
 1. **Determinar acao**: Criar, atualizar ou consultar?
-2. **Coletar contexto**: Obter info do repo, labels existentes, milestones se necessario
+2. **Coletar contexto**: Obter informacoes do repo, labels existentes, milestones se necessario
 3. **Estruturar conteudo**: Use o template apropriado em [references/templates.md](references/templates.md)
 4. **Executar**: Chame a tool MCP apropriada
 5. **Confirmar**: Reporte a URL da issue ao usuario
@@ -31,10 +31,10 @@ Gerencie GitHub issues usando o servidor MCP `@modelcontextprotocol/server-githu
 ### Parametros Obrigatorios
 
 ```
-owner: repository owner (org or user)
-repo: repository name  
-title: clear, actionable title
-body: structured markdown content
+owner: dono do repositorio (org ou usuario)
+repo: nome do repositorio  
+title: titulo claro e acionavel
+body: conteudo markdown estruturado
 ```
 
 ### Parametros Opcionais
@@ -42,7 +42,7 @@ body: structured markdown content
 ```
 labels: ["bug", "enhancement", "documentation", ...]
 assignees: ["username1", "username2"]
-milestone: milestone number (integer)
+milestone: numero do milestone (integer)
 ```
 
 ### Diretrizes de Titulo

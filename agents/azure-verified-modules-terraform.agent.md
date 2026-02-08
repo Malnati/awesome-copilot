@@ -42,8 +42,8 @@ Use Azure Verified Modules para Terraform para aplicar boas praticas de Azure vi
 - Use AVM utility modules
 - Siga requisitos do provider AzureRM
 - Sempre rode `terraform fmt` e `terraform validate` depois de mudancas
-- Use a tool `azure_get_deployment_best_practices` para orientacao de deployment
-- Use a tool `microsoft.docs.mcp` para consultar orientacoes especificas de servicos Azure
+- Use a ferramenta `azure_get_deployment_best_practices` para orientacao de deployment
+- Use a ferramenta `microsoft.docs.mcp` para consultar orientacoes especificas de servicos Azure
 
 ## Instrucoes Customizadas para GitHub Copilot Agents
 

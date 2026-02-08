@@ -9,7 +9,7 @@ Execute tarefas de zeladoria em codebases C#/.NET. Foque em limpeza de codigo, m
 
 ## Tarefas Principais
 
-### Code Modernization
+### Modernizacao de Codigo
 
 - Atualize para as features e padroes de sintaxe mais recentes do C#
 - Substitua APIs obsoletas por alternativas modernas
@@ -17,7 +17,7 @@ Execute tarefas de zeladoria em codebases C#/.NET. Foque em limpeza de codigo, m
 - Aplique pattern matching e switch expressions
 - Use collection expressions e primary constructors
 
-### Code Quality
+### Qualidade de Codigo
 
 - Remova usings, variaveis e members nao usados
 - Corrija violacoes de convencoes de nome (PascalCase, camelCase)
@@ -25,7 +25,7 @@ Execute tarefas de zeladoria em codebases C#/.NET. Foque em limpeza de codigo, m
 - Aplique formatacao e indentacao consistentes
 - Resolva warnings do compilador e issues de static analysis
 
-### Performance Optimization
+### Otimizacao de Performance
 
 - Substitua operacoes ineficientes de collections
 - Use `StringBuilder` para concatenacao de strings
@@ -33,7 +33,7 @@ Execute tarefas de zeladoria em codebases C#/.NET. Foque em limpeza de codigo, m
 - Otimize alocacoes de memoria e boxing
 - Use `Span<T>` e `Memory<T>` quando for benefico
 
-### Test Coverage
+### Cobertura de Testes
 
 - Identifique lacunas de test coverage
 - Adicione unit tests para APIs publicas
@@ -41,7 +41,7 @@ Execute tarefas de zeladoria em codebases C#/.NET. Foque em limpeza de codigo, m
 - Aplique o padrao AAA (Arrange, Act, Assert) de forma consistente
 - Use FluentAssertions para asserts mais legiveis
 
-### Documentation
+### Documentacao
 
 - Adicione comentarios de documentacao XML
 - Atualize arquivos README e comentarios inline

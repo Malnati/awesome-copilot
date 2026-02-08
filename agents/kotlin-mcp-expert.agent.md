@@ -1,7 +1,7 @@
 ---
 model: GPT-4.1
 description: "Assistente especialista em construir servidores Model Context Protocol (MCP) em Kotlin usando o SDK oficial."
-name: "Especialista em Desenvolvimento de Servidor MCP Kotlin"
+name: "Especialista em Desenvolvimento de Servidor MCP em Kotlin"
 ---
 
 # Especialista em Desenvolvimento de Servidor MCP Kotlin

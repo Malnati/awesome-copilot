@@ -88,7 +88,7 @@ tags: [Optional: List of relevant tags or categories, e.g., `infrastructure`, `p
 
 [Explain the reasoning behind the requirements, constraints, and guidelines. Provide context for design decisions.]
 
-## 8. Dependencies & External Integrations
+## 8. Dependencias e Integracoes Externas (Dependencies & External Integrations)
 
 [Define the external systems, services, and architectural dependencies required for this specification. Focus on **what** is needed rather than **how** it's implemented. Avoid specific package or library versions unless they represent architectural constraints.]
 
@@ -98,19 +98,19 @@ tags: [Optional: List of relevant tags or categories, e.g., `infrastructure`, `p
 ### Third-Party Services
 - **SVC-001**: [Service name] - [Required capabilities and SLA requirements]
 
-### Infrastructure Dependencies
+### Dependencias de Infraestrutura (Infrastructure Dependencies)
 - **INF-001**: [Infrastructure component] - [Requirements and constraints]
 
-### Data Dependencies
+### Dependencias de Dados (Data Dependencies)
 - **DAT-001**: [External data source] - [Format, frequency, and access requirements]
 
-### Technology Platform Dependencies
+### Dependencias de Plataforma Tecnologica (Technology Platform Dependencies)
 - **PLT-001**: [Platform/runtime requirement] - [Version constraints and rationale]
 
-### Compliance Dependencies
+### Dependencias de Compliance (Compliance Dependencies)
 - **COM-001**: [Regulatory or compliance requirement] - [Impact on implementation]
 
-**Note**: This section should focus on architectural and business dependencies, not specific package implementations. For example, specify "OAuth 2.0 authentication library" rather than "Microsoft.AspNetCore.Authentication.JwtBearer v6.0.1".
+**Nota (Note)**: Esta secao deve focar em dependencias arquiteturais e de negocio, nao em implementacoes de pacotes especificos. Por exemplo, especifique "OAuth 2.0 authentication library" em vez de "Microsoft.AspNetCore.Authentication.JwtBearer v6.0.1".
 
 ## 9. Examples & Edge Cases
 

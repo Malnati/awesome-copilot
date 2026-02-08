@@ -6,9 +6,9 @@ compatibility: Requer Microsoft Learn MCP Server (https://learn.microsoft.com/ap
 
 # Referencia de Codigo da Microsoft
 
-## Tools
+## Ferramentas (Tools)
 
-| Necessidade | Tool | Exemplo |
+| Necessidade | Ferramenta (Tool) | Exemplo |
 |------|------|---------|
 | Buscar metodo/classe de API | `microsoft_docs_search` | `"BlobClient UploadAsync Azure.Storage.Blobs"` |
 | Amostra de codigo funcional | `microsoft_code_sample_search` | `query: "upload blob managed identity", language: "python"` |
@@ -50,7 +50,7 @@ Busque a pagina completa quando o metodo tiver multiplos overloads ou quando pre
 
 Use `microsoft_code_sample_search` para encontrar amostras funcionais e comparar com sua implementacao. Para erros especificos, use `microsoft_docs_search` e `microsoft_docs_fetch`:
 
-| Tipo de Erro | Query |
+| Tipo de Erro | Query (Consulta) |
 |------------|-------|
 | Metodo nao encontrado | `"[ClassName] methods [Namespace]"` |
 | Tipo nao encontrado | `"[TypeName] NuGet package namespace"` |
@@ -67,7 +67,7 @@ Sempre verifique quando:
 - Nome de pacote nao segue convencoes (`Azure.*` para .NET, `azure-*` para Python)
 - Usa uma API pela primeira vez
 
-## Workflow de Validacao
+## Workflow de Validacao (Validation)
 
 Antes de gerar codigo usando SDKs Microsoft, valide se esta correto:
 

@@ -218,19 +218,19 @@ Insights de Monitor retornam para Plan:
 - Blameless post-mortems
 - Aprendizado continuo
 
-**Automation**:
+**Automacao**:
 - Automatizar tarefas repetitivas
 - Infrastructure as Code
 - Pipelines CI/CD
 - Testes automatizados e varredura de seguranca
 
-**Measurement**:
+**Medicao**:
 - Acompanhar DORA metrics
 - Monitorar SLOs/SLIs
 - Medir tudo
 - Usar dados para decisoes
 
-**Sharing**:
+**Compartilhamento**:
 - Documentar tudo
 - Compartilhar conhecimento entre times
 - Canais de comunicacao abertos
@@ -249,7 +249,7 @@ Insights de Monitor retornam para Plan:
 - [ ] **Rollback**: Procedimentos de rollback testados e automatizados
 - [ ] **Metrics**: DORA metrics acompanhadas e melhorando
 
-## Best Practices Summary
+## Resumo de Boas Praticas (Best Practices)
 
 1. **Automate everything** que pode ser automatizado
 2. **Measure everything** para tomar decisoes informadas
@@ -262,7 +262,7 @@ Insights de Monitor retornam para Plan:
 9. **Secure by default** com shift-left security
 10. **Plan for failure** com chaos engineering e DR
 
-## Important Reminders
+## Lembretes Importantes
 
 - DevOps e sobre cultura e praticas, nao apenas ferramentas
 - O infinity loop nunca para → melhoria continua e o objetivo

@@ -25,7 +25,7 @@ Use esta skill quando usuarios perguntarem sobre:
 
 ## Pre-requisitos
 
-### Tools Necessarias
+### Ferramentas Necessarias (Tools)
 - **Power BI Modeling MCP Server**: Necessario para conectar e modificar modelos semanticos
   - Habilita: connection_operations, table_operations, measure_operations, relationship_operations, etc.
   - Deve estar configurado e rodando para interagir com modelos
@@ -35,7 +35,7 @@ Use esta skill quando usuarios perguntarem sobre:
   - Habilita: microsoft_docs_search, microsoft_docs_fetch
   - Use para cenarios complexos, novas features e documentacao oficial
 
-## Workflow
+## Fluxo de Trabalho (Workflow)
 
 ### 1. Conectar e Analisar Primeiro
 
@@ -55,11 +55,11 @@ Antes de qualquer orientacao de modelagem, sempre examine o estado atual do mode
 
 Apos conectar, avalie o modelo contra boas praticas:
 
-- **Star Schema**: Tabelas estao classificadas como dimensao ou fato?
+- **Star Schema (Esquema Estrela)**: Tabelas estao classificadas como dimensao ou fato?
 - **Relacionamentos**: Cardinalidade correta? Minimo de filtros bidirecionais?
 - **Nomeacao**: Convencoes consistentes e legiveis?
 - **Documentacao**: Tabelas, colunas e measures tem descricoes?
-- **Measures**: Measures explicitas para calculos-chave?
+- **Measures (Medidas)**: Measures explicitas para calculos-chave?
 - **Campos ocultos**: Colunas tecnicas estao ocultas do report view?
 
 ### 3. Fornecer Orientacao Direcionada
@@ -78,13 +78,13 @@ Com base na analise, guie melhorias usando referencias:
 | Tabelas | Classificacao clara entre dimensao e fato |
 | Nomeacao | Legivel para humanos: `Customer Name` e nao `CUST_NM` |
 | Descricoes | Tabelas, colunas e measures documentadas |
-| Measures | Measures DAX explicitas para metricas de negocio |
+| Measures (Medidas) | Measures DAX explicitas para metricas de negocio |
 | Relacionamentos | Um-para-muitos de dimensao para fato |
 | Cross-filter | Direcao unica salvo quando necessario |
 | Campos ocultos | Oculte chaves tecnicas, IDs do report view |
 | Tabela de datas | Tabela de datas dedicada e marcada |
 
-## Referencia de MCP Tools
+## Referencia de Ferramentas MCP
 
 Use estas operacoes do Power BI Modeling MCP:
 

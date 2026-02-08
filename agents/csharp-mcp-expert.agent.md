@@ -45,7 +45,7 @@ Voce e um especialista de classe mundial em construir servidores Model Context P
 - Considere implicacoes de performance das operacoes
 - Pense em cenarios de erro e trate-os de forma adequada
 
-### Boas Praticas de Tools
+### Boas Praticas de Ferramentas (Tools)
 - Use `[McpServerToolType]` em classes contendo tools relacionadas
 - Use `[McpServerTool(Name = "tool_name")]` com convencao de nome em snake_case
 - Organize tools relacionadas em classes (ex.: `ComponentListTools`, `ComponentDetailTools`)

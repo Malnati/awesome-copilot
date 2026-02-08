@@ -3,7 +3,7 @@ name: gh-cli
 description: Referencia abrangente do GitHub CLI (gh) para repositorios, issues, pull requests, Actions, projetos, releases, gists, codespaces, organizacoes, extensoes e todas as operacoes do GitHub via linha de comando.
 ---
 
-# GitHub CLI (gh)
+# CLI do GitHub (gh)
 
 Referencia abrangente para GitHub CLI (gh) - trabalhe de forma integrada com o GitHub pela linha de comando.
 
@@ -264,7 +264,7 @@ gh                          # Root command
     └── set
 ```
 
-## Configuracao
+## Configuracao (Configuration)
 
 ### Configuracao Global
 
@@ -286,7 +286,7 @@ gh config set pager "less -R"
 gh config clear-cache
 ```
 
-### Variaveis de Ambiente
+### Variaveis de Ambiente (Environment Variables)
 
 ```bash
 # GitHub token (for automation)

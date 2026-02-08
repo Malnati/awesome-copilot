@@ -34,12 +34,12 @@ As tools MCP do Penpot requerem o servidor `penpot/penpot-mcp` rodando localment
 ### Inicio Rapido (somente se nao estiver instalado)
 
 ```bash
-# Clone and install
+# Clone e instale
 git clone https://github.com/penpot/penpot-mcp.git
 cd penpot-mcp
 npm install
 
-# Build and start servers
+# Build e inicie os servers
 npm run bootstrap
 ```
 
@@ -66,7 +66,7 @@ Adicione em `settings.json`:
 
 ### Solucao de Problemas (se o servidor estiver instalado mas nao funcionar)
 
-| Issue | Solution |
+| Problema (Issue) | Solucao |
 | ----- | -------- |
 | Plugin nao conecta | Verifique se os servidores estao rodando (`npm run start:all` no dir penpot-mcp) |
 | Browser bloqueia localhost | Permita acesso de rede local, desative Brave Shield ou tente Firefox |
@@ -101,7 +101,7 @@ Adicione em `settings.json`:
 4. **Espaco em branco**: Isolamento enfatiza importancia
 5. **Peso tipografico**: Bold se destaca
 
-## Workflow de Design
+## Fluxo de Trabalho de Design (Workflow)
 
 1. **Cheque por design system primeiro**: Pergunte se ha tokens/specs existentes, ou descubra a partir do arquivo do Penpot
 2. **Entenda a pagina**: Chame `mcp__penpot__execute_code` com `penpotUtils.shapeStructure()` para ver a hierarquia

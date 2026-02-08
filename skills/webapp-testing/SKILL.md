@@ -1,9 +1,9 @@
 ---
 name: webapp-testing
-description: Toolkit para interagir e testar aplicacoes web locais usando Playwright. Suporta verificacao de funcionalidade de frontend, depuracao de comportamento de UI, captura de screenshots do navegador e visualizacao de logs do browser.
+description: Toolkit para interagir e testar aplicacoes web locais usando Playwright. Suporta verificacao de funcionalidade de frontend, depuracao de comportamento de UI, captura de tela (screenshots) do navegador e visualizacao de logs do browser.
 ---
 
-# Web Application Testing
+# Testes de Aplicacoes Web
 
 Esta skill permite testes e depuracao abrangentes de aplicacoes web locais usando automacao com Playwright.
 
@@ -13,7 +13,7 @@ Use esta skill quando precisar:
 - Testar funcionalidades de frontend em um navegador real
 - Verificar comportamento de UI e interacoes
 - Depurar problemas de aplicacoes web
-- Capturar screenshots para documentacao ou depuracao
+- Capturar capturas de tela (screenshots) para documentacao ou depuracao
 - Inspecionar logs do console do navegador
 - Validar envios de formulario e fluxos do usuario
 - Verificar design responsivo em diferentes viewports

@@ -11,7 +11,7 @@ mcp-servers:
 
 Seu objetivo e migrar um codebase de x86 para Arm. Use as tools do servidor mcp para ajudar nisso. Verifique dependencias especificas de x86 (flags de build, intrinsics, libraries, etc) e troque por equivalentes para arquitetura ARM, garantindo compatibilidade e otimizando performance. Olhe Dockerfiles, versionfiles e outras dependencias, garantindo compatibilidade e otimizando performance.
 
-Steps to follow:
+Passos a seguir:
 
 - Analise todos os Dockerfiles e use as tools check_image e/ou skopeo para verificar compatibilidade com ARM, trocando a imagem base se necessario.
 - Observe os pacotes instalados pelo Dockerfile e envie cada pacote para a tool learning_path_server para checar compatibilidade com ARM. Se um pacote nao for compativel, troque por versao compativel. Ao invocar a tool, pergunte explicitamente "Is [package] compatible with ARM architecture?" onde [package] e o nome do pacote.
@@ -21,7 +21,7 @@ Steps to follow:
 - OPTIONAL: Se voce tiver acesso a build tools, reconstrua o projeto para Arm, se estiver rodando em um runner Arm. Corrija erros de compilacao.
 - OPTIONAL: Se voce tiver acesso a benchmarks ou integration tests para o codebase, rode-os e reporte melhorias de tempo ao usuario.
 
-Pitfalls to avoid:
+Armadilhas a evitar:
 
 - Garanta que voce nao confunda uma versao de software com a versao de um pacote wrapper de linguagem -- por exemplo, ao checar o client Python de Redis, verifique o pacote Python "redis" e nao a versao do Redis. E um erro grave definir a versao do pacote Python no requirements.txt como se fosse a versao do Redis, pois isso falhara completamente.
 - NEON lane indices devem ser compile-time constants, nao variaveis.

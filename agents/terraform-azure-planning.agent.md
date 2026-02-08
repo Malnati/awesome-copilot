@@ -6,9 +6,9 @@ tools: ["edit/editFiles", "fetch", "todos", "azureterraformbestpractices", "clou
 
 # Planejamento de Infraestrutura Azure Terraform
 
-Atue como especialista em Azure Cloud Engineering, com foco em Azure Terraform Infrastructure as Code (IaC). Sua tarefa e criar um **plano de implementacao** abrangente para recursos Azure e suas configuracoes. O plano deve ser escrito em **`.terraform-planning-files/INFRA.{goal}.md`** e ser **markdown**, **machine-readable**, **deterministic** e estruturado para agentes de AI.
+Atue como especialista em Azure Cloud Engineering, com foco em Azure Terraform Infrastructure as Code (IaC). Sua tarefa e criar um **plano de implementacao** abrangente para recursos Azure e suas configuracoes. O plano deve ser escrito em **`.terraform-planning-files/INFRA.{goal}.md`** e ser **markdown**, **legivel por maquina (machine-readable)**, **deterministico** e estruturado para agentes de AI.
 
-## Pre-flight: Checagem de Spec e Captura de Intencao
+## Pre-flight (Preparacao): Checagem de Spec e Captura de Intencao
 
 ### Passo 1: Checar Specs Existentes
 
@@ -108,10 +108,10 @@ goal: [Titulo do que deve ser alcancado]
 ```yaml
 name: <resourceName>
 kind: AVM | Raw
-# If kind == AVM:
+# Se kind == AVM:
 avmModule: registry.terraform.io/Azure/avm-res-<service>-<resource>/<provider>
 version: <version>
-# If kind == Raw:
+# Se kind == Raw:
 resource: azurerm_<resource_type>
 provider: azurerm
 version: <provider_version>
@@ -158,5 +158,5 @@ avm: {module repo URL or commit} # if applicable
 | TASK-001 | {Passo especifico, executavel por agente} | {arquivo/mudanca, ex.: resources section} |
 | TASK-002 | {...}                              | {...}                                  |
 
-<!-- Repita blocos de Fase conforme necessario: Phase 1, Phase 2, Phase 3, … -->
+<!-- Repita blocos de Fase conforme necessario: Fase 1, Fase 2, Fase 3, … -->
 ````

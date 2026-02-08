@@ -3,7 +3,7 @@ name: workiq-copilot
 description: 'Orienta o Copilot CLI sobre como usar o WorkIQ CLI/MCP server para consultar dados do Microsoft 365 Copilot (emails, meetings, docs, Teams, people) com contexto ao vivo, resumos e recomendacoes.'
 ---
 
-# WorkIQ Copilot Skill
+# Skill do WorkIQ Copilot
 
 ## Visao Geral
 
@@ -11,11 +11,11 @@ WorkIQ (Public Preview) permite que o Copilot consulte dados do Microsoft 365 co
 
 ## Dados Suportados e Prompts de Exemplo
 
-- **Emails** – “Summarize emails from Sarah about the budget.”
-- **Meetings** – “What are my upcoming meetings this week?”
-- **Documents** – “Find recent documents about Q4 planning.”
-- **Teams** – “Summarize messages in the Engineering channel today.”
-- **People/Projects** – “Who is working on Project Alpha?”
+- **Emails** – “Resuma emails da Sarah sobre o budget.”
+- **Meetings** – “Quais sao minhas meetings desta semana?”
+- **Documents** – “Encontre documents recentes sobre Q4 planning.”
+- **Teams** – “Resuma mensagens no canal Engineering hoje.”
+- **People/Projects** – “Quem esta trabalhando no Project Alpha?”
 
 ## Como Obter Acesso
 
@@ -30,7 +30,7 @@ WorkIQ (Public Preview) permite que o Copilot consulte dados do Microsoft 365 co
 3. **Consentimento do tenant**
    - O primeiro uso solicita consentimento do admin do Microsoft 365 (EULA + permissoes). Nao-admins devem contatar o admin do tenant para aprovar conforme o Tenant Administrator Enablement Guide.
 
-## Checklist Pre-flight
+## Checklist de Pre-flight
 
 - Execute `Get-Command workiq` para confirmar que o binario esta disponivel.
 - Aceite a EULA uma vez com `workiq accept-eula`.
@@ -40,7 +40,7 @@ WorkIQ (Public Preview) permite que o Copilot consulte dados do Microsoft 365 co
 ## Fluxo Principal
 
 1. **Esclarecer intencao** – agenda, action items, busca de documentos, people search, resumo de riscos, etc.
-2. **Criar prompt preciso** – inclua periodo, fonte ou topico (ex.: “Summarize Teams posts in #eng for today”).
+2. **Criar prompt preciso** – inclua periodo, fonte ou topico (ex.: “Resuma posts do Teams em #eng de hoje”).
 3. **Executar comando** – `workiq ask --question "<prompt>"` (use `-q` como atalho se desejar).
 4. **Monitorar execucao** – respostas longas podem ser exibidas em streaming; aguarde finalizar antes de novos pedidos.
 5. **Resumir e redigir** – destaque insights, conflitos/tarefas, evite colar links brutos a menos que seja necessario.
@@ -60,18 +60,18 @@ WorkIQ (Public Preview) permite que o Copilot consulte dados do Microsoft 365 co
 
 ## Padroes de Prompt
 
-- Agenda: “What’s on my calendar tomorrow?”
-- Action items: “Summarize follow-ups from today’s customer sync.”
-- Documentos: “List PowerPoints about Contoso FY26 roadmap.”
-- Communications: “What did my manager say about the deadline?”
-- Insights: “What blockers came up in the last three meetings?”
-- Planning: “Suggest focus blocks for Tuesday afternoon.”
+- Agenda: “O que ha no meu calendar amanha?”
+- Action items: “Resuma follow-ups do customer sync de hoje.”
+- Documentos: “Liste PowerPoints sobre o roadmap FY26 da Contoso.”
+- Communications: “O que meu manager disse sobre o deadline?”
+- Insights: “Quais blockers surgiram nas ultimas tres meetings?”
+- Planning: “Sugira focus blocks para a tarde de Tuesday.”
 
 ## Diretrizes de Resposta
 
 - Mantenha resumos concisos (2–3 frases), destacando carga, prioridades, bloqueios e proximos passos opcionais.
 - Cite meetings/documents de forma generica, a menos que o usuario precise especificamente de links.
-- Mencione se o WorkIQ pode continuar (ex.: “WorkIQ can show Thu–Sun if needed”).
+- Mencione se o WorkIQ pode continuar (ex.: “WorkIQ pode mostrar Thu–Sun se necessario”).
 - Converta acoes sugeridas pelo WorkIQ em ofertas claras (bloquear tempo, enviar follow-up, solicitar gravacao, fazer consulta mais profunda).
 
 ## Boas Praticas
@@ -84,10 +84,10 @@ WorkIQ (Public Preview) permite que o Copilot consulte dados do Microsoft 365 co
 
 ## Solucao de Problemas
 
-- **Missing CLI** – instale via npm ou verifique o PATH; notifique o usuario se indisponivel.
-- **Consent/auth errors** – reexecute apos o admin conceder permissoes ou apos concluir login por dispositivo.
-- **Long/incomplete output** – refaça com escopo mais preciso ou solicite fatias especificas (por dia/projeto/pessoa).
-- **Command hanging** – cancele o comando no terminal (ex.: Ctrl+C) ou reinicie a sessao do Copilot CLI e tente novamente; garanta que o login no browser foi concluido.
+- **CLI ausente (Missing CLI)** – instale via npm ou verifique o PATH; notifique o usuario se indisponivel.
+- **Erros de consent/auth** – reexecute apos o admin conceder permissoes ou apos concluir login por dispositivo.
+- **Output longo/incompleto** – refaça com escopo mais preciso ou solicite fatias especificas (por dia/projeto/pessoa).
+- **Comando travado** – cancele o comando no terminal (ex.: Ctrl+C) ou reinicie a sessao do Copilot CLI e tente novamente; garanta que o login no browser foi concluido.
 
 ## Acoes de Follow-up a Oferecer
 

@@ -36,7 +36,7 @@ Voce VAI gerenciar informacoes de pesquisa da seguinte forma:
 - Voce VAI deletar abordagens nao selecionadas completamente quando uma solucao for escolhida
 - Voce VAI substituir findings desatualizados imediatamente por informacoes atualizadas
 
-## Workflow de Execucao da Pesquisa
+## Fluxo de Trabalho de Execucao da Pesquisa
 
 ### 1. Planejamento e Descoberta de Pesquisa
 

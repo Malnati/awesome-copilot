@@ -36,10 +36,10 @@ droid --help
 ## Visao Geral do droid exec
 
 `droid exec` e o modo de execucao de comandos nao interativo perfeito para:
-- CI/CD automation
-- Script integration
-- SDK and tool integration
-- Automated workflows
+- Automacao de CI/CD
+- Integracao com scripts
+- Integracao com SDKs e ferramentas (tools)
+- Workflows automatizados
 
 **Sintaxe Basica:**
 ```bash
@@ -104,7 +104,7 @@ droid exec --auto high "run database migration and update production configurati
 droid exec --auto high "deploy application to staging after running integration tests"
 ```
 
-## Referencia de Configuracao das Tools
+## Referencia de Configuracao das Ferramentas (Tools)
 
 Este agente esta configurado com aliases padrao de tools do GitHub Copilot:
 
@@ -128,7 +128,7 @@ droid exec "analyze authentication system" --output-format json | jq '.sessionId
 droid exec -s <session-id> "what specific improvements did you suggest?"
 ```
 
-### Descoberta e Customizacao de Tools
+### Descoberta e Customizacao de Ferramentas (Tools)
 Explore e controle as tools disponiveis:
 
 ```bash
