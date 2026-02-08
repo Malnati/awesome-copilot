@@ -1,24 +1,24 @@
 # Tasks by microsoft/edge-ai
 
-Task Researcher and Task Planner for intermediate to expert users and large codebases - Brought to you by microsoft/edge-ai
+Task Researcher e Task Planner para usuarios intermediarios a avancados e codebases grandes - Trazido a voce por microsoft/edge-ai
 
 **Tags:** architecture, planning, research, tasks, implementation
 
-## Items in this Collection
+## Items nesta Collection
 
 | Title | Type | Description | MCP Servers |
 | ----- | ---- | ----------- | ----------- |
-| [Task Plan Implementation Instructions](../instructions/task-implementation.instructions.md)<br />[![Install in VS Code](https://img.shields.io/badge/VS_Code-Install-0098FF?style=flat-square&logo=visualstudiocode&logoColor=white)](https://aka.ms/awesome-copilot/install/instructions?url=vscode%3Achat-instructions%2Finstall%3Furl%3Dhttps%3A%2F%2Fraw.githubusercontent.com%2Fgithub%2Fawesome-copilot%2Fmain%2Finstructions%2Ftask-implementation.instructions.md)<br />[![Install in VS Code Insiders](https://img.shields.io/badge/VS_Code_Insiders-Install-24bfa5?style=flat-square&logo=visualstudiocode&logoColor=white)](https://aka.ms/awesome-copilot/install/instructions?url=vscode-insiders%3Achat-instructions%2Finstall%3Furl%3Dhttps%3A%2F%2Fraw.githubusercontent.com%2Fgithub%2Fawesome-copilot%2Fmain%2Finstructions%2Ftask-implementation.instructions.md) | Instruction | Instructions for implementing task plans with progressive tracking and change record - Brought to you by microsoft/edge-ai [see usage](#task-plan-implementation-instructions) |  |
-| [Task Planner Instructions](../agents/task-planner.agent.md)<br />[![Install in VS Code](https://img.shields.io/badge/VS_Code-Install-0098FF?style=flat-square&logo=visualstudiocode&logoColor=white)](https://aka.ms/awesome-copilot/install/agent?url=vscode%3Achat-agent%2Finstall%3Furl%3Dhttps%3A%2F%2Fraw.githubusercontent.com%2Fgithub%2Fawesome-copilot%2Fmain%2Fagents%2Ftask-planner.agent.md)<br />[![Install in VS Code Insiders](https://img.shields.io/badge/VS_Code_Insiders-Install-24bfa5?style=flat-square&logo=visualstudiocode&logoColor=white)](https://aka.ms/awesome-copilot/install/agent?url=vscode-insiders%3Achat-agent%2Finstall%3Furl%3Dhttps%3A%2F%2Fraw.githubusercontent.com%2Fgithub%2Fawesome-copilot%2Fmain%2Fagents%2Ftask-planner.agent.md) | Agent | Task planner for creating actionable implementation plans - Brought to you by microsoft/edge-ai [see usage](#task-planner-instructions) |  |
-| [Task Researcher Instructions](../agents/task-researcher.agent.md)<br />[![Install in VS Code](https://img.shields.io/badge/VS_Code-Install-0098FF?style=flat-square&logo=visualstudiocode&logoColor=white)](https://aka.ms/awesome-copilot/install/agent?url=vscode%3Achat-agent%2Finstall%3Furl%3Dhttps%3A%2F%2Fraw.githubusercontent.com%2Fgithub%2Fawesome-copilot%2Fmain%2Fagents%2Ftask-researcher.agent.md)<br />[![Install in VS Code Insiders](https://img.shields.io/badge/VS_Code_Insiders-Install-24bfa5?style=flat-square&logo=visualstudiocode&logoColor=white)](https://aka.ms/awesome-copilot/install/agent?url=vscode-insiders%3Achat-agent%2Finstall%3Furl%3Dhttps%3A%2F%2Fraw.githubusercontent.com%2Fgithub%2Fawesome-copilot%2Fmain%2Fagents%2Ftask-researcher.agent.md) | Agent | Task research specialist for comprehensive project analysis - Brought to you by microsoft/edge-ai [see usage](#task-researcher-instructions) |  |
+| [Task Plan Implementation Instructions](../instructions/task-implementation.instructions.md)<br />[![Install in VS Code](https://img.shields.io/badge/VS_Code-Install-0098FF?style=flat-square&logo=visualstudiocode&logoColor=white)](https://aka.ms/awesome-copilot/install/instructions?url=vscode%3Achat-instructions%2Finstall%3Furl%3Dhttps%3A%2F%2Fraw.githubusercontent.com%2Fgithub%2Fawesome-copilot%2Fmain%2Finstructions%2Ftask-implementation.instructions.md)<br />[![Install in VS Code Insiders](https://img.shields.io/badge/VS_Code_Insiders-Install-24bfa5?style=flat-square&logo=visualstudiocode&logoColor=white)](https://aka.ms/awesome-copilot/install/instructions?url=vscode-insiders%3Achat-instructions%2Finstall%3Furl%3Dhttps%3A%2F%2Fraw.githubusercontent.com%2Fgithub%2Fawesome-copilot%2Fmain%2Finstructions%2Ftask-implementation.instructions.md) | Instruction | Instrucoes para implementar planos de tarefa com acompanhamento progressivo e registro de mudancas - Trazido a voce por microsoft/edge-ai [ver uso](#task-plan-implementation-instructions) |  |
+| [Task Planner Instructions](../agents/task-planner.agent.md)<br />[![Install in VS Code](https://img.shields.io/badge/VS_Code-Install-0098FF?style=flat-square&logo=visualstudiocode&logoColor=white)](https://aka.ms/awesome-copilot/install/agent?url=vscode%3Achat-agent%2Finstall%3Furl%3Dhttps%3A%2F%2Fraw.githubusercontent.com%2Fgithub%2Fawesome-copilot%2Fmain%2Fagents%2Ftask-planner.agent.md)<br />[![Install in VS Code Insiders](https://img.shields.io/badge/VS_Code_Insiders-Install-24bfa5?style=flat-square&logo=visualstudiocode&logoColor=white)](https://aka.ms/awesome-copilot/install/agent?url=vscode-insiders%3Achat-agent%2Finstall%3Furl%3Dhttps%3A%2F%2Fraw.githubusercontent.com%2Fgithub%2Fawesome-copilot%2Fmain%2Fagents%2Ftask-planner.agent.md) | Agent | Task planner para criar planos de implementacao acionaveis - Trazido a voce por microsoft/edge-ai [ver uso](#task-planner-instructions) |  |
+| [Task Researcher Instructions](../agents/task-researcher.agent.md)<br />[![Install in VS Code](https://img.shields.io/badge/VS_Code-Install-0098FF?style=flat-square&logo=visualstudiocode&logoColor=white)](https://aka.ms/awesome-copilot/install/agent?url=vscode%3Achat-agent%2Finstall%3Furl%3Dhttps%3A%2F%2Fraw.githubusercontent.com%2Fgithub%2Fawesome-copilot%2Fmain%2Fagents%2Ftask-researcher.agent.md)<br />[![Install in VS Code Insiders](https://img.shields.io/badge/VS_Code_Insiders-Install-24bfa5?style=flat-square&logo=visualstudiocode&logoColor=white)](https://aka.ms/awesome-copilot/install/agent?url=vscode-insiders%3Achat-agent%2Finstall%3Furl%3Dhttps%3A%2F%2Fraw.githubusercontent.com%2Fgithub%2Fawesome-copilot%2Fmain%2Fagents%2Ftask-researcher.agent.md) | Agent | Especialista em pesquisa de tasks para analise abrangente de projetos - Trazido a voce por microsoft/edge-ai [ver uso](#task-researcher-instructions) |  |
 
-## Collection Usage
+## Uso da Collection
 
 ### Task Plan Implementation Instructions
 
-Continue to use `task-planner` to iterate on the plan until you have exactly what you want done to your codebase.
+Continue usando `task-planner` para iterar no plano ate ter exatamente o que deseja fazer no codebase.
 
-When you are ready to implement the plan, **create a new chat** and switch to `Agent` mode then fire off the newly generated prompt.
+Quando estiver pronto para implementar o plano, **crie um novo chat** e alterne para o modo `Agent`, depois dispare o prompt recem-gerado.
 
 ```markdown, implement-fabric-rti-changes.prompt.md
 ---
@@ -28,11 +28,11 @@ title: Implement microsoft fabric realtime intelligence terraform support
 /implement-fabric-rti-blueprint-modification phaseStop=true
 ```
 
-This prompt has the added benefit of attaching the plan as instructions, which helps with keeping the plan in context throughout the whole conversation.
+Este prompt tem o beneficio adicional de anexar o plano como instructions, o que ajuda a manter o plano em contexto durante toda a conversa.
 
-**Expert Warning** ->>Use `phaseStop=false` to have Copilot implement the whole plan without stopping. Additionally, you can use `taskStop=true` to have Copilot stop after every Task implementation for finer detail control.
+**Expert Warning** ->> Use `phaseStop=false` para que o Copilot implemente o plano inteiro sem parar. Alem disso, voce pode usar `taskStop=true` para fazer o Copilot parar apos cada implementacao de Task para controle mais detalhado.
 
-To use these generated instructions and prompts, you'll need to update your `settings.json` accordingly:
+Para usar essas instructions e prompts gerados, voce precisara atualizar seu `settings.json` adequadamente:
 
 ```json
     "chat.instructionsFilesLocations": {
@@ -49,7 +49,7 @@ To use these generated instructions and prompts, you'll need to update your `set
 
 ### Task Planner Instructions
 
-Also, task-researcher will provide additional ideas for implementation which you can work with GitHub Copilot on selecting the right one to focus on.
+Além disso, task-researcher fornecera ideias adicionais para implementacao que voce pode trabalhar com o GitHub Copilot para selecionar a melhor para focar.
 
 ```markdown, task-plan.prompt.md
 ---
@@ -60,27 +60,27 @@ title: Plan microsoft fabric realtime intelligence terraform support
 Build a plan to support adding fabric rti to this project
 ```
 
-`task-planner` will help you create a plan for implementing your task(s). It will use your fully researched ideas or build new research if not already provided.
+`task-planner` ajudara voce a criar um plano para implementar sua(s) task(s). Ele usara suas ideias totalmente pesquisadas ou fara novas pesquisas se ainda nao tiverem sido fornecidas.
 
-`task-planner` will produce three (3) files that will be used by `task-implementation.instructions.md`.
+`task-planner` produzira tres (3) arquivos que serao usados por `task-implementation.instructions.md`.
 
 * `.copilot-tracking/plan/*-plan.instructions.md`
 
-  * A newly generated instructions file that has the plan as a checklist of Phases and Tasks.
+  * Um novo arquivo de instructions gerado que contem o plano como checklist de Phases e Tasks.
 * `.copilot-tracking/details/*-details.md`
 
-  * The details for the implementation, the plan file refers to this file for specific details (important if you have a big plan).
+  * Os detalhes da implementacao; o arquivo de plano faz referencia a este arquivo para detalhes especificos (importante se voce tiver um plano grande).
 * `.copilot-tracking/prompts/implement-*.prompt.md`
 
-  * A newly generated prompt file that will create a `.copilot-tracking/changes/*-changes.md` file and proceed to implement the changes.
+  * Um novo arquivo de prompt gerado que criara um arquivo `.copilot-tracking/changes/*-changes.md` e prosseguira para implementar as mudancas.
 
-Continue to use `task-planner` to iterate on the plan until you have exactly what you want done to your codebase.
+Continue usando `task-planner` para iterar no plano ate ter exatamente o que deseja fazer no codebase.
 
 ---
 
 ### Task Researcher Instructions
 
-Now you can iterate on research for your tasks!
+Agora voce pode iterar sobre pesquisa das suas tasks!
 
 ```markdown, research.prompt.md
 ---
@@ -91,9 +91,8 @@ Review the microsoft documentation for fabric realtime intelligence
 and come up with ideas on how to implement this support into our terraform components.
 ```
 
-Research is dumped out into a .copilot-tracking/research/*-research.md file and will include discoveries for GHCP along with examples and schema that will be useful during implementation.
+A pesquisa e descarregada em um arquivo .copilot-tracking/research/*-research.md e incluira descobertas para GHCP junto com exemplos e schema que serao uteis durante a implementacao.
 
-Also, task-researcher will provide additional ideas for implementation which you can work with GitHub Copilot on selecting the right one to focus on.
+Além disso, task-researcher fornecera ideias adicionais para implementacao que voce pode trabalhar com o GitHub Copilot para selecionar a melhor para focar.
 
 ---
-
