@@ -2,38 +2,38 @@
 [![Powered by Awesome Copilot](https://img.shields.io/badge/Powered_by-Awesome_Copilot-blue?logo=githubcopilot)](https://aka.ms/awesome-github-copilot) [![GitHub contributors from allcontributors.org](https://img.shields.io/github/all-contributors/github/awesome-copilot?color=ee8449)](#contributors-)
 
 
-A community created collection of custom agents, prompts, and instructions to supercharge your GitHub Copilot experience across different domains, languages, and use cases.
+Uma colecao criada pela comunidade de agents, prompts e instructions personalizados para potencializar sua experiencia com GitHub Copilot em diferentes dominios, linguagens e casos de uso.
 
-## 🚀 What is Awesome GitHub Copilot?
+## 🚀 O que e Awesome GitHub Copilot?
 
-This repository provides a comprehensive toolkit for enhancing GitHub Copilot with specialized:
+Este repositorio fornece um toolkit abrangente para aprimorar o GitHub Copilot com:
 
-- **👉 [Awesome Agents](docs/README.agents.md)** - Specialized GitHub Copilot agents that integrate with MCP servers to provide enhanced capabilities for specific workflows and tools
-- **👉 [Awesome Prompts](docs/README.prompts.md)** - Focused, task-specific prompts for generating code, documentation, and solving specific problems
-- **👉 [Awesome Instructions](docs/README.instructions.md)** - Comprehensive coding standards and best practices that apply to specific file patterns or entire projects
-- **👉 [Awesome Skills](docs/README.skills.md)** - Self-contained folders with instructions and bundled resources that enhance AI capabilities for specialized tasks
-- **👉 [Awesome Collections](docs/README.collections.md)** - Curated collections of related prompts, instructions, agents, and skills organized around specific themes and workflows
-- **👉 [Awesome Cookbook Recipes](cookbook/README.md)** - Practical, copy-paste-ready code snippets and real-world examples for working with GitHub Copilot tools and features
+- **👉 [Awesome Agents](docs/README.agents.md)** - Agents especializados do GitHub Copilot que integram com servidores MCP para fornecer capacidades aprimoradas para workflows e tools especificos
+- **👉 [Awesome Prompts](docs/README.prompts.md)** - Prompts focados e especificos de tarefa para gerar codigo, documentacao e resolver problemas especificos
+- **👉 [Awesome Instructions](docs/README.instructions.md)** - Padroes de codificacao e boas praticas abrangentes que se aplicam a padroes de arquivo especificos ou projetos inteiros
+- **👉 [Awesome Skills](docs/README.skills.md)** - Pastas autocontidas com instructions e recursos empacotados que aprimoram capacidades de AI para tarefas especializadas
+- **👉 [Awesome Collections](docs/README.collections.md)** - Collections curadas de prompts, instructions, agents e skills organizadas em torno de temas e workflows especificos
+- **👉 [Awesome Cookbook Recipes](cookbook/README.md)** - Trechos de codigo praticos e exemplos do mundo real, prontos para copiar e colar, para trabalhar com tools e features do GitHub Copilot
 
 ## 🌟 Featured Collections
 
-Discover our curated collections of prompts, instructions, and agents organized around specific themes and workflows.
+Descubra nossas collections curadas de prompts, instructions e agents organizadas em torno de temas e workflows especificos.
 
 | Name | Description | Items | Tags |
 | ---- | ----------- | ----- | ---- |
-| [Awesome Copilot](collections/awesome-copilot.md) | Meta prompts that help you discover and generate curated GitHub Copilot agents, collections, instructions, prompts, and skills. | 5 items | github-copilot, discovery, meta, prompt-engineering, agents |
-| [Copilot SDK](collections/copilot-sdk.md) | Build applications with the GitHub Copilot SDK across multiple programming languages. Includes comprehensive instructions for C#, Go, Node.js/TypeScript, and Python to help you create AI-powered applications. | 5 items | copilot-sdk, sdk, csharp, go, nodejs, typescript, python, ai, github-copilot |
-| [Partners](collections/partners.md) | Custom agents that have been created by GitHub partners | 20 items | devops, security, database, cloud, infrastructure, observability, feature-flags, cicd, migration, performance |
+| [Awesome Copilot](collections/awesome-copilot.md) | Meta prompts que ajudam voce a descobrir e gerar agents, collections, instructions, prompts e skills curados do GitHub Copilot. | 5 items | github-copilot, discovery, meta, prompt-engineering, agents |
+| [Copilot SDK](collections/copilot-sdk.md) | Construa aplicacoes com o GitHub Copilot SDK em varias linguagens de programacao. Inclui instructions abrangentes para C#, Go, Node.js/TypeScript e Python para ajudar voce a criar aplicacoes com AI. | 5 items | copilot-sdk, sdk, csharp, go, nodejs, typescript, python, ai, github-copilot |
+| [Partners](collections/partners.md) | Agents personalizados que foram criados por parceiros do GitHub | 20 items | devops, security, database, cloud, infrastructure, observability, feature-flags, cicd, migration, performance |
 
 
 ## MCP Server
 
-To make it easy to add these customizations to your editor, we have created a [MCP Server](https://developer.microsoft.com/blog/announcing-awesome-copilot-mcp-server) that provides a prompt for searching and installing prompts, instructions, agents, and skills directly from this repository. You'll need to have Docker installed and running to run the server.
+Para facilitar a adicao dessas personalizacoes no seu editor, criamos um [MCP Server](https://developer.microsoft.com/blog/announcing-awesome-copilot-mcp-server) que fornece um prompt para buscar e instalar prompts, instructions, agents e skills diretamente deste repositorio. Voce precisara ter o Docker instalado e em execucao para rodar o servidor.
 
 [![Install in VS Code](https://img.shields.io/badge/VS_Code-Install-0098FF?logo=visualstudiocode&logoColor=white)](https://aka.ms/awesome-copilot/mcp/vscode) [![Install in VS Code Insiders](https://img.shields.io/badge/VS_Code_Insiders-Install-24bfa5?logo=visualstudiocode&logoColor=white)](https://aka.ms/awesome-copilot/mcp/vscode-insiders) [![Install in Visual Studio](https://img.shields.io/badge/Visual_Studio-Install-C16FDE?logo=visualstudio&logoColor=white)](https://aka.ms/awesome-copilot/mcp/vs)
 
 <details>
-<summary>Show MCP Server JSON configuration</summary>
+<summary>Mostrar configuracao JSON do MCP Server</summary>
 
 ```json
 {
@@ -56,37 +56,37 @@ To make it easy to add these customizations to your editor, we have created a [M
 
 ## 📄 llms.txt
 
-An [`llms.txt`](https://github.github.io/awesome-copilot/llms.txt) file following the [llmstxt.org](https://llmstxt.org/) specification is available on the GitHub Pages site. This machine-readable file makes it easy for Large Language Models to discover and understand all available agents, prompts, instructions, and skills, providing a structured overview of the repository's resources with names and descriptions.
+Um arquivo [`llms.txt`](https://github.github.io/awesome-copilot/llms.txt) seguindo a especificacao [llmstxt.org](https://llmstxt.org/) esta disponivel no site do GitHub Pages. Esse arquivo legivel por maquina facilita que Large Language Models descubram e entendam todos os agents, prompts, instructions e skills disponiveis, fornecendo uma visao estruturada dos recursos do repositorio com nomes e descricoes.
 
-## 🔧 How to Use
+## 🔧 Como Usar
 
 ### 🔌 Plugins
 
-Plugins are installable packages generated from collections. Each plugin contains symlinked agents, commands (prompts), and skills from the source collection, making it easy to install a curated set of resources.
+Plugins sao pacotes instalaveis gerados a partir de collections. Cada plugin contem agents, commands (prompts) e skills com symlinks da collection de origem, facilitando a instalacao de um conjunto curado de recursos.
 
-#### Installing Plugins
+#### Instalando Plugins
 
-First, add the Awesome Copilot marketplace to your Copilot CLI:
+Primeiro, adicione o marketplace Awesome Copilot ao seu Copilot CLI:
 
 ```bash
 copilot marketplace add github/awesome-copilot
 ```
 
-Then install any plugin from the collection:
+Depois instale qualquer plugin da collection:
 
 ```bash
 copilot plugin install <plugin-name>@awesome-copilot
 ```
 
-Alternatively, you can use the `/plugin` command within a Copilot chat session to browse and install plugins interactively.
+Alternativamente, voce pode usar o comando `/plugin` dentro de uma sessao de chat do Copilot para navegar e instalar plugins de forma interativa.
 
 ### 🤖 Custom Agents
 
-Custom agents can be used in Copilot coding agent (CCA), VS Code, and Copilot CLI (coming soon). For CCA, when assigning an issue to Copilot, select the custom agent from the provided list. In VS Code, you can activate the custom agent in the agents session, alongside built-in agents like Plan and Agent.
+Custom agents podem ser usados no Copilot coding agent (CCA), VS Code e Copilot CLI (em breve). Para CCA, ao atribuir uma issue ao Copilot, selecione o custom agent na lista fornecida. No VS Code, voce pode ativar o custom agent na sessao de agents, junto com agents integrados como Plan e Agent.
 
 ### 🎯 Prompts
 
-Use the `/` command in GitHub Copilot Chat to access prompts:
+Use o comando `/` no GitHub Copilot Chat para acessar prompts:
 
 ```plaintext
 /awesome-copilot create-readme
@@ -94,61 +94,61 @@ Use the `/` command in GitHub Copilot Chat to access prompts:
 
 ### 📋 Instructions
 
-Instructions automatically apply to files based on their patterns and provide contextual guidance for coding standards, frameworks, and best practices.
+Instructions se aplicam automaticamente aos arquivos com base em seus padroes e fornecem orientacao contextual para padroes de codificacao, frameworks e boas praticas.
 
-## 🎯 Why Use Awesome GitHub Copilot?
+## 🎯 Por que usar Awesome GitHub Copilot?
 
-- **Productivity**: Pre-built agents, prompts and instructions save time and provide consistent results.
-- **Best Practices**: Benefit from community-curated coding standards and patterns.
-- **Specialized Assistance**: Access expert-level guidance through specialized custom agents.
-- **Continuous Learning**: Stay updated with the latest patterns and practices across technologies.
+- **Produtividade**: Agents, prompts e instructions prontos economizam tempo e fornecem resultados consistentes.
+- **Boas praticas**: Beneficie-se de padroes e conventions de codificacao curados pela comunidade.
+- **Assistencia especializada**: Acesse orientacao de nivel especialista por meio de custom agents especializados.
+- **Aprendizado continuo**: Mantenha-se atualizado com os padroes e praticas mais recentes em tecnologias.
 
-## 🤝 Contributing
+## 🤝 Contribuindo
 
-We welcome contributions! Please see our [Contributing Guidelines](CONTRIBUTING.md) for details on how to:
+Damos boas-vindas a contribuicoes! Consulte nossas [Contributing Guidelines](CONTRIBUTING.md) para detalhes sobre como:
 
-- Add new prompts, instructions, agents, or skills
-- Improve existing content
-- Report issues or suggest enhancements
+- Adicionar novos prompts, instructions, agents ou skills
+- Melhorar conteudo existente
+- Reportar issues ou sugerir melhorias
 
-For AI coding agents working with this project, refer to [AGENTS.md](AGENTS.md) for detailed technical guidance on development workflows, setup commands, and contribution standards.
+Para AI coding agents que trabalham com este projeto, consulte [AGENTS.md](AGENTS.md) para orientacoes tecnicas detalhadas sobre workflows de desenvolvimento, comandos de setup e padroes de contribuicao.
 
-### Quick Contribution Guide
+### Guia Rapido de Contribuicao
 
-1. Follow our file naming conventions and frontmatter requirements
-2. Test your contributions thoroughly
-3. Update the appropriate README tables
-4. Submit a pull request with a clear description
+1. Siga nossas convencoes de nomes de arquivo e requisitos de front matter
+2. Teste suas contribuicoes cuidadosamente
+3. Atualize as tabelas apropriadas do README
+4. Envie um pull request com uma descricao clara
 
-## 📖 Repository Structure
+## 📖 Estrutura do Repositorio
 
 ```plaintext
-├── prompts/          # Task-specific prompts (.prompt.md)
-├── instructions/     # Coding standards and best practices (.instructions.md)
-├── agents/           # AI personas and specialized modes (.agent.md)
-├── collections/      # Curated collections of related items (.collection.yml)
-├── plugins/          # Installable plugins generated from collections
-├── scripts/          # Utility scripts for maintenance
-└── skills/           # AI capabilities for specialized tasks
+├── prompts/          # Prompts especificos de tarefa (.prompt.md)
+├── instructions/     # Padroes de codificacao e boas praticas (.instructions.md)
+├── agents/           # Personas de AI e modos especializados (.agent.md)
+├── collections/      # Collections curadas de itens relacionados (.collection.yml)
+├── plugins/          # Plugins instalaveis gerados a partir de collections
+├── scripts/          # Scripts utilitarios para manutencao
+└── skills/           # Capacidades de AI para tarefas especializadas
 ```
 
 ## 📄 License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+Este projeto e licenciado sob a MIT License - consulte o arquivo [LICENSE](LICENSE) para detalhes.
 
-## 🛡️ Security & Support
+## 🛡️ Seguranca e Suporte
 
-- **Security Issues**: Please see our [Security Policy](SECURITY.md)
-- **Support**: Check our [Support Guide](SUPPORT.md) for getting help
-- **Code of Conduct**: We follow the [Contributor Covenant](CODE_OF_CONDUCT.md)
+- **Security Issues**: Consulte nossa [Security Policy](SECURITY.md)
+- **Support**: Veja nosso [Support Guide](SUPPORT.md) para obter ajuda
+- **Code of Conduct**: Seguimos o [Contributor Covenant](CODE_OF_CONDUCT.md)
 
 ## ℹ️ Disclaimer
 
-The customizations in this repository are sourced from and created by third-party developers. GitHub does not verify, endorse, or guarantee the functionality or security of these agents. Please carefully inspect any agent and its documentation before installing to understand permissions it may require and actions it may perform.
+As personalizacoes neste repositorio sao obtidas e criadas por desenvolvedores terceiros. O GitHub nao verifica, endossa ou garante a funcionalidade ou seguranca desses agents. Inspecione cuidadosamente qualquer agent e sua documentacao antes de instalar para entender as permissoes que ele pode exigir e as acoes que ele pode executar.
 
 ---
 
-**Ready to supercharge your coding experience?** Start exploring our [prompts](docs/README.prompts.md), [instructions](docs/README.instructions.md), and [custom agents](docs/README.agents.md)!
+**Pronto para potencializar sua experiencia de codificacao?** Comece explorando nossos [prompts](docs/README.prompts.md), [instructions](docs/README.instructions.md) e [custom agents](docs/README.agents.md)!
 
 ## Contributors ✨
 

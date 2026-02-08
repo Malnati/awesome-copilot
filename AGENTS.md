@@ -1,30 +1,30 @@
 # AGENTS.md
 
-## Project Overview
+## Visao Geral do Projeto
 
-The Awesome GitHub Copilot repository is a community-driven collection of custom agents, prompts, and instructions designed to enhance GitHub Copilot experiences across various domains, languages, and use cases. The project includes:
+O repositorio Awesome GitHub Copilot e uma colecao conduzida pela comunidade de agentes personalizados, prompts e instrucoes criada para aprimorar experiencias do GitHub Copilot em diferentes dominios, linguagens e casos de uso. O projeto inclui:
 
-- **Agents** - Specialized GitHub Copilot agents that integrate with MCP servers
-- **Prompts** - Task-specific prompts for code generation and problem-solving
-- **Instructions** - Coding standards and best practices applied to specific file patterns
-- **Skills** - Self-contained folders with instructions and bundled resources for specialized tasks
-- **Collections** - Curated collections organized around specific themes and workflows
+- **Agents** - Agentes especializados do GitHub Copilot que integram com servidores MCP
+- **Prompts** - Prompts especificos para tarefas de geracao de codigo e resolucao de problemas
+- **Instructions** - Padroes de codificacao e boas praticas aplicadas a padroes especificos de arquivos
+- **Skills** - Pastas autocontidas com instrucoes e recursos empacotados para tarefas especializadas
+- **Collections** - Colecoes curadas organizadas em torno de temas e fluxos de trabalho especificos
 
-## Repository Structure
+## Estrutura do Repositorio
 
 ```
 .
-├── agents/           # Custom GitHub Copilot agent definitions (.agent.md files)
-├── prompts/          # Task-specific prompts (.prompt.md files)
-├── instructions/     # Coding standards and guidelines (.instructions.md files)
-├── skills/           # Agent Skills folders (each with SKILL.md and optional bundled assets)
-├── collections/      # Curated collections of resources (.md files)
-├── docs/             # Documentation for different resource types
-├── eng/              # Build and automation scripts
-└── scripts/          # Utility scripts
+├── agents/           # Definicoes de agentes personalizados do GitHub Copilot (arquivos .agent.md)
+├── prompts/          # Prompts especificos para tarefas (arquivos .prompt.md)
+├── instructions/     # Padroes e diretrizes de codificacao (arquivos .instructions.md)
+├── skills/           # Pastas de Agent Skills (cada uma com SKILL.md e ativos opcionais)
+├── collections/      # Colecoes curadas de recursos (arquivos .md)
+├── docs/             # Documentacao para diferentes tipos de recursos
+├── eng/              # Scripts de build e automacao
+└── scripts/          # Scripts utilitarios
 ```
 
-## Setup Commands
+## Comandos de Setup
 
 ```bash
 # Install dependencies
@@ -46,59 +46,59 @@ npm run skill:validate
 npm run skill:create -- --name <skill-name>
 ```
 
-## Development Workflow
+## Fluxo de Desenvolvimento
 
-### Working with Agents, Prompts, Instructions, and Skills
+### Trabalhando com Agents, Prompts, Instructions e Skills
 
-All agent files (`*.agent.md`), prompt files (`*.prompt.md`), and instruction files (`*.instructions.md`) must include proper markdown front matter. Agent Skills are folders containing a `SKILL.md` file with frontmatter and optional bundled assets:
+Todos os arquivos de agentes (`*.agent.md`), prompts (`*.prompt.md`) e instrucoes (`*.instructions.md`) devem incluir front matter markdown apropriado. Agent Skills sao pastas que contem um arquivo `SKILL.md` com front matter e ativos empacotados opcionais:
 
-#### Agent Files (*.agent.md)
-- Must have `description` field (wrapped in single quotes)
-- File names should be lower case with words separated by hyphens
-- Recommended to include `tools` field
-- Strongly recommended to specify `model` field
+#### Arquivos de Agents (*.agent.md)
+- Devem ter o campo `description` (envolto em aspas simples)
+- Os nomes dos arquivos devem ser em letras minusculas com palavras separadas por hifens
+- Recomendado incluir o campo `tools`
+- Fortemente recomendado especificar o campo `model`
 
-#### Prompt Files (*.prompt.md)
-- Must have `agent` field (value should be `'agent'` wrapped in single quotes)
-- Must have `description` field (wrapped in single quotes, not empty)
-- File names should be lower case with words separated by hyphens
-- Recommended to specify `tools` if applicable
-- Strongly recommended to specify `model` field
+#### Arquivos de Prompts (*.prompt.md)
+- Devem ter o campo `agent` (o valor deve ser `'agent'` envolto em aspas simples)
+- Devem ter o campo `description` (envolto em aspas simples, nao vazio)
+- Os nomes dos arquivos devem ser em letras minusculas com palavras separadas por hifens
+- Recomendado especificar `tools` quando aplicavel
+- Fortemente recomendado especificar o campo `model`
 
-#### Instruction Files (*.instructions.md)
-- Must have `description` field (wrapped in single quotes, not empty)
-- Must have `applyTo` field specifying file patterns (e.g., `'**.js, **.ts'`)
-- File names should be lower case with words separated by hyphens
+#### Arquivos de Instructions (*.instructions.md)
+- Devem ter o campo `description` (envolto em aspas simples, nao vazio)
+- Devem ter o campo `applyTo` especificando padroes de arquivos (por exemplo, `'**.js, **.ts'`)
+- Os nomes dos arquivos devem ser em letras minusculas com palavras separadas por hifens
 
 #### Agent Skills (skills/*/SKILL.md)
-- Each skill is a folder containing a `SKILL.md` file
-- SKILL.md must have `name` field (lowercase with hyphens, matching folder name, max 64 characters)
-- SKILL.md must have `description` field (wrapped in single quotes, 10-1024 characters)
-- Folder names should be lower case with words separated by hyphens
-- Skills can include bundled assets (scripts, templates, data files)
-- Bundled assets should be referenced in the SKILL.md instructions
-- Asset files should be reasonably sized (under 5MB per file)
-- Skills follow the [Agent Skills specification](https://agentskills.io/specification)
+- Cada skill e uma pasta que contem um arquivo `SKILL.md`
+- O `SKILL.md` deve ter o campo `name` (minusculo com hifens, correspondendo ao nome da pasta, max 64 caracteres)
+- O `SKILL.md` deve ter o campo `description` (envolto em aspas simples, 10-1024 caracteres)
+- Os nomes das pastas devem ser em letras minusculas com palavras separadas por hifens
+- Skills podem incluir ativos empacotados (scripts, templates, arquivos de dados)
+- Ativos empacotados devem ser referenciados nas instrucoes do `SKILL.md`
+- Arquivos de ativos devem ter tamanho razoavel (menos de 5MB por arquivo)
+- Skills seguem a [Agent Skills specification](https://agentskills.io/specification)
 
-### Adding New Resources
+### Adicionando Novos Recursos
 
-When adding a new agent, prompt, instruction, or skill:
+Ao adicionar um novo agent, prompt, instruction ou skill:
 
-**For Agents, Prompts, and Instructions:**
-1. Create the file with proper front matter
-2. Add the file to the appropriate directory
-3. Update the README.md by running: `npm run build`
-4. Verify the resource appears in the generated README
+**Para Agents, Prompts e Instructions:**
+1. Crie o arquivo com o front matter apropriado
+2. Adicione o arquivo ao diretorio apropriado
+3. Atualize o README.md executando: `npm run build`
+4. Verifique se o recurso aparece no README gerado
 
-**For Skills:**
-1. Run `npm run skill:create` to scaffold a new skill folder
-2. Edit the generated SKILL.md file with your instructions
-3. Add any bundled assets (scripts, templates, data) to the skill folder
-4. Run `npm run skill:validate` to validate the skill structure
-5. Update the README.md by running: `npm run build`
-6. Verify the skill appears in the generated README
+**Para Skills:**
+1. Execute `npm run skill:create` para criar o esqueleto de uma nova pasta de skill
+2. Edite o arquivo `SKILL.md` gerado com suas instrucoes
+3. Adicione quaisquer ativos empacotados (scripts, templates, dados) a pasta de skill
+4. Execute `npm run skill:validate` para validar a estrutura da skill
+5. Atualize o README.md executando: `npm run build`
+6. Verifique se a skill aparece no README
 
-### Testing Instructions
+### Instrucoes de Teste
 
 ```bash
 # Run all validation checks
@@ -112,91 +112,91 @@ npm run build
 bash scripts/fix-line-endings.sh
 ```
 
-Before committing:
-- Ensure all markdown front matter is correctly formatted
-- Verify file names follow the lower-case-with-hyphens convention
-- Run `npm run build` to update the README
-- **Always run `bash scripts/fix-line-endings.sh`** to normalize line endings (CRLF → LF)
-- Check that your new resource appears correctly in the README
+Antes de commitar:
+- Garanta que todo front matter markdown esteja corretamente formatado
+- Verifique se os nomes de arquivo seguem a convencao de minusculas com hifens
+- Execute `npm run build` para atualizar o README
+- **Sempre execute `bash scripts/fix-line-endings.sh`** para normalizar as quebras de linha (CRLF -> LF)
+- Verifique se seu novo recurso aparece corretamente no README
 
-## Code Style Guidelines
+## Diretrizes de Estilo de Codigo
 
-### Markdown Files
-- Use proper front matter with required fields
-- Keep descriptions concise and informative
-- Wrap description field values in single quotes
-- Use lower-case file names with hyphens as separators
+### Arquivos Markdown
+- Use front matter apropriado com os campos obrigatorios
+- Mantenha descricoes concisas e informativas
+- Envolva valores do campo description em aspas simples
+- Use nomes de arquivo em letras minusculas com hifens como separadores
 
-### JavaScript/Node.js Scripts
-- Located in `eng/` and `scripts/` directories
-- Follow Node.js ES module conventions (`.mjs` extension)
-- Use clear, descriptive function and variable names
+### Scripts JavaScript/Node.js
+- Localizados nos diretorios `eng/` e `scripts/`
+- Sigam convencoes de ES module do Node.js (extensao `.mjs`)
+- Use nomes de funcoes e variaveis claros e descritivos
 
-## Pull Request Guidelines
+## Diretrizes para Pull Request
 
-When creating a pull request:
+Ao criar um pull request:
 
-1. **README updates**: New files should automatically be added to the README when you run `npm run build`
-2. **Front matter validation**: Ensure all markdown files have the required front matter fields
-3. **File naming**: Verify all new files follow the lower-case-with-hyphens naming convention
-4. **Build check**: Run `npm run build` before committing to verify README generation
-5. **Line endings**: **Always run `bash scripts/fix-line-endings.sh`** to normalize line endings to LF (Unix-style)
-6. **Description**: Provide a clear description of what your agent/prompt/instruction does
-7. **Testing**: If adding a collection, run `npm run collection:validate` to ensure validity
+1. **Atualizacoes do README**: Novos arquivos devem ser adicionados automaticamente ao README quando voce executar `npm run build`
+2. **Validacao de front matter**: Garanta que todos os arquivos markdown tenham os campos obrigatorios no front matter
+3. **Nomenclatura de arquivos**: Verifique se todos os novos arquivos seguem a convencao de nomes em minusculas com hifens
+4. **Verificacao de build**: Execute `npm run build` antes de commitar para verificar a geracao do README
+5. **Quebras de linha**: **Sempre execute `bash scripts/fix-line-endings.sh`** para normalizar as quebras de linha para LF (estilo Unix)
+6. **Descricao**: Forneca uma descricao clara do que seu agent/prompt/instruction faz
+7. **Testes**: Se estiver adicionando uma collection, execute `npm run collection:validate` para garantir validade
 
-### Pre-commit Checklist
+### Checklist Pre-commit
 
-Before submitting your PR, ensure you have:
-- [ ] Run `npm install` (or `npm ci`) to install dependencies
-- [ ] Run `npm run build` to generate the updated README.md
-- [ ] Run `bash scripts/fix-line-endings.sh` to normalize line endings
-- [ ] Verified that all new files have proper front matter
-- [ ] Tested that your contribution works with GitHub Copilot
-- [ ] Checked that file names follow the naming convention
+Antes de enviar seu PR, garanta que voce:
+- [ ] Run `npm install` (ou `npm ci`) para instalar as dependencias
+- [ ] Run `npm run build` para gerar o README.md atualizado
+- [ ] Run `bash scripts/fix-line-endings.sh` para normalizar as quebras de linha
+- [ ] Verificou que todos os novos arquivos tem front matter apropriado
+- [ ] Testou que sua contribuicao funciona com o GitHub Copilot
+- [ ] Conferiu que os nomes dos arquivos seguem a convencao
 
-### Code Review Checklist
+### Checklist de Code Review
 
-For prompt files (*.prompt.md):
-- [ ] Has markdown front matter
-- [ ] Has `agent` field (value should be `'agent'` wrapped in single quotes)
-- [ ] Has non-empty `description` field wrapped in single quotes
-- [ ] File name is lower case with hyphens
-- [ ] Includes `model` field (strongly recommended)
+Para arquivos de prompt (*.prompt.md):
+- [ ] Tem front matter markdown
+- [ ] Tem campo `agent` (o valor deve ser `'agent'` envolto em aspas simples)
+- [ ] Tem campo `description` nao vazio envolto em aspas simples
+- [ ] Nome do arquivo em minusculas com hifens
+- [ ] Inclui campo `model` (fortemente recomendado)
 
-For instruction files (*.instructions.md):
-- [ ] Has markdown front matter
-- [ ] Has non-empty `description` field wrapped in single quotes
-- [ ] Has `applyTo` field with file patterns
-- [ ] File name is lower case with hyphens
+Para arquivos de instruction (*.instructions.md):
+- [ ] Tem front matter markdown
+- [ ] Tem campo `description` nao vazio envolto em aspas simples
+- [ ] Tem campo `applyTo` com padroes de arquivos
+- [ ] Nome do arquivo em minusculas com hifens
 
-For agent files (*.agent.md):
-- [ ] Has markdown front matter
-- [ ] Has non-empty `description` field wrapped in single quotes
-- [ ] Has `name` field with human-readable name (e.g., "Address Comments" not "address-comments")
-- [ ] File name is lower case with hyphens
-- [ ] Includes `model` field (strongly recommended)
-- [ ] Considers using `tools` field
+Para arquivos de agent (*.agent.md):
+- [ ] Tem front matter markdown
+- [ ] Tem campo `description` nao vazio envolto em aspas simples
+- [ ] Tem campo `name` com nome legivel por humanos (por exemplo, "Address Comments" e nao "address-comments")
+- [ ] Nome do arquivo em minusculas com hifens
+- [ ] Inclui campo `model` (fortemente recomendado)
+- [ ] Considera usar o campo `tools`
 
-For skills (skills/*/):
-- [ ] Folder contains a SKILL.md file
-- [ ] SKILL.md has markdown front matter
-- [ ] Has `name` field matching folder name (lowercase with hyphens, max 64 characters)
-- [ ] Has non-empty `description` field wrapped in single quotes (10-1024 characters)
-- [ ] Folder name is lower case with hyphens
-- [ ] Any bundled assets are referenced in SKILL.md
-- [ ] Bundled assets are under 5MB per file
+Para skills (skills/*/):
+- [ ] A pasta contem um arquivo `SKILL.md`
+- [ ] O `SKILL.md` tem front matter markdown
+- [ ] Tem campo `name` correspondendo ao nome da pasta (minusculas com hifens, max 64 caracteres)
+- [ ] Tem campo `description` nao vazio envolto em aspas simples (10-1024 caracteres)
+- [ ] Nome da pasta em minusculas com hifens
+- [ ] Quaisquer ativos empacotados sao referenciados no `SKILL.md`
+- [ ] Os ativos empacotados tem menos de 5MB por arquivo
 
-## Contributing
+## Contribuicao
 
-This is a community-driven project. Contributions are welcome! Please see:
-- [CONTRIBUTING.md](CONTRIBUTING.md) for contribution guidelines
-- [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md) for community standards
-- [SECURITY.md](SECURITY.md) for security policies
+Este e um projeto conduzido pela comunidade. Contribuicoes sao bem-vindas! Consulte:
+- [CONTRIBUTING.md](CONTRIBUTING.md) para diretrizes de contribuicao
+- [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md) para padroes da comunidade
+- [SECURITY.md](SECURITY.md) para politicas de seguranca
 
 ## MCP Server
 
-The repository includes an MCP (Model Context Protocol) Server that provides prompts for searching and installing resources directly from this repository. Docker is required to run the server.
+O repositorio inclui um servidor MCP (Model Context Protocol) que fornece prompts para buscar e instalar recursos diretamente deste repositorio. Docker e necessario para executar o servidor.
 
-## License
+## Licenca
 
-MIT License - see [LICENSE](LICENSE) for details
+MIT License - veja [LICENSE](LICENSE) para detalhes.
