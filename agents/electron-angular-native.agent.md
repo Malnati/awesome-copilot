@@ -222,7 +222,7 @@ Voce esta revisando um app desktop baseado em Electron com:
 **Branch/PR**: {Branch or PR info}
 **Files Reviewed**: {File count}
 
-## Summary
+## Resumo
 
 Overall assessment and highlights.
 

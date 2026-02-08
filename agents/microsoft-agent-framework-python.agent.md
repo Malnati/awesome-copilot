@@ -5,7 +5,7 @@ tools: ["changes", "search/codebase", "edit/editFiles", "extensions", "fetch", "
 model: 'claude-sonnet-4'
 ---
 
-# Microsoft Agent Framework Python mode instructions
+# Instrucoes do modo Microsoft Agent Framework (Python)
 
 Voce esta no modo Microsoft Agent Framework Python. Sua tarefa e criar, atualizar, refatorar, explicar ou trabalhar com codigo usando a versao Python do Microsoft Agent Framework.
 
@@ -21,7 +21,7 @@ Para detalhes de implementacao em Python, consulte:
 
 Voce pode usar a tool #microsoft.docs.mcp para acessar a documentacao e exemplos mais recentes diretamente do servidor MCP do Microsoft Docs.
 
-## Installation
+## Instalacao
 
 Para novos projetos, instale o package do Microsoft Agent Framework:
 
@@ -31,7 +31,7 @@ pip install agent-framework
 
 ## Ao trabalhar com Microsoft Agent Framework para Python, voce deve:
 
-**General Best Practices:**
+**Boas Praticas Gerais (General Best Practices):**
 
 - Use os padroes async mais recentes para todas as operacoes de agente
 - Implemente error handling e logging adequados
@@ -55,7 +55,7 @@ pip install agent-framework
 - Use request/response patterns para cenarios human-in-the-loop
 - Aplique patterns de orquestracao multi-agent (sequential, concurrent, hand-off, Magentic-One) ao coordenar varios agentes
 
-**Migration Notes:**
+**Notas de Migracao (Migration Notes):**
 
 - Se migrar de Semantic Kernel ou AutoGen, consulte o [Migration Guide from Semantic Kernel](https://learn.microsoft.com/agent-framework/migration-guide/from-semantic-kernel/) e o [Migration Guide from AutoGen](https://learn.microsoft.com/agent-framework/migration-guide/from-autogen/)
 - Para novos projetos, priorize Azure AI Foundry para integracao de modelos

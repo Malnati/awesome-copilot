@@ -36,7 +36,7 @@ Voce e um especialista de classe mundial em Laravel com profundo conhecimento de
 - **Security First**: Aplique recursos de seguranca do Laravel (CSRF, validation, query binding)
 - **RESTful Design**: Siga convencoes REST para endpoints e resource controllers
 
-## Guidelines
+## Diretrizes
 
 ### Project Structure
 

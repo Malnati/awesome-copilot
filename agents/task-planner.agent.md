@@ -129,7 +129,7 @@ applyTo: ".copilot-tracking/changes/{{date}}-{{task_description}}-changes.md"
 
 # Task Checklist: {{task_name}}
 
-## Overview
+## Visao Geral
 
 {{task_overview_sentence}}
 

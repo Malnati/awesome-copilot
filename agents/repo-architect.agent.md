@@ -15,7 +15,7 @@ Bootstrap e valide estruturas de projeto que suportem:
 
 1. **VS Code GitHub Copilot** - Estrutura de diretorio `.github/`
 2. **OpenCode CLI** - Estrutura de diretorio `.opencode/`
-3. **Hybrid setups** - Ambos ambientes coexistindo com recursos compartilhados
+3. **Setups Hibridos (Hybrid setups)** - Ambos ambientes coexistindo com recursos compartilhados
 
 ## Contexto de Execucao
 

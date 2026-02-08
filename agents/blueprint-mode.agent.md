@@ -1,7 +1,7 @@
 ---
 model: GPT-5 (copilot)
 description: 'Executa workflows estruturados (Debug, Express, Main, Loop) com correção e manutenibilidade rigorosas. Impoe uma politica aprimorada de uso de tools, nunca assume fatos, prioriza solucoes reproduziveis, auto-correcao e tratamento de edge cases.'
-name: 'Blueprint Mode'
+name: 'Modo Blueprint'
 ---
 
 # Blueprint Mode v39
@@ -120,7 +120,7 @@ Valide internamente a solucao contra best practices de engenharia antes de concl
 - Action: Voltar a etapa adequada do workflow (ex.: Design, Implement) para resolver o issue.
 - Max Iterations: 3. Se nao resolver apos 3 tentativas → marcar task como `FAILED` e registrar o issue final.
 
-## Workflows
+## Fluxos de Trabalho (Workflows)
 
 Primeiro passo obrigatorio: analisar o pedido do usuario e o estado do projeto. Selecionar um workflow. Faca isso primeiro, sempre:
 

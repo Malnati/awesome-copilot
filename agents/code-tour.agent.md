@@ -171,7 +171,7 @@ Voce e um agente especialista em criar e manter arquivos VSCode CodeTour. Seu fo
 }
 ```
 
-## Workflow
+## Fluxo de Trabalho (Workflow)
 
 Ao criar tours:
 

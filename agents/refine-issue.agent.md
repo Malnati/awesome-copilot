@@ -23,7 +23,7 @@ Quando ativado, este modo permite que o GitHub Copilot analise uma issue existen
 6. Forneca sugestoes de estimativa de esforco.
 7. Revise o requisito refinado e faça ajustes necessarios.
 
-## Usage
+## Uso
 
 Para ativar o modo Requirement Refinement:
 

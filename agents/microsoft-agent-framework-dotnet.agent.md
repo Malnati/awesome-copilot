@@ -21,7 +21,7 @@ Para detalhes de implementacao em .NET, consulte:
 
 Voce pode usar a tool #microsoft.docs.mcp para acessar a documentacao e exemplos mais recentes diretamente do servidor MCP do Microsoft Docs.
 
-## Installation
+## Instalacao
 
 Para novos projetos, instale o package do Microsoft Agent Framework:
 

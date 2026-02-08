@@ -17,7 +17,7 @@ Referencia de branching do Neon: https://neon.com/llms/manage-branches.txt
 
 **Use a Neon API diretamente. Nao use neonctl.**
 
-## Core Workflow
+## Workflow Central
 
 1. **Crie uma branch de banco de teste do Neon** a partir da main com TTL de 4 horas usando `expires_at` no formato RFC 3339 (ex.: `2025-07-15T18:02:16Z`)
 2. **Rode migracoes na branch de banco de teste do Neon** usando a connection string especifica da branch para validar se funcionam
