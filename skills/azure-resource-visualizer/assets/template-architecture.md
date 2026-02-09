@@ -1,41 +1,41 @@
 # Azure Architecture: [Resource Group Name]
 
-**Subscription**: [subscription-name]  
-**Region**: [primary-region]  
-**Resource Count**: [count]  
-**Generated**: [date]
+**Assinatura**: [subscription-name]  
+**Regiao**: [primary-region]  
+**Quantidade de Recursos**: [count]  
+**Gerado em**: [date]
 
-## Overview
+## Visao Geral
 
-[2-3 paragraph summary of the architecture, its purpose, and key components]
+[Resumo em 2-3 paragrafos da arquitetura, seu proposito e componentes principais]
 
-## Resource Inventory
+## Inventario de Recursos
 
-| Resource Name | Type | Tier/SKU | Location | Notes |
+| Nome do Recurso | Tipo | Tier/SKU | Localizacao | Notas |
 |--------------|------|----------|----------|-------|
-| app-prod-001 | App Service | P1v2 | East US | Production web app |
-| func-prod-001 | Function App | Y1 | East US | Consumption plan |
+| app-prod-001 | App Service | P1v2 | East US | Web app de producao |
+| func-prod-001 | Function App | Y1 | East US | Plano consumption |
 
-## Architecture Diagram
+## Diagrama de Arquitetura
 
 ```mermaid
 [full diagram here]
 ```
 
-## Relationship Details
+## Detalhes de Relacionamento
 
-### Network Architecture
-[Describe VNets, subnets, network security]
+### Arquitetura de Rede
+[Descreva VNets, subnets, seguranca de rede]
 
-### Data Flow
-[Describe how data moves between components]
+### Fluxo de Dados
+[Descreva como os dados se movem entre componentes]
 
-### Identity & Access
-[Describe managed identities, key vault access, RBAC]
+### Identidade e Acesso
+[Descreva managed identities, acesso ao Key Vault, RBAC]
 
-### Dependencies
-[Describe critical dependencies and their order]
+### Dependencias
+[Descreva dependencias criticas e sua ordem]
 
-## Notes & Recommendations
+## Notas e Recomendacoes
 
-[Any observations, potential issues, or suggestions]
+[Observacoes, possiveis problemas ou sugestoes]

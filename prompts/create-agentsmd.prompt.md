@@ -1,112 +1,112 @@
 ---
-description: "Prompt for generating an AGENTS.md file for a repository"
+description: "Prompt para gerar um arquivo AGENTS.md para um repositorio"
 agent: "agent"
 ---
 
-# Create high‑quality AGENTS.md file
+# Criar arquivo AGENTS.md de alta qualidade
 
-You are a code agent. Your task is to create a complete, accurate AGENTS.md at the root of this repository that follows the public guidance at https://agents.md/.
+Voce e um code agent. Sua tarefa e criar um AGENTS.md completo e preciso na raiz deste repositorio que siga a orientacao publica em https://agents.md/.
 
-AGENTS.md is an open format designed to provide coding agents with the context and instructions they need to work effectively on a project.
+AGENTS.md e um formato aberto projetado para fornecer a agentes de codigo o contexto e as instrucoes necessarias para trabalhar efetivamente em um projeto.
 
-## What is AGENTS.md?
+## O que e AGENTS.md?
 
-AGENTS.md is a Markdown file that serves as a "README for agents" - a dedicated, predictable place to provide context and instructions to help AI coding agents work on your project. It complements README.md by containing detailed technical context that coding agents need but might clutter a human-focused README.
+AGENTS.md e um arquivo Markdown que serve como um "README para agentes" - um local dedicado e previsivel para fornecer contexto e instrucoes para ajudar agentes de codigo de IA a trabalhar no projeto. Ele complementa o README.md ao conter contexto tecnico detalhado que agentes precisam, mas que poderia poluir um README voltado a humanos.
 
-## Key Principles
+## Principios-Chave
 
-- **Agent-focused**: Contains detailed technical instructions for automated tools
-- **Complements README.md**: Doesn't replace human documentation but adds agent-specific context
-- **Standardized location**: Placed at repository root (or subproject roots for monorepos)
-- **Open format**: Uses standard Markdown with flexible structure
-- **Ecosystem compatibility**: Works across 20+ different AI coding tools and agents
+- **Focado em agentes**: Contem instrucoes tecnicas detalhadas para ferramentas automatizadas
+- **Complementa README.md**: Nao substitui documentacao humana, mas adiciona contexto especifico para agentes
+- **Local padronizado**: Colocado na raiz do repositorio (ou em subprojetos em monorepos)
+- **Formato aberto**: Usa Markdown padrao com estrutura flexivel
+- **Compatibilidade no ecossistema**: Funciona com 20+ ferramentas e agentes de IA
 
-## File Structure and Content Guidelines
+## Estrutura do Arquivo e Diretrizes de Conteudo
 
-### 1. Required Setup
+### 1. Setup Obrigatorio
 
-- Create the file as `AGENTS.md` in the repository root
-- Use standard Markdown formatting
-- No required fields - flexible structure based on project needs
+- Crie o arquivo como `AGENTS.md` na raiz do repositorio
+- Use formatacao Markdown padrao
+- Sem campos obrigatorios - estrutura flexivel baseada nas necessidades do projeto
 
-### 2. Essential Sections to Include
+### 2. Secoes Essenciais a Incluir
 
 #### Project Overview
 
-- Brief description of what the project does
-- Architecture overview if complex
-- Key technologies and frameworks used
+- Breve descricao do que o projeto faz
+- Visao geral de arquitetura se for complexa
+- Principais tecnologias e frameworks usados
 
 #### Setup Commands
 
-- Installation instructions
-- Environment setup steps
-- Dependency management commands
-- Database setup if applicable
+- Instrucoes de instalacao
+- Etapas de setup do ambiente
+- Comandos de gerenciamento de dependencias
+- Setup de banco de dados se aplicavel
 
 #### Development Workflow
 
-- How to start development server
-- Build commands
-- Watch/hot-reload setup
-- Package manager specifics (npm, pnpm, yarn, etc.)
+- Como iniciar o servidor de desenvolvimento
+- Comandos de build
+- Setup de watch/hot-reload
+- Especificos do gerenciador de pacotes (npm, pnpm, yarn, etc.)
 
 #### Testing Instructions
 
-- How to run tests (unit, integration, e2e)
-- Test file locations and naming conventions
-- Coverage requirements
-- Specific test patterns or frameworks used
-- How to run subset of tests or focus on specific areas
+- Como rodar testes (unit, integration, e2e)
+- Localizacao e convencoes de nome de testes
+- Requisitos de cobertura
+- Frameworks ou patterns de teste usados
+- Como rodar subconjuntos de testes ou focar areas especificas
 
 #### Code Style Guidelines
 
-- Language-specific conventions
-- Linting and formatting rules
-- File organization patterns
-- Naming conventions
-- Import/export patterns
+- Convencoes especificas da linguagem
+- Regras de linting e formatting
+- Padroes de organizacao de arquivos
+- Convencoes de nome
+- Padroes de import/export
 
 #### Build and Deployment
 
-- Build commands and outputs
-- Environment configurations
-- Deployment steps and requirements
-- CI/CD pipeline information
+- Comandos e outputs de build
+- Configuracoes de ambiente
+- Etapas e requisitos de deploy
+- Informacoes de pipeline CI/CD
 
-### 3. Optional but Recommended Sections
+### 3. Secoes Opcionais mas Recomendadas
 
 #### Security Considerations
 
-- Security testing requirements
-- Secrets management
-- Authentication patterns
-- Permission models
+- Requisitos de testes de seguranca
+- Gestao de secrets
+- Padroes de autenticacao
+- Modelos de permissao
 
-#### Monorepo Instructions (if applicable)
+#### Instrucoes de Monorepo (se aplicavel)
 
-- How to work with multiple packages
-- Cross-package dependencies
-- Selective building/testing
-- Package-specific commands
+- Como trabalhar com multiplos pacotes
+- Dependencias entre pacotes
+- Build/test seletivo
+- Comandos especificos por pacote
 
 #### Pull Request Guidelines
 
-- Title format requirements
-- Required checks before submission
-- Review process
-- Commit message conventions
+- Requisitos de formato de titulo
+- Checks obrigatorios antes do envio
+- Processo de review
+- Convencoes de mensagem de commit
 
 #### Debugging and Troubleshooting
 
-- Common issues and solutions
-- Logging patterns
-- Debug configuration
-- Performance considerations
+- Problemas comuns e solucoes
+- Padroes de logging
+- Configuracao de debug
+- Consideracoes de performance
 
-## Example Template
+## Template de Exemplo
 
-Use this as a starting template and customize based on the specific project:
+Use este template como ponto de partida e customize conforme o projeto:
 
 ```markdown
 # AGENTS.md
@@ -162,9 +162,9 @@ Use this as a starting template and customize based on the specific project:
 - [Performance considerations]
 ```
 
-## Working Example from agents.md
+## Exemplo Real do agents.md
 
-Here's a real example from the agents.md website:
+Aqui esta um exemplo real do site agents.md:
 
 ```markdown
 # Sample AGENTS.md file
@@ -192,58 +192,58 @@ Here's a real example from the agents.md website:
 - Always run `pnpm lint` and `pnpm test` before committing.
 ```
 
-## Implementation Steps
+## Etapas de Implementacao
 
-1. **Analyze the project structure** to understand:
+1. **Analise a estrutura do projeto** para entender:
 
-   - Programming languages and frameworks used
-   - Package managers and build tools
-   - Testing frameworks
-   - Project architecture (monorepo, single package, etc.)
+   - Linguagens e frameworks usados
+   - Gerenciadores de pacotes e build tools
+   - Frameworks de teste
+   - Arquitetura do projeto (monorepo, single package, etc.)
 
-2. **Identify key workflows** by examining:
+2. **Identifique workflows-chave** examinando:
 
    - package.json scripts
-   - Makefile or other build files
-   - CI/CD configuration files
-   - Documentation files
+   - Makefile ou outros arquivos de build
+   - Arquivos de CI/CD
+   - Arquivos de documentacao
 
-3. **Create comprehensive sections** covering:
+3. **Crie secoes abrangentes** cobrindo:
 
-   - All essential setup and development commands
-   - Testing strategies and commands
-   - Code style and conventions
-   - Build and deployment processes
+   - Todos os comandos essenciais de setup e desenvolvimento
+   - Estrategias e comandos de teste
+   - Code style e convencoes
+   - Processos de build e deployment
 
-4. **Include specific, actionable commands** that agents can execute directly
+4. **Inclua comandos especificos e acionaveis** que agentes possam executar diretamente
 
-5. **Test the instructions** by ensuring all commands work as documented
+5. **Teste as instrucoes** garantindo que todos os comandos funcionem conforme documentado
 
-6. **Keep it focused** on what agents need to know, not general project information
+6. **Mantenha o foco** no que agentes precisam saber, nao em informacao geral do projeto
 
 ## Best Practices
 
-- **Be specific**: Include exact commands, not vague descriptions
-- **Use code blocks**: Wrap commands in backticks for clarity
-- **Include context**: Explain why certain steps are needed
-- **Stay current**: Update as the project evolves
-- **Test commands**: Ensure all listed commands actually work
-- **Consider nested files**: For monorepos, create AGENTS.md files in subprojects as needed
+- **Seja especifico**: Inclua comandos exatos, nao descricoes vagas
+- **Use code blocks**: Envolva comandos em backticks para clareza
+- **Inclua contexto**: Explique por que certas etapas sao necessarias
+- **Mantenha atual**: Atualize conforme o projeto evolui
+- **Teste comandos**: Garanta que todos os comandos listados funcionem
+- **Considere arquivos aninhados**: Para monorepos, crie AGENTS.md em subprojetos conforme necessario
 
-## Monorepo Considerations
+## Consideracoes de Monorepo
 
-For large monorepos:
+Para monorepos grandes:
 
-- Place a main AGENTS.md at the repository root
-- Create additional AGENTS.md files in subproject directories
-- The closest AGENTS.md file takes precedence for any given location
-- Include navigation tips between packages/projects
+- Coloque um AGENTS.md principal na raiz
+- Crie AGENTS.md adicionais em diretorios de subprojetos
+- O AGENTS.md mais proximo tem precedencia para qualquer localizacao
+- Inclua dicas de navegacao entre pacotes/projetos
 
-## Final Notes
+## Notas Finais
 
-- AGENTS.md works with 20+ AI coding tools including Cursor, Aider, Gemini CLI, and many others
-- The format is intentionally flexible - adapt it to your project's needs
-- Focus on actionable instructions that help agents understand and work with your codebase
-- This is living documentation - update it as your project evolves
+- AGENTS.md funciona com 20+ ferramentas de IA, incluindo Cursor, Aider, Gemini CLI e outras
+- O formato e intencionalmente flexivel - adapte as necessidades do projeto
+- Foque em instrucoes acionaveis que ajudem agentes a entender e trabalhar com o codebase
+- Esta e documentacao viva - atualize conforme o projeto evolui
 
-When creating the AGENTS.md file, prioritize clarity, completeness, and actionability. The goal is to give any coding agent enough context to effectively contribute to the project without requiring additional human guidance.
+Ao criar o AGENTS.md, priorize clareza, completude e acionabilidade. O objetivo e dar a qualquer agente contexto suficiente para contribuir efetivamente sem exigir orientacao humana adicional.

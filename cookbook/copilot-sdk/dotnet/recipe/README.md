@@ -1,39 +1,39 @@
-# Runnable Recipe Examples
+# Exemplos de Receita Executaveis
 
-This folder contains standalone, executable C# examples for each cookbook recipe. These are [file-based apps](https://learn.microsoft.com/dotnet/core/sdk/file-based-apps) that can be run directly with `dotnet run`.
+Esta pasta contem exemplos C# independentes e executaveis para cada receita do cookbook. Sao [file-based apps](https://learn.microsoft.com/dotnet/core/sdk/file-based-apps) que podem ser executadas diretamente com `dotnet run`.
 
-## Prerequisites
+## Pre-requisitos
 
-- .NET 10.0 or later
-- GitHub Copilot SDK package (referenced automatically)
+- .NET 10.0 ou superior
+- Pacote GitHub Copilot SDK (referenciado automaticamente)
 
-## Running Examples
+## Executando Exemplos
 
-Each `.cs` file is a complete, runnable program. Simply use:
+Cada arquivo `.cs` e um programa completo e executavel. Basta usar:
 
 ```bash
 dotnet run <filename>.cs
 ```
 
-### Available Recipes
+### Receitas Disponiveis
 
-| Recipe               | Command                              | Description                                |
-| -------------------- | ------------------------------------ | ------------------------------------------ |
-| Error Handling       | `dotnet run error-handling.cs`       | Demonstrates error handling patterns       |
-| Multiple Sessions    | `dotnet run multiple-sessions.cs`    | Manages multiple independent conversations |
-| Managing Local Files | `dotnet run managing-local-files.cs` | Organizes files using AI grouping          |
-| PR Visualization     | `dotnet run pr-visualization.cs`     | Generates PR age charts                    |
-| Persisting Sessions  | `dotnet run persisting-sessions.cs`  | Save and resume sessions across restarts   |
+| Receita               | Comando                              | Descricao                                  |
+| --------------------- | ------------------------------------ | ------------------------------------------ |
+| Error Handling        | `dotnet run error-handling.cs`       | Demonstra padroes de tratamento de erros   |
+| Multiple Sessions     | `dotnet run multiple-sessions.cs`    | Gerencia multiplas conversas independentes |
+| Managing Local Files  | `dotnet run managing-local-files.cs` | Organiza arquivos com agrupamento por IA   |
+| PR Visualization      | `dotnet run pr-visualization.cs`     | Gera graficos de idade de PR               |
+| Persisting Sessions   | `dotnet run persisting-sessions.cs`  | Salva e retoma sessoes entre reinicios     |
 
-### Examples with Arguments
+### Exemplos com Argumentos
 
-**PR Visualization with specific repo:**
+**PR Visualization com repo especifico:**
 
 ```bash
 dotnet run pr-visualization.cs -- --repo github/copilot-sdk
 ```
 
-**Managing Local Files (edit the file to change target folder):**
+**Managing Local Files (edite o arquivo para mudar a pasta alvo):**
 
 ```bash
 # Edit the targetFolder variable in managing-local-files.cs first
@@ -42,14 +42,14 @@ dotnet run managing-local-files.cs
 
 ## File-Based Apps
 
-These examples use .NET's file-based app feature, which allows single-file C# programs to:
+Estes exemplos usam o recurso de file-based apps do .NET, que permite programas C# em arquivo unico para:
 
-- Run without a project file
-- Automatically reference common packages
-- Support top-level statements
+- Executar sem arquivo de projeto
+- Referenciar automaticamente pacotes comuns
+- Suportar top-level statements
 
-## Learning Resources
+## Recursos de Aprendizado
 
 - [.NET File-Based Apps Documentation](https://learn.microsoft.com/en-us/dotnet/core/sdk/file-based-apps)
 - [GitHub Copilot SDK Documentation](https://github.com/github/copilot-sdk/blob/main/dotnet/README.md)
-- [Parent Cookbook](../README.md)
+- [Cookbook Pai](../README.md)

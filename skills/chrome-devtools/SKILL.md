@@ -1,97 +1,97 @@
 ---
 name: chrome-devtools
-description: 'Expert-level browser automation, debugging, and performance analysis using Chrome DevTools MCP. Use for interacting with web pages, capturing screenshots, analyzing network traffic, and profiling performance.'
+description: 'Automacao de navegador, debugging e analise de performance em nivel especialista usando Chrome DevTools MCP. Use para interagir com paginas web, capturar screenshots, analisar trafego de rede e perfilar performance.'
 license: MIT
 ---
 
-# Chrome DevTools Agent
+# Chrome DevTools (Skill)
 
-## Overview
+## Visao Geral
 
-A specialized skill for controlling and inspecting a live Chrome browser. This skill leverages the `chrome-devtools` MCP server to perform a wide range of browser-related tasks, from simple navigation to complex performance profiling.
+Uma skill especializada para controlar e inspecionar um navegador Chrome ativo. Esta skill utiliza o servidor MCP `chrome-devtools` para executar uma ampla gama de tarefas relacionadas ao navegador, desde navegacao simples ate profiling complexo de performance.
 
-## When to Use
+## Quando Usar
 
-Use this skill when:
+Use esta skill quando:
 
-- **Browser Automation**: Navigating pages, clicking elements, filling forms, and handling dialogs.
-- **Visual Inspection**: Taking screenshots or text snapshots of web pages.
-- **Debugging**: Inspecting console messages, evaluating JavaScript in the page context, and analyzing network requests.
-- **Performance Analysis**: Recording and analyzing performance traces to identify bottlenecks and Core Web Vital issues.
-- **Emulation**: Resizing the viewport or emulating network/CPU conditions.
+- **Automacao de Navegador**: Navegar em paginas, clicar elementos, preencher formularios e lidar com dialogs.
+- **Inspecao Visual**: Tirar screenshots ou snapshots de texto de paginas web.
+- **Debugging**: Inspecionar mensagens do console, avaliar JavaScript no contexto da pagina e analisar requests de rede.
+- **Analise de Performance**: Registrar e analisar traces de performance para identificar gargalos e problemas de Core Web Vitals.
+- **Emulacao**: Redimensionar o viewport ou emular condicoes de rede/CPU.
 
-## Tool Categories
+## Categorias de Ferramentas (Tools)
 
-### 1. Navigation & Page Management
+### 1. Navegacao e Gerenciamento de Pagina
 
-- `new_page`: Open a new tab/page.
-- `navigate_page`: Go to a specific URL, reload, or navigate history.
-- `select_page`: Switch context between open pages.
-- `list_pages`: See all open pages and their IDs.
-- `close_page`: Close a specific page.
-- `wait_for`: Wait for specific text to appear on the page.
+- `new_page`: Abrir uma nova aba/pagina.
+- `navigate_page`: Ir para uma URL especifica, recarregar ou navegar no historico.
+- `select_page`: Alternar contexto entre paginas abertas.
+- `list_pages`: Ver todas as paginas abertas e seus IDs.
+- `close_page`: Fechar uma pagina especifica.
+- `wait_for`: Esperar texto especifico aparecer na pagina.
 
-### 2. Input & Interaction
+### 2. Entrada e Interacao
 
-- `click`: Click on an element (use `uid` from snapshot).
-- `fill` / `fill_form`: Type text into inputs or fill multiple fields at once.
-- `hover`: Move the mouse over an element.
-- `press_key`: Send keyboard shortcuts or special keys (e.g., "Enter", "Control+C").
-- `drag`: Drag and drop elements.
-- `handle_dialog`: Accept or dismiss browser alerts/prompts.
-- `upload_file`: Upload a file through a file input.
+- `click`: Clicar em um elemento (use `uid` do snapshot).
+- `fill` / `fill_form`: Digitar texto em inputs ou preencher multiplos campos de uma vez.
+- `hover`: Mover o mouse sobre um elemento.
+- `press_key`: Enviar atalhos de teclado ou teclas especiais (ex.: "Enter", "Control+C").
+- `drag`: Arrastar e soltar elementos.
+- `handle_dialog`: Aceitar ou dispensar alerts/prompts do navegador.
+- `upload_file`: Fazer upload de arquivo via input file.
 
-### 3. Debugging & Inspection
+### 3. Depuracao (Debugging) e Inspecao
 
-- `take_snapshot`: Get a text-based accessibility tree (best for identifying elements).
-- `take_screenshot`: Capture a visual representation of the page or a specific element.
-- `list_console_messages` / `get_console_message`: Inspect the page's console output.
-- `evaluate_script`: Run custom JavaScript in the page context.
-- `list_network_requests` / `get_network_request`: Analyze network traffic and request details.
+- `take_snapshot`: Obter uma arvore de acessibilidade baseada em texto (melhor para identificar elementos).
+- `take_screenshot`: Capturar representacao visual da pagina ou de um elemento especifico.
+- `list_console_messages` / `get_console_message`: Inspecionar a saida do console da pagina.
+- `evaluate_script`: Executar JavaScript customizado no contexto da pagina.
+- `list_network_requests` / `get_network_request`: Analisar trafego de rede e detalhes de requests.
 
-### 4. Emulation & Performance
+### 4. Emulacao e Performance
 
-- `resize_page`: Change the viewport dimensions.
-- `emulate`: Throttling CPU/Network or emulating geolocation.
-- `performance_start_trace`: Start recording a performance profile.
-- `performance_stop_trace`: Stop recording and save the trace.
-- `performance_analyze_insight`: Get detailed analysis from recorded performance data.
+- `resize_page`: Alterar as dimensoes do viewport.
+- `emulate`: Throttling de CPU/Network ou emulacao de geolocalizacao.
+- `performance_start_trace`: Iniciar gravacao de perfil de performance.
+- `performance_stop_trace`: Parar gravacao e salvar o trace.
+- `performance_analyze_insight`: Obter analise detalhada dos dados de performance gravados.
 
-## Workflow Patterns
+## Padroes de Fluxo de Trabalho
 
-### Pattern A: Identifying Elements (Snapshot-First)
+### Padrao A: Identificar Elementos (Snapshot-First)
 
-Always prefer `take_snapshot` over `take_screenshot` for finding elements. The snapshot provides `uid` values which are required by interaction tools.
-
-```markdown
-1. `take_snapshot` to get the current page structure.
-2. Find the `uid` of the target element.
-3. Use `click(uid=...)` or `fill(uid=..., value=...)`.
-```
-
-### Pattern B: Troubleshooting Errors
-
-When a page is failing, check both console logs and network requests.
+Sempre prefira `take_snapshot` em vez de `take_screenshot` para encontrar elementos. O snapshot fornece valores `uid` exigidos pelas tools de interacao.
 
 ```markdown
-1. `list_console_messages` to check for JavaScript errors.
-2. `list_network_requests` to identify failed (4xx/5xx) resources.
-3. `evaluate_script` to check the value of specific DOM elements or global variables.
+1. `take_snapshot` para obter a estrutura atual da pagina.
+2. Encontre o `uid` do elemento alvo.
+3. Use `click(uid=...)` ou `fill(uid=..., value=...)`.
 ```
 
-### Pattern C: Performance Profiling
+### Padrao B: Solucao de Problemas
 
-Identify why a page is slow.
+Quando uma pagina esta falhando, verifique logs do console e requests de rede.
+
+```markdown
+1. `list_console_messages` para checar erros de JavaScript.
+2. `list_network_requests` para identificar recursos com falha (4xx/5xx).
+3. `evaluate_script` para checar o valor de elementos DOM especificos ou variaveis globais.
+```
+
+### Padrao C: Profiling de Performance
+
+Identifique por que uma pagina esta lenta.
 
 ```markdown
 1. `performance_start_trace(reload=true, autoStop=true)`
-2. Wait for the page to load/trace to finish.
-3. `performance_analyze_insight` to find LCP issues or layout shifts.
+2. Aguarde a pagina carregar/trace finalizar.
+3. `performance_analyze_insight` para encontrar problemas de LCP ou layout shifts.
 ```
 
-## Best Practices
+## Boas Praticas
 
-- **Context Awareness**: Always run `list_pages` and `select_page` if you are unsure which tab is currently active.
-- **Snapshots**: Take a new snapshot after any major navigation or DOM change, as `uid` values may change.
-- **Timeouts**: Use reasonable timeouts for `wait_for` to avoid hanging on slow-loading elements.
-- **Screenshots**: Use `take_screenshot` sparingly for visual verification, but rely on `take_snapshot` for logic.
+- **Consistencia de Contexto**: Sempre execute `list_pages` e `select_page` se nao tiver certeza de qual aba esta ativa.
+- **Snapshots**: Tire um novo snapshot apos qualquer navegacao importante ou mudanca no DOM, pois valores `uid` podem mudar.
+- **Timeouts**: Use timeouts razoaveis para `wait_for` para evitar travar em elementos lentos.
+- **Screenshots**: Use `take_screenshot` com parcimonia para verificacao visual, mas confie em `take_snapshot` para logica.

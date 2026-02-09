@@ -1,56 +1,56 @@
 # DAX Measures and Naming Conventions
 
-## Naming Conventions
+## Convencoes de Nomeacao
 
-### General Rules
-- Use human-readable names (spaces allowed)
-- Be descriptive: `Total Sales Amount` not `TSA`
-- Avoid abbreviations unless universally understood
-- Use consistent capitalization (Title Case recommended)
-- Avoid special characters except spaces
+### Regras Gerais
+- Use nomes legiveis (espacos permitidos)
+- Seja descritivo: `Total Sales Amount` e nao `TSA`
+- Evite abreviacoes a menos que sejam universalmente entendidas
+- Use capitalizacao consistente (Title Case recomendado)
+- Evite caracteres especiais exceto espacos
 
-### Table Naming
-| Type | Convention | Example |
-|------|------------|---------|
-| Dimension | Singular noun | Customer, Product, Date |
-| Fact | Business process | Sales, Orders, Inventory |
-| Bridge | Combined names | CustomerAccount, ProductCategory |
-| Measure Table | Underscore prefix | _Measures, _KPIs |
+### Nomeacao de Tabelas
+| Tipo | Convencao | Exemplo |
+|------|-----------|---------|
+| Dimension | Substantivo singular | Customer, Product, Date |
+| Fact | Processo de negocio | Sales, Orders, Inventory |
+| Bridge | Nomes combinados | CustomerAccount, ProductCategory |
+| Measure Table | Prefixo com underscore | _Measures, _KPIs |
 
-### Column Naming
-| Type | Convention | Example |
-|------|------------|---------|
-| Keys | Suffix with "Key" or "ID" | CustomerKey, ProductID |
-| Dates | Suffix with "Date" | OrderDate, ShipDate |
-| Amounts | Descriptive with unit hint | SalesAmount, QuantitySold |
-| Flags | Prefix with "Is" or "Has" | IsActive, HasDiscount |
+### Nomeacao de Colunas
+| Tipo | Convencao | Exemplo |
+|------|-----------|---------|
+| Keys | Sufixo com "Key" ou "ID" | CustomerKey, ProductID |
+| Dates | Sufixo com "Date" | OrderDate, ShipDate |
+| Amounts | Descritivo com dica de unidade | SalesAmount, QuantitySold |
+| Flags | Prefixo com "Is" ou "Has" | IsActive, HasDiscount |
 
-### Measure Naming
-| Type | Convention | Example |
-|------|------------|---------|
-| Aggregations | Verb + Noun | Total Sales, Count of Orders |
-| Ratios | X per Y or X Rate | Sales per Customer, Conversion Rate |
-| Time Intelligence | Period + Metric | YTD Sales, PY Total Sales |
-| Comparisons | Metric + vs + Baseline | Sales vs Budget, Growth vs PY |
+### Nomeacao de Measures
+| Tipo | Convencao | Exemplo |
+|------|-----------|---------|
+| Aggregations | Verbo + Substantivo | Total Sales, Count of Orders |
+| Ratios | X per Y ou X Rate | Sales per Customer, Conversion Rate |
+| Time Intelligence | Periodo + Metrica | YTD Sales, PY Total Sales |
+| Comparisons | Metrica + vs + Baseline | Sales vs Budget, Growth vs PY |
 
 ## Explicit vs Implicit Measures
 
-### Always Create Explicit Measures For:
-1. Key business metrics users will query
-2. Complex calculations with filter manipulation
-3. Measures used in MDX (Excel PivotTables)
-4. Controlled aggregation (prevent sum of averages)
+### Sempre Crie Measures Explicitas Para:
+1. Metricas de negocio chave que usuarios consultarao
+2. Calculos complexos com manipulacao de filtros
+3. Measures usadas em MDX (Excel PivotTables)
+4. Agregacao controlada (evita soma de medias)
 
-### Implicit Measures (Column Aggregations)
-- Acceptable for simple exploration
-- Set correct SummarizeBy property:
+### Implicit Measures (Agregacoes de Coluna)
+- Aceitaveis para exploracao simples
+- Defina SummarizeBy corretamente:
   - Amounts: Sum
   - Keys/IDs: None (Do Not Summarize)
-  - Rates/Prices: None or Average
+  - Rates/Prices: None ou Average
 
-## Measure Patterns
+## Padroes de Measure
 
-### Basic Aggregations
+### Agregacoes Basicas
 ```dax
 Total Sales = SUM(Sales[SalesAmount])
 Order Count = COUNTROWS(Sales)
@@ -58,7 +58,7 @@ Average Order Value = DIVIDE([Total Sales], [Order Count])
 Distinct Customers = DISTINCTCOUNT(Sales[CustomerKey])
 ```
 
-### Time Intelligence (Requires Date Table)
+### Time Intelligence (Requer Date Table)
 ```dax
 YTD Sales = TOTALYTD([Total Sales], 'Date'[Date])
 MTD Sales = TOTALMTD([Total Sales], 'Date'[Date])
@@ -66,7 +66,7 @@ PY Sales = CALCULATE([Total Sales], SAMEPERIODLASTYEAR('Date'[Date]))
 YoY Growth = DIVIDE([Total Sales] - [PY Sales], [PY Sales])
 ```
 
-### Percentage Calculations
+### Calculos Percentuais
 ```dax
 Sales % of Total = 
 DIVIDE(
@@ -77,7 +77,7 @@ DIVIDE(
 Margin % = DIVIDE([Gross Profit], [Total Sales])
 ```
 
-### Running Totals
+### Totais Acumulados
 ```dax
 Running Total = 
 CALCULATE(
@@ -89,9 +89,9 @@ CALCULATE(
 )
 ```
 
-## Column References
+## Referencias de Coluna
 
-### Best Practice: Always Qualify Column Names
+### Boa Pratica: Sempre Qualifique Nomes de Coluna
 ```dax
 // GOOD - Fully qualified
 Sales Amount = SUM(Sales[SalesAmount])
@@ -100,7 +100,7 @@ Sales Amount = SUM(Sales[SalesAmount])
 Sales Amount = SUM([SalesAmount])
 ```
 
-### Measure References: Never Qualify
+### Referencias de Measures: Nunca Qualifique
 ```dax
 // GOOD - Unqualified measure
 YTD Sales = TOTALYTD([Total Sales], 'Date'[Date])
@@ -109,13 +109,13 @@ YTD Sales = TOTALYTD([Total Sales], 'Date'[Date])
 YTD Sales = TOTALYTD(Sales[Total Sales], 'Date'[Date])
 ```
 
-## Documentation
+## Documentacao
 
-### Measure Descriptions
-Always add descriptions explaining:
-- What the measure calculates
-- Business context/usage
-- Any important assumptions
+### Descricoes de Measure
+Sempre adicione descricoes explicando:
+- O que a measure calcula
+- Contexto/uso de negocio
+- Qualquer premissa importante
 
 ```
 measure_operations(
@@ -128,8 +128,8 @@ measure_operations(
 )
 ```
 
-### Format Strings
-| Data Type | Format String | Example Output |
+### Strings de Formatacao
+| Tipo de Dado | String de Formatacao | Exemplo de Saida |
 |-----------|---------------|----------------|
 | Currency | $#,##0.00 | $1,234.56 |
 | Percentage | 0.0% | 12.3% |
@@ -138,7 +138,7 @@ measure_operations(
 
 ## Display Folders
 
-Organize measures into logical groups:
+Organize measures em grupos logicos:
 ```
 measure_operations(
   operation: "Update",
@@ -150,7 +150,7 @@ measure_operations(
 )
 ```
 
-Common folder structure:
+Estrutura comum de pastas:
 ```
 _Measures
 ├── Sales
@@ -167,12 +167,12 @@ _Measures
     └── Conversion Rate
 ```
 
-## Variables for Performance
+## Variaveis para Performance
 
-Use variables to:
-- Avoid recalculating the same expression
-- Improve readability
-- Enable debugging
+Use variaveis para:
+- Evitar recalcular a mesma expressao
+- Melhorar legibilidade
+- Habilitar debugging
 
 ```dax
 Gross Margin % = 
@@ -183,13 +183,13 @@ RETURN
     DIVIDE(GrossProfit, TotalSales)
 ```
 
-## Validation Checklist
+## Checklist de Validacao
 
-- [ ] All key business metrics have explicit measures
-- [ ] Measures have clear, descriptive names
-- [ ] Measures have descriptions
-- [ ] Appropriate format strings applied
-- [ ] Display folders organize related measures
-- [ ] Column references are fully qualified
-- [ ] Measure references are not qualified
-- [ ] Variables used for complex calculations
+- [ ] Todas as metricas de negocio chave tem measures explicitas
+- [ ] Measures tem nomes claros e descritivos
+- [ ] Measures tem descricoes
+- [ ] Format strings apropriadas aplicadas
+- [ ] Display folders organizam measures relacionadas
+- [ ] Referencias de coluna sao totalmente qualificadas
+- [ ] Referencias de measure nao sao qualificadas
+- [ ] Variaveis usadas para calculos complexos

@@ -1,50 +1,50 @@
 # GitHub Copilot SDK Cookbook
 
-This cookbook collects small, focused recipes showing how to accomplish common tasks with the GitHub Copilot SDK across languages. Each recipe is intentionally short and practical, with copy‑pasteable snippets and pointers to fuller examples and tests.
+Este cookbook reune receitas pequenas e focadas que mostram como realizar tarefas comuns com o GitHub Copilot SDK em varias linguagens. Cada receita e propositalmente curta e pratica, com trechos prontos para copiar e colar e apontamentos para exemplos e testes mais completos.
 
-## Recipes by Language
+## Receitas por Linguagem
 
 ### .NET (C#)
 
-- [Error Handling](dotnet/error-handling.md): Handle errors gracefully including connection failures, timeouts, and cleanup.
-- [Multiple Sessions](dotnet/multiple-sessions.md): Manage multiple independent conversations simultaneously.
-- [Managing Local Files](dotnet/managing-local-files.md): Organize files by metadata using AI-powered grouping strategies.
-- [PR Visualization](dotnet/pr-visualization.md): Generate interactive PR age charts using GitHub MCP Server.
-- [Persisting Sessions](dotnet/persisting-sessions.md): Save and resume sessions across restarts.
+- [Error Handling](dotnet/error-handling.md): Lide com erros com elegancia, incluindo falhas de conexao, timeouts e limpeza.
+- [Multiple Sessions](dotnet/multiple-sessions.md): Gerencie varias conversas independentes simultaneamente.
+- [Managing Local Files](dotnet/managing-local-files.md): Organize arquivos por metadados usando estrategias de agrupamento com IA.
+- [PR Visualization](dotnet/pr-visualization.md): Gere graficos interativos de idade de PR usando o GitHub MCP Server.
+- [Persisting Sessions](dotnet/persisting-sessions.md): Salve e retome sessoes entre reinicios.
 
 ### Node.js / TypeScript
 
-- [Error Handling](nodejs/error-handling.md): Handle errors gracefully including connection failures, timeouts, and cleanup.
-- [Multiple Sessions](nodejs/multiple-sessions.md): Manage multiple independent conversations simultaneously.
-- [Managing Local Files](nodejs/managing-local-files.md): Organize files by metadata using AI-powered grouping strategies.
-- [PR Visualization](nodejs/pr-visualization.md): Generate interactive PR age charts using GitHub MCP Server.
-- [Persisting Sessions](nodejs/persisting-sessions.md): Save and resume sessions across restarts.
+- [Error Handling](nodejs/error-handling.md): Lide com erros com elegancia, incluindo falhas de conexao, timeouts e limpeza.
+- [Multiple Sessions](nodejs/multiple-sessions.md): Gerencie varias conversas independentes simultaneamente.
+- [Managing Local Files](nodejs/managing-local-files.md): Organize arquivos por metadados usando estrategias de agrupamento com IA.
+- [PR Visualization](nodejs/pr-visualization.md): Gere graficos interativos de idade de PR usando o GitHub MCP Server.
+- [Persisting Sessions](nodejs/persisting-sessions.md): Salve e retome sessoes entre reinicios.
 
 ### Python
 
-- [Error Handling](python/error-handling.md): Handle errors gracefully including connection failures, timeouts, and cleanup.
-- [Multiple Sessions](python/multiple-sessions.md): Manage multiple independent conversations simultaneously.
-- [Managing Local Files](python/managing-local-files.md): Organize files by metadata using AI-powered grouping strategies.
-- [PR Visualization](python/pr-visualization.md): Generate interactive PR age charts using GitHub MCP Server.
-- [Persisting Sessions](python/persisting-sessions.md): Save and resume sessions across restarts.
+- [Error Handling](python/error-handling.md): Lide com erros com elegancia, incluindo falhas de conexao, timeouts e limpeza.
+- [Multiple Sessions](python/multiple-sessions.md): Gerencie varias conversas independentes simultaneamente.
+- [Managing Local Files](python/managing-local-files.md): Organize arquivos por metadados usando estrategias de agrupamento com IA.
+- [PR Visualization](python/pr-visualization.md): Gere graficos interativos de idade de PR usando o GitHub MCP Server.
+- [Persisting Sessions](python/persisting-sessions.md): Salve e retome sessoes entre reinicios.
 
 ### Go
 
-- [Error Handling](go/error-handling.md): Handle errors gracefully including connection failures, timeouts, and cleanup.
-- [Multiple Sessions](go/multiple-sessions.md): Manage multiple independent conversations simultaneously.
-- [Managing Local Files](go/managing-local-files.md): Organize files by metadata using AI-powered grouping strategies.
-- [PR Visualization](go/pr-visualization.md): Generate interactive PR age charts using GitHub MCP Server.
-- [Persisting Sessions](go/persisting-sessions.md): Save and resume sessions across restarts.
+- [Error Handling](go/error-handling.md): Lide com erros com elegancia, incluindo falhas de conexao, timeouts e limpeza.
+- [Multiple Sessions](go/multiple-sessions.md): Gerencie varias conversas independentes simultaneamente.
+- [Managing Local Files](go/managing-local-files.md): Organize arquivos por metadados usando estrategias de agrupamento com IA.
+- [PR Visualization](go/pr-visualization.md): Gere graficos interativos de idade de PR usando o GitHub MCP Server.
+- [Persisting Sessions](go/persisting-sessions.md): Salve e retome sessoes entre reinicios.
 
-## How to Use
+## Como Usar
 
-- Browse your language section above and open the recipe links
-- Each recipe includes runnable examples in a `recipe/` subfolder with language-specific tooling
-- See existing examples and tests for working references:
-  - Node.js examples: `nodejs/examples/basic-example.ts`
-  - E2E tests: `go/e2e`, `python/e2e`, `nodejs/test/e2e`, `dotnet/test/Harness`
+- Navegue pela secao da sua linguagem acima e abra os links das receitas
+- Cada receita inclui exemplos executaveis na subpasta `recipe/` com ferramentas especificas da linguagem
+- Consulte exemplos e testes existentes como referencias:
+  - Exemplos Node.js: `nodejs/examples/basic-example.ts`
+  - Testes E2E: `go/e2e`, `python/e2e`, `nodejs/test/e2e`, `dotnet/test/Harness`
 
-## Running Examples
+## Executando Exemplos
 
 ### .NET
 
@@ -76,11 +76,11 @@ cd go/cookbook/recipe
 go run <filename>.go
 ```
 
-## Contributing
+## Contribuindo
 
-- Propose or add a new recipe by creating a markdown file in your language's `cookbook/` folder and a runnable example in `recipe/`
-- Follow repository guidance in [CONTRIBUTING.md](../../CONTRIBUTING.md)
+- Proponha ou adicione uma nova receita criando um arquivo markdown na pasta `cookbook/` da sua linguagem e um exemplo executavel em `recipe/`
+- Siga as orientacoes do repositorio em [CONTRIBUTING.md](../../CONTRIBUTING.md)
 
 ## Status
 
-Cookbook structure is complete with 4 recipes across all 4 supported languages. Each recipe includes both markdown documentation and runnable examples.
+A estrutura do cookbook esta completa com 4 receitas em todas as 4 linguagens suportadas. Cada receita inclui documentacao em markdown e exemplos executaveis.

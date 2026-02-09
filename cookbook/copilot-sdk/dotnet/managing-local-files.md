@@ -1,18 +1,18 @@
-# Grouping Files by Metadata
+# Agrupando Arquivos por Metadados
 
-Use Copilot to intelligently organize files in a folder based on their metadata.
+Use o Copilot para organizar arquivos de forma inteligente em uma pasta com base em seus metadados.
 
-> **Runnable example:** [recipe/managing-local-files.cs](recipe/managing-local-files.cs)
+> **Exemplo executavel:** [recipe/managing-local-files.cs](recipe/managing-local-files.cs)
 >
 > ```bash
 > dotnet run recipe/managing-local-files.cs
 > ```
 
-## Example scenario
+## Cenario de exemplo
 
-You have a folder with many files and want to organize them into subfolders based on metadata like file type, creation date, size, or other attributes. Copilot can analyze the files and suggest or execute a grouping strategy.
+Voce tem uma pasta com muitos arquivos e quer organiza-los em subpastas com base em metadados como tipo de arquivo, data de criacao, tamanho ou outros atributos. O Copilot pode analisar os arquivos e sugerir ou executar uma estrategia de agrupamento.
 
-## Example code
+## Codigo de exemplo
 
 ```csharp
 using GitHub.Copilot.SDK;
@@ -69,9 +69,9 @@ await session.SendAsync(new MessageOptions
 await done.Task;
 ```
 
-## Grouping strategies
+## Estrategias de agrupamento
 
-### By file extension
+### Por extensao de arquivo
 
 ```csharp
 // Groups files like:
@@ -80,7 +80,7 @@ await done.Task;
 // videos/   -> .mp4, .avi, .mov
 ```
 
-### By creation date
+### Por data de criacao
 
 ```csharp
 // Groups files like:
@@ -88,7 +88,7 @@ await done.Task;
 // 2024-02/ -> files created in February 2024
 ```
 
-### By file size
+### Por tamanho de arquivo
 
 ```csharp
 // Groups files like:
@@ -98,9 +98,9 @@ await done.Task;
 // large-over-100mb/
 ```
 
-## Dry-run mode
+## Modo dry-run
 
-For safety, you can ask Copilot to only preview changes:
+Por seguranca, voce pode pedir ao Copilot para apenas prever as alteracoes:
 
 ```csharp
 await session.SendAsync(new MessageOptions
@@ -112,9 +112,9 @@ await session.SendAsync(new MessageOptions
 });
 ```
 
-## Custom grouping with AI analysis
+## Agrupamento personalizado com analise de IA
 
-Let Copilot determine the best grouping based on file content:
+Deixe o Copilot determinar o melhor agrupamento com base no conteudo dos arquivos:
 
 ```csharp
 await session.SendAsync(new MessageOptions
@@ -131,8 +131,8 @@ await session.SendAsync(new MessageOptions
 });
 ```
 
-## Safety considerations
+## Consideracoes de seguranca
 
-1. **Confirm before moving**: Ask Copilot to confirm before executing moves
-1. **Handle duplicates**: Consider what happens if a file with the same name exists
-1. **Preserve originals**: Consider copying instead of moving for important files
+1. **Confirme antes de mover**: Peça ao Copilot para confirmar antes de executar movimentacoes
+1. **Trate duplicatas**: Considere o que acontece se existir um arquivo com o mesmo nome
+1. **Preserve os originais**: Considere copiar em vez de mover para arquivos importantes

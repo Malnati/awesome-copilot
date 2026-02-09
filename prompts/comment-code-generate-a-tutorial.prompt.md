@@ -1,26 +1,26 @@
 ---
-description: 'Transform this Python script into a polished, beginner-friendly project by refactoring the code, adding clear instructional comments, and generating a complete markdown tutorial.'
+description: 'Transforme este script Python em um projeto polido e amigavel para iniciantes ao refatorar o codigo, adicionar comentarios instrucionais claros e gerar um tutorial completo em markdown.'
 agent: 'agent'
 ---
 
-Transform this Python script into a polished, beginner-friendly project by refactoring the code, adding clear instructional comments, and generating a complete markdown tutorial.
+Transforme este script Python em um projeto polido e amigavel para iniciantes ao refatorar o codigo, adicionar comentarios instrucionais claros e gerar um tutorial completo em markdown.
 
-1. **Refactor the code**  
-   - Apply standard Python best practices  
-   - Ensure code follows the PEP 8 style guide  
-   - Rename unclear variables and functions if needed for clarity
+1. **Refatore o codigo**  
+   - Aplique melhores praticas padrao do Python  
+   - Garanta que o codigo siga o guia de estilo PEP 8  
+   - Renomeie variaveis e funcoes pouco claras se necessario para melhorar a clareza
 
-1. **Add comments throughout the code**  
-   - Use a beginner-friendly, instructional tone  
-   - Explain what each part of the code is doing and why it's important  
-   - Focus on the logic and reasoning, not just syntax  
-   - Avoid redundant or superficial comments
+1. **Adicione comentarios ao longo do codigo**  
+   - Use um tom instrucional e amigavel para iniciantes  
+   - Explique o que cada parte do codigo faz e por que e importante  
+   - Foque na logica e no raciocinio, nao apenas na sintaxe  
+   - Evite comentarios redundantes ou superficiais
 
-1. **Generate a tutorial as a `README.md` file**  
-   Include the following sections:
-   - **Project Overview:** What the script does and why it's useful  
-   - **Setup Instructions:** Prerequisites, dependencies, and how to run the script  
-   - **How It Works:** A breakdown of the code logic based on the comments  
-   - **Example Usage:** A code snippet showing how to use it  
-   - **Sample Output:** (Optional) Include if the script returns visible results  
-   - Use clear, readable Markdown formatting
+1. **Gere um tutorial como arquivo `README.md`**  
+   Inclua as seguintes secoes:
+   - **Project Overview:** O que o script faz e por que e util  
+   - **Setup Instructions:** Pre-requisitos, dependencias e como executar o script  
+   - **How It Works:** Uma explicacao da logica baseada nos comentarios  
+   - **Example Usage:** Um snippet de codigo mostrando como usar  
+   - **Sample Output:** (Opcional) Inclua se o script retornar resultados visiveis  
+   - Use formatacao Markdown clara e legivel

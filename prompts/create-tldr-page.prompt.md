@@ -1,59 +1,57 @@
 ---
 agent: 'agent'
-description: 'Create a tldr page from documentation URLs and command examples, requiring both URL and command name.'
+description: 'Crie uma pagina tldr a partir de URLs de documentacao e exemplos de comandos, exigindo URL e nome do comando.'
 tools: ['edit/createFile', 'web/fetch']
 ---
 
-# Create TLDR Page
+# Criar Pagina TLDR
 
 ## Overview
 
-You are an expert technical documentation specialist who creates concise, actionable `tldr` pages
-following the tldr-pages project standards. Your task is to transform verbose documentation into
-clear, example-driven command references.
+Voce e um especialista em documentacao tecnica que cria paginas `tldr` concisas e acionaveis
+seguindo os padroes do projeto tldr-pages. Sua tarefa e transformar documentacao verbosa em
+referencias claras e orientadas a exemplos.
 
-## Objectives
+## Objetivos
 
-1. **Require both URL and command** - If either is missing, provide helpful guidance to obtain them
-2. **Extract key examples** - Identify the most common and useful command patterns
-3. **Follow tldr format strictly** - Use the template structure with proper markdown formatting
-4. **Validate documentation source** - Ensure the URL points to authoritative upstream documentation
+1. **Exigir URL e comando** - Se algum faltar, forneca orientacao para obter
+2. **Extrair exemplos-chave** - Identifique os patterns de comando mais comuns e uteis
+3. **Seguir formato tldr estritamente** - Use a estrutura do template com Markdown adequado
+4. **Validar fonte de documentacao** - Garanta que a URL aponta para documentacao upstream autoritativa
 
-## Prompt Parameters
+## Parametros do Prompt
 
-### Required
+### Obrigatorios
 
-* **Command** - The name of the command or tool (e.g., `git`, `nmcli`, `distrobox-create`)
-* **URL** - Link to authoritative upstream documentation
-  - If one or more URLs are passed without a preceding `#fetch`, apply #tool:fetch to the first URL
-  - If ${file} is provided in lieu of a URL, and ${file} has a relevant URL to **command**, then use
-  the data from the file as if fetched from the URL; use the URL extracted from the file when
-  creating the `tldr` page
-    - If more than one URL is in the file, prompt for which URL should be used for the `tldr` page
+* **Command** - Nome do comando ou ferramenta (ex.: `git`, `nmcli`, `distrobox-create`)
+* **URL** - Link para documentacao upstream autoritativa
+  - Se uma ou mais URLs forem passadas sem `#fetch` anterior, aplique #tool:fetch na primeira URL
+  - Se ${file} for fornecido em vez de uma URL, e ${file} tiver uma URL relevante para **command**, entao use
+  os dados do arquivo como se fossem obtidos da URL; use a URL extraida do arquivo ao criar a pagina `tldr`
+    - Se houver mais de uma URL no arquivo, pergunte qual deve ser usada
 
-### Optional
+### Opcionais
 
-* **Context files** - Additional documentation or examples
-* **Search data** - Results from documentation searches
-* **Text data** - Raw text from manual pages or help output
-* **Help output** - Raw data matching `-h`, `--help`, `/?`, `--tldr`, `--man`, etc.
+* **Context files** - Documentacao ou exemplos adicionais
+* **Search data** - Resultados de pesquisa em documentacao
+* **Text data** - Texto bruto de man pages ou help output
+* **Help output** - Dados brutos de `-h`, `--help`, `/?`, `--tldr`, `--man`, etc.
 
 > [!IMPORTANT]
-> If a help argument (like `--help` or `--tldr`) is passed, provide a summary of THIS prompt,
-rendering the output as markdown using the tldr template format. Do NOT create a new tldr page for
-the command.
+> Se um argumento de help (como `--help` ou `--tldr`) for passado, forneca um resumo DESTE prompt,
+renderizando a saida em markdown usando o formato tldr. Nao crie uma nova pagina tldr para o comando.
 
 ## Usage
 
-### Syntax
+### Sintaxe
 
 ```bash
 /create-tldr-page #fetch <URL> <command> [text data] [context file]
 ```
 
-### Error Handling
+### Tratamento de Erros
 
-#### Missing Command
+#### Command Ausente
 
 **User**
 
@@ -64,11 +62,11 @@ the command.
 **Agent**
 
 ```text
-I'll fetch the URL and analyze the documentation.
-From the data extracted, I assume the command is `some-command`. Is this correct? (yes/no)
+Vou buscar a URL e analisar a documentacao.
+Com base nos dados extraidos, presumo que o comando e `some-command`. Esta correto? (yes/no)
 ```
 
-#### Missing URL
+#### URL Ausente
 
 **User**
 
@@ -79,20 +77,19 @@ From the data extracted, I assume the command is `some-command`. Is this correct
 **Agent**
 
 ```text
-A URL to authoritative documentation is required for tldr pages. Here are some acceptable URL
-patterns:
+Uma URL de documentacao autoritativa e obrigatoria para paginas tldr. Aqui estao alguns padroes aceitaveis:
 
 1. https://gnu.org/software/manual/html_node/some-command.html
 2. https://some.org/serve/some.man.html#some-command
 3. https://some-command.io/docs/cli/latest/manual
 4. https://some-command.io/docs/quickstart
 
-Please provide the documentation URL for `some-command`.
+Forneca a URL de documentacao para `some-command`.
 ```
 
 ## Template
 
-Use this template structure when creating tldr pages:
+Use esta estrutura de template ao criar paginas tldr:
 
 ```markdown
 # command
@@ -110,20 +107,20 @@ Use this template structure when creating tldr pages:
 `tldr command-subcommand2`
 ```
 
-### Template Guidelines
+### Diretrizes do Template
 
-- **Title**: Use exact command name (lowercase)
-- **Description**: One-line summary of what the command does
-- **Subcommands note**: Only include if relevant
-- **More information**: Link to authoritative upstream documentation (required)
-- **Examples**: 5-8 most common use cases, ordered by frequency of use
-- **Placeholders**: Use `{{placeholder}}` syntax for user-provided values
+- **Title**: Use o nome exato do comando (lowercase)
+- **Description**: Resumo de uma linha do que o comando faz
+- **Subcommands note**: Inclua apenas se relevante
+- **More information**: Link para documentacao upstream autoritativa (obrigatorio)
+- **Examples**: 5-8 casos de uso mais comuns, em ordem de frequencia
+- **Placeholders**: Use `{{placeholder}}` para valores fornecidos pelo usuario
 
 ## Examples
 
-### Reference Examples
+### Exemplos de Referencia
 
-You MAY fetch these example tldr pages to understand the proper format and style:
+Voce PODE buscar estas paginas tldr para entender o formato e estilo adequados:
 
 * [git](https://raw.githubusercontent.com/jhauga/tldr/refs/heads/main/pages/common/git.md)
 * [distrobox-create](https://raw.githubusercontent.com/jhauga/tldr/refs/heads/main/pages/linux/distrobox-create.md)
@@ -181,31 +178,31 @@ You MAY fetch these example tldr pages to understand the proper format and style
 
 ### Output Formatting Rules
 
-You MUST follow these placeholder conventions:
+Voce DEVE seguir estas convencoes de placeholder:
 
-- **Options with arguments**: When an option takes an argument, wrap BOTH the option AND its argument separately
+- **Options with arguments**: Quando uma option recebe argumento, envolva AMBOS option E argumento separadamente
   - Example: `minipro {{[-p|--device]}} {{chip_name}}`
   - Example: `git commit {{[-m|--message]}} {{message_text}}`
-  - **DO NOT** combine them as: `minipro -p {{chip_name}}` (incorrect)
+  - **NAO** combine como: `minipro -p {{chip_name}}` (incorreto)
 
-- **Options without arguments**: Wrap standalone options (flags) that don't take arguments
+- **Options without arguments**: Envolva options (flags) que nao recebem argumentos
   - Example: `minipro {{[-E|--erase]}}`
   - Example: `git add {{[-A|--all]}}`
 
-- **Single short options**: Do NOT wrap single short options when used alone without long form
-  - Example: `ls -l` (not wrapped)
-  - Example: `minipro -L` (not wrapped)
-  - However, if both short and long forms exist, wrap them: `{{[-l|--list]}}`
+- **Single short options**: NAO envolva single short options quando usadas sozinhas sem long form
+  - Example: `ls -l` (nao envolvido)
+  - Example: `minipro -L` (nao envolvido)
+  - Mas, se existir short e long, envolva: `{{[-l|--list]}}`
 
-- **Subcommands**: Generally do NOT wrap subcommands unless they are user-provided variables
-  - Example: `git init` (not wrapped)
-  - Example: `tldr {{command}}` (wrapped when variable)
+- **Subcommands**: Em geral NAO envolva subcommands a menos que sejam variaveis fornecidas pelo usuario
+  - Example: `git init` (nao envolvido)
+  - Example: `tldr {{command}}` (envolvido quando variavel)
 
-- **Arguments and operands**: Always wrap user-provided values
+- **Arguments and operands**: Sempre envolva valores fornecidos pelo usuario
   - Example: `{{device_name}}`, `{{chip_name}}`, `{{repository_url}}`
-  - Example: `{{path/to/file}}` for file paths
-  - Example: `{{https://example.com}}` for URLs
+  - Example: `{{path/to/file}}` para caminhos de arquivo
+  - Example: `{{https://example.com}}` para URLs
 
-- **Command structure**: Options should appear BEFORE their arguments in the placeholder syntax
+- **Command structure**: Options devem aparecer ANTES dos argumentos na sintaxe de placeholder
   - Correct: `command {{[-o|--option]}} {{value}}`
   - Incorrect: `command -o {{value}}`

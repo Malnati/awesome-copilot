@@ -1,25 +1,25 @@
 ---
 name: vscode-ext-localization
-description: 'Guidelines for proper localization of VS Code extensions, following VS Code extension development guidelines, libraries and good practices'
+description: 'Diretrizes para localizacao adequada de extensoes do VS Code, seguindo diretrizes de desenvolvimento de extensoes do VS Code, bibliotecas e boas praticas'
 ---
 
-# VS Code extension localization
+# Localizacao de extensoes do VS Code
 
-This skill helps you localize every aspect of VS Code extensions
+Esta skill ajuda voce a localizar todos os aspectos de extensoes do VS Code
 
-## When to use this skill
+## Quando usar esta skill
 
-Use this skill when you need to:
-- Localize new or existing contributed configurations (settings), commands, menus, views or walkthroughs
-- Localize new or existing messages or other string resources contained in extension source code that are displayed to the end user
+Use esta skill quando precisar:
+- Localizar configuracoes (settings), comandos, menus, views ou walkthroughs novos ou existentes
+- Localizar mensagens ou outras strings no codigo da extensao (JavaScript ou TypeScript) exibidas ao usuario final
 
-# Instructions
+# Instrucoes
 
-VS Code localization is composed by three different approaches, depending on the resource that is being localized. When a new localizable resource is created or updated, the corresponding localization for all currently available languages must be created/updated.
+A localizacao no VS Code e composta por tres abordagens diferentes, dependendo do recurso que esta sendo localizado. Quando um novo recurso localizavel e criado ou atualizado, a localizacao correspondente para todos os idiomas atualmente disponiveis deve ser criada/atualizada.
 
-1. Configurations like Settings, Commands, Menus, Views, ViewsWelcome, Walkthrough Titles and Descriptions, defined in `package.json`
-  -> An exclusive `package.nls.LANGID.json` file, like `package.nls.pt-br.json` of Brazilian Portuguese (`pt-br`) localization
-2. Walkthrough content (defined in its own `Markdown` files)
-  -> An exclusive `Markdown` file like `walkthrough/someStep.pt-br.md` for Brazilian Portuguese localization
-3. Messages and string located in extension source code (JavaScript or TypeScript files)
-  -> An exclusive `bundle.l10n.pt-br.json` for Brazilian Portuguese localization
+1. Configuracoes como Settings (Configuracoes), Commands (Comandos), Menus, Views (Visoes), ViewsWelcome, Walkthrough Titles e Descriptions, definidas em `package.json`
+  -> Um arquivo exclusivo `package.nls.LANGID.json`, como `package.nls.pt-br.json` para localizacao em Portugues do Brasil (`pt-br`)
+2. Conteudo de Walkthrough (definido em seus proprios arquivos `Markdown`)
+  -> Um arquivo `Markdown` exclusivo como `walkthrough/someStep.pt-br.md` para localizacao em Portugues do Brasil
+3. Mensagens e strings localizadas no codigo da extensao (arquivos JavaScript ou TypeScript)
+  -> Um arquivo exclusivo `bundle.l10n.pt-br.json` para localizacao em Portugues do Brasil

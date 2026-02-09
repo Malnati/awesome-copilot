@@ -2,21 +2,21 @@
 ---
 mode: 'agent'
 tools: ['changes', 'search/codebase', 'edit/editFiles', 'problems']
-description: 'Add Adaptive Card response templates to MCP-based API plugins for visual data presentation in Microsoft 365 Copilot'
+description: 'Adicione templates de resposta Adaptive Card a API plugins baseados em MCP para apresentacao visual de dados no Microsoft 365 Copilot'
 model: 'gpt-4.1'
 tags: [mcp, adaptive-cards, m365-copilot, api-plugin, response-templates]
 ---
 
-# Create Adaptive Cards for MCP Plugins
+# Criar Adaptive Cards para MCP Plugins
 
-Add Adaptive Card response templates to MCP-based API plugins to enhance how data is presented visually in Microsoft 365 Copilot.
+Adicione templates de resposta Adaptive Card a API plugins baseados em MCP para melhorar como os dados sao apresentados visualmente no Microsoft 365 Copilot.
 
-## Adaptive Card Types
+## Tipos de Adaptive Card
 
 ### Static Response Templates
-Use when API always returns items of the same type and format doesn't change often.
+Use quando a API sempre retorna itens do mesmo tipo e o formato nao muda com frequencia.
 
-Define in `response_semantics.static_template` in ai-plugin.json:
+Defina em `response_semantics.static_template` no ai-plugin.json:
 
 ```json
 {
@@ -26,7 +26,7 @@ Define in `response_semantics.static_template` in ai-plugin.json:
       "description": "Returns budget details including name and available funds",
       "capabilities": {
         "response_semantics": {
-          "data_path": "$",
+          "data_path": "$/",
           "properties": {
             "title": "$.name",
             "subtitle": "$.availableFunds"
@@ -62,9 +62,9 @@ Define in `response_semantics.static_template` in ai-plugin.json:
 ```
 
 ### Dynamic Response Templates
-Use when API returns multiple types and each item needs a different template.
+Use quando a API retorna varios tipos e cada item precisa de um template diferente.
 
-**ai-plugin.json configuration:**
+**Configuracao do ai-plugin.json:**
 ```json
 {
   "name": "GetTransactions",
@@ -80,7 +80,7 @@ Use when API returns multiple types and each item needs a different template.
 }
 ```
 
-**API Response with Embedded Templates:**
+**Resposta da API com templates embutidos:**
 ```json
 {
   "transactions": [
@@ -171,7 +171,7 @@ Use when API returns multiple types and each item needs a different template.
 ```
 
 ### Combined Static and Dynamic Templates
-Use static template as default when item doesn't have template_selector or when value doesn't resolve.
+Use static template como padrao quando o item nao tiver template_selector ou quando o valor nao resolver.
 
 ```json
 {
@@ -201,7 +201,7 @@ Use static template as default when item doesn't have template_selector or when 
 ## Response Semantics Properties
 
 ### data_path
-JSONPath query indicating where data resides in API response:
+Query JSONPath indicando onde os dados residem na resposta da API:
 ```json
 "data_path": "$"           // Root of response
 "data_path": "$.results"   // In results property
@@ -209,7 +209,7 @@ JSONPath query indicating where data resides in API response:
 ```
 
 ### properties
-Map response fields for Copilot citations:
+Mapeie campos da resposta para citacoes do Copilot:
 ```json
 "properties": {
   "title": "$.name",            // Citation title
@@ -219,7 +219,7 @@ Map response fields for Copilot citations:
 ```
 
 ### template_selector
-Property on each item indicating which template to use:
+Propriedade em cada item indicando qual template usar:
 ```json
 "template_selector": "$.displayTemplate"
 ```
@@ -339,33 +339,33 @@ Property on each item indicating which template to use:
 }
 ```
 
-## Responsive Design Best Practices
+## Boas Praticas de Design Responsivo
 
-### Single-Column Layouts
-- Use single columns for narrow viewports
-- Avoid multi-column layouts when possible
-- Ensure cards work at minimum viewport width
+### Layouts de Coluna Unica
+- Use coluna unica para viewports estreitos
+- Evite layouts multi-coluna quando possivel
+- Garanta que os cards funcionem no menor viewport
 
-### Flexible Widths
-- Don't assign fixed widths to elements
-- Use "auto" or "stretch" for width properties
-- Allow elements to resize with viewport
-- Fixed widths OK for icons/avatars only
+### Larguras Flexiveis
+- Nao atribua larguras fixas aos elementos
+- Use "auto" ou "stretch" para propriedades de width
+- Permita que elementos redimensionem com o viewport
+- Larguras fixas OK apenas para icones/avatares
 
-### Text and Images
-- Avoid placing text and images in same row
-- Exception: Small icons or avatars
-- Use "wrap": true for text content
-- Test at various viewport widths
+### Texto e Imagens
+- Evite colocar texto e imagens na mesma linha
+- Excecao: pequenos icones ou avatares
+- Use "wrap": true para conteudo de texto
+- Teste em varios tamanhos de viewport
 
-### Test Across Hubs
-Validate cards in:
-- Teams (desktop and mobile)
+### Teste em Diferentes Hubs
+Valide cards em:
+- Teams (desktop e mobile)
 - Word
 - PowerPoint
-- Various viewport widths (contract/expand UI)
+- Varios tamanhos de viewport (contrair/expandir UI)
 
-## Complete Example
+## Exemplo Completo
 
 **ai-plugin.json:**
 ```json
@@ -445,26 +445,26 @@ Validate cards in:
 
 ## Workflow
 
-Ask the user:
-1. What type of data does the API return?
-2. Are all items the same type (static) or different types (dynamic)?
-3. What fields should appear in the card?
-4. Should there be actions (e.g., "View Details")?
-5. Are there multiple states or categories requiring different templates?
+Pergunte ao usuario:
+1. Que tipo de dados a API retorna?
+2. Todos os itens sao do mesmo tipo (static) ou tipos diferentes (dynamic)?
+3. Quais campos devem aparecer no card?
+4. Deve haver actions (por exemplo, "View Details")?
+5. Ha multiplos estados ou categorias exigindo templates diferentes?
 
-Then generate:
-- Appropriate response_semantics configuration
-- Static template, dynamic templates, or both
-- Proper data binding with conditional rendering
-- Responsive single-column layout
-- Test scenarios for validation
+Em seguida, gere:
+- Configuracao response_semantics adequada
+- Template static, dynamic, ou ambos
+- Data binding correto com conditional rendering
+- Layout responsivo de coluna unica
+- Cenários de teste para validacao
 
 ## Resources
 
-- [Adaptive Card Designer](https://adaptivecards.microsoft.com/designer) - Visual design tool
-- [Adaptive Card Schema](https://adaptivecards.io/schemas/adaptive-card.json) - Full schema reference
-- [Template Language](https://learn.microsoft.com/en-us/adaptive-cards/templating/language) - Binding syntax guide
-- [JSONPath](https://www.rfc-editor.org/rfc/rfc9535) - Path query syntax
+- [Adaptive Card Designer](https://adaptivecards.microsoft.com/designer) - Ferramenta visual de design
+- [Adaptive Card Schema](https://adaptivecards.io/schemas/adaptive-card.json) - Referencia completa do schema
+- [Template Language](https://learn.microsoft.com/en-us/adaptive-cards/templating/language) - Guia de sintaxe de binding
+- [JSONPath](https://www.rfc-editor.org/rfc/rfc9535) - Sintaxe de consulta de path
 
 ## Common Patterns
 

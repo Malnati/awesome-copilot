@@ -1,12 +1,12 @@
-# Session Persistence and Resumption
+# Persistencia e Retomada de Sessoes
 
-Save and restore conversation sessions across application restarts.
+Salve e restaure sessoes de conversa entre reinicios da aplicacao.
 
-## Example scenario
+## Cenario de exemplo
 
-You want users to be able to continue a conversation even after closing and reopening your application.
+Voce quer que os usuarios possam continuar uma conversa mesmo depois de fechar e reabrir seu aplicativo.
 
-> **Runnable example:** [recipe/persisting-sessions.ts](recipe/persisting-sessions.ts)
+> **Exemplo executavel:** [recipe/persisting-sessions.ts](recipe/persisting-sessions.ts)
 >
 > ```bash
 > cd recipe && npm install
@@ -14,7 +14,7 @@ You want users to be able to continue a conversation even after closing and reop
 > # or: npm run persisting-sessions
 > ```
 
-### Creating a session with a custom ID
+### Criando uma sessao com ID personalizado
 
 ```typescript
 import { CopilotClient } from "@github/copilot-sdk";
@@ -38,7 +38,7 @@ await session.destroy();
 await client.stop();
 ```
 
-### Resuming a session
+### Retomando uma sessao
 
 ```typescript
 const client = new CopilotClient();
@@ -55,7 +55,7 @@ await session.destroy();
 await client.stop();
 ```
 
-### Listing available sessions
+### Listando sessoes disponiveis
 
 ```typescript
 const sessions = await client.listSessions();
@@ -66,16 +66,16 @@ console.log(sessions);
 // ]
 ```
 
-### Deleting a session permanently
+### Excluindo uma sessao permanentemente
 
 ```typescript
 // Remove session and all its data from disk
 await client.deleteSession("user-123-conversation");
 ```
 
-## Getting session history
+## Obtendo historico da sessao
 
-Retrieve all messages from a session:
+Recupere todas as mensagens de uma sessao:
 
 ```typescript
 const messages = await session.getMessages();
@@ -84,8 +84,8 @@ for (const msg of messages) {
 }
 ```
 
-## Best practices
+## Melhores praticas
 
-1. **Use meaningful session IDs**: Include user ID or context in the session ID
-2. **Handle missing sessions**: Check if a session exists before resuming
-3. **Clean up old sessions**: Periodically delete sessions that are no longer needed
+1. **Use IDs de sessao significativos**: Inclua ID do usuario ou contexto no ID da sessao
+2. **Trate sessoes ausentes**: Verifique se a sessao existe antes de retomar
+3. **Limpe sessoes antigas**: Periodicamente exclua sessoes que nao sao mais necessarias

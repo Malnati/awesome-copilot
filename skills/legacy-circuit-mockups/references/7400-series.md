@@ -1,10 +1,10 @@
 # 7400-Series Logic ICs Specification
 
-## 1. Overview
+## 1. Visao Geral
 
-The **7400-series** is a large family of **digital logic integrated circuits** originally implemented in **TTL (Transistor-Transistor Logic)** and later expanded to include **CMOS-compatible variants**. These devices provide fundamental building blocks such as gates, flip-flops, counters, multiplexers, decoders, and bus transceivers.
+A **7400-series** e uma grande familia de **circuitos integrados de logica digital** originalmente implementados em **TTL (Transistor-Transistor Logic)** e depois expandida para incluir **variantes compatíveis com CMOS**. Esses dispositivos fornecem blocos fundamentais como portas, flip-flops, contadores, multiplexadores, decodificadores e transceptores de barramento.
 
-7400-series ICs are widely used in **retrocomputing**, **6502/Z80 systems**, **glue logic**, and educational designs.
+ICs da serie 7400 sao amplamente usados em **retrocomputing**, **sistemas 6502/Z80**, **glue logic** e projetos educacionais.
 
 ---
 
@@ -109,7 +109,7 @@ The **7400-series** is a large family of **digital logic integrated circuits** o
 
 ```text
        ________
-  1 °|       |° 14
+  1 °|^       |° 14
   2 °|        |° 13
   3 °|        |° 12
   4 °|        |° 11
@@ -158,7 +158,7 @@ The **7400-series** is a large family of **digital logic integrated circuits** o
 
 ---
 
-## 11. Absolute Maximum Ratings (Summary)
+## 11. Limites Maximos Absolutos (Resumo)
 
 | Parameter           | Rating                |
 | ------------------- | --------------------- |

@@ -1,79 +1,79 @@
 ---
-description: 'Migration and code evolution instructions generator for GitHub Copilot. Analyzes differences between two project versions (branches, commits, or releases) to create precise instructions allowing Copilot to maintain consistency during technology migrations, major refactoring, or framework version upgrades.'
+description: 'Gerador de instrucoes de migracao e evolucao de codigo para GitHub Copilot. Analisa diferencas entre duas versoes do projeto (branches, commits ou releases) para criar instrucoes precisas que permitem ao Copilot manter consistencia durante migracoes de tecnologia, grandes refatoracoes ou upgrades de frameworks.'
 agent: 'agent'
 ---
 
-# Migration and Code Evolution Instructions Generator
+# Gerador de Instrucoes de Migracao e Evolucao de Codigo
 
-## Configuration Variables
+## Variaveis de Configuracao
 
 ```
 ${MIGRATION_TYPE="Framework Version|Architecture Refactoring|Technology Migration|Dependencies Update|Pattern Changes"}
-<!-- Type of migration or evolution -->
+<!-- Tipo de migracao ou evolucao -->
 
 ${SOURCE_REFERENCE="branch|commit|tag"}
-<!-- Source reference point (before state) -->
+<!-- Ponto de referencia de origem (estado anterior) -->
 
 ${TARGET_REFERENCE="branch|commit|tag"}  
-<!-- Target reference point (after state) -->
+<!-- Ponto de referencia de destino (estado posterior) -->
 
 ${ANALYSIS_SCOPE="Entire project|Specific folder|Modified files only"}
-<!-- Scope of analysis -->
+<!-- Escopo de analise -->
 
 ${CHANGE_FOCUS="Breaking Changes|New Conventions|Obsolete Patterns|API Changes|Configuration"}
-<!-- Main aspect of changes -->
+<!-- Aspecto principal das mudancas -->
 
 ${AUTOMATION_LEVEL="Conservative|Balanced|Aggressive"}
-<!-- Level of automation for Copilot suggestions -->
+<!-- Nivel de automacao para sugestoes do Copilot -->
 
 ${GENERATE_EXAMPLES="true|false"}
-<!-- Include transformation examples -->
+<!-- Incluir exemplos de transformacao -->
 
 ${VALIDATION_REQUIRED="true|false"}
-<!-- Require validation before application -->
+<!-- Exigir validacao antes de aplicar -->
 ```
 
-## Generated Prompt
+## Prompt Gerado
 
 ```
-"Analyze code evolution between two project states to generate precise migration instructions for GitHub Copilot. These instructions will guide Copilot to automatically apply the same transformation patterns during future modifications. Follow this methodology:
+"Analise a evolucao do codigo entre dois estados do projeto para gerar instrucoes de migracao precisas para GitHub Copilot. Essas instrucoes vao orientar o Copilot a aplicar os mesmos patterns de transformacao durante modificacoes futuras. Siga esta metodologia:
 
 ### Phase 1: Comparative State Analysis
 
 #### Structural Changes Detection
-- Compare folder structure between ${SOURCE_REFERENCE} and ${TARGET_REFERENCE}
-- Identify moved, renamed, or deleted files
-- Analyze changes in configuration files
-- Document new dependencies and removed ones
+- Compare a estrutura de pastas entre ${SOURCE_REFERENCE} e ${TARGET_REFERENCE}
+- Identifique arquivos movidos, renomeados ou deletados
+- Analise mudancas em arquivos de configuracao
+- Documente novas dependencias e dependencias removidas
 
 #### Code Transformation Analysis
 ${MIGRATION_TYPE == "Framework Version" ? 
-  "- Identify API changes between framework versions
-   - Analyze new features being used
-   - Document obsolete methods/properties
-   - Note syntax or convention changes" : ""}
+  "- Identifique mudancas de API entre versoes do framework
+   - Analise novas features em uso
+   - Documente metodos/propriedades obsoletos
+   - Observe mudancas de sintaxe ou convencao" : ""}
 
 ${MIGRATION_TYPE == "Architecture Refactoring" ? 
-  "- Analyze architectural pattern changes
-   - Identify new abstractions introduced
-   - Document responsibility reorganization
-   - Note changes in data flows" : ""}
+  "- Analise mudancas de pattern arquitetural
+   - Identifique novas abstracoes introduzidas
+   - Documente reorganizacao de responsabilidades
+   - Observe mudancas nos fluxos de dados" : ""}
 
 ${MIGRATION_TYPE == "Technology Migration" ? 
-  "- Analyze replacement of one technology with another
-   - Identify functional equivalences
-   - Document API and syntax changes
-   - Note new dependencies and configurations" : ""}
+  "- Analise substituicao de uma tecnologia por outra
+   - Identifique equivalencias funcionais
+   - Documente mudancas de API e sintaxe
+   - Observe novas dependencias e configuracoes" : ""}
 
 #### Transformation Pattern Extraction
-- Identify repetitive transformations applied
-- Analyze conversion rules from old to new format
-- Document exceptions and special cases
-- Create before/after correspondence matrix
+- Identifique transformacoes repetitivas aplicadas
+- Analise regras de conversao do formato antigo para o novo
+- Documente excecoes e casos especiais
+- Crie matriz de correspondencia antes/depois
 
 ### Phase 2: Migration Instructions Generation
 
-Create a `.github/copilot-migration-instructions.md` file with this structure:
+Crie um arquivo `.github/copilot-migration-instructions.md` com a seguinte estrutura:
 
 \`\`\`markdown
 # GitHub Copilot Migration Instructions
@@ -139,13 +139,13 @@ ${GENERATE_EXAMPLES == "true" ?
 ## Validation and Security
 
 ### Automatic Control Points
-- Verifications to perform after each transformation
-- Tests to run to validate changes
-- Performance metrics to monitor
-- Compatibility checks to perform
+- Verificacoes apos cada transformacao
+- Testes a rodar para validar mudancas
+- Metricas de performance a monitorar
+- Checks de compatibilidade
 
 ### Manual Escalation
-Situations requiring human intervention:
+Situacoes que exigem intervencao humana:
 - [COMPLEX_CASES_LIST]
 - [ARCHITECTURAL_DECISIONS]
 - [BUSINESS_IMPACTS]
@@ -153,16 +153,16 @@ Situations requiring human intervention:
 ## Migration Monitoring
 
 ### Tracking Metrics
-- Percentage of code automatically migrated
-- Number of manual validations required
-- Error rate of automatic transformations
-- Average migration time per file
+- Percentual de codigo migrado automaticamente
+- Numero de validacoes manuais necessarias
+- Taxa de erro das transformacoes automaticas
+- Tempo medio de migracao por arquivo
 
 ### Error Reporting
-How to report incorrect transformations to Copilot:
-- Feedback patterns to improve rules
-- Exceptions to document
-- Adjustments to make to instructions
+Como reportar transformacoes incorretas ao Copilot:
+- Patterns de feedback para melhorar regras
+- Excecoes a documentar
+- Ajustes a fazer nas instrucoes
 
 \`\`\`
 
@@ -170,7 +170,7 @@ How to report incorrect transformations to Copilot:
 
 ${GENERATE_EXAMPLES == "true" ? 
   "#### Transformation Examples
-   For each identified pattern, generate:
+   Para cada pattern identificado, gere:
    
    \`\`\`
    // BEFORE (${SOURCE_REFERENCE})
@@ -186,10 +186,10 @@ ${GENERATE_EXAMPLES == "true" ?
 ### Phase 4: Validation and Optimization
 
 #### Instructions Testing
-- Apply instructions on test code
-- Verify transformation consistency
-- Adjust rules based on results
-- Document exceptions and edge cases
+- Aplique instrucoes em codigo de teste
+- Verifique consistencia das transformacoes
+- Ajuste regras com base em resultados
+- Documente excecoes e edge cases
 
 #### Iterative Optimization  
 ${AUTOMATION_LEVEL == "Aggressive" ? 
@@ -200,41 +200,41 @@ ${AUTOMATION_LEVEL == "Aggressive" ?
 
 ### Final Result
 
-Migration instructions that enable GitHub Copilot to:
-1. **Automatically apply** the same transformations during future modifications
-2. **Maintain consistency** with newly adopted conventions  
-3. **Avoid obsolete patterns** by automatically proposing alternatives
-4. **Accelerate future migrations** by capitalizing on acquired experience
-5. **Reduce errors** by automating repetitive transformations
+Instrucoes de migracao que permitem ao GitHub Copilot:
+1. **Aplicar automaticamente** as mesmas transformacoes em modificacoes futuras
+2. **Manter consistencia** com novas convencoes adotadas  
+3. **Evitar patterns obsoletos** propondo alternativas automaticamente
+4. **Acelerar migracoes futuras** capitalizando experiencia adquirida
+5. **Reduzir erros** automatizando transformacoes repetitivas
 
-These instructions transform Copilot into an intelligent migration assistant, capable of reproducing your technology evolution decisions consistently and reliably.
+Essas instrucoes transformam o Copilot em um assistente inteligente de migracao, capaz de reproduzir decisoes de evolucao tecnologica de forma consistente e confiavel.
 "
 ```
 
-## Typical Use Cases
+## Casos de Uso Tipicos
 
-### Framework Version Migration
-Perfect for documenting the transition from Angular 14 to Angular 17, React Class Components to Hooks, or .NET Framework to .NET Core. Automatically identifies breaking changes and generates corresponding transformation rules.
+### Migracao de Versao de Framework
+Perfeito para documentar transicao de Angular 14 para Angular 17, React Class Components para Hooks, ou .NET Framework para .NET Core. Identifica automaticamente breaking changes e gera regras de transformacao correspondentes.
 
-### Technology Stack Evolution  
-Essential when replacing a technology entirely: jQuery to React, REST to GraphQL, SQL to NoSQL. Creates a comprehensive migration guide with pattern mappings.
+### Evolucao de Stack Tecnologica  
+Essencial ao substituir uma tecnologia inteira: jQuery para React, REST para GraphQL, SQL para NoSQL. Cria um guia de migracao abrangente com mapeamentos de patterns.
 
-### Architecture Refactoring
-Ideal for large refactorings like Monolith to Microservices, MVC to Clean Architecture, or Component to Composable architecture. Preserves architectural knowledge for future similar transformations.
+### Refatoracao de Arquitetura
+Ideal para grandes refatoracoes como Monolith para Microservices, MVC para Clean Architecture ou Component para Composable architecture. Preserva conhecimento arquitetural para transformacoes futuras similares.
 
-### Design Pattern Modernization
-Useful for adopting new patterns: Repository Pattern, Dependency Injection, Observer to Reactive Programming. Documents the rationale and implementation differences.
+### Modernizacao de Design Patterns
+Util para adotar novos patterns: Repository Pattern, Dependency Injection, Observer para Reactive Programming. Documenta racional e diferencas de implementacao.
 
-## Unique Benefits
+## Beneficios Unicos
 
 ### 🧠 **Artificial Intelligence Enhancement**
-Unlike traditional migration documentation, these instructions "train" GitHub Copilot to reproduce your technology evolution decisions automatically during future code modifications.
+Diferente de documentacao tradicional de migracao, estas instrucoes "treinam" o GitHub Copilot a reproduzir decisoes de evolucao tecnologica automaticamente em futuras modificacoes.
 
 ### 🔄 **Knowledge Capitalization**  
-Transforms specific project experience into reusable rules, avoiding the loss of migration expertise and accelerating future similar transformations.
+Transforma experiencia especifica do projeto em regras reutilizaveis, evitando perda de expertise e acelerando migracoes futuras similares.
 
 ### 🎯 **Context-Aware Precision**
-Instead of generic advice, generates instructions tailored to your specific codebase, with real before/after examples from your project evolution.
+Em vez de conselhos genericos, gera instrucoes sob medida para seu codebase, com exemplos reais de before/after.
 
 ### ⚡ **Automated Consistency**
-Ensures that new code additions automatically follow the new conventions, preventing architectural regression and maintaining code evolution coherence.
+Garante que novas adicoes de codigo sigam automaticamente as novas convencoes, prevenindo regressao arquitetural e mantendo coerencia evolutiva.

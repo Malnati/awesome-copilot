@@ -1,6 +1,6 @@
-# Code Blocks to HTML
+# Code Blocks para HTML
 
-## Fenced Code Blocks (No Language)
+## Fenced Code Blocks (Sem Linguagem)
 
 ### Markdown
 
@@ -10,7 +10,7 @@ function test() {
 }
 ```
 
-### Parsed HTML
+### HTML Parseado
 
 ```html
 <pre><code>
@@ -31,7 +31,7 @@ function test() {
 > To preserve your formatting within a list, make sure to indent non-fenced code blocks by eight spaces.
 ```
 
-### Parsed HTML (GitHub-specific)
+### HTML Parseado (GitHub-specific)
 
 ```html
 <blockquote class="markdown-alert markdown-alert-tip">
@@ -42,7 +42,7 @@ function test() {
 
 ---
 
-## Showing Backticks Inside Code Blocks
+## Mostrar Backticks Dentro de Code Blocks
 
 ### Markdown
 
@@ -54,7 +54,7 @@ function test() {
     ````
 `````
 
-### Parsed HTML
+### HTML Parseado
 
 ```html
     <pre><code>
@@ -76,7 +76,7 @@ markdown = Redcarpet.new("Hello World!")
 puts markdown.to_html
 ```
 
-### Parsed HTML
+### HTML Parseado
 
 ```html
 <pre><code class="language-ruby">
@@ -86,9 +86,9 @@ puts markdown.to_html
 </code></pre>
 ```
 
-> The `language-ruby` class is consumed by GitHub’s syntax highlighter (Linguist + grammar).
+> A classe `language-ruby` e consumida pelo syntax highlighter do GitHub (Linguist + grammar).
 
-### Summary: Syntax-Highlighting Rules (HTML-Level)
+### Resumo: Regras de Syntax Highlighting (Nivel HTML)
 
 | Markdown fence | Parsed `<code>` tag            |
 | -------------- | ------------------------------ |
@@ -150,7 +150,7 @@ graph TD
 ```
 ````
 
-### Parsed HTML
+### HTML Parseado
 
 ```html
 <pre><code class="language-mermaid">
@@ -161,5 +161,5 @@ graph TD
 
 ## Closing Notes
 
-* No `language-*` class appears here because **no language identifier** was provided.
-* The inner triple backticks are preserved **as literal text** inside `<code>`.
+* Nenhuma classe `language-*` aparece aqui porque **nenhum language identifier** foi fornecido.
+* Os tres backticks internos sao preservados **como texto literal** dentro de `<code>`.

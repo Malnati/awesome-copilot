@@ -1,32 +1,32 @@
 ---
 name: mcp-cli
-description: Interface for MCP (Model Context Protocol) servers via CLI. Use when you need to interact with external tools, APIs, or data sources through MCP servers, list available MCP servers/tools, or call MCP tools from command line.
+description: Interface para servidores MCP (Model Context Protocol) via CLI. Use quando precisar interagir com tools externas, APIs ou fontes de dados via servidores MCP, listar servidores/tools MCP disponiveis ou chamar tools MCP pela linha de comando.
 ---
 
 # MCP-CLI
 
-Access MCP servers through the command line. MCP enables interaction with external systems like GitHub, filesystems, databases, and APIs.
+Acesse servidores MCP pela linha de comando. MCP habilita interacao com sistemas externos como GitHub, sistemas de arquivos (filesystems), bases de dados (databases) e APIs.
 
-## Commands
+## Comandos
 
-| Command                            | Output                          |
-| ---------------------------------- | ------------------------------- |
-| `mcp-cli`                          | List all servers and tool names |
-| `mcp-cli <server>`                 | Show tools with parameters      |
-| `mcp-cli <server>/<tool>`          | Get tool JSON schema            |
-| `mcp-cli <server>/<tool> '<json>'` | Call tool with arguments        |
-| `mcp-cli grep "<glob>"`            | Search tools by name            |
+| Comando                            | Saida                          |
+| ---------------------------------- | ------------------------------ |
+| `mcp-cli`                          | Listar todos os servidores e tools |
+| `mcp-cli <server>`                 | Mostrar tools com parametros   |
+| `mcp-cli <server>/<tool>`          | Obter schema JSON da tool      |
+| `mcp-cli <server>/<tool> '<json>'` | Chamar a tool com argumentos   |
+| `mcp-cli grep "<glob>"`            | Buscar tools pelo nome         |
 
-**Add `-d` to include descriptions** (e.g., `mcp-cli filesystem -d`)
+**Adicione `-d` para incluir descricoes** (ex.: `mcp-cli filesystem -d`)
 
-## Workflow
+## Fluxo de Trabalho
 
-1. **Discover**: `mcp-cli` → see available servers and tools
-2. **Explore**: `mcp-cli <server>` → see tools with parameters
-3. **Inspect**: `mcp-cli <server>/<tool>` → get full JSON input schema
-4. **Execute**: `mcp-cli <server>/<tool> '<json>'` → run with arguments
+1. **Descobrir**: `mcp-cli` → veja servidores e tools disponiveis
+2. **Explorar**: `mcp-cli <server>` → veja tools com parametros
+3. **Inspecionar**: `mcp-cli <server>/<tool>` → obtenha schema JSON completo de entrada
+4. **Executar**: `mcp-cli <server>/<tool> '<json>'` → execute com argumentos
 
-## Examples
+## Exemplos
 
 ```bash
 # List all servers and tool names
@@ -62,17 +62,17 @@ cat args.json | mcp-cli server/tool
 mcp-cli filesystem/search_files '{"path": "src/", "pattern": "*.ts"}' --json | jq -r '.content[0].text' | head -1 | xargs -I {} sh -c 'mcp-cli filesystem/read_file "{\"path\": \"{}\"}"'
 ```
 
-## Options
+## Opcoes
 
-| Flag         | Purpose                   |
-| ------------ | ------------------------- |
-| `-j, --json` | JSON output for scripting |
-| `-r, --raw`  | Raw text content          |
-| `-d`         | Include descriptions      |
+| Flag         | Finalidade              |
+| ------------ | ----------------------- |
+| `-j, --json` | JSON output para scripts |
+| `-r, --raw`  | Raw text content         |
+| `-d`         | Incluir descricoes       |
 
-## Exit Codes
+## Codigos de Saida (Exit Codes)
 
-- `0`: Success
-- `1`: Client error (bad args, missing config)
-- `2`: Server error (tool failed)
-- `3`: Network error
+- `0`: Sucesso
+- `1`: Erro de cliente (bad args, missing config)
+- `2`: Erro de servidor (tool failed)
+- `3`: Erro de rede

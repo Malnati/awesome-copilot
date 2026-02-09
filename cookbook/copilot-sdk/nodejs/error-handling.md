@@ -1,8 +1,8 @@
-# Error Handling Patterns
+# Padroes de Tratamento de Erros
 
-Handle errors gracefully in your Copilot SDK applications.
+Trate erros com elegancia em suas aplicacoes do Copilot SDK.
 
-> **Runnable example:** [recipe/error-handling.ts](recipe/error-handling.ts)
+> **Exemplo executavel:** [recipe/error-handling.ts](recipe/error-handling.ts)
 >
 > ```bash
 > cd recipe && npm install
@@ -10,11 +10,11 @@ Handle errors gracefully in your Copilot SDK applications.
 > # or: npm run error-handling
 > ```
 
-## Example scenario
+## Cenario de exemplo
 
-You need to handle various error conditions like connection failures, timeouts, and invalid responses.
+Voce precisa lidar com varias condicoes de erro como falhas de conexao, timeouts e respostas invalidas.
 
-## Basic try-catch
+## Try-catch basico
 
 ```typescript
 import { CopilotClient } from "@github/copilot-sdk";
@@ -36,7 +36,7 @@ try {
 }
 ```
 
-## Handling specific error types
+## Tratando tipos de erro especificos
 
 ```typescript
 try {
@@ -52,7 +52,7 @@ try {
 }
 ```
 
-## Timeout handling
+## Tratamento de timeout
 
 ```typescript
 const session = await client.createSession({ model: "gpt-5" });
@@ -76,7 +76,7 @@ try {
 }
 ```
 
-## Aborting a request
+## Abortando uma requisicao
 
 ```typescript
 const session = await client.createSession({ model: "gpt-5" });
@@ -91,7 +91,7 @@ setTimeout(async () => {
 }, 5000);
 ```
 
-## Graceful shutdown
+## Encerramento elegante
 
 ```typescript
 process.on("SIGINT", async () => {
@@ -106,7 +106,7 @@ process.on("SIGINT", async () => {
 });
 ```
 
-## Force stop
+## Parada forcada
 
 ```typescript
 // If stop() takes too long, force stop
@@ -121,9 +121,9 @@ try {
 }
 ```
 
-## Best practices
+## Melhores praticas
 
-1. **Always clean up**: Use try-finally to ensure `client.stop()` is called
-2. **Handle connection errors**: The CLI might not be installed or running
-3. **Set appropriate timeouts**: Long-running requests should have timeouts
-4. **Log errors**: Capture error details for debugging
+1. **Sempre limpe**: Use try-finally para garantir que `client.stop()` seja chamado
+2. **Trate erros de conexao**: A CLI pode nao estar instalada ou em execucao
+3. **Defina timeouts apropriados**: Requisicoes longas devem ter timeouts
+4. **Registre erros**: Capture detalhes de erros para depuracao

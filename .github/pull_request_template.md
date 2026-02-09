@@ -1,36 +1,36 @@
-## Pull Request Checklist
+## Checklist do Pull Request
 
-- [ ] I have read and followed the [CONTRIBUTING.md](https://github.com/github/awesome-copilot/blob/main/CONTRIBUTING.md) guidelines.
-- [ ] My contribution adds a new instruction, prompt, agent, or skill file in the correct directory.
-- [ ] The file follows the required naming convention.
-- [ ] The content is clearly structured and follows the example format.
-- [ ] I have tested my instructions, prompt, agent, or skill with GitHub Copilot.
-- [ ] I have run `npm start` and verified that `README.md` is up to date.
-
----
-
-## Description
-
-<!-- Briefly describe your contribution and its purpose. Include any relevant context or usage notes. -->
+- [ ] Li e segui as diretrizes do [CONTRIBUTING.md](https://github.com/github/awesome-copilot/blob/main/CONTRIBUTING.md).
+- [ ] Minha contribuicao adiciona uma nova instruction, prompt, agent ou skill no diretorio correto.
+- [ ] O arquivo segue a convencao de nomes exigida.
+- [ ] O conteudo esta claramente estruturado e segue o formato de exemplo.
+- [ ] Testei minha instruction, prompt, agent ou skill com GitHub Copilot.
+- [ ] Executei `npm start` e verifiquei que o `README.md` esta atualizado.
 
 ---
 
-## Type of Contribution
+## Descricao
 
-- [ ] New instruction file.
-- [ ] New prompt file.
-- [ ] New agent file.
-- [ ] New collection file.
-- [ ] New skill file.
-- [ ] Update to existing instruction, prompt, agent, collection or skill.
-- [ ] Other (please specify):
+<!-- Descreva brevemente sua contribuicao e seu proposito. Inclua qualquer contexto relevante ou notas de uso. -->
 
 ---
 
-## Additional Notes
+## Tipo de Contribuicao
 
-<!-- Add any additional information or context for reviewers here. -->
+- [ ] Novo arquivo de instruction.
+- [ ] Novo arquivo de prompt.
+- [ ] Novo arquivo de agent.
+- [ ] Novo arquivo de collection.
+- [ ] Novo arquivo de skill.
+- [ ] Atualizacao de instruction, prompt, agent, collection ou skill existente.
+- [ ] Outro (por favor, especifique):
 
 ---
 
-By submitting this pull request, I confirm that my contribution abides by the [Code of Conduct](../CODE_OF_CONDUCT.md) and will be licensed under the MIT License.
+## Observacoes Adicionais
+
+<!-- Adicione qualquer informacao ou contexto adicional para revisores aqui. -->
+
+---
+
+Ao enviar este pull request, confirmo que minha contribuicao segue o [Code of Conduct](../CODE_OF_CONDUCT.md) e sera licenciada sob a MIT License.

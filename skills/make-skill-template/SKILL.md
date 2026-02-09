@@ -1,39 +1,39 @@
 ---
 name: make-skill-template
-description: 'Create new Agent Skills for GitHub Copilot from prompts or by duplicating this template. Use when asked to "create a skill", "make a new skill", "scaffold a skill", or when building specialized AI capabilities with bundled resources. Generates SKILL.md files with proper frontmatter, directory structure, and optional scripts/references/assets folders.'
+description: 'Crie novas Agent Skills para GitHub Copilot a partir de prompts ou duplicando este template. Use quando solicitado "criar uma skill", "fazer uma nova skill", "scaffold uma skill" ou ao construir capacidades de IA especializadas com recursos agrupados. Gera arquivos SKILL.md com frontmatter correto, estrutura de diretorio e pastas opcionais scripts/references/assets.'
 ---
 
-# Make Skill Template
+# Template para Criar Skill
 
-A meta-skill for creating new Agent Skills. Use this skill when you need to scaffold a new skill folder, generate a SKILL.md file, or help users understand the Agent Skills specification.
+Uma meta-skill para criar novas Agent Skills. Use esta skill quando precisar fazer scaffold de uma nova pasta de skill, gerar um arquivo SKILL.md ou ajudar usuarios a entender a especificacao de Agent Skills.
 
-## When to Use This Skill
+## Quando Usar Esta Skill
 
-- User asks to "create a skill", "make a new skill", or "scaffold a skill"
-- User wants to add a specialized capability to their GitHub Copilot setup
-- User needs help structuring a skill with bundled resources
-- User wants to duplicate this template as a starting point
+- Usuario pede para "criar uma skill", "fazer uma nova skill" ou "scaffold uma skill"
+- Usuario quer adicionar uma capacidade especializada ao setup do GitHub Copilot
+- Usuario precisa de ajuda para estruturar uma skill com recursos agrupados
+- Usuario quer duplicar este template como ponto de partida
 
-## Prerequisites
+## Pre-requisitos
 
-- Understanding of what the skill should accomplish
-- A clear, keyword-rich description of capabilities and triggers
-- Knowledge of any bundled resources needed (scripts, references, assets, templates)
+- Entendimento do que a skill deve realizar
+- Uma descricao clara, rica em keywords, de capacidades e gatilhos
+- Conhecimento de recursos agrupados necessarios (scripts, references, assets, templates)
 
-## Creating a New Skill
+## Criando uma Nova Skill
 
-### Step 1: Create the Skill Directory
+### Etapa 1: Criar o Diretorio da Skill
 
-Create a new folder with a lowercase, hyphenated name:
+Crie uma nova pasta com nome em minusculas e com hifens:
 
 ```
 skills/<skill-name>/
 └── SKILL.md          # Required
 ```
 
-### Step 2: Generate SKILL.md with Frontmatter
+### Etapa 2: Gerar SKILL.md com Frontmatter
 
-Every skill requires YAML frontmatter with `name` and `description`:
+Cada skill requer frontmatter YAML com `name` e `description`:
 
 ```yaml
 ---
@@ -42,60 +42,60 @@ description: '<What it does>. Use when <specific triggers, scenarios, keywords u
 ---
 ```
 
-#### Frontmatter Field Requirements
+#### Requisitos de Campos no Frontmatter
 
-| Field | Required | Constraints |
-|-------|----------|-------------|
-| `name` | **Yes** | 1-64 chars, lowercase letters/numbers/hyphens only, must match folder name |
-| `description` | **Yes** | 1-1024 chars, must describe WHAT it does AND WHEN to use it |
-| `license` | No | License name or reference to bundled LICENSE.txt |
-| `compatibility` | No | 1-500 chars, environment requirements if needed |
-| `metadata` | No | Key-value pairs for additional properties |
-| `allowed-tools` | No | Space-delimited list of pre-approved tools (experimental) |
+| Campo | Obrigatorio | Restricoes |
+|-------|-------------|-----------|
+| `name` | **Sim** | 1-64 chars, apenas letras/numeros/hifens minusculos, deve corresponder ao nome da pasta |
+| `description` | **Sim** | 1-1024 chars, deve descrever O QUE faz E QUANDO usar |
+| `license` | Nao | Nome de licenca ou referencia a LICENSE.txt incluido |
+| `compatibility` | Nao | 1-500 chars, requisitos de ambiente se necessario |
+| `metadata` | Nao | Pares chave-valor para propriedades adicionais |
+| `allowed-tools` | Nao | Lista separada por espacos de tools pre-aprovadas (experimental) |
 
-#### Description Best Practices
+#### Boas Praticas para Descricao
 
-**CRITICAL**: The `description` is the PRIMARY mechanism for automatic skill discovery. Include:
+**CRITICO**: A `description` e o PRINCIPAL mecanismo de descoberta automatica de skills. Inclua:
 
-1. **WHAT** the skill does (capabilities)
-2. **WHEN** to use it (triggers, scenarios, file types)
-3. **Keywords** users might mention in prompts
+1. **O QUE** a skill faz (capacidades)
+2. **QUANDO** usar (gatilhos, cenarios, tipos de arquivos)
+3. **Keywords** que usuarios podem mencionar nos prompts
 
-**Good example:**
+**Bom exemplo:**
 
 ```yaml
 description: 'Toolkit for testing local web applications using Playwright. Use when asked to verify frontend functionality, debug UI behavior, capture browser screenshots, or view browser console logs. Supports Chrome, Firefox, and WebKit.'
 ```
 
-**Poor example:**
+**Exemplo ruim:**
 
 ```yaml
 description: 'Web testing helpers'
 ```
 
-### Step 3: Write the Skill Body
+### Etapa 3: Escrever o Corpo da Skill
 
-After the frontmatter, add markdown instructions. Recommended sections:
+Apos o frontmatter, adicione instrucoes em markdown. Secoes recomendadas:
 
-| Section | Purpose |
+| Secao | Proposito |
 |---------|---------|
-| `# Title` | Brief overview |
-| `## When to Use This Skill` | Reinforces description triggers |
-| `## Prerequisites` | Required tools, dependencies |
-| `## Step-by-Step Workflows` | Numbered steps for tasks |
-| `## Troubleshooting` | Common issues and solutions |
-| `## References` | Links to bundled docs |
+| `# Title` | Visao geral breve |
+| `## Quando Usar Esta Skill` | Reforca gatilhos da descricao |
+| `## Pre-requisitos` | Tools e dependencias requeridas |
+| `## Workflows Passo a Passo` | Passos numerados para tarefas |
+| `## Solucao de Problemas` | Issues comuns e solucoes |
+| `## Referencias` | Links para docs incluidos |
 
-### Step 4: Add Optional Directories (If Needed)
+### Etapa 4: Adicionar Diretorios Opcionais (se necessario)
 
-| Folder | Purpose | When to Use |
+| Pasta | Proposito | Quando usar |
 |--------|---------|-------------|
-| `scripts/` | Executable code (Python, Bash, JS) | Automation that performs operations |
-| `references/` | Documentation agent reads | API references, schemas, guides |
-| `assets/` | Static files used AS-IS | Images, fonts, templates |
-| `templates/` | Starter code agent modifies | Scaffolds to extend |
+| `scripts/` | Codigo executavel (Python, Bash, JS) | Automacao que executa operacoes |
+| `references/` | Documentacao que o agente le | Referencias de API, schemas, guias |
+| `assets/` | Arquivos estaticos usados AS-IS | Imagens, fontes, templates |
+| `templates/` | Codigo inicial que o agente modifica | Scaffolds para estender |
 
-## Example: Complete Skill Structure
+## Exemplo: Estrutura Completa de Skill
 
 ```
 my-awesome-skill/
@@ -112,36 +112,36 @@ my-awesome-skill/
     └── starter.ts              # Code scaffold
 ```
 
-## Quick Start: Duplicate This Template
+## Inicio Rapido: Duplicar Este Template
 
-1. Copy the `make-skill-template/` folder
-2. Rename to your skill name (lowercase, hyphens)
-3. Update `SKILL.md`:
-   - Change `name:` to match folder name
-   - Write a keyword-rich `description:`
-   - Replace body content with your instructions
-4. Add bundled resources as needed
-5. Validate with `npm run skill:validate`
+1. Copie a pasta `make-skill-template/`
+2. Renomeie para o nome da sua skill (minusculas, hifens)
+3. Atualize `SKILL.md`:
+   - Troque `name:` para corresponder ao nome da pasta
+   - Escreva uma `description:` rica em keywords
+   - Substitua o conteudo do corpo pelas suas instrucoes
+4. Adicione recursos agrupados conforme necessario
+5. Valide com `npm run skill:validate`
 
-## Validation Checklist
+## Checklist de Validacao
 
-- [ ] Folder name is lowercase with hyphens
-- [ ] `name` field matches folder name exactly
-- [ ] `description` is 10-1024 characters
-- [ ] `description` explains WHAT and WHEN
-- [ ] `description` is wrapped in single quotes
-- [ ] Body content is under 500 lines
-- [ ] Bundled assets are under 5MB each
+- [ ] Nome da pasta em minusculas com hifens
+- [ ] Campo `name` corresponde exatamente ao nome da pasta
+- [ ] `description` tem 10-1024 caracteres
+- [ ] `description` explica O QUE e QUANDO
+- [ ] `description` esta entre aspas simples
+- [ ] Conteudo do corpo tem menos de 500 linhas
+- [ ] Assets agrupados tem menos de 5MB cada
 
-## Troubleshooting
+## Solucao de Problemas
 
-| Issue | Solution |
-|-------|----------|
-| Skill not discovered | Improve description with more keywords and triggers |
-| Validation fails on name | Ensure lowercase, no consecutive hyphens, matches folder |
-| Description too short | Add capabilities, triggers, and keywords |
-| Assets not found | Use relative paths from skill root |
+| Problema | Solucao |
+|---------|---------|
+| Skill nao encontrada | Melhore a description com mais keywords e gatilhos |
+| Validacao falha no nome | Garanta minusculas, sem hifens consecutivos, e que combina com a pasta |
+| Description muito curta | Adicione capacidades, gatilhos e keywords |
+| Assets nao encontrados | Use caminhos relativos a partir da raiz da skill |
 
-## References
+## Referencias
 
 - Agent Skills official spec: <https://agentskills.io/specification>

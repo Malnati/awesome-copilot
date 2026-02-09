@@ -1,72 +1,72 @@
-The following instructions are only to be applied when performing a code review.
+As instrucoes a seguir devem ser aplicadas somente ao realizar code review.
 
-## README updates
+## Atualizacoes do README
 
-- [ ] The new file should be added to the `docs/README.<type>.md`.
+- [ ] O novo arquivo deve ser adicionado ao `docs/README.<type>.md`.
 
-## Prompt file guide
+## Guia de arquivo de prompt
 
-**Only apply to files that end in `.prompt.md`**
+**Aplique apenas a arquivos que terminem em `.prompt.md`**
 
-- [ ] The prompt has markdown front matter.
-- [ ] The prompt has a `agent` field specified of either `agent`, `ask`, or `Plan`.
-- [ ] The prompt has a `description` field.
-- [ ] The `description` field is not empty.
-- [ ] The file name is lower case, with words separated by hyphens.
-- [ ] Encourage the use of `tools`, but it's not required.
-- [ ] Strongly encourage the use of `model` to specify the model that the prompt is optimised for.
-- [ ] Strongly encourage the use of `name` to set the name for the prompt.
+- [ ] O prompt tem front matter markdown.
+- [ ] O prompt tem um campo `agent` especificado como `agent`, `ask` ou `Plan`.
+- [ ] O prompt tem um campo `description`.
+- [ ] O campo `description` nao esta vazio.
+- [ ] O nome do arquivo esta em minusculas, com palavras separadas por hifens.
+- [ ] Incentive o uso de `tools`, mas nao e obrigatorio.
+- [ ] Incentive fortemente o uso de `model` para especificar o modelo para o qual o prompt e otimizado.
+- [ ] Incentive fortemente o uso de `name` para definir o nome do prompt.
 
-## Instruction file guide
+## Guia de arquivo de instruction
 
-**Only apply to files that end in `.instructions.md`**
+**Aplique apenas a arquivos que terminem em `.instructions.md`**
 
-- [ ] The instruction has markdown front matter.
-- [ ] The instruction has a `description` field.
-- [ ] The `description` field is not empty.
-- [ ] The file name is lower case, with words separated by hyphens.
-- [ ] The instruction has an `applyTo` field that specifies the file or files to which the instructions apply. If they wish to specify multiple file paths they should formatted like `'**.js, **.ts'`.
+- [ ] A instruction tem front matter markdown.
+- [ ] A instruction tem um campo `description`.
+- [ ] O campo `description` nao esta vazio.
+- [ ] O nome do arquivo esta em minusculas, com palavras separadas por hifens.
+- [ ] A instruction tem um campo `applyTo` que especifica o(s) arquivo(s) aos quais as instrucoes se aplicam. Se desejar especificar multiplos caminhos de arquivo, devem ser formatados como `'**.js, **.ts'`.
 
-## Agent file guide
+## Guia de arquivo de agent
 
-**Only apply to files that end in `.agent.md`**
+**Aplique apenas a arquivos que terminem em `.agent.md`**
 
-- [ ] The agent has markdown front matter.
-- [ ] The agent has a `description` field.
-- [ ] The `description` field is not empty.
-- [ ] The file name is lower case, with words separated by hyphens.
-- [ ] Encourage the use of `tools`, but it's not required.
-- [ ] Strongly encourage the use of `model` to specify the model that the agent is optimised for.
-- [ ] Strongly encourage the use of `name` to set the name for the agent.
+- [ ] O agent tem front matter markdown.
+- [ ] O agent tem um campo `description`.
+- [ ] O campo `description` nao esta vazio.
+- [ ] O nome do arquivo esta em minusculas, com palavras separadas por hifens.
+- [ ] Incentive o uso de `tools`, mas nao e obrigatorio.
+- [ ] Incentive fortemente o uso de `model` para especificar o modelo para o qual o agent e otimizado.
+- [ ] Incentive fortemente o uso de `name` para definir o nome do agent.
 
-## Agent Skills guide
+## Guia de Agent Skills
 
-**Only apply to folders in the `skills/` directory**
+**Aplique apenas a pastas no diretorio `skills/`**
 
-- [ ] The skill folder contains a `SKILL.md` file.
-- [ ] The SKILL.md has markdown front matter.
-- [ ] The SKILL.md has a `name` field.
-- [ ] The `name` field value is lowercase with words separated by hyphens.
-- [ ] The `name` field matches the folder name.
-- [ ] The SKILL.md has a `description` field.
-- [ ] The `description` field is not empty, at least 10 characters, and maximum 1024 characters.
-- [ ] The `description` field value is wrapped in single quotes.
-- [ ] The folder name is lower case, with words separated by hyphens.
-- [ ] Any bundled assets (scripts, templates, data files) are referenced in the SKILL.md instructions.
-- [ ] Bundled assets are reasonably sized (under 5MB per file).
+- [ ] A pasta de skill contem um arquivo `SKILL.md`.
+- [ ] O `SKILL.md` tem front matter markdown.
+- [ ] O `SKILL.md` tem um campo `name`.
+- [ ] O valor do campo `name` e em minusculas com palavras separadas por hifens.
+- [ ] O campo `name` corresponde ao nome da pasta.
+- [ ] O `SKILL.md` tem um campo `description`.
+- [ ] O campo `description` nao esta vazio, tem pelo menos 10 caracteres e no maximo 1024 caracteres.
+- [ ] O valor do campo `description` esta envolto em aspas simples.
+- [ ] O nome da pasta esta em minusculas, com palavras separadas por hifens.
+- [ ] Quaisquer ativos empacotados (scripts, templates, arquivos de dados) sao referenciados nas instrucoes do `SKILL.md`.
+- [ ] Ativos empacotados tem tamanho razoavel (menos de 5MB por arquivo).
 
-## Collection file guide
+## Guia de arquivo de collection
 
-**Only apply to files that end in `.collection.yml`**
+**Aplique apenas a arquivos que terminem em `.collection.yml`**
 
-- [ ] The collection has a `name` field.
-- [ ] The collection has a `description` field.
-- [ ] The `description` field is not empty.
-- [ ] The collection has a `tags` field.
-- [ ] The file name is lower case, with words separated by hyphens.
-- [ ] Each item in the collection has a `path` field.
-- [ ] Each item in the collection has a `kind` field.
-- [ ] The `kind` field value is one of: `prompt`, `instruction`, `agent`, or `skill`.
-- [ ] The collection does not include duplicate items.
-- [ ] The collection does not reference non-existent files.
-- [ ] Each item can have an optional `usage` field describing when to use the item.
+- [ ] A collection tem um campo `name`.
+- [ ] A collection tem um campo `description`.
+- [ ] O campo `description` nao esta vazio.
+- [ ] A collection tem um campo `tags`.
+- [ ] O nome do arquivo esta em minusculas, com palavras separadas por hifens.
+- [ ] Cada item na collection tem um campo `path`.
+- [ ] Cada item na collection tem um campo `kind`.
+- [ ] O valor do campo `kind` e um de: `prompt`, `instruction`, `agent` ou `skill`.
+- [ ] A collection nao inclui itens duplicados.
+- [ ] A collection nao referencia arquivos inexistentes.
+- [ ] Cada item pode ter um campo `usage` opcional descrevendo quando usar o item.

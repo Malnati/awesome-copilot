@@ -1,62 +1,62 @@
 ---
 agent: 'agent'
-description: 'Generate a complete, production-ready application from an OpenAPI specification'
+description: 'Gere uma aplicacao completa e pronta para producao a partir de uma especificacao OpenAPI'
 model: 'GPT-4.1'
 tools: ['codebase', 'edit/editFiles', 'search/codebase']
 ---
 
-# Generate Application from OpenAPI Spec
+# Gerar Aplicacao a partir de OpenAPI Spec
 
-Your goal is to generate a complete, working application from an OpenAPI specification using the active framework's conventions and best practices.
+Seu objetivo e gerar uma aplicacao completa e funcional a partir de uma especificacao OpenAPI usando as convencoes e boas praticas do framework ativo.
 
-## Input Requirements
+## Requisitos de Input
 
-1. **OpenAPI Specification**: Provide either:
-   - A URL to the OpenAPI spec (e.g., `https://api.example.com/openapi.json`)
-   - A local file path to the OpenAPI spec
-   - The full OpenAPI specification content pasted directly
+1. **Especificacao OpenAPI**: Forneca um destes:
+   - URL do OpenAPI spec (por exemplo, `https://api.example.com/openapi.json`)
+   - Caminho local para o OpenAPI spec
+   - O conteudo completo da especificacao OpenAPI colado diretamente
 
-2. **Project Details** (if not in spec):
-   - Project name and description
-   - Target framework and version
-   - Package/namespace naming conventions
-   - Authentication method (if not specified in OpenAPI)
+2. **Detalhes do Projeto** (se nao estiverem no spec):
+   - Nome e descricao do projeto
+   - Framework alvo e versao
+   - Convencoes de nome de package/namespace
+   - Metodo de autenticacao (se nao especificado no OpenAPI)
 
-## Generation Process
+## Processo de Geracao
 
-### Step 1: Analyze the OpenAPI Specification
-- Validate the OpenAPI spec for completeness and correctness
-- Identify all endpoints, HTTP methods, request/response schemas
-- Extract authentication requirements and security schemes
-- Note data model relationships and constraints
-- Flag any ambiguities or incomplete definitions
+### Etapa 1: Analisar a Especificacao OpenAPI
+- Validar o OpenAPI spec quanto a completude e corretude
+- Identificar todos os endpoints, metodos HTTP e schemas de request/response
+- Extrair requisitos de autenticacao e security schemes
+- Anotar relacoes e restricoes do modelo de dados
+- Sinalizar ambiguidades ou definicoes incompletas
 
-### Step 2: Design Application Architecture
-- Plan directory structure appropriate for the framework
-- Identify controller/handler grouping by resource or domain
-- Design service layer organization for business logic
-- Plan data models and entity relationships
-- Design configuration and initialization strategy
+### Etapa 2: Desenhar Arquitetura da Aplicacao
+- Planejar a estrutura de diretorios apropriada para o framework
+- Identificar agrupamento de controllers/handlers por resource ou dominio
+- Desenhar organizacao da service layer para logica de negocio
+- Planejar modelos de dados e relacionamentos de entidades
+- Desenhar estrategia de configuracao e inicializacao
 
-### Step 3: Generate Application Code
-- Create project structure with build/package configuration files
-- Generate models/DTOs from OpenAPI schemas
-- Generate controllers/handlers with route mappings
-- Generate service layer with business logic
-- Generate repository/data access layer if applicable
-- Add error handling, validation, and logging
-- Generate configuration and startup code
+### Etapa 3: Gerar Codigo da Aplicacao
+- Criar a estrutura de projeto com arquivos de build/package
+- Gerar models/DTOs a partir de schemas OpenAPI
+- Gerar controllers/handlers com mapeamento de rotas
+- Gerar service layer com logica de negocio
+- Gerar camada de repository/data access se aplicavel
+- Adicionar tratamento de erros, validacao e logging
+- Gerar configuracao e codigo de startup
 
-### Step 4: Add Supporting Files
-- Generate appropriate unit tests for services and controllers
-- Create README with setup and running instructions
-- Add .gitignore and environment configuration templates
-- Generate API documentation files
-- Create example requests/integration tests
+### Etapa 4: Adicionar Arquivos de Suporte
+- Gerar testes unitarios apropriados para services e controllers
+- Criar README com instrucoes de setup e execucao
+- Adicionar .gitignore e templates de configuracao de ambiente
+- Gerar arquivos de documentacao da API
+- Criar requests de exemplo/testes de integracao
 
-## Output Structure
+## Estrutura de Saida
 
-The generated application will include:
+A aplicacao gerada incluira:
 
 ```
 project-name/
@@ -81,34 +81,34 @@ project-name/
 └── docker-compose.yml             # Optional: Docker setup (if applicable)
 ```
 
-## Best Practices Applied
+## Boas Praticas Aplicadas
 
-- **Framework Conventions**: Follows framework-specific naming, structure, and patterns
-- **Separation of Concerns**: Clear layers with controllers, services, and repositories
-- **Error Handling**: Comprehensive error handling with meaningful responses
-- **Validation**: Input validation and schema validation throughout
-- **Logging**: Structured logging for debugging and monitoring
-- **Testing**: Unit tests for services and controllers
-- **Documentation**: Inline code documentation and setup instructions
-- **Security**: Implements authentication/authorization from OpenAPI spec
-- **Scalability**: Design patterns support growth and maintenance
+- **Framework Conventions**: Segue convencoes, estrutura e padroes do framework
+- **Separation of Concerns**: Camadas claras com controllers, services e repositories
+- **Error Handling**: Tratamento de erros abrangente com respostas significativas
+- **Validation**: Validacao de input e schema ao longo do codigo
+- **Logging**: Logging estruturado para debug e monitoramento
+- **Testing**: Testes unitarios para services e controllers
+- **Documentation**: Documentacao inline e instrucoes de setup
+- **Security**: Implementa autenticacao/autorizacao do OpenAPI spec
+- **Scalability**: Padroes de design suportam crescimento e manutencao
 
-## Next Steps
+## Proximos Passos
 
-After generation:
+Apos a geracao:
 
-1. Review the generated code structure and make customizations as needed
-2. Install dependencies according to framework requirements
-3. Configure environment variables and database connections
-4. Run tests to verify generated code
-5. Start the development server
-6. Test endpoints using the provided examples
+1. Revise a estrutura de codigo gerada e ajuste conforme necessario
+2. Instale dependencias de acordo com o framework
+3. Configure variaveis de ambiente e conexoes de banco
+4. Rode testes para verificar o codigo gerado
+5. Inicie o servidor de desenvolvimento
+6. Teste endpoints usando os exemplos fornecidos
 
-## Questions to Ask if Needed
+## Perguntas se Necessario
 
-- Should the application include database/ORM setup, or just in-memory/mock data?
-- Do you want Docker configuration for containerization?
-- Should authentication be JWT, OAuth2, API keys, or basic auth?
-- Do you need integration tests or just unit tests?
-- Any specific database technology preferences?
-- Should the API include pagination, filtering, and sorting examples?
+- A aplicacao deve incluir setup de banco/ORM ou apenas dados em memoria/mock?
+- Voce quer configuracao Docker para containerizacao?
+- A autenticacao deve ser JWT, OAuth2, API keys ou basic auth?
+- Voce precisa de testes de integracao ou apenas testes unitarios?
+- Alguma preferencia de tecnologia de banco?
+- A API deve incluir exemplos de paginacao, filtering e sorting?

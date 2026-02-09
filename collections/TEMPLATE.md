@@ -1,8 +1,8 @@
-# Collections Template
+# Template de Colecoes
 
-Use this template to create a new collection of related prompts, instructions, and chat modes.
+Use este template para criar uma nova colecao de prompts, instructions e chat modes relacionados.
 
-## Basic Template
+## Template Basico
 
 ```yaml
 id: my-collection-id
@@ -21,61 +21,61 @@ display:
   show_badge: false # set to true to show collection badge
 ```
 
-## Field Descriptions
+## Descricoes dos Campos
 
-- **id**: Unique identifier using lowercase letters, numbers, and hyphens only
-- **name**: Display name for the collection
-- **description**: Brief explanation of the collection's purpose (1-500 characters)
-- **tags**: Optional array of discovery tags (max 10, each 1-30 characters)
-- **items**: Array of items in the collection (1-50 items)
-  - **path**: Relative path from repository root to the file
-  - **kind**: Must be `prompt`, `instruction`, or `chat-mode`
-- **display**: Optional display settings
-  - **ordering**: `alpha` (alphabetical) or `manual` (preserve order)
-  - **show_badge**: Show collection badge on items (true/false)
+- **id**: Identificador unico usando apenas letras minusculas, numeros e hifens
+- **name**: Nome exibido da colecao
+- **description**: Breve explicacao do proposito da colecao (1-500 caracteres)
+- **tags**: Array opcional de tags de descoberta (max 10, cada uma com 1-30 caracteres)
+- **items**: Array de itens na colecao (1-50 itens)
+- **path**: Caminho relativo da raiz do repositorio ate o arquivo
+- **kind**: Deve ser `prompt`, `instruction` ou `chat-mode`
+- **display**: Configuracoes opcionais de exibicao
+- **ordering**: `alpha` (alfabetica) ou `manual` (preserva a ordem)
+- **show_badge**: Exibir badge da colecao nos itens (true/false)
 
-## Creating a New Collection
+## Criando uma Nova Colecao
 
-### Using VS Code Tasks
-1. Press `Ctrl+Shift+P` (or `Cmd+Shift+P` on Mac)
-2. Type "Tasks: Run Task"
-3. Select "create-collection"
-4. Enter your collection ID when prompted
+### Usando Tarefas do VS Code
+1. Pressione `Ctrl+Shift+P` (ou `Cmd+Shift+P` no Mac)
+2. Digite "Tasks: Run Task"
+3. Selecione "create-collection"
+4. Informe o ID da colecao quando solicitado
 
-### Using Command Line
+### Usando Linha de Comando
 ```bash
 node create-collection.js my-collection-id
 ```
 
-### Manual Creation
-1. Create `collections/my-collection-id.collection.yml`
-2. Use the template above as starting point
-3. Add your items and customize settings
-4. Run `npm run validate:collections` to validate
-5. Run `npm start` to generate documentation
+### Criacao Manual
+1. Crie `collections/my-collection-id.collection.yml`
+2. Use o template acima como ponto de partida
+3. Adicione seus itens e personalize as configuracoes
+4. Execute `npm run validate:collections` para validar
+5. Execute `npm start` para gerar a documentacao
 
-## Validation
+## Validacao
 
-Collections are automatically validated to ensure:
-- Required fields are present and valid
-- File paths exist and match the item kind
-- IDs are unique across collections
-- Tags and display settings follow the schema
+As colecoes sao validadas automaticamente para garantir:
+- Campos obrigatorios presentes e validos
+- Caminhos de arquivos existentes e que correspondem ao tipo de item
+- IDs unicos entre as colecoes
+- Tags e configuracoes de exibicao seguem o schema
 
-Run validation manually:
+Para validar manualmente:
 ```bash
 npm run validate:collections
 ```
 
-## File Organization
+## Organizacao de Arquivos
 
-Collections don't require reorganizing existing files. Items can be located anywhere in the repository as long as the paths are correct in the manifest.
+As colecoes nao exigem reorganizar arquivos existentes. Itens podem ficar em qualquer lugar no repositorio desde que os caminhos estejam corretos no manifesto.
 
-## Best Practices
+## Melhores Praticas
 
-1. **Meaningful Collections**: Group items that work well together for a specific workflow or use case
-2. **Clear Naming**: Use descriptive names and IDs that reflect the collection's purpose
-3. **Good Descriptions**: Explain who should use the collection and what benefit it provides
-4. **Relevant Tags**: Add discovery tags that help users find related collections
-5. **Reasonable Size**: Keep collections focused - typically 3-10 items work well
-6. **Test Items**: Ensure all referenced files exist and are functional before adding to a collection
+1. **Colecoes Significativas**: Agrupe itens que funcionam bem juntos para um fluxo de trabalho ou caso de uso especifico
+2. **Nomeacao Clara**: Use nomes e IDs descritivos que reflitam o proposito da colecao
+3. **Boas Descricoes**: Explique quem deve usar a colecao e qual beneficio ela oferece
+4. **Tags Relevantes**: Adicione tags de descoberta que ajudem os usuarios a encontrar colecoes relacionadas
+5. **Tamanho Razoavel**: Mantenha as colecoes focadas - normalmente 3-10 itens funcionam bem
+6. **Testar Itens**: Garanta que todos os arquivos referenciados existam e funcionem antes de adicionar a uma colecao

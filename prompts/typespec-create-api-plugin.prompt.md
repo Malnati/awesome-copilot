@@ -1,167 +1,78 @@
 ---
 mode: 'agent'
 tools: ['changes', 'search/codebase', 'edit/editFiles', 'problems']
-description: 'Generate a TypeSpec API plugin with REST operations, authentication, and Adaptive Cards for Microsoft 365 Copilot'
+description: 'Crie um plugin de API para Microsoft 365 Copilot usando TypeSpec com schema, operations e adaptive cards'
 model: 'gpt-4.1'
-tags: [typespec, m365-copilot, api-plugin, rest-api]
+tags: [typespec, m365-copilot, api-plugin]
 ---
 
-# Create TypeSpec API Plugin
+# Criar API Plugin com TypeSpec
 
-Create a complete TypeSpec API plugin for Microsoft 365 Copilot that integrates with external REST APIs.
+Crie um plugin de API para Microsoft 365 Copilot usando TypeSpec com schema, operations e adaptive cards.
 
-## Requirements
+## Definir o Service
 
-Generate TypeSpec files with:
+Use `@service` e `@server` para definir o service:
 
-### main.tsp - Agent Definition
 ```typescript
-import "@typespec/http";
-import "@typespec/openapi3";
-import "@microsoft/typespec-m365-copilot";
-import "./actions.tsp";
-
-using TypeSpec.Http;
-using TypeSpec.M365.Copilot.Agents;
-using TypeSpec.M365.Copilot.Actions;
-
-@agent({
-  name: "[Agent Name]",
-  description: "[Description]"
-})
-@instructions("""
-  [Instructions for using the API operations]
-""")
-namespace [AgentName] {
-  // Reference operations from actions.tsp
-  op operation1 is [APINamespace].operationName;
-}
-```
-
-### actions.tsp - API Operations
-```typescript
-import "@typespec/http";
-import "@microsoft/typespec-m365-copilot";
-
-using TypeSpec.Http;
-using TypeSpec.M365.Copilot.Actions;
-
 @service
-@actions(#{
-    nameForHuman: "[API Display Name]",
-    descriptionForModel: "[Model description]",
-    descriptionForHuman: "[User description]"
-})
-@server("[API_BASE_URL]", "[API Name]")
-@useAuth([AuthType]) // Optional
-namespace [APINamespace] {
-  
-  @route("[/path]")
-  @get
-  @action
-  op operationName(
-    @path param1: string,
-    @query param2?: string
-  ): ResponseModel;
-
-  model ResponseModel {
-    // Response structure
-  }
+@server("https://api.example.com")
+namespace MyPlugin {
+  // Operations here
 }
 ```
 
-## Authentication Options
+## Adicionar Operations
 
-Choose based on API requirements:
-
-1. **No Authentication** (Public APIs)
-   ```typescript
-   // No @useAuth decorator needed
-   ```
-
-2. **API Key**
-   ```typescript
-   @useAuth(ApiKeyAuth<ApiKeyLocation.header, "X-API-Key">)
-   ```
-
-3. **OAuth2**
-   ```typescript
-   @useAuth(OAuth2Auth<[{
-     type: OAuth2FlowType.authorizationCode;
-     authorizationUrl: "https://oauth.example.com/authorize";
-     tokenUrl: "https://oauth.example.com/token";
-     refreshUrl: "https://oauth.example.com/token";
-     scopes: ["read", "write"];
-   }]>)
-   ```
-
-4. **Registered Auth Reference**
-   ```typescript
-   @useAuth(Auth)
-   
-   @authReferenceId("registration-id-here")
-   model Auth is ApiKeyAuth<ApiKeyLocation.header, "X-API-Key">
-   ```
-
-## Function Capabilities
-
-### Confirmation Dialog
+### GET Example
 ```typescript
-@capabilities(#{
-  confirmation: #{
-    type: "AdaptiveCard",
-    title: "Confirm Action",
-    body: """
-    Are you sure you want to perform this action?
-      * **Parameter**: {{ function.parameters.paramName }}
-    """
-  }
-})
+@route("/items")
+@get op listItems(): Item[];
 ```
 
-### Adaptive Card Response
+### POST Example
 ```typescript
+@route("/items")
+@post op createItem(@body item: CreateItemRequest): Item;
+```
+
+## Declarar Models
+
+```typescript
+model Item {
+  id: integer;
+  title: string;
+  description?: string;
+}
+
+model CreateItemRequest {
+  title: string;
+  description?: string;
+}
+```
+
+## Adicionar Adaptive Cards
+
+```typescript
+@route("/items")
 @card(#{
-  dataPath: "$.items",
+  dataPath: "$",
   title: "$.title",
-  url: "$.link",
-  file: "cards/card.json"
+  file: "item-card.json"
 })
+@get op listItems(): Item[];
 ```
 
-### Reasoning & Response Instructions
-```typescript
-@reasoning("""
-  Consider user's context when calling this operation.
-  Prioritize recent items over older ones.
-""")
-@responding("""
-  Present results in a clear table format with columns: ID, Title, Status.
-  Include a summary count at the end.
-""")
-```
+## Testing Prompts
 
-## Best Practices
+- "List all items"
+- "Create an item with title 'Test'"
+- "Get item 42"
 
-1. **Operation Names**: Use clear, action-oriented names (listProjects, createTicket)
-2. **Models**: Define TypeScript-like models for requests and responses
-3. **HTTP Methods**: Use appropriate verbs (@get, @post, @patch, @delete)
-4. **Paths**: Use RESTful path conventions with @route
-5. **Parameters**: Use @path, @query, @header, @body appropriately
-6. **Descriptions**: Provide clear descriptions for model understanding
-7. **Confirmations**: Add for destructive operations (delete, update critical data)
-8. **Cards**: Use for rich visual responses with multiple data items
+## Boas Praticas
 
-## Workflow
-
-Ask the user:
-1. What is the API base URL and purpose?
-2. What operations are needed (CRUD operations)?
-3. What authentication method does the API use?
-4. Should confirmations be required for any operations?
-5. Do responses need Adaptive Cards?
-
-Then generate:
-- Complete `main.tsp` with agent definition
-- Complete `actions.tsp` with API operations and models
-- Optional `cards/card.json` if Adaptive Cards are needed
+- Use nomes claros em operations e modelos
+- Documente parametros com comentarios JSDoc
+- Use `@visibility(Lifecycle.Read)` para campos read-only
+- Use union types para enums
+- Mantenha schemas simples e consistentes

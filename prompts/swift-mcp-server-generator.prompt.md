@@ -1,15 +1,15 @@
 ---
-description: 'Generate a complete Model Context Protocol server project in Swift using the official MCP Swift SDK package.'
+description: 'Gere um projeto completo de servidor Model Context Protocol em Swift usando o pacote oficial MCP Swift SDK.'
 agent: agent
 ---
 
-# Swift MCP Server Generator
+# Gerador de Servidor MCP em Swift
 
-Generate a complete, production-ready MCP server in Swift using the official Swift SDK package.
+Gere um servidor MCP completo e pronto para producao em Swift usando o pacote oficial Swift SDK.
 
-## Project Generation
+## Geracao do Projeto
 
-When asked to create a Swift MCP server, generate a complete project with this structure:
+Quando solicitado para criar um servidor MCP em Swift, gere um projeto completo com esta estrutura:
 
 ```
 my-mcp-server/
@@ -33,7 +33,7 @@ my-mcp-server/
 └── README.md
 ```
 
-## Package.swift Template
+## Template do Package.swift
 
 ```swift
 // swift-tools-version: 6.0
@@ -79,7 +79,7 @@ let package = Package(
 )
 ```
 
-## main.swift Template
+## Template do main.swift
 
 ```swift
 import MCP
@@ -131,7 +131,7 @@ do {
 }
 ```
 
-## Server.swift Template
+## Template do Server.swift
 
 ```swift
 import MCP
@@ -161,7 +161,7 @@ func createServer() async -> Server {
 }
 ```
 
-## ToolDefinitions.swift Template
+## Template do ToolDefinitions.swift
 
 ```swift
 import MCP
@@ -218,7 +218,7 @@ func getToolDefinitions() -> [Tool] {
 }
 ```
 
-## ToolHandlers.swift Template
+## Template do ToolHandlers.swift
 
 ```swift
 import MCP
@@ -314,7 +314,7 @@ private func handleCalculate(params: CallTool.Params) -> CallTool.Result {
 }
 ```
 
-## ResourceDefinitions.swift Template
+## Template do ResourceDefinitions.swift
 
 ```swift
 import MCP
@@ -337,7 +337,7 @@ func getResourceDefinitions() -> [Resource] {
 }
 ```
 
-## ResourceHandlers.swift Template
+## Template do ResourceHandlers.swift
 
 ```swift
 import MCP
@@ -416,7 +416,7 @@ func registerResourceHandlers(server: Server) async {
 }
 ```
 
-## PromptDefinitions.swift Template
+## Template do PromptDefinitions.swift
 
 ```swift
 import MCP
@@ -435,7 +435,7 @@ func getPromptDefinitions() -> [Prompt] {
 }
 ```
 
-## PromptHandlers.swift Template
+## Template do PromptHandlers.swift
 
 ```swift
 import MCP
@@ -489,7 +489,7 @@ private func handleCodeReviewPrompt(params: GetPrompt.Params) -> GetPrompt.Resul
 }
 ```
 
-## ServerTests.swift Template
+## Template do ServerTests.swift
 
 ```swift
 import XCTest
@@ -553,7 +553,7 @@ final class ServerTests: XCTestCase {
 }
 ```
 
-## README.md Template
+## Template do README.md
 
 ```markdown
 # MyMCPServer
@@ -621,20 +621,20 @@ The server uses:
 MIT
 ```
 
-## Generation Instructions
+## Instrucoes de Geracao
 
-1. **Ask for project name and description**
-2. **Generate all files** with proper naming
-3. **Use actor-based state** for thread safety
-4. **Include comprehensive logging** with swift-log
-5. **Implement graceful shutdown** with ServiceLifecycle
-6. **Add tests** for all handlers
-7. **Use modern Swift concurrency** (async/await)
-8. **Follow Swift naming conventions** (camelCase, PascalCase)
-9. **Include error handling** with proper MCPError usage
-10. **Document public APIs** with doc comments
+1. **Pergunte nome e descricao do projeto**
+2. **Gere todos os arquivos** com nomenclatura adequada
+3. **Use actor-based state** para thread safety
+4. **Inclua logging abrangente** com swift-log
+5. **Implemente graceful shutdown** com ServiceLifecycle
+6. **Adicione testes** para todos os handlers
+7. **Use Swift concurrency moderno** (async/await)
+8. **Siga convencoes Swift** (camelCase, PascalCase)
+9. **Inclua error handling** com uso correto de MCPError
+10. **Documente APIs publicas** com doc comments
 
-## Build and Run
+## Build e Run
 
 ```bash
 # Build
@@ -654,9 +654,9 @@ swift build -c release
 cp .build/release/MyMCPServer /usr/local/bin/
 ```
 
-## Integration with Claude Desktop
+## Integracao com Claude Desktop
 
-Add to `claude_desktop_config.json`:
+Adicione em `claude_desktop_config.json`:
 
 ```json
 {

@@ -1,101 +1,101 @@
 ---
-description: 'This workflow guides you through a systematic approach to identify missing features, prioritize them, and create detailed specifications for implementation.'
+description: 'Este workflow orienta uma abordagem sistematica para identificar features faltantes, prioriza-las e criar especificacoes detalhadas para implementacao.'
 agent: 'agent'
 ---
 
-# Product Manager Assistant: Feature Identification and Specification
+# Product Manager Assistant: Identificacao de Features e Especificacao
 
-This workflow guides you through a systematic approach to identify missing features, prioritize them, and create detailed specifications for implementation.
+Este workflow orienta uma abordagem sistematica para identificar features faltantes, prioriza-las e criar especificacoes detalhadas para implementacao.
 
-## 1. Project Understanding Phase
+## 1. Fase de Entendimento do Projeto
 
-- Review the project structure to understand its organization
-- Read the README.md and other documentation files to understand the project's core functionality
-- Identify the existing implementation status by examining:
-  - Main entry points (CLI, API, UI, etc.)
-  - Core modules and their functionality
-  - Tests to understand expected behavior
-  - Any placeholder implementations
+- Revise a estrutura do projeto para entender sua organizacao
+- Leia README.md e outros arquivos de documentacao para entender a funcionalidade central
+- Identifique o status de implementacao examinando:
+  - Pontos de entrada principais (CLI, API, UI, etc.)
+  - Modulos centrais e suas funcionalidades
+  - Testes para entender o comportamento esperado
+  - Implementacoes placeholder
 
-**Guiding Questions:**
-- What is the primary purpose of this project?
-- What user problems does it solve?
-- What patterns exist in the current implementation?
-- Which features are mentioned in documentation but not fully implemented?
+**Perguntas Norteadoras:**
+- Qual e o proposito principal do projeto?
+- Quais problemas do usuario ele resolve?
+- Quais patterns existem na implementacao atual?
+- Quais features sao mencionadas na documentacao mas nao estao totalmente implementadas?
 
-## 2. Gap Analysis Phase
+## 2. Fase de Gap Analysis
 
-- Compare the documented capabilities ONLY against the actual implementation
-- Identify "placeholder" code that lacks real functionality
-- Look for features mentioned in documentation but missing robust implementation
-- Consider the user journey and identify broken or missing steps
-- Focus on core functionality first (not nice-to-have features)
+- Compare capacidades documentadas APENAS contra a implementacao real
+- Identifique codigo "placeholder" sem funcionalidade real
+- Procure features mencionadas na documentacao mas sem implementacao robusta
+- Considere a jornada do usuario e identifique passos quebrados ou faltantes
+- Foque primeiro na funcionalidade core (nao em nice-to-have)
 
-**Output Creation:**
-- Create a list of potential missing features (5-7 items)
-- For each feature, note:
-  - Current implementation status
-  - References in documentation
-  - Impact on user experience if missing
+**Criacao de Output:**
+- Crie uma lista de possiveis features faltantes (5-7 itens)
+- Para cada feature, registre:
+  - Status atual de implementacao
+  - Referencias na documentacao
+  - Impacto na experiencia do usuario se estiver faltando
 
-## 3. Prioritization Phase
+## 3. Fase de Priorizacao
 
-- Apply a score to each identified gap:
+- Aplique uma pontuacao para cada gap identificado:
 
-**Scoring Matrix (1-5 scale):**
-- User Impact: How many users benefit?
-- Strategic Alignment: Fits core mission?
-- Implementation Feasibility: Technical complexity?
-- Resource Requirements: Development effort needed?
-- Risk Level: Potential negative impacts?
+**Matriz de Pontuacao (1-5):**
+- Impacto no Usuario: Quantos usuarios se beneficiam?
+- Alinhamento Estrategico: Se encaixa na missao core?
+- Viabilidade de Implementacao: Complexidade tecnica?
+- Recursos Necessarios: Esforco de desenvolvimento?
+- Nivel de Risco: Impactos negativos potenciais?
 
 **Priority = (User Impact × Strategic Alignment) / (Implementation Effort × Risk Level)**
 
-**Output Creation:**
-- Present the top 3 highest-priority missing features based on the scoring
-- For each, provide:
-  - Feature name
-  - Current status
-  - Impact if not implemented
-  - Dependencies on other features
+**Criacao de Output:**
+- Apresente as 3 features faltantes de maior prioridade com base na pontuacao
+- Para cada uma, forneca:
+  - Nome da feature
+  - Status atual
+  - Impacto se nao for implementada
+  - Dependencias com outras features
 
-## 4. Specification Development Phase
+## 4. Fase de Desenvolvimento de Especificacao
 
-- For each prioritized feature, develop a detailed but practical specification:
-  - Begin with the philosophical approach: simplicity over complexity
-  - Focus on MVP functionality first
-  - Consider the developer experience
-  - Keep the specification implementation-friendly
+- Para cada feature priorizada, desenvolva uma especificacao detalhada mas pratica:
+  - Comece com a abordagem filosofica: simplicidade > complexidade
+  - Foque primeiro no MVP
+  - Considere a experiencia do dev
+  - Mantenha a especificacao amigavel para implementacao
 
-**For Each Feature Specification:**
+**Para Cada Especificacao de Feature:**
 1. **Overview & Scope**
-   - What problem does it solve?
-   - What's included and what's explicitly excluded?
+   - Que problema resolve?
+   - O que esta incluido e o que esta explicitamente excluido?
 
-2. **Technical Requirements**
-   - Core functionality needed
-   - User-facing interfaces (API, UI, CLI, etc.)
-   - Integration points with existing code
+2. **Requisitos Tecnicos**
+   - Funcionalidade core necessaria
+   - Interfaces voltadas ao usuario (API, UI, CLI, etc.)
+   - Pontos de integracao com o codigo existente
 
-3. **Implementation Plan**
-   - Key modules/files to create or modify
-   - Simple code examples showing the approach
-   - Clear data structures and interfaces
+3. **Plano de Implementacao**
+   - Modulos/arquivos-chave a criar ou modificar
+   - Exemplos simples de codigo mostrando a abordagem
+   - Estruturas de dados e interfaces claras
 
-4. **Acceptance Criteria**
-   - How will we know when it's done?
-   - What specific functionality must work?
-   - What tests should pass?
+4. **Criterios de Aceite**
+   - Como saberemos que esta pronto?
+   - Que funcionalidade especifica deve funcionar?
+   - Que testes devem passar?
 
-## 5. GitHub Issue Creation Phase
+## 5. Fase de Criacao de Issues no GitHub
 
-- For each specification, create a GitHub issue:
-  - Clear, descriptive title
-  - Comprehensive specification in the body
-  - Appropriate labels (enhancement, high-priority, etc.)
-  - Explicitly mention MVP philosophy where relevant
+- Para cada especificacao, crie uma issue no GitHub:
+  - Titulo claro e descritivo
+  - Especificacao completa no corpo
+  - Labels apropriadas (enhancement, high-priority, etc.)
+  - Mencione explicitamente a filosofia MVP quando relevante
 
-**Issue Template Structure:**
+**Estrutura de Template da Issue:**
 
 # [Feature Name]
 
@@ -129,37 +129,37 @@ This workflow guides you through a systematic approach to identify missing featu
 ## 5.5 Work Distribution Optimization
 
 - **Independence Analysis**
-  - Review each specification to identify truly independent components
-  - Refactor specifications to maximize independent work streams
-  - Create clear boundaries between interdependent components
+  - Revise cada especificacao para identificar componentes realmente independentes
+  - Refatore especificacoes para maximizar work streams independentes
+  - Crie limites claros entre componentes interdependentes
 
 - **Dependency Mapping**
-  - For features with unavoidable dependencies, establish clear issue hierarchies
-  - Create parent issues for the overall feature with sub-issues for components
-  - Explicitly document "blocked by" and "blocks" relationships
+  - Para features com dependencias inevitaveis, estabeleca hierarquias claras
+  - Crie issues pai para a feature geral com sub-issues por componente
+  - Documente explicitamente relacoes "blocked by" e "blocks"
 
 - **Workload Balancing**
-  - Break down large specifications into smaller, manageable sub-issues
-  - Ensure each sub-issue represents 1-3 days of development work
-  - Include sub-issue specific acceptance criteria
+  - Quebre especificacoes grandes em sub-issues menores e gerenciaveis
+  - Garanta que cada sub-issue represente 1-3 dias de trabalho
+  - Inclua criterios de aceite especificos por sub-issue
 
 **Implementation Guidelines:**
-- Use GitHub issue linking syntax to create explicit relationships
-- Add labels to indicate dependency status (e.g., "blocked", "prerequisite")
-- Include estimated complexity/effort for each issue to aid sprint planning
+- Use sintaxe de linking de issues do GitHub para criar relacoes explicitas
+- Adicione labels indicando status de dependencia (ex.: "blocked", "prerequisite")
+- Inclua estimativa de complexidade/esforco para cada issue
 
-## 6. Final Review Phase
+## 6. Fase de Revisao Final
 
-- Summarize all created specifications
-- Highlight implementation dependencies between features
-- Suggest a logical implementation order
-- Note any potential challenges or considerations
+- Resuma todas as especificacoes criadas
+- Destaque dependencias de implementacao entre features
+- Sugira uma ordem logica de implementacao
+- Observe desafios ou consideracoes potenciais
 
-Remember throughout this process:
-- Favor simplicity over complexity
-- Start with minimal viable implementations that work
-- Focus on developer experience
-- Build a foundation that can be extended later
-- Consider the open-source community and contribution model
+Lembretes durante todo o processo:
+- Favor simplicidade sobre complexidade
+- Comece com implementacoes minimas viaveis que funcionem
+- Foque na experiencia do dev
+- Construa uma base que possa ser estendida depois
+- Considere a comunidade open-source e o modelo de contribuicao
 
-This workflow embodiment of our approach should help maintain consistency in how features are specified and prioritized, ensuring that software projects evolve in a thoughtful, user-centered way.
+Este workflow materializa nossa abordagem e ajuda a manter consistencia na especificacao e priorizacao de features, garantindo que os projetos evoluam de forma cuidadosa e centrada no usuario.

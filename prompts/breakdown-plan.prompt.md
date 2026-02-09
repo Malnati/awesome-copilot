@@ -1,64 +1,64 @@
 ---
 agent: 'agent'
-description: 'Issue Planning and Automation prompt that generates comprehensive project plans with Epic > Feature > Story/Enabler > Test hierarchy, dependencies, priorities, and automated tracking.'
+description: 'Prompt de planejamento e automacao de issues que gera planos de projeto abrangentes com hierarquia Epic > Feature > Story/Enabler > Test, dependencias, prioridades e rastreamento automatizado.'
 ---
 
-# GitHub Issue Planning & Project Automation Prompt
+# Prompt de Planejamento de Issues e Automacao de Projetos no GitHub
 
 ## Goal
 
-Act as a senior Project Manager and DevOps specialist with expertise in Agile methodology and GitHub project management. Your task is to take the complete set of feature artifacts (PRD, UX design, technical breakdown, testing plan) and generate a comprehensive GitHub project plan with automated issue creation, dependency linking, priority assignment, and Kanban-style tracking.
+Atue como um Project Manager senior e especialista em DevOps com experiencia em metodologia Agile e gestao de projetos no GitHub. Sua tarefa e pegar o conjunto completo de artefatos da feature (PRD, design UX, breakdown tecnico, plano de testes) e gerar um plano de projeto abrangente no GitHub com criacao automatizada de issues, vinculacao de dependencias, atribuicao de prioridade e rastreamento estilo Kanban.
 
-## GitHub Project Management Best Practices
+## Melhores Praticas de Gestao de Projetos no GitHub
 
-### Agile Work Item Hierarchy
+### Hierarquia Agile de Work Items
 
-- **Epic**: Large business capability spanning multiple features (milestone level)
-- **Feature**: Deliverable user-facing functionality within an epic
-- **Story**: User-focused requirement that delivers value independently
-- **Enabler**: Technical infrastructure or architectural work supporting stories
-- **Test**: Quality assurance work for validating stories and enablers
-- **Task**: Implementation-level work breakdown for stories/enablers
+- **Epic**: Capacidade de negocio ampla que abrange multiplas features (nivel de milestone)
+- **Feature**: Funcionalidade entregavel voltada ao usuario dentro de um epic
+- **Story**: Requisito centrado no usuario que entrega valor de forma independente
+- **Enabler**: Infraestrutura tecnica ou trabalho arquitetural que suporta stories
+- **Test**: Trabalho de QA para validar stories e enablers
+- **Task**: Quebra de trabalho em nivel de implementacao para stories/enablers
 
-### Project Management Principles
+### Principios de Gestao de Projeto
 
 - **INVEST Criteria**: Independent, Negotiable, Valuable, Estimable, Small, Testable
-- **Definition of Ready**: Clear acceptance criteria before work begins
-- **Definition of Done**: Quality gates and completion criteria
-- **Dependency Management**: Clear blocking relationships and critical path identification
-- **Value-Based Prioritization**: Business value vs. effort matrix for decision making
+- **Definition of Ready**: Criterios claros de aceite antes do inicio do trabalho
+- **Definition of Done**: Quality gates e criterios de conclusao
+- **Dependency Management**: Relacionamentos de bloqueio claros e identificacao do caminho critico
+- **Value-Based Prioritization**: Matriz de valor de negocio vs esforco para tomada de decisao
 
-## Input Requirements
+## Requisitos de Entrada
 
-Before using this prompt, ensure you have the complete testing workflow artifacts:
+Antes de usar este prompt, garanta que voce tenha o fluxo completo de artefatos de teste:
 
-### Core Feature Documents
+### Documentos Core de Feature
 
 1. **Feature PRD**: `/docs/ways-of-work/plan/{epic-name}/{feature-name}.md`
 2. **Technical Breakdown**: `/docs/ways-of-work/plan/{epic-name}/{feature-name}/technical-breakdown.md`
 3. **Implementation Plan**: `/docs/ways-of-work/plan/{epic-name}/{feature-name}/implementation-plan.md`
 
-### Related Planning Prompts
+### Prompts de Planejamento Relacionados
 
-- **Test Planning**: Use `plan-test` prompt for comprehensive test strategy, quality assurance planning, and test issue creation
-- **Architecture Planning**: Use `plan-epic-arch` prompt for system architecture and technical design
-- **Feature Planning**: Use `plan-feature-prd` prompt for detailed feature requirements and specifications
+- **Test Planning**: Use o prompt `plan-test` para estrategia de testes, planejamento de QA e criacao de issues de teste
+- **Architecture Planning**: Use o prompt `plan-epic-arch` para arquitetura do sistema e design tecnico
+- **Feature Planning**: Use o prompt `plan-feature-prd` para requisitos e especificacoes detalhadas da feature
 
-## Output Format
+## Formato de Saida
 
-Create two primary deliverables:
+Crie dois entregaveis principais:
 
 1. **Project Plan**: `/docs/ways-of-work/plan/{epic-name}/{feature-name}/project-plan.md`
 2. **Issue Creation Checklist**: `/docs/ways-of-work/plan/{epic-name}/{feature-name}/issues-checklist.md`
 
-### Project Plan Structure
+### Estrutura do Project Plan
 
 #### 1. Project Overview
 
-- **Feature Summary**: Brief description and business value
-- **Success Criteria**: Measurable outcomes and KPIs
-- **Key Milestones**: Breakdown of major deliverables without timelines
-- **Risk Assessment**: Potential blockers and mitigation strategies
+- **Feature Summary**: Descricao breve e valor de negocio
+- **Success Criteria**: Resultados mensuraveis e KPIs
+- **Key Milestones**: Quebra dos principais entregaveis sem timelines
+- **Risk Assessment**: Possiveis bloqueios e estrategias de mitigacao
 
 #### 2. Work Item Hierarchy
 
@@ -286,7 +286,7 @@ This enabler supports:
 {Story points or effort estimate}
 ```
 
-#### 4. Priority and Value Matrix
+#### 4. Matriz de Prioridade e Valor
 
 | Priority | Value  | Criteria                        | Labels                            |
 | -------- | ------ | ------------------------------- | --------------------------------- |
@@ -296,7 +296,7 @@ This enabler supports:
 | P2       | Medium | Important but not blocking      | `priority-medium`, `value-medium` |
 | P3       | Low    | Nice to have, technical debt    | `priority-low`, `value-low`       |
 
-#### 5. Estimation Guidelines
+#### 5. Diretrizes de Estimativa
 
 ##### Story Point Scale (Fibonacci)
 
@@ -331,14 +331,14 @@ graph LR
     J[Authentication] --> D
 ```
 
-##### Dependency Types
+##### Tipos de Dependencia
 
-- **Blocks**: Work that cannot proceed until this is complete
-- **Related**: Work that shares context but not blocking
-- **Prerequisite**: Required infrastructure or setup work
-- **Parallel**: Work that can proceed simultaneously
+- **Blocks**: Trabalho que nao pode prosseguir ate ser concluido
+- **Related**: Trabalho que compartilha contexto mas nao bloqueia
+- **Prerequisite**: Infraestrutura ou setup necessario
+- **Parallel**: Trabalho que pode prosseguir simultaneamente
 
-#### 7. Sprint Planning Template
+#### 7. Template de Sprint Planning
 
 ##### Sprint Capacity Planning
 
@@ -363,30 +363,30 @@ graph LR
 **Success Criteria**: {Measurable outcomes}
 ```
 
-#### 8. GitHub Project Board Configuration
+#### 8. Configuracao do GitHub Project Board
 
-##### Column Structure (Kanban)
+##### Estrutura de Colunas (Kanban)
 
-1. **Backlog**: Prioritized and ready for planning
-2. **Sprint Ready**: Detailed and estimated, ready for development
-3. **In Progress**: Currently being worked on
-4. **In Review**: Code review, testing, or stakeholder review
-5. **Testing**: QA validation and acceptance testing
-6. **Done**: Completed and accepted
+1. **Backlog**: Priorizado e pronto para planejamento
+2. **Sprint Ready**: Detalhado e estimado, pronto para desenvolvimento
+3. **In Progress**: Em andamento
+4. **In Review**: Code review, testes ou stakeholder review
+5. **Testing**: Validacao de QA e acceptance testing
+6. **Done**: Concluido e aceito
 
-##### Custom Fields Configuration
+##### Configuracao de Campos Customizados
 
 - **Priority**: P0, P1, P2, P3
 - **Value**: High, Medium, Low
 - **Component**: Frontend, Backend, Infrastructure, Testing
-- **Estimate**: Story points or t-shirt size
-- **Sprint**: Current sprint assignment
-- **Assignee**: Responsible team member
-- **Epic**: Parent epic reference
+- **Estimate**: Story points ou t-shirt size
+- **Sprint**: Atribuicao da sprint atual
+- **Assignee**: Membro responsavel do time
+- **Epic**: Referencia ao epic pai
 
-#### 9. Automation and GitHub Actions
+#### 9. Automacao e GitHub Actions
 
-##### Automated Issue Creation
+##### Criacao Automatizada de Issues
 
 ```yaml
 name: Create Feature Issues
@@ -425,7 +425,7 @@ jobs:
             });
 ```
 
-##### Automated Status Updates
+##### Atualizacoes Automatizadas de Status
 
 ```yaml
 name: Update Issue Status
@@ -451,7 +451,7 @@ jobs:
 
 ### Issue Creation Checklist
 
-#### Pre-Creation Preparation
+#### Preparacao Pre-Criacao
 
 - [ ] **Feature artifacts complete**: PRD, UX design, technical breakdown, testing plan
 - [ ] **Epic exists**: Parent epic issue created with proper labels and milestone

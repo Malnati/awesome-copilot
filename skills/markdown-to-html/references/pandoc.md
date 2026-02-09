@@ -1,8 +1,8 @@
-# Pandoc Reference
+# Referencia de Pandoc
 
-Pandoc is a universal document converter that can convert between numerous markup formats, including Markdown, HTML, LaTeX, Word, and many more.
+Pandoc e um conversor universal de documentos que pode converter entre diversos formatos de markup, incluindo Markdown, HTML, LaTeX, Word e muitos outros.
 
-## Installation
+## Instalacao
 
 ### Windows
 
@@ -35,9 +35,9 @@ sudo dnf install pandoc
 # Or download from https://pandoc.org/installing.html
 ```
 
-## Basic Usage
+## Uso Basico
 
-### Convert Markdown to HTML
+### Converter Markdown para HTML
 
 ```bash
 # Basic conversion
@@ -50,7 +50,7 @@ pandoc input.md -s -o output.html
 pandoc input.md -s --css=style.css -o output.html
 ```
 
-### Convert to Other Formats
+### Converter para Outros Formatos
 
 ```bash
 # To PDF (requires LaTeX)
@@ -66,7 +66,7 @@ pandoc input.md -s -o output.tex
 pandoc input.md -s -o output.epub
 ```
 
-### Convert from Other Formats
+### Converter de Outros Formatos
 
 ```bash
 # HTML to Markdown
@@ -79,7 +79,7 @@ pandoc input.docx -o output.md
 pandoc -f latex -t html input.tex -o output.html
 ```
 
-## Common Options
+## Opcoes Comuns
 
 | Option | Description |
 |--------|-------------|
@@ -99,7 +99,7 @@ pandoc -f latex -t html input.tex -o output.html
 
 ## Markdown Extensions
 
-Pandoc supports many markdown extensions:
+Pandoc suporta muitas extensoes de markdown:
 
 ```bash
 # Enable specific extensions
@@ -157,7 +157,7 @@ $body$
 
 ## YAML Metadata
 
-Include metadata in your markdown files:
+Inclua metadados nos seus arquivos Markdown:
 
 ```markdown
 ---
@@ -181,7 +181,7 @@ Document content here...
 pandoc --lua-filter=filter.lua input.md -o output.html
 ```
 
-Example Lua filter (`filter.lua`):
+Exemplo de filtro Lua (`filter.lua`):
 
 ```lua
 function Header(el)
@@ -197,30 +197,3 @@ end
 ```bash
 pandoc --filter pandoc-citeproc input.md -o output.html
 ```
-
-## Batch Conversion
-
-### Bash Script
-
-```bash
-#!/bin/bash
-for file in *.md; do
-  pandoc "$file" -s -o "${file%.md}.html"
-done
-```
-
-### PowerShell Script
-
-```powershell
-Get-ChildItem -Filter *.md | ForEach-Object {
-  $output = $_.BaseName + ".html"
-  pandoc $_.Name -s -o $output
-}
-```
-
-## Resources
-
-- [Pandoc User's Guide](https://pandoc.org/MANUAL.html)
-- [Pandoc Demos](https://pandoc.org/demos.html)
-- [Pandoc FAQ](https://pandoc.org/faqs.html)
-- [GitHub Repository](https://github.com/jgm/pandoc)

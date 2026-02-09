@@ -1,87 +1,87 @@
 ---
 name: azure-deployment-preflight
-description: 'Performs comprehensive preflight validation of Bicep deployments to Azure, including template syntax validation, what-if analysis, and permission checks. Use this skill before any deployment to Azure to preview changes, identify potential issues, and ensure the deployment will succeed. Activate when users mention deploying to Azure, validating Bicep files, checking deployment permissions, previewing infrastructure changes, running what-if, or preparing for azd provision.'
+description: 'Executa validacao preflight abrangente de deployments Bicep no Azure, incluindo validacao de sintaxe de template, analise what-if e checagens de permissao. Use esta skill antes de qualquer deployment no Azure para prever mudancas, identificar problemas potenciais e garantir que o deployment sera bem-sucedido. Ative quando usuarios mencionarem deploy no Azure, validar arquivos Bicep, checar permissoes de deployment, prever mudancas de infraestrutura, rodar what-if ou preparar azd provision.'
 ---
 
-# Azure Deployment Preflight Validation
+# Validacao Preflight de Deployment no Azure
 
-This skill validates Bicep deployments before execution, supporting both Azure CLI (`az`) and Azure Developer CLI (`azd`) workflows.
+Esta skill valida deployments Bicep antes da execucao, suportando workflows do Azure CLI (`az`) e Azure Developer CLI (`azd`).
 
-## When to Use This Skill
+## Quando Usar Esta Skill
 
-- Before deploying infrastructure to Azure
-- When preparing or reviewing Bicep files
-- To preview what changes a deployment will make
-- To verify permissions are sufficient for deployment
-- Before running `azd up`, `azd provision`, or `az deployment` commands
+- Antes de fazer deploy de infraestrutura no Azure
+- Ao preparar ou revisar arquivos Bicep
+- Para prever quais mudancas um deployment fara
+- Para verificar se as permissoes sao suficientes para o deployment
+- Antes de rodar `azd up`, `azd provision` ou comandos `az deployment`
 
-## Validation Process
+## Processo de Validacao
 
-Follow these steps in order. Continue to the next step even if a previous step fails—capture all issues in the final report.
+Siga estas etapas em ordem. Continue para a proxima etapa mesmo se a anterior falhar — capture todos os issues no relatorio final.
 
-### Step 1: Detect Project Type
+### Etapa 1: Detectar Tipo de Projeto
 
-Determine the deployment workflow by checking for project indicators:
+Determine o workflow de deployment checando indicadores do projeto:
 
-1. **Check for azd project**: Look for `azure.yaml` in the project root
-   - If found → Use **azd workflow**
-   - If not found → Use **az CLI workflow**
+1. **Verificar projeto azd**: Procure `azure.yaml` na raiz do projeto
+   - Se encontrado → Use **workflow azd**
+   - Se nao encontrado → Use **workflow az CLI**
 
-2. **Locate Bicep files**: Find all `.bicep` files to validate
-   - For azd projects: Check `infra/` directory first, then project root
-   - For standalone: Use the file specified by the user or search common locations (`infra/`, `deploy/`, project root)
+2. **Localizar arquivos Bicep**: Encontre todos os arquivos `.bicep` para validar
+   - Para projetos azd: verifique primeiro `infra/`, depois a raiz do projeto
+   - Para standalone: use o arquivo especificado pelo usuario ou procure locais comuns (`infra/`, `deploy/`, raiz do projeto)
 
-3. **Auto-detect parameter files**: For each Bicep file, look for matching parameter files:
-   - `<filename>.bicepparam` (Bicep parameters - preferred)
-   - `<filename>.parameters.json` (JSON parameters)
-   - `parameters.json` or `parameters/<env>.json` in same directory
+3. **Auto-detectar arquivos de parametros**: Para cada arquivo Bicep, procure arquivos de parametros correspondentes:
+   - `<filename>.bicepparam` (parametros Bicep - preferido)
+   - `<filename>.parameters.json` (parametros JSON)
+   - `parameters.json` ou `parameters/<env>.json` no mesmo diretorio
 
-### Step 2: Validate Bicep Syntax
+### Etapa 2: Validar Sintaxe Bicep
 
-Run Bicep CLI to check template syntax before attempting deployment validation:
+Execute o Bicep CLI para checar a sintaxe do template antes de tentar validacao de deployment:
 
 ```bash
 bicep build <bicep-file> --stdout
 ```
 
-**What to capture:**
-- Syntax errors with line/column numbers
-- Warning messages
-- Build success/failure status
+**O que capturar:**
+- Erros de sintaxe com numeros de linha/coluna
+- Mensagens de warning
+- Status de sucesso/falha do build
 
-**If Bicep CLI is not installed:**
-- Note the issue in the report
-- Continue to Step 3 (Azure will validate syntax during what-if)
+**Se o Bicep CLI nao estiver instalado:**
+- Registre o problema no relatorio
+- Continue para a Etapa 3 (o Azure validara sintaxe durante o what-if)
 
-### Step 3: Run Preflight Validation
+### Etapa 3: Rodar Validacao Preflight
 
-Choose the appropriate validation based on project type detected in Step 1.
+Escolha a validacao apropriada com base no tipo de projeto detectado na Etapa 1.
 
-#### For azd Projects (azure.yaml exists)
+#### Para Projetos azd (azure.yaml existe)
 
-Use `azd provision --preview` to validate the deployment:
+Use `azd provision --preview` para validar o deployment:
 
 ```bash
 azd provision --preview
 ```
 
-If an environment is specified or multiple environments exist:
+Se um ambiente estiver especificado ou houver multiplos ambientes:
 ```bash
 azd provision --preview --environment <env-name>
 ```
 
-#### For Standalone Bicep (no azure.yaml)
+#### Para Bicep Standalone (sem azure.yaml)
 
-Determine the deployment scope from the Bicep file's `targetScope` declaration:
+Determine o escopo do deployment a partir da declaracao `targetScope` do arquivo Bicep:
 
-| Target Scope | Command |
-|--------------|---------|
+| Escopo de Destino (Target Scope) | Comando |
+|----------------------------------|---------|
 | `resourceGroup` (default) | `az deployment group what-if` |
 | `subscription` | `az deployment sub what-if` |
 | `managementGroup` | `az deployment mg what-if` |
 | `tenant` | `az deployment tenant what-if` |
 
-**Run with Provider validation level first:**
+**Execute primeiro com nivel de validacao Provider:**
 
 ```bash
 # Resource Group scope (most common)
@@ -114,9 +114,9 @@ az deployment tenant what-if \
   --validation-level Provider
 ```
 
-**Fallback Strategy:**
+**Estrategia de Fallback:**
 
-If `--validation-level Provider` fails with permission errors (RBAC), retry with `ProviderNoRbac`:
+Se `--validation-level Provider` falhar com erros de permissao (RBAC), tente novamente com `ProviderNoRbac`:
 
 ```bash
 az deployment group what-if \
@@ -125,92 +125,76 @@ az deployment group what-if \
   --validation-level ProviderNoRbac
 ```
 
-Note the fallback in the report—the user may lack full deployment permissions.
+Registre o fallback no relatorio — o usuario pode nao ter permissoes completas de deployment.
 
-### Step 4: Capture What-If Results
+### Etapa 4: Capturar Resultados do What-If
 
-Parse the what-if output to categorize resource changes:
+Parseie a saida do what-if para categorizar mudancas de recursos:
 
-| Change Type | Symbol | Meaning |
-|-------------|--------|---------|
-| Create | `+` | New resource will be created |
-| Delete | `-` | Resource will be deleted |
-| Modify | `~` | Resource properties will change |
-| NoChange | `=` | Resource unchanged |
-| Ignore | `*` | Resource not analyzed (limits reached) |
-| Deploy | `!` | Resource will be deployed (changes unknown) |
+| Tipo de Mudanca | Simbolo | Significado |
+|-----------------|---------|-------------|
+| Criar | `+` | Recurso novo sera criado |
+| Deletar | `-` | Recurso sera deletado |
+| Modify | `~` | Propriedades do recurso mudarao |
+| NoChange | `=` | Recurso sem mudancas |
+| Ignore | `*` | Recurso nao analisado (limites atingidos) |
+| Deploy | `!` | Recurso sera implantado (mudancas desconhecidas) |
 
-For modified resources, capture the specific property changes.
+Para recursos modificados, capture as mudancas especificas de propriedades.
 
-### Step 5: Generate Report
+### Etapa 5: Gerar Relatorio
 
-Create a Markdown report file in the **project root** named:
+Crie um arquivo de relatorio Markdown na **raiz do projeto** chamado:
 - `preflight-report.md`
 
-Use the template structure from [references/REPORT-TEMPLATE.md](references/REPORT-TEMPLATE.md).
+Use a estrutura do template em [references/REPORT-TEMPLATE.md](references/REPORT-TEMPLATE.md).
 
-**Report sections:**
-1. **Summary** - Overall status, timestamp, files validated, target scope
-2. **Tools Executed** - Commands run, versions, validation levels used
-3. **Issues** - All errors and warnings with severity and remediation
-4. **What-If Results** - Resources to create/modify/delete/unchanged
-5. **Recommendations** - Actionable next steps
+**Secoes do relatorio:**
+1. **Resumo** - Status geral, timestamp, arquivos validados, escopo de destino (target scope)
+2. **Tools Executadas** - Comandos rodados, versoes, niveis de validacao usados
+3. **Problemas (Issues)** - Todos os erros e warnings com severidade e remediacao
+4. **Resultados do What-If** - Recursos a criar/modificar/deletar/sem mudanca
+5. **Recomendacoes** - Proximos passos acionaveis
 
-## Required Information
+## Informacoes Necessarias
 
-Before running validation, gather:
+Antes de rodar a validacao, colete:
 
-| Information | Required For | How to Obtain |
-|-------------|--------------|---------------|
-| Resource Group | `az deployment group` | Ask user or check existing `.azure/` config |
-| Subscription | All deployments | `az account show` or ask user |
-| Location | Sub/MG/Tenant scope | Ask user or use default from config |
-| Environment | azd projects | `azd env list` or ask user |
+| Informacao | Necessaria para | Como obter |
+|-------------|----------------|------------|
+| Resource Group | `az deployment group` | Pergunte ao usuario ou verifique config `.azure/` existente |
+| Subscription | Todos os deployments | `az account show` ou pergunte ao usuario |
+| Location | Escopo Sub/MG/Tenant | Pergunte ao usuario ou use default da configuracao |
+| Environment | Projetos azd | `azd env list` ou pergunte ao usuario |
 
-If required information is missing, prompt the user before proceeding.
+Se informacao necessaria estiver faltando, pergunte ao usuario antes de prosseguir.
 
-## Error Handling
+## Tratamento de Erros
 
-See [references/ERROR-HANDLING.md](references/ERROR-HANDLING.md) for detailed error handling guidance.
+Veja [references/ERROR-HANDLING.md](references/ERROR-HANDLING.md) para orientacao detalhada de tratamento de erros.
 
-**Key principle:** Continue validation even when errors occur. Capture all issues in the final report.
+**Principio chave:** Continue a validacao mesmo quando erros ocorrerem. Capture todos os issues no relatorio final.
 
-| Error Type | Action |
+| Tipo de Erro | Acao |
 |------------|--------|
-| Not logged in | Note in report, suggest `az login` or `azd auth login` |
-| Permission denied | Fall back to `ProviderNoRbac`, note in report |
-| Bicep syntax error | Include all errors, continue to other files |
-| Tool not installed | Note in report, skip that validation step |
-| Resource group not found | Note in report, suggest creating it |
+| Nao logado | Registre no relatorio, sugira `az login` ou `azd auth login` |
+| Permissao negada | Faça fallback para `ProviderNoRbac`, registre no relatorio |
+| Erro de sintaxe Bicep | Inclua todos os erros, continue para outros arquivos |
+| Tool nao instalada | Registre no relatorio, pule essa etapa de validacao |
+| Resource group nao encontrado | Registre no relatorio, sugira cria-lo |
 
-## Tool Requirements
+## Requisitos de Ferramentas
 
-This skill uses the following tools:
+Esta skill usa as seguintes tools:
 
-- **Azure CLI** (`az`) - Version 2.76.0+ recommended for `--validation-level`
-- **Azure Developer CLI** (`azd`) - For projects with `azure.yaml`
-- **Bicep CLI** (`bicep`) - For syntax validation
-- **Azure MCP Tools** - For documentation lookups and best practices
+- **Azure CLI** (`az`) - Versao 2.76.0+ recomendada para `--validation-level`
+- **Azure Developer CLI** (`azd`) - Para projetos com `azure.yaml`
+- **Bicep CLI** (`bicep`) - Para validacao de sintaxe
+- **Azure MCP Tools** - Para consultas de documentacao e boas praticas
 
-Check tool availability before starting:
+Verifique disponibilidade das tools antes de iniciar:
 ```bash
 az --version
 azd version
 bicep --version
 ```
-
-## Example Workflow
-
-1. User: "Validate my Bicep deployment before I run it"
-2. Agent detects `azure.yaml` → azd project
-3. Agent finds `infra/main.bicep` and `infra/main.bicepparam`
-4. Agent runs `bicep build infra/main.bicep --stdout`
-5. Agent runs `azd provision --preview`
-6. Agent generates `preflight-report.md` in project root
-7. Agent summarizes findings to user
-
-## Reference Documentation
-
-- [Validation Commands Reference](references/VALIDATION-COMMANDS.md)
-- [Report Template](references/REPORT-TEMPLATE.md)
-- [Error Handling Guide](references/ERROR-HANDLING.md)

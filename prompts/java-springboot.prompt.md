@@ -1,66 +1,66 @@
 ---
 agent: 'agent'
 tools: ['changes', 'search/codebase', 'edit/editFiles', 'problems', 'search']
-description: 'Get best practices for developing applications with Spring Boot.'
+description: 'Boas praticas para desenvolver aplicacoes com Spring Boot.'
 ---
 
-# Spring Boot Best Practices
+# Boas Praticas de Spring Boot
 
-Your goal is to help me write high-quality Spring Boot applications by following established best practices.
+Seu objetivo e me ajudar a escrever aplicacoes Spring Boot de alta qualidade seguindo boas praticas consolidadas.
 
-## Project Setup & Structure
+## Setup e Estrutura do Projeto
 
-- **Build Tool:** Use Maven (`pom.xml`) or Gradle (`build.gradle`) for dependency management.
-- **Starters:** Use Spring Boot starters (e.g., `spring-boot-starter-web`, `spring-boot-starter-data-jpa`) to simplify dependency management.
-- **Package Structure:** Organize code by feature/domain (e.g., `com.example.app.order`, `com.example.app.user`) rather than by layer (e.g., `com.example.app.controller`, `com.example.app.service`).
+- **Build Tool:** Use Maven (`pom.xml`) ou Gradle (`build.gradle`) para gerenciamento de dependencias.
+- **Starters:** Use Spring Boot starters (por exemplo, `spring-boot-starter-web`, `spring-boot-starter-data-jpa`) para simplificar dependencias.
+- **Package Structure:** Organize o codigo por feature/dominio (por exemplo, `com.example.app.order`, `com.example.app.user`) em vez de por camada (por exemplo, `com.example.app.controller`, `com.example.app.service`).
 
-## Dependency Injection & Components
+## Dependency Injection e Components
 
-- **Constructor Injection:** Always use constructor-based injection for required dependencies. This makes components easier to test and dependencies explicit.
-- **Immutability:** Declare dependency fields as `private final`.
-- **Component Stereotypes:** Use `@Component`, `@Service`, `@Repository`, and `@Controller`/`@RestController` annotations appropriately to define beans.
+- **Constructor Injection:** Sempre use injecao via construtor para dependencias obrigatorias. Isso facilita testes e deixa dependencias explicitas.
+- **Immutability:** Declare campos de dependencias como `private final`.
+- **Component Stereotypes:** Use as anotacoes `@Component`, `@Service`, `@Repository` e `@Controller`/`@RestController` de forma apropriada para definir beans.
 
-## Configuration
+## Configuracao
 
-- **Externalized Configuration:** Use `application.yml` (or `application.properties`) for configuration. YAML is often preferred for its readability and hierarchical structure.
-- **Type-Safe Properties:** Use `@ConfigurationProperties` to bind configuration to strongly-typed Java objects.
-- **Profiles:** Use Spring Profiles (`application-dev.yml`, `application-prod.yml`) to manage environment-specific configurations.
-- **Secrets Management:** Do not hardcode secrets. Use environment variables, or a dedicated secret management tool like HashiCorp Vault or AWS Secrets Manager.
+- **Externalized Configuration:** Use `application.yml` (ou `application.properties`) para configuracao. YAML geralmente e preferido por legibilidade e estrutura hierarquica.
+- **Type-Safe Properties:** Use `@ConfigurationProperties` para mapear configuracao em objetos Java fortemente tipados.
+- **Profiles:** Use Spring Profiles (`application-dev.yml`, `application-prod.yml`) para gerenciar configuracoes por ambiente.
+- **Secrets Management:** Nao deixe secrets hardcoded. Use variaveis de ambiente ou uma ferramenta dedicada como HashiCorp Vault ou AWS Secrets Manager.
 
 ## Web Layer (Controllers)
 
-- **RESTful APIs:** Design clear and consistent RESTful endpoints.
-- **DTOs (Data Transfer Objects):** Use DTOs to expose and consume data in the API layer. Do not expose JPA entities directly to the client.
-- **Validation:** Use Java Bean Validation (JSR 380) with annotations (`@Valid`, `@NotNull`, `@Size`) on DTOs to validate request payloads.
-- **Error Handling:** Implement a global exception handler using `@ControllerAdvice` and `@ExceptionHandler` to provide consistent error responses.
+- **RESTful APIs:** Desenhe endpoints RESTful claros e consistentes.
+- **DTOs (Data Transfer Objects):** Use DTOs para expor e consumir dados na camada de API. Nao exponha entidades JPA diretamente ao cliente.
+- **Validation:** Use Java Bean Validation (JSR 380) com anotacoes (`@Valid`, `@NotNull`, `@Size`) nos DTOs para validar payloads de request.
+- **Error Handling:** Implemente um handler global de excecoes com `@ControllerAdvice` e `@ExceptionHandler` para respostas consistentes.
 
 ## Service Layer
 
-- **Business Logic:** Encapsulate all business logic within `@Service` classes.
-- **Statelessness:** Services should be stateless.
-- **Transaction Management:** Use `@Transactional` on service methods to manage database transactions declaratively. Apply it at the most granular level necessary.
+- **Business Logic:** Encapsule toda logica de negocio em classes `@Service`.
+- **Statelessness:** Services devem ser stateless.
+- **Transaction Management:** Use `@Transactional` em metodos de service para gerenciar transacoes de forma declarativa. Aplique no nivel mais granular necessario.
 
 ## Data Layer (Repositories)
 
-- **Spring Data JPA:** Use Spring Data JPA repositories by extending `JpaRepository` or `CrudRepository` for standard database operations.
-- **Custom Queries:** For complex queries, use `@Query` or the JPA Criteria API.
-- **Projections:** Use DTO projections to fetch only the necessary data from the database.
+- **Spring Data JPA:** Use repositorios Spring Data JPA estendendo `JpaRepository` ou `CrudRepository` para operacoes padrao.
+- **Custom Queries:** Para queries complexas, use `@Query` ou a JPA Criteria API.
+- **Projections:** Use DTO projections para buscar apenas os dados necessarios do banco.
 
 ## Logging
 
-- **SLF4J:** Use the SLF4J API for logging.
+- **SLF4J:** Use a API SLF4J para logging.
 - **Logger Declaration:** `private static final Logger logger = LoggerFactory.getLogger(MyClass.class);`
-- **Parameterized Logging:** Use parameterized messages (`logger.info("Processing user {}...", userId);`) instead of string concatenation to improve performance.
+- **Parameterized Logging:** Use mensagens parametrizadas (`logger.info("Processing user {}...", userId);`) em vez de concatenacao para melhor performance.
 
 ## Testing
 
-- **Unit Tests:** Write unit tests for services and components using JUnit 5 and a mocking framework like Mockito.
-- **Integration Tests:** Use `@SpringBootTest` for integration tests that load the Spring application context.
-- **Test Slices:** Use test slice annotations like `@WebMvcTest` (for controllers) or `@DataJpaTest` (for repositories) to test specific parts of the application in isolation.
-- **Testcontainers:** Consider using Testcontainers for reliable integration tests with real databases, message brokers, etc.
+- **Unit Tests:** Escreva testes unitarios para services e components usando JUnit 5 e um framework de mocking como Mockito.
+- **Integration Tests:** Use `@SpringBootTest` para testes de integracao que carregam o contexto Spring.
+- **Test Slices:** Use anotacoes de test slice como `@WebMvcTest` (controllers) ou `@DataJpaTest` (repositories) para testar partes especificas de forma isolada.
+- **Testcontainers:** Considere Testcontainers para testes de integracao confiaveis com bancos reais, brokers de mensagem, etc.
 
 ## Security
 
-- **Spring Security:** Use Spring Security for authentication and authorization.
-- **Password Encoding:** Always encode passwords using a strong hashing algorithm like BCrypt.
-- **Input Sanitization:** Prevent SQL injection by using Spring Data JPA or parameterized queries. Prevent Cross-Site Scripting (XSS) by properly encoding output.
+- **Spring Security:** Use Spring Security para autenticacao e autorizacao.
+- **Password Encoding:** Sempre codifique senhas com um algoritmo forte como BCrypt.
+- **Input Sanitization:** Previna SQL injection usando Spring Data JPA ou queries parametrizadas. Previna Cross-Site Scripting (XSS) codificando corretamente a saida.

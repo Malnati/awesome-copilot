@@ -1,18 +1,18 @@
 ---
-name: 'Refactoring Java Methods with Remove Parameter'
+name: 'Refatoracao de Metodos Java com Remove Parameter'
 agent: 'agent'
-description: 'Refactoring using Remove Parameter in Java Language'
+description: 'Refatoracao usando Remove Parameter em Java'
 ---
 
-# Refactoring Java Methods with Remove Parameter
+# Refatoracao de Metodos Java com Remove Parameter
 
-## Role
+## Papel
 
-You are an expert in refactoring Java methods.
+Voce e especialista em refatoracao de metodos Java.
 
-Below are **2 examples** (with titles code before and code after refactoring) that represents **Remove Parameter**.
+Abaixo ha **2 exemplos** (com titulo, codigo antes e codigo depois da refatoracao) que representam **Remove Parameter**.
 
-## Code Before Refactoring 1:
+## Codigo Antes da Refatoracao 1:
 ```java
 public Backend selectBackendForGroupCommit(long tableId, ConnectContext context, boolean isCloud)
         throws LoadException, DdlException {
@@ -31,7 +31,7 @@ public Backend selectBackendForGroupCommit(long tableId, ConnectContext context,
 }
 ```
 
-## Code After Refactoring 1:
+## Codigo Depois da Refatoracao 1:
 ```java
 public Backend selectBackendForGroupCommit(long tableId, ConnectContext context)
         throws LoadException, DdlException {
@@ -50,7 +50,7 @@ public Backend selectBackendForGroupCommit(long tableId, ConnectContext context)
 }
 ```
 
-## Code Before Refactoring 2:
+## Codigo Antes da Refatoracao 2:
 ```java
 NodeImpl( long id, long firstRel, long firstProp )
 {
@@ -58,7 +58,7 @@ NodeImpl( long id, long firstRel, long firstProp )
 }
 ```
 
-## Code After Refactoring 2:
+## Codigo Depois da Refatoracao 2:
 ```java
 NodeImpl( long id)
 {
@@ -66,20 +66,20 @@ NodeImpl( long id)
 }
 ```
 
-## Task
+## Tarefa
 
-Apply **Remove Parameter** to improve readability, testability, maintainability, reusability, modularity, cohesion, low coupling, and consistency.
+Aplique **Remove Parameter** para melhorar legibilidade, testabilidade, manutenibilidade, reusabilidade, modularidade, coesao, baixo acoplamento e consistencia.
 
-Always return a complete and compilable method (Java 17).
+Sempre retorne um metodo completo e compilavel (Java 17).
 
-Perform intermediate steps internally:
-- First, analyze each method and identify parameters that are unused or redundant (i.e., values that can be obtained from class fields, constants, or other method calls).
-- For each qualifying method, remove the unnecessary parameters from its definition and from all its internal calls.
-- Ensure that the method continues to function correctly after parameter removal.
-- Output only the refactored code inside a single ```java``` block.
-- Do not remove any functionality from the original method.
-- Include a one-line comment above each modified method indicating which parameter was removed and why.
+Execute etapas intermediarias internamente:
+- Primeiro, analise cada metodo e identifique parametros nao usados ou redundantes (isto e, valores que podem ser obtidos de campos da classe, constantes ou outras chamadas de metodo).
+- Para cada metodo qualificado, remova os parametros desnecessarios da definicao e de todas as chamadas internas.
+- Garanta que o metodo continue funcionando corretamente apos a remocao de parametros.
+- Exiba apenas o codigo refatorado dentro de um unico bloco ```java```.
+- Nao remova nenhuma funcionalidade do metodo original.
+- Inclua um comentario de uma linha acima de cada metodo modificado indicando qual parametro foi removido e por que.
 
-## Code to be Refactored:
+## Codigo a Ser Refatorado:
 
-Now, assess all methods with unused parameters and refactor them using **Remove Parameter**
+Agora, avalie todos os metodos com parametros nao usados e refatore-os usando **Remove Parameter**

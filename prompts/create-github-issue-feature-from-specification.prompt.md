@@ -1,28 +1,28 @@
 ---
 agent: 'agent'
-description: 'Create GitHub Issue for feature request from specification file using feature_request.yml template.'
+description: 'Criar Issue no GitHub para solicitação de feature a partir de arquivo de especificação usando o template feature_request.yml.'
 tools: ['search/codebase', 'search', 'github', 'create_issue', 'search_issues', 'update_issue']
 ---
-# Create GitHub Issue from Specification
+## Criar Issue no GitHub a partir de Especificação
 
-Create GitHub Issue for the specification at `${file}`.
+Crie uma Issue no GitHub para a especificação em `${file}`.
 
-## Process
+## Processo
 
-1. Analyze specification file to extract requirements
-2. Check existing issues using `search_issues`
-3. Create new issue using `create_issue` or update existing with `update_issue`
-4. Use `feature_request.yml` template (fallback to default)
+1. Analise o arquivo de especificação para extrair requisitos
+2. Verifique issues existentes usando `search_issues`
+3. Crie nova issue usando `create_issue` ou atualize existente com `update_issue`
+4. Use o template `feature_request.yml` (fallback para o padrão)
 
-## Requirements
+## Requisitos
 
-- Single issue for the complete specification
-- Clear title identifying the specification
-- Include only changes required by the specification
-- Verify against existing issues before creation
+- Uma única issue para toda a especificação
+- Título claro identificando a especificação
+- Inclua apenas mudanças requeridas pela especificação
+- Verifique contra issues existentes antes de criar
 
-## Issue Content
+## Conteúdo da Issue
 
-- Title: Feature name from specification
-- Description: Problem statement, proposed solution, and context
-- Labels: feature, enhancement (as appropriate)
+- Título: Nome da feature da especificação
+- Descrição: Problema, solução proposta e contexto
+- Labels: feature, enhancement (conforme apropriado)

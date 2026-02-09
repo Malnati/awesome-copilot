@@ -1,28 +1,28 @@
 ---
 agent: 'agent'
-description: 'Create GitHub Issues from implementation plan phases using feature_request.yml or chore_request.yml templates.'
+description: 'Crie GitHub Issues a partir de fases do plano de implementacao usando templates feature_request.yml ou chore_request.yml.'
 tools: ['search/codebase', 'search', 'github', 'create_issue', 'search_issues', 'update_issue']
 ---
-# Create GitHub Issue from Implementation Plan
+# Criar GitHub Issue a partir de Plano de Implementacao
 
-Create GitHub Issues for the implementation plan at `${file}`.
+Crie GitHub Issues para o plano de implementacao em `${file}`.
 
-## Process
+## Processo
 
-1. Analyze plan file to identify phases
-2. Check existing issues using `search_issues`
-3. Create new issue per phase using `create_issue` or update existing with `update_issue`
-4. Use `feature_request.yml` or `chore_request.yml` templates (fallback to default)
+1. Analise o arquivo do plano para identificar fases
+2. Verifique issues existentes usando `search_issues`
+3. Crie nova issue por fase usando `create_issue` ou atualize existente com `update_issue`
+4. Use os templates `feature_request.yml` ou `chore_request.yml` (fallback para default)
 
-## Requirements
+## Requisitos
 
-- One issue per implementation phase
-- Clear, structured titles and descriptions
-- Include only changes required by the plan
-- Verify against existing issues before creation
+- Uma issue por fase de implementacao
+- Titulos e descricoes claros e estruturados
+- Inclua apenas mudancas exigidas pelo plano
+- Verifique contra issues existentes antes de criar
 
-## Issue Content
+## Conteudo da Issue
 
-- Title: Phase name from implementation plan
-- Description: Phase details, requirements, and context
-- Labels: Appropriate for issue type (feature/chore)
+- Title: Nome da fase do plano de implementacao
+- Description: Detalhes da fase, requisitos e contexto
+- Labels: Apropriadas ao tipo de issue (feature/chore)

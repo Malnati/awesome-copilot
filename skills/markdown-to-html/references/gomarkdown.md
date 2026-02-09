@@ -1,8 +1,8 @@
-# gomarkdown/markdown Reference
+# Referencia de gomarkdown/markdown
 
-Go library for parsing Markdown and rendering HTML. Fast, extensible, and thread-safe.
+Biblioteca Go para parsear Markdown e renderizar HTML. Rapida, extensivel e thread-safe.
 
-## Installation
+## Instalacao
 
 ```bash
 # Add to your Go project
@@ -12,9 +12,9 @@ go get github.com/gomarkdown/markdown
 go install github.com/gomarkdown/mdtohtml@latest
 ```
 
-## Basic Usage
+## Uso Basico
 
-### Simple Conversion
+### Conversao Simples
 
 ```go
 package main
@@ -31,7 +31,7 @@ func main() {
 }
 ```
 
-### Using CLI Tool
+### Usando CLI Tool
 
 ```bash
 # Convert file to HTML
@@ -41,7 +41,7 @@ mdtohtml input.md output.html
 mdtohtml input.md
 ```
 
-## Parser Configuration
+## Configuracao do Parser
 
 ### Common Extensions
 
@@ -72,13 +72,13 @@ doc := p.Parse(md)
 | `parser.HeadingIDs` | Custom heading IDs {#id} |
 | `parser.AutoHeadingIDs` | Auto-generate heading IDs |
 | `parser.Footnotes` | Footnote support |
-| `parser.NoEmptyLineBeforeBlock` | No blank line required before blocks |
+| `parser.NoEmptyLineBeforeBlock` | Nao exige linha em branco antes de blocos |
 | `parser.HardLineBreak` | Newlines become `<br>` |
 | `parser.MathJax` | MathJax support |
 | `parser.SuperSubscript` | Super^script^ and sub~script~ |
 | `parser.Mmark` | Mmark syntax support |
 
-## HTML Renderer Configuration
+## Configuracao do HTML Renderer
 
 ### Common Flags
 
@@ -133,7 +133,7 @@ opts := html.RendererOptions{
 }
 ```
 
-## Complete Example
+## Exemplo Completo
 
 ```go
 package main
@@ -234,9 +234,9 @@ func (r *MyRenderer) RenderNode(w io.Writer, node ast.Node, entering bool) ast.W
 }
 ```
 
-## Handling Newlines
+## Tratamento de Newlines
 
-Windows and Mac newlines need normalization:
+Newlines de Windows e Mac precisam de normalizacao:
 
 ```go
 // Normalize newlines before parsing
@@ -244,7 +244,7 @@ normalized := parser.NormalizeNewlines(input)
 html := markdown.ToHTML(normalized, nil, nil)
 ```
 
-## Resources
+## Recursos
 
 - [Package Documentation](https://pkg.go.dev/github.com/gomarkdown/markdown)
 - [Advanced Processing Guide](https://blog.kowalczyk.info/article/cxn3/advanced-markdown-processing-in-go.html)

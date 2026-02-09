@@ -1,45 +1,45 @@
 # minipro Chip Programming Utility Specification
 
-## 1. Overview
+## 1. Visao geral
 
-**minipro** is an open-source, command-line utility used to **program, read, erase, and verify** a wide range of **EEPROM, Flash, EPROM, SRAM, GAL, and logic devices** using supported universal programmers such as the **T48**, **TL866II Plus**, and compatible models.
+O **minipro** e um utilitario open-source de linha de comando usado para **programar, ler, apagar e verificar** uma ampla gama de **EEPROM, Flash, EPROM, SRAM, GAL e dispositivos logicos** usando programadores universais suportados como **T48**, **TL866II Plus** e modelos compativeis.
 
-It is widely used in **Linux**, **macOS**, and **Windows** environments, especially for **retrocomputing**, **firmware development**, and **electronics prototyping**.
-
----
-
-## 2. Supported Programmers
-
-| Programmer   | Notes                      |
-| ------------ | -------------------------- |
-| T48          | Full support (recommended) |
-| TL866II Plus | Full support               |
-| TL866A / CS  | Limited / legacy support   |
+E amplamente usado em ambientes **Linux**, **macOS** e **Windows**, especialmente para **retrocomputing**, **desenvolvimento de firmware** e **prototipagem eletronica**.
 
 ---
 
-## 3. Supported Device Types
+## 2. Programadores suportados
 
-### 3.1 Memory Devices
+| Programador  | Notas                      |
+| ----------- | -------------------------- |
+| T48         | Suporte total (recomendado) |
+| TL866II Plus | Suporte total             |
+| TL866A / CS | Suporte limitado / legado  |
 
-* Parallel EEPROM (e.g., AT28C256)
-* Flash memory (29xxx series)
-* EPROM (27xxx series)
-* SRAM (read/verify only)
+---
 
-### 3.2 Logic and PLDs
+## 3. Tipos de dispositivos suportados
+
+### 3.1 Dispositivos de memoria
+
+* Parallel EEPROM (ex.: AT28C256)
+* Flash memory (serie 29xxx)
+* EPROM (serie 27xxx)
+* SRAM (somente read/verify)
+
+### 3.2 Logica e PLDs
 
 * GAL16V8 / GAL22V10
-* PAL devices (limited)
+* Dispositivos PAL (limitado)
 
-### 3.3 Other Devices
+### 3.3 Outros dispositivos
 
-* Some microcontrollers (device-dependent)
-* Logic IC testing (selected models)
+* Alguns microcontrollers (dependente do dispositivo)
+* Teste de ICs logicos (modelos selecionados)
 
 ---
 
-## 4. Installation
+## 4. Instalacao
 
 ### 4.1 Linux
 
@@ -47,7 +47,7 @@ It is widely used in **Linux**, **macOS**, and **Windows** environments, especia
 sudo apt install minipro
 ```
 
-or from source:
+ou via source:
 
 ```bash
 git clone https://github.com/vdudouyt/minipro.git
@@ -57,58 +57,58 @@ sudo make install
 
 ### 4.2 Windows
 
-* Install via MSYS2 or prebuilt binaries
-* Requires libusb driver (WinUSB)
+* Instalar via MSYS2 ou binarios precompilados
+* Requer driver libusb (WinUSB)
 
 ---
 
-## 5. Basic Command Syntax
+## 5. Sintaxe basica de comando
 
 ```bash
 minipro [options]
 ```
 
-Common options:
+Options comuns:
 
-| Option        | Description            |
+| Option        | Descricao              |
 | ------------- | ---------------------- |
-| `-p <device>` | Select target device   |
-| `-r <file>`   | Read device to file    |
-| `-w <file>`   | Write file to device   |
-| `-e`          | Erase device           |
-| `-v`          | Verify contents        |
-| `-I`          | Device information     |
-| `-l`          | List supported devices |
+| `-p <device>` | Seleciona dispositivo alvo |
+| `-r <file>`   | Le dispositivo para arquivo |
+| `-w <file>`   | Escreve arquivo no dispositivo |
+| `-e`          | Apaga dispositivo       |
+| `-v`          | Verifica conteudo       |
+| `-I`          | Informacoes do dispositivo |
+| `-l`          | Lista dispositivos suportados |
 
 ---
 
-## 6. Common Programming Operations
+## 6. Operacoes comuns de programacao
 
-### 6.1 List Supported Devices
+### 6.1 Listar dispositivos suportados
 
 ```bash
 minipro -l
 ```
 
-### 6.2 Identify Device
+### 6.2 Identificar dispositivo
 
 ```bash
 minipro -p AT28C256 -I
 ```
 
-### 6.3 Read a Chip
+### 6.3 Ler um chip
 
 ```bash
 minipro -p AT28C256 -r rom_dump.bin
 ```
 
-### 6.4 Write a Chip
+### 6.4 Escrever um chip
 
 ```bash
 minipro -p AT28C256 -w rom.bin
 ```
 
-### 6.5 Verify Only
+### 6.5 Verificacao apenas
 
 ```bash
 minipro -p AT28C256 -v rom.bin
@@ -116,91 +116,91 @@ minipro -p AT28C256 -v rom.bin
 
 ---
 
-## 7. Programming EEPROMs (AT28C256 Example)
+## 7. Programando EEPROMs (exemplo AT28C256)
 
 ```bash
 minipro -p AT28C256 -w monitor.bin
 ```
 
-* Software Data Protection is handled automatically
-* Write cycle delays are internally managed
-* Verification performed after programming
+* Software Data Protection e tratado automaticamente
+* Delays do ciclo de escrita sao gerenciados internamente
+* Verificacao executada apos a programacao
 
 ---
 
-## 8. Programming Flash Memory
+## 8. Programando Flash memory
 
 ```bash
 minipro -p SST39SF040 -e -w firmware.bin
 ```
 
-* Erase step required for Flash devices
-* Sector erase handled automatically
+* Etapa de erase exigida para dispositivos Flash
+* Sector erase tratado automaticamente
 
 ---
 
-## 9. EPROM Operations
+## 9. Operacoes com EPROM
 
 ```bash
 minipro -p 27C256 -r eprom.bin
 ```
 
-* UV erase required before reprogramming
-* minipro verifies blank state before write
+* UV erase exigido antes de reprogramar
+* minipro verifica estado blank antes de escrever
 
 ---
 
-## 10. GAL Programming
+## 10. Programacao de GAL
 
 ```bash
 minipro -p GAL22V10 -w logic.jed
 ```
 
-* Uses JEDEC files
-* Supports read, write, and verify
-* Fuse maps viewable via `-I`
+* Usa arquivos JEDEC
+* Suporta read, write e verify
+* Fuse maps visiveis via `-I`
 
 ---
 
-## 11. Error Handling and Messages
+## 11. Tratamento de erros e mensagens
 
-| Message                | Meaning                    |
-| ---------------------- | -------------------------- |
-| `Device not found`     | Incorrect device selection |
-| `Verification failed`  | Data mismatch              |
-| `Chip protected`       | Write protection enabled   |
-| `Overcurrent detected` | Insertion or wiring error  |
-
----
-
-## 12. Safety and Best Practices
-
-* Always confirm device orientation in ZIF socket
-* Use correct device identifier (`-p`)
-* Do not hot-insert chips during operation
-* Use adapters for PLCC, SOP, TSOP packages
+| Mensagem              | Significado                |
+| --------------------- | -------------------------- |
+| `Device not found`    | Selecionado dispositivo incorreto |
+| `Verification failed` | Dados nao conferem          |
+| `Chip protected`      | Write protection habilitada |
+| `Overcurrent detected` | Erro de insercao ou fiação |
 
 ---
 
-## 13. Typical Retrocomputing Workflow
+## 12. Seguranca e boas praticas
 
-1. Assemble ROM image
-2. Program EEPROM using minipro + T48
-3. Verify contents
-4. Install chip in SBC
-5. Test system boot
-
----
-
-## 14. Limitations
-
-* Not all devices are supported
-* Some microcontrollers require proprietary tools
-* In-circuit programming (ISP) not supported
+* Confirme sempre a orientacao do dispositivo no ZIF socket
+* Use o identificador correto (`-p`)
+* Nao insira chips durante operacao
+* Use adaptadores para encapsulamentos PLCC, SOP, TSOP
 
 ---
 
-## 15. References
+## 13. Workflow tipico de retrocomputing
+
+1. Montar imagem da ROM
+2. Programar EEPROM usando minipro + T48
+3. Verificar conteudo
+4. Instalar chip no SBC
+5. Testar boot do sistema
+
+---
+
+## 14. Limitacoes
+
+* Nem todos os dispositivos sao suportados
+* Alguns microcontrollers requerem ferramentas proprietarias
+* In-circuit programming (ISP) nao suportado
+
+---
+
+## 15. Referencias
 
 * <https://gitlab.com/DavidGriffith/minipro>
 * <https://www.hadex.cz/spec/m545b.pdf>

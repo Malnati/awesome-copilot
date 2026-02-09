@@ -1,322 +1,322 @@
 ---
-description: 'Comprehensive project architecture blueprint generator that analyzes codebases to create detailed architectural documentation. Automatically detects technology stacks and architectural patterns, generates visual diagrams, documents implementation patterns, and provides extensible blueprints for maintaining architectural consistency and guiding new development.'
+description: 'Gerador abrangente de blueprint de arquitetura de projeto que analisa o código para criar documentação arquitetural detalhada. Detecta automaticamente stacks de tecnologia e padrões arquiteturais, gera diagramas visuais, documenta padrões de implementação e fornece blueprints extensíveis para manter a consistência arquitetural e orientar novos desenvolvimentos.'
 agent: 'agent'
 ---
 
-# Comprehensive Project Architecture Blueprint Generator
+## Gerador Abrangente de Blueprint de Arquitetura de Projeto
 
-## Configuration Variables
-${PROJECT_TYPE="Auto-detect|.NET|Java|React|Angular|Python|Node.js|Flutter|Other"} <!-- Primary technology -->
-${ARCHITECTURE_PATTERN="Auto-detect|Clean Architecture|Microservices|Layered|MVVM|MVC|Hexagonal|Event-Driven|Serverless|Monolithic|Other"} <!-- Primary architectural pattern -->
-${DIAGRAM_TYPE="C4|UML|Flow|Component|None"} <!-- Architecture diagram type -->
-${DETAIL_LEVEL="High-level|Detailed|Comprehensive|Implementation-Ready"} <!-- Level of detail to include -->
-${INCLUDES_CODE_EXAMPLES=true|false} <!-- Include sample code to illustrate patterns -->
-${INCLUDES_IMPLEMENTATION_PATTERNS=true|false} <!-- Include detailed implementation patterns -->
-${INCLUDES_DECISION_RECORDS=true|false} <!-- Include architectural decision records -->
-${FOCUS_ON_EXTENSIBILITY=true|false} <!-- Emphasize extension points and patterns -->
+## Variáveis de Configuração
+${PROJECT_TYPE="Auto-detect|.NET|Java|React|Angular|Python|Node.js|Flutter|Other"} <!-- Tecnologia principal -->
+${ARCHITECTURE_PATTERN="Auto-detect|Clean Architecture|Microservices|Layered|MVVM|MVC|Hexagonal|Event-Driven|Serverless|Monolithic|Other"} <!-- Padrão arquitetural principal -->
+${DIAGRAM_TYPE="C4|UML|Flow|Component|None"} <!-- Tipo de diagrama de arquitetura -->
+${DETAIL_LEVEL="High-level|Detailed|Comprehensive|Implementation-Ready"} <!-- Nível de detalhe a incluir -->
+${INCLUDES_CODE_EXAMPLES=true|false} <!-- Incluir exemplos de código para ilustrar padrões -->
+${INCLUDES_IMPLEMENTATION_PATTERNS=true|false} <!-- Incluir padrões de implementação detalhados -->
+${INCLUDES_DECISION_RECORDS=true|false} <!-- Incluir registros de decisão arquitetural -->
+${FOCUS_ON_EXTENSIBILITY=true|false} <!-- Enfatizar pontos e padrões de extensão -->
 
-## Generated Prompt
+## Prompt Gerado
 
-"Create a comprehensive 'Project_Architecture_Blueprint.md' document that thoroughly analyzes the architectural patterns in the codebase to serve as a definitive reference for maintaining architectural consistency. Use the following approach:
+"Crie um documento abrangente 'Project_Architecture_Blueprint.md' que analise profundamente os padrões arquiteturais do código para servir como referência definitiva na manutenção da consistência arquitetural. Use a abordagem a seguir:
 
-### 1. Architecture Detection and Analysis
-- ${PROJECT_TYPE == "Auto-detect" ? "Analyze the project structure to identify all technology stacks and frameworks in use by examining:
-  - Project and configuration files
-  - Package dependencies and import statements
-  - Framework-specific patterns and conventions
-  - Build and deployment configurations" : "Focus on ${PROJECT_TYPE} specific patterns and practices"}
-  
-- ${ARCHITECTURE_PATTERN == "Auto-detect" ? "Determine the architectural pattern(s) by analyzing:
-  - Folder organization and namespacing
+### 1. Detecção e Análise de Arquitetura
+- ${PROJECT_TYPE == "Auto-detect" ? "Analise a estrutura do projeto para identificar todos os stacks de tecnologia e frameworks em uso examinando:
+  - Arquivos de projeto e configuração
+  - Dependências de pacotes e imports
+  - Padrões e convenções específicas de framework
+  - Configurações de build e deploy" : "Foque em padrões e práticas específicas de ${PROJECT_TYPE}"}
+
+- ${ARCHITECTURE_PATTERN == "Auto-detect" ? "Determine o(s) padrão(ões) arquiteturais analisando:
+  - Organização de pastas e namespacing
   - Dependency flow and component boundaries
   - Interface segregation and abstraction patterns
-  - Communication mechanisms between components" : "Document how the ${ARCHITECTURE_PATTERN} architecture is implemented"}
+  - Communication mechanisms between components" : "Documente como a arquitetura ${ARCHITECTURE_PATTERN} é implementada"}
 
-### 2. Architectural Overview
-- Provide a clear, concise explanation of the overall architectural approach
-- Document the guiding principles evident in the architectural choices
-- Identify architectural boundaries and how they're enforced
-- Note any hybrid architectural patterns or adaptations of standard patterns
+### 2. Visão Geral da Arquitetura
+- Forneça uma explicação clara e concisa da abordagem arquitetural geral
+- Documente os princípios orientadores evidentes nas escolhas arquiteturais
+- Identifique limites arquiteturais e como são aplicados
+- Observe quaisquer padrões híbridos ou adaptações de padrões
 
-### 3. Architecture Visualization
-${DIAGRAM_TYPE != "None" ? `Create ${DIAGRAM_TYPE} diagrams at multiple levels of abstraction:
-- High-level architectural overview showing major subsystems
-- Component interaction diagrams showing relationships and dependencies
-- Data flow diagrams showing how information moves through the system
-- Ensure diagrams accurately reflect the actual implementation, not theoretical patterns` : "Describe the component relationships based on actual code dependencies, providing clear textual explanations of:
-- Subsystem organization and boundaries
-- Dependency directions and component interactions
-- Data flow and process sequences"}
+### 3. Visualização da Arquitetura
+${DIAGRAM_TYPE != "None" ? `Crie diagramas ${DIAGRAM_TYPE} em múltiplos níveis de abstração:
+- Visão geral de alto nível mostrando os principais subsistemas
+- Diagramas de interação de componentes mostrando relacionamentos e dependências
+- Diagramas de fluxo de dados mostrando como a informação percorre o sistema
+- Garanta que os diagramas reflitam a implementação real, não padrões teóricos` : "Descreva os relacionamentos entre componentes com base nas dependências reais do código, fornecendo explicações textuais claras de:
+- Organização e limites dos subsistemas
+- Direções de dependência e interações entre componentes
+- Fluxo de dados e sequências de processo"}
 
-### 4. Core Architectural Components
-For each architectural component discovered in the codebase:
+### 4. Componentes Arquiteturais Centrais
+Para cada componente arquitetural descoberto no codebase:
 
-- **Purpose and Responsibility**:
-  - Primary function within the architecture
-  - Business domains or technical concerns addressed
-  - Boundaries and scope limitations
+- **Propósito e Responsabilidade**:
+  - Função principal dentro da arquitetura
+  - Domínios de negócio ou preocupações técnicas atendidas
+  - Limites e escopo
 
-- **Internal Structure**:
-  - Organization of classes/modules within the component
-  - Key abstractions and their implementations
-  - Design patterns utilized
+- **Estrutura Interna**:
+  - Organização de classes/módulos dentro do componente
+  - Principais abstrações e suas implementações
+  - Padrões de design utilizados
 
-- **Interaction Patterns**:
-  - How the component communicates with others
-  - Interfaces exposed and consumed
-  - Dependency injection patterns
-  - Event publishing/subscription mechanisms
+- **Padrões de Interação**:
+  - Como o componente se comunica com outros
+  - Interfaces expostas e consumidas
+  - Padrões de dependency injection
+  - Mecanismos de publicação/assinatura de eventos
 
-- **Evolution Patterns**:
-  - How the component can be extended
-  - Variation points and plugin mechanisms
-  - Configuration and customization approaches
+- **Padrões de Evolução**:
+  - Como o componente pode ser estendido
+  - Pontos de variação e mecanismos de plugin
+  - Abordagens de configuração e customização
 
-### 5. Architectural Layers and Dependencies
-- Map the layer structure as implemented in the codebase
-- Document the dependency rules between layers
-- Identify abstraction mechanisms that enable layer separation
-- Note any circular dependencies or layer violations
-- Document dependency injection patterns used to maintain separation
+### 5. Camadas Arquiteturais e Dependências
+- Mapeie a estrutura de camadas conforme implementada no codebase
+- Documente regras de dependência entre camadas
+- Identifique mecanismos de abstração que permitem separação de camadas
+- Observe dependências circulares ou violações de camadas
+- Documente padrões de dependency injection usados para manter a separação
 
-### 6. Data Architecture
-- Document domain model structure and organization
-- Map entity relationships and aggregation patterns
-- Identify data access patterns (repositories, data mappers, etc.)
-- Document data transformation and mapping approaches
-- Note caching strategies and implementations
-- Document data validation patterns
+### 6. Arquitetura de Dados
+- Documente a estrutura e organização do domain model
+- Mapeie relacionamentos de entidades e padrões de agregação
+- Identifique padrões de acesso a dados (repositories, data mappers, etc.)
+- Documente abordagens de transformação e mapeamento de dados
+- Observe estratégias e implementações de caching
+- Documente padrões de validação de dados
 
-### 7. Cross-Cutting Concerns Implementation
-Document implementation patterns for cross-cutting concerns:
+### 7. Implementação de Cross-Cutting Concerns
+Documente padrões de implementação para cross-cutting concerns:
 
 - **Authentication & Authorization**:
-  - Security model implementation
-  - Permission enforcement patterns
-  - Identity management approach
-  - Security boundary patterns
+  - Implementação do modelo de segurança
+  - Padrões de enforcement de permissões
+  - Abordagem de gestão de identidade
+  - Padrões de limites de segurança
 
 - **Error Handling & Resilience**:
-  - Exception handling patterns
-  - Retry and circuit breaker implementations
-  - Fallback and graceful degradation strategies
-  - Error reporting and monitoring approaches
+  - Padrões de tratamento de exceções
+  - Implementações de retry e circuit breaker
+  - Estratégias de fallback e graceful degradation
+  - Abordagens de reporte de erro e monitoring
 
 - **Logging & Monitoring**:
-  - Instrumentation patterns
-  - Observability implementation
-  - Diagnostic information flow
-  - Performance monitoring approach
+  - Padrões de instrumentação
+  - Implementação de observability
+  - Fluxo de informações diagnósticas
+  - Abordagem de performance monitoring
 
 - **Validation**:
-  - Input validation strategies
-  - Business rule validation implementation
-  - Validation responsibility distribution
-  - Error reporting patterns
+  - Estratégias de validação de entrada
+  - Implementação de validação de regras de negócio
+  - Distribuição de responsabilidades de validação
+  - Padrões de reporte de erro
 
 - **Configuration Management**:
-  - Configuration source patterns
-  - Environment-specific configuration strategies
-  - Secret management approach
-  - Feature flag implementation
+  - Padrões de fontes de configuração
+  - Estratégias de configuração por ambiente
+  - Abordagem de gestão de secrets
+  - Implementação de feature flags
 
-### 8. Service Communication Patterns
-- Document service boundary definitions
-- Identify communication protocols and formats
-- Map synchronous vs. asynchronous communication patterns
-- Document API versioning strategies
-- Identify service discovery mechanisms
-- Note resilience patterns in service communication
+### 8. Padrões de Comunicação entre Serviços
+- Documente definições de limites de serviço
+- Identifique protocolos e formatos de comunicação
+- Mapeie padrões de comunicação síncrona vs. assíncrona
+- Documente estratégias de versionamento de API
+- Identifique mecanismos de service discovery
+- Observe padrões de resiliência na comunicação entre serviços
 
-### 9. Technology-Specific Architectural Patterns
-${PROJECT_TYPE == "Auto-detect" ? "For each detected technology stack, document specific architectural patterns:" : `Document ${PROJECT_TYPE}-specific architectural patterns:`}
+### 9. Padrões Arquiteturais Específicos por Tecnologia
+${PROJECT_TYPE == "Auto-detect" ? "Para cada stack de tecnologia detectado, documente padrões arquiteturais específicos:" : `Documente padrões arquiteturais específicos de ${PROJECT_TYPE}:`}
 
-${(PROJECT_TYPE == ".NET" || PROJECT_TYPE == "Auto-detect") ? 
+${(PROJECT_TYPE == ".NET" || PROJECT_TYPE == "Auto-detect") ?
 "#### .NET Architectural Patterns (if detected)
-- Host and application model implementation
-- Middleware pipeline organization
-- Framework service integration patterns
-- ORM and data access approaches
-- API implementation patterns (controllers, minimal APIs, etc.)
-- Dependency injection container configuration" : ""}
+- Host e application model
+- Organização do pipeline de middleware
+- Padrões de integração de serviços do framework
+- Abordagens de ORM e acesso a dados
+- Padrões de implementação de API (controllers, minimal APIs, etc.)
+- Configuração do container de dependency injection" : ""}
 
-${(PROJECT_TYPE == "Java" || PROJECT_TYPE == "Auto-detect") ? 
+${(PROJECT_TYPE == "Java" || PROJECT_TYPE == "Auto-detect") ?
 "#### Java Architectural Patterns (if detected)
-- Application container and bootstrap process
-- Dependency injection framework usage (Spring, CDI, etc.)
-- AOP implementation patterns
-- Transaction boundary management
-- ORM configuration and usage patterns
-- Service implementation patterns" : ""}
+- Container da aplicação e processo de bootstrap
+- Uso de framework de dependency injection (Spring, CDI, etc.)
+- Padrões de implementação de AOP
+- Gestão de limites transacionais
+- Configuração e padrões de uso de ORM
+- Padrões de implementação de serviços" : ""}
 
-${(PROJECT_TYPE == "React" || PROJECT_TYPE == "Auto-detect") ? 
+${(PROJECT_TYPE == "React" || PROJECT_TYPE == "Auto-detect") ?
 "#### React Architectural Patterns (if detected)
-- Component composition and reuse strategies
-- State management architecture
-- Side effect handling patterns
-- Routing and navigation approach
-- Data fetching and caching patterns
-- Rendering optimization strategies" : ""}
+- Estratégias de composição e reutilização de componentes
+- Arquitetura de state management
+- Padrões de tratamento de side effects
+- Abordagem de routing e navigation
+- Padrões de data fetching e caching
+- Estratégias de otimização de rendering" : ""}
 
-${(PROJECT_TYPE == "Angular" || PROJECT_TYPE == "Auto-detect") ? 
+${(PROJECT_TYPE == "Angular" || PROJECT_TYPE == "Auto-detect") ?
 "#### Angular Architectural Patterns (if detected)
-- Module organization strategy
-- Component hierarchy design
-- Service and dependency injection patterns
-- State management approach
-- Reactive programming patterns
-- Route guard implementation" : ""}
+- Estratégia de organização de módulos
+- Design de hierarquia de componentes
+- Padrões de services e dependency injection
+- Abordagem de state management
+- Padrões de programação reativa
+- Implementação de route guards" : ""}
 
-${(PROJECT_TYPE == "Python" || PROJECT_TYPE == "Auto-detect") ? 
+${(PROJECT_TYPE == "Python" || PROJECT_TYPE == "Auto-detect") ?
 "#### Python Architectural Patterns (if detected)
-- Module organization approach
-- Dependency management strategy
-- OOP vs. functional implementation patterns
-- Framework integration patterns
-- Asynchronous programming approach" : ""}
+- Abordagem de organização de módulos
+- Estratégia de gerenciamento de dependências
+- Padrões de implementação OOP vs. funcional
+- Padrões de integração com framework
+- Abordagem de programação assíncrona" : ""}
 
-### 10. Implementation Patterns
-${INCLUDES_IMPLEMENTATION_PATTERNS ? 
-"Document concrete implementation patterns for key architectural components:
+### 10. Padrões de Implementação
+${INCLUDES_IMPLEMENTATION_PATTERNS ?
+"Documente padrões concretos de implementação para componentes arquiteturais-chave:
 
 - **Interface Design Patterns**:
-  - Interface segregation approaches
-  - Abstraction level decisions
-  - Generic vs. specific interface patterns
-  - Default implementation patterns
+  - Abordagens de interface segregation
+  - Decisões de nível de abstração
+  - Padrões de interface genérica vs. específica
+  - Padrões de implementação padrão
 
 - **Service Implementation Patterns**:
-  - Service lifetime management
-  - Service composition patterns
-  - Operation implementation templates
-  - Error handling within services
+  - Gestão de lifecycle de serviços
+  - Padrões de composição de serviços
+  - Templates de implementação de operações
+  - Tratamento de erros dentro de serviços
 
 - **Repository Implementation Patterns**:
-  - Query pattern implementations
-  - Transaction management
-  - Concurrency handling
-  - Bulk operation patterns
+  - Implementações de query patterns
+  - Gestão transacional
+  - Tratamento de concorrência
+  - Padrões de operações em lote
 
 - **Controller/API Implementation Patterns**:
-  - Request handling patterns
-  - Response formatting approaches
-  - Parameter validation
-  - API versioning implementation
+  - Padrões de tratamento de request
+  - Abordagens de formatação de response
+  - Validação de parâmetros
+  - Implementação de versionamento de API
 
 - **Domain Model Implementation**:
-  - Entity implementation patterns
-  - Value object patterns
-  - Domain event implementation
-  - Business rule enforcement" : "Mention that detailed implementation patterns vary across the codebase."}
+  - Padrões de implementação de entidades
+  - Padrões de value objects
+  - Implementação de domain events
+  - Enforcement de regras de negócio" : "Mencione que padrões detalhados de implementação variam ao longo do codebase."}
 
-### 11. Testing Architecture
-- Document testing strategies aligned with the architecture
-- Identify test boundary patterns (unit, integration, system)
-- Map test doubles and mocking approaches
-- Document test data strategies
-- Note testing tools and frameworks integration
+### 11. Arquitetura de Testes
+- Documente estratégias de teste alinhadas à arquitetura
+- Identifique padrões de limite de teste (unit, integration, system)
+- Mapeie test doubles e abordagens de mocking
+- Documente estratégias de dados de teste
+- Observe integração de ferramentas e frameworks de teste
 
-### 12. Deployment Architecture
-- Document deployment topology derived from configuration
-- Identify environment-specific architectural adaptations
-- Map runtime dependency resolution patterns
-- Document configuration management across environments
-- Identify containerization and orchestration approaches
-- Note cloud service integration patterns
+### 12. Arquitetura de Deploy
+- Documente a topologia de deploy derivada da configuração
+- Identifique adaptações arquiteturais específicas por ambiente
+- Mapeie padrões de resolução de dependências em runtime
+- Documente gestão de configuração entre ambientes
+- Identifique abordagens de containerization e orchestration
+- Observe padrões de integração com serviços de cloud
 
-### 13. Extension and Evolution Patterns
-${FOCUS_ON_EXTENSIBILITY ? 
-"Provide detailed guidance for extending the architecture:
+### 13. Padrões de Extensão e Evolução
+${FOCUS_ON_EXTENSIBILITY ?
+"Forneça orientação detalhada para estender a arquitetura:
 
 - **Feature Addition Patterns**:
-  - How to add new features while preserving architectural integrity
-  - Where to place new components by type
-  - Dependency introduction guidelines
-  - Configuration extension patterns
+  - Como adicionar novas features preservando a integridade arquitetural
+  - Onde posicionar novos componentes por tipo
+  - Diretrizes para introdução de dependências
+  - Padrões de extensão de configuração
 
 - **Modification Patterns**:
-  - How to safely modify existing components
-  - Strategies for maintaining backward compatibility
-  - Deprecation patterns
-  - Migration approaches
+  - Como modificar com segurança componentes existentes
+  - Estratégias para manter backward compatibility
+  - Padrões de depreciação
+  - Abordagens de migração
 
 - **Integration Patterns**:
-  - How to integrate new external systems
-  - Adapter implementation patterns
-  - Anti-corruption layer patterns
-  - Service facade implementation" : "Document key extension points in the architecture."}
+  - Como integrar novos sistemas externos
+  - Padrões de implementação de adapters
+  - Padrões de anti-corruption layer
+  - Implementação de service facade" : "Documente pontos-chave de extensão na arquitetura."}
 
-${INCLUDES_CODE_EXAMPLES ? 
-"### 14. Architectural Pattern Examples
-Extract representative code examples that illustrate key architectural patterns:
+${INCLUDES_CODE_EXAMPLES ?
+"### 14. Exemplos de Padrões Arquiteturais
+Extraia exemplos representativos de código que ilustrem padrões arquiteturais-chave:
 
 - **Layer Separation Examples**:
-  - Interface definition and implementation separation
-  - Cross-layer communication patterns
-  - Dependency injection examples
+  - Separação entre definição e implementação de interface
+  - Padrões de comunicação entre camadas
+  - Exemplos de dependency injection
 
 - **Component Communication Examples**:
-  - Service invocation patterns
-  - Event publication and handling
-  - Message passing implementation
+  - Padrões de invocação de serviços
+  - Publicação e tratamento de eventos
+  - Implementação de passagem de mensagens
 
 - **Extension Point Examples**:
-  - Plugin registration and discovery
-  - Extension interface implementations
-  - Configuration-driven extension patterns
+  - Registro e descoberta de plugins
+  - Implementações de interfaces de extensão
+  - Padrões de extensão guiados por configuração
 
-Include enough context with each example to show the pattern clearly, but keep examples concise and focused on architectural concepts." : ""}
+Inclua contexto suficiente em cada exemplo para mostrar o padrão claramente, mas mantenha os exemplos concisos e focados em conceitos arquiteturais." : ""}
 
-${INCLUDES_DECISION_RECORDS ? 
+${INCLUDES_DECISION_RECORDS ?
 "### 15. Architectural Decision Records
-Document key architectural decisions evident in the codebase:
+Documente decisões arquiteturais-chave evidentes no codebase:
 
 - **Architectural Style Decisions**:
-  - Why the current architectural pattern was chosen
-  - Alternatives considered (based on code evolution)
-  - Constraints that influenced the decision
+  - Por que o padrão arquitetural atual foi escolhido
+  - Alternativas consideradas (com base na evolução do código)
+  - Restrições que influenciaram a decisão
 
 - **Technology Selection Decisions**:
-  - Key technology choices and their architectural impact
-  - Framework selection rationales
-  - Custom vs. off-the-shelf component decisions
+  - Escolhas de tecnologia e impacto arquitetural
+  - Racionais de seleção de framework
+  - Decisões de componente custom vs. off-the-shelf
 
 - **Implementation Approach Decisions**:
-  - Specific implementation patterns chosen
-  - Standard pattern adaptations
-  - Performance vs. maintainability tradeoffs
+  - Padrões de implementação específicos escolhidos
+  - Adaptações de padrões
+  - Tradeoffs de performance vs. maintainability
 
-For each decision, note:
-- Context that made the decision necessary
-- Factors considered in making the decision
-- Resulting consequences (positive and negative)
-- Future flexibility or limitations introduced" : ""}
+Para cada decisão, observe:
+- Contexto que tornou a decisão necessária
+- Fatores considerados na decisão
+- Consequências resultantes (positivas e negativas)
+- Flexibilidade futura ou limitações introduzidas" : ""}
 
-### ${INCLUDES_DECISION_RECORDS ? "16" : INCLUDES_CODE_EXAMPLES ? "15" : "14"}. Architecture Governance
-- Document how architectural consistency is maintained
-- Identify automated checks for architectural compliance
-- Note architectural review processes evident in the codebase
-- Document architectural documentation practices
+### ${INCLUDES_DECISION_RECORDS ? "16" : INCLUDES_CODE_EXAMPLES ? "15" : "14"}. Governança da Arquitetura
+- Documente como a consistência arquitetural é mantida
+- Identifique verificações automatizadas de conformidade arquitetural
+- Observe processos de revisão arquitetural evidentes no codebase
+- Documente práticas de documentação arquitetural
 
-### ${INCLUDES_DECISION_RECORDS ? "17" : INCLUDES_CODE_EXAMPLES ? "16" : "15"}. Blueprint for New Development
-Create a clear architectural guide for implementing new features:
+### ${INCLUDES_DECISION_RECORDS ? "17" : INCLUDES_CODE_EXAMPLES ? "16" : "15"}. Blueprint para Novo Desenvolvimento
+Crie um guia arquitetural claro para implementar novas features:
 
 - **Development Workflow**:
-  - Starting points for different feature types
-  - Component creation sequence
-  - Integration steps with existing architecture
-  - Testing approach by architectural layer
+  - Pontos de partida para diferentes tipos de feature
+  - Sequência de criação de componentes
+  - Passos de integração com a arquitetura existente
+  - Abordagem de testes por camada arquitetural
 
 - **Implementation Templates**:
-  - Base class/interface templates for key architectural components
-  - Standard file organization for new components
-  - Dependency declaration patterns
-  - Documentation requirements
+  - Templates de classe/base interface para componentes arquiteturais-chave
+  - Organização padrão de arquivos para novos componentes
+  - Padrões de declaração de dependências
+  - Requisitos de documentação
 
 - **Common Pitfalls**:
-  - Architecture violations to avoid
-  - Common architectural mistakes
-  - Performance considerations
-  - Testing blind spots
+  - Violações arquiteturais a evitar
+  - Erros arquiteturais comuns
+  - Considerações de performance
+  - Pontos cegos de teste
 
-Include information about when this blueprint was generated and recommendations for keeping it updated as the architecture evolves."
+Inclua informações sobre quando este blueprint foi gerado e recomendações para mantê-lo atualizado conforme a arquitetura evolui."

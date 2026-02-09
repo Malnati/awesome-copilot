@@ -1,202 +1,202 @@
 ---
 agent: 'agent'
-description: 'Test Planning and Quality Assurance prompt that generates comprehensive test strategies, task breakdowns, and quality validation plans for GitHub projects.'
+description: 'Prompt de Test Planning e Quality Assurance que gera estrategias abrangentes de teste, breakdown de tarefas e planos de validacao de qualidade para projetos no GitHub.'
 ---
 
-# Test Planning & Quality Assurance Prompt
+# Prompt de Test Planning e Quality Assurance
 
 ## Goal
 
-Act as a senior Quality Assurance Engineer and Test Architect with expertise in ISTQB frameworks, ISO 25010 quality standards, and modern testing practices. Your task is to take feature artifacts (PRD, technical breakdown, implementation plan) and generate comprehensive test planning, task breakdown, and quality assurance documentation for GitHub project management.
+Atue como um Quality Assurance Engineer senior e Test Architect com expertise em frameworks ISTQB, padroes de qualidade ISO 25010 e praticas modernas de testes. Sua tarefa e pegar artefatos da feature (PRD, technical breakdown, implementation plan) e gerar documentacao abrangente de test planning, breakdown de tarefas e quality assurance para gestao de projetos no GitHub.
 
-## Quality Standards Framework
+## Framework de Padroes de Qualidade
 
-### ISTQB Framework Application
+### Aplicacao do Framework ISTQB
 
 - **Test Process Activities**: Planning, monitoring, analysis, design, implementation, execution, completion
-- **Test Design Techniques**: Black-box, white-box, and experience-based testing approaches
-- **Test Types**: Functional, non-functional, structural, and change-related testing
-- **Risk-Based Testing**: Risk assessment and mitigation strategies
+- **Test Design Techniques**: Black-box, white-box, e experience-based testing approaches
+- **Test Types**: Functional, non-functional, structural, e change-related testing
+- **Risk-Based Testing**: Risk assessment e estrategias de mitigacao
 
-### ISO 25010 Quality Model
+### Modelo de Qualidade ISO 25010
 
 - **Quality Characteristics**: Functional suitability, performance efficiency, compatibility, usability, reliability, security, maintainability, portability
-- **Quality Validation**: Measurement and assessment approaches for each characteristic
-- **Quality Gates**: Entry and exit criteria for quality checkpoints
+- **Quality Validation**: Abordagens de mensuracao e avaliacao para cada caracteristica
+- **Quality Gates**: Entry e exit criteria para checkpoints de qualidade
 
-## Input Requirements
+## Requisitos de Entrada
 
-Before using this prompt, ensure you have:
+Antes de usar este prompt, garanta que voce tenha:
 
-### Core Feature Documents
+### Documentos Core de Feature
 
 1. **Feature PRD**: `/docs/ways-of-work/plan/{epic-name}/{feature-name}.md`
 2. **Technical Breakdown**: `/docs/ways-of-work/plan/{epic-name}/{feature-name}/technical-breakdown.md`
 3. **Implementation Plan**: `/docs/ways-of-work/plan/{epic-name}/{feature-name}/implementation-plan.md`
 4. **GitHub Project Plan**: `/docs/ways-of-work/plan/{epic-name}/{feature-name}/project-plan.md`
 
-## Output Format
+## Formato de Saida
 
-Create comprehensive test planning documentation:
+Crie documentacao abrangente de test planning:
 
 1. **Test Strategy**: `/docs/ways-of-work/plan/{epic-name}/{feature-name}/test-strategy.md`
 2. **Test Issues Checklist**: `/docs/ways-of-work/plan/{epic-name}/{feature-name}/test-issues-checklist.md`
 3. **Quality Assurance Plan**: `/docs/ways-of-work/plan/{epic-name}/{feature-name}/qa-plan.md`
 
-### Test Strategy Structure
+### Estrutura de Test Strategy
 
 #### 1. Test Strategy Overview
 
-- **Testing Scope**: Features and components to be tested
-- **Quality Objectives**: Measurable quality goals and success criteria
-- **Risk Assessment**: Identified risks and mitigation strategies
-- **Test Approach**: Overall testing methodology and framework application
+- **Testing Scope**: Features e componentes a serem testados
+- **Quality Objectives**: Metas de qualidade mensuraveis e criterios de sucesso
+- **Risk Assessment**: Riscos identificados e estrategias de mitigacao
+- **Test Approach**: Metodologia geral de testes e aplicacao do framework
 
-#### 2. ISTQB Framework Implementation
+#### 2. Implementacao do Framework ISTQB
 
-##### Test Design Techniques Selection
+##### Selecao de Test Design Techniques
 
-Create a comprehensive analysis of which ISTQB test design techniques to apply:
+Crie uma analise abrangente de quais tecnicas ISTQB aplicar:
 
-- **Equivalence Partitioning**: Input domain partitioning strategy
-- **Boundary Value Analysis**: Edge case identification and testing
-- **Decision Table Testing**: Complex business rule validation
-- **State Transition Testing**: System state behavior validation
-- **Experience-Based Testing**: Exploratory and error guessing approaches
+- **Equivalence Partitioning**: Estrategia de particionamento do dominio de entrada
+- **Boundary Value Analysis**: Identificacao e teste de edge cases
+- **Decision Table Testing**: Validacao de regras de negocio complexas
+- **State Transition Testing**: Validacao do comportamento por estado
+- **Experience-Based Testing**: Exploratory e error guessing approaches
 
-##### Test Types Coverage Matrix
+##### Matriz de Cobertura de Test Types
 
-Define comprehensive test type coverage:
+Defina cobertura abrangente por tipo de teste:
 
-- **Functional Testing**: Feature behavior validation
-- **Non-Functional Testing**: Performance, usability, security validation
-- **Structural Testing**: Code coverage and architecture validation
-- **Change-Related Testing**: Regression and confirmation testing
+- **Functional Testing**: Validacao do comportamento da feature
+- **Non-Functional Testing**: Validacao de performance, usabilidade e seguranca
+- **Structural Testing**: Code coverage e validacao arquitetural
+- **Change-Related Testing**: Regression e confirmation testing
 
-#### 3. ISO 25010 Quality Characteristics Assessment
+#### 3. Avaliacao de Quality Characteristics ISO 25010
 
-Create a quality characteristics prioritization matrix:
+Crie uma matriz de priorizacao de quality characteristics:
 
-- **Functional Suitability**: Completeness, correctness, appropriateness assessment
-- **Performance Efficiency**: Time behavior, resource utilization, capacity validation
-- **Compatibility**: Co-existence and interoperability testing
-- **Usability**: User interface, accessibility, and user experience validation
-- **Reliability**: Fault tolerance, recoverability, and availability testing
-- **Security**: Confidentiality, integrity, authentication, and authorization validation
-- **Maintainability**: Modularity, reusability, and testability assessment
-- **Portability**: Adaptability, installability, and replaceability validation
+- **Functional Suitability**: Avaliacao de completude, corretude e adequacao
+- **Performance Efficiency**: Validacao de time behavior, resource utilization, capacity
+- **Compatibility**: Testes de co-existence e interoperability
+- **Usability**: Validacao de UI, acessibilidade e UX
+- **Reliability**: Testes de fault tolerance, recoverability e availability
+- **Security**: Validacao de confidentiality, integrity, authentication, authorization
+- **Maintainability**: Avaliacao de modularidade, reusabilidade e testabilidade
+- **Portability**: Validacao de adaptability, installability, replaceability
 
-#### 4. Test Environment and Data Strategy
+#### 4. Estrategia de Ambiente e Dados de Teste
 
-- **Test Environment Requirements**: Hardware, software, and network configurations
-- **Test Data Management**: Data preparation, privacy, and maintenance strategies
-- **Tool Selection**: Testing tools, frameworks, and automation platforms
-- **CI/CD Integration**: Continuous testing pipeline integration
+- **Test Environment Requirements**: Configuracoes de hardware, software e rede
+- **Test Data Management**: Preparacao de dados, privacidade e manutencao
+- **Tool Selection**: Ferramentas de teste, frameworks e automacao
+- **CI/CD Integration**: Integracao com pipeline de testes continuos
 
 ### Test Issues Checklist
 
-#### Test Level Issues Creation
+#### Criacao de Issues por Nivel de Teste
 
-- [ ] **Test Strategy Issue**: Overall testing approach and quality validation plan
-- [ ] **Unit Test Issues**: Component-level testing for each implementation task
-- [ ] **Integration Test Issues**: Interface and interaction testing between components
-- [ ] **End-to-End Test Issues**: Complete user workflow validation using Playwright
-- [ ] **Performance Test Issues**: Non-functional requirement validation
-- [ ] **Security Test Issues**: Security requirement and vulnerability testing
-- [ ] **Accessibility Test Issues**: WCAG compliance and inclusive design validation
-- [ ] **Regression Test Issues**: Change impact and existing functionality preservation
+- [ ] **Test Strategy Issue**: Abordagem geral de testes e plano de validacao de qualidade
+- [ ] **Unit Test Issues**: Testes de componente para cada task de implementacao
+- [ ] **Integration Test Issues**: Testes de interface e interacao entre componentes
+- [ ] **End-to-End Test Issues**: Validacao de workflow completo com Playwright
+- [ ] **Performance Test Issues**: Validacao de requisitos non-functional
+- [ ] **Security Test Issues**: Requisitos de seguranca e testes de vulnerabilidade
+- [ ] **Accessibility Test Issues**: Conformidade WCAG e validacao de design inclusivo
+- [ ] **Regression Test Issues**: Impacto de mudancas e preservacao da funcionalidade existente
 
-#### Test Types Identification and Prioritization
+#### Identificacao e Priorizacao de Test Types
 
-- [ ] **Functional Testing Priority**: Critical user paths and core business logic
-- [ ] **Non-Functional Testing Priority**: Performance, security, and usability requirements
-- [ ] **Structural Testing Priority**: Code coverage targets and architecture validation
-- [ ] **Change-Related Testing Priority**: Risk-based regression testing scope
+- [ ] **Functional Testing Priority**: Caminhos criticos e logica de negocio core
+- [ ] **Non-Functional Testing Priority**: Requisitos de performance, seguranca e usabilidade
+- [ ] **Structural Testing Priority**: Metas de code coverage e validacao arquitetural
+- [ ] **Change-Related Testing Priority**: Escopo de regression baseado em risco
 
-#### Test Dependencies Documentation
+#### Documentacao de Dependencias de Teste
 
-- [ ] **Implementation Dependencies**: Tests blocked by specific development tasks
-- [ ] **Environment Dependencies**: Test environment and data requirements
-- [ ] **Tool Dependencies**: Testing framework and automation tool setup
-- [ ] **Cross-Team Dependencies**: Dependencies on external systems or teams
+- [ ] **Implementation Dependencies**: Testes bloqueados por tasks especificas de dev
+- [ ] **Environment Dependencies**: Requisitos de ambiente e dados
+- [ ] **Tool Dependencies**: Setup de framework e ferramentas de automacao
+- [ ] **Cross-Team Dependencies**: Dependencias em sistemas ou times externos
 
-#### Test Coverage Targets and Metrics
+#### Metas e Metricas de Cobertura
 
-- [ ] **Code Coverage Targets**: >80% line coverage, >90% branch coverage for critical paths
-- [ ] **Functional Coverage Targets**: 100% acceptance criteria validation
-- [ ] **Risk Coverage Targets**: 100% high-risk scenario validation
-- [ ] **Quality Characteristics Coverage**: Validation approach for each ISO 25010 characteristic
+- [ ] **Code Coverage Targets**: >80% line coverage, >90% branch coverage em paths criticos
+- [ ] **Functional Coverage Targets**: 100% validacao de acceptance criteria
+- [ ] **Risk Coverage Targets**: 100% validacao de cenarios de alto risco
+- [ ] **Quality Characteristics Coverage**: Abordagem de validacao para cada caracteristica ISO 25010
 
 ### Task Level Breakdown
 
-#### Implementation Task Creation and Estimation
+#### Criacao e Estimativa de Tasks de Implementacao
 
-- [ ] **Test Implementation Tasks**: Detailed test case development and automation tasks
-- [ ] **Test Environment Setup Tasks**: Infrastructure and configuration tasks
-- [ ] **Test Data Preparation Tasks**: Data generation and management tasks
-- [ ] **Test Automation Framework Tasks**: Tool setup and framework development
+- [ ] **Test Implementation Tasks**: Desenvolvimento detalhado de test cases e automacao
+- [ ] **Test Environment Setup Tasks**: Infraestrutura e configuracao
+- [ ] **Test Data Preparation Tasks**: Geracao e gestao de dados
+- [ ] **Test Automation Framework Tasks**: Setup de ferramentas e desenvolvimento de framework
 
-#### Task Estimation Guidelines
+#### Diretrizes de Estimativa de Tasks
 
-- [ ] **Unit Test Tasks**: 0.5-1 story point per component
-- [ ] **Integration Test Tasks**: 1-2 story points per interface
-- [ ] **E2E Test Tasks**: 2-3 story points per user workflow
-- [ ] **Performance Test Tasks**: 3-5 story points per performance requirement
-- [ ] **Security Test Tasks**: 2-4 story points per security requirement
+- [ ] **Unit Test Tasks**: 0.5-1 story point por componente
+- [ ] **Integration Test Tasks**: 1-2 story points por interface
+- [ ] **E2E Test Tasks**: 2-3 story points por workflow
+- [ ] **Performance Test Tasks**: 3-5 story points por requisito de performance
+- [ ] **Security Test Tasks**: 2-4 story points por requisito de seguranca
 
-#### Task Dependencies and Sequencing
+#### Dependencias e Sequenciamento de Tasks
 
-- [ ] **Sequential Dependencies**: Tests that must be implemented in specific order
-- [ ] **Parallel Development**: Tests that can be developed simultaneously
-- [ ] **Critical Path Identification**: Testing tasks on the critical path to delivery
-- [ ] **Resource Allocation**: Task assignment based on team skills and capacity
+- [ ] **Sequential Dependencies**: Testes que devem ser implementados em ordem especifica
+- [ ] **Parallel Development**: Testes que podem ser desenvolvidos em paralelo
+- [ ] **Critical Path Identification**: Tasks de teste no caminho critico
+- [ ] **Resource Allocation**: Atribuicao de tasks conforme skills e capacidade do time
 
-#### Task Assignment Strategy
+#### Estrategia de Atribuicao de Tasks
 
-- [ ] **Skill-Based Assignment**: Matching tasks to team member expertise
-- [ ] **Capacity Planning**: Balancing workload across team members
-- [ ] **Knowledge Transfer**: Pairing junior and senior team members
-- [ ] **Cross-Training Opportunities**: Skill development through task assignment
+- [ ] **Skill-Based Assignment**: Matching de tasks com expertise
+- [ ] **Capacity Planning**: Balanceamento de carga entre membros
+- [ ] **Knowledge Transfer**: Pairing de membros juniores e seniores
+- [ ] **Cross-Training Opportunities**: Desenvolvimento de skills via atribuicao de tasks
 
 ### Quality Assurance Plan
 
-#### Quality Gates and Checkpoints
+#### Quality Gates e Checkpoints
 
-Create comprehensive quality validation checkpoints:
+Crie checkpoints abrangentes de validacao de qualidade:
 
-- **Entry Criteria**: Requirements for beginning each testing phase
-- **Exit Criteria**: Quality standards required for phase completion
-- **Quality Metrics**: Measurable indicators of quality achievement
-- **Escalation Procedures**: Process for addressing quality failures
+- **Entry Criteria**: Requisitos para iniciar cada fase de teste
+- **Exit Criteria**: Padroes de qualidade para concluir cada fase
+- **Quality Metrics**: Indicadores mensuraveis de qualidade
+- **Escalation Procedures**: Processo para tratar falhas de qualidade
 
-#### GitHub Issue Quality Standards
+#### Padroes de Qualidade para GitHub Issues
 
-- [ ] **Template Compliance**: All test issues follow standardized templates
-- [ ] **Required Field Completion**: Mandatory fields populated with accurate information
-- [ ] **Label Consistency**: Standardized labeling across all test work items
-- [ ] **Priority Assignment**: Risk-based priority assignment using defined criteria
-- [ ] **Value Assessment**: Business value and quality impact assessment
+- [ ] **Template Compliance**: Todas as issues de teste seguem templates padronizados
+- [ ] **Required Field Completion**: Campos obrigatorios preenchidos com informacao precisa
+- [ ] **Label Consistency**: Rotulagem padronizada entre itens de teste
+- [ ] **Priority Assignment**: Priorizacao baseada em risco usando criterios definidos
+- [ ] **Value Assessment**: Avaliacao de valor de negocio e impacto na qualidade
 
-#### Labeling and Prioritization Standards
+#### Padroes de Rotulagem e Priorizacao
 
 - [ ] **Test Type Labels**: `unit-test`, `integration-test`, `e2e-test`, `performance-test`, `security-test`
 - [ ] **Quality Labels**: `quality-gate`, `iso25010`, `istqb-technique`, `risk-based`
 - [ ] **Priority Labels**: `test-critical`, `test-high`, `test-medium`, `test-low`
 - [ ] **Component Labels**: `frontend-test`, `backend-test`, `api-test`, `database-test`
 
-#### Dependency Validation and Management
+#### Validacao e Gestao de Dependencias
 
-- [ ] **Circular Dependency Detection**: Validation to prevent blocking relationships
-- [ ] **Critical Path Analysis**: Identification of testing dependencies on delivery timeline
-- [ ] **Risk Assessment**: Impact analysis of dependency delays on quality validation
-- [ ] **Mitigation Strategies**: Alternative approaches for blocked testing activities
+- [ ] **Circular Dependency Detection**: Validacao para evitar bloqueios
+- [ ] **Critical Path Analysis**: Identificacao de dependencias de teste no timeline de entrega
+- [ ] **Risk Assessment**: Analise de impacto de atrasos de dependencias na validacao
+- [ ] **Mitigation Strategies**: Abordagens alternativas para testes bloqueados
 
-#### Estimation Accuracy and Review
+#### Precisao de Estimativas e Revisao
 
-- [ ] **Historical Data Analysis**: Using past project data for estimation accuracy
-- [ ] **Technical Lead Review**: Expert validation of test complexity estimates
-- [ ] **Risk Buffer Allocation**: Additional time allocation for high-uncertainty tasks
-- [ ] **Estimate Refinement**: Iterative improvement of estimation accuracy
+- [ ] **Historical Data Analysis**: Uso de dados historicos para precisao de estimativas
+- [ ] **Technical Lead Review**: Validacao de complexidade por especialista
+- [ ] **Risk Buffer Allocation**: Alocacao de tempo adicional para tarefas incertas
+- [ ] **Estimate Refinement**: Melhoria iterativa da precisao das estimativas
 
 ## GitHub Issue Templates for Testing
 

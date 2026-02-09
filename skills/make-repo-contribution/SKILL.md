@@ -1,76 +1,76 @@
 ---
 name: make-repo-contribution
-description: 'All changes to code must follow the guidance documented in the repository. Before any issue is filed, branch is made, commits generated, or pull request (or PR) created, a search must be done to ensure the right steps are followed. Whenever asked to create an issue, commit messages, to push code, or create a PR, use this skill so everything is done correctly.'
+description: 'Todas as mudancas no codigo devem seguir a orientacao documentada no repositorio. Antes de qualquer issue ser criada, branch ser criada, commits gerados ou pull request (PR) criado, uma busca deve ser feita para garantir que os passos corretos sejam seguidos. Sempre que for solicitado criar uma issue, mensagens de commit, fazer push de codigo ou criar um PR, use esta skill para que tudo seja feito corretamente.'
 ---
 
-# Contribution guidelines
+# Diretrizes de contribuicao
 
-Most every project has a set of contribution guidelines everyone needs to follow when creating issues, pull requests (PR), or otherwise contributing code. These may include, but are not limited to:
+A maioria dos projetos possui um conjunto de diretrizes de contribuicao que todos precisam seguir ao criar issues, pull requests (PR) ou contribuir codigo. Isso pode incluir, mas nao se limita a:
 
-- Creating an issue before creating a PR, or creating the two in conjunction
-- Templates for issues or PRs that must be used depending on the change request being made
-- Guidelines on what needs to be documented in those issues and PRs
-- Tests, linters, and other prerequisites that need to be run before pushing any changes
+- Criar uma issue antes de criar um PR, ou criar os dois em conjunto
+- Templates para issues ou PRs que devem ser usados dependendo da mudanca solicitada
+- Diretrizes sobre o que precisa ser documentado nesses issues e PRs
+- Testes, linters e outros pre-requisitos que precisam ser executados antes de enviar mudancas
 
-Always remember, you are a guest in someone else's repository. As such, you need to follow the rules and guidelines set forth by the repository owner when contributing code.
+Lembre-se sempre: voce e um convidado no repositorio de outra pessoa. Portanto, siga as regras e diretrizes definidas pelo owner ao contribuir codigo.
 
-## Using existing guidelines
+## Usando diretrizes existentes
 
-Before creating a PR or any of the steps leading up to it, explore the project to determine if there's any guidance. Places to explore include, but are not limited to:
+Antes de criar um PR ou qualquer etapa que o anteceda, explore o projeto para determinar se ha orientacao. Locais para explorar incluem, mas nao se limitam a:
 
 - README.md
 - CONTRIBUTING.md
-- Project documentation
-- Issue templates
-- Pull request or PR templates
+- Documentacao do projeto
+- Templates de issue
+- Templates de pull request ou PR
 
-If any of those exist or you discover documentation elsewhere in the repo, read through what you find, consider it, and follow the guidance to the best of your ability. If you have any questions or confusion, ask the user for input on how best to proceed. DO NOT create a PR until you're certain you've followed the practices.
+Se algum desses existir, ou se voce encontrar documentacao em outro lugar do repo, leia o que encontrar, considere e siga as diretrizes o melhor possivel. Se tiver perguntas ou duvidas, pergunte ao usuario como prosseguir. NAO crie um PR ate ter certeza de que seguiu as praticas.
 
-## No guidelines found
+## Nenhuma diretriz encontrada
 
-If no guidance is found, or doesn't provide guidance on certain topics, then use the following as a foundation for creating a quality contribution. **ALWAYS** defer to the guidance provided in the repository.
+Se nenhuma diretriz for encontrada, ou nao cobrir certos topicos, use o seguinte como base para criar uma contribuicao de qualidade. **SEMPRE** priorize a orientacao fornecida pelo repositorio.
 
-## Tasks
+## Tarefas
 
-Many repository owners will have guidance on prerequisite steps which need to be completed before a PR is to be created. This can include, but is not limited to:
+Muitos owners de repositorios terao orientacao sobre pre-requisitos que precisam ser concluidos antes de um PR. Isso pode incluir, mas nao se limita a:
 
-- building the project or generating assets
-- running linters and ensuring any issues are resolved
-- naming guidelines and other patterns
-- unit tests, end to end tests, or other tests which need to be created and pass
-  - related, there may be required coverage percentages
+- buildar o projeto ou gerar assets
+- rodar linters e garantir que quaisquer issues estejam resolvidas
+- diretrizes de nomeacao e outros patterns
+- testes unitarios, end-to-end ou outros testes que precisam ser criados e passar
+  - relacionado a isso, pode haver porcentagens de cobertura obrigatorias
 
-Look through all guidance you find, and ensure any prerequisites have been satisfied.
+Revise toda orientacao encontrada e garanta que quaisquer pre-requisitos foram atendidos.
 
 ## Issue
 
-Always start by looking to see if an issue exists that's related to the task at hand. This may have already been created by the user, or someone else. If you discover one, prompt the user to ensure they want to use that issue, or which one they may wish to use.
+Sempre comece verificando se existe uma issue relacionada a tarefa. Ela pode ja ter sido criada pelo usuario ou por outra pessoa. Se encontrar uma, pergunte ao usuario se ele quer usá-la ou qual deseja usar.
 
-If no issue is discovered, look through the guidance to see if creating an issue is a requirement. If it is, use the template provided in the repository. If there are multiple, choose the one that most aligns with the work being done. If there are any questions, ask the user which one to use.
+Se nenhuma issue for encontrada, verifique se criar uma issue e um requisito. Se for, use o template fornecido no repositorio. Se houver varios, escolha o que mais se alinha ao trabalho. Se houver duvidas, pergunte ao usuario qual usar.
 
-If the requirement is to file an issue, but no issue template is provided, use [this issue template](./assets/issue-template.md) as a guide on what to file.
+Se a exigencia for criar uma issue, mas nenhum template for fornecido, use [este template de issue](./assets/issue-template.md) como guia.
 
 ## Branch
 
-Before performing any commits, ensure a branch has been created for the work. Follow whatever guidance is provided by the repository's documentation. If prefixes are defined, like `feature` or `chore`, or if the requirement is to use the username of the person making the PR, then use that. This branch must never be `main`, or the default branch, but should be a branch created specifically for the changes taking place. If no branch is already created, create a new one with a good name based on the changes being made and the guidance.
+Antes de fazer commits, garanta que uma branch foi criada para o trabalho. Siga a orientacao do repositorio. Se houver prefixos definidos, como `feature` ou `chore`, ou se o requisito for usar o username de quem cria o PR, entao use isso. Esta branch nunca deve ser `main` ou a branch default, e sim uma branch criada especificamente para as mudancas em andamento. Se nenhuma branch tiver sido criada, crie uma nova com um bom nome baseado nas mudancas e na orientacao.
 
 ## Commits
 
-When committing changes:
+Ao commitar mudancas:
 
-1. Review all changes
-2. Logically group the changes together
-3. Create short commit messages for each group, following any guidance in the repository
-4. Commit the grouped code to the branch.
+1. Revise todas as mudancas
+2. Agrupe as mudancas logicamente
+3. Crie mensagens de commit curtas para cada grupo, seguindo a orientacao do repositorio
+4. Commite o codigo agrupado na branch
 
-## Merging
+## Merge
 
-**NEVER** merge to main unless explicitly instructed to do so by the user
+**NUNCA** faca merge na main a menos que o usuario instrua explicitamente.
 
 ## Pull request
 
-When creating a pull request, use existing templates in the repository if any exist, following the guidance you discovered.
+Ao criar um pull request, use templates existentes no repositorio, se houver, seguindo a orientacao encontrada.
 
-If no template is provided, use the [this PR template](./assets/pr-template.md). It contains a collection of headers to use, each with guidance of what to place in the particular sections.
+Se nenhum template for fornecido, use [este template de PR](./assets/pr-template.md). Ele contem uma colecao de cabecalhos a usar, cada um com orientacao sobre o que colocar em cada secao.
 
-If an issue was created or is being used, ensure that issue is referenced in the PR. Use the `Closes #NUMBER` syntax to enable auto-closing of the issue.
+Se uma issue foi criada ou esta sendo usada, garanta que essa issue seja referenciada no PR. Use a sintaxe `Closes #NUMBER` para habilitar o fechamento automatico da issue.

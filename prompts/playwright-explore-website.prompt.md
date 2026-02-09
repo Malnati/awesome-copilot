@@ -1,19 +1,19 @@
 ---
 agent: agent
-description: 'Website exploration for testing using Playwright MCP'
+description: 'Exploracao de websites para testes usando Playwright MCP'
 tools: ['changes', 'search/codebase', 'edit/editFiles', 'web/fetch', 'findTestFiles', 'problems', 'runCommands', 'runTasks', 'runTests', 'search', 'search/searchResults', 'runCommands/terminalLastCommand', 'runCommands/terminalSelection', 'testFailure', 'playwright']
 model: 'Claude Sonnet 4'
 ---
 
-# Website Exploration for Testing
+# Exploracao de Website para Testes
 
-Your goal is to explore the website and identify key functionalities.
+Seu objetivo e explorar o website e identificar funcionalidades-chave.
 
-## Specific Instructions
+## Instrucoes Especificas
 
-1. Navigate to the provided URL using the Playwright MCP Server. If no URL is provided, ask the user to provide one.
-2. Identify and interact with 3-5 core features or user flows.
-3. Document the user interactions, relevant UI elements (and their locators), and the expected outcomes.
-4. Close the browser context upon completion.
-5. Provide a concise summary of your findings.
-6. Propose and generate test cases based on the exploration.
+1. Navegue para a URL fornecida usando o Playwright MCP Server. Se nenhuma URL for fornecida, peça ao usuario para fornecer uma.
+2. Identifique e interaja com 3-5 core features ou user flows.
+3. Documente as interacoes do usuario, elementos de UI relevantes (e seus locators) e os resultados esperados.
+4. Feche o contexto do browser ao concluir.
+5. Forneca um resumo conciso dos achados.
+6. Proponha e gere casos de teste com base na exploracao.

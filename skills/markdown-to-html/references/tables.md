@@ -1,10 +1,10 @@
 # Organizing information with tables
 
-You can build tables to organize information in comments, issues, pull requests, and wikis.
+Voce pode criar tabelas para organizar informacoes em comentarios, issues, pull requests e wikis.
 
 ## Creating a table
 
-You can create tables with pipes `|` and hyphens `-`. Hyphens are used to create each column's header, while pipes separate each column. You must include a blank line before your table in order for it to correctly render.
+Voce pode criar tabelas com pipes `|` e hifens `-`. Os hifens sao usados para criar o header de cada coluna, enquanto pipes separam cada coluna. Voce deve incluir uma linha em branco antes da tabela para que ela seja renderizada corretamente.
 
 ```markdown
 
@@ -14,11 +14,11 @@ You can create tables with pipes `|` and hyphens `-`. Hyphens are used to create
 | Content Cell  | Content Cell  |
 ```
 
-![Screenshot of a GitHub Markdown table rendered as two equal columns. Headers are shown in boldface, and alternate content rows have gray shading.](https://docs.github.com/assets/images/help/writing/table-basic-rendered.png)
+![Screenshot de uma tabela do GitHub Markdown renderizada com duas colunas iguais. Os cabecalhos aparecem em negrito e linhas alternadas ficam cinzas.](https://docs.github.com/assets/images/help/writing/table-basic-rendered.png)
 
-The pipes on either end of the table are optional.
+Os pipes nas extremidades da tabela sao opcionais.
 
-Cells can vary in width and do not need to be perfectly aligned within columns. There must be at least three hyphens in each column of the header row.
+As celulas podem variar de largura e nao precisam estar perfeitamente alinhadas nas colunas. Deve haver pelo menos tres hifens em cada coluna do header.
 
 ```markdown
 | Command | Description |
@@ -27,13 +27,13 @@ Cells can vary in width and do not need to be perfectly aligned within columns. 
 | git diff | Show file differences that haven't been staged |
 ```
 
-![Screenshot of a GitHub Markdown table with two columns of differing width. Rows list the commands "git status" and "git diff" and their descriptions.](https://docs.github.com/assets/images/help/writing/table-varied-columns-rendered.png)
+![Screenshot de uma tabela do GitHub Markdown com duas colunas de larguras diferentes. As linhas listam os comandos "git status" e "git diff" e suas descricoes.](https://docs.github.com/assets/images/help/writing/table-varied-columns-rendered.png)
 
-If you are frequently editing code snippets and tables, you may benefit from enabling a fixed-width font in all comment fields on GitHub. For more information, see [About writing and formatting on GitHub](https://docs.github.com/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/about-writing-and-formatting-on-github#enabling-fixed-width-fonts-in-the-editor).
+Se voce edita snippets de codigo e tabelas com frequencia, pode ser util habilitar uma fonte fixed-width em todos os campos de comentario no GitHub. Para mais informacoes, veja [About writing and formatting on GitHub](https://docs.github.com/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/about-writing-and-formatting-on-github#enabling-fixed-width-fonts-in-the-editor).
 
 ## Formatting content within your table
 
-You can use [formatting](https://docs.github.com/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax) such as links, inline code blocks, and text styling within your table:
+Voce pode usar [formatting](https://docs.github.com/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax) como links, inline code blocks e estilo de texto dentro da tabela:
 
 ```markdown
 | Command | Description |
@@ -42,9 +42,9 @@ You can use [formatting](https://docs.github.com/get-started/writing-on-github/g
 | `git diff` | Show file differences that **haven't been** staged |
 ```
 
-![Screenshot of a GitHub Markdown table with the commands formatted as code blocks. Bold and italic formatting are used in the descriptions.](https://docs.github.com/assets/images/help/writing/table-inline-formatting-rendered.png)
+![Screenshot de uma tabela do GitHub Markdown com comandos formatados como code blocks. Negrito e italico sao usados nas descricoes.](https://docs.github.com/assets/images/help/writing/table-inline-formatting-rendered.png)
 
-You can align text to the left, right, or center of a column by including colons `:` to the left, right, or on both sides of the hyphens within the header row.
+Voce pode alinhar o texto a esquerda, direita ou centro de uma coluna incluindo dois pontos `:` a esquerda, direita ou ambos os lados dos hifens no header.
 
 ```markdown
 | Left-aligned | Center-aligned | Right-aligned |
@@ -53,9 +53,9 @@ You can align text to the left, right, or center of a column by including colons
 | git diff     | git diff       | git diff      |
 ```
 
-![Screenshot of a Markdown table with three columns as rendered on GitHub, showing how text within cells can be set to align left, center, or right.](https://docs.github.com/assets/images/help/writing/table-aligned-text-rendered.png)
+![Screenshot de uma tabela Markdown renderizada no GitHub mostrando como o texto nas celulas pode ser alinhado a esquerda, centro ou direita.](https://docs.github.com/assets/images/help/writing/table-aligned-text-rendered.png)
 
-To include a pipe `|` as content within your cell, use a `\` before the pipe:
+Para incluir um pipe `|` como conteudo dentro da celula, use `\` antes do pipe:
 
 ```markdown
 | Name     | Character |
@@ -64,7 +64,7 @@ To include a pipe `|` as content within your cell, use a `\` before the pipe:
 | Pipe     | \|        |
 ```
 
-![Screenshot of a Markdown table as rendered on GitHub showing how pipes, which normally close cells, are shown when prefaced by a backslash.](https://docs.github.com/assets/images/help/writing/table-escaped-character-rendered.png)
+![Screenshot de uma tabela Markdown renderizada no GitHub mostrando como pipes, que normalmente fecham celulas, aparecem quando precedidos por uma barra invertida.](https://docs.github.com/assets/images/help/writing/table-escaped-character-rendered.png)
 
 ## Further reading
 

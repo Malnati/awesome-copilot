@@ -1,15 +1,15 @@
-# Support 
+# Suporte
 
-## How to file issues and get help
+## Como abrir issues e obter ajuda
 
-This project uses GitHub issues to track bugs and feature requests. Please search the existing issues before filing new issues to avoid duplicates. For new issues, file your bug or feature request as a new issue.
+Este projeto usa GitHub issues para acompanhar bugs e solicitacoes de features. Pesquise as issues existentes antes de abrir novas para evitar duplicatas. Para novas issues, registre seu bug ou solicitacao de feature como uma nova issue.
 
-For help or questions about using this project, please raise an issue on GitHub.
+Para ajuda ou perguntas sobre o uso deste projeto, abra uma issue no GitHub.
 
-Please include one of the following statements file:
+Inclua uma das seguintes declaracoes no arquivo:
 
-- **Awesome Copilot Prompts** is under active development and maintained by GitHub and Microsoft staff **AND THE COMMUNITY**. We will do our best to respond to support, feature requests, and community questions in a timely manner.
-- 
-## GitHub Support Policy
+- **Awesome Copilot Prompts** esta em desenvolvimento ativo e mantido por equipe do GitHub e da Microsoft **E A COMUNIDADE**. Faremos o nosso melhor para responder a suporte, solicitacoes de features e perguntas da comunidade em tempo habil.
 
-Support for this project is limited to the resources listed above.
+## Politica de Suporte do GitHub
+
+O suporte para este projeto esta limitado aos recursos listados acima.

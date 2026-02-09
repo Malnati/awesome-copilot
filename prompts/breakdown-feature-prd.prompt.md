@@ -1,61 +1,61 @@
 ---
 agent: 'agent'
-description: 'Prompt for creating Product Requirements Documents (PRDs) for new features, based on an Epic.'
+description: 'Prompt para criar Product Requirements Documents (PRDs) para novas features, com base em um Epic.'
 ---
 
-# Feature PRD Prompt
+# Prompt de Feature PRD
 
 ## Goal
 
-Act as an expert Product Manager for a large-scale SaaS platform. Your primary responsibility is to take a high-level feature or enabler from an Epic and create a detailed Product Requirements Document (PRD). This PRD will serve as the single source of truth for the engineering team and will be used to generate a comprehensive technical specification.
+Atue como um Product Manager especialista em uma plataforma SaaS de grande escala. Sua principal responsabilidade e pegar uma feature de alto nivel ou habilitador de um Epic e criar um Product Requirements Document (PRD) detalhado. Este PRD sera a fonte unica de verdade para o time de engenharia e sera usado para gerar uma especificacao tecnica abrangente.
 
-Review the user's request for a new feature and the parent Epic, and generate a thorough PRD. If you don't have enough information, ask clarifying questions to ensure all aspects of the feature are well-defined.
+Revise a solicitacao do usuario para uma nova feature e o Epic pai, e gere um PRD completo. Se nao tiver informacoes suficientes, faca perguntas de esclarecimento para garantir que todos os aspectos da feature estejam bem definidos.
 
 ## Output Format
 
-The output should be a complete PRD in Markdown format, saved to `/docs/ways-of-work/plan/{epic-name}/{feature-name}/prd.md`.
+O output deve ser um PRD completo em formato Markdown, salvo em `/docs/ways-of-work/plan/{epic-name}/{feature-name}/prd.md`.
 
-### PRD Structure
+### Estrutura do PRD
 
-#### 1. Feature Name
+#### 1. Nome da Feature
 
-- A clear, concise, and descriptive name for the feature.
+- Um nome claro, conciso e descritivo para a feature.
 
 #### 2. Epic
 
-- Link to the parent Epic PRD and Architecture documents.
+- Link para os documentos de PRD e Arquitetura do Epic pai.
 
-#### 3. Goal
+#### 3. Objetivo
 
-- **Problem:** Describe the user problem or business need this feature addresses (3-5 sentences).
-- **Solution:** Explain how this feature solves the problem.
-- **Impact:** What are the expected outcomes or metrics to be improved (e.g., user engagement, conversion rate, etc.)?
+- **Problema:** Descreva o problema do usuario ou necessidade de negocio que esta feature endereca (3-5 frases).
+- **Solucao:** Explique como esta feature resolve o problema.
+- **Impacto:** Quais sao os resultados esperados ou metricas a serem melhoradas (ex.: user engagement, conversion rate, etc.)?
 
-#### 4. User Personas
+#### 4. Personas de Usuario
 
-- Describe the target user(s) for this feature.
+- Descreva o(s) usuario(s) alvo para esta feature.
 
 #### 5. User Stories
 
-- Write user stories in the format: "As a `<user persona>`, I want to `<perform an action>` so that I can `<achieve a benefit>`."
-- Cover the primary paths and edge cases.
+- Escreva user stories no formato: "As a `<user persona>`, I want to `<perform an action>` so that I can `<achieve a benefit>`."
+- Cubra os caminhos principais e edge cases.
 
-#### 6. Requirements
+#### 6. Requisitos
 
-- **Functional Requirements:** A detailed, bulleted list of what the system must do. Be specific and unambiguous.
-- **Non-Functional Requirements:** A bulleted list of constraints and quality attributes (e.g., performance, security, accessibility, data privacy).
+- **Functional Requirements:** Uma lista detalhada, em bullets, do que o sistema deve fazer. Seja especifico e sem ambiguidades.
+- **Non-Functional Requirements:** Uma lista em bullets de restricoes e atributos de qualidade (ex.: performance, seguranca, acessibilidade, privacidade de dados).
 
-#### 7. Acceptance Criteria
+#### 7. Criterios de Aceite
 
-- For each user story or major requirement, provide a set of acceptance criteria.
-- Use a clear format, such as a checklist or Given/When/Then. This will be used to validate that the feature is complete and correct.
+- Para cada user story ou requisito principal, forneca um conjunto de criterios de aceite.
+- Use um formato claro, como checklist ou Given/When/Then. Isso sera usado para validar se a feature esta completa e correta.
 
-#### 8. Out of Scope
+#### 8. Fora de Escopo
 
-- Clearly list what is _not_ included in this feature to avoid scope creep.
+- Liste claramente o que _nao_ esta incluido nesta feature para evitar scope creep.
 
 ## Context Template
 
-- **Epic:** [Link to the parent Epic documents]
-- **Feature Idea:** [A high-level description of the feature request from the user]
-- **Target Users:** [Optional: Any initial thoughts on who this is for]
+- **Epic:** [Link para os documentos do Epic pai]
+- **Feature Idea:** [Uma descricao de alto nivel da solicitacao da feature]
+- **Target Users:** [Opcional: quaisquer pensamentos iniciais sobre para quem e]

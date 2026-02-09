@@ -1,167 +1,167 @@
 ---
 agent: 'agent'
-description: 'Create an llms.txt file from scratch based on repository structure following the llms.txt specification at https://llmstxt.org/'
+description: 'Crie um arquivo llms.txt do zero com base na estrutura do repositorio seguindo a especificacao llms.txt em https://llmstxt.org/'
 tools: ['changes', 'search/codebase', 'edit/editFiles', 'extensions', 'web/fetch', 'githubRepo', 'openSimpleBrowser', 'problems', 'runTasks', 'search', 'search/searchResults', 'runCommands/terminalLastCommand', 'runCommands/terminalSelection', 'testFailure', 'usages', 'vscodeAPI']
 ---
-# Create LLMs.txt File from Repository Structure
+# Criar arquivo LLMs.txt a partir da estrutura do repositorio
 
-Create a new `llms.txt` file from scratch in the root of the repository following the official llms.txt specification at https://llmstxt.org/. This file provides high-level guidance to large language models (LLMs) on where to find relevant content for understanding the repository's purpose and specifications.
+Crie um novo arquivo `llms.txt` do zero na raiz do repositorio seguindo a especificacao oficial em https://llmstxt.org/. Este arquivo fornece orientacao de alto nivel para large language models (LLMs) sobre onde encontrar conteudo relevante para entender o proposito e as especificacoes do repositorio.
 
-## Primary Directive
+## Diretriz Principal
 
-Create a comprehensive `llms.txt` file that serves as an entry point for LLMs to understand and navigate the repository effectively. The file must comply with the llms.txt specification and be optimized for LLM consumption while remaining human-readable.
+Crie um `llms.txt` abrangente que sirva como ponto de entrada para LLMs entenderem e navegarem no repositorio. O arquivo deve obedecer a especificacao llms.txt e ser otimizado para consumo por LLMs, mantendo legibilidade humana.
 
-## Analysis and Planning Phase
+## Fase de Analise e Planejamento
 
-Before creating the `llms.txt` file, you must complete a thorough analysis:
+Antes de criar o `llms.txt`, voce deve concluir uma analise completa:
 
-### Step 1: Review llms.txt Specification
+### Etapa 1: Revisar a especificacao llms.txt
 
-- Review the official specification at https://llmstxt.org/ to ensure full compliance
-- Understand the required format structure and guidelines
-- Note the specific markdown structure requirements
+- Revise a especificacao oficial em https://llmstxt.org/ para garantir conformidade total
+- Entenda o formato exigido e as diretrizes
+- Anote requisitos de estrutura Markdown
 
-### Step 2: Repository Structure Analysis
+### Etapa 2: Analise da Estrutura do Repositorio
 
-- Examine the complete repository structure using appropriate tools
-- Identify the primary purpose and scope of the repository
-- Catalog all important directories and their purposes
-- List key files that would be valuable for LLM understanding
+- Examine toda a estrutura do repositorio usando as ferramentas adequadas
+- Identifique o proposito principal e o escopo do repositorio
+- Catalogue diretorios importantes e seus propositos
+- Liste arquivos-chave valiosos para entendimento por LLM
 
-### Step 3: Content Discovery
+### Etapa 3: Descoberta de Conteudo
 
-- Identify README files and their locations
-- Find documentation files (`.md` files in `/docs/`, `/spec/`, etc.)
-- Locate specification files and their purposes
-- Discover configuration files and their relevance
-- Find example files and code samples
-- Identify any existing documentation structure
+- Identifique arquivos README e suas localizacoes
+- Encontre arquivos de documentacao (`.md` em `/docs/`, `/spec/`, etc.)
+- Localize arquivos de especificacao e seus propositos
+- Descubra arquivos de configuracao e sua relevancia
+- Encontre exemplos e code samples
+- Identifique qualquer estrutura de documentacao existente
 
-### Step 4: Create Implementation Plan
+### Etapa 4: Criar Plano de Implementacao
 
-Based on your analysis, create a structured plan that includes:
+Com base na analise, crie um plano estruturado que inclua:
 
-- Repository purpose and scope summary
-- Priority-ordered list of essential files for LLM understanding
-- Secondary files that provide additional context
-- Organizational structure for the llms.txt file
+- Resumo do proposito e escopo do repositorio
+- Lista priorizada de arquivos essenciais para entendimento por LLM
+- Arquivos secundarios que fornecem contexto adicional
+- Estrutura organizacional para o llms.txt
 
-## Implementation Requirements
+## Requisitos de Implementacao
 
-### Format Compliance
+### Conformidade de Formato
 
-The `llms.txt` file must follow this exact structure per the specification:
+O `llms.txt` deve seguir esta estrutura exata:
 
-1. **H1 Header**: Single line with repository/project name (required)
-2. **Blockquote Summary**: Brief description in blockquote format (optional but recommended)
-3. **Additional Details**: Zero or more markdown sections without headings for context
-4. **File List Sections**: Zero or more H2 sections containing markdown lists of links
+1. **H1 Header**: Linha unica com nome do repositorio/projeto (obrigatorio)
+2. **Blockquote Summary**: Descricao breve em formato de blockquote (opcional mas recomendado)
+3. **Additional Details**: Zero ou mais secoes Markdown sem headings para contexto
+4. **File List Sections**: Zero ou mais secoes H2 contendo listas Markdown de links
 
-### Content Requirements
+### Requisitos de Conteudo
 
-#### Required Elements
+#### Elementos Obrigatorios
 
-- **Project Name**: Clear, descriptive title as H1
-- **Summary**: Concise blockquote explaining the repository's purpose
-- **Key Files**: Essential files organized by category (H2 sections)
+- **Project Name**: Titulo claro e descritivo em H1
+- **Summary**: Blockquote conciso explicando o proposito do repositorio
+- **Key Files**: Arquivos essenciais organizados por categoria (secoes H2)
 
-#### File Link Format
+#### Formato de Link
 
-Each file link must follow: `[descriptive-name](relative-url): optional description`
+Cada link deve seguir: `[descriptive-name](relative-url): optional description`
 
-#### Section Organization
+#### Organizacao de Secoes
 
-Organize files into logical H2 sections such as:
+Organize arquivos em secoes H2 como:
 
-- **Documentation**: Core documentation files
-- **Specifications**: Technical specifications and requirements
-- **Examples**: Sample code and usage examples
-- **Configuration**: Setup and configuration files
-- **Optional**: Secondary files (special meaning - can be skipped for shorter context)
+- **Documentation**: Documentacao principal
+- **Specifications**: Especificacoes tecnicas e requisitos
+- **Examples**: Codigo exemplo e uso
+- **Configuration**: Arquivos de setup e configuracao
+- **Optional**: Arquivos secundarios (significado especial - podem ser pulados para contexto menor)
 
-### Content Guidelines
+### Diretrizes de Conteudo
 
-#### Language and Style
+#### Linguagem e Estilo
 
-- Use concise, clear, unambiguous language
-- Avoid jargon without explanation
-- Write for both human and LLM readers
-- Be specific and informative in descriptions
+- Use linguagem concisa, clara e sem ambiguidades
+- Evite jargao sem explicacao
+- Escreva para humanos e LLMs
+- Seja especifico e informativo nas descricoes
 
-#### File Selection Criteria
+#### Criterios de Selecao de Arquivos
 
-Include files that:
-- Explain the repository's purpose and scope
-- Provide essential technical documentation
-- Show usage examples and patterns
-- Define interfaces and specifications
-- Contain configuration and setup instructions
+Inclua arquivos que:
+- Expliquem o proposito e escopo do repositorio
+- Fornecam documentacao tecnica essencial
+- Mostrem exemplos e patterns de uso
+- Definam interfaces e especificacoes
+- Contenham instrucoes de setup e configuracao
 
-Exclude files that:
-- Are purely implementation details
-- Contain redundant information
-- Are build artifacts or generated content
-- Are not relevant to understanding the project
+Exclua arquivos que:
+- Sao apenas detalhes de implementacao
+- Contenham informacao redundante
+- Sao artefatos de build ou conteudo gerado
+- Nao sao relevantes para entender o projeto
 
-## Execution Steps
+## Etapas de Execucao
 
-### Step 1: Repository Analysis
+### Etapa 1: Analise do Repositorio
 
-1. Examine the repository structure completely
-2. Read the main README.md to understand the project
-3. Identify all documentation directories and files
-4. Catalog specification files and their purposes
-5. Find example files and configuration files
+1. Examine a estrutura do repositorio completamente
+2. Leia o README.md principal para entender o projeto
+3. Identifique diretorios e arquivos de documentacao
+4. Catalogue arquivos de especificacao e seus propositos
+5. Encontre exemplos e arquivos de configuracao
 
-### Step 2: Content Planning
+### Etapa 2: Planejamento de Conteudo
 
-1. Determine the primary purpose statement
-2. Write a concise summary for the blockquote
-3. Group identified files into logical categories
-4. Prioritize files by importance for LLM understanding
-5. Create descriptions for each file link
+1. Determine a declaracao principal de proposito
+2. Escreva um resumo conciso para o blockquote
+3. Agrupe arquivos em categorias logicas
+4. Priorize arquivos por importancia para entendimento por LLM
+5. Crie descricoes para cada link
 
-### Step 3: File Creation
+### Etapa 3: Criacao do Arquivo
 
-1. Create the `llms.txt` file in the repository root
-2. Follow the exact format specification
-3. Include all required sections
-4. Use proper markdown formatting
-5. Ensure all links are valid relative paths
+1. Crie o arquivo `llms.txt` na raiz do repositorio
+2. Siga a especificacao de formato exata
+3. Inclua todas as secoes obrigatorias
+4. Use formatacao Markdown correta
+5. Garanta que todos os links sejam caminhos relativos validos
 
-### Step 4: Validation
-1. Verify compliance with https://llmstxt.org/ specification
-2. Check that all links are valid and accessible
-3. Ensure the file serves as an effective LLM navigation tool
-4. Confirm the file is both human and machine readable
+### Etapa 4: Validacao
+1. Verifique conformidade com a especificacao em https://llmstxt.org/
+2. Cheque se todos os links sao validos e acessiveis
+3. Garanta que o arquivo funcione como ferramenta de navegacao para LLM
+4. Confirme que o arquivo e legivel por humanos e maquinas
 
 ## Quality Assurance
 
-### Format Validation
+### Validacao de Formato
 
-- ✅ H1 header with project name
-- ✅ Blockquote summary (if included)
-- ✅ H2 sections for file lists
-- ✅ Proper markdown link format
-- ✅ No broken or invalid links
-- ✅ Consistent formatting throughout
+- ✅ H1 header com nome do projeto
+- ✅ Blockquote summary (se incluido)
+- ✅ Secoes H2 para listas de arquivos
+- ✅ Formato correto de links Markdown
+- ✅ Sem links quebrados ou invalidos
+- ✅ Formatacao consistente em todo o arquivo
 
-### Content Validation
+### Validacao de Conteudo
 
-- ✅ Clear, unambiguous language
-- ✅ Comprehensive coverage of essential files
-- ✅ Logical organization of content
-- ✅ Appropriate file descriptions
-- ✅ Serves as effective LLM navigation tool
+- ✅ Linguagem clara e sem ambiguidades
+- ✅ Cobertura abrangente de arquivos essenciais
+- ✅ Organizacao logica de conteudo
+- ✅ Descricoes apropriadas de arquivos
+- ✅ Serve como ferramenta efetiva de navegacao para LLM
 
-### Specification Compliance
+### Conformidade com Especificacao
 
-- ✅ Follows https://llmstxt.org/ format exactly
-- ✅ Uses required markdown structure
-- ✅ Implements optional sections appropriately
-- ✅ File located at repository root (`/llms.txt`)
+- ✅ Segue exatamente o formato de https://llmstxt.org/
+- ✅ Usa estrutura Markdown exigida
+- ✅ Implementa secoes opcionais apropriadamente
+- ✅ Arquivo localizado na raiz do repositorio (`/llms.txt`)
 
-## Example Structure Template
+## Template de Estrutura de Exemplo
 
 ```txt
 # [Repository Name]
@@ -199,12 +199,12 @@ Exclude files that:
 
 ## Success Criteria
 
-The created `llms.txt` file should:
-1. Enable LLMs to quickly understand the repository's purpose
-2. Provide clear navigation to essential documentation
-3. Follow the official llms.txt specification exactly
-4. Be comprehensive yet concise
-5. Serve both human and machine readers effectively
-6. Include all critical files for project understanding
-7. Use clear, unambiguous language throughout
-8. Organize content logically for easy consumption
+O arquivo `llms.txt` criado deve:
+1. Permitir que LLMs entendam rapidamente o proposito do repositorio
+2. Fornecer navegacao clara para documentacao essencial
+3. Seguir exatamente a especificacao llms.txt oficial
+4. Ser abrangente e conciso
+5. Servir efetivamente leitores humanos e maquinas
+6. Incluir todos os arquivos criticos para entendimento do projeto
+7. Usar linguagem clara e sem ambiguidades
+8. Organizar o conteudo de forma logica para consumo facil

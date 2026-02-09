@@ -1,63 +1,63 @@
 ---
 agent: 'agent'
 tools: ['changes', 'search/codebase', 'edit/editFiles', 'problems']
-description: 'Ensure that C# types are documented with XML comments and follow best practices for documentation.'
+description: 'Garanta que tipos C# sejam documentados com comentarios XML e sigam boas praticas de documentacao.'
 ---
 
-# C# Documentation Best Practices
+# Boas Praticas de Documentacao em C#
 
-- Public members should be documented with XML comments.
-- It is encouraged to document internal members as well, especially if they are complex or not self-explanatory.
+- Membros publicos devem ser documentados com comentarios XML.
+- E recomendado documentar membros internos, especialmente se forem complexos ou nao autoexplicativos.
 
-## Guidance for all APIs
+## Orientacoes para todas as APIs
 
-- Use `<summary>` to provide a brief, one sentence, description of what the type or member does. Start the summary with a present-tense, third-person verb.
-- Use `<remarks>` for additional information, which can include implementation details, usage notes, or any other relevant context.
-- Use `<see langword>` for language-specific keywords like `null`, `true`, `false`, `int`, `bool`, etc.
-- Use `<c>` for inline code snippets.
-- Use `<example>` for usage examples on how to use the member.
-  - Use `<code>` for code blocks. `<code>` tags should be placed within an `<example>` tag. Add the language of the code example using the `language` attribute, for example, `<code language="csharp">`.
-- Use `<see cref>` to reference other types or members inline (in a sentence).
-- Use `<seealso>` for standalone (not in a sentence) references to other types or members in the "See also" section of the online docs.
-- Use `<inheritdoc/>` to inherit documentation from base classes or interfaces.
-  - Unless there is major behavior change, in which case you should document the differences.
+- Use `<summary>` para fornecer uma descricao breve, de uma frase, do que o tipo ou membro faz. Comece o summary com um verbo no presente, na terceira pessoa.
+- Use `<remarks>` para informacoes adicionais, que podem incluir detalhes de implementacao, notas de uso ou contexto relevante.
+- Use `<see langword>` para palavras-chave da linguagem como `null`, `true`, `false`, `int`, `bool`, etc.
+- Use `<c>` para snippets de codigo inline.
+- Use `<example>` para exemplos de uso de como utilizar o membro.
+  - Use `<code>` para blocos de codigo. Tags `<code>` devem ser colocadas dentro de `<example>`. Adicione a linguagem do exemplo com o atributo `language`, por exemplo, `<code language="csharp">`.
+- Use `<see cref>` para referenciar outros tipos ou membros inline (em uma frase).
+- Use `<seealso>` para referencias standalone (nao em frase) a outros tipos ou membros na secao "See also" da documentacao.
+- Use `<inheritdoc/>` para herdar documentacao de classes base ou interfaces.
+  - A menos que haja mudanca de comportamento relevante, caso em que voce deve documentar as diferencas.
 
-## Methods
+## Metodos
 
-- Use `<param>` to describe method parameters.
-  - The description should be a noun phrase that doesn't specify the data type.
-  - Begin with an introductory article.
-  - If the parameter is a flag enum, start the description with "A bitwise combination of the enumeration values that specifies...".
-  - If the parameter is a non-flag enum, start the description with "One of the enumeration values that specifies...".
-  - If the parameter is a Boolean, the wording should be of the form "`<see langword="true" />` to ...; otherwise, `<see langword="false" />`.".
-  - If the parameter is an "out" parameter, the wording should be of the form "When this method returns, contains .... This parameter is treated as uninitialized.".
-- Use `<paramref>` to reference parameter names in documentation.
-- Use `<typeparam>` to describe type parameters in generic types or methods.
-- Use `<typeparamref>` to reference type parameters in documentation.
-- Use `<returns>` to describe what the method returns.
-  - The description should be a noun phrase that doesn't specify the data type.
-  - Begin with an introductory article.
-  - If the return type is Boolean, the wording should be of the form "`<see langword="true" />` if ...; otherwise, `<see langword="false" />`.".
+- Use `<param>` para descrever parametros de metodos.
+  - A descricao deve ser uma frase nominal que nao especifique o tipo de dado.
+  - Comece com um artigo introdutorio.
+  - Se o parametro for um flag enum, inicie com "A bitwise combination of the enumeration values that specifies...".
+  - Se o parametro for um non-flag enum, inicie com "One of the enumeration values that specifies...".
+  - Se o parametro for Boolean, use o formato "`<see langword="true" />` to ...; otherwise, `<see langword="false" />`.".
+  - Se o parametro for "out", use o formato "When this method returns, contains .... This parameter is treated as uninitialized.".
+- Use `<paramref>` para referenciar nomes de parametros na documentacao.
+- Use `<typeparam>` para descrever parametros de tipo em generics.
+- Use `<typeparamref>` para referenciar parametros de tipo na documentacao.
+- Use `<returns>` para descrever o retorno do metodo.
+  - A descricao deve ser uma frase nominal que nao especifique o tipo de dado.
+  - Comece com um artigo introdutorio.
+  - Se o retorno for Boolean, use o formato "`<see langword="true" />` if ...; otherwise, `<see langword="false" />`.".
 
-## Constructors
+## Construtores
 
-- The summary wording should be "Initializes a new instance of the <Class> class [or struct].".
+- O summary deve ser "Initializes a new instance of the <Class> class [or struct].".
 
-## Properties
+## Propriedades
 
-- The `<summary>` should start with:
-  - "Gets or sets..." for a read-write property.
-  - "Gets..." for a read-only property.
-  - "Gets [or sets] a value that indicates whether..." for properties that return a Boolean value.
-- Use `<value>` to describe the value of the property.
-  - The description should be a noun phrase that doesn't specify the data type.
-  - If the property has a default value, add it in a separate sentence, for example, "The default is `<see langword="false" />`".
-  - If the value type is Boolean, the wording should be of the form "`<see langword="true" />` if ...; otherwise, `<see langword="false" />`. The default is ...".
+- O `<summary>` deve iniciar com:
+  - "Gets or sets..." para propriedade de leitura/escrita.
+  - "Gets..." para propriedade somente leitura.
+  - "Gets [or sets] a value that indicates whether..." para propriedades Boolean.
+- Use `<value>` para descrever o valor da propriedade.
+  - A descricao deve ser uma frase nominal que nao especifique o tipo de dado.
+  - Se a propriedade tiver valor default, adicione em uma frase separada, por exemplo, "The default is `<see langword="false" />`".
+  - Se o tipo for Boolean, use o formato "`<see langword="true" />` if ...; otherwise, `<see langword="false" />`. The default is ...".
 
-## Exceptions
+## Excecoes
 
-- Use `<exception cref>` to document exceptions thrown by constructors, properties, indexers, methods, operators, and events.
-- Document all exceptions thrown directly by the member.
-- For exceptions thrown by nested members, document only the exceptions users are most likely to encounter.
-- The description of the exception describes the condition under which it's thrown.
-  - Omit "Thrown if ..." or "If ..." at the beginning of the sentence. Just state the condition directly, for example "An error occurred when accessing a Message Queuing API."
+- Use `<exception cref>` para documentar excecoes lancadas por construtores, propriedades, indexers, metodos, operadores e eventos.
+- Documente todas as excecoes lancadas diretamente pelo membro.
+- Para excecoes lancadas por membros internos, documente apenas as excecoes que usuarios provavelmente encontrarao.
+- A descricao da excecao deve explicar a condicao em que ela e lancada.
+  - Omitir "Thrown if ..." ou "If ..." no inicio da frase. Apenas descreva a condicao diretamente, por exemplo "An error occurred when accessing a Message Queuing API.".

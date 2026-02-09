@@ -1,44 +1,44 @@
 ---
-description: 'Prompt and workflow for generating conventional commit messages using a structured XML format. Guides users to create standardized, descriptive commit messages in line with the Conventional Commits specification, including instructions, examples, and validation.'
+description: 'Prompt e workflow para gerar mensagens de commit convencional usando um formato XML estruturado. Guia o usuario a criar mensagens padronizadas e descritivas alinhadas a especificacao Conventional Commits, com instrucoes, exemplos e validacao.'
 tools: ['execute/runInTerminal', 'execute/getTerminalOutput']
 ---
 
-### Instructions
+### Instrucoes
 
 ```xml
-	<description>This file contains a prompt template for generating conventional commit messages. It provides instructions, examples, and formatting guidelines to help users write standardized, descriptive commit messages in accordance with the Conventional Commits specification.</description>
+	<description>Este arquivo contem um template de prompt para gerar mensagens de commit convencional. Ele fornece instrucoes, exemplos e diretrizes de formatacao para ajudar usuarios a escrever mensagens padronizadas e descritivas de acordo com a especificacao Conventional Commits.</description>
 	<note>
 ```
 
 ### Workflow
 
-**Follow these steps:**
+**Siga estas etapas:**
 
-1. Run `git status` to review changed files.
-2. Run `git diff` or `git diff --cached` to inspect changes.
-3. Stage your changes with `git add <file>`.
-4. Construct your commit message using the following XML structure.
-5. After generating your commit message, Copilot will automatically run the following command in your integrated terminal (no confirmation needed):
+1. Execute `git status` para revisar arquivos modificados.
+2. Execute `git diff` ou `git diff --cached` para inspecionar mudancas.
+3. Faça stage das mudancas com `git add <file>`.
+4. Construa sua mensagem de commit usando a estrutura XML abaixo.
+5. Apos gerar a mensagem, o Copilot executara automaticamente o seguinte comando no terminal integrado (sem confirmacao):
 
 ```bash
 git commit -m "type(scope): description"
 ```
 
-6. Just execute this prompt and Copilot will handle the commit for you in the terminal.
+6. Basta executar este prompt e o Copilot cuidara do commit no terminal.
 
-### Commit Message Structure
+### Estrutura da Mensagem de Commit
 
 ```xml
 <commit-message>
 	<type>feat|fix|docs|style|refactor|perf|test|build|ci|chore|revert</type>
 	<scope>()</scope>
-	<description>A short, imperative summary of the change</description>
-	<body>(optional: more detailed explanation)</body>
-	<footer>(optional: e.g. BREAKING CHANGE: details, or issue references)</footer>
+	<description>Um resumo curto e imperativo da mudanca</description>
+	<body>(opcional: explicacao mais detalhada)</body>
+	<footer>(opcional: ex. BREAKING CHANGE: detalhes, ou referencias de issue)</footer>
 </commit-message>
 ```
 
-### Examples
+### Exemplos
 
 ```xml
 <examples>
@@ -51,7 +51,7 @@ git commit -m "type(scope): description"
 </examples>
 ```
 
-### Validation
+### Validacao
 
 ```xml
 <validation>
@@ -63,11 +63,11 @@ git commit -m "type(scope): description"
 </validation>
 ```
 
-### Final Step
+### Etapa Final
 
 ```xml
 <final-step>
 	<cmd>git commit -m "type(scope): description"</cmd>
-	<note>Replace with your constructed message. Include body and footer if needed.</note>
+	<note>Substitua pela sua mensagem. Inclua body e footer se necessario.</note>
 </final-step>
 ```

@@ -1,29 +1,29 @@
-## Modify code
+## Modificar codigo
 
-Make these necessary changes to the app.
+Faca as mudancas necessarias no app.
 
-- Install client library
+- Instale a client library
 ```
 dotnet add package Azure.Monitor.OpenTelemetry.AspNetCore
 ```
 
-- Configure the app to use Azure Monitor
-An ASP.NET Core app typically has a Program.cs file that "builds" the app. Find this file and apply these changes.
-  - Add `using Azure.Monitor.OpenTelemetry.AspNetCore;` at the top
-  - Before calling `builder.Build()`, add this line `builder.Services.AddOpenTelemetry().UseAzureMonitor();`.
+- Configure o app para usar Azure Monitor
+Um app ASP.NET Core tipicamente tem um arquivo Program.cs que "builda" o app. Encontre esse arquivo e aplique estas mudancas.
+  - Adicione `using Azure.Monitor.OpenTelemetry.AspNetCore;` no topo
+  - Antes de chamar `builder.Build()`, adicione esta linha `builder.Services.AddOpenTelemetry().UseAzureMonitor();`.
 
-> Note: since we modified the code of the app, the app needs to be deployed to take effect.
+> Nota: como modificamos o codigo do app, o app precisa ser feito deploy para surtir efeito.
 
-## Configure App Insights connection string
+## Configurar connection string do App Insights
 
-The App Insights resource has a connection string. Add the connection string as an environment variable of the running app. You can use Azure CLI to query the connection string of the App Insights resource. See [scripts/appinsights.ps1](scripts/appinsights.ps1) for what Azure CLI command to execute for querying the connection string.
+O recurso App Insights tem uma connection string. Adicione a connection string como variavel de ambiente do app em execucao. Voce pode usar o Azure CLI para consultar a connection string do recurso App Insights. Veja [scripts/appinsights.ps1](scripts/appinsights.ps1) para o comando Azure CLI a executar para consultar a connection string.
 
-After getting the connection string, set this environment variable with its value.
+Depois de obter a connection string, defina esta variavel de ambiente com o valor.
 
 ```
 "APPLICATIONINSIGHTS_CONNECTION_STRING={your_application_insights_connection_string}"
 ```
 
-If the app has IaC template such as Bicep or terraform files representing its cloud instance, this environment variable should be added to the IaC template to be applied in each deployment. Otherwise, use Azure CLI to manually apply the environment variable to the cloud instance of the app. See [scripts/appinsights.ps1](scripts/appinsights.ps1) for what Azure CLI command to execute for setting this environment variable.
+Se o app tiver template de IaC como arquivos Bicep ou terraform representando a instancia na nuvem, essa variavel de ambiente deve ser adicionada ao template IaC para ser aplicada em cada deployment. Caso contrario, use Azure CLI para aplicar manualmente a variavel de ambiente na instancia em nuvem do app. Veja [scripts/appinsights.ps1](scripts/appinsights.ps1) para o comando Azure CLI que configura essa variavel de ambiente.
 
-> Important: Don't modify appsettings.json. It was a deprecated way to configure App Insights. The environment variable is the new recommended way.
+> Importante: Nao modifique appsettings.json. Essa era uma forma deprecated de configurar App Insights. A variavel de ambiente e o novo caminho recomendado.

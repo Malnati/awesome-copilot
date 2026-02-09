@@ -1,21 +1,21 @@
 ---
 name: vscode-ext-commands
-description: 'Guidelines for contributing commands in VS Code extensions. Indicates naming convention, visibility, localization and other relevant attributes, following VS Code extension development guidelines, libraries and good practices'
+description: 'Diretrizes para contribuir comandos em extensoes do VS Code. Indica convencao de nomeacao, visibilidade, localizacao e outros atributos relevantes, seguindo diretrizes de desenvolvimento de extensoes do VS Code, bibliotecas e boas praticas'
 ---
 
-# VS Code extension command contribution
+# Contribuicao de comandos em extensoes do VS Code
 
-This skill helps you to contribute commands in VS Code extensions
+Esta skill ajuda voce a contribuir comandos em extensoes do VS Code
 
-## When to use this skill
+## Quando usar esta skill
 
-Use this skill when you need to:
-- Add or update commands to your VS Code extension
+Use esta skill quando precisar:
+- Adicionar ou atualizar comandos na sua extensao do VS Code
 
-# Instructions
+# Instrucoes
 
-VS Code commands must always define a `title`, independent of its category, visibility or location. We use a few patterns for each "kind" of command, with some characteristics, described below:
+Comandos do VS Code sempre devem definir um `title`, independente de categoria, visibilidade ou localizacao. Usamos alguns padroes para cada "tipo" de comando, com caracteristicas descritas abaixo:
 
-* Regular commands: By default, all commands should be accessible in the Command Palette, must define a `category`, and don't need an `icon`, unless the command will be used in the Side Bar.
+* Comandos regulares: Por padrao, todos os comandos devem estar acessiveis na Paleta de Comandos (Command Palette), devem definir `category`, e nao precisam de `icon`, a menos que o comando seja usado na Side Bar.
 
-* Side Bar commands: Its name follows a special pattern, starting with underscore (`_`) and suffixed with `#sideBar`, like `_extensionId.someCommand#sideBar` for instance. Must define an `icon`, and may or may not have some rule for `enablement`. Side Bar exclusive commands should not be visible in the Command Palette. Contributing it to the `view/title` or `view/item/context`, we must inform _order/position_ that it will be displayed, and we can use terms "relative to other command/button" in order to you identify the correct `group` to be used. Also, it's a good practice to define the condition (`when`) for the new command is visible.
+* Comandos de Side Bar: O nome segue um padrao especial, comecando com underscore (`_`) e sufixo `#sideBar`, como `_extensionId.someCommand#sideBar`. Deve definir um `icon` e pode ou nao ter alguma regra de `enablement`. Comandos exclusivos da Side Bar nao devem ser visiveis na Paleta de Comandos (Command Palette). Ao contribuir em `view/title` ou `view/item/context`, devemos informar a _order/position_ em que sera exibido, e podemos usar termos "relative to other command/button" para identificar o `group` correto. Tambem e boa pratica definir a condicao (`when`) para o novo comando ficar visivel.

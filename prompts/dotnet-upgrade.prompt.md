@@ -1,115 +1,115 @@
 ---
 name: ".NET Upgrade Analysis Prompts"
-description: "Ready-to-use prompts for comprehensive .NET framework upgrade analysis and execution"
+description: "Prompts prontos para analise abrangente e execucao de upgrade de framework .NET"
 ---
   # Project Discovery & Assessment
   - name: "Project Classification Analysis"
-    prompt: "Identify all projects in the solution and classify them by type (`.NET Framework`, `.NET Core`, `.NET Standard`). Analyze each `.csproj` for its current `TargetFramework` and SDK usage."
+    prompt: "Identifique todos os projetos na solution e classifique por tipo (`.NET Framework`, `.NET Core`, `.NET Standard`). Analise cada `.csproj` para `TargetFramework` atual e uso de SDK."
 
   - name: "Dependency Compatibility Review"
-    prompt: "Review external and internal dependencies for framework compatibility. Determine the upgrade complexity based on dependency graph depth."
+    prompt: "Revise dependencias externas e internas para compatibilidade com o framework. Determine a complexidade de upgrade com base na profundidade do grafo de dependencias."
 
   - name: "Legacy Package Detection"
-    prompt: "Identify legacy `packages.config` projects needing migration to `PackageReference` format."
+    prompt: "Identifique projetos com `packages.config` legado que precisam migrar para `PackageReference`."
 
   # Upgrade Strategy & Sequencing
   - name: "Project Upgrade Ordering"
-    prompt: "Recommend a project upgrade order from least to most dependent components. Suggest how to isolate class library upgrades before API or Azure Function migrations."
+    prompt: "Recomende uma ordem de upgrade dos projetos do menos para o mais dependente. Sugira como isolar upgrades de class libraries antes de migracoes de API ou Azure Functions."
 
   - name: "Incremental Strategy Planning"
-    prompt: "Propose an incremental upgrade strategy with rollback checkpoints. Evaluate the use of **Upgrade Assistant** or **manual upgrades** based on project structure."
+    prompt: "Proponha uma estrategia de upgrade incremental com checkpoints de rollback. Avalie o uso do **Upgrade Assistant** ou **upgrades manuais** com base na estrutura do projeto."
 
   - name: "Progress Tracking Setup"
-    prompt: "Generate an upgrade checklist for tracking build, test, and deployment readiness across all projects."
+    prompt: "Gere um checklist de upgrade para acompanhar prontidao de build, teste e deploy em todos os projetos."
 
   # Framework Targeting & Code Adjustments
   - name: "Target Framework Selection"
-    prompt: "Suggest the correct `TargetFramework` for each project (e.g., `net8.0`). Review and update deprecated SDK or build configurations."
+    prompt: "Sugira o `TargetFramework` correto para cada projeto (ex.: `net8.0`). Revise e atualize configuracoes de SDK/build depreciadas."
 
   - name: "Code Modernization Analysis"
-    prompt: "Identify code patterns needing modernization (e.g., `WebHostBuilder` → `HostBuilder`). Suggest replacements for deprecated .NET APIs and third-party libraries."
+    prompt: "Identifique patterns de codigo que precisam modernizacao (ex.: `WebHostBuilder` → `HostBuilder`). Sugira substituicoes para APIs .NET depreciadas e libraries de terceiros."
 
   - name: "Async Pattern Conversion"
-    prompt: "Recommend conversion of synchronous calls to async where appropriate for improved performance and scalability."
+    prompt: "Recomende a conversao de chamadas sincronas para async quando apropriado para melhorar performance e escalabilidade."
 
   # NuGet & Dependency Management
   - name: "Package Compatibility Analysis"
-    prompt: "Analyze outdated or incompatible NuGet packages and suggest compatible versions. Identify third-party libraries that lack .NET 8 support and provide migration paths."
+    prompt: "Analise pacotes NuGet desatualizados ou incompatíveis e sugira versoes compatíveis. Identifique libraries de terceiros sem suporte a .NET 8 e forneca caminhos de migracao."
 
   - name: "Shared Dependency Strategy"
-    prompt: "Recommend strategies for handling shared dependency upgrades across projects. Evaluate usage of legacy packages and suggest alternatives in Microsoft-supported namespaces."
+    prompt: "Recomende estrategias para upgrades de dependencias compartilhadas entre projetos. Avalie pacotes legados e sugira alternativas em namespaces suportados pela Microsoft."
 
   - name: "Transitive Dependency Review"
-    prompt: "Review transitive dependencies and potential version conflicts after upgrade. Suggest resolution strategies for dependency conflicts."
+    prompt: "Revise dependencias transitivas e possiveis conflitos de versao apos o upgrade. Sugira estrategias para resolver conflitos."
 
   # CI/CD & Build Pipeline Updates
   - name: "Pipeline Configuration Analysis"
-    prompt: "Analyze YAML build definitions for SDK version pinning and recommend updates. Suggest modifications for `UseDotNet@2` and `NuGetToolInstaller` tasks."
+    prompt: "Analise definicoes YAML de build para pinagem de versao de SDK e recomende updates. Sugira modificacoes para tasks `UseDotNet@2` e `NuGetToolInstaller`."
 
   - name: "Build Pipeline Modernization"
-    prompt: "Generate updated build pipeline snippets for .NET 8 migration. Recommend validation builds on feature branches before merging to main."
+    prompt: "Gere snippets de pipeline atualizados para migracao .NET 8. Recomende builds de validacao em branches de feature antes do merge na main."
 
   - name: "CI Automation Enhancement"
-    prompt: "Identify opportunities to automate test and build verification in CI pipelines. Suggest strategies for continuous integration validation."
+    prompt: "Identifique oportunidades de automatizar verificacao de teste e build em pipelines de CI. Sugira estrategias para validacao de CI continua."
 
   # Testing & Validation
   - name: "Build Validation Strategy"
-    prompt: "Propose validation checks to ensure the upgraded solution builds and runs successfully. Recommend automated test execution for unit and integration suites post-upgrade."
+    prompt: "Proponha checks de validacao para garantir que a solution atualizada compile e rode com sucesso. Recomende execucao automatizada de testes unitarios e integrados pos-upgrade."
 
   - name: "Service Integration Verification"
-    prompt: "Generate validation steps to verify logging, telemetry, and service connectivity. Suggest strategies for verifying backward compatibility and runtime behavior."
+    prompt: "Gere etapas de validacao para verificar logging, telemetria e conectividade de servicos. Sugira estrategias para verificar compatibilidade retroativa e comportamento em runtime."
 
   - name: "Deployment Readiness Check"
-    prompt: "Recommend UAT deployment verification steps before production rollout. Create comprehensive testing scenarios for upgraded components."
+    prompt: "Recomende etapas de verificacao de deploy em UAT antes do rollout em producao. Crie cenarios de teste abrangentes para componentes atualizados."
 
   # Breaking Change Analysis
   - name: "API Deprecation Detection"
-    prompt: "Identify deprecated APIs or removed namespaces between target versions. Suggest automated scanning using `.NET Upgrade Assistant` and API Analyzer."
+    prompt: "Identifique APIs depreciadas ou namespaces removidos entre versoes alvo. Sugira varredura automatizada com `.NET Upgrade Assistant` e API Analyzer."
 
   - name: "API Replacement Strategy"
-    prompt: "Recommend replacement APIs or libraries for known breaking areas. Review configuration changes such as `Startup.cs` → `Program.cs` refactoring."
+    prompt: "Recomende APIs ou libraries substitutas para areas conhecidas de breaking changes. Revise mudancas de configuracao como refatoracao de `Startup.cs` → `Program.cs`."
 
   - name: "Regression Testing Focus"
-    prompt: "Suggest regression testing scenarios focused on upgraded API endpoints or services. Create test plans for critical functionality validation."
+    prompt: "Sugira cenarios de teste de regressao focados em endpoints ou servicos atualizados. Crie planos de teste para validacao de funcionalidades criticas."
 
   # Version Control & Commit Strategy
   - name: "Branching Strategy Planning"
-    prompt: "Recommend branching strategy for safe upgrade with rollback capability. Generate commit templates for partial and complete project upgrades."
+    prompt: "Recomende estrategia de branch para upgrade seguro com capacidade de rollback. Gere templates de commit para upgrades parciais e completos."
 
   - name: "PR Structure Optimization"
-    prompt: "Suggest best practices for creating structured PRs (`Upgrade to .NET [Version]`). Identify tagging strategies for PRs involving breaking changes."
+    prompt: "Sugira boas praticas para criar PRs estruturados (`Upgrade to .NET [Version]`). Identifique estrategias de tagging para PRs com breaking changes."
 
   - name: "Code Review Guidelines"
-    prompt: "Recommend peer review focus areas (build, test, and dependency validation). Create checklists for effective upgrade reviews."
+    prompt: "Recomende areas de foco para peer review (build, teste, validacao de dependencias). Crie checklists para reviews de upgrade eficazes."
 
   # Documentation & Communication
   - name: "Upgrade Documentation Strategy"
-    prompt: "Suggest how to document each project's framework change in the PR. Propose automated release note generation summarizing upgrades and test results."
+    prompt: "Sugira como documentar a mudanca de framework de cada projeto no PR. Proponha geracao automatizada de release notes com resumo de upgrades e resultados de testes."
 
   - name: "Stakeholder Communication"
-    prompt: "Recommend communicating version upgrades and migration timelines to consumers. Generate documentation templates for dependency updates and validation results."
+    prompt: "Recomende comunicacao de upgrades de versao e timelines de migracao para consumidores. Gere templates de documentacao para updates de dependencias e resultados de validacao."
 
   - name: "Progress Tracking Systems"
-    prompt: "Suggest maintaining an upgrade summary dashboard or markdown checklist. Create templates for tracking upgrade progress across multiple projects."
+    prompt: "Sugira manter dashboard de upgrade ou checklist em markdown. Crie templates para acompanhar progresso de upgrade em multiplos projetos."
 
   # Tools & Automation
   - name: "Upgrade Tool Selection"
-    prompt: "Recommend when and how to use: `.NET Upgrade Assistant`, `dotnet list package --outdated`, `dotnet migrate`, and `graph.json` dependency visualization."
+    prompt: "Recomende quando e como usar: `.NET Upgrade Assistant`, `dotnet list package --outdated`, `dotnet migrate`, e visualizacao de dependencias `graph.json`."
 
   - name: "Analysis Script Generation"
-    prompt: "Generate scripts or prompts for analyzing dependency graphs before upgrading. Propose AI-assisted prompts for Copilot to identify upgrade issues automatically."
+    prompt: "Gere scripts ou prompts para analisar grafos de dependencias antes do upgrade. Proponha prompts assistidos por IA para Copilot identificar issues de upgrade automaticamente."
 
   - name: "Multi-Repository Validation"
-    prompt: "Suggest how to validate automation output across multiple repositories. Create standardized validation workflows for enterprise-scale upgrades."
+    prompt: "Sugira como validar output de automacao em multiplos repositorios. Crie workflows padronizados de validacao para upgrades em escala enterprise."
 
   # Final Validation & Delivery
   - name: "Final Solution Validation"
-    prompt: "Generate validation steps to confirm the final upgraded solution passes all validation checks. Suggest production deployment verification steps post-upgrade."
+    prompt: "Gere etapas de validacao para confirmar que a solution final atualizada passa em todos os checks. Sugira verificacao de deploy em producao pos-upgrade."
 
   - name: "Deployment Readiness Confirmation"
-    prompt: "Recommend generating final test results and build artifacts. Create a checklist summarizing completion across projects (builds/tests/deployment)."
+    prompt: "Recomende gerar resultados finais de testes e artefatos de build. Crie checklist resumindo conclusao entre projetos (builds/tests/deploy)."
 
   - name: "Release Documentation"
-    prompt: "Generate a release note summarizing framework changes and CI/CD updates. Create comprehensive upgrade summary documentation."
+    prompt: "Gere release note resumindo mudancas de framework e updates de CI/CD. Crie documentacao abrangente de resumo de upgrade."
 
 ---

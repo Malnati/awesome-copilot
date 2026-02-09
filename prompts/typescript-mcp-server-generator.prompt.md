@@ -1,90 +1,90 @@
 ---
 agent: 'agent'
-description: 'Generate a complete MCP server project in TypeScript with tools, resources, and proper configuration'
+description: 'Gere um projeto completo de servidor MCP em TypeScript com tools, resources e configuracao adequada'
 ---
 
-# Generate TypeScript MCP Server
+# Gerar Servidor MCP em TypeScript
 
-Create a complete Model Context Protocol (MCP) server in TypeScript with the following specifications:
+Crie um servidor Model Context Protocol (MCP) completo em TypeScript com as seguintes especificacoes:
 
-## Requirements
+## Requisitos
 
-1. **Project Structure**: Create a new TypeScript/Node.js project with proper directory structure
-2. **NPM Packages**: Include @modelcontextprotocol/sdk, zod@3, and either express (for HTTP) or stdio support
-3. **TypeScript Configuration**: Proper tsconfig.json with ES modules support
-4. **Server Type**: Choose between HTTP (with Streamable HTTP transport) or stdio-based server
-5. **Tools**: Create at least one useful tool with proper schema validation
-6. **Error Handling**: Include comprehensive error handling and validation
+1. **Estrutura do Projeto**: Crie um novo projeto TypeScript/Node.js com estrutura de diretorios adequada
+2. **Pacotes NPM**: Inclua @modelcontextprotocol/sdk, zod@3 e suporte a express (HTTP) ou stdio
+3. **Configuracao TypeScript**: tsconfig.json adequado com suporte a ES modules
+4. **Tipo de Servidor**: Escolha entre HTTP (com Streamable HTTP transport) ou stdio
+5. **Tools**: Crie pelo menos uma tool util com validacao de schema adequada
+6. **Error Handling**: Inclua tratamento de erros e validacao abrangentes
 
-## Implementation Details
+## Detalhes de Implementacao
 
-### Project Setup
-- Initialize with `npm init` and create package.json
-- Install dependencies: `@modelcontextprotocol/sdk`, `zod@3`, and transport-specific packages
-- Configure TypeScript with ES modules: `"type": "module"` in package.json
-- Add dev dependencies: `tsx` or `ts-node` for development
-- Create proper .gitignore file
+### Setup do Projeto
+- Inicialize com `npm init` e crie package.json
+- Instale dependencias: `@modelcontextprotocol/sdk`, `zod@3` e pacotes do transport escolhido
+- Configure TypeScript com ES modules: `"type": "module"` em package.json
+- Adicione dev dependencies: `tsx` ou `ts-node` para desenvolvimento
+- Crie arquivo .gitignore apropriado
 
-### Server Configuration
-- Use `McpServer` class for high-level implementation
-- Set server name and version
-- Choose appropriate transport (StreamableHTTPServerTransport or StdioServerTransport)
-- For HTTP: set up Express with proper middleware and error handling
-- For stdio: use StdioServerTransport directly
+### Configuracao do Servidor
+- Use a classe `McpServer` para implementacao de alto nivel
+- Defina nome e versao do servidor
+- Escolha o transport apropriado (StreamableHTTPServerTransport ou StdioServerTransport)
+- Para HTTP: configure Express com middleware e error handling adequados
+- Para stdio: use StdioServerTransport diretamente
 
-### Tool Implementation
-- Use `registerTool()` method with descriptive names
-- Define schemas using zod for input and output validation
-- Provide clear `title` and `description` fields
-- Return both `content` and `structuredContent` in results
-- Implement proper error handling with try-catch blocks
-- Support async operations where appropriate
+### Implementacao de Tools
+- Use `registerTool()` com nomes descritivos
+- Defina schemas usando zod para validacao de input e output
+- Forneca campos `title` e `description` claros
+- Retorne `content` e `structuredContent` nos resultados
+- Implemente error handling com try-catch
+- Suporte operacoes async quando apropriado
 
-### Resource/Prompt Setup (Optional)
-- Add resources using `registerResource()` with ResourceTemplate for dynamic URIs
-- Add prompts using `registerPrompt()` with argument schemas
-- Consider adding completion support for better UX
+### Setup de Resource/Prompt (Opcional)
+- Adicione resources com `registerResource()` usando ResourceTemplate para URIs dinamicas
+- Adicione prompts com `registerPrompt()` com schemas de argumentos
+- Considere adicionar completion support para melhor UX
 
-### Code Quality
-- Use TypeScript for type safety
-- Follow async/await patterns consistently
-- Implement proper cleanup on transport close events
-- Use environment variables for configuration
-- Add inline comments for complex logic
-- Structure code with clear separation of concerns
+### Qualidade de Codigo
+- Use TypeScript para type safety
+- Siga padroes async/await de forma consistente
+- Implemente cleanup adequado em eventos de fechamento de transport
+- Use variaveis de ambiente para configuracao
+- Adicione comentarios inline para logica complexa
+- Estruture o codigo com separacao clara de responsabilidades
 
-## Example Tool Types to Consider
-- Data processing and transformation
-- External API integrations
-- File system operations (read, search, analyze)
-- Database queries
-- Text analysis or summarization (with sampling)
-- System information retrieval
+## Tipos de Tool a Considerar
+- Processamento e transformacao de dados
+- Integracoes com APIs externas
+- Operacoes em file system (read, search, analyze)
+- Queries em banco de dados
+- Analise ou sumarizacao de texto (com sampling)
+- Recuperacao de informacoes do sistema
 
-## Configuration Options
-- **For HTTP Servers**: 
-  - Port configuration via environment variables
-  - CORS setup for browser clients
-  - Session management (stateless vs stateful)
-  - DNS rebinding protection for local servers
+## Opcoes de Configuracao
+- **Para servidores HTTP**: 
+  - Configuracao de porta via variaveis de ambiente
+  - Setup de CORS para clientes browser
+  - Gerenciamento de sessao (stateless vs stateful)
+  - Protecao contra DNS rebinding para servidores locais
   
-- **For stdio Servers**:
-  - Proper stdin/stdout handling
-  - Environment-based configuration
-  - Process lifecycle management
+- **Para servidores stdio**:
+  - Tratamento adequado de stdin/stdout
+  - Configuracao baseada em ambiente
+  - Gerenciamento de ciclo de vida do processo
 
-## Testing Guidance
-- Explain how to run the server (`npm start` or `npx tsx server.ts`)
-- Provide MCP Inspector command: `npx @modelcontextprotocol/inspector`
-- For HTTP servers, include connection URL: `http://localhost:PORT/mcp`
-- Include example tool invocations
-- Add troubleshooting tips for common issues
+## Orientacao de Testes
+- Explique como rodar o servidor (`npm start` ou `npx tsx server.ts`)
+- Forneca comando do MCP Inspector: `npx @modelcontextprotocol/inspector`
+- Para servidores HTTP, inclua URL de conexao: `http://localhost:PORT/mcp`
+- Inclua exemplos de invocacao de tools
+- Adicione dicas de troubleshooting para problemas comuns
 
-## Additional Features to Consider
-- Sampling support for LLM-powered tools
-- User input elicitation for interactive workflows
-- Dynamic tool registration with enable/disable capabilities
-- Notification debouncing for bulk updates
-- Resource links for efficient data references
+## Recursos Adicionais a Considerar
+- Sampling support para tools com LLM
+- User input elicitation para workflows interativos
+- Registro dinamico de tools com enable/disable
+- Notification debouncing para updates em lote
+- Resource links para referencias de dados eficientes
 
-Generate a complete, production-ready MCP server with comprehensive documentation, type safety, and error handling.
+Gere um servidor MCP completo e pronto para producao com documentacao abrangente, type safety e error handling.

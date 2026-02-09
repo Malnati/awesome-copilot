@@ -1,54 +1,54 @@
 ---
 name: webapp-testing
-description: Toolkit for interacting with and testing local web applications using Playwright. Supports verifying frontend functionality, debugging UI behavior, capturing browser screenshots, and viewing browser logs.
+description: Toolkit para interagir e testar aplicacoes web locais usando Playwright. Suporta verificacao de funcionalidade de frontend, depuracao de comportamento de UI, captura de tela (screenshots) do navegador e visualizacao de logs do browser.
 ---
 
-# Web Application Testing
+# Testes de Aplicacoes Web
 
-This skill enables comprehensive testing and debugging of local web applications using Playwright automation.
+Esta skill permite testes e depuracao abrangentes de aplicacoes web locais usando automacao com Playwright.
 
-## When to Use This Skill
+## Quando Usar Esta Skill
 
-Use this skill when you need to:
-- Test frontend functionality in a real browser
-- Verify UI behavior and interactions
-- Debug web application issues
-- Capture screenshots for documentation or debugging
-- Inspect browser console logs
-- Validate form submissions and user flows
-- Check responsive design across viewports
+Use esta skill quando precisar:
+- Testar funcionalidades de frontend em um navegador real
+- Verificar comportamento de UI e interacoes
+- Depurar problemas de aplicacoes web
+- Capturar capturas de tela (screenshots) para documentacao ou depuracao
+- Inspecionar logs do console do navegador
+- Validar envios de formulario e fluxos do usuario
+- Verificar design responsivo em diferentes viewports
 
-## Prerequisites
+## Pre-requisitos
 
-- Node.js installed on the system
-- A locally running web application (or accessible URL)
-- Playwright will be installed automatically if not present
+- Node.js instalado no sistema
+- Aplicacao web local em execucao (ou URL acessivel)
+- Playwright sera instalado automaticamente se nao estiver presente
 
-## Core Capabilities
+## Capacidades Principais
 
-### 1. Browser Automation
-- Navigate to URLs
-- Click buttons and links
-- Fill form fields
-- Select dropdowns
-- Handle dialogs and alerts
+### 1. Automacao de Navegador
+- Navegar para URLs
+- Clicar em botoes e links
+- Preencher campos de formulario
+- Selecionar dropdowns
+- Lidar com dialogs e alerts
 
-### 2. Verification
-- Assert element presence
-- Verify text content
-- Check element visibility
-- Validate URLs
-- Test responsive behavior
+### 2. Verificacao
+- Confirmar presenca de elementos
+- Verificar conteudo de texto
+- Checar visibilidade de elementos
+- Validar URLs
+- Testar comportamento responsivo
 
-### 3. Debugging
-- Capture screenshots
-- View console logs
-- Inspect network requests
-- Debug failed tests
+### 3. Depuracao
+- Capturar screenshots
+- Visualizar logs do console
+- Inspecionar requisicoes de rede
+- Depurar testes que falharam
 
-## Usage Examples
+## Exemplos de Uso
 
-### Example 1: Basic Navigation Test
+### Exemplo 1: Teste Basico de Navegacao
 ```javascript
 // Navigate to a page and verify title
 await page.goto('http://localhost:3000');
@@ -56,7 +56,7 @@ const title = await page.title();
 console.log('Page title:', title);
 ```
 
-### Example 2: Form Interaction
+### Exemplo 2: Interacao com Formulario
 ```javascript
 // Fill out and submit a form
 await page.fill('#username', 'testuser');
@@ -65,40 +65,40 @@ await page.click('button[type="submit"]');
 await page.waitForURL('**/dashboard');
 ```
 
-### Example 3: Screenshot Capture
+### Exemplo 3: Captura de Screenshot
 ```javascript
 // Capture a screenshot for debugging
 await page.screenshot({ path: 'debug.png', fullPage: true });
 ```
 
-## Guidelines
+## Diretrizes
 
-1. **Always verify the app is running** - Check that the local server is accessible before running tests
-2. **Use explicit waits** - Wait for elements or navigation to complete before interacting
-3. **Capture screenshots on failure** - Take screenshots to help debug issues
-4. **Clean up resources** - Always close the browser when done
-5. **Handle timeouts gracefully** - Set reasonable timeouts for slow operations
-6. **Test incrementally** - Start with simple interactions before complex flows
-7. **Use selectors wisely** - Prefer data-testid or role-based selectors over CSS classes
+1. **Sempre verifique se a app esta em execucao** - confira se o servidor local esta acessivel antes de rodar testes
+2. **Use esperas explicitas** - aguarde elementos ou navegacao antes de interagir
+3. **Capture screenshots em falhas** - tire screenshots para ajudar na depuracao
+4. **Libere recursos** - sempre feche o navegador ao finalizar
+5. **Trate timeouts com cuidado** - defina timeouts razoaveis para operacoes lentas
+6. **Teste incrementalmente** - comece com interacoes simples antes de fluxos complexos
+7. **Use seletores de forma inteligente** - prefira data-testid ou seletores por role em vez de classes CSS
 
-## Common Patterns
+## Padroes Comuns
 
-### Pattern: Wait for Element
+### Padrao: Esperar por Elemento
 ```javascript
 await page.waitForSelector('#element-id', { state: 'visible' });
 ```
 
-### Pattern: Check if Element Exists
+### Padrao: Verificar se Elemento Existe
 ```javascript
 const exists = await page.locator('#element-id').count() > 0;
 ```
 
-### Pattern: Get Console Logs
+### Padrao: Obter Logs do Console
 ```javascript
 page.on('console', msg => console.log('Browser log:', msg.text()));
 ```
 
-### Pattern: Handle Errors
+### Padrao: Tratar Erros
 ```javascript
 try {
   await page.click('#button');
@@ -108,9 +108,9 @@ try {
 }
 ```
 
-## Limitations
+## Limitacoes
 
-- Requires Node.js environment
-- Cannot test native mobile apps (use React Native Testing Library instead)
-- May have issues with complex authentication flows
-- Some modern frameworks may require specific configuration
+- Requer ambiente Node.js
+- Nao testa apps mobile nativas (use React Native Testing Library)
+- Pode ter problemas com fluxos de autenticacao complexos
+- Alguns frameworks modernos podem exigir configuracoes especificas

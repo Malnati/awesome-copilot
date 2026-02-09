@@ -1,42 +1,42 @@
 ---
 agent: 'agent'
 tools: ['changes', 'search/codebase', 'edit/editFiles', 'problems']
-description: 'Create ASP.NET Minimal API endpoints with proper OpenAPI documentation'
+description: 'Crie endpoints ASP.NET Minimal API com documentação OpenAPI adequada'
 ---
 
-# ASP.NET Minimal API with OpenAPI
+## ASP.NET Minimal API com OpenAPI
 
-Your goal is to help me create well-structured ASP.NET Minimal API endpoints with correct types and comprehensive OpenAPI/Swagger documentation.
+Seu objetivo é me ajudar a criar endpoints ASP.NET Minimal API bem estruturados, com tipos corretos e documentação OpenAPI/Swagger abrangente.
 
-## API Organization
+## Organização da API
 
-- Group related endpoints using `MapGroup()` extension
-- Use endpoint filters for cross-cutting concerns
-- Structure larger APIs with separate endpoint classes
-- Consider using a feature-based folder structure for complex APIs
+- Agrupe endpoints relacionados usando a extensão `MapGroup()`
+- Use filtros de endpoint para preocupações transversais
+- Estruture APIs maiores com classes de endpoint separadas
+- Considere usar uma estrutura de pastas por feature para APIs complexas
 
-## Request and Response Types
+## Tipos de Requisição e Resposta
 
-- Define explicit request and response DTOs/models
-- Create clear model classes with proper validation attributes
-- Use record types for immutable request/response objects
-- Use meaningful property names that align with API design standards
-- Apply `[Required]` and other validation attributes to enforce constraints
-- Use the ProblemDetailsService and StatusCodePages to get standard error responses
+- Defina DTOs/models explícitos para requisição e resposta
+- Crie classes de modelo claras com atributos de validação adequados
+- Use tipos record para objetos imutáveis de requisição/resposta
+- Use nomes de propriedades significativos que estejam alinhados com padrões de design de API
+- Aplique `[Required]` e outros atributos de validação para impor restrições
+- Use ProblemDetailsService e StatusCodePages para obter respostas de erro padrão
 
-## Type Handling
+## Manipulação de Tipos
 
-- Use strongly-typed route parameters with explicit type binding
-- Use `Results<T1, T2>` to represent multiple response types
-- Return `TypedResults` instead of `Results` for strongly-typed responses
-- Leverage C# 10+ features like nullable annotations and init-only properties
+- Use parâmetros de rota fortemente tipados com binding explícito
+- Use `Results<T1, T2>` para representar múltiplos tipos de resposta
+- Retorne `TypedResults` em vez de `Results` para respostas fortemente tipadas
+- Aproveite recursos do C# 10+ como nullable annotations e propriedades init-only
 
 ## OpenAPI Documentation
 
-- Use the built-in OpenAPI document support added in .NET 9
-- Define operation summary and description
-- Add operationIds using the `WithName` extension method
-- Add descriptions to properties and parameters with `[Description()]`
-- Set proper content types for requests and responses
-- Use document transformers to add elements like servers, tags, and security schemes
-- Use schema transformers to apply customizations to OpenAPI schemas
+- Use o suporte embutido a documentos OpenAPI adicionado no .NET 9
+- Defina resumo e descrição da operação
+- Adicione operationIds usando o método de extensão `WithName`
+- Adicione descrições a propriedades e parâmetros com `[Description()]`
+- Defina content types adequados para requisições e respostas
+- Use document transformers para adicionar elementos como servers, tags e security schemes
+- Use schema transformers para aplicar customizações a schemas OpenAPI

@@ -1,15 +1,15 @@
 ---
 agent: 'agent'
 tools: ['changes', 'search/codebase', 'edit/editFiles', 'problems']
-description: 'Universal SQL code review assistant that performs comprehensive security, maintainability, and code quality analysis across all SQL databases (MySQL, PostgreSQL, SQL Server, Oracle). Focuses on SQL injection prevention, access control, code standards, and anti-pattern detection. Complements SQL optimization prompt for complete development coverage.'
+description: 'Assistente universal de code review SQL que faz analise abrangente de seguranca, manutenibilidade e qualidade de codigo em todos os bancos SQL (MySQL, PostgreSQL, SQL Server, Oracle). Foca em prevencao de SQL injection, controle de acesso, padroes de codigo e deteccao de anti-padroes. Complementa o prompt de otimizacao SQL para cobertura completa de desenvolvimento.'
 tested_with: 'GitHub Copilot Chat (GPT-4o) - Validated July 20, 2025'
 ---
 
 # SQL Code Review
 
-Perform a thorough SQL code review of ${selection} (or entire project if no selection) focusing on security, performance, maintainability, and database best practices.
+Execute um code review SQL completo de ${selection} (ou do projeto inteiro se nao houver selecao) focando em seguranca, performance, manutenibilidade e boas praticas de banco.
 
-## 🔒 Security Analysis
+## 🔒 Analise de Seguranca
 
 ### SQL Injection Prevention
 ```sql
@@ -27,16 +27,16 @@ EXEC sp_executesql N'SELECT * FROM users WHERE id = @id', N'@id INT', @id = @use
 ```
 
 ### Access Control & Permissions
-- **Principle of Least Privilege**: Grant minimum required permissions
-- **Role-Based Access**: Use database roles instead of direct user permissions
-- **Schema Security**: Proper schema ownership and access controls
-- **Function/Procedure Security**: Review DEFINER vs INVOKER rights
+- **Principle of Least Privilege**: Conceda o minimo de permissoes necessario
+- **Role-Based Access**: Use roles em vez de permissoes diretas por usuario
+- **Schema Security**: Propriedade de schema e controles de acesso apropriados
+- **Function/Procedure Security**: Revise direitos DEFINER vs INVOKER
 
 ### Data Protection
-- **Sensitive Data Exposure**: Avoid SELECT * on tables with sensitive columns
-- **Audit Logging**: Ensure sensitive operations are logged
-- **Data Masking**: Use views or functions to mask sensitive data
-- **Encryption**: Verify encrypted storage for sensitive data
+- **Sensitive Data Exposure**: Evite SELECT * em tabelas com colunas sensiveis
+- **Audit Logging**: Garanta que operacoes sensiveis sejam logadas
+- **Data Masking**: Use views ou functions para mascarar dados sensiveis
+- **Encryption**: Verifique armazenamento criptografado para dados sensiveis
 
 ## ⚡ Performance Optimization
 
@@ -58,16 +58,16 @@ AND o.order_date < '2025-01-01';
 ```
 
 ### Index Strategy Review
-- **Missing Indexes**: Identify columns that need indexing
-- **Over-Indexing**: Find unused or redundant indexes
-- **Composite Indexes**: Multi-column indexes for complex queries
-- **Index Maintenance**: Check for fragmented or outdated indexes
+- **Missing Indexes**: Identifique colunas que precisam de indice
+- **Over-Indexing**: Encontre indices nao usados ou redundantes
+- **Composite Indexes**: Indices multi-coluna para queries complexas
+- **Index Maintenance**: Verifique indices fragmentados ou desatualizados
 
 ### Join Optimization
-- **Join Types**: Verify appropriate join types (INNER vs LEFT vs EXISTS)
-- **Join Order**: Optimize for smaller result sets first
-- **Cartesian Products**: Identify and fix missing join conditions
-- **Subquery vs JOIN**: Choose the most efficient approach
+- **Join Types**: Verifique tipos adequados (INNER vs LEFT vs EXISTS)
+- **Join Order**: Otimize para menores result sets primeiro
+- **Cartesian Products**: Identifique e corrija falta de condicoes de join
+- **Subquery vs JOIN**: Escolha a abordagem mais eficiente
 
 ### Aggregate and Window Functions
 ```sql
@@ -101,16 +101,16 @@ WHERE u.status = 'active'
 ```
 
 ### Naming Conventions
-- **Consistent Naming**: Tables, columns, constraints follow consistent patterns
-- **Descriptive Names**: Clear, meaningful names for database objects
-- **Reserved Words**: Avoid using database reserved words as identifiers
-- **Case Sensitivity**: Consistent case usage across schema
+- **Consistent Naming**: Tabelas, colunas e constraints seguem padroes consistentes
+- **Descriptive Names**: Nomes claros e significativos para objetos do banco
+- **Reserved Words**: Evite palavras reservadas como identificadores
+- **Case Sensitivity**: Uso consistente de caixa em todo o schema
 
 ### Schema Design Review
-- **Normalization**: Appropriate normalization level (avoid over/under-normalization)
-- **Data Types**: Optimal data type choices for storage and performance
-- **Constraints**: Proper use of PRIMARY KEY, FOREIGN KEY, CHECK, NOT NULL
-- **Default Values**: Appropriate default values for columns
+- **Normalization**: Nivel apropriado de normalizacao (evite excesso/falta)
+- **Data Types**: Escolha otima de tipos para storage e performance
+- **Constraints**: Uso adequado de PRIMARY KEY, FOREIGN KEY, CHECK, NOT NULL
+- **Default Values**: Valores default apropriados para colunas
 
 ## 🗄️ Database-Specific Best Practices
 
@@ -189,10 +189,10 @@ WHERE price < 0 OR stock_quantity < 0;
 ```
 
 ### Performance Testing
-- **Execution Plans**: Review query execution plans
-- **Load Testing**: Test queries with realistic data volumes
-- **Stress Testing**: Verify performance under concurrent load
-- **Regression Testing**: Ensure optimizations don't break functionality
+- **Execution Plans**: Revise planos de execucao
+- **Load Testing**: Teste queries com volumes realistas
+- **Stress Testing**: Verifique performance com carga concorrente
+- **Regression Testing**: Garanta que otimizacoes nao quebrem funcionalidade
 
 ## 📊 Common Anti-Patterns
 
@@ -300,4 +300,4 @@ WHERE order_date >= '2024-01-01'
 2. **[Performance Optimization]**: Add missing indexes or optimize queries
 3. **[Code Quality]**: Improve naming conventions and documentation
 
-Focus on providing actionable, database-agnostic recommendations while highlighting platform-specific optimizations and best practices.
+Foque em fornecer recomendacoes acionaveis e agnosticas de banco, destacando otimizacoes e boas praticas especificas de plataforma.

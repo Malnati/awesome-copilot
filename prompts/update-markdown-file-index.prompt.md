@@ -1,36 +1,36 @@
 ---
 agent: 'agent'
-description: 'Update a markdown file section with an index/table of files from a specified folder.'
+description: 'Atualize uma secao de arquivo markdown com um indice/tabela de arquivos de uma pasta especificada.'
 tools: ['changes', 'search/codebase', 'edit/editFiles', 'extensions', 'web/fetch', 'findTestFiles', 'githubRepo', 'openSimpleBrowser', 'problems', 'runCommands', 'runTasks', 'runTests', 'search', 'search/searchResults', 'runCommands/terminalLastCommand', 'runCommands/terminalSelection', 'testFailure', 'usages', 'vscodeAPI']
 ---
-# Update Markdown File Index
+# Atualizar Indice de Arquivo Markdown
 
-Update markdown file `${file}` with an index/table of files from folder `${input:folder}`.
+Atualize o arquivo markdown `${file}` com um indice/tabela de arquivos da pasta `${input:folder}`.
 
-## Process
+## Processo
 
-1. **Scan**: Read the target markdown file `${file}` to understand existing structure
-2. **Discover**: List all files in the specified folder `${input:folder}` matching pattern `${input:pattern}`
-3. **Analyze**: Identify if an existing table/index section exists to update, or create new structure
-4. **Structure**: Generate appropriate table/list format based on file types and existing content
-5. **Update**: Replace existing section or add new section with file index
-6. **Validate**: Ensure markdown syntax is valid and formatting is consistent
+1. **Scan**: Leia o arquivo markdown alvo `${file}` para entender a estrutura existente
+2. **Discover**: Liste todos os arquivos na pasta especificada `${input:folder}` que correspondam ao padrao `${input:pattern}`
+3. **Analyze**: Identifique se existe uma secao de tabela/indice para atualizar ou criar uma nova estrutura
+4. **Structure**: Gere o formato de tabela/lista apropriado com base nos tipos de arquivo e no conteudo existente
+5. **Update**: Substitua a secao existente ou adicione nova secao com o indice de arquivos
+6. **Validate**: Garanta que a sintaxe markdown seja valida e a formatacao consistente
 
-## File Analysis
+## Analise de Arquivos
 
-For each discovered file, extract:
+Para cada arquivo encontrado, extraia:
 
-- **Name**: Filename with or without extension based on context
-- **Type**: File extension and category (e.g., `.md`, `.js`, `.py`)
-- **Description**: First line comment, header, or inferred purpose
-- **Size**: File size for reference (optional)
-- **Modified**: Last modified date (optional)
+- **Name**: Nome do arquivo com ou sem extensao, conforme o contexto
+- **Type**: Extensao e categoria (ex.: `.md`, `.js`, `.py`)
+- **Description**: Primeiro comentario, cabecalho, ou proposito inferido
+- **Size**: Tamanho do arquivo para referencia (opcional)
+- **Modified**: Data da ultima modificacao (opcional)
 
-## Table Structure Options
+## Opcoes de Estrutura de Tabela
 
-Choose format based on file types and existing content:
+Escolha o formato com base nos tipos de arquivo e no conteudo existente:
 
-### Option 1: Simple List
+### Opcao 1: Lista Simples
 
 ```markdown
 ## Files in ${folder}
@@ -39,38 +39,38 @@ Choose format based on file types and existing content:
 - [filename2.ext](path/to/filename2.ext) - Description
 ```
 
-### Option 2: Detailed Table
+### Opcao 2: Tabela Detalhada
 
 | File | Type | Description |
 |------|------|-------------|
 | [filename.ext](path/to/filename.ext) | Extension | Description |
 | [filename2.ext](path/to/filename2.ext) | Extension | Description |
 
-### Option 3: Categorized Sections
+### Opcao 3: Secoes Categorizadas
 
-Group files by type/category with separate sections or sub-tables.
+Agrupe arquivos por tipo/categoria com secoes separadas ou sub-tabelas.
 
-## Update Strategy
+## Estrategia de Atualizacao
 
-- 🔄 **Update existing**: If table/index section exists, replace content while preserving structure
-- ➕ **Add new**: If no existing section, create new section using best-fit format
-- 📋 **Preserve**: Maintain existing markdown formatting, heading levels, and document flow
-- 🔗 **Links**: Use relative paths for file links within the repository
+- 🔄 **Update existing**: Se a secao de tabela/indice existir, substitua o conteudo preservando a estrutura
+- ➕ **Add new**: Se nao existir secao, crie uma nova com o formato mais adequado
+- 📋 **Preserve**: Mantenha formatacao markdown existente, niveis de cabecalho e fluxo do documento
+- 🔗 **Links**: Use caminhos relativos para links de arquivos dentro do repositorio
 
-## Section Identification
+## Identificacao de Secao
 
-Look for existing sections with these patterns:
+Procure secoes existentes com estes padroes:
 
-- Headings containing: "index", "files", "contents", "directory", "list"
-- Tables with file-related columns
-- Lists with file links
-- HTML comments marking file index sections
+- Cabecalhos contendo: "index", "files", "contents", "directory", "list"
+- Tabelas com colunas relacionadas a arquivos
+- Listas com links de arquivos
+- Comentarios HTML marcando secoes de indice de arquivos
 
-## Requirements
+## Requisitos
 
-- Preserve existing markdown structure and formatting
-- Use relative paths for file links
-- Include file descriptions when available
-- Sort files alphabetically by default
-- Handle special characters in filenames
-- Validate all generated markdown syntax
+- Preservar estrutura e formatacao markdown existentes
+- Usar caminhos relativos para links de arquivos
+- Incluir descricoes de arquivos quando disponiveis
+- Ordenar arquivos alfabeticamente por padrao
+- Lidar com caracteres especiais em nomes de arquivos
+- Validar toda a sintaxe markdown gerada

@@ -1,17 +1,17 @@
 ---
 name: azure-devops-cli
-description: Manage Azure DevOps resources via CLI including projects, repos, pipelines, builds, pull requests, work items, artifacts, and service endpoints. Use when working with Azure DevOps, az commands, devops automation, CI/CD, or when user mentions Azure DevOps CLI.
+description: Gerencie recursos do Azure DevOps via CLI, incluindo projetos, repos, pipelines, builds, pull requests, work items, artifacts e service endpoints. Use ao trabalhar com Azure DevOps, comandos az, automacao devops, CI/CD ou quando o usuario mencionar Azure DevOps CLI.
 ---
 
-# Azure DevOps CLI
+# CLI do Azure DevOps
 
-This Skill helps manage Azure DevOps resources using the Azure CLI with Azure DevOps extension.
+Esta skill ajuda a gerenciar recursos do Azure DevOps usando o Azure CLI com a extensao Azure DevOps.
 
-**CLI Version:** 2.81.0 (current as of 2025)
+**Versao do CLI:** 2.81.0 (atual em 2025)
 
-## Prerequisites
+## Pre-requisitos
 
-Install Azure CLI and Azure DevOps extension:
+Instale o Azure CLI e a extensao Azure DevOps:
 
 ```bash
 # Install Azure CLI
@@ -27,7 +27,7 @@ az extension add --name azure-devops
 az extension show --name azure-devops
 ```
 
-## CLI Structure
+## Estrutura do CLI
 
 ```
 az devops          # Main DevOps commands
@@ -74,9 +74,9 @@ az artifacts       # Azure Artifacts
     └── publish    # Publish packages
 ```
 
-## Authentication
+## Autenticacao
 
-### Login to Azure DevOps
+### Login no Azure DevOps
 
 ```bash
 # Interactive login (prompts for PAT)
@@ -89,7 +89,7 @@ az devops login --organization https://dev.azure.com/{org} --token YOUR_PAT_TOKE
 az devops logout --organization https://dev.azure.com/{org}
 ```
 
-### Configure Defaults
+### Configurar Padroes
 
 ```bash
 # Set default organization and project
@@ -102,9 +102,9 @@ az devops configure --list
 az devops configure --use-git-aliases true
 ```
 
-## Extension Management
+## Gerenciamento de Extensoes
 
-### List Extensions
+### Listar Extensoes
 
 ```bash
 # List available extensions
@@ -114,7 +114,7 @@ az extension list-available --output table
 az extension list --output table
 ```
 
-### Manage Azure DevOps Extension
+### Gerenciar Extensao Azure DevOps
 
 ```bash
 # Install Azure DevOps extension
@@ -130,16 +130,16 @@ az extension remove --name azure-devops
 az extension add --source ~/extensions/azure-devops.whl
 ```
 
-## Projects
+## Projetos
 
-### List Projects
+### Listar Projetos
 
 ```bash
 az devops project list --organization https://dev.azure.com/{org}
 az devops project list --top 10 --output table
 ```
 
-### Create Project
+### Criar Projeto
 
 ```bash
 az devops project create \
@@ -150,54 +150,54 @@ az devops project create \
   --visibility private
 ```
 
-### Show Project Details
+### Mostrar Detalhes do Projeto
 
 ```bash
 az devops project show --project {project-name} --org https://dev.azure.com/{org}
 ```
 
-### Delete Project
+### Deletar Projeto
 
 ```bash
 az devops project delete --id {project-id} --org https://dev.azure.com/{org} --yes
 ```
 
-## Repositories
+## Repositorios
 
-### List Repositories
+### Listar Repositorios
 
 ```bash
 az repos list --org https://dev.azure.com/{org} --project {project}
 az repos list --output table
 ```
 
-### Show Repository Details
+### Mostrar Detalhes do Repositorio
 
 ```bash
 az repos show --repository {repo-name} --project {project}
 ```
 
-### Create Repository
+### Criar Repositorio
 
 ```bash
 az repos create --name {repo-name} --project {project}
 ```
 
-### Delete Repository
+### Deletar Repositorio
 
 ```bash
 az repos delete --id {repo-id} --project {project} --yes
 ```
 
-### Update Repository
+### Atualizar Repositorio
 
 ```bash
 az repos update --id {repo-id} --name {new-name} --project {project}
 ```
 
-## Repository Import
+## Importacao de Repositorio
 
-### Import Git Repository
+### Importar Repositorio Git
 
 ```bash
 # Import from public Git repository
@@ -213,9 +213,9 @@ az repos import create \
   --password {password-or-pat}
 ```
 
-## Pull Requests
+## Pull Requests (PRs)
 
-### Create Pull Request
+### Criar Pull Request
 
 ```bash
 # Basic PR creation
@@ -245,7 +245,7 @@ az repos pr create \
   --labels "enhancement" "backlog"
 ```
 
-### List Pull Requests
+### Listar Pull Requests
 
 ```bash
 # All PRs
@@ -261,14 +261,14 @@ az repos pr list --repository {repo} --creator {email}
 az repos pr list --repository {repo} --output table
 ```
 
-### Show PR Details
+### Mostrar Detalhes do PR
 
 ```bash
 az repos pr show --id {pr-id}
 az repos pr show --id {pr-id} --open  # Open in browser
 ```
 
-### Update PR (Complete/Abandon/Draft)
+### Atualizar PR (Complete/Abandon/Draft)
 
 ```bash
 # Complete PR
@@ -290,7 +290,7 @@ az repos pr update --id {pr-id} --auto-complete true
 az repos pr update --id {pr-id} --title "New title" --description "New description"
 ```
 
-### Checkout PR Locally
+### Fazer Checkout do PR Localmente
 
 ```bash
 # Checkout PR branch
@@ -300,7 +300,7 @@ az repos pr checkout --id {pr-id}
 az repos pr checkout --id {pr-id} --remote-name upstream
 ```
 
-### Vote on PR
+### Votar no PR
 
 ```bash
 az repos pr set-vote --id {pr-id} --vote approve
@@ -310,7 +310,7 @@ az repos pr set-vote --id {pr-id} --vote wait-for-author
 az repos pr set-vote --id {pr-id} --vote reset
 ```
 
-### PR Reviewers
+### Reviewers do PR
 
 ```bash
 # Add reviewers
@@ -323,7 +323,7 @@ az repos pr reviewer list --id {pr-id}
 az repos pr reviewer remove --id {pr-id} --reviewers user1@example.com
 ```
 
-### PR Work Items
+### Work Items do PR
 
 ```bash
 # Add work items to PR
@@ -336,7 +336,7 @@ az repos pr work-item list --id {pr-id}
 az repos pr work-item remove --id {pr-id} --work-items {id1}
 ```
 
-### PR Policies
+### Policies do PR
 
 ```bash
 # List policies for a PR
@@ -348,7 +348,7 @@ az repos pr policy queue --id {pr-id} --evaluation-id {evaluation-id}
 
 ## Pipelines
 
-### List Pipelines
+### Listar Pipelines
 
 ```bash
 az pipelines list --output table
@@ -356,7 +356,7 @@ az pipelines list --query "[?name=='myPipeline']"
 az pipelines list --folder-path 'folder/subfolder'
 ```
 
-### Create Pipeline
+### Criar Pipeline
 
 ```bash
 # From local repository context (auto-detects settings)
@@ -381,26 +381,26 @@ az pipelines create \
 az pipelines create --name 'MyPipeline' --skip-run true
 ```
 
-### Show Pipeline
+### Mostrar Pipeline
 
 ```bash
 az pipelines show --id {pipeline-id}
 az pipelines show --name {pipeline-name}
 ```
 
-### Update Pipeline
+### Atualizar Pipeline
 
 ```bash
 az pipelines update --id {pipeline-id} --name "New name" --description "Updated description"
 ```
 
-### Delete Pipeline
+### Deletar Pipeline
 
 ```bash
 az pipelines delete --id {pipeline-id} --yes
 ```
 
-### Run Pipeline
+### Executar Pipeline
 
 ```bash
 # Run by name
@@ -419,9 +419,9 @@ az pipelines run --name {pipeline-name} --variables buildId=123 configuration=re
 az pipelines run --name {pipeline-name} --open
 ```
 
-## Pipeline Runs
+## Runs de Pipeline
 
-### List Runs
+### Listar Runs
 
 ```bash
 az pipelines runs list --pipeline {pipeline-id}
@@ -429,14 +429,14 @@ az pipelines runs list --name {pipeline-name} --top 10
 az pipelines runs list --branch main --status completed
 ```
 
-### Show Run Details
+### Mostrar Detalhes do Run
 
 ```bash
 az pipelines runs show --run-id {run-id}
 az pipelines runs show --run-id {run-id} --open
 ```
 
-### Pipeline Artifacts
+### Artifacts do Pipeline
 
 ```bash
 # List artifacts for a run
@@ -455,7 +455,7 @@ az pipelines runs artifact upload \
   --run-id {run-id}
 ```
 
-### Pipeline Run Tags
+### Tags do Run
 
 ```bash
 # Add tag to run
@@ -467,7 +467,7 @@ az pipelines runs tag list --run-id {run-id} --output table
 
 ## Builds
 
-### List Builds
+### Listar Builds
 
 ```bash
 az pipelines build list
@@ -475,26 +475,26 @@ az pipelines build list --definition {build-definition-id}
 az pipelines build list --status completed --result succeeded
 ```
 
-### Queue Build
+### Enfileirar Build
 
 ```bash
 az pipelines build queue --definition {build-definition-id} --branch main
 az pipelines build queue --definition {build-definition-id} --parameters version=1.0.0
 ```
 
-### Show Build Details
+### Mostrar Detalhes do Build
 
 ```bash
 az pipelines build show --id {build-id}
 ```
 
-### Cancel Build
+### Cancelar Build
 
 ```bash
 az pipelines build cancel --id {build-id}
 ```
 
-### Build Tags
+### Tags de Build
 
 ```bash
 # Add tag to build
@@ -504,16 +504,16 @@ az pipelines build tag add --build-id {build-id} --tags prod release
 az pipelines build tag delete --build-id {build-id} --tag prod
 ```
 
-## Build Definitions
+## Definicoes de Build
 
-### List Build Definitions
+### Listar Definicoes de Build
 
 ```bash
 az pipelines build definition list
 az pipelines build definition list --name {definition-name}
 ```
 
-### Show Build Definition
+### Mostrar Definicao de Build
 
 ```bash
 az pipelines build definition show --id {definition-id}
@@ -521,49 +521,49 @@ az pipelines build definition show --id {definition-id}
 
 ## Releases
 
-### List Releases
+### Listar Releases
 
 ```bash
 az pipelines release list
 az pipelines release list --definition {release-definition-id}
 ```
 
-### Create Release
+### Criar Release
 
 ```bash
 az pipelines release create --definition {release-definition-id}
 az pipelines release create --definition {release-definition-id} --description "Release v1.0"
 ```
 
-### Show Release
+### Mostrar Release
 
 ```bash
 az pipelines release show --id {release-id}
 ```
 
-## Release Definitions
+## Definicoes de Release
 
-### List Release Definitions
+### Listar Definicoes de Release
 
 ```bash
 az pipelines release definition list
 ```
 
-### Show Release Definition
+### Mostrar Definicao de Release
 
 ```bash
 az pipelines release definition show --id {definition-id}
 ```
 
-## Pipeline Variables
+## Variaveis de Pipeline
 
-### List Variables
+### Listar Variaveis
 
 ```bash
 az pipelines variable list --pipeline-id {pipeline-id}
 ```
 
-### Create Variable
+### Criar Variavel
 
 ```bash
 # Non-secret variable
@@ -586,7 +586,7 @@ az pipelines variable create \
   --pipeline-id {pipeline-id}
 ```
 
-### Update Variable
+### Atualizar Variavel
 
 ```bash
 az pipelines variable update \
@@ -602,28 +602,28 @@ az pipelines variable update \
   --pipeline-id {pipeline-id}
 ```
 
-### Delete Variable
+### Deletar Variavel
 
 ```bash
 az pipelines variable delete --name {var-name} --pipeline-id {pipeline-id} --yes
 ```
 
-## Variable Groups
+## Grupos de Variaveis (Variable Groups)
 
-### List Variable Groups
+### Listar Grupos de Variaveis (Variable Groups)
 
 ```bash
 az pipelines variable-group list
 az pipelines variable-group list --output table
 ```
 
-### Show Variable Group
+### Mostrar Grupo de Variaveis (Variable Group)
 
 ```bash
 az pipelines variable-group show --id {group-id}
 ```
 
-### Create Variable Group
+### Criar Grupo de Variaveis (Variable Group)
 
 ```bash
 az pipelines variable-group create \
@@ -632,7 +632,7 @@ az pipelines variable-group create \
   --authorize true
 ```
 
-### Update Variable Group
+### Atualizar Grupo de Variaveis (Variable Group)
 
 ```bash
 az pipelines variable-group update \
@@ -641,21 +641,21 @@ az pipelines variable-group update \
   --description "Updated description"
 ```
 
-### Delete Variable Group
+### Deletar Grupo de Variaveis (Variable Group)
 
 ```bash
 az pipelines variable-group delete --id {group-id} --yes
 ```
 
-### Variable Group Variables
+### Variaveis do Grupo de Variaveis (Variable Group)
 
-#### List Variables
+#### Listar Variaveis
 
 ```bash
 az pipelines variable-group variable list --group-id {group-id}
 ```
 
-#### Create Variable
+#### Criar Variavel
 
 ```bash
 # Non-secret variable
@@ -678,7 +678,7 @@ az pipelines variable-group variable create \
   --secret true
 ```
 
-#### Update Variable
+#### Atualizar Variavel
 
 ```bash
 az pipelines variable-group variable update \
@@ -688,7 +688,7 @@ az pipelines variable-group variable update \
   --secret false
 ```
 
-#### Delete Variable
+#### Deletar Variavel
 
 ```bash
 az pipelines variable-group variable delete \
@@ -696,35 +696,35 @@ az pipelines variable-group variable delete \
   --name {var-name}
 ```
 
-## Pipeline Folders
+## Pastas de Pipeline
 
-### List Folders
+### Listar Pastas
 
 ```bash
 az pipelines folder list
 ```
 
-### Create Folder
+### Criar Pasta
 
 ```bash
 az pipelines folder create --path 'folder/subfolder' --description "My folder"
 ```
 
-### Delete Folder
+### Deletar Pasta
 
 ```bash
 az pipelines folder delete --path 'folder/subfolder'
 ```
 
-### Update Folder
+### Atualizar Pasta
 
 ```bash
 az pipelines folder update --path 'old-folder' --new-path 'new-folder'
 ```
 
-## Agent Pools
+## Pools de Agentes (Agent Pools)
 
-### List Agent Pools
+### Listar Pools de Agentes (Agent Pools)
 
 ```bash
 az pipelines pool list
@@ -732,22 +732,22 @@ az pipelines pool list --pool-type automation
 az pipelines pool list --pool-type deployment
 ```
 
-### Show Agent Pool
+### Mostrar Pool de Agentes (Agent Pool)
 
 ```bash
 az pipelines pool show --pool-id {pool-id}
 ```
 
-## Agent Queues
+## Filas de Agentes (Agent Queues)
 
-### List Agent Queues
+### Listar Filas de Agentes (Agent Queues)
 
 ```bash
 az pipelines queue list
 az pipelines queue list --pool-name {pool-name}
 ```
 
-### Show Agent Queue
+### Mostrar Fila de Agentes (Agent Queue)
 
 ```bash
 az pipelines queue show --id {queue-id}
@@ -755,7 +755,7 @@ az pipelines queue show --id {queue-id}
 
 ## Work Items (Boards)
 
-### Query Work Items
+### Consultar Work Items
 
 ```bash
 # WIQL query
@@ -766,14 +766,14 @@ az boards query \
 az boards query --wiql "SELECT * FROM WorkItems" --output table
 ```
 
-### Show Work Item
+### Mostrar Work Item
 
 ```bash
 az boards work-item show --id {work-item-id}
 az boards work-item show --id {work-item-id} --open
 ```
 
-### Create Work Item
+### Criar Work Item
 
 ```bash
 # Basic work item
@@ -806,7 +806,7 @@ az boards work-item create \
 az boards work-item create --title "Bug" --type Bug --open
 ```
 
-### Update Work Item
+### Atualizar Work Item
 
 ```bash
 # Update state, title, and assignee
@@ -837,7 +837,7 @@ az boards work-item update \
   --fields "Priority=1" "StoryPoints=5"
 ```
 
-### Delete Work Item
+### Deletar Work Item
 
 ```bash
 # Soft delete (can be restored)
@@ -847,7 +847,7 @@ az boards work-item delete --id {work-item-id} --yes
 az boards work-item delete --id {work-item-id} --destroy --yes
 ```
 
-### Work Item Relations
+### Relacoes de Work Item
 
 ```bash
 # List relations
@@ -863,22 +863,22 @@ az boards work-item relation add --id {work-item-id} --relation-type parent --ta
 az boards work-item relation remove --id {work-item-id} --relation-id {relation-id}
 ```
 
-## Area Paths
+## Caminhos de Area (Area Paths)
 
-### List Areas for Project
+### Listar Areas do Projeto
 
 ```bash
 az boards area project list --project {project}
 az boards area project show --path "Project\\Area1" --project {project}
 ```
 
-### Create Area
+### Criar Area
 
 ```bash
 az boards area project create --path "Project\\NewArea" --project {project}
 ```
 
-### Update Area
+### Atualizar Area
 
 ```bash
 az boards area project update \
@@ -887,13 +887,13 @@ az boards area project update \
   --project {project}
 ```
 
-### Delete Area
+### Deletar Area
 
 ```bash
 az boards area project delete --path "Project\\AreaToDelete" --project {project} --yes
 ```
 
-### Area Team Management
+### Gerenciamento de Area do Time
 
 ```bash
 # List areas for team
@@ -919,22 +919,22 @@ az boards area team update \
   --include-sub-areas true
 ```
 
-## Iterations
+## Iteracoes (Iterations)
 
-### List Iterations for Project
+### Listar Iterations do Projeto
 
 ```bash
 az boards iteration project list --project {project}
 az boards iteration project show --path "Project\\Sprint 1" --project {project}
 ```
 
-### Create Iteration
+### Criar Iteration
 
 ```bash
 az boards iteration project create --path "Project\\Sprint 1" --project {project}
 ```
 
-### Update Iteration
+### Atualizar Iteration
 
 ```bash
 az boards iteration project update \
@@ -943,19 +943,19 @@ az boards iteration project update \
   --project {project}
 ```
 
-### Delete Iteration
+### Deletar Iteration
 
 ```bash
 az boards iteration project delete --path "Project\\OldSprint" --project {project} --yes
 ```
 
-### List Iterations for Team
+### Listar Iterations do Time
 
 ```bash
 az boards iteration team list --team {team-name} --project {project}
 ```
 
-### Add Iteration to Team
+### Adicionar Iteration ao Time
 
 ```bash
 az boards iteration team add \
@@ -964,7 +964,7 @@ az boards iteration team add \
   --project {project}
 ```
 
-### Remove Iteration from Team
+### Remover Iteration do Time
 
 ```bash
 az boards iteration team remove \
@@ -973,7 +973,7 @@ az boards iteration team remove \
   --project {project}
 ```
 
-### List Work Items in Iteration
+### Listar Work Items na Iteration
 
 ```bash
 az boards iteration team list-work-items \
@@ -982,7 +982,7 @@ az boards iteration team list-work-items \
   --project {project}
 ```
 
-### Set Default Iteration for Team
+### Definir Iteration Padrao do Time
 
 ```bash
 az boards iteration team set-default-iteration \
@@ -991,7 +991,7 @@ az boards iteration team set-default-iteration \
   --project {project}
 ```
 
-### Show Default Iteration
+### Mostrar Iteration Padrao
 
 ```bash
 az boards iteration team show-default-iteration \
@@ -999,7 +999,7 @@ az boards iteration team show-default-iteration \
   --project {project}
 ```
 
-### Set Backlog Iteration for Team
+### Definir Backlog Iteration do Time
 
 ```bash
 az boards iteration team set-backlog-iteration \
@@ -1008,7 +1008,7 @@ az boards iteration team set-backlog-iteration \
   --project {project}
 ```
 
-### Show Backlog Iteration
+### Mostrar Backlog Iteration
 
 ```bash
 az boards iteration team show-backlog-iteration \
@@ -1016,28 +1016,28 @@ az boards iteration team show-backlog-iteration \
   --project {project}
 ```
 
-### Show Current Iteration
+### Mostrar Iteration Atual
 
 ```bash
 az boards iteration team show --team {team-name} --project {project} --timeframe current
 ```
 
-## Git References
+## Referencias Git
 
-### List References (Branches)
+### Listar Referencias (Branches)
 
 ```bash
 az repos ref list --repository {repo}
 az repos ref list --repository {repo} --query "[?name=='refs/heads/main']"
 ```
 
-### Create Reference (Branch)
+### Criar Referencia (Branch)
 
 ```bash
 az repos ref create --name refs/heads/new-branch --object-type commit --object {commit-sha}
 ```
 
-### Delete Reference (Branch)
+### Deletar Referencia (Branch)
 
 ```bash
 az repos ref delete --name refs/heads/old-branch --repository {repo} --project {project}
@@ -1055,21 +1055,21 @@ az repos ref lock --name refs/heads/main --repository {repo} --project {project}
 az repos ref unlock --name refs/heads/main --repository {repo} --project {project}
 ```
 
-## Repository Policies
+## Policies de Repositorio
 
-### List All Policies
+### Listar Todas as Policies
 
 ```bash
 az repos policy list --repository {repo-id} --branch main
 ```
 
-### Create Policy Using Configuration File
+### Criar Policy Usando Arquivo de Configuracao
 
 ```bash
 az repos policy create --config policy.json
 ```
 
-### Update/Delete Policy
+### Atualizar/Deletar Policy
 
 ```bash
 # Update
@@ -1079,7 +1079,7 @@ az repos policy update --id {policy-id} --config updated-policy.json
 az repos policy delete --id {policy-id} --yes
 ```
 
-### Policy Types
+### Tipos de Policy
 
 #### Approver Count Policy
 
@@ -1171,49 +1171,49 @@ az repos policy file-size create \
   --maximum-file-size 10485760  # 10MB in bytes
 ```
 
-## Service Endpoints
+## Service Endpoints (Service Connections)
 
-### List Service Endpoints
+### Listar Service Endpoints
 
 ```bash
 az devops service-endpoint list --project {project}
 az devops service-endpoint list --project {project} --output table
 ```
 
-### Show Service Endpoint
+### Mostrar Service Endpoint
 
 ```bash
 az devops service-endpoint show --id {endpoint-id} --project {project}
 ```
 
-### Create Service Endpoint
+### Criar Service Endpoint
 
 ```bash
 # Using configuration file
 az devops service-endpoint create --service-endpoint-configuration endpoint.json --project {project}
 ```
 
-### Delete Service Endpoint
+### Deletar Service Endpoint
 
 ```bash
 az devops service-endpoint delete --id {endpoint-id} --project {project} --yes
 ```
 
-## Teams
+## Times (Teams)
 
-### List Teams
+### Listar Teams (Times)
 
 ```bash
 az devops team list --project {project}
 ```
 
-### Show Team
+### Mostrar Team (Time)
 
 ```bash
 az devops team show --team {team-name} --project {project}
 ```
 
-### Create Team
+### Criar Team (Time)
 
 ```bash
 az devops team create \
@@ -1222,7 +1222,7 @@ az devops team create \
   --project {project}
 ```
 
-### Update Team
+### Atualizar Team (Time)
 
 ```bash
 az devops team update \
@@ -1232,34 +1232,34 @@ az devops team update \
   --description "Updated description"
 ```
 
-### Delete Team
+### Deletar Team (Time)
 
 ```bash
 az devops team delete --team {team-name} --project {project} --yes
 ```
 
-### Show Team Members
+### Mostrar Membros do Team (Team Members)
 
 ```bash
 az devops team list-member --team {team-name} --project {project}
 ```
 
-## Users
+## Usuarios
 
-### List Users
+### Listar Usuarios (Users)
 
 ```bash
 az devops user list --org https://dev.azure.com/{org}
 az devops user list --top 10 --output table
 ```
 
-### Show User
+### Mostrar Usuario (User)
 
 ```bash
 az devops user show --user {user-id-or-email} --org https://dev.azure.com/{org}
 ```
 
-### Add User
+### Adicionar Usuario (User)
 
 ```bash
 az devops user add \
@@ -1268,7 +1268,7 @@ az devops user add \
   --org https://dev.azure.com/{org}
 ```
 
-### Update User
+### Atualizar Usuario (User)
 
 ```bash
 az devops user update \
@@ -1277,15 +1277,15 @@ az devops user update \
   --org https://dev.azure.com/{org}
 ```
 
-### Remove User
+### Remover Usuario (User)
 
 ```bash
 az devops user remove --user {user-id-or-email} --org https://dev.azure.com/{org} --yes
 ```
 
-## Security Groups
+## Grupos de Seguranca
 
-### List Groups
+### Listar Grupos
 
 ```bash
 # List all groups in project
@@ -1298,13 +1298,13 @@ az devops security group list --scope organization
 az devops security group list --project {project} --subject-types vstsgroup
 ```
 
-### Show Group Details
+### Mostrar Detalhes do Group (Grupo)
 
 ```bash
 az devops security group show --group-id {group-id}
 ```
 
-### Create Group
+### Criar Group (Grupo)
 
 ```bash
 az devops security group create \
@@ -1313,7 +1313,7 @@ az devops security group create \
   --project {project}
 ```
 
-### Update Group
+### Atualizar Group (Grupo)
 
 ```bash
 az devops security group update \
@@ -1322,13 +1322,13 @@ az devops security group update \
   --description "Updated description"
 ```
 
-### Delete Group
+### Deletar Group (Grupo)
 
 ```bash
 az devops security group delete --group-id {group-id} --yes
 ```
 
-### Group Memberships
+### Memberships do Group (Grupo)
 
 ```bash
 # List memberships
@@ -1345,22 +1345,22 @@ az devops security group membership remove \
   --member-id {member-id} --yes
 ```
 
-## Security Permissions
+## Permissoes de Seguranca
 
-### List Namespaces
+### Listar Namespaces
 
 ```bash
 az devops security permission namespace list
 ```
 
-### Show Namespace Details
+### Mostrar Detalhes do Namespace
 
 ```bash
 # Show permissions available in a namespace
 az devops security permission namespace show --namespace "GitRepositories"
 ```
 
-### List Permissions
+### Listar Permissions (Permissoes)
 
 ```bash
 # List permissions for user/group and namespace
@@ -1377,7 +1377,7 @@ az devops security permission list \
   --token "repoV2/{project}/{repository-id}"
 ```
 
-### Show Permissions
+### Mostrar Permissions (Permissoes)
 
 ```bash
 az devops security permission show \
@@ -1387,7 +1387,7 @@ az devops security permission show \
   --token "repoV2/{project}/{repository-id}"
 ```
 
-### Update Permissions
+### Atualizar Permissions (Permissoes)
 
 ```bash
 # Grant permission
@@ -1407,7 +1407,7 @@ az devops security permission update \
   --permission-mask 0
 ```
 
-### Reset Permissions
+### Resetar Permissions (Permissoes)
 
 ```bash
 # Reset specific permission bits
@@ -1428,7 +1428,7 @@ az devops security permission reset-all \
 
 ## Wikis
 
-### List Wikis
+### Listar Wikis
 
 ```bash
 # List all wikis in project
@@ -1438,14 +1438,14 @@ az devops wiki list --project {project}
 az devops wiki list
 ```
 
-### Show Wiki
+### Mostrar Wiki
 
 ```bash
 az devops wiki show --wiki {wiki-name} --project {project}
 az devops wiki show --wiki {wiki-name} --project {project} --open
 ```
 
-### Create Wiki
+### Criar Wiki
 
 ```bash
 # Create project wiki
@@ -1463,13 +1463,13 @@ az devops wiki create \
   --mapped-path /wiki
 ```
 
-### Delete Wiki
+### Deletar Wiki
 
 ```bash
 az devops wiki delete --wiki {wiki-id} --project {project} --yes
 ```
 
-### Wiki Pages
+### Paginas da Wiki (Wiki Pages)
 
 ```bash
 # List pages
@@ -1502,9 +1502,9 @@ az devops wiki page delete \
   --project {project} --yes
 ```
 
-## Administration
+## Administracao
 
-### Banner Management
+### Gerenciamento de Banner
 
 ```bash
 # List banners
@@ -1529,9 +1529,9 @@ az devops admin banner update \
 az devops admin banner remove --id {banner-id}
 ```
 
-## DevOps Extensions
+## Extensoes do DevOps
 
-Manage extensions installed in an Azure DevOps organization (different from CLI extensions).
+Gerencie extensoes instaladas em uma organizacao Azure DevOps (diferente de extensoes do CLI).
 
 ```bash
 # List installed extensions
@@ -1565,9 +1565,9 @@ az devops extension uninstall \
   --org https://dev.azure.com/{org} --yes
 ```
 
-## Universal Packages
+## Universal Packages (Pacotes Universais)
 
-### Publish Package
+### Publicar Pacote (Publish Package)
 
 ```bash
 az artifacts universal publish \
@@ -1578,7 +1578,7 @@ az artifacts universal publish \
   --project {project}
 ```
 
-### Download Package
+### Baixar Pacote (Download Package)
 
 ```bash
 az artifacts universal download \
@@ -1589,23 +1589,23 @@ az artifacts universal download \
   --project {project}
 ```
 
-## Agents
+## Agentes (Agents)
 
-### List Agents in Pool
+### Listar Agents no Pool
 
 ```bash
 az pipelines agent list --pool-id {pool-id}
 ```
 
-### Show Agent Details
+### Mostrar Detalhes do Agent
 
 ```bash
 az pipelines agent show --agent-id {agent-id} --pool-id {pool-id}
 ```
 
-## Git Aliases
+## Aliases do Git (Git Aliases)
 
-After enabling git aliases:
+Depois de habilitar os git aliases:
 
 ```bash
 # Enable Git aliases
@@ -1617,9 +1617,9 @@ git pr list
 git pr checkout 123
 ```
 
-## Output Formats
+## Formatos de Saida
 
-All commands support multiple output formats:
+Todos os comandos suportam multiplos formatos de output:
 
 ```bash
 # Table format (human-readable)
@@ -1644,9 +1644,9 @@ az pipelines list --output tsv
 az pipelines list --output none
 ```
 
-## JMESPath Queries
+## Queries JMESPath
 
-Filter and transform output:
+Filtre e transforme o output:
 
 ```bash
 # Filter by name
@@ -1665,31 +1665,31 @@ az pipelines list --query "[0]"
 az pipelines list --query "[0:5]"
 ```
 
-## Global Arguments
+## Argumentos Globais
 
-Available on all commands:
+Disponiveis em todos os comandos:
 
-- `--help` / `-h`: Show help
-- `--output` / `-o`: Output format (json, jsonc, none, table, tsv, yaml, yamlc)
-- `--query`: JMESPath query string
-- `--verbose`: Increase logging verbosity
-- `--debug`: Show all debug logs
-- `--only-show-errors`: Only show errors, suppress warnings
-- `--subscription`: Name or ID of subscription
+- `--help` / `-h`: Mostrar help
+- `--output` / `-o`: Formato de output (json, jsonc, none, table, tsv, yaml, yamlc)
+- `--query`: String de query JMESPath
+- `--verbose`: Aumentar verbosidade de logging
+- `--debug`: Mostrar todos os logs de debug
+- `--only-show-errors`: Mostrar apenas erros, suprimir warnings
+- `--subscription`: Nome ou ID da subscription
 
-## Common Parameters
+## Parametros Comuns
 
-| Parameter                  | Description                                                         |
+| Parametro                  | Descricao                                                         |
 | -------------------------- | ------------------------------------------------------------------- |
-| `--org` / `--organization` | Azure DevOps organization URL (e.g., `https://dev.azure.com/{org}`) |
-| `--project` / `-p`         | Project name or ID                                                  |
-| `--detect`                 | Auto-detect organization from git config                            |
-| `--yes` / `-y`             | Skip confirmation prompts                                           |
-| `--open`                   | Open in web browser                                                 |
+| `--org` / `--organization` | URL da organizacao Azure DevOps (ex.: `https://dev.azure.com/{org}`) |
+| `--project` / `-p`         | Nome ou ID do projeto                                               |
+| `--detect`                 | Auto-detect organization a partir do git config                     |
+| `--yes` / `-y`             | Pular prompts de confirmacao                                        |
+| `--open`                   | Abrir no web browser                                                |
 
-## Common Workflows
+## Workflows Comuns
 
-### Create PR from current branch
+### Criar PR a partir da branch atual
 
 ```bash
 CURRENT_BRANCH=$(git branch --show-current)
@@ -1700,7 +1700,7 @@ az repos pr create \
   --open
 ```
 
-### Create work item on pipeline failure
+### Criar work item em falha de pipeline
 
 ```bash
 az boards work-item create \
@@ -1710,7 +1710,7 @@ az boards work-item create \
   --project $SYSTEM_TEAMPROJECT
 ```
 
-### Download latest pipeline artifact
+### Baixar o artifact mais recente do pipeline
 
 ```bash
 RUN_ID=$(az pipelines runs list --pipeline {pipeline-id} --top 1 --query "[0].id" -o tsv)
@@ -1720,7 +1720,7 @@ az pipelines runs artifact download \
   --run-id $RUN_ID
 ```
 
-### Approve and complete PR
+### Aprovar e completar PR
 
 ```bash
 # Vote approve
@@ -1730,14 +1730,14 @@ az repos pr set-vote --id {pr-id} --vote approve
 az repos pr update --id {pr-id} --status completed
 ```
 
-### Create pipeline from local repo
+### Criar pipeline a partir do repo local
 
 ```bash
 # From local git repository (auto-detects repo, branch, etc.)
 az pipelines create --name 'CI-Pipeline' --description 'Continuous Integration'
 ```
 
-### Bulk update work items
+### Atualizar work items em lote
 
 ```bash
 # Query items and update in loop
@@ -1746,9 +1746,9 @@ for id in $(az boards query --wiql "SELECT ID FROM WorkItems WHERE State='New'" 
 done
 ```
 
-## Best Practices
+## Boas Praticas
 
-### Authentication and Security
+### Autenticacao e Seguranca
 
 ```bash
 # Use PAT from environment variable (most secure)
@@ -1765,7 +1765,7 @@ az devops configure --defaults organization=$ORG_URL project=$PROJECT
 az devops logout --organization $ORG_URL
 ```
 
-### Idempotent Operations
+### Operacoes Idempotentes
 
 ```bash
 # Always use --detect for auto-detection
@@ -1783,7 +1783,7 @@ PIPELINE_ID=$(az pipelines list --query "[?name=='MyPipeline'].id" --output tsv)
 BUILD_STATUS=$(az pipelines build show --id $BUILD_ID --query "status" --output json)
 ```
 
-### Script-Safe Output
+### Saida Segura para Script
 
 ```bash
 # Suppress warnings and errors
@@ -1799,7 +1799,7 @@ az repos pr list --output tsv --query "[].{ID:pullRequestId,Title:title}"
 az pipelines list --output json --query "[].{Name:name, ID:id, URL:url}"
 ```
 
-### Pipeline Orchestration
+### Orquestracao de Pipeline
 
 ```bash
 # Run pipeline and wait for completion
@@ -1823,7 +1823,7 @@ else
 fi
 ```
 
-### Variable Group Management
+### Gerenciamento de Variable Group
 
 ```bash
 # Create variable group idempotently
@@ -1842,7 +1842,7 @@ else
 fi
 ```
 
-### Service Connection Automation
+### Automacao de Service Connection
 
 ```bash
 # Create service connection using configuration file
@@ -1875,7 +1875,7 @@ az devops service-endpoint create \
   --project "$PROJECT"
 ```
 
-### Pull Request Automation
+### Automacao de Pull Request
 
 ```bash
 # Create PR with work items and reviewers
@@ -1896,9 +1896,9 @@ PR_ID=$(az repos pr create \
 az repos pr update --id $PR_ID --auto-complete true
 ```
 
-## Error Handling and Retry Patterns
+## Tratamento de Erros e Padroes de Retry
 
-### Retry Logic for Transient Failures
+### Logica de Retry para Falhas Transitorias
 
 ```bash
 # Retry function for network operations
@@ -1925,7 +1925,7 @@ retry_command() {
 retry_command az pipelines run --name "$PIPELINE_NAME"
 ```
 
-### Check and Handle Errors
+### Checar e Tratar Erros
 
 ```bash
 # Check if pipeline exists before operations
@@ -1939,7 +1939,7 @@ else
 fi
 ```
 
-### Validate Inputs
+### Validar Inputs
 
 ```bash
 # Validate required parameters
@@ -1955,7 +1955,7 @@ if ! az repos ref list --repository "$REPO" --query "[?name=='refs/heads/$BRANCH
 fi
 ```
 
-### Handle Permission Errors
+### Tratar Erros de Permissao
 
 ```bash
 # Try operation, handle permission errors
@@ -1971,7 +1971,7 @@ if az devops security permission update \
 fi
 ```
 
-### Pipeline Failure Notification
+### Notificacao de Falha de Pipeline
 
 ```bash
 # Run pipeline and check result
@@ -1998,7 +1998,7 @@ if [[ "$RESULT" != "succeeded" ]]; then
 fi
 ```
 
-### Graceful Degradation
+### Degradacao Elegante
 
 ```bash
 # Try to download artifact, fallback to alternative source
@@ -2013,9 +2013,9 @@ if ! az pipelines runs artifact download \
 fi
 ```
 
-## Advanced JMESPath Queries
+## Queries JMESPath Avancadas
 
-### Filtering and Sorting
+### Filtragem e Ordenacao
 
 ```bash
 # Filter by multiple conditions
@@ -2031,7 +2031,7 @@ az pipelines runs list --query "sort_by([?status=='completed'], &finishTime | re
 az pipelines runs list --query "[?result=='succeeded'] | [0:5]"
 ```
 
-### Nested Queries
+### Queries Aninhadas
 
 ```bash
 # Extract nested properties
@@ -2041,7 +2041,7 @@ az pipelines show --id $PIPELINE_ID --query "{Name:name, Repo:repository.{Name:n
 az pipelines build show --id $BUILD_ID --query "{ID:id, Number:buildNumber, Status:status, Result:result, Requested:requestedFor.displayName}"
 ```
 
-### Complex Filtering
+### Filtragem Complexa
 
 ```bash
 # Find pipelines with specific YAML path
@@ -2054,7 +2054,7 @@ az repos pr list --query "[?contains(reviewers[?displayName=='John Doe'].display
 az boards work-item show --id $WI_ID --query "{Title:fields['System.Title'], State:fields['System.State'], Iteration:fields['System.IterationPath']}"
 ```
 
-### Aggregation
+### Agregacao
 
 ```bash
 # Count items by status
@@ -2067,7 +2067,7 @@ az repos pr list --query "unique_by(reviewers[], &displayName)"
 az pipelines runs list --query "[?result=='succeeded'] | [].{Duration:duration} | [0].Duration"
 ```
 
-### Conditional Transformation
+### Transformacao Condicional
 
 ```bash
 # Format dates
@@ -2080,7 +2080,7 @@ az pipelines list --query "[].{Name:name, Status:(enabled ? 'Enabled' : 'Disable
 az pipelines show --id $PIPELINE_ID --query "{Name:name, Folder:folder || 'Root', Description:description || 'No description'}"
 ```
 
-### Complex Workflows
+### Workflows Complexos
 
 ```bash
 # Find longest running builds
@@ -2093,9 +2093,9 @@ az repos pr list --query "groupBy([], &reviewers[].displayName) | [].{Reviewer:@
 az boards work-item relation list --id $PARENT_ID --query "[?rel=='System.LinkTypes.Hierarchy-Forward'] | [].{ChildID:url | split('/', @) | [-1]}"
 ```
 
-## Scripting Patterns for Idempotent Operations
+## Padroes de Script para Operacoes Idempotentes
 
-### Create or Update Pattern
+### Padrao Create or Update (Criar ou Atualizar)
 
 ```bash
 # Ensure pipeline exists, update if different
@@ -2114,7 +2114,7 @@ ensure_pipeline() {
 }
 ```
 
-### Ensure Variable Group
+### Garantir Variable Group (Grupo de Variaveis)
 
 ```bash
 # Create variable group with idempotent updates
@@ -2140,7 +2140,7 @@ ensure_variable_group() {
 }
 ```
 
-### Ensure Service Connection
+### Garantir Service Connection (Conexao de Servico)
 
 ```bash
 # Check if service connection exists, create if not
@@ -2163,7 +2163,7 @@ ensure_service_connection() {
 }
 ```
 
-### Idempotent Work Item Creation
+### Criacao Idempotente de Work Item
 
 ```bash
 # Create work item only if doesn't exist with same title
@@ -2186,7 +2186,7 @@ create_work_item_if_new() {
 }
 ```
 
-### Bulk Idempotent Operations
+### Operacoes Idempotentes em Lote
 
 ```bash
 # Ensure multiple pipelines exist
@@ -2202,7 +2202,7 @@ for pipeline in "${PIPELINES[@]}"; do
 done
 ```
 
-### Configuration Synchronization
+### Sincronizacao de Configuracao
 
 ```bash
 # Sync variable groups from config file
@@ -2219,9 +2219,9 @@ sync_variable_groups() {
 # dev-vars,API_URL=dev.com,API_KEY=secret456
 ```
 
-## Real-World Workflows
+## Workflows do Mundo Real
 
-### CI/CD Pipeline Setup
+### Configuracao de Pipeline CI/CD (Setup)
 
 ```bash
 # Setup complete CI/CD pipeline
@@ -2254,7 +2254,7 @@ setup_cicd_pipeline() {
 }
 ```
 
-### Automated PR Creation
+### Criacao Automatizada de PR
 
 ```bash
 # Create PR from feature branch with automation
@@ -2291,7 +2291,7 @@ create_automated_pr() {
 }
 ```
 
-### Pipeline Monitoring and Alerting
+### Monitoramento e Alertas de Pipeline
 
 ```bash
 # Monitor pipeline and alert on failure
@@ -2320,7 +2320,7 @@ monitor_pipeline() {
 }
 ```
 
-### Bulk Work Item Management
+### Gerenciamento em Lote de Work Items
 
 ```bash
 # Bulk update work items based on query
@@ -2341,7 +2341,7 @@ bulk_update_work_items() {
 # Usage: bulk_update_work_items "SELECT ID FROM WorkItems WHERE State='New'" --state "Active" --assigned-to "user@example.com"
 ```
 
-### Branch Policy Automation
+### Automacao de Policy de Branch
 
 ```bash
 # Apply branch policies to all repositories
@@ -2384,7 +2384,7 @@ apply_branch_policies() {
 }
 ```
 
-### Multi-Environment Deployment
+### Deploy Multi-Environment (Multiambiente)
 
 ```bash
 # Deploy across multiple environments
@@ -2425,31 +2425,31 @@ deploy_to_environments() {
 }
 ```
 
-## Enhanced Global Arguments
+## Argumentos Globais Avancados
 
-| Parameter            | Description                                                |
+| Parametro            | Descricao                                                |
 | -------------------- | ---------------------------------------------------------- |
-| `--help` / `-h`      | Show command help                                          |
-| `--output` / `-o`    | Output format (json, jsonc, none, table, tsv, yaml, yamlc) |
-| `--query`            | JMESPath query string for filtering output                 |
-| `--verbose`          | Increase logging verbosity                                 |
-| `--debug`            | Show all debug logs                                        |
-| `--only-show-errors` | Only show errors, suppress warnings                        |
-| `--subscription`     | Name or ID of subscription                                 |
-| `--yes` / `-y`       | Skip confirmation prompts                                  |
+| `--help` / `-h`      | Mostrar help do comando                                    |
+| `--output` / `-o`    | Formato de saida (json, jsonc, none, table, tsv, yaml, yamlc) |
+| `--query`            | String de query JMESPath para filtrar output               |
+| `--verbose`          | Aumentar verbosidade de logging                            |
+| `--debug`            | Mostrar todos os logs de debug                              |
+| `--only-show-errors` | Mostrar apenas erros, suprimir warnings                     |
+| `--subscription`     | Nome ou ID da subscription                                 |
+| `--yes` / `-y`       | Pular prompts de confirmacao                                |
 
-## Enhanced Common Parameters
+## Parametros Comuns Avancados
 
-| Parameter                  | Description                                                         |
+| Parametro                  | Descricao                                                         |
 | -------------------------- | ------------------------------------------------------------------- |
-| `--org` / `--organization` | Azure DevOps organization URL (e.g., `https://dev.azure.com/{org}`) |
-| `--project` / `-p`         | Project name or ID                                                  |
-| `--detect`                 | Auto-detect organization from git config                            |
-| `--yes` / `-y`             | Skip confirmation prompts                                           |
-| `--open`                   | Open resource in web browser                                        |
-| `--subscription`           | Azure subscription (for Azure resources)                            |
+| `--org` / `--organization` | URL da organizacao Azure DevOps (ex.: `https://dev.azure.com/{org}`) |
+| `--project` / `-p`         | Nome ou ID do projeto                                               |
+| `--detect`                 | Auto-detect organization a partir do git config                     |
+| `--yes` / `-y`             | Pular prompts de confirmacao                                        |
+| `--open`                   | Abrir recurso no web browser                                        |
+| `--subscription`           | Subscription do Azure (para recursos Azure)                          |
 
-## Getting Help
+## Ajuda
 
 ```bash
 # General help

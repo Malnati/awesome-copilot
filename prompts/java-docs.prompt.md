@@ -1,24 +1,24 @@
 ---
 agent: 'agent'
 tools: ['changes', 'search/codebase', 'edit/editFiles', 'problems']
-description: 'Ensure that Java types are documented with Javadoc comments and follow best practices for documentation.'
+description: 'Garanta que tipos Java estejam documentados com comentarios Javadoc e sigam boas praticas de documentacao.'
 ---
 
-# Java Documentation (Javadoc) Best Practices
+# Boas Praticas de Documentacao Java (Javadoc)
 
-- Public and protected members should be documented with Javadoc comments.
-- It is encouraged to document package-private and private members as well, especially if they are complex or not self-explanatory.
-- The first sentence of the Javadoc comment is the summary description. It should be a concise overview of what the method does and end with a period.
-- Use `@param` for method parameters. The description starts with a lowercase letter and does not end with a period.
-- Use `@return` for method return values.
-- Use `@throws` or `@exception` to document exceptions thrown by methods.
-- Use `@see` for references to other types or members.
-- Use `{@inheritDoc}` to inherit documentation from base classes or interfaces.
-  - Unless there is major behavior change, in which case you should document the differences.
-- Use `@param <T>` for type parameters in generic types or methods.
-- Use `{@code}` for inline code snippets.
-- Use `<pre>{@code ... }</pre>` for code blocks.
-- Use `@since` to indicate when the feature was introduced (e.g., version number).
-- Use `@version` to specify the version of the member.
-- Use `@author` to specify the author of the code.
-- Use `@deprecated` to mark a member as deprecated and provide an alternative.
+- Membros publicos e protected devem ser documentados com comentarios Javadoc.
+- E recomendado documentar membros package-private e private tambem, especialmente se forem complexos ou nao autoexplicativos.
+- A primeira frase do comentario Javadoc e a descricao de resumo. Deve ser uma visao concisa do que o metodo faz e terminar com ponto.
+- Use `@param` para parametros de metodo. A descricao comeca com letra minuscula e nao termina com ponto.
+- Use `@return` para valores de retorno do metodo.
+- Use `@throws` ou `@exception` para documentar excecoes lancadas por metodos.
+- Use `@see` para referencias a outros tipos ou membros.
+- Use `{@inheritDoc}` para herdar documentacao de classes base ou interfaces.
+  - A menos que haja mudanca de comportamento significativa, caso em que voce deve documentar as diferencas.
+- Use `@param <T>` para parametros de tipo em tipos ou metodos genericos.
+- Use `{@code}` para trechos de codigo inline.
+- Use `<pre>{@code ... }</pre>` para blocos de codigo.
+- Use `@since` para indicar quando o recurso foi introduzido (por exemplo, numero de versao).
+- Use `@version` para especificar a versao do membro.
+- Use `@author` para especificar o autor do codigo.
+- Use `@deprecated` para marcar um membro como deprecated e fornecer uma alternativa.

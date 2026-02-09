@@ -1,19 +1,19 @@
-# Session Persistence and Resumption
+# Persistencia e Retomada de Sessoes
 
-Save and restore conversation sessions across application restarts.
+Salve e restaure sessoes de conversa entre reinicios da aplicacao.
 
-## Example scenario
+## Cenario de exemplo
 
-You want users to be able to continue a conversation even after closing and reopening your application.
+Voce quer que os usuarios possam continuar uma conversa mesmo depois de fechar e reabrir seu aplicativo.
 
-> **Runnable example:** [recipe/persisting_sessions.py](recipe/persisting_sessions.py)
+> **Exemplo executavel:** [recipe/persisting_sessions.py](recipe/persisting_sessions.py)
 >
 > ```bash
 > cd recipe && pip install -r requirements.txt
 > python persisting_sessions.py
 > ```
 
-### Creating a session with a custom ID
+### Criando uma sessao com ID personalizado
 
 ```python
 from copilot import CopilotClient
@@ -37,7 +37,7 @@ session.destroy()
 client.stop()
 ```
 
-### Resuming a session
+### Retomando uma sessao
 
 ```python
 client = CopilotClient()
@@ -53,7 +53,7 @@ session.destroy()
 client.stop()
 ```
 
-### Listing available sessions
+### Listando sessoes disponiveis
 
 ```python
 sessions = client.list_sessions()
@@ -61,14 +61,14 @@ for s in sessions:
     print("Session:", s["sessionId"])
 ```
 
-### Deleting a session permanently
+### Excluindo uma sessao permanentemente
 
 ```python
 # Remove session and all its data from disk
 client.delete_session("user-123-conversation")
 ```
 
-### Getting session history
+### Obtendo historico da sessao
 
 ```python
 messages = session.get_messages()
@@ -76,8 +76,8 @@ for msg in messages:
     print(f"[{msg['type']}] {msg['data']}")
 ```
 
-## Best practices
+## Melhores praticas
 
-1. **Use meaningful session IDs**: Include user ID or context in the session ID
-2. **Handle missing sessions**: Check if a session exists before resuming
-3. **Clean up old sessions**: Periodically delete sessions that are no longer needed
+1. **Use IDs de sessao significativos**: Inclua ID do usuario ou contexto no ID da sessao
+2. **Trate sessoes ausentes**: Verifique se a sessao existe antes de retomar
+3. **Limpe sessoes antigas**: Periodicamente exclua sessoes que nao sao mais necessarias

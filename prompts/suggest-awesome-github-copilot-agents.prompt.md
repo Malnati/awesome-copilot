@@ -1,55 +1,55 @@
 ---
 agent: "agent"
-description: "Suggest relevant GitHub Copilot Custom Agents files from the awesome-copilot repository based on current repository context and chat history, avoiding duplicates with existing custom agents in this repository, and identifying outdated agents that need updates."
+description: "Sugira arquivos de GitHub Copilot Custom Agents relevantes do repositorio awesome-copilot com base no contexto atual do repositorio e historico do chat, evitando duplicatas com agentes existentes neste repositorio e identificando agentes desatualizados que precisam de updates."
 tools: ["edit", "search", "runCommands", "runTasks", "changes", "testFailure", "openSimpleBrowser", "fetch", "githubRepo", "todos"]
 ---
 
-# Suggest Awesome GitHub Copilot Custom Agents
+# Sugerir Awesome GitHub Copilot Custom Agents
 
-Analyze current repository context and suggest relevant Custom Agents files from the [GitHub awesome-copilot repository](https://github.com/github/awesome-copilot/blob/main/docs/README.agents.md) that are not already available in this repository. Custom Agent files are located in the [agents](https://github.com/github/awesome-copilot/tree/main/agents) folder of the awesome-copilot repository.
+Analise o contexto atual do repositorio e sugira arquivos de Custom Agents relevantes do [repositorio awesome-copilot](https://github.com/github/awesome-copilot/blob/main/docs/README.agents.md) que ainda nao estao disponiveis neste repositorio. Os arquivos de Custom Agent estao na pasta [agents](https://github.com/github/awesome-copilot/tree/main/agents) do repositorio awesome-copilot.
 
-## Process
+## Processo
 
-1. **Fetch Available Custom Agents**: Extract Custom Agents list and descriptions from [awesome-copilot README.agents.md](https://github.com/github/awesome-copilot/blob/main/docs/README.agents.md). Must use `fetch` tool.
-2. **Scan Local Custom Agents**: Discover existing custom agent files in `.github/agents/` folder
-3. **Extract Descriptions**: Read front matter from local custom agent files to get descriptions
-4. **Fetch Remote Versions**: For each local agent, fetch the corresponding version from awesome-copilot repository using raw GitHub URLs (e.g., `https://raw.githubusercontent.com/github/awesome-copilot/main/agents/<filename>`)
-5. **Compare Versions**: Compare local agent content with remote versions to identify:
-   - Agents that are up-to-date (exact match)
-   - Agents that are outdated (content differs)
-   - Key differences in outdated agents (tools, description, content)
-6. **Analyze Context**: Review chat history, repository files, and current project needs
-7. **Match Relevance**: Compare available custom agents against identified patterns and requirements
-8. **Present Options**: Display relevant custom agents with descriptions, rationale, and availability status including outdated agents
-9. **Validate**: Ensure suggested agents would add value not already covered by existing agents
-10. **Output**: Provide structured table with suggestions, descriptions, and links to both awesome-copilot custom agents and similar local custom agents
-    **AWAIT** user request to proceed with installation or updates of specific custom agents. DO NOT INSTALL OR UPDATE UNLESS DIRECTED TO DO SO.
-11. **Download/Update Assets**: For requested agents, automatically:
-    - Download new agents to `.github/agents/` folder
-    - Update outdated agents by replacing with latest version from awesome-copilot
-    - Do NOT adjust content of the files
-    - Use `#fetch` tool to download assets, but may use `curl` using `#runInTerminal` tool to ensure all content is retrieved
-    - Use `#todos` tool to track progress
+1. **Fetch Available Custom Agents**: Extraia a lista de Custom Agents e descricoes de [awesome-copilot README.agents.md](https://github.com/github/awesome-copilot/blob/main/docs/README.agents.md). Deve usar a tool `fetch`.
+2. **Scan Local Custom Agents**: Descubra arquivos de custom agent existentes na pasta `.github/agents/`
+3. **Extract Descriptions**: Leia front matter dos arquivos locais para obter descricoes
+4. **Fetch Remote Versions**: Para cada agente local, busque a versao correspondente no repositorio awesome-copilot usando URLs raw do GitHub (ex: `https://raw.githubusercontent.com/github/awesome-copilot/main/agents/<filename>`)
+5. **Compare Versions**: Compare o conteudo local com o remoto para identificar:
+   - Agentes up-to-date (match exato)
+   - Agentes desatualizados (conteudo diferente)
+   - Diferencas chave nos agentes desatualizados (tools, descricao, conteudo)
+6. **Analyze Context**: Revise historico do chat, arquivos do repositorio e necessidades atuais do projeto
+7. **Match Relevance**: Compare agentes disponiveis com padroes e requisitos identificados
+8. **Present Options**: Exiba agentes relevantes com descricoes, rationale e status de disponibilidade incluindo agentes desatualizados
+9. **Validate**: Garanta que os agentes sugeridos agregam valor nao coberto por agentes existentes
+10. **Output**: Forneca uma tabela estruturada com sugestoes, descricoes e links para agentes do awesome-copilot e agentes locais similares
+    **AGUARDE** a solicitacao do usuario para prosseguir com instalacao ou updates de agentes especificos. NAO INSTALE OU ATUALIZE SEM SER DIRECIONADO.
+11. **Download/Update Assets**: Para agentes solicitados, automaticamente:
+    - Baixe novos agentes para `.github/agents/`
+    - Atualize agentes desatualizados substituindo pela versao mais recente do awesome-copilot
+    - NAO ajuste conteudo dos arquivos
+    - Use a tool `#fetch` para baixar assets, mas pode usar `curl` via `#runInTerminal` para garantir todo o conteudo
+    - Use a tool `#todos` para acompanhar progresso
 
-## Context Analysis Criteria
+## Criterios de Analise de Contexto
 
 🔍 **Repository Patterns**:
 
-- Programming languages used (.cs, .js, .py, etc.)
-- Framework indicators (ASP.NET, React, Azure, etc.)
-- Project types (web apps, APIs, libraries, tools)
-- Documentation needs (README, specs, ADRs)
+- Linguagens usadas (.cs, .js, .py, etc.)
+- Indicadores de frameworks (ASP.NET, React, Azure, etc.)
+- Tipos de projeto (web apps, APIs, libraries, tools)
+- Necessidades de documentacao (README, specs, ADRs)
 
 🗨️ **Chat History Context**:
 
-- Recent discussions and pain points
-- Feature requests or implementation needs
-- Code review patterns
-- Development workflow requirements
+- Discussões recentes e pontos de dor
+- Requisitos de feature ou implementacao
+- Padroes de code review
+- Requisitos de workflow de desenvolvimento
 
-## Output Format
+## Formato de Saida
 
-Display analysis results in structured table comparing awesome-copilot custom agents with existing repository custom agents:
+Exiba resultados da analise em tabela estruturada comparando custom agents do awesome-copilot com os existentes no repositorio:
 
 | Awesome-Copilot Custom Agent                                                                                                                            | Description                                                                                                                                                                | Already Installed | Similar Local Custom Agent         | Suggestion Rationale                                          |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------- | ---------------------------------- | ------------------------------------------------------------- |
@@ -59,49 +59,49 @@ Display analysis results in structured table comparing awesome-copilot custom ag
 
 ## Local Agent Discovery Process
 
-1. List all `*.agent.md` files in `.github/agents/` directory
-2. For each discovered file, read front matter to extract `description`
-3. Build comprehensive inventory of existing agents
-4. Use this inventory to avoid suggesting duplicates
+1. Liste todos os arquivos `*.agent.md` na pasta `.github/agents/`
+2. Para cada arquivo encontrado, leia o front matter para extrair `description`
+3. Monte inventario abrangente de agentes existentes
+4. Use este inventario para evitar sugerir duplicatas
 
 ## Version Comparison Process
 
-1. For each local agent file, construct the raw GitHub URL to fetch the remote version:
-   - Pattern: `https://raw.githubusercontent.com/github/awesome-copilot/main/agents/<filename>`
-2. Fetch the remote version using the `fetch` tool
-3. Compare entire file content (including front matter, tools array, and body)
-4. Identify specific differences:
-   - **Front matter changes** (description, tools)
-   - **Tools array modifications** (added, removed, or renamed tools)
-   - **Content updates** (instructions, examples, guidelines)
-5. Document key differences for outdated agents
-6. Calculate similarity to determine if update is needed
+1. Para cada arquivo de agente local, construa a URL raw do GitHub para buscar a versao remota:
+   - Padrao: `https://raw.githubusercontent.com/github/awesome-copilot/main/agents/<filename>`
+2. Busque a versao remota usando a tool `fetch`
+3. Compare o conteudo completo do arquivo (incluindo front matter, tools array e corpo)
+4. Identifique diferencas especificas:
+   - **Mudancas de front matter** (description, tools)
+   - **Modificacoes no array de tools** (adicoes, remocoes, renomeacoes)
+   - **Atualizacoes de conteudo** (instrucoes, exemplos, guidelines)
+5. Documente diferencas-chave para agentes desatualizados
+6. Calcule similaridade para determinar se update e necessario
 
 ## Requirements
 
-- Use `githubRepo` tool to get content from awesome-copilot repository agents folder
-- Scan local file system for existing agents in `.github/agents/` directory
-- Read YAML front matter from local agent files to extract descriptions
-- Compare local agents with remote versions to detect outdated agents
-- Compare against existing agents in this repository to avoid duplicates
-- Focus on gaps in current agent library coverage
-- Validate that suggested agents align with repository's purpose and standards
-- Provide clear rationale for each suggestion
-- Include links to both awesome-copilot agents and similar local agents
-- Clearly identify outdated agents with specific differences noted
-- Don't provide any additional information or context beyond the table and the analysis
+- Use a tool `githubRepo` para obter conteudo da pasta agents do awesome-copilot
+- Scanne o file system local para agentes existentes em `.github/agents/`
+- Leia front matter YAML dos agentes locais para extrair descricoes
+- Compare agentes locais com versoes remotas para detectar desatualizados
+- Compare com agentes existentes no repositorio para evitar duplicatas
+- Foque em gaps na cobertura da biblioteca de agentes atual
+- Valide que agentes sugeridos alinham com o proposito e padroes do repositorio
+- Forneca rationale claro para cada sugestao
+- Inclua links para agentes do awesome-copilot e agentes locais similares
+- Identifique claramente agentes desatualizados com diferencas especificas
+- Nao forneca informacao ou contexto adicional alem da tabela e analise
 
 ## Icons Reference
 
-- ✅ Already installed and up-to-date
-- ⚠️ Installed but outdated (update available)
-- ❌ Not installed in repo
+- ✅ Ja instalado e atualizado
+- ⚠️ Instalado mas desatualizado (update disponivel)
+- ❌ Nao instalado no repo
 
 ## Update Handling
 
-When outdated agents are identified:
-1. Include them in the output table with ⚠️ status
-2. Document specific differences in the "Suggestion Rationale" column
-3. Provide recommendation to update with key changes noted
-4. When user requests update, replace entire local file with remote version
-5. Preserve file location in `.github/agents/` directory
+Quando agentes desatualizados forem identificados:
+1. Inclua-os na tabela de saida com status ⚠️
+2. Documente diferencas especificas na coluna "Suggestion Rationale"
+3. Forneca recomendacao de update com mudancas-chave
+4. Quando o usuario pedir update, substitua o arquivo local inteiro pela versao remota
+5. Preserve a localizacao do arquivo em `.github/agents/`

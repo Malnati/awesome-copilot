@@ -1,14 +1,14 @@
 ---
-description: 'Intelligent README.md generation prompt that analyzes project documentation structure and creates comprehensive repository documentation. Scans .github/copilot directory files and copilot-instructions.md to extract project information, technology stack, architecture, development workflow, coding standards, and testing approaches while generating well-structured markdown documentation with proper formatting, cross-references, and developer-focused content.'
+description: 'Prompt inteligente de geracao de README.md que analisa a estrutura de documentacao do projeto e cria documentacao abrangente do repositorio. Faz scan de arquivos em .github/copilot e copilot-instructions.md para extrair informacoes do projeto, stack, arquitetura, workflow de desenvolvimento, padroes de codigo e abordagem de testes, gerando documentacao markdown bem estruturada com formatacao adequada, cross-references e conteudo focado em desenvolvedores.'
 
 agent: 'agent'
 ---
 
-# README Generator Prompt
+# Prompt de Geracao de README
 
-Generate a comprehensive README.md for this repository by analyzing the documentation files in the .github/copilot directory and the copilot-instructions.md file. Follow these steps:
+Gere um README.md abrangente para este repositorio analisando os arquivos de documentacao na pasta .github/copilot e o arquivo copilot-instructions.md. Siga estes passos:
 
-1. Scan all the files in the .github/copilot folder, like:
+1. Faca scan de todos os arquivos na pasta .github/copilot, como:
    - Architecture
    - Code_Exemplars
    - Coding_Standards
@@ -17,63 +17,63 @@ Generate a comprehensive README.md for this repository by analyzing the document
    - Unit_Tests
    - Workflow_Analysis
 
-2. Also review the copilot-instructions.md file in the .github folder
+2. Revise tambem o arquivo copilot-instructions.md na pasta .github
 
-3. Create a README.md with the following sections:
+3. Crie um README.md com as seguintes secoes:
 
-## Project Name and Description
-- Extract the project name and primary purpose from the documentation
-- Include a concise description of what the project does
+## Nome e Descricao do Projeto
+- Extraia o nome do projeto e o proposito principal da documentacao
+- Inclua uma descricao concisa do que o projeto faz
 
-## Technology Stack
-- List the primary technologies, languages, and frameworks used
-- Include version information when available
-- Source this information primarily from the Technology_Stack file
+## Stack de Tecnologia
+- Liste as principais tecnologias, linguagens e frameworks usados
+- Inclua versoes quando disponiveis
+- Use como fonte principal o arquivo Technology_Stack
 
-## Project Architecture
-- Provide a high-level overview of the architecture
-- Consider including a simple diagram if described in the documentation
-- Source from the Architecture file
+## Arquitetura do Projeto
+- Forneca um overview de alto nivel da arquitetura
+- Considere incluir um diagrama simples se descrito na documentacao
+- Use como fonte o arquivo Architecture
 
-## Getting Started
-- Include installation instructions based on the technology stack
-- Add setup and configuration steps
-- Include any prerequisites
+## Primeiros Passos
+- Inclua instrucoes de instalacao com base na stack
+- Adicione passos de setup e configuracao
+- Inclua pre-requisitos
 
-## Project Structure
-- Brief overview of the folder organization
-- Source from Project_Folder_Structure file
+## Estrutura do Projeto
+- Overview breve da organizacao de pastas
+- Use como fonte o arquivo Project_Folder_Structure
 
-## Key Features
-- List main functionality and features of the project
-- Extract from various documentation files
+## Principais Funcionalidades
+- Liste funcionalidades principais do projeto
+- Extraia de varios arquivos de documentacao
 
-## Development Workflow
-- Summarize the development process
-- Include information about branching strategy if available
-- Source from Workflow_Analysis file
+## Workflow de Desenvolvimento
+- Resuma o processo de desenvolvimento
+- Inclua informacoes sobre branching strategy se disponivel
+- Use como fonte o arquivo Workflow_Analysis
 
-## Coding Standards
-- Summarize key coding standards and conventions
-- Source from the Coding_Standards file
+## Padroes de Codigo
+- Resuma padroes e convencoes de codigo
+- Use como fonte o arquivo Coding_Standards
 
-## Testing
-- Explain testing approach and tools
-- Source from Unit_Tests file
+## Testes
+- Explique abordagem e ferramentas de teste
+- Use como fonte o arquivo Unit_Tests
 
-## Contributing
-- Guidelines for contributing to the project
-- Reference any code exemplars for guidance
-- Source from Code_Exemplars and copilot-instructions
+## Contribuicao
+- Diretrizes para contribuir com o projeto
+- Referencie code exemplars para orientacao
+- Use como fonte Code_Exemplars e copilot-instructions
 
-## License
-- Include license information if available
+## Licenca
+- Inclua informacoes de licenca se disponivel
 
-Format the README with proper Markdown, including:
-- Clear headings and subheadings
-- Code blocks where appropriate
-- Lists for better readability
-- Links to other documentation files
-- Badges for build status, version, etc. if information is available
+Formate o README com Markdown adequado, incluindo:
+- Titulos e subtitulos claros
+- Blocos de codigo quando apropriado
+- Listas para melhor legibilidade
+- Links para outros arquivos de documentacao
+- Badges para status de build, versao etc. se houver informacao
 
-Keep the README concise yet informative, focusing on what new developers or users would need to know about the project.
+Mantenha o README conciso e informativo, focando no que novos desenvolvedores ou usuarios precisam saber sobre o projeto.

@@ -1,32 +1,32 @@
 ---
 name: plantuml-ascii
-description: "Generate ASCII art diagrams using PlantUML text mode. Use when user asks to create ASCII diagrams, text-based diagrams, terminal-friendly diagrams, or mentions plantuml ascii, text diagram, ascii art diagram. Supports: Converting PlantUML diagrams to ASCII art, Creating sequence diagrams, class diagrams, flowcharts in ASCII format, Generating Unicode-enhanced ASCII art with -utxt flag"
+description: "Gere diagramas ASCII art usando PlantUML em modo texto. Use quando o usuario pedir diagramas ASCII, diagramas baseados em texto, diagramas amigaveis para terminal, ou mencionar plantuml ascii, text diagram, ascii art diagram. Suporta: Converter diagramas PlantUML para ASCII art, Criar diagramas de sequencia, classe e fluxogramas em formato ASCII, Gerar ASCII art com Unicode usando a flag -utxt"
 license: MIT
 allowed-tools: Bash, Write, Read
 ---
 
-# PlantUML ASCII Art Diagram Generator
+# Gerador de Diagramas ASCII Art com PlantUML
 
-## Overview
+## Visao Geral
 
-Create text-based ASCII art diagrams using PlantUML. Perfect for documentation in terminal environments, README files, emails, or any scenario where graphical diagrams aren't suitable.
+Crie diagramas ASCII art baseados em texto usando PlantUML. Perfeito para documentacao em ambientes de terminal, arquivos README, emails ou qualquer cenario onde diagramas graficos nao sao adequados.
 
-## What is PlantUML ASCII Art?
+## O que e ASCII Art do PlantUML?
 
-PlantUML can generate diagrams as plain text (ASCII art) instead of images. This is useful for:
+PlantUML pode gerar diagramas como texto puro (ASCII art) em vez de imagens. Isso e util para:
 
-- Terminal-based workflows
-- Git commits/PRs without image support
-- Documentation that needs to be version-controlled
-- Environments where graphical tools aren't available
+- Workflows baseados em terminal
+- Commits/PRs no Git sem suporte a imagens
+- Documentacao que precisa de versionamento
+- Ambientes onde ferramentas graficas nao estao disponiveis
 
-## Installation
+## Instalacao
 
 ```bash
 # macOS
 brew install plantuml
 
-# Linux (varies by distro)
+# Linux (varia por distro)
 sudo apt-get install plantuml  # Ubuntu/Debian
 sudo yum install plantuml      # RHEL/CentOS
 
@@ -34,16 +34,16 @@ sudo yum install plantuml      # RHEL/CentOS
 wget https://github.com/plantuml/plantuml/releases/download/v1.2024.0/plantuml-1.2024.0.jar
 ```
 
-## Output Formats
+## Formatos de Saida (Output)
 
-| Flag    | Format        | Description                          |
+| Flag    | Formato        | Descricao                          |
 | ------- | ------------- | ------------------------------------ |
-| `-txt`  | ASCII         | Pure ASCII characters                |
-| `-utxt` | Unicode ASCII | Enhanced with box-drawing characters |
+| `-txt`  | ASCII         | Caracteres ASCII puros               |
+| `-utxt` | Unicode ASCII | Melhorado com caracteres de box-drawing |
 
-## Basic Workflow
+## Fluxo de Trabalho Basico (Workflow)
 
-### 1. Create PlantUML Diagram File
+### 1. Criar Arquivo de Diagrama PlantUML
 
 ```plantuml
 @startuml
@@ -55,7 +55,7 @@ Alice -> Bob : Is it ok?
 @enduml
 ```
 
-### 2. Generate ASCII Art
+### 2. Gerar ASCII Art
 
 ```bash
 # Standard ASCII output
@@ -69,13 +69,13 @@ java -jar plantuml.jar -txt diagram.puml
 java -jar plantuml.jar -utxt diagram.puml
 ```
 
-### 3. View Output
+### 3. Ver a Saida (Output)
 
-Output is saved as `diagram.atxt` (ASCII) or `diagram.utxt` (Unicode).
+A saida e salva como `diagram.atxt` (ASCII) ou `diagram.utxt` (Unicode).
 
-## Diagram Types Supported
+## Tipos de Diagramas Suportados
 
-### Sequence Diagram
+### Diagrama de Sequencia
 
 ```plantuml
 @startuml
@@ -90,7 +90,7 @@ App --> User : Auth Token
 @enduml
 ```
 
-### Class Diagram
+### Diagrama de Classes
 
 ```plantuml
 @startuml
@@ -112,7 +112,7 @@ User "1" -- "*" Order : places
 @enduml
 ```
 
-### Activity Diagram
+### Diagrama de Atividades
 
 ```plantuml
 @startuml
@@ -130,7 +130,7 @@ stop
 @enduml
 ```
 
-### State Diagram
+### Diagrama de Estados
 
 ```plantuml
 @startuml
@@ -143,7 +143,7 @@ Error --> Idle : retry
 @enduml
 ```
 
-### Component Diagram
+### Diagrama de Componentes
 
 ```plantuml
 @startuml
@@ -161,7 +161,7 @@ svcB --> db
 @enduml
 ```
 
-### Use Case Diagram
+### Diagrama de Caso de Uso
 
 ```plantuml
 @startuml
@@ -178,7 +178,7 @@ rectangle "System" {
 @enduml
 ```
 
-### Deployment Diagram
+### Diagrama de Deployment
 
 ```plantuml
 @startuml
@@ -197,109 +197,3 @@ ws2 --> db1
 db1 --> db2 : replicate
 @enduml
 ```
-
-## Command-Line Options
-
-```bash
-# Specify output directory
-plantuml -txt -o ./output diagram.puml
-
-# Process all files in directory
-plantuml -txt ./diagrams/
-
-# Include dot files (hidden files)
-plantuml -txt -includeDot diagrams/
-
-# Verbose output
-plantuml -txt -v diagram.puml
-
-# Specify charset
-plantuml -txt -charset UTF-8 diagram.puml
-```
-
-## Ant Task Integration
-
-```xml
-<target name="generate-ascii">
-  <plantuml dir="./src" format="txt" />
-</target>
-
-<target name="generate-unicode-ascii">
-  <plantuml dir="./src" format="utxt" />
-</target>
-```
-
-## Tips for Better ASCII Diagrams
-
-1. **Keep it simple**: Complex diagrams don't render well in ASCII
-2. **Short labels**: Long text breaks ASCII alignment
-3. **Use Unicode (`-utxt`)**: Better visual quality with box-drawing chars
-4. **Test before sharing**: Verify in terminal with fixed-width font
-5. **Consider alternatives**: For complex diagrams, use Mermaid.js or graphviz
-
-## Example Output Comparison
-
-**Standard ASCII (`-txt`)**:
-
-```
-     ,---.          ,---.
-     |Bob|          |Alice|
-     `---'          `---'
-      |   hello      |
-      |------------->|
-      |              |
-      |  Is it ok?   |
-      |<-------------|
-      |              |
-```
-
-**Unicode ASCII (`-utxt`)**:
-
-```
-┌─────┐        ┌─────┐
-│ Bob │        │Alice│
-└─────┘        └─────┘
-  │   hello      │
-  │─────────────>│
-  │              │
-  │  Is it ok?   │
-  │<─────────────│
-  │              │
-```
-
-## Quick Reference
-
-```bash
-# Create sequence diagram in ASCII
-cat > seq.puml << 'EOF'
-@startuml
-Alice -> Bob: Request
-Bob --> Alice: Response
-@enduml
-EOF
-
-plantuml -txt seq.puml
-cat seq.atxt
-
-# Create with Unicode
-plantuml -utxt seq.puml
-cat seq.utxt
-```
-
-## Troubleshooting
-
-**Problem**: Garbled Unicode characters
-
-- **Solution**: Ensure terminal supports UTF-8 and has proper font
-
-**Problem**: Diagram looks misaligned
-
-- **Solution**: Use fixed-width font (Courier, Monaco, Consolas)
-
-**Problem**: Command not found
-
-- **Solution**: Install PlantUML or use Java JAR directly
-
-**Problem**: Output file not created
-
-- **Solution**: Check file permissions, ensure PlantUML has write access

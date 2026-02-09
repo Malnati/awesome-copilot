@@ -1,61 +1,61 @@
-# Runnable Recipe Examples
+# Exemplos de Receita Executaveis
 
-This folder contains standalone, executable Go examples for each cookbook recipe. Each file is a complete program that can be run directly with `go run`.
+Esta pasta contem exemplos Go independentes e executaveis para cada receita do cookbook. Cada arquivo e um programa completo que pode ser executado diretamente com `go run`.
 
-## Prerequisites
+## Pre-requisitos
 
-- Go 1.21 or later
-- GitHub Copilot SDK for Go
+- Go 1.21 ou superior
+- GitHub Copilot SDK para Go
 
 ```bash
 go get github.com/github/copilot-sdk/go
 ```
 
-## Running Examples
+## Executando Exemplos
 
-Each `.go` file is a complete, runnable program. Simply use:
+Cada arquivo `.go` e um programa completo e executavel. Basta usar:
 
 ```bash
 go run <filename>.go
 ```
 
-### Available Recipes
+### Receitas Disponiveis
 
-| Recipe               | Command                          | Description                                |
-| -------------------- | -------------------------------- | ------------------------------------------ |
-| Error Handling       | `go run error-handling.go`       | Demonstrates error handling patterns       |
-| Multiple Sessions    | `go run multiple-sessions.go`    | Manages multiple independent conversations |
-| Managing Local Files | `go run managing-local-files.go` | Organizes files using AI grouping          |
-| PR Visualization     | `go run pr-visualization.go`     | Generates PR age charts                    |
-| Persisting Sessions  | `go run persisting-sessions.go`  | Save and resume sessions across restarts   |
+| Receita               | Comando                          | Descricao                                  |
+| --------------------- | -------------------------------- | ------------------------------------------ |
+| Error Handling        | `go run error-handling.go`       | Demonstra padroes de tratamento de erros   |
+| Multiple Sessions     | `go run multiple-sessions.go`    | Gerencia multiplas conversas independentes |
+| Managing Local Files  | `go run managing-local-files.go` | Organiza arquivos com agrupamento por IA   |
+| PR Visualization      | `go run pr-visualization.go`     | Gera graficos de idade de PR               |
+| Persisting Sessions   | `go run persisting-sessions.go`  | Salva e retoma sessoes entre reinicios     |
 
-### Examples with Arguments
+### Exemplos com Argumentos
 
-**PR Visualization with specific repo:**
+**PR Visualization com repo especifico:**
 
 ```bash
 go run pr-visualization.go -repo github/copilot-sdk
 ```
 
-**Managing Local Files (edit the file to change target folder):**
+**Managing Local Files (edite o arquivo para mudar a pasta alvo):**
 
 ```bash
 # Edit the targetFolder variable in managing-local-files.go first
 go run managing-local-files.go
 ```
 
-## Go Best Practices
+## Melhores Praticas em Go
 
-These examples follow Go conventions:
+Estes exemplos seguem convencoes de Go:
 
-- Proper error handling with explicit checks
-- Use of `defer` for cleanup
-- Idiomatic naming (camelCase for local variables)
-- Standard library usage where appropriate
-- Clean separation of concerns
+- Tratamento de erros adequado com verificacoes explicitas
+- Uso de `defer` para limpeza
+- Nomenclatura idiomatica (camelCase para variaveis locais)
+- Uso da biblioteca padrao quando apropriado
+- Separacao clara de responsabilidades
 
-## Learning Resources
+## Recursos de Aprendizado
 
 - [Go Documentation](https://go.dev/doc/)
 - [GitHub Copilot SDK for Go](https://github.com/github/copilot-sdk/blob/main/go/README.md)
-- [Parent Cookbook](../README.md)
+- [Cookbook Pai](../README.md)

@@ -5,107 +5,108 @@ import Modal from '../components/Modal.astro';
 const base = import.meta.env.BASE_URL;
 ---
 
-<BaseLayout title="Home" activeNav="">
+
+<BaseLayout title="Início" activeNav="">
   <main id="main-content">
-    <!-- Hero Section -->
+    <!-- Seção Hero -->
     <section class="hero" aria-labelledby="hero-heading">
       <div class="container">
         <h1 id="hero-heading">Awesome GitHub Copilot</h1>
-        <p class="hero-subtitle">Community-contributed instructions, prompts, agents, and skills to enhance your GitHub Copilot experience</p>
+        <p class="hero-subtitle">Instruções, prompts, agentes e skills contribuídos pela comunidade para aprimorar sua experiência com o GitHub Copilot</p>
         <div class="hero-search">
-          <label for="global-search" class="sr-only">Search all resources</label>
-          <input type="text" id="global-search" placeholder="Search all resources..." autocomplete="off" role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls="search-results">
-          <div id="search-results" class="search-results hidden" role="listbox" aria-label="Search results"></div>
+          <label for="global-search" class="sr-only">Buscar em todos os recursos</label>
+          <input type="text" id="global-search" placeholder="Buscar em todos os recursos..." autocomplete="off" role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls="search-results">
+          <div id="search-results" class="search-results hidden" role="listbox" aria-label="Resultados da busca"></div>
         </div>
       </div>
     </section>
 
-    <!-- Quick Links -->
+    <!-- Links Rápidos -->
     <section class="quick-links" aria-labelledby="quick-links-heading">
-      <h2 id="quick-links-heading" class="sr-only">Browse Resources</h2>
+      <h2 id="quick-links-heading" class="sr-only">Navegar pelos Recursos</h2>
       <div class="container">
         <div class="cards-grid">
           <a href={`${base}agents/`} class="card card-with-count" id="card-agents">
             <div class="card-icon" aria-hidden="true">🤖</div>
             <div class="card-content">
-              <h3>Agents</h3>
-              <p>Custom agents for specialized Copilot experiences</p>
+              <h3>Agentes</h3>
+              <p>Agentes personalizados para experiências especializadas com o Copilot</p>
             </div>
-            <div class="card-count" data-count="agents" aria-label="Agent count">-</div>
+            <div class="card-count" data-count="agents" aria-label="Quantidade de agentes">-</div>
           </a>
           <a href={`${base}prompts/`} class="card card-with-count" id="card-prompts">
             <div class="card-icon" aria-hidden="true">🎯</div>
             <div class="card-content">
               <h3>Prompts</h3>
-              <p>Ready-to-use prompt templates for development tasks</p>
+              <p>Modelos de prompt prontos para tarefas de desenvolvimento</p>
             </div>
-            <div class="card-count" data-count="prompts" aria-label="Prompt count">-</div>
+            <div class="card-count" data-count="prompts" aria-label="Quantidade de prompts">-</div>
           </a>
           <a href={`${base}instructions/`} class="card card-with-count" id="card-instructions">
             <div class="card-icon" aria-hidden="true">📋</div>
             <div class="card-content">
-              <h3>Instructions</h3>
-              <p>Coding standards and best practices for Copilot</p>
+              <h3>Instruções</h3>
+              <p>Padrões de código e boas práticas para o Copilot</p>
             </div>
-            <div class="card-count" data-count="instructions" aria-label="Instruction count">-</div>
+            <div class="card-count" data-count="instructions" aria-label="Quantidade de instruções">-</div>
           </a>
           <a href={`${base}skills/`} class="card card-with-count" id="card-skills">
             <div class="card-icon" aria-hidden="true">⚡</div>
             <div class="card-content">
               <h3>Skills</h3>
-              <p>Self-contained folders with instructions and resources</p>
+              <p>Pastas auto-contidas com instruções e recursos</p>
             </div>
-            <div class="card-count" data-count="skills" aria-label="Skill count">-</div>
+            <div class="card-count" data-count="skills" aria-label="Quantidade de skills">-</div>
           </a>
           <a href={`${base}collections/`} class="card card-with-count" id="card-collections">
             <div class="card-icon" aria-hidden="true">📦</div>
             <div class="card-content">
-              <h3>Collections</h3>
-              <p>Curated collections organized by themes</p>
+              <h3>Coleções</h3>
+              <p>Coleções organizadas por temas</p>
             </div>
-            <div class="card-count" data-count="collections" aria-label="Collection count">-</div>
+            <div class="card-count" data-count="collections" aria-label="Quantidade de coleções">-</div>
           </a>
           <a href={`${base}tools/`} class="card card-with-count" id="card-tools">
             <div class="card-icon" aria-hidden="true">🔧</div>
             <div class="card-content">
-              <h3>Tools</h3>
-              <p>MCP servers and developer tools</p>
+              <h3>Ferramentas</h3>
+              <p>Servidores MCP e ferramentas para desenvolvedores</p>
             </div>
-            <div class="card-count" data-count="tools" aria-label="Tool count">-</div>
+            <div class="card-count" data-count="tools" aria-label="Quantidade de ferramentas">-</div>
           </a>
         </div>
       </div>
     </section>
 
-    <!-- Featured Collections -->
+    <!-- Coleções em Destaque -->
     <section class="featured" aria-labelledby="featured-heading">
       <div class="container">
-        <h2 id="featured-heading">Featured Collections</h2>
+        <h2 id="featured-heading">Coleções em Destaque</h2>
         <div id="featured-collections" class="cards-grid" aria-live="polite">
-          <!-- Populated by JS -->
+          <!-- Populado por JS -->
         </div>
       </div>
     </section>
 
-    <!-- Getting Started -->
+    <!-- Primeiros Passos -->
     <section class="getting-started" aria-labelledby="getting-started-heading">
       <div class="container">
-        <h2 id="getting-started-heading">Getting Started</h2>
+        <h2 id="getting-started-heading">Primeiros Passos</h2>
         <div class="steps">
           <div class="step">
             <div class="step-number" aria-hidden="true">1</div>
-            <h3>Browse</h3>
-            <p>Explore agents, prompts, instructions, and skills</p>
+            <h3>Navegue</h3>
+            <p>Explore agentes, prompts, instruções e skills</p>
           </div>
           <div class="step">
             <div class="step-number" aria-hidden="true">2</div>
-            <h3>Preview</h3>
-            <p>Click any item to view its full content</p>
+            <h3>Visualize</h3>
+            <p>Clique em qualquer item para ver o conteúdo completo</p>
           </div>
           <div class="step">
             <div class="step-number" aria-hidden="true">3</div>
-            <h3>Install</h3>
-            <p>One-click install to VS Code or copy to clipboard</p>
+            <h3>Instale</h3>
+            <p>Instale com um clique no VS Code ou copie para a área de transferência</p>
           </div>
         </div>
       </div>

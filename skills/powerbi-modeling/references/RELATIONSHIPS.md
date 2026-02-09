@@ -1,41 +1,41 @@
-# Relationships in Power BI
+# Relacionamentos no Power BI
 
-## Relationship Properties
+## Propriedades de Relacionamento
 
-### Cardinality
-| Type | Use Case | Notes |
-|------|----------|-------|
-| One-to-Many (*:1) | Dimension to Fact | Most common, preferred |
-| Many-to-One (1:*) | Fact to Dimension | Same as above, direction reversed |
-| One-to-One (1:1) | Dimension extensions | Use sparingly |
-| Many-to-Many (*:*) | Bridge tables, complex scenarios | Requires careful design |
+### Cardinalidade
+| Tipo | Caso de Uso | Notas |
+|------|------------|-------|
+| One-to-Many (*:1) | Dimensao para Fato | Mais comum, preferido |
+| Many-to-One (1:*) | Fato para Dimensao | Igual acima, direcao invertida |
+| One-to-One (1:1) | Extensions de dimensao | Use com parcimonia |
+| Many-to-Many (*:*) | Bridge tables, cenarios complexos | Requer design cuidadoso |
 
-### Cross-Filter Direction
-| Setting | Behavior | When to Use |
+### Direcao de Cross-Filter
+| Configuracao | Comportamento | Quando Usar |
 |---------|----------|-------------|
-| Single | Filters flow from "one" to "many" | Default, best performance |
-| Both | Filters flow in both directions | Only when necessary |
+| Single | Filtros fluem de "one" para "many" | Padrao, melhor performance |
+| Both | Filtros fluem em ambas as direcoes | Apenas quando necessario |
 
-## Best Practices
+## Boas Praticas
 
-### 1. Prefer One-to-Many Relationships
+### 1. Prefira Relacionamentos One-to-Many
 ```
 Customer (1) --> (*) Sales
 Product  (1) --> (*) Sales
 Date     (1) --> (*) Sales
 ```
 
-### 2. Use Single-Direction Cross-Filtering
-Bidirectional filtering:
-- Impacts performance negatively
-- Can create ambiguous filter paths
-- May produce unexpected results
+### 2. Use Cross-Filtering de Direcao Unica
+Filtro bidirecional:
+- Impacta negativamente a performance
+- Pode criar caminhos de filtro ambiguos
+- Pode produzir resultados inesperados
 
-**Only use bidirectional when:**
-- Dimension-to-dimension analysis through fact table
-- Specific RLS requirements
+**Use bidirecional apenas quando:**
+- Analise dimension-to-dimension via fact table
+- Requisitos especificos de RLS
 
-**Better alternative:** Use CROSSFILTER in DAX measures:
+**Alternativa melhor:** Use CROSSFILTER em measures DAX:
 ```dax
 Countries Sold = 
 CALCULATE(
@@ -44,9 +44,9 @@ CALCULATE(
 )
 ```
 
-### 3. One Active Path Between Tables
-- Only one active relationship between any two tables
-- Use USERELATIONSHIP for role-playing dimensions:
+### 3. Um Caminho Ativo Entre Tabelas
+- Apenas um relacionamento ativo entre duas tabelas
+- Use USERELATIONSHIP para role-playing dimensions:
 
 ```dax
 Sales by Ship Date = 
@@ -56,15 +56,15 @@ CALCULATE(
 )
 ```
 
-### 4. Avoid Ambiguous Paths
-Circular references cause errors. Solutions:
-- Deactivate one relationship
-- Restructure model
-- Use USERELATIONSHIP in measures
+### 4. Evite Caminhos Ambiguos
+Referencias circulares causam erros. Solucoes:
+- Desativar um relacionamento
+- Reestruturar o modelo
+- Usar USERELATIONSHIP em measures
 
-## Relationship Patterns
+## Padroes de Relacionamento
 
-### Standard Star Schema
+### Star Schema Padrao
 ```
      [Date]
        |
@@ -73,7 +73,7 @@ Circular references cause errors. Solutions:
    [Store]
 ```
 
-### Role-Playing Dimension
+### Dimensao de Role-Playing
 ```
 [Date] --(active)-- [Sales.OrderDate]
    |
@@ -89,16 +89,16 @@ Circular references cause errors. Solutions:
 ```
 [Product]--[ProductPromotion]--[Promotion]
 ```
-Used to capture relationships without measures.
+Usada para capturar relacionamentos sem measures.
 
-## Creating Relationships via MCP
+## Criar Relacionamentos via MCP
 
-### List Current Relationships
+### Listar Relacionamentos Atuais
 ```
 relationship_operations(operation: "List")
 ```
 
-### Create New Relationship
+### Criar Novo Relacionamento
 ```
 relationship_operations(
   operation: "Create",
@@ -113,7 +113,7 @@ relationship_operations(
 )
 ```
 
-### Deactivate Relationship
+### Desativar Relacionamento
 ```
 relationship_operations(
   operation: "Deactivate",
@@ -121,27 +121,27 @@ relationship_operations(
 )
 ```
 
-## Troubleshooting
+## Solucao de Problemas
 
-### "Ambiguous Path" Error
-Multiple active paths exist between tables.
-- Check for: Multiple fact tables sharing dimensions
-- Solution: Deactivate redundant relationships
+### Erro "Ambiguous Path"
+Existem multiplos caminhos ativos entre tabelas.
+- Verifique: Multiplas fact tables compartilhando dimensions
+- Solucao: Desative relacionamentos redundantes
 
 ### Bidirectional Not Allowed
-Circular reference would be created.
-- Solution: Restructure or use DAX CROSSFILTER
+Uma referencia circular seria criada.
+- Solucao: Reestruture ou use DAX CROSSFILTER
 
 ### Relationship Not Detected
-Columns may have different data types.
-- Ensure both columns have identical types
-- Check for trailing spaces in text keys
+Colunas podem ter tipos de dados diferentes.
+- Garanta que ambas colunas tenham tipos identicos
+- Verifique espacos no final de chaves de texto
 
-## Validation Checklist
+## Checklist de Validacao
 
-- [ ] All relationships are one-to-many where possible
-- [ ] Cross-filter is single direction by default
-- [ ] Only one active path between any two tables
-- [ ] Role-playing dimensions use inactive relationships
-- [ ] No circular reference paths
-- [ ] Key columns have matching data types
+- [ ] Todos os relacionamentos sao one-to-many quando possivel
+- [ ] Cross-filter e de direcao unica por default
+- [ ] Apenas um caminho ativo entre duas tabelas
+- [ ] Role-playing dimensions usam relacionamentos inativos
+- [ ] Sem caminhos de referencia circulares
+- [ ] Colunas de chave tem tipos de dados correspondentes

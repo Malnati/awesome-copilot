@@ -67,7 +67,7 @@ function renderItems(items: Prompt[], query = ''): void {
   if (!list) return;
 
   if (items.length === 0) {
-    list.innerHTML = '<div class="empty-state"><h3>No prompts found</h3><p>Try a different search term or adjust filters</p></div>';
+    list.innerHTML = '<div class="empty-state"><h3>Nenhum prompt encontrado</h3><p>Tente outro termo de busca ou ajuste os filtros</p></div>';
     return;
   }
 
@@ -75,7 +75,7 @@ function renderItems(items: Prompt[], query = ''): void {
     <div class="resource-item" data-path="${escapeHtml(item.path)}">
       <div class="resource-info">
         <div class="resource-title">${query ? search.highlight(item.title, query) : escapeHtml(item.title)}</div>
-        <div class="resource-description">${escapeHtml(item.description || 'No description')}</div>
+        <div class="resource-description">${escapeHtml(item.description || 'Sem descrição')}</div>
         <div class="resource-meta">
           ${item.tools?.slice(0, 4).map(t => `<span class="resource-tag">${escapeHtml(t)}</span>`).join('') || ''}
           ${item.tools && item.tools.length > 4 ? `<span class="resource-tag">+${item.tools.length - 4} more</span>` : ''}
@@ -109,7 +109,7 @@ export async function initPromptsPage(): Promise<void> {
 
   const data = await fetchData<PromptsData>('prompts.json');
   if (!data || !data.items) {
-    if (list) list.innerHTML = '<div class="empty-state"><h3>Failed to load data</h3></div>';
+    if (list) list.innerHTML = '<div class="empty-state"><h3>Falha ao carregar os dados</h3></div>';
     return;
   }
 

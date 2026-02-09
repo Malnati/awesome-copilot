@@ -1,32 +1,32 @@
 ---
 name: terraform-azurerm-set-diff-analyzer
-description: Analyze Terraform plan JSON output for AzureRM Provider to distinguish between false-positive diffs (order-only changes in Set-type attributes) and actual resource changes. Use when reviewing terraform plan output for Azure resources like Application Gateway, Load Balancer, Firewall, Front Door, NSG, and other resources with Set-type attributes that cause spurious diffs due to internal ordering changes.
+description: Analise a saida JSON do terraform plan para o provider AzureRM para distinguir diffs falso-positivos (mudancas apenas de ordenacao em atributos do tipo Set) de mudancas reais de recurso. Use ao revisar saida do terraform plan para recursos Azure como Application Gateway, Load Balancer, Firewall, Front Door, NSG e outros com atributos Set que causam diffs espurios por mudancas internas de ordem.
 license: MIT
 ---
 
-# Terraform AzureRM Set Diff Analyzer
+# Analisador de Diff de Set do Terraform AzureRM
 
-A skill to identify "false-positive diffs" in Terraform plans caused by AzureRM Provider's Set-type attributes and distinguish them from actual changes.
+Uma skill para identificar "false-positive diffs" (diffs falso-positivos) em planos Terraform causados por atributos do tipo Set do AzureRM Provider e distingui-los de mudancas reais.
 
-## When to Use
+## Quando Usar
 
-- `terraform plan` shows many changes, but you only added/removed a single element
-- Application Gateway, Load Balancer, NSG, etc. show "all elements changed"
-- You want to automatically filter false-positive diffs in CI/CD
+- `terraform plan` mostra muitas mudancas, mas voce so adicionou/removeu um elemento
+- Application Gateway, Load Balancer, NSG etc. mostram "todos os elementos mudaram"
+- Voce quer filtrar automaticamente diffs falso-positivos em CI/CD
 
-## Background
+## Contexto
 
-Terraform's Set type compares by position rather than by key, so when adding or removing elements, all elements appear as "changed". This is a general Terraform issue, but it's particularly noticeable with AzureRM resources that heavily use Set-type attributes like Application Gateway, Load Balancer, and NSG.
+O tipo Set do Terraform compara por posicao em vez de chave, entao ao adicionar ou remover elementos, todos parecem "mudados". Isso e um problema geral do Terraform, mas e especialmente notavel em recursos AzureRM que usam muitos atributos Set como Application Gateway, Load Balancer e NSG.
 
-These "false-positive diffs" don't actually affect the resources, but they make reviewing terraform plan output difficult.
+Esses "false-positive diffs" nao afetam de fato os recursos, mas dificultam a revisao da saida do terraform plan.
 
-## Prerequisites
+## Pre-requisitos
 
 - Python 3.8+
 
-If Python is unavailable, install via your package manager (e.g., `apt install python3`, `brew install python3`) or from [python.org](https://www.python.org/downloads/).
+Se Python nao estiver disponivel, instale via package manager (ex.: `apt install python3`, `brew install python3`) ou em [python.org](https://www.python.org/downloads/).
 
-## Basic Usage
+## Uso Basico
 
 ```bash
 # 1. Generate plan JSON output
@@ -37,12 +37,12 @@ terraform show -json plan.tfplan > plan.json
 python scripts/analyze_plan.py plan.json
 ```
 
-## Troubleshooting
+## Solucao de Problemas
 
-- **`python: command not found`**: Use `python3` instead, or install Python
-- **`ModuleNotFoundError`**: Script uses only standard library; ensure Python 3.8+
+- **`python: command not found`**: Use `python3` ou instale Python
+- **`ModuleNotFoundError`**: O script usa apenas biblioteca padrao; garanta Python 3.8+
 
-## Detailed Documentation
+## Documentacao Detalhada
 
-- [scripts/README.md](scripts/README.md) - All options, output formats, exit codes, CI/CD examples
-- [references/azurerm_set_attributes.md](references/azurerm_set_attributes.md) - Supported resources and attributes
+- [scripts/README.md](scripts/README.md) - Todas as opcoes, formatos de saida, exit codes, exemplos CI/CD
+- [references/azurerm_set_attributes.md](references/azurerm_set_attributes.md) - Recursos e atributos suportados

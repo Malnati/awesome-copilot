@@ -1,27 +1,27 @@
 ---
 agent: 'agent'
 tools: ['changes', 'search/codebase', 'edit/editFiles', 'problems', 'search']
-description: 'Get best practices for MSTest 3.x/4.x unit testing, including modern assertion APIs and data-driven tests'
+description: 'Obtenha boas praticas para testes unitarios MSTest 3.x/4.x, incluindo APIs modernas de assertion e testes data-driven'
 ---
 
-# MSTest Best Practices (MSTest 3.x/4.x)
+# Boas Praticas de MSTest (MSTest 3.x/4.x)
 
-Your goal is to help me write effective unit tests with modern MSTest, using current APIs and best practices.
+Seu objetivo e me ajudar a escrever testes unitarios eficazes com MSTest moderno, usando APIs atuais e boas praticas.
 
-## Project Setup
+## Setup do Projeto
 
-- Use a separate test project with naming convention `[ProjectName].Tests`
-- Reference MSTest 3.x+ NuGet packages (includes analyzers)
-- Consider using MSTest.Sdk for simplified project setup
-- Run tests with `dotnet test`
+- Use um projeto de testes separado com convencao `[ProjectName].Tests`
+- Referencie pacotes NuGet MSTest 3.x+ (inclui analyzers)
+- Considere usar MSTest.Sdk para simplificar o setup
+- Rode testes com `dotnet test`
 
-## Test Class Structure
+## Estrutura de Classe de Teste
 
-- Use `[TestClass]` attribute for test classes
-- **Seal test classes by default** for performance and design clarity
-- Use `[TestMethod]` for test methods (prefer over `[DataTestMethod]`)
-- Follow Arrange-Act-Assert (AAA) pattern
-- Name tests using pattern `MethodName_Scenario_ExpectedBehavior`
+- Use `[TestClass]` em classes de teste
+- **Seal test classes por default** para performance e clareza de design
+- Use `[TestMethod]` para metodos de teste (prefira em vez de `[DataTestMethod]`)
+- Siga o pattern Arrange-Act-Assert (AAA)
+- Nomeie testes com o pattern `MethodName_Scenario_ExpectedBehavior`
 
 ```csharp
 [TestClass]
@@ -42,17 +42,17 @@ public sealed class CalculatorTests
 }
 ```
 
-## Test Lifecycle
+## Ciclo de Vida de Teste
 
-- **Prefer constructors over `[TestInitialize]`** - enables `readonly` fields and follows standard C# patterns
-- Use `[TestCleanup]` for cleanup that must run even if test fails
-- Combine constructor with async `[TestInitialize]` when async setup is needed
+- **Prefira construtores em vez de `[TestInitialize]`** - habilita campos `readonly` e segue patterns C#
+- Use `[TestCleanup]` para cleanup que deve rodar mesmo se o teste falhar
+- Combine construtor com `[TestInitialize]` async quando precisar de setup async
 
 ```csharp
 [TestClass]
 public sealed class ServiceTests
 {
-    private readonly MyService _service;  // readonly enabled by constructor
+    private readonly MyService _service;  // readonly habilitado via construtor
 
     public ServiceTests()
     {
@@ -62,7 +62,7 @@ public sealed class ServiceTests
     [TestInitialize]
     public async Task InitAsync()
     {
-        // Use for async initialization only
+        // Use apenas para inicializacao async
         await _service.WarmupAsync();
     }
 
@@ -71,27 +71,27 @@ public sealed class ServiceTests
 }
 ```
 
-### Execution Order
+### Ordem de Execucao
 
-1. **Assembly Initialization** - `[AssemblyInitialize]` (once per test assembly)
-2. **Class Initialization** - `[ClassInitialize]` (once per test class)
-3. **Test Initialization** (for every test method):
-   1. Constructor
+1. **Assembly Initialization** - `[AssemblyInitialize]` (uma vez por assembly)
+2. **Class Initialization** - `[ClassInitialize]` (uma vez por classe)
+3. **Test Initialization** (para cada metodo):
+   1. Construtor
    2. Set `TestContext` property
    3. `[TestInitialize]`
-4. **Test Execution** - test method runs
-5. **Test Cleanup** (for every test method):
+4. **Test Execution** - metodo de teste roda
+5. **Test Cleanup** (para cada metodo):
    1. `[TestCleanup]`
-   2. `DisposeAsync` (if implemented)
-   3. `Dispose` (if implemented)
-6. **Class Cleanup** - `[ClassCleanup]` (once per test class)
-7. **Assembly Cleanup** - `[AssemblyCleanup]` (once per test assembly)
+   2. `DisposeAsync` (se implementado)
+   3. `Dispose` (se implementado)
+6. **Class Cleanup** - `[ClassCleanup]` (uma vez por classe)
+7. **Assembly Cleanup** - `[AssemblyCleanup]` (uma vez por assembly)
 
-## Modern Assertion APIs
+## APIs Modernas de Assertion
 
-MSTest provides three assertion classes: `Assert`, `StringAssert`, and `CollectionAssert`.
+MSTest fornece tres classes de assertion: `Assert`, `StringAssert` e `CollectionAssert`.
 
-### Assert Class - Core Assertions
+### Assert Class - Assertions Core
 
 ```csharp
 // Equality
@@ -113,7 +113,7 @@ Assert.Fail("Test failed due to...");
 Assert.Inconclusive("Test cannot be completed because...");
 ```
 
-### Exception Testing (Prefer over `[ExpectedException]`)
+### Teste de Excecao (Prefira a `[ExpectedException]`)
 
 ```csharp
 // Assert.Throws - matches TException or derived types
@@ -185,7 +185,7 @@ Assert.That(result.Count > 0);  // Auto-captures expression in failure message
 
 ### StringAssert Class
 
-> **Note:** Prefer `Assert` class equivalents when available (e.g., `Assert.Contains("expected", actual)` over `StringAssert.Contains(actual, "expected")`).
+> **Note:** Prefira equivalentes em `Assert` quando disponiveis (ex.: `Assert.Contains("expected", actual)` em vez de `StringAssert.Contains(actual, "expected")`).
 
 ```csharp
 StringAssert.Contains(actualString, "expected");
@@ -197,7 +197,7 @@ StringAssert.DoesNotMatch(actualString, new Regex(@"\d+"));
 
 ### CollectionAssert Class
 
-> **Note:** Prefer `Assert` class equivalents when available (e.g., `Assert.Contains`).
+> **Note:** Prefira equivalentes em `Assert` quando disponiveis (ex.: `Assert.Contains`).
 
 ```csharp
 // Containment
@@ -222,7 +222,7 @@ CollectionAssert.AllItemsAreNotNull(collection);
 CollectionAssert.AllItemsAreUnique(collection);
 ```
 
-## Data-Driven Tests
+## Testes Data-Driven
 
 ### DataRow
 
@@ -239,14 +239,14 @@ public void Add_ReturnsSum(int a, int b, int expected)
 
 ### DynamicData
 
-The data source can return any of the following types:
+A fonte de dados pode retornar:
 
-- `IEnumerable<(T1, T2, ...)>` (ValueTuple) - **preferred**, provides type safety (MSTest 3.7+)
-- `IEnumerable<Tuple<T1, T2, ...>>` - provides type safety
-- `IEnumerable<TestDataRow>` - provides type safety plus control over test metadata (display name, categories)
-- `IEnumerable<object[]>` - **least preferred**, no type safety
+- `IEnumerable<(T1, T2, ...)>` (ValueTuple) - **preferred**, oferece type safety (MSTest 3.7+)
+- `IEnumerable<Tuple<T1, T2, ...>>` - oferece type safety
+- `IEnumerable<TestDataRow>` - oferece type safety + controle de metadata (display name, categories)
+- `IEnumerable<object[]>` - **least preferred**, sem type safety
 
-> **Note:** When creating new test data methods, prefer `ValueTuple` or `TestDataRow` over `IEnumerable<object[]>`. The `object[]` approach provides no compile-time type checking and can lead to runtime errors from type mismatches.
+> **Note:** Ao criar novos metodos de dados de teste, prefira `ValueTuple` ou `TestDataRow` em vez de `IEnumerable<object[]>`. `object[]` nao oferece type checking e pode causar erros em runtime.
 
 ```csharp
 [TestMethod]
@@ -263,7 +263,7 @@ public static IEnumerable<(int a, int b, int expected)> TestData =>
     (0, 0, 0),
 ];
 
-// TestDataRow - when you need custom display names or metadata
+// TestDataRow - quando precisar de display name ou metadata
 public static IEnumerable<TestDataRow<(int a, int b, int expected)>> TestDataWithMetadata =>
 [
     new((1, 2, 3)) { DisplayName = "Positive numbers" },
@@ -271,7 +271,7 @@ public static IEnumerable<TestDataRow<(int a, int b, int expected)>> TestDataWit
     new((-1, 1, 0)) { DisplayName = "Mixed signs", IgnoreMessage = "Known issue #123" },
 ];
 
-// IEnumerable<object[]> - avoid for new code (no type safety)
+// IEnumerable<object[]> - evitar em codigo novo (sem type safety)
 public static IEnumerable<object[]> LegacyTestData =>
 [
     [1, 2, 3],
@@ -281,16 +281,16 @@ public static IEnumerable<object[]> LegacyTestData =>
 
 ## TestContext
 
-The `TestContext` class provides test run information, cancellation support, and output methods.
-See [TestContext documentation](https://learn.microsoft.com/dotnet/core/testing/unit-testing-mstest-writing-tests-testcontext) for complete reference.
+A classe `TestContext` fornece informacoes do test run, suporte a cancelamento e metodos de output.
+Consulte [TestContext documentation](https://learn.microsoft.com/dotnet/core/testing/unit-testing-mstest-writing-tests-testcontext) para referencia completa.
 
-### Accessing TestContext
+### Acessando TestContext
 
 ```csharp
-// Property (MSTest suppresses CS8618 - don't use nullable or = null!)
+// Property (MSTest suprime CS8618 - nao use nullable ou = null!)
 public TestContext TestContext { get; set; }
 
-// Constructor injection (MSTest 3.6+) - preferred for immutability
+// Constructor injection (MSTest 3.6+) - preferido para imutabilidade
 [TestClass]
 public sealed class MyTests
 {
@@ -302,11 +302,11 @@ public sealed class MyTests
     }
 }
 
-// Static methods receive it as parameter
+// Metodos estaticos recebem como parametro
 [ClassInitialize]
 public static void ClassInit(TestContext context) { }
 
-// Optional for cleanup methods (MSTest 3.6+)
+// Opcional para metodos de cleanup (MSTest 3.6+)
 [ClassCleanup]
 public static void ClassCleanup(TestContext context) { }
 
@@ -316,7 +316,7 @@ public static void AssemblyCleanup(TestContext context) { }
 
 ### Cancellation Token
 
-Always use `TestContext.CancellationToken` for cooperative cancellation with `[Timeout]`:
+Sempre use `TestContext.CancellationToken` para cancelamento cooperativo com `[Timeout]`:
 
 ```csharp
 [TestMethod]
@@ -327,7 +327,7 @@ public async Task LongRunningTest()
 }
 ```
 
-### Test Run Properties
+### Propriedades do Test Run
 
 ```csharp
 TestContext.TestName              // Current test method name
@@ -338,7 +338,7 @@ TestContext.TestException         // Exception if test failed (3.7+, in TestClea
 TestContext.DeploymentDirectory   // Directory with deployment items
 ```
 
-### Output and Result Files
+### Output e Arquivos de Resultado
 
 ```csharp
 // Write to test output (useful for debugging)
@@ -351,9 +351,9 @@ TestContext.AddResultFile(screenshotPath);
 TestContext.Properties["SharedKey"] = computedValue;
 ```
 
-## Advanced Features
+## Recursos Avancados
 
-### Retry for Flaky Tests (MSTest 3.9+)
+### Retry para testes flaky (MSTest 3.9+)
 
 ```csharp
 [TestMethod]
@@ -361,9 +361,9 @@ TestContext.Properties["SharedKey"] = computedValue;
 public void FlakyTest() { }
 ```
 
-### Conditional Execution (MSTest 3.10+)
+### Execucao Condicional (MSTest 3.10+)
 
-Skip or run tests based on OS or CI environment:
+Pule ou rode testes com base no OS ou ambiente de CI:
 
 ```csharp
 // OS-specific tests
@@ -389,7 +389,7 @@ public void CIOnlyTest() { }
 public void LocalOnlyTest() { }
 ```
 
-### Parallelization
+### Paralelizacao
 
 ```csharp
 // Assembly level
@@ -401,9 +401,9 @@ public void LocalOnlyTest() { }
 public sealed class SequentialTests { }
 ```
 
-### Work Item Traceability (MSTest 3.8+)
+### Rastreabilidade de Work Item (MSTest 3.8+)
 
-Link tests to work items for traceability in test reports:
+Vincule testes a work items para rastreabilidade em relatórios:
 
 ```csharp
 // Azure DevOps work items
@@ -423,12 +423,12 @@ public void Feature_CoversMultipleRequirements() { }
 public void BugFix_Issue42_IsResolved() { }
 ```
 
-Work item associations appear in test results and can be used for:
-- Tracing test coverage to requirements
-- Linking bug fixes to regression tests
-- Generating traceability reports in CI/CD pipelines
+Work item associations aparecem nos resultados de teste e podem ser usadas para:
+- Rastrear cobertura de testes com requisitos
+- Vincular correcoes de bug a testes de regressao
+- Gerar relatorios de rastreabilidade em pipelines CI/CD
 
-## Common Mistakes to Avoid
+## Erros Comuns a Evitar
 
 ```csharp
 // ❌ Wrong argument order
@@ -464,16 +464,16 @@ public TestContext TestContext { get; set; } = null!;
 public TestContext TestContext { get; set; }
 ```
 
-## Test Organization
+## Organizacao de Testes
 
-- Group tests by feature or component
-- Use `[TestCategory("Category")]` for filtering
-- Use `[TestProperty("Name", "Value")]` for custom metadata (e.g., `[TestProperty("Bug", "12345")]`)
-- Use `[Priority(1)]` for critical tests
-- Enable relevant MSTest analyzers (MSTEST0020 for constructor preference)
+- Agrupe testes por feature ou componente
+- Use `[TestCategory("Category")]` para filtragem
+- Use `[TestProperty("Name", "Value")]` para metadata custom (ex.: `[TestProperty("Bug", "12345")]`)
+- Use `[Priority(1)]` para testes criticos
+- Habilite analyzers relevantes do MSTest (MSTEST0020 para preferencia de construtor)
 
-## Mocking and Isolation
+## Mocking e Isolamento
 
-- Use Moq or NSubstitute for mocking dependencies
-- Use interfaces to facilitate mocking
-- Mock dependencies to isolate units under test
+- Use Moq ou NSubstitute para mocking de dependencias
+- Use interfaces para facilitar mocking
+- Mocke dependencias para isolar unidades sob teste

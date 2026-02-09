@@ -1,17 +1,17 @@
-# Working with Multiple Sessions
+# Trabalhando com Multiplas Sessoes
 
-Manage multiple independent conversations simultaneously.
+Gerencie varias conversas independentes simultaneamente.
 
-> **Runnable example:** [recipe/multiple_sessions.py](recipe/multiple_sessions.py)
+> **Exemplo executavel:** [recipe/multiple_sessions.py](recipe/multiple_sessions.py)
 >
 > ```bash
 > cd recipe && pip install -r requirements.txt
 > python multiple_sessions.py
 > ```
 
-## Example scenario
+## Cenario de exemplo
 
-You need to run multiple conversations in parallel, each with its own context and history.
+Voce precisa executar varias conversas em paralelo, cada uma com seu proprio contexto e historico.
 
 ## Python
 
@@ -43,9 +43,9 @@ session3.destroy()
 client.stop()
 ```
 
-## Custom session IDs
+## IDs de sessao personalizados
 
-Use custom IDs for easier tracking:
+Use IDs personalizados para facilitar o acompanhamento:
 
 ```python
 session = client.create_session(
@@ -56,7 +56,7 @@ session = client.create_session(
 print(session.session_id)  # "user-123-chat"
 ```
 
-## Listing sessions
+## Listando sessoes
 
 ```python
 sessions = client.list_sessions()
@@ -64,15 +64,15 @@ for session_info in sessions:
     print(f"Session: {session_info['sessionId']}")
 ```
 
-## Deleting sessions
+## Excluindo sessoes
 
 ```python
 # Delete a specific session
 client.delete_session("user-123-chat")
 ```
 
-## Use cases
+## Casos de uso
 
-- **Multi-user applications**: One session per user
-- **Multi-task workflows**: Separate sessions for different tasks
-- **A/B testing**: Compare responses from different models
+- **Aplicacoes multiusuario**: Uma sessao por usuario
+- **Fluxos de trabalho multitarefa**: Sessoes separadas para tarefas diferentes
+- **Testes A/B**: Compare respostas de modelos diferentes

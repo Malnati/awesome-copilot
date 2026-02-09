@@ -1,14 +1,14 @@
 # AT28C256 EEPROM Emulation Specification
 
-## Overview
+## Visao Geral
 
-This document specifies how to **emulate the AT28C256 (32 KB Parallel EEPROM)** in a 6502-based system emulator. The goal is *behavioral accuracy* suitable for SBCs, monitors, and real ROM images, not just generic file-backed storage.
+Este documento especifica como **emular o AT28C256 (32 KB Parallel EEPROM)** em um emulador de sistema baseado em 6502. O objetivo e *precisao comportamental* adequada para SBCs, monitores e imagens ROM reais, nao apenas armazenamento generico baseado em arquivo.
 
-The AT28C256 is commonly used as **ROM** in 6502 systems, but it is *electrically writable* and has timing behaviors that differ from SRAM.
+O AT28C256 e comumente usado como **ROM** em sistemas 6502, mas ele e *eletricamente gravavel* e possui comportamentos de temporizacao diferentes de SRAM.
 
 ---
 
-## Chip Summary
+## Resumo do Chip
 
 | Parameter      | Value                  |
 | -------------- | ---------------------- |
@@ -205,7 +205,7 @@ void eeprom_write(addr, value);
 
 ---
 
-## Recommended Emulator Defaults
+## Padroes Recomendados do Emulador
 
 | Feature       | Setting     |
 | ------------- | ----------- |
@@ -237,9 +237,9 @@ void eeprom_write(addr, value);
 
 ## Notes
 
-This specification intentionally mirrors **real hardware quirks** while allowing emulator authors to choose between simplicity and accuracy. It is suitable for:
+Esta especificacao espelha **quirks reais de hardware** enquanto permite que autores de emuladores escolham entre simplicidade e precisao. Ela e adequada para:
 
-* Educational emulators
-* SBC simulation
-* ROM development workflows
-* Integration with 6502 + 6522 + SRAM emulation
+* Emuladores educacionais
+* Simulacao de SBC
+* Fluxos de desenvolvimento de ROM
+* Integracao com emulacao 6502 + 6522 + SRAM

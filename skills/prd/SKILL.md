@@ -1,64 +1,64 @@
 ---
 name: prd
-description: 'Generate high-quality Product Requirements Documents (PRDs) for software systems and AI-powered features. Includes executive summaries, user stories, technical specifications, and risk analysis.'
+description: 'Gere PRDs (Product Requirements Documents) de alta qualidade para sistemas de software e features com IA. Inclui resumos executivos, user stories, especificacoes tecnicas e analise de riscos.'
 license: MIT
 ---
 
-# Product Requirements Document (PRD)
+# Documento de Requisitos de Produto (PRD)
 
-## Overview
+## Visao Geral
 
-Design comprehensive, production-grade Product Requirements Documents (PRDs) that bridge the gap between business vision and technical execution. This skill works for modern software systems, ensuring that requirements are clearly defined.
+Desenhe PRDs abrangentes e prontos para producao que fazem a ponte entre a visao de negocio e a execucao tecnica. Esta skill funciona para sistemas de software modernos, garantindo que requisitos sejam claramente definidos.
 
-## When to Use
+## Quando Usar
 
-Use this skill when:
+Use esta skill quando:
 
-- Starting a new product or feature development cycle
-- Translating a vague idea into a concrete technical specification
-- Defining requirements for AI-powered features
-- Stakeholders need a unified "source of truth" for project scope
-- User asks to "write a PRD", "document requirements", or "plan a feature"
-
----
-
-## Operational Workflow
-
-### Phase 1: Discovery (The Interview)
-
-Before writing a single line of the PRD, you **MUST** interrogate the user to fill knowledge gaps. Do not assume context.
-
-**Ask about:**
-
-- **The Core Problem**: Why are we building this now?
-- **Success Metrics**: How do we know it worked?
-- **Constraints**: Budget, tech stack, or deadline?
-
-### Phase 2: Analysis & Scoping
-
-Synthesize the user's input. Identify dependencies and hidden complexities.
-
-- Map out the **User Flow**.
-- Define **Non-Goals** to protect the timeline.
-
-### Phase 3: Technical Drafting
-
-Generate the document using the **Strict PRD Schema** below.
+- Iniciar um novo ciclo de desenvolvimento de produto ou feature
+- Traduzir uma ideia vaga em especificacao tecnica concreta
+- Definir requisitos para features com IA
+- Stakeholders precisam de uma "source of truth" unificada para o escopo do projeto
+- Usuario pede para "escrever um PRD", "documentar requisitos" ou "planejar uma feature"
 
 ---
 
-## PRD Quality Standards
+## Fluxo de Trabalho Operacional (Workflow)
 
-### Requirements Quality
+### Fase 1: Discovery (A Entrevista)
 
-Use concrete, measurable criteria. Avoid "fast", "easy", or "intuitive".
+Antes de escrever uma linha do PRD, voce **DEVE** interrogar o usuario para preencher lacunas de conhecimento. Nao assuma contexto.
+
+**Pergunte sobre:**
+
+- **O Problema Central**: Por que estamos construindo isso agora?
+- **Metricas de Sucesso**: Como sabemos que funcionou?
+- **Restricoes**: Budget, stack tecnica ou deadline?
+
+### Fase 2: Analise e Escopo
+
+Sintetize a entrada do usuario. Identifique dependencias e complexidades ocultas.
+
+- Mapeie o **Fluxo do Usuario (User Flow)**.
+- Defina **Nao-Objetivos (Non-Goals)** para proteger o cronograma (timeline).
+
+### Fase 3: Redacao Tecnica
+
+Gere o documento usando o **Schema Estrito de PRD** abaixo.
+
+---
+
+## Padroes de Qualidade do PRD
+
+### Qualidade de Requisitos
+
+Use criterios concretos e mensuraveis. Evite "rapido", "facil" ou "intuitivo".
 
 ```diff
-# Vague (BAD)
+# Vago (RUIM)
 - The search should be fast and return relevant results.
 - The UI must look modern and be easy to use.
 
-# Concrete (GOOD)
+# Concreto (BOM)
 + The search must return results within 200ms for a 10k record dataset.
 + The search algorithm must achieve >= 85% Precision@10 in benchmark evals.
 + The UI must follow the 'Vercel/Next.js' design system and achieve 100% Lighthouse Accessibility score.
@@ -66,58 +66,58 @@ Use concrete, measurable criteria. Avoid "fast", "easy", or "intuitive".
 
 ---
 
-## Strict PRD Schema
+## Schema Estrito de PRD
 
-You **MUST** follow this exact structure for the output:
+Voce **DEVE** seguir esta estrutura exata para a saida:
 
-### 1. Executive Summary
+### 1. Resumo Executivo
 
-- **Problem Statement**: 1-2 sentences on the pain point.
-- **Proposed Solution**: 1-2 sentences on the fix.
-- **Success Criteria**: 3-5 measurable KPIs.
+- **Problem Statement**: 1-2 frases sobre o problema.
+- **Proposed Solution**: 1-2 frases sobre a solucao.
+- **Success Criteria**: 3-5 KPIs mensuraveis.
 
-### 2. User Experience & Functionality
+### 2. Experiencia do Usuario e Funcionalidade (User Experience & Functionality)
 
-- **User Personas**: Who is this for?
+- **User Personas**: Para quem e isso?
 - **User Stories**: `As a [user], I want to [action] so that [benefit].`
-- **Acceptance Criteria**: Bulleted list of "Done" definitions for each story.
-- **Non-Goals**: What are we NOT building?
+- **Acceptance Criteria**: Lista de definicoes de "Done" para cada story.
+- **Non-Goals**: O que NAO vamos construir?
 
-### 3. AI System Requirements (If Applicable)
+### 3. Requisitos do Sistema de IA (Se aplicavel)
 
-- **Tool Requirements**: What tools and APIs are needed?
-- **Evaluation Strategy**: How to measure output quality and accuracy.
+- **Requisitos de Tools**: Quais tools e APIs sao necessarias?
+- **Evaluation Strategy**: Como medir qualidade e acuracia da saida.
 
-### 4. Technical Specifications
+### 4. Especificacoes Tecnicas (Technical Specifications)
 
-- **Architecture Overview**: Data flow and component interaction.
-- **Integration Points**: APIs, DBs, and Auth.
-- **Security & Privacy**: Data handling and compliance.
+- **Visao Geral de Arquitetura**: Fluxo de dados e interacao de componentes.
+- **Integration Points**: APIs, DBs e Auth.
+- **Seguranca e Privacidade**: Tratamento de dados e compliance.
 
-### 5. Risks & Roadmap
+### 5. Riscos e Roadmap (Risks & Roadmap)
 
 - **Phased Rollout**: MVP -> v1.1 -> v2.0.
-- **Technical Risks**: Latency, cost, or dependency failures.
+- **Technical Risks**: Latencia, custo ou falhas de dependencias.
 
 ---
 
-## Implementation Guidelines
+## Diretrizes de Implementacao
 
-### DO (Always)
+### DO (Sempre)
 
-- **Define Testing**: For AI systems, specify how to test and validate output quality.
-- **Iterate**: Present a draft and ask for feedback on specific sections.
+- **Definir Testes**: Para sistemas de IA, especifique como testar e validar qualidade da saida.
+- **Iterar**: Apresente um draft e peca feedback sobre secoes especificas.
 
-### DON'T (Avoid)
+### DON'T (Evitar)
 
-- **Skip Discovery**: Never write a PRD without asking at least 2 clarifying questions first.
-- **Hallucinate Constraints**: If the user didn't specify a tech stack, ask or label it as `TBD`.
+- **Pular Discovery**: Nunca escreva um PRD sem fazer pelo menos 2 perguntas de esclarecimento.
+- **Alucinar Restricoes**: Se o usuario nao especificou uma stack, pergunte ou marque como `TBD`.
 
 ---
 
-## Example: Intelligent Search System
+## Exemplo: Intelligent Search System
 
-### 1. Executive Summary
+### 1. Resumo Executivo
 
 **Problem**: Users struggle to find specific documentation snippets in massive repositories.
 **Solution**: An intelligent search system that provides direct answers with source citations.

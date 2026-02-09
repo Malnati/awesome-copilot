@@ -1,105 +1,105 @@
 ---
 agent: 'agent'
-description: 'Generate a complete MCP server project in Python with tools, resources, and proper configuration'
+description: 'Gere um projeto completo de servidor MCP em Python com tools, resources e configuracao adequada'
 ---
 
-# Generate Python MCP Server
+# Gerar Servidor MCP em Python
 
-Create a complete Model Context Protocol (MCP) server in Python with the following specifications:
+Crie um servidor Model Context Protocol (MCP) completo em Python com as seguintes especificacoes:
 
-## Requirements
+## Requisitos
 
-1. **Project Structure**: Create a new Python project with proper structure using uv
-2. **Dependencies**: Include mcp[cli] package with uv
-3. **Transport Type**: Choose between stdio (for local) or streamable-http (for remote)
-4. **Tools**: Create at least one useful tool with proper type hints
-5. **Error Handling**: Include comprehensive error handling and validation
+1. **Estrutura do Projeto**: Crie um novo projeto Python com estrutura adequada usando uv
+2. **Dependencias**: Inclua o pacote mcp[cli] com uv
+3. **Tipo de Transport**: Escolha entre stdio (local) ou streamable-http (remoto)
+4. **Tools**: Crie ao menos uma tool util com type hints adequados
+5. **Error Handling**: Inclua tratamento de erros e validacao abrangentes
 
-## Implementation Details
+## Detalhes de Implementacao
 
-### Project Setup
-- Initialize with `uv init project-name`
-- Add MCP SDK: `uv add "mcp[cli]"`
-- Create main server file (e.g., `server.py`)
-- Add `.gitignore` for Python projects
-- Configure for direct execution with `if __name__ == "__main__"`
+### Setup do Projeto
+- Inicialize com `uv init project-name`
+- Adicione o SDK MCP: `uv add "mcp[cli]"`
+- Crie o arquivo principal do servidor (por exemplo, `server.py`)
+- Adicione `.gitignore` para projetos Python
+- Configure para execucao direta com `if __name__ == "__main__"`
 
-### Server Configuration
-- Use `FastMCP` class from `mcp.server.fastmcp`
-- Set server name and optional instructions
-- Choose transport: stdio (default) or streamable-http
-- For HTTP: optionally configure host, port, and stateless mode
+### Configuracao do Servidor
+- Use a classe `FastMCP` de `mcp.server.fastmcp`
+- Defina nome do servidor e instrucoes opcionais
+- Escolha transport: stdio (default) ou streamable-http
+- Para HTTP: configure host, porta e modo stateless opcionalmente
 
-### Tool Implementation
-- Use `@mcp.tool()` decorator on functions
-- Always include type hints - they generate schemas automatically
-- Write clear docstrings - they become tool descriptions
-- Use Pydantic models or TypedDicts for structured outputs
-- Support async operations for I/O-bound tasks
-- Include proper error handling
+### Implementacao de Tools
+- Use o decorator `@mcp.tool()` nas funcoes
+- Sempre inclua type hints - eles geram schemas automaticamente
+- Escreva docstrings claras - elas viram descricoes das tools
+- Use modelos Pydantic ou TypedDicts para saidas estruturadas
+- Suporte operacoes async para tarefas I/O-bound
+- Inclua tratamento de erros adequado
 
-### Resource/Prompt Setup (Optional)
-- Add resources with `@mcp.resource()` decorator
-- Use URI templates for dynamic resources: `"resource://{param}"`
-- Add prompts with `@mcp.prompt()` decorator
-- Return strings or Message lists from prompts
+### Setup de Resource/Prompt (Opcional)
+- Adicione resources com o decorator `@mcp.resource()`
+- Use URI templates para resources dinamicos: "resource://{param}"
+- Adicione prompts com o decorator `@mcp.prompt()`
+- Retorne strings ou listas de Message em prompts
 
-### Code Quality
-- Use type hints for all function parameters and returns
-- Write docstrings for tools, resources, and prompts
-- Follow PEP 8 style guidelines
-- Use async/await for asynchronous operations
-- Implement context managers for resource cleanup
-- Add inline comments for complex logic
+### Qualidade de Codigo
+- Use type hints em todos os parametros e retornos
+- Escreva docstrings para tools, resources e prompts
+- Siga as diretrizes PEP 8
+- Use async/await para operacoes assincronas
+- Implemente context managers para cleanup de recursos
+- Adicione comentarios inline para logica complexa
 
-## Example Tool Types to Consider
-- Data processing and transformation
-- File system operations (read, analyze, search)
-- External API integrations
-- Database queries
-- Text analysis or generation (with sampling)
-- System information retrieval
-- Math or scientific calculations
+## Tipos de Tool a Considerar
+- Processamento e transformacao de dados
+- Operacoes em file system (read, analyze, search)
+- Integracoes com APIs externas
+- Queries em banco de dados
+- Analise ou geracao de texto (com sampling)
+- Recuperacao de informacoes do sistema
+- Calculos matematicos ou cientificos
 
-## Configuration Options
-- **For stdio Servers**:
-  - Simple direct execution
-  - Test with `uv run mcp dev server.py`
-  - Install to Claude: `uv run mcp install server.py`
+## Opcoes de Configuracao
+- **Para servidores stdio**:
+  - Execucao direta simples
+  - Testar com `uv run mcp dev server.py`
+  - Instalar no Claude: `uv run mcp install server.py`
   
-- **For HTTP Servers**:
-  - Port configuration via environment variables
-  - Stateless mode for scalability: `stateless_http=True`
-  - JSON response mode: `json_response=True`
-  - CORS configuration for browser clients
-  - Mounting to existing ASGI servers (Starlette/FastAPI)
+- **Para servidores HTTP**:
+  - Configuracao de porta via variaveis de ambiente
+  - Modo stateless para escalabilidade: `stateless_http=True`
+  - Modo de resposta JSON: `json_response=True`
+  - Configuracao CORS para clientes browser
+  - Montagem em servidores ASGI existentes (Starlette/FastAPI)
 
-## Testing Guidance
-- Explain how to run the server:
-  - stdio: `python server.py` or `uv run server.py`
-  - HTTP: `python server.py` then connect to `http://localhost:PORT/mcp`
-- Test with MCP Inspector: `uv run mcp dev server.py`
-- Install to Claude Desktop: `uv run mcp install server.py`
-- Include example tool invocations
-- Add troubleshooting tips
+## Orientacao de Testes
+- Explique como rodar o servidor:
+  - stdio: `python server.py` ou `uv run server.py`
+  - HTTP: `python server.py` e conecte em `http://localhost:PORT/mcp`
+- Teste com MCP Inspector: `uv run mcp dev server.py`
+- Instale no Claude Desktop: `uv run mcp install server.py`
+- Inclua exemplos de invocacao de tools
+- Adicione dicas de troubleshooting
 
-## Additional Features to Consider
-- Context usage for logging, progress, and notifications
-- LLM sampling for AI-powered tools
-- User input elicitation for interactive workflows
-- Lifespan management for shared resources (databases, connections)
-- Structured output with Pydantic models
-- Icons for UI display
-- Image handling with Image class
-- Completion support for better UX
+## Recursos Adicionais a Considerar
+- Uso de Context para logging, progresso e notificacoes
+- LLM sampling para tools com IA
+- User input elicitation para workflows interativos
+- Lifespan management para recursos compartilhados (bancos, conexoes)
+- Saida estruturada com modelos Pydantic
+- Icons para exibicao em UI
+- Manipulacao de imagem com Image class
+- Completion support para melhor UX
 
-## Best Practices
-- Use type hints everywhere - they're not optional
-- Return structured data when possible
-- Log to stderr (or use Context logging) to avoid stdout pollution
-- Clean up resources properly
-- Validate inputs early
-- Provide clear error messages
-- Test tools independently before LLM integration
+## Boas Praticas
+- Use type hints em tudo - nao sao opcionais
+- Retorne dados estruturados quando possivel
+- Logue em stderr (ou use Context logging) para evitar poluir stdout
+- Limpe recursos corretamente
+- Valide inputs cedo
+- Forneca mensagens de erro claras
+- Teste tools de forma independente antes de integrar com LLM
 
-Generate a complete, production-ready MCP server with type safety, proper error handling, and comprehensive documentation.
+Gere um servidor MCP completo e pronto para producao com type safety, tratamento de erros adequado e documentacao abrangente.

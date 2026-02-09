@@ -1,19 +1,19 @@
 # Solderless Breadboard
 
-A practical Markdown specification and reference for **common solderless breadboards**, intended for electronics prototyping, education, and hobbyist development.
+Uma especificacao e referencia pratica em Markdown para **solderless breadboards** comuns, destinada a prototipagem eletronica, educacao e desenvolvimento hobbyista.
 
 ---
 
-## 1. Overview
+## 1. Visao Geral
 
-A **solderless breadboard** is a reusable prototyping platform that allows electronic components to be interconnected without soldering. Connections are made via internal spring clips.
+Uma **solderless breadboard** e uma plataforma de prototipagem reutilizavel que permite interconectar componentes eletronicos sem solda. As conexoes sao feitas por clipes de mola internos.
 
 ### Typical Uses
 
-* Rapid circuit prototyping
-* Educational labs
-* Logic and microcontroller experiments
-* Low-power analog and digital circuits
+* Prototipagem rapida de circuitos
+* Laboratorios educacionais
+* Experimentos de logica e microcontroladores
+* Circuitos analogicos e digitais de baixa potencia
 
 ### Not Suitable For
 
@@ -34,7 +34,7 @@ A **solderless breadboard** is a reusable prototyping platform that allows elect
 
 ### Standard Hole Pitch
 
-* **2.54 mm (0.1 in)** - compatible with DIP ICs and standard headers
+* **2.54 mm (0.1 in)** - compatível com DIP ICs e headers padrao
 
 ### Contact Characteristics
 
@@ -127,7 +127,7 @@ Connected | Connected
 
 ---
 
-## 7. Best Practices
+## 7. Boas Praticas
 
 ### Power Distribution
 
@@ -177,7 +177,7 @@ Connected | Connected
 
 ---
 
-## 10. Typical Breadboard Layout Example
+## 10. Exemplo Tipico de Layout de Breadboard
 
 ```
 [ + ] [ - ]   Power Rails

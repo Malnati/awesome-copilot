@@ -1,16 +1,16 @@
 # AT28C256 256K (32K x 8) Parallel EEPROM Specification
 
-## 1. Overview
+## 1. Visao Geral
 
-The **AT28C256** is a non-volatile, electrically erasable and programmable read-only memory (EEPROM) manufactured by Atmel (now Microchip). It provides **256 Kbits** of storage organized as **32,768 x 8 bits** and is commonly used in 8-bit microprocessor systems such as those based on the **6502**, **Z80**, and similar CPUs.
+A **AT28C256** e uma memoria somente leitura programavel e apagavel eletricamente (EEPROM) nao volatil fabricada pela Atmel (agora Microchip). Ela fornece **256 Kbits** de armazenamento organizado como **32,768 x 8 bits** e e comumente usada em sistemas de microprocessadores de 8 bits como **6502**, **Z80** e CPUs similares.
 
-The device supports byte-level write operations, fast read access, and software-controlled data protection.
+O dispositivo suporta escrita por byte, acesso rapido de leitura e protecao de dados controlada por software.
 
 ---
 
 ## 2. General Characteristics
 
-| Feature        | Description                    |
+| Recurso        | Descricao                    |
 | -------------- | ------------------------------ |
 | Memory size    | 256 Kbits (32 KB)              |
 | Organization   | 32,768 x 8 bits                |
@@ -37,7 +37,7 @@ The device supports byte-level write operations, fast read access, and software-
 
 ### 3.3 Control Pins
 
-| Pin | Description                |
+| Pino | Descricao                |
 | --- | -------------------------- |
 | CE  | Chip Enable (active low)   |
 | OE  | Output Enable (active low) |
@@ -93,7 +93,7 @@ Data Width:    8 bits
 
 ## 7. Software Data Protection (SDP)
 
-The AT28C256 includes optional **Software Data Protection** to prevent accidental writes.
+A AT28C256 inclui **Software Data Protection** opcional para evitar escritas acidentais.
 
 ### 7.1 SDP Enable Sequence
 
@@ -139,18 +139,18 @@ Write $20 to address $5555
 
 ---
 
-## 11. Typical System Integration (6502 Example)
+## 11. Integracao Tipica de Sistema (Exemplo 6502)
 
 ```text
 Address Range: $8000 - $FFFF
 A15 used as chip select
-OE  R/W?
-WE  inverted R/W?
+OE  <-- R/W?
+WE  <-- inverted R/W?
 ```
 
 ---
 
-## 12. Absolute Maximum Ratings (Summary)
+## 12. Limites Maximos Absolutos (Resumo)
 
 | Parameter     | Rating                |
 | ------------- | --------------------- |

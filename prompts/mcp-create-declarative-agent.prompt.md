@@ -2,29 +2,29 @@
 ---
 mode: 'agent'
 tools: ['changes', 'search/codebase', 'edit/editFiles', 'problems']
-description: 'Create a declarative agent for Microsoft 365 Copilot by integrating an MCP server with authentication, tool selection, and configuration'
+description: 'Crie um agente declarativo para Microsoft 365 Copilot integrando um servidor MCP com autenticacao, selecao de tools e configuracao'
 model: 'gpt-4.1'
 tags: [mcp, m365-copilot, declarative-agent, model-context-protocol, api-plugin]
 ---
 
-# Create MCP-based Declarative Agent for Microsoft 365 Copilot
+# Criar Agente Declarativo Baseado em MCP para Microsoft 365 Copilot
 
-Create a complete declarative agent for Microsoft 365 Copilot that integrates with a Model Context Protocol (MCP) server to access external systems and data.
+Crie um agente declarativo completo para Microsoft 365 Copilot que integra com um servidor Model Context Protocol (MCP) para acessar sistemas e dados externos.
 
-## Requirements
+## Requisitos
 
-Generate the following project structure using Microsoft 365 Agents Toolkit:
+Gere a seguinte estrutura de projeto usando Microsoft 365 Agents Toolkit:
 
-### Project Setup
+### Setup do Projeto
 1. **Scaffold declarative agent** via Agents Toolkit
-2. **Add MCP action** pointing to MCP server
-3. **Select tools** to import from MCP server
-4. **Configure authentication** (OAuth 2.0 or SSO)
-5. **Review generated files** (manifest.json, ai-plugin.json, declarativeAgent.json)
+2. **Adicionar MCP action** apontando para o servidor MCP
+3. **Selecionar tools** para importar do servidor MCP
+4. **Configurar autenticacao** (OAuth 2.0 ou SSO)
+5. **Revisar arquivos gerados** (manifest.json, ai-plugin.json, declarativeAgent.json)
 
-### Key Files Generated
+### Arquivos-Chave Gerados
 
-**appPackage/manifest.json** - Teams app manifest with plugin reference:
+**appPackage/manifest.json** - Teams app manifest com referencia de plugin:
 ```json
 {
   "$schema": "https://developer.microsoft.com/json-schemas/teams/vDevPreview/MicrosoftTeams.schema.json",
@@ -56,7 +56,7 @@ Generate the following project structure using Microsoft 365 Agents Toolkit:
 }
 ```
 
-**appPackage/declarativeAgent.json** - Agent definition:
+**appPackage/declarativeAgent.json** - Definicao do agente:
 ```json
 {
   "$schema": "https://aka.ms/json-schemas/copilot/declarative-agent/v1.0/schema.json",
@@ -103,7 +103,7 @@ Generate the following project structure using Microsoft 365 Agents Toolkit:
       "description": "Function description",
       "capabilities": {
         "response_semantics": {
-          "data_path": "$",
+          "data_path": "$/",
           "properties": {
             "title": "$.title",
             "subtitle": "$.description"
@@ -128,7 +128,7 @@ Generate the following project structure using Microsoft 365 Agents Toolkit:
 }
 ```
 
-**/.vscode/mcp.json** - MCP server configuration:
+**/.vscode/mcp.json** - Configuracao do servidor MCP:
 ```json
 {
   "serverUrl": "https://api.service.com/mcp/",
@@ -136,21 +136,21 @@ Generate the following project structure using Microsoft 365 Agents Toolkit:
 }
 ```
 
-## MCP Server Integration
+## Integracao com Servidor MCP
 
-### Supported MCP Endpoints
-The MCP server must provide:
-- **Server metadata** endpoint
-- **Tools listing** endpoint (exposes available functions)
-- **Tool execution** endpoint (handles function calls)
+### Endpoints MCP Suportados
+O servidor MCP deve fornecer:
+- Endpoint de **server metadata**
+- Endpoint de **tools listing** (exibe funcoes disponiveis)
+- Endpoint de **tool execution** (processa chamadas de funcao)
 
-### Tool Selection
-When importing from MCP:
-1. Fetch available tools from server
-2. Select specific tools to include (for security/simplicity)
-3. Tool definitions are auto-generated in ai-plugin.json
+### Selecao de Tools
+Ao importar do MCP:
+1. Busque tools disponiveis no servidor
+2. Selecione tools especificas para incluir (seguranca/simplicidade)
+3. Definicoes de tools sao auto-geradas no ai-plugin.json
 
-### Authentication Types
+### Tipos de Autenticacao
 
 **OAuth 2.0 (Static Registration)**
 ```json
@@ -173,8 +173,8 @@ When importing from MCP:
 
 ## Response Semantics
 
-### Define Data Mapping
-Use `response_semantics` to extract relevant fields from API responses:
+### Defina o Mapeamento de Dados
+Use `response_semantics` para extrair campos relevantes das respostas da API:
 
 ```json
 "capabilities": {
@@ -189,12 +189,12 @@ Use `response_semantics` to extract relevant fields from API responses:
 }
 ```
 
-### Add Adaptive Cards (Optional)
-See the `mcp-create-adaptive-cards` prompt for adding visual card templates.
+### Adicionar Adaptive Cards (Opcional)
+Veja o prompt `mcp-create-adaptive-cards` para adicionar templates visuais.
 
-## Environment Configuration
+## Configuracao de Ambiente
 
-Create `.env.local` or `.env.dev` for credentials:
+Crie `.env.local` ou `.env.dev` para credenciais:
 
 ```env
 OAUTH_REFERENCE_ID=your-oauth-reference-id
@@ -202,109 +202,40 @@ CLIENT_ID=your-client-id
 CLIENT_SECRET=your-client-secret
 ```
 
-## Testing & Deployment
+## Testing e Deploy
 
-### Local Testing
-1. **Provision** agent in Agents Toolkit
-2. **Start debugging** to sideload in Teams
-3. Test in Microsoft 365 Copilot at https://m365.cloud.microsoft/chat
-4. Authenticate when prompted
-5. Query the agent using natural language
+### Teste Local
+1. **Provision** do agente no Agents Toolkit
+2. **Start debugging** para sideload no Teams
+3. Teste no Microsoft 365 Copilot em https://m365.cloud.microsoft/chat
+4. Autentique quando solicitado
+5. Consulte o agente usando linguagem natural
 
-### Validation
-- Verify tool imports in ai-plugin.json
-- Check authentication configuration
-- Test each exposed function
-- Validate response data mapping
+### Validacao
+- Verifique imports de tools no ai-plugin.json
+- Verifique configuracao de autenticacao
+- Teste cada funcao exposta
+- Valide mapeamento de dados de resposta
 
-## Best Practices
+## Boas Praticas
 
 ### Tool Design
-- **Focused functions**: Each tool should do one thing well
-- **Clear descriptions**: Help the model understand when to use each tool
-- **Minimal scoping**: Only import tools the agent needs
-- **Descriptive names**: Use action-oriented function names
+- **Funcoes focadas**: Cada tool deve fazer uma coisa bem
+- **Descricoes claras**: Ajude o modelo a entender quando usar cada tool
+- **Escopo minimo**: Importe apenas as tools que o agente precisa
+- **Nomes descritivos**: Use nomes de funcao orientados a acao
 
 ### Security
-- **Use OAuth 2.0** for production scenarios
-- **Store secrets** in environment variables
-- **Validate inputs** on the MCP server side
-- **Limit scopes** to minimum required permissions
-- **Use reference IDs** for OAuth registration
+- **Use OAuth 2.0** para cenarios de producao
+- **Guarde secrets** em variaveis de ambiente
+- **Valide inputs** no servidor MCP
+- **Limite scopes** ao minimo necessario
+- **Use reference IDs** para registro OAuth
 
 ### Instructions
-- **Be specific** about the agent's purpose and capabilities
-- **Define behavior** for both successful and error scenarios
-- **Reference tools** explicitly in instructions when applicable
-- **Set expectations** for users about what the agent can/cannot do
-
-### Performance
-- **Cache responses** when appropriate on MCP server
-- **Batch operations** where possible
-- **Set timeouts** for long-running operations
-- **Paginate results** for large datasets
-
-## Common MCP Server Examples
-
-### GitHub MCP Server
-```
-URL: https://api.githubcopilot.com/mcp/
-Tools: search_repositories, search_users, get_repository
-Auth: OAuth 2.0
-```
-
-### Jira MCP Server
-```
-URL: https://your-domain.atlassian.net/mcp/
-Tools: search_issues, create_issue, update_issue
-Auth: OAuth 2.0
-```
-
-### Custom Service
-```
-URL: https://api.your-service.com/mcp/
-Tools: Custom tools exposed by your service
-Auth: OAuth 2.0 or SSO
-```
-
-## Workflow
-
-Ask the user:
-1. What MCP server are you integrating with (URL)?
-2. What tools should be exposed to Copilot?
-3. What authentication method does the server support?
-4. What should the agent's primary purpose be?
-5. Do you need response semantics or Adaptive Cards?
-
-Then generate:
-- Complete appPackage/ structure (manifest.json, declarativeAgent.json, ai-plugin.json)
-- mcp.json configuration
-- .env.local template
-- Provisioning and testing instructions
-
-## Troubleshooting
-
-### MCP Server Not Responding
-- Verify server URL is correct
-- Check network connectivity
-- Validate MCP server implements required endpoints
-
-### Authentication Fails
-- Verify OAuth credentials are correct
-- Check reference ID matches registration
-- Confirm scopes are requested properly
-- Test OAuth flow independently
-
-### Tools Not Appearing
-- Ensure mcp.json points to correct server
-- Verify tools were selected during import
-- Check ai-plugin.json has correct function definitions
-- Re-fetch actions from MCP if server changed
-
-### Agent Not Understanding Queries
-- Review instructions in declarativeAgent.json
-- Check function descriptions are clear
-- Verify response_semantics extract correct data
-- Test with more specific queries
+- **Seja especifico** sobre o proposito e as capacidades do agente
+- **Defina comportamento** para cenarios de sucesso e erro
+- **Referencie tools** explicitamente nas instrucoes quando aplicavel
+- **Defina expectativas** para usuarios sobre o que o agente pode/nao pode fazer
 
 ````

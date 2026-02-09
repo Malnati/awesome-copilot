@@ -1,14 +1,14 @@
 # Organizing information with collapsed sections
 
-You can streamline your Markdown by creating a collapsed section with the `<details>` tag.
+Voce pode simplificar seu Markdown criando uma secao colapsada com a tag `<details>`.
 
 ## Creating a collapsed section
 
-You can temporarily obscure sections of your Markdown by creating a collapsed section that the reader can choose to expand. For example, when you want to include technical details in an issue comment that may not be relevant or interesting to every reader, you can put those details in a collapsed section.
+Voce pode ocultar temporariamente secoes do seu Markdown criando uma secao colapsada que o leitor pode escolher expandir. Por exemplo, quando voce quer incluir detalhes tecnicos em um comentario de issue que podem nao ser relevantes ou interessantes para todos, voce pode colocar esses detalhes em uma secao colapsada.
 
-Any Markdown within the `<details>` block will be collapsed until the reader clicks <svg version="1.1" width="16" height="16" viewBox="0 0 16 16" class="octicon octicon-triangle-right" aria-label="The right triangle icon" role="img"><path d="m6.427 4.427 3.396 3.396a.25.25 0 0 1 0 .354l-3.396 3.396A.25.25 0 0 1 6 11.396V4.604a.25.25 0 0 1 .427-.177Z"></path></svg> to expand the details.
+Qualquer Markdown dentro do bloco `<details>` ficara colapsado ate o leitor clicar no <svg version="1.1" width="16" height="16" viewBox="0 0 16 16" class="octicon octicon-triangle-right" aria-label="The right triangle icon" role="img"><path d="m6.427 4.427 3.396 3.396a.25.25 0 0 1 0 .354l-3.396 3.396A.25.25 0 0 1 6 11.396V4.604a.25.25 0 0 1 .427-.177Z"></path></svg> para expandir os detalhes.
 
-Within the `<details>` block, use the `<summary>` tag to let readers know what is inside. The label appears to the right of <svg version="1.1" width="16" height="16" viewBox="0 0 16 16" class="octicon octicon-triangle-right" aria-label="The right triangle icon" role="img"><path d="m6.427 4.427 3.396 3.396a.25.25 0 0 1 0 .354l-3.396 3.396A.25.25 0 0 1 6 11.396V4.604a.25.25 0 0 1 .427-.177Z"></path></svg>.
+Dentro do bloco `<details>`, use a tag `<summary>` para avisar aos leitores o que ha dentro. O rotulo aparece a direita de <svg version="1.1" width="16" height="16" viewBox="0 0 16 16" class="octicon octicon-triangle-right" aria-label="The right triangle icon" role="img"><path d="m6.427 4.427 3.396 3.396a.25.25 0 0 1 0 .354l-3.396 3.396A.25.25 0 0 1 6 11.396V4.604a.25.25 0 0 1 .427-.177Z"></path></svg>.
 
 ````markdown
 <details>
@@ -28,15 +28,15 @@ You can add an image or a code block, too.
 </details>
 ````
 
-The Markdown inside the `<summary>` label will be collapsed by default:
+O Markdown dentro do rotulo `<summary>` ficara colapsado por default:
 
-![Screenshot of the Markdown above on this page as rendered on GitHub, showing a right-facing arrow and the header "Tips for collapsed sections."](https://docs.github.com/assets/images/help/writing/collapsed-section-view.png)
+![Screenshot do Markdown acima nesta pagina conforme renderizado no GitHub, mostrando uma seta apontando para a direita e o titulo "Dicas para secoes colapsadas.".](https://docs.github.com/assets/images/help/writing/collapsed-section-view.png)
 
-After a reader clicks <svg version="1.1" width="16" height="16" viewBox="0 0 16 16" class="octicon octicon-triangle-right" aria-label="The right triangle icon" role="img"><path d="m6.427 4.427 3.396 3.396a.25.25 0 0 1 0 .354l-3.396 3.396A.25.25 0 0 1 6 11.396V4.604a.25.25 0 0 1 .427-.177Z"></path></svg>, the details are expanded:
+Depois que o leitor clica no <svg version="1.1" width="16" height="16" viewBox="0 0 16 16" class="octicon octicon-triangle-right" aria-label="The right triangle icon" role="img"><path d="m6.427 4.427 3.396 3.396a.25.25 0 0 1 0 .354l-3.396 3.396A.25.25 0 0 1 6 11.396V4.604a.25.25 0 0 1 .427-.177Z"></path></svg>, os detalhes sao expandidos:
 
-![Screenshot of the Markdown above on this page as rendered on GitHub. The collapsed section contains headers, text, images, and code blocks.](https://docs.github.com/assets/images/help/writing/open-collapsed-section.png)
+![Screenshot do Markdown acima nesta pagina conforme renderizado no GitHub. A secao colapsada contem headers, texto, imagens e code blocks.](https://docs.github.com/assets/images/help/writing/open-collapsed-section.png)
 
-Optionally, to make the section display as open by default, add the `open` attribute to the `<details>` tag:
+Opcionalmente, para deixar a secao aberta por default, adicione o atributo `open` na tag `<details>`:
 
 ```html
 <details open>

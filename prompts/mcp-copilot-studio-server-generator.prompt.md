@@ -1,35 +1,35 @@
 ---
-description: Generate a complete MCP server implementation optimized for Copilot Studio integration with proper schema constraints and streamable HTTP support
+description: Gere uma implementacao completa de servidor MCP otimizada para integracao com Copilot Studio, com restricoes de schema adequadas e suporte a HTTP streamable
 agent: agent
 ---
 
-# Power Platform MCP Connector Generator
+# Gerador de Conector MCP para Power Platform
 
-Generate a complete Power Platform custom connector with Model Context Protocol (MCP) integration for Microsoft Copilot Studio. This prompt creates all necessary files following Power Platform connector standards with MCP streamable HTTP support.
+Gere um conector customizado do Power Platform com integracao Model Context Protocol (MCP) para Microsoft Copilot Studio. Este prompt cria todos os arquivos necessarios seguindo os padroes de connector da Power Platform com suporte a MCP streamable HTTP.
 
-## Instructions
+## Instrucoes
 
-Create a complete MCP server implementation that:
+Crie uma implementacao completa de servidor MCP que:
 
-1. **Uses Copilot Studio MCP Pattern:**
-   - Implement `x-ms-agentic-protocol: mcp-streamable-1.0`
-   - Support JSON-RPC 2.0 communication protocol
-   - Provide streamable HTTP endpoint at `/mcp`
-   - Follow Power Platform connector structure
+1. **Usa o padrao MCP do Copilot Studio:**
+   - Implementa `x-ms-agentic-protocol: mcp-streamable-1.0`
+   - Suporta o protocolo de comunicacao JSON-RPC 2.0
+   - Fornece endpoint HTTP streamable em `/mcp`
+   - Segue a estrutura de connector da Power Platform
 
-2. **Schema Compliance Requirements:**
-   - **NO reference types** in tool inputs/outputs (filtered by Copilot Studio)
-   - **Single type values only** (not arrays of multiple types)
-   - **Avoid enum inputs** (interpreted as string, not enum)
-   - Use primitive types: string, number, integer, boolean, array, object
-   - Ensure all endpoints return full URIs
+2. **Requisitos de Compliance do Schema:**
+   - **Sem reference types** em inputs/outputs de tools (filtrados pelo Copilot Studio)
+   - **Somente valores de tipo unico** (nao arrays de multiplos tipos)
+   - **Evite inputs enum** (interpretados como string, nao enum)
+   - Use tipos primitivos: string, number, integer, boolean, array, object
+   - Garanta que todos os endpoints retornem URIs completas
 
-3. **MCP Components to Include:**
-   - **Tools**: Functions for the language model to call (✅ Supported in Copilot Studio)
-   - **Resources**: File-like data outputs from tools (✅ Supported in Copilot Studio - must be tool outputs to be accessible)
-   - **Prompts**: Predefined templates for specific tasks (❌ Not yet supported in Copilot Studio)
+3. **Componentes MCP a Incluir:**
+   - **Tools**: Funcoes que o modelo de linguagem pode chamar (✅ Suportado no Copilot Studio)
+   - **Resources**: Saidas tipo arquivo provenientes de tools (✅ Suportado no Copilot Studio - devem ser outputs de tools para ficarem acessiveis)
+   - **Prompts**: Templates predefinidos para tarefas especificas (❌ Ainda nao suportado no Copilot Studio)
 
-4. **Implementation Structure:**
+4. **Estrutura de Implementacao:**
    ```
    /apiDefinition.swagger.json  (Power Platform connector schema)
    /apiProperties.json         (Connector metadata and configuration)
@@ -39,69 +39,69 @@ Create a complete MCP server implementation that:
    /resources/                 (MCP resource handlers)
    ```
 
-## Context Variables
+## Variaveis de Contexto
 
-- **Server Purpose**: [Describe what the MCP server should accomplish]
-- **Tools Needed**: [List of specific tools to implement]  
-- **Resources**: [Types of resources to provide]
-- **Authentication**: [Auth method: none, api-key, oauth2]
+- **Server Purpose**: [Descreva o que o servidor MCP deve realizar]
+- **Tools Needed**: [Lista de tools especificas para implementar]  
+- **Resources**: [Tipos de resources a fornecer]
+- **Authentication**: [Metodo de auth: none, api-key, oauth2]
 - **Host Environment**: [Azure Function, Express.js, FastAPI, etc.]
-- **Target APIs**: [External APIs to integrate with]
+- **Target APIs**: [APIs externas para integrar]
 
-## Expected Output
+## Saida Esperada
 
-Generate:
+Gere:
 
-1. **apiDefinition.swagger.json** with:
-   - Proper `x-ms-agentic-protocol: mcp-streamable-1.0`
-   - MCP endpoint at POST `/mcp`
-   - Compliant schema definitions (no reference types)
-   - McpResponse and McpErrorResponse definitions
+1. **apiDefinition.swagger.json** com:
+   - `x-ms-agentic-protocol: mcp-streamable-1.0` correto
+   - Endpoint MCP em POST `/mcp`
+   - Definicoes de schema compativeis (sem reference types)
+   - Definicoes McpResponse e McpErrorResponse
 
-2. **apiProperties.json** with:
-   - Connector metadata and branding
-   - Authentication configuration
-   - Policy templates if needed
+2. **apiProperties.json** com:
+   - Metadados e branding do connector
+   - Configuracao de autenticacao
+   - Policy templates se necessario
 
-3. **script.csx** with:
-   - Custom C# code for request/response transformations
-   - MCP JSON-RPC message handling logic
-   - Data validation and processing functions
-   - Error handling and logging capabilities
+3. **script.csx** com:
+   - Codigo C# customizado para transformacoes de request/response
+   - Logica de tratamento de mensagens MCP JSON-RPC
+   - Funcoes de validacao e processamento
+   - Tratamento de erros e logging
 
-4. **MCP Server Code** with:
-   - JSON-RPC 2.0 request handler
-   - Tool registration and execution
-   - Resource management (as tool outputs)
-   - Proper error handling
-   - Copilot Studio compatibility checks
+4. **Codigo do Servidor MCP** com:
+   - Handler de request JSON-RPC 2.0
+   - Registro e execucao de tools
+   - Gerenciamento de resources (como outputs de tool)
+   - Tratamento de erros adequado
+   - Checks de compatibilidade com Copilot Studio
 
-5. **Individual Tools** that:
-   - Accept only primitive type inputs
-   - Return structured outputs
-   - Include resources as outputs when needed
-   - Provide clear descriptions for Copilot Studio
+5. **Tools Individuais** que:
+   - Aceitam apenas inputs de tipos primitivos
+   - Retornam outputs estruturados
+   - Incluem resources como outputs quando necessario
+   - Fornecem descricoes claras para Copilot Studio
 
-6. **Deployment Configuration** for:
-   - Power Platform environment
-   - Copilot Studio agent integration
-   - Testing and validation
+6. **Configuracao de Deploy** para:
+   - Ambiente Power Platform
+   - Integracao com agente do Copilot Studio
+   - Testes e validacao
 
-## Validation Checklist
+## Checklist de Validacao
 
-Ensure generated code:
-- [ ] No reference types in schemas
-- [ ] All type fields are single types
-- [ ] Enum handling via string with validation
-- [ ] Resources available through tool outputs
-- [ ] Full URI endpoints
-- [ ] JSON-RPC 2.0 compliance
-- [ ] Proper x-ms-agentic-protocol header
-- [ ] McpResponse/McpErrorResponse schemas
-- [ ] Clear tool descriptions for Copilot Studio
-- [ ] Generative Orchestration compatible
+Garanta que o codigo gerado:
+- [ ] Nao tem reference types em schemas
+- [ ] Todos os campos type sao tipos unicos
+- [ ] Tratamento de enum via string com validacao
+- [ ] Resources disponiveis via outputs de tool
+- [ ] Endpoints de URI completa
+- [ ] Compliance com JSON-RPC 2.0
+- [ ] Header x-ms-agentic-protocol correto
+- [ ] Schemas McpResponse/McpErrorResponse
+- [ ] Descricoes claras de tool para Copilot Studio
+- [ ] Compativel com Generative Orchestration
 
-## Example Usage
+## Exemplo de Uso
 
 ```yaml
 Server Purpose: Customer data management and analysis

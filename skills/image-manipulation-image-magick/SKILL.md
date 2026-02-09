@@ -1,55 +1,55 @@
 ---
 name: image-manipulation-image-magick
-description: Process and manipulate images using ImageMagick. Supports resizing, format conversion, batch processing, and retrieving image metadata. Use when working with images, creating thumbnails, resizing wallpapers, or performing batch image operations.
-compatibility: Requires ImageMagick installed and available as `magick` on PATH. Cross-platform examples provided for PowerShell (Windows) and Bash (Linux/macOS).
+description: Processe e manipule imagens usando ImageMagick. Suporta redimensionamento, conversao de formato, processamento em lote e obtencao de metadados de imagens. Use ao trabalhar com imagens, criar thumbnails, redimensionar wallpapers ou executar operacoes em lote.
+compatibility: Requer ImageMagick instalado e disponivel como `magick` no PATH. Exemplos cross-platform (multi-plataforma) para PowerShell (Windows) e Bash (Linux/macOS).
 ---
 
-# Image Manipulation with ImageMagick
+# Manipulacao de Imagens com ImageMagick
 
-This skill enables image processing and manipulation tasks using ImageMagick
-across Windows, Linux, and macOS systems.
+Esta skill habilita tarefas de processamento e manipulacao de imagens usando ImageMagick
+em sistemas Windows, Linux e macOS.
 
-## When to Use This Skill
+## Quando Usar Esta Skill
 
-Use this skill when you need to:
+Use esta skill quando precisar:
 
-- Resize images (single or batch)
-- Get image dimensions and metadata
-- Convert between image formats
-- Create thumbnails
-- Process wallpapers for different screen sizes
-- Batch process multiple images with specific criteria
+- Redimensionar imagens (unica ou em lote)
+- Obter dimensoes e metadados de imagens
+- Converter entre formatos de imagem
+- Criar thumbnails
+- Processar wallpapers para diferentes tamanhos de tela
+- Processar em lote multiplas imagens com criterios especificos
 
-## Prerequisites
+## Pre-requisitos
 
-- ImageMagick installed on the system
-- **Windows**: PowerShell with ImageMagick available as `magick` (or at `C:\Program Files\ImageMagick-*\magick.exe`)
-- **Linux/macOS**: Bash with ImageMagick installed via package manager (`apt`, `brew`, etc.)
+- ImageMagick instalado no sistema
+- **Windows**: PowerShell com ImageMagick disponivel como `magick` (ou em `C:\Program Files\ImageMagick-*\magick.exe`)
+- **Linux/macOS**: Bash com ImageMagick instalado via package manager (`apt`, `brew`, etc.)
 
-## Core Capabilities
+## Capacidades Principais
 
-### 1. Image Information
+### 1. Informacoes da Imagem
 
-- Get image dimensions (width x height)
-- Retrieve detailed metadata (format, color space, etc.)
-- Identify image format
+- Obter dimensoes da imagem (largura x altura)
+- Recuperar metadados detalhados (formato, espaco de cor, etc.)
+- Identificar formato da imagem
 
-### 2. Image Resizing
+### 2. Redimensionamento de Imagens
 
-- Resize single images
-- Batch resize multiple images
-- Create thumbnails with specific dimensions
-- Maintain aspect ratios
+- Redimensionar imagens individuais
+- Redimensionar em lote varias imagens
+- Criar thumbnails com dimensoes especificas
+- Manter proporcoes
 
-### 3. Batch Processing
+### 3. Processamento em Lote
 
-- Process images based on dimensions
-- Filter and process specific file types
-- Apply transformations to multiple files
+- Processar imagens com base em dimensoes
+- Filtrar e processar tipos de arquivo especificos
+- Aplicar transformacoes em multiplos arquivos
 
-## Usage Examples
+## Exemplos de Uso
 
-### Example 0: Resolve `magick` executable
+### Exemplo 0: Resolver executavel `magick`
 
 **PowerShell (Windows):**
 ```powershell
@@ -58,7 +58,7 @@ $magick = (Get-Command magick -ErrorAction SilentlyContinue)?.Source
 
 # Fallback: common install pattern under Program Files
 if (-not $magick) {
-    $magick = Get-ChildItem "C:\\Program Files\\ImageMagick-*\\magick.exe" -ErrorAction SilentlyContinue |
+    $magick = Get-ChildItem "C:\Program Files\ImageMagick-*\magick.exe" -ErrorAction SilentlyContinue |
         Select-Object -First 1 -ExpandProperty FullName
 }
 
@@ -78,7 +78,7 @@ if ! command -v magick &> /dev/null; then
 fi
 ```
 
-### Example 1: Get Image Dimensions
+### Exemplo 1: Obter Dimensoes da Imagem
 
 **PowerShell (Windows):**
 ```powershell
@@ -103,7 +103,7 @@ for img in path/to/images/*; do
 done
 ```
 
-### Example 2: Resize Images
+### Exemplo 2: Redimensionar Imagens
 
 **PowerShell (Windows):**
 ```powershell
@@ -128,7 +128,7 @@ for img in path/to/images/*; do
 done
 ```
 
-### Example 3: Get Detailed Image Information
+### Exemplo 3: Obter Informacoes Detalhadas da Imagem
 
 **PowerShell (Windows):**
 ```powershell
@@ -142,7 +142,7 @@ done
 magick identify -verbose path/to/image.jpg
 ```
 
-### Example 4: Process Images Based on Dimensions
+### Exemplo 4: Processar Imagens com Base em Dimensoes
 
 **PowerShell (Windows):**
 ```powershell
@@ -174,33 +174,33 @@ for img in path/to/images/*; do
 done
 ```
 
-## Guidelines
+## Diretrizes
 
-1. **Always quote file paths** - Use quotes around file paths that might contain spaces
-2. **Use the `&` operator (PowerShell)** - Invoke the magick executable using `&` in PowerShell
-3. **Store the path in a variable (PowerShell)** - Assign the ImageMagick path to `$magick` for cleaner code
-4. **Wrap in loops** - When processing multiple files, use `ForEach-Object` (PowerShell) or `for` loops (Bash)
-5. **Verify dimensions first** - Check image dimensions before processing to avoid unnecessary operations
-6. **Use appropriate resize flags** - Consider using `!` to force exact dimensions or `^` for minimum dimensions
+1. **Sempre cite caminhos de arquivo** - Use aspas ao redor de caminhos que possam conter espacos
+2. **Use o operador `&` (PowerShell)** - Invoque o executavel magick usando `&` no PowerShell
+3. **Guarde o caminho em variavel (PowerShell)** - Atribua o caminho do ImageMagick a `$magick` para codigo mais limpo
+4. **Envolva em loops** - Ao processar multiplos arquivos, use `ForEach-Object` (PowerShell) ou loops `for` (Bash)
+5. **Verifique dimensoes primeiro** - Cheque dimensoes antes de processar para evitar operacoes desnecessarias
+6. **Use flags de resize apropriadas** - Considere usar `!` para dimensoes exatas ou `^` para dimensoes minimas
 
-## Common Patterns
+## Padroes Comuns
 
-### PowerShell Patterns
+### Padroes PowerShell
 
-#### Pattern: Store ImageMagick Path
+#### Padrao: Armazenar caminho do ImageMagick
 
 ```powershell
 $magick = (Get-Command magick).Source
 ```
 
-#### Pattern: Get Dimensions as Variables
+#### Padrao: Obter dimensoes como variaveis
 
 ```powershell
 $dimensions = & $magick identify -format "%w,%h" $_.FullName
 $width,$height = $dimensions -split ','
 ```
 
-#### Pattern: Conditional Processing
+#### Padrao: Processamento condicional
 
 ```powershell
 if ([int]$width -gt 1920) {
@@ -208,21 +208,21 @@ if ([int]$width -gt 1920) {
 }
 ```
 
-#### Pattern: Create Thumbnails
+#### Padrao: Criar thumbnails
 
 ```powershell
 & $magick $_.FullName -resize 427x240 "thumbnails/thumb_$($_.Name)"
 ```
 
-### Bash Patterns
+### Padroes Bash
 
-#### Pattern: Check ImageMagick Installation
+#### Padrao: Checar instalacao do ImageMagick
 
 ```bash
 command -v magick &> /dev/null || { echo "ImageMagick required"; exit 1; }
 ```
 
-#### Pattern: Get Dimensions as Variables
+#### Padrao: Obter dimensoes como variaveis
 
 ```bash
 dimensions=$(magick identify -format "%w,%h" "$img")
@@ -230,7 +230,7 @@ width=$(echo "$dimensions" | cut -d',' -f1)
 height=$(echo "$dimensions" | cut -d',' -f2)
 ```
 
-#### Pattern: Conditional Processing
+#### Padrao: Processamento condicional
 
 ```bash
 if [[ "$width" -gt 1920 ]]; then
@@ -238,15 +238,15 @@ if [[ "$width" -gt 1920 ]]; then
 fi
 ```
 
-#### Pattern: Create Thumbnails
+#### Padrao: Criar thumbnails
 
 ```bash
 filename=$(basename "$img")
 magick "$img" -resize 427x240 "thumbnails/thumb_$filename"
 ```
 
-## Limitations
+## Limitacoes
 
-- Large batch operations may be memory-intensive
-- Some complex operations may require additional ImageMagick delegates
-- On older Linux systems, use `convert` instead of `magick` (ImageMagick 6.x vs 7.x)
+- Operacoes em lote grandes podem consumir muita memoria
+- Algumas operacoes complexas podem exigir delegates adicionais do ImageMagick
+- Em sistemas Linux antigos, use `convert` em vez de `magick` (ImageMagick 6.x vs 7.x)

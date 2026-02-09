@@ -1,16 +1,16 @@
-# Working with Multiple Sessions
+# Trabalhando com Multiplas Sessoes
 
-Manage multiple independent conversations simultaneously.
+Gerencie varias conversas independentes simultaneamente.
 
-> **Runnable example:** [recipe/multiple-sessions.go](recipe/multiple-sessions.go)
+> **Exemplo executavel:** [recipe/multiple-sessions.go](recipe/multiple-sessions.go)
 >
 > ```bash
 > go run recipe/multiple-sessions.go
 > ```
 
-## Example scenario
+## Cenario de exemplo
 
-You need to run multiple conversations in parallel, each with its own context and history.
+Voce precisa executar varias conversas em paralelo, cada uma com seu proprio contexto e historico.
 
 ## Go
 
@@ -62,9 +62,9 @@ func main() {
 }
 ```
 
-## Custom session IDs
+## IDs de sessao personalizados
 
-Use custom IDs for easier tracking:
+Use IDs personalizados para facilitar o acompanhamento:
 
 ```go
 session, err := client.CreateSession(copilot.SessionConfig{
@@ -78,7 +78,7 @@ if err != nil {
 fmt.Println(session.SessionID) // "user-123-chat"
 ```
 
-## Listing sessions
+## Listando sessoes
 
 ```go
 sessions, err := client.ListSessions()
@@ -91,7 +91,7 @@ for _, sessionInfo := range sessions {
 }
 ```
 
-## Deleting sessions
+## Excluindo sessoes
 
 ```go
 // Delete a specific session
@@ -100,8 +100,8 @@ if err := client.DeleteSession("user-123-chat"); err != nil {
 }
 ```
 
-## Use cases
+## Casos de uso
 
-- **Multi-user applications**: One session per user
-- **Multi-task workflows**: Separate sessions for different tasks
-- **A/B testing**: Compare responses from different models
+- **Aplicacoes multiusuario**: Uma sessao por usuario
+- **Fluxos de trabalho multitarefa**: Sessoes separadas para tarefas diferentes
+- **Testes A/B**: Compare respostas de modelos diferentes

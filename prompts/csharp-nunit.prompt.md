@@ -1,72 +1,72 @@
 ---
 agent: 'agent'
 tools: ['changes', 'search/codebase', 'edit/editFiles', 'problems', 'search']
-description: 'Get best practices for NUnit unit testing, including data-driven tests'
+description: 'Obtenha boas praticas para testes unitarios NUnit, incluindo testes data-driven'
 ---
 
-# NUnit Best Practices
+# Boas Praticas de NUnit
 
-Your goal is to help me write effective unit tests with NUnit, covering both standard and data-driven testing approaches.
+Seu objetivo e me ajudar a escrever testes unitarios eficazes com NUnit, cobrindo abordagens padrao e data-driven.
 
-## Project Setup
+## Setup do Projeto
 
-- Use a separate test project with naming convention `[ProjectName].Tests`
-- Reference Microsoft.NET.Test.Sdk, NUnit, and NUnit3TestAdapter packages
-- Create test classes that match the classes being tested (e.g., `CalculatorTests` for `Calculator`)
-- Use .NET SDK test commands: `dotnet test` for running tests
+- Use um projeto de testes separado com convencao `[ProjectName].Tests`
+- Referencie pacotes Microsoft.NET.Test.Sdk, NUnit e NUnit3TestAdapter
+- Crie classes de teste que correspondam as classes testadas (ex.: `CalculatorTests` para `Calculator`)
+- Use comandos do .NET SDK: `dotnet test` para rodar testes
 
-## Test Structure
+## Estrutura de Testes
 
-- Apply `[TestFixture]` attribute to test classes
-- Use `[Test]` attribute for test methods
-- Follow the Arrange-Act-Assert (AAA) pattern
-- Name tests using the pattern `MethodName_Scenario_ExpectedBehavior`
-- Use `[SetUp]` and `[TearDown]` for per-test setup and teardown
-- Use `[OneTimeSetUp]` and `[OneTimeTearDown]` for per-class setup and teardown
-- Use `[SetUpFixture]` for assembly-level setup and teardown
+- Aplique `[TestFixture]` em classes de teste
+- Use `[Test]` em metodos de teste
+- Siga o pattern Arrange-Act-Assert (AAA)
+- Nomeie testes com o pattern `MethodName_Scenario_ExpectedBehavior`
+- Use `[SetUp]` e `[TearDown]` para setup/teardown por teste
+- Use `[OneTimeSetUp]` e `[OneTimeTearDown]` para setup/teardown por classe
+- Use `[SetUpFixture]` para setup/teardown em nivel de assembly
 
-## Standard Tests
+## Testes Padrao
 
-- Keep tests focused on a single behavior
-- Avoid testing multiple behaviors in one test method
-- Use clear assertions that express intent
-- Include only the assertions needed to verify the test case
-- Make tests independent and idempotent (can run in any order)
-- Avoid test interdependencies
+- Mantenha testes focados em um unico comportamento
+- Evite testar multiplos comportamentos em um unico metodo
+- Use assertions claras que expressem a intencao
+- Inclua apenas assertions necessarias para validar o caso de teste
+- Torne testes independentes e idempotentes (podem rodar em qualquer ordem)
+- Evite dependencias entre testes
 
-## Data-Driven Tests
+## Testes Data-Driven
 
-- Use `[TestCase]` for inline test data
-- Use `[TestCaseSource]` for programmatically generated test data
-- Use `[Values]` for simple parameter combinations
-- Use `[ValueSource]` for property or method-based data sources
-- Use `[Random]` for random numeric test values
-- Use `[Range]` for sequential numeric test values
-- Use `[Combinatorial]` or `[Pairwise]` for combining multiple parameters
+- Use `[TestCase]` para dados inline
+- Use `[TestCaseSource]` para dados gerados programaticamente
+- Use `[Values]` para combinacoes simples de parametros
+- Use `[ValueSource]` para sources baseadas em propriedade ou metodo
+- Use `[Random]` para valores numericos aleatorios
+- Use `[Range]` para valores numericos sequenciais
+- Use `[Combinatorial]` ou `[Pairwise]` para combinar multiplos parametros
 
 ## Assertions
 
-- Use `Assert.That` with constraint model (preferred NUnit style)
-- Use constraints like `Is.EqualTo`, `Is.SameAs`, `Contains.Item`
-- Use `Assert.AreEqual` for simple value equality (classic style)
-- Use `CollectionAssert` for collection comparisons
-- Use `StringAssert` for string-specific assertions
-- Use `Assert.Throws<T>` or `Assert.ThrowsAsync<T>` to test exceptions
-- Use descriptive messages in assertions for clarity on failure
+- Use `Assert.That` com constraint model (estilo preferido do NUnit)
+- Use constraints como `Is.EqualTo`, `Is.SameAs`, `Contains.Item`
+- Use `Assert.AreEqual` para igualdade simples (estilo classico)
+- Use `CollectionAssert` para comparacoes de colecoes
+- Use `StringAssert` para asserts especificos de string
+- Use `Assert.Throws<T>` ou `Assert.ThrowsAsync<T>` para testar excecoes
+- Use mensagens descritivas em assertions para clareza em falhas
 
-## Mocking and Isolation
+## Mocking e Isolamento
 
-- Consider using Moq or NSubstitute alongside NUnit
-- Mock dependencies to isolate units under test
-- Use interfaces to facilitate mocking
-- Consider using a DI container for complex test setups
+- Considere usar Moq ou NSubstitute junto com NUnit
+- Mocke dependencias para isolar unidades sob teste
+- Use interfaces para facilitar mocking
+- Considere usar um DI container para setups complexos
 
-## Test Organization
+## Organizacao de Testes
 
-- Group tests by feature or component
-- Use categories with `[Category("CategoryName")]`
-- Use `[Order]` to control test execution order when necessary
-- Use `[Author("DeveloperName")]` to indicate ownership
-- Use `[Description]` to provide additional test information
-- Consider `[Explicit]` for tests that shouldn't run automatically
-- Use `[Ignore("Reason")]` to temporarily skip tests
+- Agrupe testes por feature ou componente
+- Use categorias com `[Category("CategoryName")]`
+- Use `[Order]` para controlar ordem quando necessario
+- Use `[Author("DeveloperName")]` para indicar ownership
+- Use `[Description]` para informacao adicional de teste
+- Considere `[Explicit]` para testes que nao devem rodar automaticamente
+- Use `[Ignore("Reason")]` para pular testes temporariamente

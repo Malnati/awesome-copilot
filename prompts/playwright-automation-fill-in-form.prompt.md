@@ -1,19 +1,19 @@
 ---
-description: 'Automate filling in a form using Playwright MCP'
+description: 'Automatize o preenchimento de um formulario usando Playwright MCP'
 agent: agent
 tools: ['playwright']
 model: 'Claude Sonnet 4'
 ---
 
-# Automating Filling in a Form with Playwright MCP
+# Automatizar o Preenchimento de um Formulario com Playwright MCP
 
-Your goal is to automate the process of filling in a form using Playwright MCP.
+Seu objetivo e automatizar o processo de preenchimento de um formulario usando Playwright MCP.
 
-## Specific Instructions
+## Instrucoes Especificas
 
-Navigate to https://forms.microsoft.com/url-of-my-form
+Navegue para https://forms.microsoft.com/url-of-my-form
 
-### Fill in the form with the following details:
+### Preencha o formulario com os seguintes detalhes:
 
 1. Show: playwright live
 
@@ -25,6 +25,6 @@ Navigate to https://forms.microsoft.com/url-of-my-form
 
 5. Upload image: /Users/myuserName/Downloads/my-image.png
 
-DO NOT SUBMIT THE FORM. 
+NAO ENVIE O FORMULARIO.
 
-Ask for a review of the form before submitting it.
+Solicite uma revisao do formulario antes de enviar.

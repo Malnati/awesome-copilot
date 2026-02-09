@@ -1,25 +1,27 @@
 ---
 agent: 'agent'
-description: 'Create a formal specification for an existing GitHub Actions CI/CD workflow, optimized for AI consumption and workflow maintenance.'
+description: 'Crie uma especificacao formal para um workflow CI/CD do GitHub Actions, otimizada para consumo por IA e manutencao do workflow.'
 tools: ['changes', 'search/codebase', 'edit/editFiles', 'extensions', 'web/fetch', 'findTestFiles', 'githubRepo', 'new', 'openSimpleBrowser', 'problems', 'runCommands', 'runInTerminal2', 'runNotebooks', 'runTasks', 'runTests', 'search', 'search/searchResults', 'runCommands/terminalLastCommand', 'runCommands/terminalSelection', 'testFailure', 'usages', 'vscodeAPI', 'microsoft.docs.mcp', 'github', 'Microsoft Docs']
 ---
-# Create GitHub Actions Workflow Specification
+#
 
-Create a comprehensive specification for the GitHub Actions workflow: `${input:WorkflowFile}`.
 
-This specification serves as a specification for the workflow's behavior, requirements, and constraints. It must be implementation-agnostic, focusing on **what** the workflow accomplishes rather than **how** it's implemented.
+
+Crie uma especificacao abrangente para o workflow GitHub Actions: `${input:WorkflowFile}`.
+
+Esta especificacao descreve o comportamento, requisitos e restricoes do workflow. Ela deve ser agnostica de implementacao, focando no **o que** o workflow faz, nao em **como** e implementado.
 
 ## AI-Optimized Requirements
 
-- **Token Efficiency**: Use concise language without sacrificing clarity
-- **Structured Data**: Leverage tables, lists, and diagrams for dense information
-- **Semantic Clarity**: Use precise terminology consistently throughout
-- **Implementation Abstraction**: Avoid specific syntax, commands, or tool versions
-- **Maintainability**: Design for easy updates as workflow evolves
+- **Token Efficiency**: Use linguagem concisa sem sacrificar clareza
+- **Structured Data**: Use tabelas, listas e diagramas para informacao densa
+- **Semantic Clarity**: Use terminologia precisa de forma consistente
+- **Implementation Abstraction**: Evite sintaxe especifica, comandos ou versoes de ferramentas
+- **Maintainability**: Projete para atualizacoes faceis conforme o workflow evolui
 
-## Specification Template
+## Template de Especificacao
 
-Save as: `/spec/spec-process-cicd-[workflow-name].md`
+Salvar como: `/spec/spec-process-cicd-[workflow-name].md`
 
 ```md
 ---
@@ -45,10 +47,10 @@ graph TD
     B --> C[Job 2]
     C --> D[Job 3]
     D --> E[End]
-    
+
     B --> F[Parallel Job]
     F --> D
-    
+
     style A fill:#e1f5fe
     style E fill:#e8f5e8
 ```
@@ -227,15 +229,15 @@ build_artifact: file  # Description: [content type]
 
 ## Analysis Instructions
 
-When analyzing the workflow file:
+Ao analisar o workflow:
 
-1. **Extract Core Purpose**: Identify the primary business objective
-2. **Map Job Flow**: Create dependency graph showing execution order
-3. **Identify Contracts**: Document inputs, outputs, and interfaces
-4. **Capture Constraints**: Extract timeouts, permissions, and limits
-5. **Define Quality Gates**: Identify validation and approval points
-6. **Document Error Paths**: Map failure scenarios and recovery
-7. **Abstract Implementation**: Focus on behavior, not syntax
+1. **Extract Core Purpose**: Identifique o objetivo de negocio principal
+2. **Map Job Flow**: Crie grafo de dependencias mostrando ordem de execucao
+3. **Identify Contracts**: Documente inputs, outputs e interfaces
+4. **Capture Constraints**: Extraia timeouts, permissoes e limites
+5. **Define Quality Gates**: Identifique pontos de validacao e aprovacao
+6. **Document Error Paths**: Mapeie cenarios de falha e recuperacao
+7. **Abstract Implementation**: Foque no comportamento, nao em sintaxe
 
 ## Mermaid Diagram Guidelines
 
@@ -253,13 +255,13 @@ style ProcessNode fill:#f3e5f5
 ```
 
 ### Complex Workflows
-For workflows with 5+ jobs, use subgraphs:
+Para workflows com 5+ jobs, use subgraphs:
 ```mermaid
 graph TD
     subgraph "Build Phase"
         A[Lint] --> B[Test] --> C[Build]
     end
-    subgraph "Deploy Phase"  
+    subgraph "Deploy Phase"
         D[Staging] --> E[Production]
     end
     C --> D
@@ -267,10 +269,10 @@ graph TD
 
 ## Token Optimization Strategies
 
-1. **Use Tables**: Dense information in structured format
-2. **Abbreviate Consistently**: Define once, use throughout
-3. **Bullet Points**: Avoid prose paragraphs
-4. **Code Blocks**: Structured data over narrative
-5. **Cross-Reference**: Link instead of repeat information
+1. **Use Tables**: Informacao densa em formato estruturado
+2. **Abbreviate Consistently**: Defina uma vez, use no restante
+3. **Bullet Points**: Evite paragrafos longos
+4. **Code Blocks**: Dados estruturados no lugar de narrativa
+5. **Cross-Reference**: Link em vez de repetir informacao
 
-Focus on creating a specification that serves as both documentation and a template for workflow updates.
+Foque em criar uma especificacao que sirva como documentacao e template para atualizacoes do workflow.

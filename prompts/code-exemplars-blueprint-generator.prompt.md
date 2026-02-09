@@ -1,126 +1,126 @@
 ---
-description: 'Technology-agnostic prompt generator that creates customizable AI prompts for scanning codebases and identifying high-quality code exemplars. Supports multiple programming languages (.NET, Java, JavaScript, TypeScript, React, Angular, Python) with configurable analysis depth, categorization methods, and documentation formats to establish coding standards and maintain consistency across development teams.'
+description: 'Gerador de prompt agnostico de tecnologia que cria prompts de IA customizaveis para varrer codebases e identificar code exemplars de alta qualidade. Suporta varias linguagens (.NET, Java, JavaScript, TypeScript, React, Angular, Python) com profundidade de analise configuravel, metodos de categorizacao e formatos de documentacao para estabelecer padroes de codigo e manter consistencia entre times de desenvolvimento.'
 agent: 'agent'
 ---
 
-# Code Exemplars Blueprint Generator
+# Gerador de Blueprint de Code Exemplars
 
-## Configuration Variables
-${PROJECT_TYPE="Auto-detect|.NET|Java|JavaScript|TypeScript|React|Angular|Python|Other"} <!-- Primary technology -->
-${SCAN_DEPTH="Basic|Standard|Comprehensive"} <!-- How deeply to analyze the codebase -->
-${INCLUDE_CODE_SNIPPETS=true|false} <!-- Include actual code snippets in addition to file references -->
-${CATEGORIZATION="Pattern Type|Architecture Layer|File Type"} <!-- How to organize exemplars -->
-${MAX_EXAMPLES_PER_CATEGORY=3} <!-- Maximum number of examples per category -->
-${INCLUDE_COMMENTS=true|false} <!-- Include explanatory comments for each exemplar -->
+## Variaveis de Configuracao
+${PROJECT_TYPE="Auto-detect|.NET|Java|JavaScript|TypeScript|React|Angular|Python|Other"} <!-- Tecnologia principal -->
+${SCAN_DEPTH="Basic|Standard|Comprehensive"} <!-- Profundidade de analise do codebase -->
+${INCLUDE_CODE_SNIPPETS=true|false} <!-- Incluir code snippets reais alem de referencias de arquivo -->
+${CATEGORIZATION="Pattern Type|Architecture Layer|File Type"} <!-- Como organizar os exemplars -->
+${MAX_EXAMPLES_PER_CATEGORY=3} <!-- Numero maximo de exemplos por categoria -->
+${INCLUDE_COMMENTS=true|false} <!-- Incluir comentarios explicativos para cada exemplar -->
 
-## Generated Prompt
+## Prompt Gerado
 
-"Scan this codebase and generate an exemplars.md file that identifies high-quality, representative code examples. The exemplars should demonstrate our coding standards and patterns to help maintain consistency. Use the following approach:
+"Faça o scan deste codebase e gere um arquivo exemplars.md que identifique exemplos de codigo representativos e de alta qualidade. Os exemplars devem demonstrar nossos padroes e patterns de codigo para ajudar a manter consistencia. Use a abordagem a seguir:
 
-### 1. Codebase Analysis Phase
-- ${PROJECT_TYPE == "Auto-detect" ? "Automatically detect primary programming languages and frameworks by scanning file extensions and configuration files" : `Focus on ${PROJECT_TYPE} code files`}
-- Identify files with high-quality implementation, good documentation, and clear structure
-- Look for commonly used patterns, architecture components, and well-structured implementations
-- Prioritize files that demonstrate best practices for our technology stack
-- Only reference actual files that exist in the codebase - no hypothetical examples
+### 1. Fase de Analise do Codebase
+- ${PROJECT_TYPE == "Auto-detect" ? "Detecte automaticamente linguagens e frameworks principais analisando extensoes de arquivo e arquivos de configuracao" : `Foque em arquivos de codigo ${PROJECT_TYPE}`}
+- Identifique arquivos com implementacao de alta qualidade, boa documentacao e estrutura clara
+- Procure patterns comumente usados, componentes arquiteturais e implementacoes bem estruturadas
+- Priorize arquivos que demonstrem melhores praticas para nossa tecnologia
+- Referencie apenas arquivos reais existentes no codebase - nada hipotetico
 
-### 2. Exemplar Identification Criteria
-- Well-structured, readable code with clear naming conventions
-- Comprehensive comments and documentation
-- Proper error handling and validation
-- Adherence to design patterns and architectural principles
-- Separation of concerns and single responsibility principle
-- Efficient implementation without code smells
-- Representative of our standard approaches
+### 2. Criterios de Identificacao de Exemplars
+- Codigo bem estruturado e legivel com convencoes de nome claras
+- Comentarios e documentacao abrangentes
+- Tratamento adequado de erros e validacao
+- Aderencia a design patterns e principios arquiteturais
+- Separacao de concerns e principio de responsabilidade unica
+- Implementacao eficiente sem code smells
+- Representativo das nossas abordagens padrao
 
-### 3. Core Pattern Categories
+### 3. Categorias de Padrões Core
 
 ${PROJECT_TYPE == ".NET" || PROJECT_TYPE == "Auto-detect" ? `#### .NET Exemplars (if detected)
-- **Domain Models**: Find entities that properly implement encapsulation and domain logic
-- **Repository Implementations**: Examples of our data access approach
-- **Service Layer Components**: Well-structured business logic implementations
-- **Controller Patterns**: Clean API controllers with proper validation and responses
-- **Dependency Injection Usage**: Good examples of DI configuration and usage
-- **Middleware Components**: Custom middleware implementations
-- **Unit Test Patterns**: Well-structured tests with proper arrangement and assertions` : ""}
+- **Domain Models**: Entidades que implementam encapsulamento e logica de dominio
+- **Repository Implementations**: Exemplos da nossa abordagem de data access
+- **Service Layer Components**: Implementacoes bem estruturadas de business logic
+- **Controller Patterns**: Controllers de API limpos com validacao e responses adequadas
+- **Dependency Injection Usage**: Bons exemplos de configuracao e uso de DI
+- **Middleware Components**: Implementacoes de middleware custom
+- **Unit Test Patterns**: Testes bem estruturados com arranjo e asserts adequados` : ""}
 
 ${(PROJECT_TYPE == "JavaScript" || PROJECT_TYPE == "TypeScript" || PROJECT_TYPE == "React" || PROJECT_TYPE == "Angular" || PROJECT_TYPE == "Auto-detect") ? `#### Frontend Exemplars (if detected)
-- **Component Structure**: Clean, well-structured components
-- **State Management**: Good examples of state handling
-- **API Integration**: Well-implemented service calls and data handling
-- **Form Handling**: Validation and submission patterns
-- **Routing Implementation**: Navigation and route configuration
-- **UI Components**: Reusable, well-structured UI elements
-- **Unit Test Examples**: Component and service tests` : ""}
+- **Component Structure**: Componentes limpos e bem estruturados
+- **State Management**: Bons exemplos de state handling
+- **API Integration**: Service calls e data handling bem implementados
+- **Form Handling**: Padroes de validacao e submit
+- **Routing Implementation**: Navegacao e configuracao de rotas
+- **UI Components**: Componentes de UI reutilizaveis e bem estruturados
+- **Unit Test Examples**: Testes de componente e service` : ""}
 
 ${PROJECT_TYPE == "Java" || PROJECT_TYPE == "Auto-detect" ? `#### Java Exemplars (if detected)
-- **Entity Classes**: Well-designed JPA entities or domain models
-- **Service Implementations**: Clean service layer components
-- **Repository Patterns**: Data access implementations
-- **Controller/Resource Classes**: API endpoint implementations
-- **Configuration Classes**: Application configuration
-- **Unit Tests**: Well-structured JUnit tests` : ""}
+- **Entity Classes**: JPA entities ou domain models bem desenhados
+- **Service Implementations**: Componentes de service layer limpos
+- **Repository Patterns**: Implementacoes de data access
+- **Controller/Resource Classes**: Implementacoes de endpoints de API
+- **Configuration Classes**: Configuracao da aplicacao
+- **Unit Tests**: Testes JUnit bem estruturados` : ""}
 
 ${PROJECT_TYPE == "Python" || PROJECT_TYPE == "Auto-detect" ? `#### Python Exemplars (if detected)
-- **Class Definitions**: Well-structured classes with proper documentation
-- **API Routes/Views**: Clean API implementations
-- **Data Models**: ORM model definitions
-- **Service Functions**: Business logic implementations
-- **Utility Modules**: Helper and utility functions
-- **Test Cases**: Well-structured unit tests` : ""}
+- **Class Definitions**: Classes bem estruturadas com documentacao adequada
+- **API Routes/Views**: Implementacoes de API limpas
+- **Data Models**: Definicoes de modelos ORM
+- **Service Functions**: Implementacoes de business logic
+- **Utility Modules**: Funcoes helper e utilitarios
+- **Test Cases**: Testes unitarios bem estruturados` : ""}
 
-### 4. Architecture Layer Exemplars
+### 4. Exemplars por Camada de Arquitetura
 
 - **Presentation Layer**:
-  - User interface components
+  - Componentes de UI
   - Controllers/API endpoints
   - View models/DTOs
   
 - **Business Logic Layer**:
-  - Service implementations
-  - Business logic components
-  - Workflow orchestration
+  - Implementacoes de services
+  - Componentes de business logic
+  - Orquestracao de workflows
   
 - **Data Access Layer**:
-  - Repository implementations
+  - Implementacoes de repositories
   - Data models
   - Query patterns
   
 - **Cross-Cutting Concerns**:
-  - Logging implementations
-  - Error handling
+  - Implementacoes de logging
+  - Tratamento de erro
   - Authentication/authorization
   - Validation
 
-### 5. Exemplar Documentation Format
+### 5. Formato de Documentacao dos Exemplars
 
-For each identified exemplar, document:
-- File path (relative to repository root)
-- Brief description of what makes it exemplary
-- Pattern or component type it represents
-${INCLUDE_COMMENTS ? "- Key implementation details and coding principles demonstrated" : ""}
-${INCLUDE_CODE_SNIPPETS ? "- Small, representative code snippet (if applicable)" : ""}
+Para cada exemplar identificado, documente:
+- Caminho do arquivo (relativo a raiz do repositorio)
+- Breve descricao do que torna o arquivo exemplar
+- Pattern ou tipo de componente que representa
+${INCLUDE_COMMENTS ? "- Principais detalhes de implementacao e principios de codigo demonstrados" : ""}
+${INCLUDE_CODE_SNIPPETS ? "- Code snippet pequeno e representativo (se aplicavel)" : ""}
 
-${SCAN_DEPTH == "Comprehensive" ? `### 6. Additional Documentation
+${SCAN_DEPTH == "Comprehensive" ? `### 6. Documentacao Adicional
 
-- **Consistency Patterns**: Note consistent patterns observed across the codebase
-- **Architecture Observations**: Document architectural patterns evident in the code
-- **Implementation Conventions**: Identify naming and structural conventions
-- **Anti-patterns to Avoid**: Note any areas where the codebase deviates from best practices` : ""}
+- **Consistency Patterns**: Observe padroes consistentes no codebase
+- **Architecture Observations**: Documente patterns arquiteturais evidentes
+- **Implementation Conventions**: Identifique convencoes de nomes e estrutura
+- **Anti-patterns to Avoid**: Observe areas onde o codebase foge de best practices` : ""}
 
-### ${SCAN_DEPTH == "Comprehensive" ? "7" : "6"}. Output Format
+### ${SCAN_DEPTH == "Comprehensive" ? "7" : "6"}. Formato de Saida
 
-Create exemplars.md with:
-1. Introduction explaining the purpose of the document
-2. Table of contents with links to categories
-3. Organized sections based on ${CATEGORIZATION}
-4. Up to ${MAX_EXAMPLES_PER_CATEGORY} exemplars per category
-5. Conclusion with recommendations for maintaining code quality
+Crie exemplars.md com:
+1. Introducao explicando o proposito do documento
+2. Table of contents com links para categorias
+3. Secoes organizadas com base em ${CATEGORIZATION}
+4. Ate ${MAX_EXAMPLES_PER_CATEGORY} exemplars por categoria
+5. Conclusao com recomendacoes para manter qualidade de codigo
 
-The document should be actionable for developers needing guidance on implementing new features consistent with existing patterns.
+O documento deve ser acionavel para devs que precisam de orientacao ao implementar novas features consistentes com patterns existentes.
 
-Important: Only include actual files from the codebase. Verify all file paths exist. Do not include placeholder or hypothetical examples.
+Importante: inclua apenas arquivos reais do codebase. Verifique se todos os caminhos de arquivo existem. Nao inclua exemplos placeholder ou hipoteticos.
 "
 
 ## Expected Output
-Upon running this prompt, GitHub Copilot will scan your codebase and generate an exemplars.md file containing real references to high-quality code examples in your repository, organized according to your selected parameters.
+Ao executar este prompt, o GitHub Copilot varrera seu codebase e gerara um arquivo exemplars.md contendo referencias reais a exemplos de codigo de alta qualidade no repositorio, organizados conforme os parametros selecionados.

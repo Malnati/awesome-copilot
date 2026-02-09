@@ -1,88 +1,88 @@
 ---
 name: github-issues
-description: 'Create, update, and manage GitHub issues using MCP tools. Use this skill when users want to create bug reports, feature requests, or task issues, update existing issues, add labels/assignees/milestones, or manage issue workflows. Triggers on requests like "create an issue", "file a bug", "request a feature", "update issue X", or any GitHub issue management task.'
+description: 'Crie, atualize e gerencie GitHub issues usando tools MCP. Use esta skill quando usuarios quiserem criar bug reports, feature requests ou task issues, atualizar issues existentes, adicionar labels/assignees/milestones ou gerenciar workflows de issues. Dispara em solicitacoes como "create an issue", "file a bug", "request a feature", "update issue X" ou qualquer tarefa de gerenciamento de GitHub issues.'
 ---
 
-# GitHub Issues
+# Issues do GitHub
 
-Manage GitHub issues using the `@modelcontextprotocol/server-github` MCP server.
+Gerencie GitHub issues usando o servidor MCP `@modelcontextprotocol/server-github`.
 
-## Available MCP Tools
+## Ferramentas MCP Disponiveis (Tools)
 
-| Tool | Purpose |
-|------|---------|
-| `mcp__github__create_issue` | Create new issues |
-| `mcp__github__update_issue` | Update existing issues |
-| `mcp__github__get_issue` | Fetch issue details |
-| `mcp__github__search_issues` | Search issues |
-| `mcp__github__add_issue_comment` | Add comments |
-| `mcp__github__list_issues` | List repository issues |
+| Tool | Finalidade |
+|------|------------|
+| `mcp__github__create_issue` | Criar novas issues |
+| `mcp__github__update_issue` | Atualizar issues existentes |
+| `mcp__github__get_issue` | Obter detalhes da issue |
+| `mcp__github__search_issues` | Buscar issues |
+| `mcp__github__add_issue_comment` | Adicionar comentarios |
+| `mcp__github__list_issues` | Listar issues do repositorio |
 
-## Workflow
+## Fluxo de Trabalho
 
-1. **Determine action**: Create, update, or query?
-2. **Gather context**: Get repo info, existing labels, milestones if needed
-3. **Structure content**: Use appropriate template from [references/templates.md](references/templates.md)
-4. **Execute**: Call the appropriate MCP tool
-5. **Confirm**: Report the issue URL to user
+1. **Determinar acao**: Criar, atualizar ou consultar?
+2. **Coletar contexto**: Obter informacoes do repo, labels existentes, milestones se necessario
+3. **Estruturar conteudo**: Use o template apropriado em [references/templates.md](references/templates.md)
+4. **Executar**: Chame a tool MCP apropriada
+5. **Confirmar**: Reporte a URL da issue ao usuario
 
-## Creating Issues
+## Criacao de Issues
 
-### Required Parameters
+### Parametros Obrigatorios
 
 ```
-owner: repository owner (org or user)
-repo: repository name  
-title: clear, actionable title
-body: structured markdown content
+owner: dono do repositorio (org ou usuario)
+repo: nome do repositorio  
+title: titulo claro e acionavel
+body: conteudo markdown estruturado
 ```
 
-### Optional Parameters
+### Parametros Opcionais
 
 ```
 labels: ["bug", "enhancement", "documentation", ...]
 assignees: ["username1", "username2"]
-milestone: milestone number (integer)
+milestone: numero do milestone (integer)
 ```
 
-### Title Guidelines
+### Diretrizes de Titulo
 
-- Start with type prefix when useful: `[Bug]`, `[Feature]`, `[Docs]`
-- Be specific and actionable
-- Keep under 72 characters
-- Examples:
+- Comece com prefixo de tipo quando util: `[Bug]`, `[Feature]`, `[Docs]`
+- Seja especifico e acionavel
+- Mantenha abaixo de 72 caracteres
+- Exemplos:
   - `[Bug] Login fails with SSO enabled`
   - `[Feature] Add dark mode support`
   - `Add unit tests for auth module`
 
-### Body Structure
+### Estrutura do Body
 
-Always use the templates in [references/templates.md](references/templates.md). Choose based on issue type:
+Sempre use os templates em [references/templates.md](references/templates.md). Escolha com base no tipo de issue:
 
-| User Request | Template |
+| Solicitacao do Usuario | Template |
 |--------------|----------|
 | Bug, error, broken, not working | Bug Report |
 | Feature, enhancement, add, new | Feature Request |
 | Task, chore, refactor, update | Task |
 
-## Updating Issues
+## Atualizando Issues
 
-Use `mcp__github__update_issue` with:
+Use `mcp__github__update_issue` com:
 
 ```
 owner, repo, issue_number (required)
 title, body, state, labels, assignees, milestone (optional - only changed fields)
 ```
 
-State values: `open`, `closed`
+Valores de state: `open`, `closed`
 
-## Examples
+## Exemplos
 
-### Example 1: Bug Report
+### Exemplo 1: Bug Report
 
-**User**: "Create a bug issue - the login page crashes when using SSO"
+**Usuario**: "Crie um bug issue - a pagina de login quebra ao usar SSO"
 
-**Action**: Call `mcp__github__create_issue` with:
+**Action**: Chame `mcp__github__create_issue` com:
 ```json
 {
   "owner": "github",
@@ -93,11 +93,11 @@ State values: `open`, `closed`
 }
 ```
 
-### Example 2: Feature Request
+### Exemplo 2: Feature Request
 
-**User**: "Create a feature request for dark mode with high priority"
+**Usuario**: "Crie um feature request para dark mode com alta prioridade"
 
-**Action**: Call `mcp__github__create_issue` with:
+**Action**: Chame `mcp__github__create_issue` com:
 ```json
 {
   "owner": "github",
@@ -108,25 +108,13 @@ State values: `open`, `closed`
 }
 ```
 
-## Common Labels
+## Labels Comuns
 
-Use these standard labels when applicable:
+Use estes labels padrao quando aplicavel:
 
-| Label | Use For |
-|-------|---------|
-| `bug` | Something isn't working |
-| `enhancement` | New feature or improvement |
-| `documentation` | Documentation updates |
-| `good first issue` | Good for newcomers |
-| `help wanted` | Extra attention needed |
-| `question` | Further information requested |
-| `wontfix` | Will not be addressed |
-| `duplicate` | Already exists |
-| `high-priority` | Urgent issues |
-
-## Tips
-
-- Always confirm the repository context before creating issues
-- Ask for missing critical information rather than guessing
-- Link related issues when known: `Related to #123`
-- For updates, fetch current issue first to preserve unchanged fields
+| Label | Uso |
+|-------|-----|
+| `bug` | Algo nao esta funcionando |
+| `enhancement` | Nova feature ou melhoria |
+| `documentation` | Atualizacoes de documentacao |
+| `good first issue` | Bom para iniciantes |

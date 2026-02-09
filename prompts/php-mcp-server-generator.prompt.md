@@ -1,23 +1,23 @@
 ---
-description: 'Generate a complete PHP Model Context Protocol server project with tools, resources, prompts, and tests using the official PHP SDK'
+description: 'Gere um projeto completo de servidor Model Context Protocol em PHP com tools, resources, prompts e testes usando o SDK oficial de PHP'
 agent: agent
 ---
 
-# PHP MCP Server Generator
+# Gerador de Servidor MCP em PHP
 
-You are a PHP MCP server generator. Create a complete, production-ready PHP MCP server project using the official PHP SDK.
+Voce e um gerador de servidor MCP em PHP. Crie um projeto completo e pronto para producao usando o SDK oficial de PHP.
 
-## Project Requirements
+## Requisitos do Projeto
 
-Ask the user for:
-1. **Project name** (e.g., "my-mcp-server")
-2. **Server description** (e.g., "A file management MCP server")
-3. **Transport type** (stdio, http, or both)
-4. **Tools to include** (e.g., "file read", "file write", "list directory")
-5. **Whether to include resources and prompts**
-6. **PHP version** (8.2+ required)
+Pergunte ao usuario:
+1. **Nome do projeto** (por exemplo, "my-mcp-server")
+2. **Descricao do servidor** (por exemplo, "A file management MCP server")
+3. **Tipo de transport** (stdio, http, ou ambos)
+4. **Tools a incluir** (por exemplo, "file read", "file write", "list directory")
+5. **Se deve incluir resources e prompts**
+6. **Versao do PHP** (8.2+ requerida)
 
-## Project Structure
+## Estrutura do Projeto
 
 ```
 {project-name}/
@@ -38,7 +38,7 @@ Ask the user for:
     └── ToolsTest.php
 ```
 
-## File Templates
+## Templates de Arquivo
 
 ### composer.json
 
@@ -57,12 +57,12 @@ Ask the user for:
     },
     "autoload": {
         "psr-4": {
-            "App\\\\": "src/"
+            "App\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Tests\\\\": "tests/"
+            "Tests\\": "tests/"
         }
     },
     "config": {
@@ -423,20 +423,20 @@ class ToolsTest extends TestCase
 </phpunit>
 ```
 
-## Implementation Guidelines
+## Diretrizes de Implementacao
 
-1. **Use PHP Attributes**: Leverage `#[McpTool]`, `#[McpResource]`, `#[McpPrompt]` for clean code
-2. **Type Declarations**: Use strict types (`declare(strict_types=1);`) in all files
-3. **PSR-12 Coding Standard**: Follow PHP-FIG standards
-4. **Schema Validation**: Use `#[Schema]` attributes for parameter validation
-5. **Error Handling**: Throw specific exceptions with clear messages
-6. **Testing**: Write PHPUnit tests for all tools
-7. **Documentation**: Use PHPDoc blocks for all methods
-8. **Caching**: Always use PSR-16 cache for discovery in production
+1. **Use PHP Attributes**: Use `#[McpTool]`, `#[McpResource]`, `#[McpPrompt]` para codigo limpo
+2. **Type Declarations**: Use strict types (`declare(strict_types=1);`) em todos os arquivos
+3. **PSR-12 Coding Standard**: Siga os padroes PHP-FIG
+4. **Schema Validation**: Use atributos `#[Schema]` para validacao de parametros
+5. **Error Handling**: Lance excecoes especificas com mensagens claras
+6. **Testing**: Escreva testes PHPUnit para todas as tools
+7. **Documentation**: Use PHPDoc em todos os metodos
+8. **Caching**: Sempre use cache PSR-16 para discovery em producao
 
-## Tool Patterns
+## Padroes de Tool
 
-### Simple Tool
+### Tool Simples
 ```php
 #[McpTool]
 public function simpleAction(string $input): string
@@ -445,7 +445,7 @@ public function simpleAction(string $input): string
 }
 ```
 
-### Tool with Validation
+### Tool com Validacao
 ```php
 #[McpTool]
 public function validateEmail(
@@ -456,7 +456,7 @@ public function validateEmail(
 }
 ```
 
-### Tool with Enum
+### Tool com Enum
 ```php
 enum Status: string {
     case ACTIVE = 'active';
@@ -470,7 +470,7 @@ public function setStatus(string $id, Status $status): array
 }
 ```
 
-## Resource Patterns
+## Padroes de Resource
 
 ### Static Resource
 ```php
@@ -490,7 +490,7 @@ public function getUser(string $id): array
 }
 ```
 
-## Running the Server
+## Rodando o Servidor
 
 ```bash
 # Install dependencies
@@ -506,7 +506,7 @@ php server.php
 npx @modelcontextprotocol/inspector php server.php
 ```
 
-## Claude Desktop Configuration
+## Configuracao do Claude Desktop
 
 ```json
 {
@@ -518,5 +518,3 @@ npx @modelcontextprotocol/inspector php server.php
   }
 }
 ```
-
-Now generate the complete project based on user requirements!

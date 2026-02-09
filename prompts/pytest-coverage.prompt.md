@@ -1,28 +1,28 @@
 ---
 agent: agent
-description: 'Run pytest tests with coverage, discover lines missing coverage, and increase coverage to 100%.'
+description: 'Execute testes pytest com cobertura, descubra linhas sem cobertura e aumente a cobertura para 100%.'
 ---
 
-The goal is for the tests to cover all lines of code.
+O objetivo e que os testes cubram todas as linhas de codigo.
 
-Generate a coverage report with:
+Gere um relatorio de coverage com:
 
 pytest --cov --cov-report=annotate:cov_annotate
 
-If you are checking for coverage of a specific module, you can specify it like this:
+Se voce estiver verificando a cobertura de um modulo especifico, pode especifica-lo assim:
 
 pytest --cov=your_module_name --cov-report=annotate:cov_annotate
 
-You can also specify specific tests to run, for example:
+Voce tambem pode especificar testes especificos para rodar, por exemplo:
 
 pytest tests/test_your_module.py --cov=your_module_name --cov-report=annotate:cov_annotate
 
-Open the cov_annotate directory to view the annotated source code.
-There will be one file per source file. If a file has 100% source coverage, it means all lines are covered by tests, so you do not need to open the file.
+Abra o diretorio cov_annotate para ver o codigo-fonte anotado.
+Havera um arquivo por arquivo de fonte. Se um arquivo tiver 100% de cobertura de source, significa que todas as linhas estao cobertas por testes, entao voce nao precisa abrir o arquivo.
 
-For each file that has less than 100% test coverage, find the matching file in cov_annotate and review the file.
+Para cada arquivo com menos de 100% de cobertura de teste, encontre o arquivo correspondente em cov_annotate e revise-o.
 
-If a line starts with a ! (exclamation mark), it means that the line is not covered by tests.
-Add tests to cover the missing lines.
+Se uma linha comecar com ! (ponto de exclamacao), significa que a linha nao foi coberta por testes.
+Adicione testes para cobrir as linhas ausentes.
 
-Keep running the tests and improving coverage until all lines are covered.
+Continue rodando os testes e melhorando a cobertura ate que todas as linhas estejam cobertas.

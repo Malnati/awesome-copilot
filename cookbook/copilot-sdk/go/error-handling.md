@@ -1,18 +1,18 @@
-# Error Handling Patterns
+# Padroes de Tratamento de Erros
 
-Handle errors gracefully in your Copilot SDK applications.
+Trate erros com elegancia em suas aplicacoes do Copilot SDK.
 
-> **Runnable example:** [recipe/error-handling.go](recipe/error-handling.go)
+> **Exemplo executavel:** [recipe/error-handling.go](recipe/error-handling.go)
 >
 > ```bash
 > go run recipe/error-handling.go
 > ```
 
-## Example scenario
+## Cenario de exemplo
 
-You need to handle various error conditions like connection failures, timeouts, and invalid responses.
+Voce precisa lidar com varias condicoes de erro como falhas de conexao, timeouts e respostas invalidas.
 
-## Basic error handling
+## Tratamento de erro basico
 
 ```go
 package main
@@ -59,7 +59,7 @@ func main() {
 }
 ```
 
-## Handling specific error types
+## Tratando tipos de erro especificos
 
 ```go
 import (
@@ -85,7 +85,7 @@ func startClient() error {
 }
 ```
 
-## Timeout handling
+## Tratamento de timeout
 
 ```go
 import (
@@ -122,7 +122,7 @@ func sendWithTimeout(session *copilot.Session) error {
 }
 ```
 
-## Aborting a request
+## Abortando uma requisicao
 
 ```go
 func abortAfterDelay(session *copilot.Session) {
@@ -139,7 +139,7 @@ func abortAfterDelay(session *copilot.Session) {
 }
 ```
 
-## Graceful shutdown
+## Encerramento elegante
 
 ```go
 import (
@@ -174,7 +174,7 @@ func main() {
 }
 ```
 
-## Deferred cleanup pattern
+## Padrao de limpeza com defer
 
 ```go
 func doWork() error {
@@ -197,10 +197,10 @@ func doWork() error {
 }
 ```
 
-## Best practices
+## Melhores praticas
 
-1. **Always clean up**: Use defer to ensure `Stop()` is called
-2. **Handle connection errors**: The CLI might not be installed or running
-3. **Set appropriate timeouts**: Use `context.WithTimeout` for long-running requests
-4. **Log errors**: Capture error details for debugging
-5. **Wrap errors**: Use `fmt.Errorf` with `%w` to preserve error chains
+1. **Sempre limpe**: Use defer para garantir que `Stop()` seja chamado
+2. **Trate erros de conexao**: A CLI pode nao estar instalada ou em execucao
+3. **Defina timeouts apropriados**: Use `context.WithTimeout` para requisicoes de longa duracao
+4. **Registre erros**: Capture detalhes de erros para depuracao
+5. **Encapsule erros**: Use `fmt.Errorf` com `%w` para preservar cadeias de erro

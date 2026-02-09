@@ -1,44 +1,44 @@
-# Contributing to Awesome GitHub Copilot
+# Contribuindo para o Awesome GitHub Copilot
 
-Thank you for your interest in contributing to the Awesome GitHub Copilot repository! We welcome contributions from the community to help expand our collection of custom instructions and prompts.
+Obrigado pelo seu interesse em contribuir para o repositorio Awesome GitHub Copilot! Damos boas-vindas as contribuicoes da comunidade para ajudar a expandir nossa colecao de instrucoes e prompts personalizados.
 
-## Prerequisites
+## Pre-requisitos
 
-### Windows Users: Enable Symlinks
+### Usuarios de Windows: habilitar symlinks
 
-This repository uses symbolic links for plugins. On Windows, you need to enable symlink support before cloning:
+Este repositorio usa links simbolicos para plugins. No Windows, voce precisa habilitar suporte a symlinks antes de clonar:
 
-1. **Enable Developer Mode** (recommended):
-   - Open **Settings** → **Update & Security** → **For developers**
-   - Enable **Developer Mode**
-   - This allows creating symlinks without administrator privileges
+1. **Habilitar Developer Mode** (recomendado):
+   - Abra **Settings** -> **Update & Security** -> **For developers**
+   - Habilite **Developer Mode**
+   - Isso permite criar symlinks sem privilegios de administrador
 
-2. **Configure Git to use symlinks**:
+2. **Configurar o Git para usar symlinks**:
    ```bash
    git config --global core.symlinks true
    ```
 
-3. **Clone the repository** (after enabling the above):
+3. **Clonar o repositorio** (apos habilitar o acima):
    ```bash
    git clone https://github.com/github/awesome-copilot.git
    ```
 
-> **Note:** If you cloned the repository before enabling symlinks, the symlinks will appear as plain text files containing the target path. You'll need to delete the local repository and re-clone after enabling symlink support.
+> **Nota:** Se voce clonou o repositorio antes de habilitar symlinks, eles aparecerao como arquivos de texto simples contendo o caminho de destino. Voce precisara excluir o repositorio local e clonar novamente apos habilitar o suporte a symlinks.
 
-**Alternative for older Windows versions:** If Developer Mode is not available, you can run Git Bash as Administrator, or grant your user the "Create symbolic links" privilege via Local Security Policy (`secpol.msc` → Local Policies → User Rights Assignment → Create symbolic links).
+**Alternativa para versoes antigas do Windows:** se Developer Mode nao estiver disponivel, voce pode executar o Git Bash como Administrador ou conceder ao seu usuario o privilegio "Create symbolic links" via Local Security Policy (`secpol.msc` -> Local Policies -> User Rights Assignment -> Create symbolic links).
 
-## How to Contribute
+## Como Contribuir
 
-### Adding Instructions
+### Adicionando Instructions
 
-Instructions help customize GitHub Copilot's behavior for specific technologies, coding practices, or domains.
+Instructions ajudam a personalizar o comportamento do GitHub Copilot para tecnologias, praticas de codificacao ou dominios especificos.
 
-1. **Create your instruction file**: Add a new `.md` file in the `instructions/` directory
-2. **Follow the naming convention**: Use descriptive, lowercase filenames with hyphens (e.g., `python-django.instructions.md`)
-3. **Structure your content**: Start with a clear heading and organize your instructions logically
-4. **Test your instructions**: Make sure your instructions work well with GitHub Copilot
+1. **Crie seu arquivo de instruction**: adicione um novo arquivo `.md` no diretorio `instructions/`
+2. **Siga a convencao de nomes**: use nomes de arquivo descritivos, em minusculas e com hifens (por exemplo, `python-django.instructions.md`)
+3. **Estruture seu conteudo**: comece com um titulo claro e organize suas instrucoes de forma logica
+4. **Teste suas instructions**: garanta que suas instructions funcionem bem com o GitHub Copilot
 
-#### Example instruction format
+#### Exemplo de formato de instruction
 
 ```markdown
 ---
@@ -58,16 +58,16 @@ description: 'Instructions for customizing GitHub Copilot behavior for specific 
 - Any additional context or examples
 ```
 
-### Adding Prompts
+### Adicionando Prompts
 
-Prompts are ready-to-use templates for specific development scenarios and tasks.
+Prompts sao templates prontos para uso para cenarios e tarefas especificas de desenvolvimento.
 
-1. **Create your prompt file**: Add a new `.prompt.md` file in the `prompts/` directory
-2. **Follow the naming convention**: Use descriptive, lowercase filenames with hyphens and the `.prompt.md` extension (e.g., `react-component-generator.prompt.md`)
-3. **Include frontmatter**: Add metadata at the top of your file (optional but recommended)
-4. **Structure your prompt**: Provide clear context and specific instructions
+1. **Crie seu arquivo de prompt**: adicione um novo arquivo `.prompt.md` no diretorio `prompts/`
+2. **Siga a convencao de nomes**: use nomes descritivos em minusculas com hifens e a extensao `.prompt.md` (por exemplo, `react-component-generator.prompt.md`)
+3. **Inclua front matter**: adicione metadados no topo do arquivo (opcional, mas recomendado)
+4. **Estruture seu prompt**: forneca contexto claro e instrucoes especificas
 
-#### Example prompt format
+#### Exemplo de formato de prompt
 
 ```markdown
 ---
@@ -86,17 +86,17 @@ Your goal is to...
 - Include examples where helpful
 ```
 
-### Adding an Agent
+### Adicionando um Agent
 
-Agents are specialized configurations that transform GitHub Copilot Chat into domain-specific assistants or personas for particular development scenarios.
+Agents sao configuracoes especializadas que transformam o GitHub Copilot Chat em assistentes ou personas especificas de dominio para cenarios de desenvolvimento particulares.
 
-1. **Create your agent file**: Add a new `.agent.md` file in the `agents/` directory
-2. **Follow the naming convention**: Use descriptive, lowercase filenames with hyphens and the `.agent.md` extension (e.g., `react-performance-expert.agent.md`)
-3. **Include frontmatter**: Add metadata at the top of your file with required fields
-4. **Define the persona**: Create a clear identity and expertise area for the agent
-5. **Test your agent**: Ensure the agent provides helpful, accurate responses in its domain
+1. **Crie seu arquivo de agent**: adicione um novo arquivo `.agent.md` no diretorio `agents/`
+2. **Siga a convencao de nomes**: use nomes descritivos, em minusculas, com hifens e a extensao `.agent.md` (por exemplo, `react-performance-expert.agent.md`)
+3. **Inclua front matter**: adicione metadados no topo do arquivo com campos obrigatorios
+4. **Defina a persona**: crie uma identidade clara e area de especialidade para o agent
+5. **Teste seu agent**: garanta que o agent forneca respostas uteis e precisas no dominio
 
-#### Example agent format
+#### Exemplo de formato de agent
 
 ```markdown
 ---
@@ -127,25 +127,25 @@ You are an expert [domain/role] with deep knowledge in [specific areas].
 - [Best practices to follow]
 ```
 
-### Adding Skills
+### Adicionando Skills
 
-Skills are self-contained folders in the `skills/` directory that include a `SKILL.md` file (with front matter) and optional bundled assets.
+Skills sao pastas autocontidas no diretorio `skills/` que incluem um arquivo `SKILL.md` (com front matter) e ativos empacotados opcionais.
 
-1. **Create a new skill folder**: Run `npm run skill:create -- --name <skill-name> --description "<skill description>"`
-2. **Edit `SKILL.md`**: Ensure the `name` matches the folder name (lowercase with hyphens) and the `description` is clear and non-empty
-3. **Add optional assets**: Keep bundled assets reasonably sized (under 5MB each) and reference them from `SKILL.md`
-4. **Validate and update docs**: Run `npm run skill:validate` and then `npm run build` to update the generated README tables
+1. **Crie uma nova pasta de skill**: execute `npm run skill:create -- --name <skill-name> --description "<skill description>"`
+2. **Edite `SKILL.md`**: garanta que o `name` corresponda ao nome da pasta (minusculas com hifens) e que o `description` seja claro e nao vazio
+3. **Adicione ativos opcionais**: mantenha os ativos empacotados com tamanho razoavel (menos de 5MB cada) e referencie-os no `SKILL.md`
+4. **Valide e atualize docs**: execute `npm run skill:validate` e depois `npm run build` para atualizar as tabelas geradas no README
 
-### Adding Collections
+### Adicionando Collections
 
-Collections group related prompts, instructions, agents, and skills around specific themes or workflows, making it easier for users to discover and adopt comprehensive toolkits.
+Collections agrupam prompts, instructions, agents e skills relacionados em torno de temas ou fluxos de trabalho especificos, facilitando a descoberta e adocao de toolkits completos.
 
-1. **Create your collection manifest**: Add a new `.collection.yml` file in the `collections/` directory
-2. **Follow the naming convention**: Use descriptive, lowercase filenames with hyphens (e.g., `python-web-development.collection.yml`)
-3. **Reference existing items**: Collections should only reference files that already exist in the repository
-4. **Test your collection**: Verify all referenced files exist and work well together
+1. **Crie seu manifesto de collection**: adicione um novo arquivo `.collection.yml` no diretorio `collections/`
+2. **Siga a convencao de nomes**: use nomes descritivos, em minusculas, com hifens (por exemplo, `python-web-development.collection.yml`)
+3. **Referencie itens existentes**: collections devem referenciar apenas arquivos que ja existem no repositorio
+4. **Teste sua collection**: verifique se todos os arquivos referenciados existem e funcionam bem juntos
 
-#### Creating a collection
+#### Criando uma collection
 
 ```bash
 # Using the creation script
@@ -154,7 +154,7 @@ node create-collection.js my-collection-id
 # Or using VS Code Task: Ctrl+Shift+P > "Tasks: Run Task" > "create-collection"
 ```
 
-#### Example collection format
+#### Exemplo de formato de collection
 
 ```yaml
 id: my-collection-id
@@ -199,34 +199,34 @@ display:
   show_badge: false # set to true to show collection badge
 ```
 
-For full example of usage checkout edge-ai tasks collection:
+Para exemplo completo de uso, confira a collection edge-ai tasks:
 - [edge-ai-tasks.collection.yml](./collections/edge-ai-tasks.collection.yml)
 - [edge-ai-tasks.md](./collections/edge-ai-tasks.md)
 
-#### Collection Guidelines
+#### Diretrizes para Collections
 
-- **Focus on workflows**: Group items that work together for specific use cases
-- **Reasonable size**: Typically 3-10 items work well
-- **Test combinations**: Ensure the items complement each other effectively
-- **Clear purpose**: The collection should solve a specific problem or workflow
-- **Validate before submitting**: Run `node validate-collections.js` to ensure your manifest is valid
+- **Foque em fluxos de trabalho**: agrupe itens que funcionem juntos para casos de uso especificos
+- **Tamanho razoavel**: normalmente 3-10 itens funcionam bem
+- **Teste combinacoes**: garanta que os itens se complementem de forma eficaz
+- **Objetivo claro**: a collection deve resolver um problema ou fluxo de trabalho especifico
+- **Valide antes de enviar**: execute `node validate-collections.js` para garantir que seu manifesto e valido
 
-### Working with Plugins
+### Trabalhando com Plugins
 
-Plugins are installable packages automatically generated from collections. They contain symlinked agents, commands (prompts), and skills from the source collection.
+Plugins sao pacotes instalaveis gerados automaticamente a partir de collections. Eles contem agents, commands (prompts) e skills com symlinks do source da collection.
 
-#### Creating a Plugin from a Collection
+#### Criando um Plugin a partir de uma Collection
 
-When you create a new collection, you can generate a corresponding plugin:
+Quando voce cria uma nova collection, pode gerar o plugin correspondente:
 
 ```bash
 # Migrate a collection to a new plugin (first time only)
 npm run plugin:migrate -- --collection <collection-id>
 ```
 
-#### Updating Plugins After Collection Changes
+#### Atualizando Plugins apos Mudancas na Collection
 
-If you modify a collection (add/remove items, update metadata), refresh the corresponding plugin:
+Se voce modificar uma collection (adicionar/remover itens, atualizar metadados), atualize o plugin correspondente:
 
 ```bash
 # Refresh a single plugin
@@ -236,87 +236,87 @@ npm run plugin:refresh -- --collection <collection-id>
 npm run plugin:refresh -- --all
 ```
 
-#### Plugin Structure
+#### Estrutura de Plugin
 
 ```plaintext
 plugins/<collection-id>/
-├── .github/plugin/plugin.json  # Plugin metadata (auto-generated)
-├── README.md                   # Plugin documentation (auto-generated)
-├── agents/                     # Symlinks to agent files (.md)
-├── commands/                   # Symlinks to prompt files (.md)
-└── skills/                     # Symlinks to skill folders
+├── .github/plugin/plugin.json  # Metadados do plugin (auto-gerado)
+├── README.md                   # Documentacao do plugin (auto-gerado)
+├── agents/                     # Symlinks para arquivos de agent (.md)
+├── commands/                   # Symlinks para arquivos de prompt (.md)
+└── skills/                     # Symlinks para pastas de skill
 ```
 
-#### Plugin Guidelines
+#### Diretrizes de Plugin
 
-- **Symlinks, not copies**: Plugin files are symlinks to the source files, avoiding duplication
-- **Instructions excluded**: Instructions are not currently supported in plugins
-- **Auto-generated content**: The `plugin.json` and `README.md` are generated from the collection metadata
-- **Keep plugins in sync**: After modifying a collection, run `plugin:refresh` to update the plugin
+- **Symlinks, nao copias**: arquivos do plugin sao symlinks para os arquivos de origem, evitando duplicacao
+- **Instructions excluidas**: instructions nao sao suportadas atualmente em plugins
+- **Conteudo auto-gerado**: `plugin.json` e `README.md` sao gerados a partir dos metadados da collection
+- **Mantenha plugins sincronizados**: apos modificar uma collection, execute `plugin:refresh` para atualizar o plugin
 
-## Submitting Your Contribution
+## Enviando sua Contribuicao
 
-1. **Fork this repository**
-2. **Create a new branch** for your contribution
-3. **Add your instruction, prompt file, chatmode, or collection** following the guidelines above
-4. **Run the update script**: `npm start` to update the README with your new file (make sure you run `npm install` first if you haven't already)
-   - A GitHub Actions workflow will verify that this step was performed correctly
-   - If the README.md would be modified by running the script, the PR check will fail with a comment showing the required changes
-5. **Submit a pull request** with:
-   - A clear title describing your contribution
-   - A brief description of what your instruction/prompt does
-   - Any relevant context or usage notes
+1. **Fork este repositorio**
+2. **Crie uma nova branch** para sua contribuicao
+3. **Adicione sua instruction, prompt, chatmode ou collection** seguindo as diretrizes acima
+4. **Execute o script de atualizacao**: `npm start` para atualizar o README com seu novo arquivo (certifique-se de executar `npm install` primeiro se ainda nao tiver feito)
+   - Um workflow do GitHub Actions verificara se esse passo foi executado corretamente
+   - Se o README.md seria modificado ao executar o script, o check do PR falhara com um comentario mostrando as alteracoes necessarias
+5. **Envie um pull request** com:
+   - Um titulo claro descrevendo sua contribuicao
+   - Uma breve descricao do que sua instruction/prompt faz
+   - Qualquer contexto relevante ou notas de uso
 
-> [!NOTE] 
-> We use [all-contributors](https://github.com/all-contributors/all-contributors) to recognize all types of contributions to the project. Jump to [Contributors Recognition](#contributor-recognition) to learn more!
+> [!NOTE]
+> Usamos [all-contributors](https://github.com/all-contributors/all-contributors) para reconhecer todos os tipos de contribuicoes para o projeto. Va para [Contributors Recognition](#contributor-recognition) para saber mais!
 
-## What We Accept
+## O que Aceitamos
 
-We welcome contributions covering any technology, framework, or development practice that helps developers work more effectively with GitHub Copilot. This includes:
+Aceitamos contribuicoes que cubram qualquer tecnologia, framework ou pratica de desenvolvimento que ajude desenvolvedores a trabalhar de forma mais eficaz com o GitHub Copilot. Isso inclui:
 
-- Programming languages and frameworks
-- Development methodologies and best practices
-- Architecture patterns and design principles
-- Testing strategies and quality assurance
-- DevOps and deployment practices
-- Accessibility and inclusive design
-- Performance optimization techniques
+- Linguagens de programacao e frameworks
+- Metodologias de desenvolvimento e boas praticas
+- Padroes de arquitetura e principios de design
+- Estrategias de testes e garantia de qualidade
+- Praticas de DevOps e implantacao
+- Acessibilidade e design inclusivo
+- Tecnicas de otimizacao de performance
 
-## What We Don't Accept
+## O que Nao Aceitamos
 
-To maintain a safe, responsible, and constructive community, we will **not accept** contributions that:
+Para manter uma comunidade segura, responsavel e construtiva, **nao aceitaremos** contribuicoes que:
 
-- **Violate Responsible AI Principles**: Content that attempts to circumvent Microsoft/GitHub's Responsible AI guidelines or promotes harmful AI usage
-- **Compromise Security**: Instructions designed to bypass security policies, exploit vulnerabilities, or weaken system security
-- **Enable Malicious Activities**: Content intended to harm other systems, users, or organizations
-- **Exploit Weaknesses**: Instructions that take advantage of vulnerabilities in other platforms or services
-- **Promote Harmful Content**: Guidance that could lead to the creation of harmful, discriminatory, or inappropriate content
-- **Circumvent Platform Policies**: Attempts to work around GitHub, Microsoft, or other platform terms of service
+- **Violem os Responsible AI Principles**: Conteudo que tente contornar as diretrizes de Responsible AI da Microsoft/GitHub ou promova uso nocivo de AI
+- **Comprometam a seguranca**: Instructions projetadas para burlar politicas de seguranca, explorar vulnerabilidades ou enfraquecer a seguranca do sistema
+- **Habilitem atividades maliciosas**: Conteudo destinado a prejudicar outros sistemas, usuarios ou organizacoes
+- **Explorem fragilidades**: Instructions que se aproveitam de vulnerabilidades em outras plataformas ou servicos
+- **Promovam conteudo nocivo**: Orientacoes que possam levar a criacao de conteudo nocivo, discriminatorio ou inapropriado
+- **Contornem politicas de plataforma**: Tentativas de contornar termos de servico do GitHub, Microsoft ou outras plataformas
 
-## Quality Guidelines
+## Diretrizes de Qualidade
 
-- **Be specific**: Generic instructions are less helpful than specific, actionable guidance
-- **Test your content**: Ensure your instructions or prompts work well with GitHub Copilot
-- **Follow conventions**: Use consistent formatting and naming
-- **Keep it focused**: Each file should address a specific technology, framework, or use case
-- **Write clearly**: Use simple, direct language
-- **Promote best practices**: Encourage secure, maintainable, and ethical development practices
+- **Seja especifico**: Instructions genericas sao menos uteis do que orientacoes especificas e acionaveis
+- **Teste seu conteudo**: Garanta que suas instructions ou prompts funcionem bem com o GitHub Copilot
+- **Siga convencoes**: Use formatacao e nomenclatura consistentes
+- **Mantenha foco**: Cada arquivo deve abordar uma tecnologia, framework ou caso de uso especifico
+- **Escreva com clareza**: Use linguagem simples e direta
+- **Promova boas praticas**: Incentive praticas de desenvolvimento seguras, sustentaveis e eticas
 
-## Contributor Recognition
+## Reconhecimento de Contribuidores
 
-We use [all-contributors](https://github.com/all-contributors/all-contributors) to recognize **all types of contributions** to this project.
+Usamos [all-contributors](https://github.com/all-contributors/all-contributors) para reconhecer **todos os tipos de contribuicoes** deste projeto.
 
-To add yourself, leave a comment on a relevant issue or pull request using your GitHub username and the appropriate contribution type(s):
+Para se adicionar, deixe um comentario em uma issue ou pull request relevante usando seu username do GitHub e o(s) tipo(s) de contribuicao apropriado(s):
 
 ```markdown
 @all-contributors add @username for contributionType1, contributionType2
 ```
 
-The contributors list is updated automatically every Sunday at **3:00 AM UTC**. When the next run completes, your name will appear in the [README Contributors](./README.md#contributors-) section.
+A lista de contribuidores e atualizada automaticamente todo domingo as **3:00 AM UTC**. Quando a proxima execucao for concluida, seu nome aparecera na secao [README Contributors](./README.md#contributors-) .
 
-### Contribution Types
+### Tipos de Contribuicao
 
-We welcome many kinds of contributions, including the custom categories below:
+Aceitamos muitos tipos de contribuicao, incluindo as categorias personalizadas abaixo:
 
 | Category | Description | Emoji |
 | --- | --- | :---: |
@@ -326,15 +326,15 @@ We welcome many kinds of contributions, including the custom categories below:
 | **Skills** | Specialized knowledge of a task for GitHub Copilot | 🧰 |
 | **Collections** | Curated bundles of related prompts, agents, or instructions | 🎁 |
 
-In addition, all standard contribution types supported by [All Contributors](https://allcontributors.org/emoji-key/) are recognized.
+Além disso, todos os tipos de contribuicao padrao suportados por [All Contributors](https://allcontributors.org/emoji-key/) sao reconhecidos.
 
-> Every contribution matters. Thanks for helping improve this resource for the GitHub Copilot community.
+> Toda contribuicao importa. Obrigado por ajudar a melhorar este recurso para a comunidade GitHub Copilot.
 
 
 ## Code of Conduct
 
-Please note that this project is released with a [Contributor Code of Conduct](CODE_OF_CONDUCT.md). By participating in this project you agree to abide by its terms.
+Observe que este projeto e publicado com um [Contributor Code of Conduct](CODE_OF_CONDUCT.md). Ao participar deste projeto, voce concorda em seguir seus termos.
 
 ## License
 
-By contributing to this repository, you agree that your contributions will be licensed under the MIT License.
+Ao contribuir para este repositorio, voce concorda que suas contribuicoes serao licenciadas sob a MIT License.

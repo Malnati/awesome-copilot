@@ -1,62 +1,62 @@
 ---
 name: azure-resource-visualizer
-description: Analyze Azure resource groups and generate detailed Mermaid architecture diagrams showing the relationships between individual resources. Use this skill when the user asks for a diagram of their Azure resources or help in understanding how the resources relate to each other.
+description: Analise resource groups do Azure e gere diagramas detalhados de arquitetura em Mermaid mostrando os relacionamentos entre recursos individuais. Use esta skill quando o usuario pedir um diagrama de recursos Azure ou ajuda para entender como os recursos se relacionam entre si.
 license: Complete terms in LICENSE.txt
 metadata:
   author: Tom Meschter (tom.meschter@microsoft.com)
 ---
 
-# Azure Resource Visualizer - Architecture Diagram Generator
+# Visualizador de Recursos do Azure (Azure Resource Visualizer) - Gerador de Diagrama de Arquitetura
 
-A user may ask for help understanding how individual resources fit together, or to create a diagram showing their relationships. Your mission is to examine Azure resource groups, understand their structure and relationships, and generate comprehensive Mermaid diagrams that clearly illustrate the architecture.
+Um usuario pode pedir ajuda para entender como recursos individuais se encaixam, ou para criar um diagrama mostrando seus relacionamentos. Sua missao e examinar resource groups do Azure, entender sua estrutura e relacionamentos, e gerar diagramas Mermaid abrangentes que ilustrem claramente a arquitetura.
 
-## Core Responsibilities
+## Responsabilidades Principais
 
-1. **Resource Group Discovery**: List available resource groups when not specified
-2. **Deep Resource Analysis**: Examine all resources, their configurations, and interdependencies
-3. **Relationship Mapping**: Identify and document all connections between resources
-4. **Diagram Generation**: Create detailed, accurate Mermaid diagrams
-5. **Documentation Creation**: Produce clear markdown files with embedded diagrams
+1. **Descoberta de Resource Group**: Liste resource groups disponiveis quando nao especificado
+2. **Analise Profunda de Recursos**: Examine todos os recursos, suas configuracoes e interdependencias
+3. **Mapeamento de Relacionamentos**: Identifique e documente todas as conexoes entre recursos
+4. **Geracao de Diagrama**: Crie diagramas Mermaid detalhados e precisos
+5. **Criacao de Documentacao**: Produza arquivos markdown claros com diagramas embutidos
 
-## Workflow Process
+## Processo do Fluxo de Trabalho
 
-### Step 1: Resource Group Selection
+### Etapa 1: Selecao de Resource Group
 
-If the user hasn't specified a resource group:
+Se o usuario nao especificar um resource group:
 
-1. Use your tools to query available resource groups. If you do not have a tool for this, use `az`.
-2. Present a numbered list of resource groups with their locations
-3. Ask the user to select one by number or name
-4. Wait for user response before proceeding
+1. Use suas tools para consultar resource groups disponiveis. Se nao tiver tool para isso, use `az`.
+2. Apresente uma lista numerada de resource groups com suas localizacoes
+3. Peça ao usuario para selecionar por numero ou nome
+4. Aguarde a resposta do usuario antes de prosseguir
 
-If a resource group is specified, validate it exists and proceed.
+Se um resource group for especificado, valide que ele existe e prossiga.
 
-### Step 2: Resource Discovery & Analysis
+### Etapa 2: Descoberta e Analise de Recursos
 
-Once you have the resource group:
+Quando tiver o resource group:
 
-1. **Query all resources** in the resource group using Azure MCP tools or `az`.
-2. **Analyze each resource** type and capture:
-   - Resource name and type
-   - SKU/tier information
-   - Location/region
-   - Key configuration properties
-   - Network settings (VNets, subnets, private endpoints)
-   - Identity and access (Managed Identity, RBAC)
-   - Dependencies and connections
+1. **Consulte todos os recursos** no resource group usando tools Azure MCP ou `az`.
+2. **Analise cada tipo de recurso** e capture:
+   - Nome e tipo do recurso
+   - Informacoes de SKU/tier
+   - Localizacao/regiao
+   - Propriedades-chave de configuracao
+   - Configuracoes de rede (VNets, subnets, private endpoints)
+   - Identidade e acesso (Managed Identity, RBAC)
+   - Dependencias e conexoes
 
-3. **Map relationships** by identifying:
-   - **Network connections**: VNet peering, subnet assignments, NSG rules, private endpoints
-   - **Data flow**: Apps → Databases, Functions → Storage, API Management → Backends
-   - **Identity**: Managed identities connecting to resources
-   - **Configuration**: App Settings pointing to Key Vaults, connection strings
-   - **Dependencies**: Parent-child relationships, required resources
+3. **Mapeie relacionamentos** identificando:
+   - **Conexoes de rede**: VNet peering, atribuicoes de subnet, regras NSG, private endpoints
+   - **Fluxo de dados**: Apps → Databases, Functions → Storage, API Management → Backends
+   - **Identidade**: Managed identities conectando a recursos
+   - **Configuracao**: App Settings apontando para Key Vaults, connection strings
+   - **Dependencias**: Relacionamentos parent-child, recursos obrigatorios
 
-### Step 3: Diagram Construction
+### Etapa 3: Construcao do Diagrama
 
-Create a **detailed Mermaid diagram** using the `graph TB` (top-to-bottom) or `graph LR` (left-to-right) format:
+Crie um **diagrama Mermaid detalhado** usando o formato `graph TB` (top-to-bottom) ou `graph LR` (left-to-right):
 
-**Diagram Structure Guidelines:**
+**Diretrizes de Estrutura do Diagrama:**
 
 ```mermaid
 graph TB
@@ -98,136 +98,103 @@ graph TB
     NSG -->|"Rules applied to"| SUBNET1
 ```
 
-**Key Diagram Requirements:**
+**Requisitos-chave do Diagrama:**
 
-- **Group by layer or purpose**: Network, Compute, Data, Security, Monitoring
-- **Include details**: SKUs, tiers, important settings in node labels (use `<br/>` for line breaks)
-- **Label all connections**: Describe what flows between resources (data, identity, network)
-- **Use meaningful node IDs**: Abbreviations that make sense (APP, FUNC, SQL, KV)
-- **Visual hierarchy**: Subgraphs for logical grouping
-- **Connection types**:
-  - `-->` for data flow or dependencies
-  - `-.->` for optional/conditional connections
-  - `==>` for critical/primary paths
+- **Agrupar por camada ou proposito**: Rede, Compute, Dados, Seguranca, Monitoramento
+- **Incluir detalhes**: SKUs, tiers, configuracoes importantes nos labels dos nos (use `<br/>` para quebras de linha)
+- **Rotular todas as conexoes**: Descreva o que flui entre recursos (dados, identidade, rede)
+- **Usar IDs de nos significativos**: Abreviacoes que fazem sentido (APP, FUNC, SQL, KV)
+- **Hierarquia visual**: Subgraphs para agrupamento logico
+- **Tipos de conexao**:
+  - `-->` para fluxo de dados ou dependencias
+  - `-.->` para conexoes opcionais/condicionais
+  - `==>` para caminhos criticos/principais
 
-**Resource Type Examples:**
-- App Service: Include plan tier (B1, S1, P1v2)
-- Functions: Include runtime (.NET, Python, Node)
-- Databases: Include tier (Basic, Standard, Premium)
-- Storage: Include redundancy (LRS, GRS, ZRS)
-- VNets: Include address space
-- Subnets: Include address range
+**Exemplos por Tipo de Recurso:**
+- App Service: Inclua o tier do plano (B1, S1, P1v2)
+- Functions: Inclua runtime (.NET, Python, Node)
+- Databases: Inclua o tier (Basic, Standard, Premium)
+- Storage: Inclua redundancia (LRS, GRS, ZRS)
+- VNets: Inclua o address space
+- Subnets: Inclua o range de enderecos
 
-### Step 4: File Creation
+### Etapa 4: Criacao de Arquivo
 
-Use [template-architecture.md](./assets/template-architecture.md) as a template and create a markdown file named `[resource-group-name]-architecture.md` with:
+Use [template-architecture.md](./assets/template-architecture.md) como template e crie um arquivo markdown chamado `[resource-group-name]-architecture.md` com:
 
-1. **Header**: Resource group name, subscription, region
-2. **Summary**: Brief overview of the architecture (2-3 paragraphs)
-3. **Resource Inventory**: Table listing all resources with types and key properties
-4. **Architecture Diagram**: The complete Mermaid diagram
-5. **Relationship Details**: Explanation of key connections and data flows
-6. **Notes**: Any important observations, potential issues, or recommendations
+1. **Cabecalho**: Nome do resource group, subscription, regiao
+2. **Resumo**: Visao geral breve da arquitetura (2-3 paragrafos)
+3. **Inventario de Recursos**: Tabela listando todos os recursos com tipos e propriedades-chave
+4. **Diagrama de Arquitetura**: O diagrama Mermaid completo
+5. **Detalhes de Relacionamentos**: Explicacao das conexoes-chave e fluxos de dados
+6. **Notas**: Observacoes importantes, problemas potenciais ou recomendacoes
 
-## Operating Guidelines
+## Diretrizes Operacionais
 
-### Quality Standards
+### Padroes de Qualidade
 
-- **Accuracy**: Verify all resource details before including in diagram
-- **Completeness**: Don't omit resources; include everything in the resource group
-- **Clarity**: Use clear, descriptive labels and logical grouping
-- **Detail Level**: Include configuration details that matter for architecture understanding
-- **Relationships**: Show ALL significant connections, not just obvious ones
+- **Precisao**: Verifique todos os detalhes de recursos antes de incluir no diagrama
+- **Completude**: Nao omita recursos; inclua tudo no resource group
+- **Clareza**: Use labels claros e descritivos e agrupamento logico
+- **Nivel de detalhe**: Inclua detalhes de configuracao relevantes para entendimento da arquitetura
+- **Relacionamentos**: Mostre TODAS as conexoes significativas, nao apenas as obvias
 
-### Tool Usage Patterns
+### Padroes de Uso de Ferramentas (Tools)
 
-1. **Azure MCP Search**: 
-   - Use `intent="list resource groups"` to discover resource groups
-   - Use `intent="list resources in group"` with group name to get all resources
-   - Use `intent="get resource details"` for individual resource analysis
-   - Use `command` parameter when you need specific Azure operations
+1. **Azure MCP Search**:
+   - Use `intent="list resource groups"` para descobrir resource groups
+   - Use `intent="list resources in group"` com o nome do grupo para obter todos os recursos
+   - Use `intent="get resource details"` para analise individual de recursos
+   - Use o parametro `command` quando precisar de operacoes especificas do Azure
 
-2. **File Creation**:
-   - Always create in workspace root or a `docs/` folder if it exists
-   - Use clear, descriptive filenames: `[rg-name]-architecture.md`
-   - Ensure Mermaid syntax is valid (test syntax mentally before output)
+2. **Criacao de Arquivo**:
+   - Sempre crie na raiz do workspace ou em `docs/` se existir
+   - Use nomes de arquivo claros e descritivos: `[rg-name]-architecture.md`
+   - Garanta que a sintaxe Mermaid seja valida (teste mentalmente antes de emitir)
 
-3. **Terminal (when needed)**:
-   - Use Azure CLI for complex queries not available via MCP
-   - Example: `az resource list --resource-group <name> --output json`
-   - Example: `az network vnet show --resource-group <name> --name <vnet-name>`
+3. **Terminal (quando necessario)**:
+   - Use Azure CLI para consultas complexas nao disponiveis via MCP
+   - Exemplo: `az resource list --resource-group <name> --output json`
+   - Exemplo: `az network vnet show --resource-group <name> --name <vnet-name>`
 
-### Constraints & Boundaries
+### Restricoes e Limites
 
-**Always Do:**
-- ✅ List resource groups if not specified
-- ✅ Wait for user selection before proceeding
-- ✅ Analyze ALL resources in the group
-- ✅ Create detailed, accurate diagrams
-- ✅ Include configuration details in node labels
-- ✅ Group resources logically with subgraphs
-- ✅ Label all connections descriptively
-- ✅ Create a complete markdown file with diagram
+**Sempre Faca:**
+- ✅ Liste resource groups se nao especificados
+- ✅ Aguarde a selecao do usuario antes de prosseguir
+- ✅ Analise TODOS os recursos do grupo
+- ✅ Crie diagramas detalhados e precisos
+- ✅ Inclua detalhes de configuracao nos labels dos nos
+- ✅ Agrupe recursos logicamente com subgraphs
+- ✅ Rotule todas as conexoes de forma descritiva
+- ✅ Crie um arquivo markdown completo com o diagrama
 
-**Never Do:**
-- ❌ Skip resources because they seem unimportant
-- ❌ Make assumptions about resource relationships without verification
-- ❌ Create incomplete or placeholder diagrams
-- ❌ Omit configuration details that affect architecture
-- ❌ Proceed without confirming resource group selection
-- ❌ Generate invalid Mermaid syntax
-- ❌ Modify or delete Azure resources (read-only analysis)
+**Nunca Faca:**
+- ❌ Pular recursos porque parecem sem importancia
+- ❌ Fazer suposicoes sobre relacionamentos sem verificacao
+- ❌ Criar diagramas incompletos ou placeholders
+- ❌ Omitir detalhes de configuracao que afetam a arquitetura
+- ❌ Prosseguir sem confirmar a selecao do resource group
+- ❌ Gerar sintaxe Mermaid invalida
+- ❌ Modificar ou deletar recursos Azure (analise somente leitura)
 
-### Edge Cases & Error Handling
+### Casos de Borda e Tratamento de Erros
 
-- **No resources found**: Inform user and verify resource group name
-- **Permission issues**: Explain what's missing and suggest checking RBAC
-- **Complex architectures (50+ resources)**: Consider creating multiple diagrams by layer
-- **Cross-resource-group dependencies**: Note external dependencies in diagram notes
-- **Resources without clear relationships**: Group in "Other Resources" section
+- **Nenhum recurso encontrado**: Informe o usuario e verifique o nome do resource group
+- **Problemas de permissao**: Explique o que esta faltando e sugira checar RBAC
+- **Arquiteturas complexas (50+ recursos)**: Considere criar multiplos diagramas por camada
+- **Dependencias cross-resource-group**: Registre dependencias externas nas notas do diagrama
+- **Recursos sem relacionamentos claros**: Agrupe na secao "Other Resources"
 
-## Output Format Specifications
+## Especificacoes de Formato de Saida
 
-### Mermaid Diagram Syntax
-- Use `graph TB` (top-to-bottom) for vertical layouts
-- Use `graph LR` (left-to-right) for horizontal layouts (better for wide architectures)
-- Subgraph syntax: `subgraph "Descriptive Name"`
-- Node syntax: `ID["Display Name<br/>Details"]`
-- Connection syntax: `SOURCE -->|"Label"| TARGET`
+### Sintaxe do Diagrama Mermaid
+- Use `graph TB` (top-to-bottom) para layouts verticais
+- Use `graph LR` (left-to-right) para layouts horizontais (melhor para arquiteturas largas)
+- Sintaxe de subgraph: `subgraph "Descriptive Name"`
+- Sintaxe de no: `ID["Display Name<br/>Details"]`
+- Sintaxe de conexao: `SOURCE -->|"Label"| TARGET`
 
-### Markdown Structure
-- Use H1 for main title
-- Use H2 for major sections
-- Use H3 for subsections
-- Use tables for resource inventories
-- Use bullet lists for notes and recommendations
-- Use code blocks with `mermaid` language tag for diagrams
-
-## Example Interaction
-
-**User**: "Analyze my production resource group"
-
-**Agent**:
-1. Lists all resource groups in subscription
-2. Asks user to select: "Which resource group? 1) rg-prod-app, 2) rg-dev-app, 3) rg-shared"
-3. User selects: "1"
-4. Queries all resources in rg-prod-app
-5. Analyzes: App Service, Function App, SQL Database, Storage Account, Key Vault, VNet, NSG
-6. Identifies relationships: App → Function, Function → SQL, Function → Storage, All → Key Vault
-7. Creates detailed Mermaid diagram with subgraphs
-8. Generates `rg-prod-app-architecture.md` with complete documentation
-9. Displays: "Created architecture diagram in rg-prod-app-architecture.md. Found 7 resources with 8 key relationships."
-
-## Success Criteria
-
-A successful analysis includes:
-- ✅ Valid resource group identified
-- ✅ All resources discovered and analyzed
-- ✅ All significant relationships mapped
-- ✅ Detailed Mermaid diagram with proper grouping
-- ✅ Complete markdown file created
-- ✅ Clear, actionable documentation
-- ✅ Valid Mermaid syntax that renders correctly
-- ✅ Professional, architect-level output
-
-Your goal is to provide clarity and insight into Azure architectures, making complex resource relationships easy to understand through excellent visualization.
+### Estrutura Markdown
+- Use H1 para titulo principal
+- Use H2 para secoes principais

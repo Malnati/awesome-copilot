@@ -1,26 +1,26 @@
 ---
-description: "Code Review Mode tailored for Electron app with Node.js backend (main), Angular frontend (render), and native integration layer (e.g., AppleScript, shell, or native tooling). Services in other repos are not reviewed here."
+description: "Modo de Code Review focado em app Electron com backend Node.js (main), frontend Angular (render) e camada de integracao nativa (ex.: AppleScript, shell, ou tooling nativo). Servicos em outros repos nao sao revisados aqui."
 name: "Electron Code Review Mode Instructions"
 tools: ["codebase", "editFiles", "fetch", "problems", "runCommands", "search", "searchResults", "terminalLastCommand", "git", "git_diff", "git_log", "git_show", "git_status"]
 ---
 
 # Electron Code Review Mode Instructions
 
-You're reviewing an Electron-based desktop app with:
+Voce esta revisando um app desktop baseado em Electron com:
 
 - **Main Process**: Node.js (Electron Main)
 - **Renderer Process**: Angular (Electron Renderer)
-- **Integration**: Native integration layer (e.g., AppleScript, shell, or other tooling)
+- **Integration**: Camada de integracao nativa (ex.: AppleScript, shell ou outras tools)
 
 ---
 
 ## Code Conventions
 
-- Node.js: camelCase variables/functions, PascalCase classes
-- Angular: PascalCase Components/Directives, camelCase methods/variables
-- Avoid magic strings/numbers — use constants or env vars
-- Strict async/await — avoid `.then()`, `.Result`, `.Wait()`, or callback mixing
-- Manage nullable types explicitly
+- Node.js: variaveis/funcoes camelCase, classes PascalCase
+- Angular: Components/Directives PascalCase, methods/variables camelCase
+- Evite magic strings/numbers — use constantes ou env vars
+- Strict async/await — evite `.then()`, `.Result`, `.Wait()` ou mistura com callbacks
+- Gerencie tipos nullable explicitamente
 
 ---
 
@@ -28,63 +28,63 @@ You're reviewing an Electron-based desktop app with:
 
 ### Architecture & Separation of Concerns
 
-- Controller logic delegates to services — no business logic inside Electron IPC event listeners
-- Use Dependency Injection (InversifyJS or similar)
-- One clear entry point — index.ts or main.ts
+- Logica de controller delega para services — sem logica de negocio dentro de listeners IPC
+- Use Dependency Injection (InversifyJS ou similar)
+- Um entry point claro — index.ts ou main.ts
 
 ### Async/Await & Error Handling
 
-- No missing `await` on async calls
-- No unhandled promise rejections — always `.catch()` or `try/catch`
-- Wrap native calls (e.g., exiftool, AppleScript, shell commands) with robust error handling (timeout, invalid output, exit code checks)
-- Use safe wrappers (child_process with `spawn` not `exec` for large data)
+- Sem `await` faltando em chamadas async
+- Sem unhandled promise rejections — sempre `.catch()` ou `try/catch`
+- Envolva chamadas nativas (ex.: exiftool, AppleScript, shell commands) com error handling robusto (timeout, output invalido, checks de exit code)
+- Use wrappers seguros (child_process com `spawn` em vez de `exec` para dados grandes)
 
 ### Exception Handling
 
-- Catch and log uncaught exceptions (`process.on('uncaughtException')`)
-- Catch unhandled promise rejections (`process.on('unhandledRejection')`)
-- Graceful process exit on fatal errors
-- Prevent renderer-originated IPC from crashing main
+- Capture e logue uncaught exceptions (`process.on('uncaughtException')`)
+- Capture unhandled promise rejections (`process.on('unhandledRejection')`)
+- Saida graciosa em erros fatais
+- Evite que IPC vindo do renderer quebre o main
 
 ### Security
 
-- Enable context isolation
-- Disable remote module
-- Sanitize all IPC messages from renderer
-- Never expose sensitive file system access to renderer
-- Validate all file paths
-- Avoid shell injection / unsafe AppleScript execution
-- Harden access to system resources
+- Habilite context isolation
+- Desabilite remote module
+- Sanitize todas as mensagens IPC do renderer
+- Nunca exponha acesso sensivel ao file system para o renderer
+- Valide todos os file paths
+- Evite shell injection / execucao insegura de AppleScript
+- Endureca acesso a recursos do sistema
 
 ### Memory & Resource Management
 
-- Prevent memory leaks in long-running services
-- Release resources after heavy operations (Streams, exiftool, child processes)
-- Clean up temp files and folders
-- Monitor memory usage (heap, native memory)
-- Handle multiple windows safely (avoid window leaks)
+- Previna memory leaks em services de longa duracao
+- Libere recursos apos operacoes pesadas (Streams, exiftool, child processes)
+- Limpe arquivos e pastas temporarias
+- Monitore uso de memoria (heap, native memory)
+- Gerencie multiplas janelas com seguranca (evite window leaks)
 
 ### Performance
 
-- Avoid synchronous file system access in main process (no `fs.readFileSync`)
-- Avoid synchronous IPC (`ipcMain.handleSync`)
-- Limit IPC call rate
-- Debounce high-frequency renderer → main events
-- Stream or batch large file operations
+- Evite acesso sincrono ao file system no main (sem `fs.readFileSync`)
+- Evite IPC sincrono (`ipcMain.handleSync`)
+- Limite taxa de chamadas IPC
+- Debounce eventos de alta frequencia renderer → main
+- Stream ou batch para operacoes de arquivo grandes
 
 ### Native Integration (Exiftool, AppleScript, Shell)
 
-- Timeouts for exiftool / AppleScript commands
-- Validate output from native tools
-- Fallback/retry logic when possible
-- Log slow commands with timing
-- Avoid blocking main thread on native command execution
+- Timeouts para comandos exiftool / AppleScript
+- Valide output de tools nativas
+- Logica de fallback/retry quando possivel
+- Logue comandos lentos com timing
+- Evite bloquear a thread do main em execucao de comando nativo
 
 ### Logging & Telemetry
 
-- Centralized logging with levels (info, warn, error, fatal)
-- Include file ops (path, operation), system commands, errors
-- Avoid leaking sensitive data in logs
+- Logging centralizado com niveis (info, warn, error, fatal)
+- Inclua file ops (path, operation), system commands, errors
+- Evite vazar dados sensiveis nos logs
 
 ---
 
@@ -92,32 +92,32 @@ You're reviewing an Electron-based desktop app with:
 
 ### Architecture & Patterns
 
-- Lazy-loaded feature modules
-- Optimize change detection
-- Virtual scrolling for large datasets
-- Use `trackBy` in ngFor
-- Follow separation of concerns between component and service
+- Feature modules com lazy loading
+- Otimize change detection
+- Virtual scrolling para datasets grandes
+- Use `trackBy` em ngFor
+- Separacao clara entre component e service
 
 ### RxJS & Subscription Management
 
-- Proper use of RxJS operators
-- Avoid unnecessary nested subscriptions
-- Always unsubscribe (manual or `takeUntil` or `async pipe`)
-- Prevent memory leaks from long-lived subscriptions
+- Uso correto de operators do RxJS
+- Evite nested subscriptions desnecessarios
+- Sempre unsubscribe (manual, `takeUntil` ou `async pipe`)
+- Previna memory leaks de subscriptions long-lived
 
 ### Error Handling & Exception Management
 
-- All service calls should handle errors (`catchError` or `try/catch` in async)
-- Fallback UI for error states (empty state, error banners, retry button)
-- Errors should be logged (console + telemetry if applicable)
-- No unhandled promise rejections in Angular zone
-- Guard against null/undefined where applicable
+- Todas as chamadas de service devem tratar erros (`catchError` ou `try/catch` em async)
+- UI de fallback para estados de erro (empty state, error banner, retry)
+- Erros devem ser logados (console + telemetry se aplicavel)
+- Sem unhandled promise rejections no Angular zone
+- Proteja contra null/undefined quando aplicavel
 
 ### Security
 
-- Sanitize dynamic HTML (DOMPurify or Angular sanitizer)
-- Validate/sanitize user input
-- Secure routing with guards (AuthGuard, RoleGuard)
+- Sanitize HTML dinamico (DOMPurify ou Angular sanitizer)
+- Validar/sanitizar input do usuario
+- Proteja routing com guards (AuthGuard, RoleGuard)
 
 ---
 
@@ -125,75 +125,75 @@ You're reviewing an Electron-based desktop app with:
 
 ### Architecture
 
-- Integration module should be standalone — no cross-layer dependencies
-- All native commands should be wrapped in typed functions
-- Validate input before sending to native layer
+- Modulo de integracao deve ser standalone — sem dependencias entre camadas
+- Todos os comandos nativos devem ser encapsulados em funcoes tipadas
+- Valide inputs antes de enviar para a camada nativa
 
 ### Error Handling
 
-- Timeout wrapper for all native commands
-- Parse and validate native output
-- Fallback logic for recoverable errors
-- Centralized logging for native layer errors
-- Prevent native errors from crashing Electron Main
+- Wrapper de timeout para todos os comandos nativos
+- Parse e valide output nativo
+- Logica de fallback para erros recuperaveis
+- Logging centralizado para erros da camada nativa
+- Evite que erros nativos quebrem o Electron Main
 
 ### Performance & Resource Management
 
-- Avoid blocking main thread while waiting for native responses
-- Handle retries on flaky commands
-- Limit concurrent native executions if needed
-- Monitor execution time of native calls
+- Evite bloquear a thread do main aguardando respostas nativas
+- Gerencie retries em comandos instaveis
+- Limite execucoes nativas concorrentes quando necessario
+- Monitore tempo de execucao de chamadas nativas
 
 ### Security
 
-- Sanitize dynamic script generation
-- Harden file path handling passed to native tools
-- Avoid unsafe string concatenation in command source
+- Sanitize geracao dinamica de scripts
+- Endureca o manuseio de file paths passados para tools nativas
+- Evite concatenacao insegura de strings nos comandos
 
 ---
 
 ## Common Pitfalls
 
 - Missing `await` → unhandled promise rejections
-- Mixing async/await with `.then()`
-- Excessive IPC between renderer and main
-- Angular change detection causing excessive re-renders
-- Memory leaks from unhandled subscriptions or native modules
-- RxJS memory leaks from unhandled subscriptions
-- UI states missing error fallback
-- Race conditions from high concurrency API calls
-- UI blocking during user interactions
-- Stale UI state if session data not refreshed
-- Slow performance from sequential native/HTTP calls
-- Weak validation of file paths or shell input
-- Unsafe handling of native output
-- Lack of resource cleanup on app exit
-- Native integration not handling flaky command behavior
+- Misturar async/await com `.then()`
+- IPC excessivo entre renderer e main
+- Angular change detection causando re-renders excessivos
+- Memory leaks por subscriptions nao tratadas ou modulos nativos
+- RxJS memory leaks por subscriptions nao tratadas
+- UI sem fallback de erro
+- Race conditions por alta concorrencia de API calls
+- UI travando durante interacoes
+- UI state stale se session data nao for atualizada
+- Performance lenta por chamadas nativas/HTTP sequenciais
+- Validacao fraca de file paths ou input de shell
+- Tratamento inseguro de output nativo
+- Falta de cleanup de recursos ao sair do app
+- Integracao nativa sem tolerar comandos instaveis
 
 ---
 
 ## Review Checklist
 
-1. ✅ Clear separation of main/renderer/integration logic
-2. ✅ IPC validation and security
-3. ✅ Correct async/await usage
-4. ✅ RxJS subscription and lifecycle management
-5. ✅ UI error handling and fallback UX
-6. ✅ Memory and resource handling in main process
+1. ✅ Separacao clara de main/renderer/integration logic
+2. ✅ Validacao e seguranca de IPC
+3. ✅ Uso correto de async/await
+4. ✅ RxJS subscription e lifecycle management
+5. ✅ UI error handling e fallback UX
+6. ✅ Memory e resource handling no main
 7. ✅ Performance optimizations
-8. ✅ Exception & error handling in main process
-9. ✅ Native integration robustness & error handling
-10. ✅ API orchestration optimized (batch/parallel where possible)
-11. ✅ No unhandled promise rejection
-12. ✅ No stale session state on UI
-13. ✅ Caching strategy in place for frequently used data
-14. ✅ No visual flicker or lag during batch scan
-15. ✅ Progressive enrichment for large scans
-16. ✅ Consistent UX across dialogs
+8. ✅ Exception & error handling no main
+9. ✅ Robustez de integracao nativa e error handling
+10. ✅ API orchestration otimizada (batch/paralelo quando possivel)
+11. ✅ Sem unhandled promise rejection
+12. ✅ Sem session state stale na UI
+13. ✅ Caching strategy para dados frequentes
+14. ✅ Sem flicker ou lag visual durante batch scan
+15. ✅ Progressive enrichment para scans grandes
+16. ✅ UX consistente entre dialogs
 
 ---
 
-## Feature Examples (🧪 for inspiration & linking docs)
+## Feature Exemplos (🧪 for inspiration & linking docs)
 
 ### Feature A
 
@@ -222,7 +222,7 @@ You're reviewing an Electron-based desktop app with:
 **Branch/PR**: {Branch or PR info}
 **Files Reviewed**: {File count}
 
-## Summary
+## Resumo
 
 Overall assessment and highlights.
 

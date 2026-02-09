@@ -1,12 +1,12 @@
 ---
 
-description: 'Comprehensive technology-agnostic prompt generator for documenting end-to-end application workflows. Automatically detects project architecture patterns, technology stacks, and data flow patterns to generate detailed implementation blueprints covering entry points, service layers, data access, error handling, and testing approaches across multiple technologies including .NET, Java/Spring, React, and microservices architectures.'
+description: 'Gerador de prompt abrangente e agnostico de tecnologia para documentar workflows end-to-end de aplicacoes. Detecta automaticamente padroes de arquitetura, stacks e fluxos de dados para gerar blueprints de implementacao detalhados cobrindo entry points, service layers, data access, error handling e abordagens de teste em multiplas tecnologias incluindo .NET, Java/Spring, React e arquiteturas de microservices.'
 
 agent: 'agent'
 ---
-# Project Workflow Documentation Generator
+# Gerador de Documentacao de Workflow de Projeto
 
-## Configuration Variables
+## Variaveis de Configuracao
 
 ```
 ${PROJECT_TYPE="Auto-detect|.NET|Java|Spring|Node.js|Python|React|Angular|Microservices|Other"}
@@ -34,14 +34,14 @@ ${INCLUDE_TEST_PATTERNS=true|false}
 <!-- Include testing approach -->
 ```
 
-## Generated Prompt
+## Prompt Gerado
 
 ```
 "Analyze the codebase and document ${WORKFLOW_COUNT} representative end-to-end workflows 
 that can serve as implementation templates for similar features. Use the following approach:
 ```
 
-### Initial Detection Phase
+### Fase Inicial de Deteccao
 
 ```
 ${PROJECT_TYPE == "Auto-detect" ? 
@@ -74,15 +74,15 @@ ${PERSISTENCE_TYPE == "Auto-detect" ?
   : "Focus on ${PERSISTENCE_TYPE} interactions"}
 ```
 
-### Workflow Documentation Instructions
+### Instrucoes de Documentacao de Workflow
 
-For each of the `${WORKFLOW_COUNT}` most representative workflow(s) in the system:
+Para cada um dos `${WORKFLOW_COUNT}` workflows mais representativos do sistema:
 
 #### 1. Workflow Overview
-   - Provide a name and brief description of the workflow
-   - Explain the business purpose it serves
-   - Identify the triggering action or event
-   - List all files/classes involved in the complete workflow
+   - Forneca um nome e uma breve descricao do workflow
+   - Explique o proposito de negocio que ele atende
+   - Identifique a acao ou evento disparador
+   - Liste todos os arquivos/classes envolvidos no workflow completo
 
 #### 2. Entry Point Implementation
 
@@ -124,11 +124,11 @@ ${ENTRY_POINT == "Message Consumer" || ENTRY_POINT == "Auto-detect" ?
 ```
 
 #### 3. Service Layer Implementation
-   - Document each service class involved with their dependencies
-   - Show the complete method signatures with parameters and return types
-   - Include actual method implementations with key business logic
-   - Document interface definitions where applicable
-   - Show dependency injection registration patterns
+   - Documente cada classe de service envolvida com suas dependencias
+   - Mostre assinaturas completas de metodo com parametros e tipos de retorno
+   - Inclua implementacoes reais com logica de negocio chave
+   - Documente definicoes de interface quando aplicavel
+   - Mostre padroes de registro de dependency injection
 
 **CQRS Patterns:**
 ```
@@ -143,17 +143,17 @@ ${ARCHITECTURE_PATTERN == "Clean" || ARCHITECTURE_PATTERN == "Auto-detect" ?
 ```
 
 #### 4. Data Mapping Patterns
-   - Document DTO to domain model mapping code
-   - Show object mapper configurations or manual mapping methods
-   - Include validation logic during mapping
-   - Document any domain events created during mapping
+   - Documente codigo de mapeamento de DTO para domain model
+   - Mostre configuracoes de object mapper ou metodos de mapeamento manual
+   - Inclua logica de validacao durante o mapeamento
+   - Documente domain events criados durante o mapeamento
 
 #### 5. Data Access Implementation
-   - Document repository interfaces and their implementations
-   - Show complete method signatures with parameters and return types
-   - Include actual query implementations
-   - Document entity/model class definitions with all properties
-   - Show transaction handling patterns
+   - Documente interfaces de repository e suas implementacoes
+   - Mostre assinaturas completas de metodo com parametros e tipos de retorno
+   - Inclua implementacoes reais de queries
+   - Documente definicoes de entity/model com todas as propriedades
+   - Mostre padroes de tratamento de transacao
 
 **SQL Database Patterns:**
 ```
@@ -170,25 +170,25 @@ ${PERSISTENCE_TYPE == "NoSQL Database" || PERSISTENCE_TYPE == "Auto-detect" ?
 ```
 
 #### 6. Response Construction
-   - Document response DTO/model class definitions
-   - Show mapping from domain/entity models to response models
-   - Include status code selection logic
-   - Document error response structure and generation
+   - Documente definicoes de DTO/model de resposta
+   - Mostre mapeamento de domain/entity para response
+   - Inclua logica de selecao de status code
+   - Documente estrutura de error response e geracao
 
 #### 7. Error Handling Patterns
-   - Document exception types used in the workflow
-   - Show try/catch patterns at each layer
-   - Include global exception handler configurations
-   - Document error logging implementations
-   - Show retry policies or circuit breaker patterns
-   - Include compensating actions for failure scenarios
+   - Documente tipos de excecao usados no workflow
+   - Mostre padroes try/catch em cada camada
+   - Inclua configuracoes de global exception handler
+   - Documente implementacoes de error logging
+   - Mostre politicas de retry ou circuit breaker
+   - Inclua acoes compensatorias para cenarios de falha
 
 #### 8. Asynchronous Processing Patterns
-   - Document background job scheduling code
-   - Show event publication implementations
-   - Include message queue sending patterns
-   - Document callback or webhook implementations
-   - Show how async operations are tracked and monitored
+   - Documente codigo de agendamento de background jobs
+   - Mostre implementacoes de publicacao de eventos
+   - Inclua padroes de envio para message queues
+   - Documente implementacoes de callback ou webhook
+   - Mostre como operacoes async sao rastreadas e monitoradas
 
 **Testing Approach (Optional):**
 ```
@@ -212,24 +212,24 @@ ${INCLUDE_SEQUENCE_DIAGRAM ?
 ```
 
 #### 11. Naming Conventions
-Document consistent patterns for:
-- Controller naming (e.g., `EntityNameController`)
-- Service naming (e.g., `EntityNameService`)
-- Repository naming (e.g., `IEntityNameRepository`)
-- DTO naming (e.g., `EntityNameRequest`, `EntityNameResponse`)
-- Method naming patterns for CRUD operations
-- Variable naming conventions
-- File organization patterns
+Documente padroes consistentes para:
+- Nomenclatura de controllers (por exemplo, `EntityNameController`)
+- Nomenclatura de services (por exemplo, `EntityNameService`)
+- Nomenclatura de repositories (por exemplo, `IEntityNameRepository`)
+- Nomenclatura de DTOs (por exemplo, `EntityNameRequest`, `EntityNameResponse`)
+- Padroes de nomenclatura de metodos para operacoes CRUD
+- Convencoes de nomenclatura de variaveis
+- Padroes de organizacao de arquivos
 
 #### 12. Implementation Templates
-Provide reusable code templates for:
-- Creating a new API endpoint following the pattern
-- Implementing a new service method
-- Adding a new repository method
-- Creating new domain model classes
-- Implementing proper error handling
+Forneca templates reutilizaveis para:
+- Criar um novo endpoint de API seguindo o padrao
+- Implementar um novo metodo de service
+- Adicionar um novo metodo de repository
+- Criar novas classes de domain model
+- Implementar error handling adequado
 
-### Technology-Specific Implementation Patterns
+### Padroes de Implementacao Especificos por Tecnologia
 
 **.NET Implementation Patterns (if detected):**
 ```
@@ -270,25 +270,25 @@ ${PROJECT_TYPE == "React" || PROJECT_TYPE == "Auto-detect" ?
    - Route configuration" : ""}
 ```
 
-### Implementation Guidelines
+### Diretrizes de Implementacao
 
-Based on the documented workflows, provide specific guidance for implementing new features:
+Com base nos workflows documentados, forneca orientacao especifica para implementar novas features:
 
-#### 1. Step-by-Step Implementation Process
-- Where to start when adding a similar feature
-- Order of implementation (e.g., model → repository → service → controller)
-- How to integrate with existing cross-cutting concerns
+#### 1. Processo de Implementacao Passo a Passo
+- Onde comecar ao adicionar uma feature similar
+- Ordem de implementacao (por exemplo, model → repository → service → controller)
+- Como integrar com cross-cutting concerns existentes
 
 #### 2. Common Pitfalls to Avoid
-- Identify error-prone areas in the current implementation
-- Note performance considerations
-- List common bugs or issues encountered
+- Identifique areas propensas a erros na implementacao atual
+- Observe consideracoes de performance
+- Liste bugs ou issues comuns encontrados
 
-#### 3. Extension Mechanisms
-- Document how to plug into existing extension points
-- Show how to add new behavior without modifying existing code
-- Explain configuration-driven feature patterns
+#### 3. Mecanismos de Extensao
+- Documente como integrar com extension points existentes
+- Mostre como adicionar novo comportamento sem modificar codigo existente
+- Explique padroes de feature baseada em configuracao
 
-**Conclusion:**
-Conclude with a summary of the most important patterns that should be followed when 
-implementing new features to maintain consistency with the codebase."
+**Conclusao:**
+Conclua com um resumo dos padroes mais importantes que devem ser seguidos ao 
+implementar novas features para manter consistencia com o codebase."

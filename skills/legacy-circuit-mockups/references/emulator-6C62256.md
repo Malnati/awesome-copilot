@@ -1,25 +1,25 @@
 # AS6C62256 (32K x 8 SRAM) Emulation Specification
 
-A technical Markdown specification for **emulating the AS6C62256 / 62256-family static RAM**, suitable for 6502-family emulators, SBC simulators, and memory subsystem modeling.
+Uma especificacao tecnica em Markdown para **emular a AS6C62256 / familia 62256 de SRAM estatica**, adequada para emuladores da familia 6502, simuladores de SBC e modelagem de subsistemas de memoria.
 
 ---
 
 ## 1. Scope
 
-This document specifies functional behavior for emulating:
+Este documento especifica o comportamento funcional para emular:
 
 * Alliance Memory **AS6C62256**
-* Compatible **62256 (32K x 8) SRAM** devices
+* Dispositivos **62256 (32K x 8) SRAM** compativeis
 
-Out of scope:
+Fora de escopo:
 
-* Analog electrical timing margins
-* Bus contention and signal rise/fall times
-* Power consumption characteristics
+* Margens de temporizacao eletrica analogica
+* Contencao de barramento e tempos de subida/descida de sinal
+* Caracteristicas de consumo de energia
 
 ---
 
-## 2. Chip Overview
+## 2. Visao Geral do Chip
 
 ### Core Characteristics
 
@@ -44,7 +44,7 @@ Out of scope:
 | OE#    | Input     | Output enable (active low) |
 | WE#    | Input     | Write enable (active low)  |
 
-> `#` indicates active-low signals.
+> `#` indica sinais active-low.
 
 ---
 
@@ -53,7 +53,7 @@ Out of scope:
 * Address range: `0x0000-0x7FFF`
 * Address lines select one byte per address
 
-### Typical 6502 System Mapping Example
+### Exemplo Tipico de Mapeamento de Sistema 6502
 
 | CPU Address Range | Device         |
 | ----------------- | -------------- |
@@ -75,7 +75,7 @@ Conditions:
 Behavior:
 
 ```text
-D[7:0]  memory[A]
+D[7:0] <- memory[A]
 ```
 
 If `OE# = 1` or `CE# = 1`, data bus is **high-impedance**.
@@ -92,7 +92,7 @@ Conditions:
 Behavior:
 
 ```text
-memory[A]  D[7:0]
+memory[A] <- D[7:0]
 ```
 
 * `OE#` is ignored during writes
@@ -104,23 +104,23 @@ memory[A]  D[7:0]
 
 | CE# | WE# | OE# | Result          |
 | --- | --- | --- | --------------- |
-| 1   | X   | X   | Disabled (Hi-Z) |
+| 1   | X   | X   | Desabilitado (Hi-Z) |
 | 0   | 0   | X   | Write           |
 | 0   | 1   | 0   | Read            |
 | 0   | 1   | 1   | Hi-Z            |
 
 ---
 
-## 7. Emulator Interface Requirements
+## 7. Requisitos da Interface do Emulador
 
-An emulator must expose:
+Um emulador deve expor:
 
 ```text
 read(address)  -> byte
 write(address, byte)
 ```
 
-Internal storage:
+Armazenamento interno:
 
 ```text
 uint8_t ram[32768]
@@ -144,34 +144,34 @@ address = address & 0x7FFF
 | Cycle-based    | Access per CPU cycle      |
 | Cycle-accurate | Honors enable transitions |
 
-For most systems, **functional emulation** is sufficient.
+Para a maioria dos sistemas, **functional emulation** e suficiente.
 
 ---
 
 ## 9. Power and Data Retention
 
-* SRAM contents persist as long as power is applied
-* Emulator shall retain contents until explicitly reset
+* Conteudo da SRAM persiste enquanto houver alimentacao
+* Emulador deve manter conteudo ate reset explicito
 
 ### Reset Behavior
 
 * **No automatic clearing** on reset
-* Memory contents undefined unless initialized
+* Conteudo indefinido se nao for inicializado
 
 ---
 
 ## 10. Bus Contention and Hi-Z Modeling (Optional)
 
-Optional advanced behavior:
+Comportamento avancado opcional:
 
-* Track when SRAM drives the data bus
-* Detect illegal simultaneous writes
+* Rastrear quando a SRAM dirige o data bus
+* Detectar escritas simultaneas ilegais
 
-Most emulators may ignore Hi-Z state.
+A maioria dos emuladores pode ignorar estado Hi-Z.
 
 ---
 
-## 11. Error Conditions
+## 11. Condicoes de Erro
 
 | Condition            | Emulator Response             |
 | -------------------- | ----------------------------- |
@@ -185,13 +185,13 @@ Most emulators may ignore Hi-Z state.
 
 ```text
 CPU memory access
-  address decode
-  if in SRAM range:
+  -> address decode
+  -> if in SRAM range:
       AS6C62256.read/write
 ```
 
-* SRAM access is typically single-cycle
-* No wait states required
+* Acesso a SRAM geralmente e de ciclo unico
+* Nao ha wait states necessarios
 
 ---
 

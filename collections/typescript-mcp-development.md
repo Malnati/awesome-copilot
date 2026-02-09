@@ -1,40 +1,40 @@
 # TypeScript MCP Server Development
 
-Complete toolkit for building Model Context Protocol (MCP) servers in TypeScript/Node.js using the official SDK. Includes instructions for best practices, a prompt for generating servers, and an expert chat mode for guidance.
+Toolkit completo para construir servidores Model Context Protocol (MCP) em TypeScript/Node.js usando o SDK oficial. Inclui instructions de boas praticas, um prompt para gerar servidores e um chat mode especialista para orientacao.
 
 **Tags:** typescript, mcp, model-context-protocol, nodejs, server-development
 
-## Items in this Collection
+## Items nesta Collection
 
 | Title | Type | Description | MCP Servers |
 | ----- | ---- | ----------- | ----------- |
-| [TypeScript MCP Server Development](../instructions/typescript-mcp-server.instructions.md)<br />[![Install in VS Code](https://img.shields.io/badge/VS_Code-Install-0098FF?style=flat-square&logo=visualstudiocode&logoColor=white)](https://aka.ms/awesome-copilot/install/instructions?url=vscode%3Achat-instructions%2Finstall%3Furl%3Dhttps%3A%2F%2Fraw.githubusercontent.com%2Fgithub%2Fawesome-copilot%2Fmain%2Finstructions%2Ftypescript-mcp-server.instructions.md)<br />[![Install in VS Code Insiders](https://img.shields.io/badge/VS_Code_Insiders-Install-24bfa5?style=flat-square&logo=visualstudiocode&logoColor=white)](https://aka.ms/awesome-copilot/install/instructions?url=vscode-insiders%3Achat-instructions%2Finstall%3Furl%3Dhttps%3A%2F%2Fraw.githubusercontent.com%2Fgithub%2Fawesome-copilot%2Fmain%2Finstructions%2Ftypescript-mcp-server.instructions.md) | Instruction | Instructions for building Model Context Protocol (MCP) servers using the TypeScript SDK |  |
-| [Generate TypeScript MCP Server](../prompts/typescript-mcp-server-generator.prompt.md)<br />[![Install in VS Code](https://img.shields.io/badge/VS_Code-Install-0098FF?style=flat-square&logo=visualstudiocode&logoColor=white)](https://aka.ms/awesome-copilot/install/prompt?url=vscode%3Achat-prompt%2Finstall%3Furl%3Dhttps%3A%2F%2Fraw.githubusercontent.com%2Fgithub%2Fawesome-copilot%2Fmain%2Fprompts%2Ftypescript-mcp-server-generator.prompt.md)<br />[![Install in VS Code Insiders](https://img.shields.io/badge/VS_Code_Insiders-Install-24bfa5?style=flat-square&logo=visualstudiocode&logoColor=white)](https://aka.ms/awesome-copilot/install/prompt?url=vscode-insiders%3Achat-prompt%2Finstall%3Furl%3Dhttps%3A%2F%2Fraw.githubusercontent.com%2Fgithub%2Fawesome-copilot%2Fmain%2Fprompts%2Ftypescript-mcp-server-generator.prompt.md) | Prompt | Generate a complete MCP server project in TypeScript with tools, resources, and proper configuration |  |
-| [TypeScript MCP Server Expert](../agents/typescript-mcp-expert.agent.md)<br />[![Install in VS Code](https://img.shields.io/badge/VS_Code-Install-0098FF?style=flat-square&logo=visualstudiocode&logoColor=white)](https://aka.ms/awesome-copilot/install/agent?url=vscode%3Achat-agent%2Finstall%3Furl%3Dhttps%3A%2F%2Fraw.githubusercontent.com%2Fgithub%2Fawesome-copilot%2Fmain%2Fagents%2Ftypescript-mcp-expert.agent.md)<br />[![Install in VS Code Insiders](https://img.shields.io/badge/VS_Code_Insiders-Install-24bfa5?style=flat-square&logo=visualstudiocode&logoColor=white)](https://aka.ms/awesome-copilot/install/agent?url=vscode-insiders%3Achat-agent%2Finstall%3Furl%3Dhttps%3A%2F%2Fraw.githubusercontent.com%2Fgithub%2Fawesome-copilot%2Fmain%2Fagents%2Ftypescript-mcp-expert.agent.md) | Agent | Expert assistant for developing Model Context Protocol (MCP) servers in TypeScript [see usage](#typescript-mcp-server-expert) |  |
+| [TypeScript MCP Server Development](../instructions/typescript-mcp-server.instructions.md)<br />[![Install in VS Code](https://img.shields.io/badge/VS_Code-Install-0098FF?style=flat-square&logo=visualstudiocode&logoColor=white)](https://aka.ms/awesome-copilot/install/instructions?url=vscode%3Achat-instructions%2Finstall%3Furl%3Dhttps%3A%2F%2Fraw.githubusercontent.com%2Fgithub%2Fawesome-copilot%2Fmain%2Finstructions%2Ftypescript-mcp-server.instructions.md)<br />[![Install in VS Code Insiders](https://img.shields.io/badge/VS_Code_Insiders-Install-24bfa5?style=flat-square&logo=visualstudiocode&logoColor=white)](https://aka.ms/awesome-copilot/install/instructions?url=vscode-insiders%3Achat-instructions%2Finstall%3Furl%3Dhttps%3A%2F%2Fraw.githubusercontent.com%2Fgithub%2Fawesome-copilot%2Fmain%2Finstructions%2Ftypescript-mcp-server.instructions.md) | Instruction | Instrucoes para construir servidores Model Context Protocol (MCP) usando o SDK de TypeScript |  |
+| [Generate TypeScript MCP Server](../prompts/typescript-mcp-server-generator.prompt.md)<br />[![Install in VS Code](https://img.shields.io/badge/VS_Code-Install-0098FF?style=flat-square&logo=visualstudiocode&logoColor=white)](https://aka.ms/awesome-copilot/install/prompt?url=vscode%3Achat-prompt%2Finstall%3Furl%3Dhttps%3A%2F%2Fraw.githubusercontent.com%2Fgithub%2Fawesome-copilot%2Fmain%2Fprompts%2Ftypescript-mcp-server-generator.prompt.md)<br />[![Install in VS Code Insiders](https://img.shields.io/badge/VS_Code_Insiders-Install-24bfa5?style=flat-square&logo=visualstudiocode&logoColor=white)](https://aka.ms/awesome-copilot/install/prompt?url=vscode-insiders%3Achat-prompt%2Finstall%3Furl%3Dhttps%3A%2F%2Fraw.githubusercontent.com%2Fgithub%2Fawesome-copilot%2Fmain%2Fprompts%2Ftypescript-mcp-server-generator.prompt.md) | Prompt | Gera um projeto completo de servidor MCP em TypeScript com tools, resources e configuracao adequada |  |
+| [TypeScript MCP Server Expert](../agents/typescript-mcp-expert.agent.md)<br />[![Install in VS Code](https://img.shields.io/badge/VS_Code-Install-0098FF?style=flat-square&logo=visualstudiocode&logoColor=white)](https://aka.ms/awesome-copilot/install/agent?url=vscode%3Achat-agent%2Finstall%3Furl%3Dhttps%3A%2F%2Fraw.githubusercontent.com%2Fgithub%2Fawesome-copilot%2Fmain%2Fagents%2Ftypescript-mcp-expert.agent.md)<br />[![Install in VS Code Insiders](https://img.shields.io/badge/VS_Code_Insiders-Install-24bfa5?style=flat-square&logo=visualstudiocode&logoColor=white)](https://aka.ms/awesome-copilot/install/agent?url=vscode-insiders%3Achat-agent%2Finstall%3Furl%3Dhttps%3A%2F%2Fraw.githubusercontent.com%2Fgithub%2Fawesome-copilot%2Fmain%2Fagents%2Ftypescript-mcp-expert.agent.md) | Agent | Assistente especialista para desenvolver servidores Model Context Protocol (MCP) em TypeScript [ver uso](#typescript-mcp-server-expert) |  |
 
-## Collection Usage
+## Uso da Collection
 
 ### TypeScript MCP Server Expert
 
 recommended
 
-This chat mode provides expert guidance for building MCP servers in TypeScript/Node.js.
+Este chat mode fornece orientacao especialista para construir servidores MCP em TypeScript/Node.js.
 
-This chat mode is ideal for:
-- Creating new MCP server projects with TypeScript
-- Implementing tools, resources, and prompts with zod validation
-- Setting up HTTP or stdio transports
-- Debugging schema validation and transport issues
-- Learning TypeScript MCP best practices
-- Optimizing server performance and reliability
+Este chat mode e ideal para:
+- Criar novos projetos de servidor MCP com TypeScript
+- Implementar tools, resources e prompts com validacao zod
+- Configurar transports HTTP ou stdio
+- Depurar validacao de schema e problemas de transport
+- Aprender boas praticas de TypeScript MCP
+- Otimizar performance e confiabilidade do servidor
 
-To get the best results, consider:
-- Using the instruction file to set context for TypeScript/Node.js development
-- Using the prompt to generate initial project structure with proper configuration
-- Switching to the expert chat mode for detailed implementation help
-- Specifying whether you need HTTP or stdio transport
-- Providing details about what tools or functionality you need
+Para obter os melhores resultados, considere:
+- Usar o arquivo de instruction para definir o contexto para desenvolvimento TypeScript/Node.js
+- Usar o prompt para gerar a estrutura inicial do projeto com configuracao adequada
+- Alternar para o chat mode especialista para ajuda detalhada de implementacao
+- Especificar se voce precisa de transport HTTP ou stdio
+- Fornecer detalhes sobre quais tools ou funcionalidades voce precisa
 
 ---
 
-*This collection includes 3 curated items for **TypeScript MCP Server Development**.*
+*Esta collection inclui 3 itens curados para **TypeScript MCP Server Development**.*

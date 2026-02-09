@@ -1,9 +1,9 @@
 ---
 agent: 'agent'
 tools: ['githubRepo', 'github', 'get_issue', 'get_issue_comments', 'get_me', 'list_issues']
-description: 'List my issues in the current repository'
+description: 'Liste minhas issues no repositorio atual'
 ---
 
-Search the current repo (using #githubRepo for the repo info) and list any issues you find (using #list_issues) that are assigned to me.
+Pesquise o repo atual (usando #githubRepo para informacoes do repo) e liste quaisquer issues que encontrar (usando #list_issues) que estejam atribuidas a mim.
 
-Suggest issues that I might want to focus on based on their age, the amount of comments, and their status (open/closed).
+Sugira issues nas quais eu talvez deva focar com base na idade, quantidade de comentarios e status (open/closed).

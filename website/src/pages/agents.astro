@@ -3,51 +3,52 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Modal from '../components/Modal.astro';
 ---
 
-<BaseLayout title="Agents" description="Specialized agents that enhance GitHub Copilot for specific technologies, workflows, and domains" activeNav="agents">
+
+<BaseLayout title="Agentes" description="Agentes especializados que aprimoram o GitHub Copilot para tecnologias, fluxos de trabalho e domínios específicos" activeNav="agents">
   <main id="main-content">
     <div class="page-header">
       <div class="container">
-        <h1>🤖 Custom Agents</h1>
-        <p>Specialized agents that enhance GitHub Copilot for specific technologies, workflows, and domains</p>
+        <h1>🤖 Agentes Personalizados</h1>
+        <p>Agentes especializados que aprimoram o GitHub Copilot para tecnologias, fluxos de trabalho e domínios específicos</p>
       </div>
     </div>
 
     <div class="page-content">
       <div class="container">
         <div class="search-bar">
-          <label for="search-input" class="sr-only">Search agents</label>
-          <input type="text" id="search-input" placeholder="Search agents..." autocomplete="off">
+          <label for="search-input" class="sr-only">Buscar agentes</label>
+          <input type="text" id="search-input" placeholder="Buscar agentes..." autocomplete="off">
         </div>
-        
-        <!-- Filters -->
+
+        <!-- Filtros -->
         <div class="filters-bar" id="filters-bar">
           <div class="filter-group">
-            <label for="filter-model">Model:</label>
-            <select id="filter-model" multiple aria-label="Filter by model"></select>
+            <label for="filter-model">Modelo:</label>
+            <select id="filter-model" multiple aria-label="Filtrar por modelo"></select>
           </div>
           <div class="filter-group">
-            <label for="filter-tool">Tool:</label>
-            <select id="filter-tool" multiple aria-label="Filter by tool"></select>
+            <label for="filter-tool">Ferramenta:</label>
+            <select id="filter-tool" multiple aria-label="Filtrar por ferramenta"></select>
           </div>
           <div class="filter-group">
             <label class="checkbox-label">
               <input type="checkbox" id="filter-handoffs">
-              Has Handoffs
+              Possui Handoffs
             </label>
           </div>
           <div class="filter-group">
-            <label for="sort-select">Sort:</label>
-            <select id="sort-select" aria-label="Sort by">
-              <option value="title">Name (A-Z)</option>
-              <option value="lastUpdated">Recently Updated</option>
+            <label for="sort-select">Ordenar:</label>
+            <select id="sort-select" aria-label="Ordenar por">
+              <option value="title">Nome (A-Z)</option>
+              <option value="lastUpdated">Mais Recentes</option>
             </select>
           </div>
-          <button id="clear-filters" class="btn btn-secondary btn-small">Clear Filters</button>
+          <button id="clear-filters" class="btn btn-secondary btn-small">Limpar Filtros</button>
         </div>
-        
+
         <div class="results-count" id="results-count" aria-live="polite"></div>
         <div class="resource-list" id="resource-list" role="list">
-          <div class="loading" aria-live="polite">Loading agents...</div>
+          <div class="loading" aria-live="polite">Carregando agentes...</div>
         </div>
       </div>
     </div>

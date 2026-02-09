@@ -1,29 +1,29 @@
-# Performance Optimization for Power BI Models
+# Otimizacao de Performance para Modelos Power BI
 
-## Data Reduction Techniques
+## Tecnicas de Reducao de Dados
 
-### 1. Remove Unnecessary Columns
-- Only import columns needed for reporting
-- Remove audit columns (CreatedBy, ModifiedDate) unless required
-- Remove duplicate/redundant columns
+### 1. Remova Colunas Desnecessarias
+- Importe apenas colunas necessarias para relatorios
+- Remova colunas de auditoria (CreatedBy, ModifiedDate) a menos que sejam necessarias
+- Remova colunas duplicadas/redundantes
 
 ```
 column_operations(operation: "List", filter: { tableNames: ["Sales"] })
 // Review and remove unneeded columns
 ```
 
-### 2. Remove Unnecessary Rows
-- Filter historical data to relevant period
-- Exclude cancelled/void transactions if not needed
-- Apply filters in Power Query (not in DAX)
+### 2. Remova Linhas Desnecessarias
+- Filtre dados historicos para o periodo relevante
+- Exclua transacoes canceladas/void se nao forem necessarias
+- Aplique filtros no Power Query (nao em DAX)
 
-### 3. Reduce Cardinality
-High cardinality (many unique values) impacts:
-- Model size
-- Refresh time
-- Query performance
+### 3. Reduza Cardinalidade
+Alta cardinalidade (muitos valores unicos) impacta:
+- Tamanho do modelo
+- Tempo de refresh
+- Performance de queries
 
-**Solutions:**
+**Solucoes:**
 | Column Type | Reduction Technique |
 |-------------|---------------------|
 | DateTime | Split into Date and Time columns |
@@ -31,7 +31,7 @@ High cardinality (many unique values) impacts:
 | Text with patterns | Extract common prefix/suffix |
 | High-precision IDs | Use surrogate integer keys |
 
-### 4. Optimize Data Types
+### 4. Otimize Tipos de Dados
 | From | To | Benefit |
 |------|-----|---------|
 | DateTime | Date (if time not needed) | 8 bytes to 4 bytes |
@@ -39,39 +39,39 @@ High cardinality (many unique values) impacts:
 | Text with numbers | Whole Number | Much better compression |
 | Long text | Shorter text | Reduces storage |
 
-### 5. Group and Summarize
-Pre-aggregate data when detail not needed:
+### 5. Agrupar e Sumarizar
+Pré-agregue dados quando detalhe nao for necessario:
 - Daily instead of transactional
 - Monthly instead of daily
-- Consider aggregation tables for DirectQuery
+- Considere tabelas de agregacao para DirectQuery
 
-## Column Optimization
+## Otimizacao de Colunas
 
-### Prefer Power Query Columns Over Calculated Columns
+### Prefira Colunas do Power Query a Colunas Calculadas
 | Approach | When to Use |
 |----------|-------------|
 | Power Query (M) | Can be computed at source, static values |
 | Calculated Column (DAX) | Needs model relationships, dynamic logic |
 
-Power Query columns:
-- Load faster
-- Compress better
-- Use less memory
+Colunas do Power Query:
+- Carregam mais rapido
+- Comprimem melhor
+- Usam menos memoria
 
-### Avoid Calculated Columns on Relationship Keys
-DAX calculated columns in relationships:
-- Cannot use indexes
-- Generate complex SQL for DirectQuery
-- Hurt performance significantly
+### Evite Colunas Calculadas em Chaves de Relacionamento
+Colunas calculadas DAX em relacionamentos:
+- Nao conseguem usar indices
+- Geram SQL complexo no DirectQuery
+- Pioram a performance significativamente
 
-**Use COMBINEVALUES for multi-column relationships:**
+**Use COMBINEVALUES para relacionamentos multi-coluna:**
 ```dax
 // If you must use calculated column for composite key
 CompositeKey = COMBINEVALUES(",", [Country], [City])
 ```
 
-### Set Appropriate Summarization
-Prevent accidental aggregation of non-additive columns:
+### Defina Summarization Apropriada
+Previna agregacao acidental de colunas nao aditivas:
 ```
 column_operations(
   operation: "Update",
@@ -83,28 +83,28 @@ column_operations(
 )
 ```
 
-## Relationship Optimization
+## Otimizacao de Relacionamentos
 
-### 1. Minimize Bidirectional Relationships
-Each bidirectional relationship:
-- Increases query complexity
-- Can create ambiguous paths
-- Reduces performance
+### 1. Minimize Relacionamentos Bidirecionais
+Cada relacionamento bidirecional:
+- Aumenta a complexidade da query
+- Pode criar caminhos ambiguos
+- Reduz a performance
 
-### 2. Avoid Many-to-Many When Possible
-Many-to-many relationships:
-- Generate more complex queries
-- Require more memory
-- Can produce unexpected results
+### 2. Evite Many-to-Many Quando Possivel
+Relacionamentos many-to-many:
+- Geram queries mais complexas
+- Exigem mais memoria
+- Podem produzir resultados inesperados
 
-### 3. Reduce Relationship Cardinality
-Keep relationship columns low cardinality:
-- Use integer keys over text
-- Consider higher-grain relationships
+### 3. Reduza Cardinalidade de Relacionamento
+Mantenha colunas de relacionamento com baixa cardinalidade:
+- Use chaves inteiras em vez de texto
+- Considere relacionamentos em granularity maior
 
-## DAX Optimization
+## Otimizacao de DAX
 
-### 1. Use Variables
+### 1. Use Variaveis
 ```dax
 // GOOD - Calculate once, use twice
 Sales Growth = 
@@ -117,7 +117,7 @@ Sales Growth =
 DIVIDE([Total Sales] - [PY Sales], [PY Sales])
 ```
 
-### 2. Avoid FILTER with Entire Tables
+### 2. Evite FILTER com Tabelas Inteiras
 ```dax
 // BAD - Iterates entire table
 Sales High Value = 
@@ -128,14 +128,14 @@ Sales High Value =
 CALCULATE([Total Sales], Sales[Amount] > 1000)
 ```
 
-### 3. Use KEEPFILTERS Appropriately
+### 3. Use KEEPFILTERS Apropriadamente
 ```dax
 // Respects existing filters
 Sales with Filter = 
 CALCULATE([Total Sales], KEEPFILTERS(Product[Category] = "Bikes"))
 ```
 
-### 4. Prefer DIVIDE Over Division Operator
+### 4. Prefira DIVIDE ao Operador de Divisao
 ```dax
 // GOOD - Handles divide by zero
 Margin % = DIVIDE([Profit], [Sales])
@@ -144,38 +144,38 @@ Margin % = DIVIDE([Profit], [Sales])
 Margin % = [Profit] / [Sales]
 ```
 
-## DirectQuery Optimization
+## Otimizacao de DirectQuery
 
-### 1. Minimize Columns and Tables
-DirectQuery models:
-- Query source for every visual
-- Performance depends on source
-- Minimize data retrieved
+### 1. Minimize Colunas e Tabelas
+Modelos DirectQuery:
+- Consultam a fonte para cada visual
+- Performance depende da fonte
+- Minimize dados retornados
 
-### 2. Avoid Complex Power Query Transformations
-- Transforms become subqueries
-- Native queries are faster
-- Materialize at source when possible
+### 2. Evite Transformacoes Complexas no Power Query
+- Transformacoes viram subqueries
+- Queries nativas sao mais rapidas
+- Materialize na fonte quando possivel
 
-### 3. Keep Measures Simple Initially
-Complex DAX generates complex SQL:
-- Start with basic aggregations
-- Add complexity gradually
-- Monitor query performance
+### 3. Mantenha Measures Simples Inicialmente
+DAX complexo gera SQL complexo:
+- Comece com agregacoes basicas
+- Adicione complexidade gradualmente
+- Monitore performance de queries
 
-### 4. Disable Auto Date/Time
-For DirectQuery models, disable auto date/time:
-- Creates hidden calculated tables
-- Increases model complexity
-- Use explicit date table instead
+### 4. Desative Auto Date/Time
+Para modelos DirectQuery, desative auto date/time:
+- Cria tabelas calculadas ocultas
+- Aumenta a complexidade do modelo
+- Use date table explicita em vez disso
 
-## Aggregations
+## Agregacoes
 
 ### User-Defined Aggregations
-Pre-aggregate fact tables for:
-- Very large models (billions of rows)
-- Hybrid DirectQuery/Import
-- Common query patterns
+Pré-agregue fact tables para:
+- Modelos muito grandes (bilhoes de linhas)
+- DirectQuery/Import hibrido
+- Padroes comuns de query
 
 ```
 table_operations(
@@ -188,7 +188,7 @@ table_operations(
 )
 ```
 
-## Performance Testing
+## Testes de Performance
 
 ### Use Performance Analyzer
 1. Enable in Power BI Desktop
@@ -202,14 +202,14 @@ External tool for:
 - Server timings
 - Query plans
 
-## Validation Checklist
+## Checklist de Validacao
 
-- [ ] Unnecessary columns removed
-- [ ] Appropriate data types used
-- [ ] High-cardinality columns addressed
-- [ ] Bidirectional relationships minimized
-- [ ] DAX uses variables for repeated expressions
-- [ ] No FILTER on entire tables
-- [ ] DIVIDE used instead of division operator
-- [ ] Auto date/time disabled for DirectQuery
-- [ ] Performance tested with representative data
+- [ ] Colunas desnecessarias removidas
+- [ ] Tipos de dados apropriados usados
+- [ ] Colunas de alta cardinalidade tratadas
+- [ ] Relacionamentos bidirecionais minimizados
+- [ ] DAX usa variaveis para expressoes repetidas
+- [ ] Sem FILTER em tabelas inteiras
+- [ ] DIVIDE usado em vez do operador de divisao
+- [ ] Auto date/time desativado para DirectQuery
+- [ ] Performance testada com dados representativos

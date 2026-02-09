@@ -1,48 +1,48 @@
 ---
 name: appinsights-instrumentation
-description: 'Instrument a webapp to send useful telemetry data to Azure App Insights'
+description: 'Instrumente uma webapp para enviar dados de telemetria uteis ao Azure App Insights'
 ---
 
-# AppInsights instrumentation
+# Instrumentacao do App Insights (AppInsights)
 
-This skill enables sending telemetry data of a webapp to Azure App Insights for better observability of the app's health.
+Esta skill habilita o envio de dados de telemetria de uma webapp para o Azure App Insights para melhor observabilidade da saude do app.
 
-## When to use this skill
+## Quando usar esta skill
 
-Use this skill when the user wants to enable telemetry for their webapp.
+Use esta skill quando o usuario quiser habilitar telemetria para sua webapp.
 
-## Prerequisites
+## Pre-requisitos
 
-The app in the workspace must be one of these kinds
+O app no workspace deve ser de um destes tipos:
 
-- An ASP.NET Core app hosted in Azure
-- A Node.js app hosted in Azure
+- Um app ASP.NET Core hospedado no Azure
+- Um app Node.js hospedado no Azure
 
-## Guidelines
+## Diretrizes
 
-### Collect context information
+### Coletar informacoes de contexto
 
-Find out the (programming language, application framework, hosting) tuple of the application the user is trying to add telemetry support in. This determines how the application can be instrumented. Read the source code to make an educated guess. Confirm with the user on anything you don't know. You must always ask the user where the application is hosted (e.g. on a personal computer, in an Azure App Service as code, in an Azure App Service as container, in an Azure Container App, etc.). 
+Descubra a tupla (linguagem de programacao, framework da aplicacao, hospedagem) do app para o qual o usuario quer adicionar suporte de telemetria. Isso determina como o app pode ser instrumentado. Leia o codigo-fonte para fazer uma inferencia informada. Confirme com o usuario qualquer coisa que voce nao saiba. Voce deve sempre perguntar ao usuario onde o app esta hospedado (ex.: em um computador pessoal, em um Azure App Service como codigo, em um Azure App Service como container, em um Azure Container App, etc.).
 
-### Prefer auto-instrument if possible
+### Preferir auto-instrumentacao se possivel
 
-If the app is a C# ASP.NET Core app hosted in Azure App Service, use [AUTO guide](references/AUTO.md) to help user auto-instrument the app.
+Se o app for um app C# ASP.NET Core hospedado no Azure App Service, use [AUTO guide](references/AUTO.md) para ajudar o usuario a auto-instrumentar o app.
 
-### Manually instrument
+### Instrumentar manualmente
 
-Manually instrument the app by creating the AppInsights resource and update the app's code. 
+Instrumente manualmente o app criando o recurso AppInsights e atualizando o codigo do app.
 
-#### Create AppInsights resource
+#### Criar recurso App Insights (AppInsights)
 
-Use one of the following options that fits the environment.
+Use uma das opcoes abaixo que se encaixe no ambiente.
 
-- Add AppInsights to existing Bicep template. See [examples/appinsights.bicep](examples/appinsights.bicep) for what to add. This is the best option if there are existing Bicep template files in the workspace.
-- Use Azure CLI. See [scripts/appinsights.ps1](scripts/appinsights.ps1) for what Azure CLI command to execute to create the App Insights resource.
+- Adicione AppInsights ao template Bicep existente. Veja [examples/appinsights.bicep](examples/appinsights.bicep) para o que adicionar. Esta e a melhor opcao se houver arquivos de template Bicep no workspace.
+- Use Azure CLI. Veja [scripts/appinsights.ps1](scripts/appinsights.ps1) para o comando Azure CLI a ser executado para criar o recurso App Insights.
 
-No matter which option you choose, recommend the user to create the App Insights resource in a meaningful resource group that makes managing resources easier. A good candidate will be the same resource group that contains the resources for the hosted app in Azure.
+Independentemente da opcao escolhida, recomende ao usuario criar o recurso App Insights em um resource group significativo que facilite o gerenciamento de recursos. Um bom candidato sera o mesmo resource group que contem os recursos do app hospedado no Azure.
 
-#### Modify application code
+#### Modificar o codigo da aplicacao
 
-- If the app is an ASP.NET Core app, see [ASPNETCORE guide](references/ASPNETCORE.md) for how to modify the C# code.
-- If the app is a Node.js app, see [NODEJS guide](references/NODEJS.md) for how to modify the JavaScript/TypeScript code.
-- If the app is a Python app, see [PYTHON guide](references/PYTHON.md) for how to modify the Python code.
+- Se o app for ASP.NET Core, veja [ASPNETCORE guide](references/ASPNETCORE.md) para como modificar o codigo C#.
+- Se o app for Node.js, veja [NODEJS guide](references/NODEJS.md) para como modificar o codigo JavaScript/TypeScript.
+- Se o app for Python, veja [PYTHON guide](references/PYTHON.md) para como modificar o codigo Python.

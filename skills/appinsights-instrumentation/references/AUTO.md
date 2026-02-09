@@ -1,13 +1,13 @@
-# Auto-instrument app
+# Auto-instrumentar app
 
-Use Azure Portal to auto-instrument a webapp hosted in Azure App Service for App Insights without making any code changes. Only the following types of app can be auto-instrumented. See [supported environments and resource providers](https://learn.microsoft.com/azure/azure-monitor/app/codeless-overview#supported-environments-languages-and-resource-providers).
+Use o Azure Portal para auto-instrumentar uma webapp hospedada no Azure App Service para App Insights sem fazer mudancas de codigo. Apenas os seguintes tipos de app podem ser auto-instrumentados. Veja [ambientes e resource providers suportados](https://learn.microsoft.com/azure/azure-monitor/app/codeless-overview#supported-environments-languages-and-resource-providers).
 
-- ASP.NET Core app hosted in Azure App Service
-- Node.js app hosted in Azure App Service
+- App ASP.NET Core hospedado no Azure App Service
+- App Node.js hospedado no Azure App Service
 
-Construct a url to bring the user to the Application Insights blade in Azure Portal for the App Service App.
+Construa uma URL para levar o usuario ao blade do Application Insights no Azure Portal para o App Service App.
 ```
 https://portal.azure.com/#resource/subscriptions/{subscription_id}/resourceGroups/{resource_group_name}/providers/Microsoft.Web/sites/{app_service_name}/monitoringSettings
 ```
 
-Use the context or ask the user to get the subscription_id, resource_group_name, and the app_service_name hosting the webapp.
+Use o contexto ou pergunte ao usuario para obter subscription_id, resource_group_name e app_service_name que hospedam a webapp.

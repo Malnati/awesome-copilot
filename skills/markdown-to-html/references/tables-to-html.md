@@ -1,6 +1,6 @@
-# Tables to HTML
+# Tabelas para HTML
 
-## Creating a table
+## Criar uma tabela
 
 ### Markdown
 
@@ -12,7 +12,7 @@
 | Content Cell  | Content Cell  |
 ```
 
-### Parsed HTML
+### HTML Parseado
 
 ```html
 <table>
@@ -44,7 +44,7 @@
 | git diff | Show file differences that haven't been staged |
 ```
 
-### Parsed HTML
+### HTML Parseado
 
 ```html
 <table>
@@ -67,7 +67,7 @@
 </table>
 ```
 
-## Formatting Content in Tables
+## Formatar Conteudo em Tabelas
 
 ### Markdown
 
@@ -78,7 +78,7 @@
 | `git diff` | Show file differences that **haven't been** staged |
 ```
 
-### Parsed HTML
+### HTML Parseado
 
 ```html
 <table>
@@ -110,7 +110,7 @@
 | git diff     | git diff       | git diff      |
 ```
 
-### Parsed HTML
+### HTML Parseado
 
 ```html
 <table>
@@ -145,7 +145,7 @@
 | Pipe     | \|        |
 ```
 
-### Parsed HTML
+### HTML Parseado
 
 ```html
 <table>

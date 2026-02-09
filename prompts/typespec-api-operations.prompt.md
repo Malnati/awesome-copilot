@@ -1,18 +1,18 @@
 ---
 mode: 'agent'
 tools: ['changes', 'search/codebase', 'edit/editFiles', 'problems']
-description: 'Add GET, POST, PATCH, and DELETE operations to a TypeSpec API plugin with proper routing, parameters, and adaptive cards'
+description: 'Adicione operacoes GET, POST, PATCH e DELETE a um plugin de API TypeSpec com routing, parametros e adaptive cards adequados'
 model: 'gpt-4.1'
 tags: [typespec, m365-copilot, api-plugin, rest-operations, crud]
 ---
 
-# Add TypeSpec API Operations
+# Adicionar Operacoes de API TypeSpec
 
-Add RESTful operations to an existing TypeSpec API plugin for Microsoft 365 Copilot.
+Adicione operacoes RESTful a um plugin de API TypeSpec existente para Microsoft 365 Copilot.
 
-## Adding GET Operations
+## Adicionando Operacoes GET
 
-### Simple GET - List All Items
+### GET Simples - Listar Todos os Itens
 ```typescript
 /**
  * List all items.
@@ -21,7 +21,7 @@ Add RESTful operations to an existing TypeSpec API plugin for Microsoft 365 Copi
 @get op listItems(): Item[];
 ```
 
-### GET with Query Parameter - Filter Results
+### GET com Query Parameter - Filtrar Resultados
 ```typescript
 /**
  * List items filtered by criteria.
@@ -31,7 +31,7 @@ Add RESTful operations to an existing TypeSpec API plugin for Microsoft 365 Copi
 @get op listItems(@query userId?: integer): Item[];
 ```
 
-### GET with Path Parameter - Get Single Item
+### GET com Path Parameter - Obter Um Item
 ```typescript
 /**
  * Get a specific item by ID.
@@ -41,7 +41,7 @@ Add RESTful operations to an existing TypeSpec API plugin for Microsoft 365 Copi
 @get op getItem(@path id: integer): Item;
 ```
 
-### GET with Adaptive Card
+### GET com Adaptive Card
 ```typescript
 /**
  * List items with adaptive card visualization.
@@ -55,7 +55,7 @@ Add RESTful operations to an existing TypeSpec API plugin for Microsoft 365 Copi
 @get op listItems(): Item[];
 ```
 
-**Create the Adaptive Card** (`appPackage/item-card.json`):
+**Crie o Adaptive Card** (`appPackage/item-card.json`):
 ```json
 {
   "type": "AdaptiveCard",
@@ -89,9 +89,9 @@ Add RESTful operations to an existing TypeSpec API plugin for Microsoft 365 Copi
 }
 ```
 
-## Adding POST Operations
+## Adicionando Operacoes POST
 
-### Simple POST - Create Item
+### POST Simples - Criar Item
 ```typescript
 /**
  * Create a new item.
@@ -107,7 +107,7 @@ model CreateItemRequest {
 }
 ```
 
-### POST with Confirmation
+### POST com Confirmation
 ```typescript
 /**
  * Create a new item with confirmation.
@@ -128,9 +128,9 @@ model CreateItemRequest {
 op createItem(@body item: CreateItemRequest): Item;
 ```
 
-## Adding PATCH Operations
+## Adicionando Operacoes PATCH
 
-### Simple PATCH - Update Item
+### PATCH Simples - Atualizar Item
 ```typescript
 /**
  * Update an existing item.
@@ -150,7 +150,7 @@ model UpdateItemRequest {
 }
 ```
 
-### PATCH with Confirmation
+### PATCH com Confirmation
 ```typescript
 /**
  * Update an item with confirmation.
@@ -174,9 +174,9 @@ op updateItem(
 ): Item;
 ```
 
-## Adding DELETE Operations
+## Adicionando Operacoes DELETE
 
-### Simple DELETE
+### DELETE Simples
 ```typescript
 /**
  * Delete an item.
@@ -186,7 +186,7 @@ op updateItem(
 @delete op deleteItem(@path id: integer): void;
 ```
 
-### DELETE with Confirmation
+### DELETE com Confirmation
 ```typescript
 /**
  * Delete an item with confirmation.
@@ -206,9 +206,9 @@ op updateItem(
 op deleteItem(@path id: integer): void;
 ```
 
-## Complete CRUD Example
+## Exemplo CRUD Completo
 
-### Define the Service and Models
+### Definir o Service e Models
 ```typescript
 @service
 @server("https://api.example.com")
@@ -292,9 +292,9 @@ namespace ItemsAPI {
 }
 ```
 
-## Advanced Features
+## Recursos Avancados
 
-### Multiple Query Parameters
+### Multiplos Query Parameters
 ```typescript
 @route("/items")
 @get op listItems(
@@ -348,7 +348,7 @@ model ErrorResponse {
 
 ## Testing Prompts
 
-After adding operations, test with these prompts:
+Apos adicionar operacoes, teste com estes prompts:
 
 **GET Operations:**
 - "List all items and show them in a table"
@@ -367,44 +367,44 @@ After adding operations, test with these prompts:
 - "Delete item 99"
 - "Remove the item with ID 15"
 
-## Best Practices
+## Boas Praticas
 
 ### Parameter Naming
-- Use descriptive parameter names: `userId` not `uid`
-- Be consistent across operations
-- Use optional parameters (`?`) for filters
+- Use nomes descritivos: `userId` e nao `uid`
+- Seja consistente entre operacoes
+- Use parametros opcionais (`?`) para filtros
 
 ### Documentation
-- Add JSDoc comments to all operations
-- Describe what each parameter does
-- Document expected responses
+- Adicione comentarios JSDoc em todas as operacoes
+- Descreva o que cada parametro faz
+- Documente respostas esperadas
 
 ### Models
-- Use `@visibility(Lifecycle.Read)` for read-only fields like `id`
-- Use `@format("date-time")` for date fields
-- Use union types for enums: `"active" | "completed"`
-- Make optional fields explicit with `?`
+- Use `@visibility(Lifecycle.Read)` para campos read-only como `id`
+- Use `@format("date-time")` para campos de data
+- Use union types para enums: `"active" | "completed"`
+- Torne campos opcionais explicitos com `?`
 
 ### Confirmations
-- Always add confirmations to destructive operations (DELETE, PATCH)
-- Show key details in confirmation body
-- Use warning emoji (⚠️) for irreversible actions
+- Sempre adicione confirmacoes em operacoes destrutivas (DELETE, PATCH)
+- Mostre detalhes chave no body da confirmacao
+- Use emoji de aviso (⚠️) para acoes irreversiveis
 
 ### Adaptive Cards
-- Keep cards simple and focused
-- Use conditional rendering with `${if(..., ..., 'N/A')}`
-- Include action buttons for common next steps
-- Test data binding with actual API responses
+- Mantenha cards simples e focados
+- Use conditional rendering com `${if(..., ..., 'N/A')}`
+- Inclua botao de acao para proximos passos
+- Teste data binding com respostas reais da API
 
 ### Routing
-- Use RESTful conventions:
+- Use convencoes RESTful:
   - `GET /items` - List
   - `GET /items/{id}` - Get one
   - `POST /items` - Create
   - `PATCH /items/{id}` - Update
   - `DELETE /items/{id}` - Delete
-- Group related operations in the same namespace
-- Use nested routes for hierarchical resources
+- Agrupe operacoes relacionadas no mesmo namespace
+- Use nested routes para recursos hierarquicos
 
 ## Common Issues
 

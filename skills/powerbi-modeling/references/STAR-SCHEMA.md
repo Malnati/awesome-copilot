@@ -1,54 +1,54 @@
 # Star Schema Design for Power BI
 
-## Overview
+## Visao Geral
 
-Star schema is the optimal design pattern for Power BI semantic models. It organizes data into:
-- **Dimension tables**: Enable filtering and grouping (the "one" side)
-- **Fact tables**: Enable summarization (the "many" side)
+Star schema e o padrao de design ideal para modelos semanticos do Power BI. Ele organiza os dados em:
+- **Dimension tables**: Permitem filtros e agrupamentos (lado "one")
+- **Fact tables**: Permitem sumarizacao (lado "many")
 
-## Table Classification
+## Classificacao de Tabelas
 
 ### Dimension Tables
-- Contain descriptive attributes for filtering/slicing
-- Have unique key columns (one row per entity)
-- Examples: Customer, Product, Date, Geography, Employee
-- Naming convention: Singular noun (`Customer`, `Product`)
+- Contem atributos descritivos para filtro/slice
+- Possuem colunas de chave unicas (uma linha por entidade)
+- Exemplos: Customer, Product, Date, Geography, Employee
+- Convencao de nomes: Substantivo singular (`Customer`, `Product`)
 
 ### Fact Tables  
-- Contain measurable, quantitative data
-- Have foreign keys to dimensions
-- Store data at consistent grain (one row per transaction/event)
-- Examples: Sales, Orders, Inventory, WebVisits
-- Naming convention: Business process noun (`Sales`, `Orders`)
+- Contem dados mensuraveis e quantitativos
+- Possuem foreign keys para dimensoes
+- Armazenam dados em granularity consistente (uma linha por transacao/evento)
+- Exemplos: Sales, Orders, Inventory, WebVisits
+- Convencao de nomes: Substantivo do processo de negocio (`Sales`, `Orders`)
 
-## Design Principles
+## Principios de Design
 
-### 1. Separate Dimensions from Facts
+### 1. Separar Dimensoes de Fatos
 ```
 BAD:  Single denormalized "Sales" table with customer details
 GOOD: "Sales" fact table + "Customer" dimension table
 ```
 
-### 2. Consistent Grain
-Every row in a fact table represents the same thing:
+### 2. Grain Consistente
+Cada linha em uma fact table representa a mesma coisa:
 - Order line level (most common)
 - Daily aggregation
 - Monthly summary
 
-Never mix grains in one table.
+Nunca misture grains em uma unica tabela.
 
 ### 3. Surrogate Keys
-Add surrogate keys when source lacks unique identifiers:
+Adicione surrogate keys quando a origem nao tiver identificadores unicos:
 ```m
 // Power Query: Add index column
 = Table.AddIndexColumn(Source, "CustomerKey", 1, 1)
 ```
 
 ### 4. Date Dimension
-Always create a dedicated date table:
-- Mark as date table in Power BI
-- Include fiscal periods if needed
-- Add relative date columns (IsCurrentMonth, IsPreviousYear)
+Sempre crie uma tabela de data dedicada:
+- Marque como date table no Power BI
+- Inclua periodos fiscais se necessario
+- Adicione colunas de datas relativas (IsCurrentMonth, IsPreviousYear)
 
 ```dax
 Date = 
@@ -62,29 +62,29 @@ ADDCOLUMNS(
 )
 ```
 
-## Special Dimension Types
+## Tipos Especiais de Dimensao
 
-### Role-Playing Dimensions
-Same dimension used multiple times (e.g., Date for OrderDate, ShipDate):
-- Option 1: Duplicate the table (OrderDate, ShipDate tables)
-- Option 2: Use inactive relationships with USERELATIONSHIP in DAX
+### Dimensoes de Role-Playing
+A mesma dimensao usada varias vezes (ex.: Date para OrderDate, ShipDate):
+- Opcao 1: Duplicar a tabela (OrderDate, ShipDate tables)
+- Opcao 2: Usar relacionamentos inativos com USERELATIONSHIP em DAX
 
 ### Slowly Changing Dimensions (Type 2)
-Track historical changes with version columns:
+Rastreie mudancas historicas com colunas de versao:
 - StartDate, EndDate columns
 - IsCurrent flag
-- Requires pre-processing in data warehouse
+- Requer pre-processamento no data warehouse
 
 ### Junk Dimensions
-Combine low-cardinality flags into one table:
+Combine flags de baixa cardinalidade em uma tabela:
 ```
 OrderFlags dimension: IsRush, IsGift, IsOnline
 ```
 
 ### Degenerate Dimensions
-Keep transaction identifiers (OrderNumber, InvoiceID) in fact table.
+Mantenha identificadores de transacao (OrderNumber, InvoiceID) na fact table.
 
-## Anti-Patterns to Avoid
+## Anti-Patterns a Evitar
 
 | Anti-Pattern | Problem | Solution |
 |--------------|---------|----------|
@@ -93,11 +93,11 @@ Keep transaction identifiers (OrderNumber, InvoiceID) in fact table.
 | Many-to-many without bridge | Ambiguous results | Add bridge/junction table |
 | Mixed grain facts | Incorrect aggregations | Separate tables per grain |
 
-## Validation Checklist
+## Checklist de Validacao
 
-- [ ] Each table is clearly dimension or fact
-- [ ] Fact tables have foreign keys to all related dimensions
-- [ ] Dimensions have unique key columns
-- [ ] Date table exists and is marked
-- [ ] No circular relationship paths
-- [ ] Consistent naming conventions
+- [ ] Cada tabela e claramente dimension ou fact
+- [ ] Fact tables tem foreign keys para todas as dimensoes relacionadas
+- [ ] Dimensions tem colunas de chave unicas
+- [ ] Date table existe e esta marcada
+- [ ] Sem caminhos de relacionamento circulares
+- [ ] Convencoes de nomes consistentes

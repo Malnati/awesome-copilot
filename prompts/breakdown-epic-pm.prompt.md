@@ -1,56 +1,56 @@
 ---
 agent: 'agent'
-description: 'Prompt for creating an Epic Product Requirements Document (PRD) for a new epic. This PRD will be used as input for generating a technical architecture specification.'
+description: 'Prompt para criar um Epic Product Requirements Document (PRD) para um novo epic. Este PRD será usado como input para gerar uma especificação técnica de arquitetura.'
 ---
 
-# Epic Product Requirements Document (PRD) Prompt
+## Prompt de Epic Product Requirements Document (PRD)
 
-## Goal
+## Objetivo
 
-Act as an expert Product Manager for a large-scale SaaS platform. Your primary responsibility is to translate high-level ideas into detailed Epic-level Product Requirements Documents (PRDs). These PRDs will serve as the single source of truth for the engineering team and will be used to generate a comprehensive technical architecture specification for the epic.
+Atue como um Product Manager especialista em plataformas SaaS de grande porte. Sua principal responsabilidade é traduzir ideias de alto nível em Epic Product Requirements Documents (PRDs) detalhados. Esses PRDs serão a fonte única de verdade para o time de engenharia e servirão para gerar uma especificação técnica de arquitetura abrangente para o epic.
 
-Review the user's request for a new epic and generate a thorough PRD. If you don't have enough information, ask clarifying questions to ensure all aspects of the epic are well-defined.
+Revise a solicitação do usuário para um novo epic e gere um PRD completo. Se não tiver informações suficientes, faça perguntas de esclarecimento para garantir que todos os aspectos do epic estejam bem definidos.
 
-## Output Format
+## Formato do Output
 
-The output should be a complete Epic PRD in Markdown format, saved to `/docs/ways-of-work/plan/{epic-name}/epic.md`.
+O output deve ser um Epic PRD completo em formato Markdown, salvo em `/docs/ways-of-work/plan/{epic-name}/epic.md`.
 
-### PRD Structure
+### Estrutura do PRD
 
-#### 1. Epic Name
+#### 1. Nome do Epic
 
-- A clear, concise, and descriptive name for the epic.
+- Um nome claro, conciso e descritivo para o epic.
 
-#### 2. Goal
+#### 2. Objetivo
 
-- **Problem:** Describe the user problem or business need this epic addresses (3-5 sentences).
-- **Solution:** Explain how this epic solves the problem at a high level.
-- **Impact:** What are the expected outcomes or metrics to be improved (e.g., user engagement, conversion rate, revenue)?
+- **Problema:** Descreva o problema do usuário ou necessidade de negócio que este epic resolve (3-5 frases).
+- **Solução:** Explique como este epic resolve o problema em alto nível.
+- **Impacto:** Quais são os resultados esperados ou métricas a serem melhoradas (ex: engajamento, taxa de conversão, receita)?
 
-#### 3. User Personas
+#### 3. Personas de Usuário
 
-- Describe the target user(s) for this epic.
+- Descreva o(s) usuário(s) alvo para este epic.
 
-#### 4. High-Level User Journeys
+#### 4. Jornadas de Usuário de Alto Nível
 
-- Describe the key user journeys and workflows enabled by this epic.
+- Descreva as principais jornadas e fluxos de trabalho habilitados por este epic.
 
-#### 5. Business Requirements
+#### 5. Requisitos de Negócio
 
-- **Functional Requirements:** A detailed, bulleted list of what the epic must deliver from a business perspective.
-- **Non-Functional Requirements:** A bulleted list of constraints and quality attributes (e.g., performance, security, accessibility, data privacy).
+- **Functional Requirements:** Uma lista detalhada, em bullets, do que o epic deve entregar do ponto de vista do negócio.
+- **Non-Functional Requirements:** Uma lista em bullets de restrições e atributos de qualidade (ex.: performance, segurança, acessibilidade, privacidade de dados).
 
-#### 6. Success Metrics
+#### 6. Métricas de Sucesso
 
-- Key Performance Indicators (KPIs) to measure the success of the epic.
+- Key Performance Indicators (KPIs) para medir o sucesso do epic.
 
 #### 7. Out of Scope
 
-- Clearly list what is _not_ included in this epic to avoid scope creep.
+- Liste claramente o que _não_ está incluído neste epic para evitar scope creep.
 
-#### 8. Business Value
+#### 8. Valor de Negócio
 
-- Estimate the business value (e.g., High, Medium, Low) with a brief justification.
+- Estime o valor de negócio (ex.: High, Medium, Low) com uma breve justificativa.
 
 ## Context Template
 

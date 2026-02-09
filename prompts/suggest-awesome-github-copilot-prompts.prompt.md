@@ -1,106 +1,105 @@
 ---
 agent: 'agent'
-description: 'Suggest relevant GitHub Copilot prompt files from the awesome-copilot repository based on current repository context and chat history, avoiding duplicates with existing prompts in this repository, and identifying outdated prompts that need updates.'
+description: 'Sugira arquivos de prompt GitHub Copilot relevantes do repositorio awesome-copilot com base no contexto atual do repositorio e historico do chat, evitando duplicatas com prompts existentes neste repositorio e identificando prompts desatualizados que precisam de updates.'
 tools: ['edit', 'search', 'runCommands', 'runTasks', 'think', 'changes', 'testFailure', 'openSimpleBrowser', 'web/fetch', 'githubRepo', 'todos', 'search']
 ---
-# Suggest Awesome GitHub Copilot Prompts
+# Sugerir Prompts do Awesome GitHub Copilot
 
-Analyze current repository context and suggest relevant prompt files from the [GitHub awesome-copilot repository](https://github.com/github/awesome-copilot/blob/main/docs/README.prompts.md) that are not already available in this repository.
+Analise o contexto atual do repositorio e sugira arquivos de prompt relevantes do [repositorio awesome-copilot](https://github.com/github/awesome-copilot/blob/main/docs/README.prompts.md) que ainda nao estao disponiveis neste repositorio.
 
-## Process
+## Processo
 
-1. **Fetch Available Prompts**: Extract prompt list and descriptions from [awesome-copilot README.prompts.md](https://github.com/github/awesome-copilot/blob/main/docs/README.prompts.md). Must use `#fetch` tool.
-2. **Scan Local Prompts**: Discover existing prompt files in `.github/prompts/` folder
-3. **Extract Descriptions**: Read front matter from local prompt files to get descriptions
-4. **Fetch Remote Versions**: For each local prompt, fetch the corresponding version from awesome-copilot repository using raw GitHub URLs (e.g., `https://raw.githubusercontent.com/github/awesome-copilot/main/prompts/<filename>`)
-5. **Compare Versions**: Compare local prompt content with remote versions to identify:
-   - Prompts that are up-to-date (exact match)
-   - Prompts that are outdated (content differs)
-   - Key differences in outdated prompts (tools, description, content)
-6. **Analyze Context**: Review chat history, repository files, and current project needs
-7. **Compare Existing**: Check against prompts already available in this repository
-8. **Match Relevance**: Compare available prompts against identified patterns and requirements
-9. **Present Options**: Display relevant prompts with descriptions, rationale, and availability status including outdated prompts
-10. **Validate**: Ensure suggested prompts would add value not already covered by existing prompts
-11. **Output**: Provide structured table with suggestions, descriptions, and links to both awesome-copilot prompts and similar local prompts
-    **AWAIT** user request to proceed with installation or updates of specific prompts. DO NOT INSTALL OR UPDATE UNLESS DIRECTED TO DO SO.
-12. **Download/Update Assets**: For requested prompts, automatically:
-    - Download new prompts to `.github/prompts/` folder
-    - Update outdated prompts by replacing with latest version from awesome-copilot
-    - Do NOT adjust content of the files
-    - Use `#fetch` tool to download assets, but may use `curl` using `#runInTerminal` tool to ensure all content is retrieved
-    - Use `#todos` tool to track progress
+1. **Fetch Available Prompts**: Extraia lista de prompts e descricoes de [awesome-copilot README.prompts.md](https://github.com/github/awesome-copilot/blob/main/docs/README.prompts.md). Deve usar a tool `#fetch`.
+2. **Scan Local Prompts**: Descubra arquivos de prompt existentes na pasta `.github/prompts/`
+3. **Extract Descriptions**: Leia front matter dos prompts locais para obter descricoes
+4. **Fetch Remote Versions**: Para cada prompt local, busque a versao correspondente no repositorio awesome-copilot usando URLs raw do GitHub (ex: `https://raw.githubusercontent.com/github/awesome-copilot/main/prompts/<filename>`)
+5. **Compare Versions**: Compare o conteudo local com versoes remotas para identificar:
+   - Prompts up-to-date (match exato)
+   - Prompts desatualizados (conteudo diferente)
+   - Diferencas chave em prompts desatualizados (tools, descricao, conteudo)
+6. **Analyze Context**: Revise historico do chat, arquivos do repositorio e necessidades atuais
+7. **Compare Existing**: Verifique prompts ja disponiveis neste repositorio
+8. **Match Relevance**: Compare prompts disponiveis com padroes e requisitos identificados
+9. **Present Options**: Exiba prompts relevantes com descricoes, rationale e status de disponibilidade incluindo prompts desatualizados
+10. **Validate**: Garanta que prompts sugeridos agregam valor nao coberto por prompts existentes
+11. **Output**: Forneca tabela estruturada com sugestoes, descricoes e links para prompts do awesome-copilot e prompts locais similares
+    **AGUARDE** solicitacao do usuario para prosseguir com instalacao ou updates de prompts especificos. NAO INSTALE OU ATUALIZE SEM SER DIRECIONADO.
+12. **Download/Update Assets**: Para prompts solicitados, automaticamente:
+    - Baixe novos prompts para `.github/prompts/`
+    - Atualize prompts desatualizados substituindo pela versao mais recente do awesome-copilot
+    - NAO ajuste o conteudo dos arquivos
+    - Use a tool `#fetch` para baixar assets, mas pode usar `curl` via `#runInTerminal` para garantir todo o conteudo
+    - Use a tool `#todos` para acompanhar progresso
 
-## Context Analysis Criteria
+## Criterios de Analise de Contexto
 
 🔍 **Repository Patterns**:
-- Programming languages used (.cs, .js, .py, etc.)
-- Framework indicators (ASP.NET, React, Azure, etc.)
-- Project types (web apps, APIs, libraries, tools)
-- Documentation needs (README, specs, ADRs)
+- Linguagens usadas (.cs, .js, .py, etc.)
+- Indicadores de frameworks (ASP.NET, React, Azure, etc.)
+- Tipos de projeto (web apps, APIs, libraries, tools)
+- Necessidades de documentacao (README, specs, ADRs)
 
 🗨️ **Chat History Context**:
-- Recent discussions and pain points
-- Feature requests or implementation needs
-- Code review patterns
-- Development workflow requirements
+- Discussoes recentes e pontos de dor
+- Requisitos de features ou implementacao
+- Padroes de code review
+- Requisitos de workflow de desenvolvimento
 
-## Output Format
+## Formato de Saida
 
-Display analysis results in structured table comparing awesome-copilot prompts with existing repository prompts:
+Exiba resultados de analise em tabela estruturada comparando prompts do awesome-copilot com prompts existentes no repositorio:
 
 | Awesome-Copilot Prompt | Description | Already Installed | Similar Local Prompt | Suggestion Rationale |
 |-------------------------|-------------|-------------------|---------------------|---------------------|
-| [code-review.prompt.md](https://github.com/github/awesome-copilot/blob/main/prompts/code-review.prompt.md) | Automated code review prompts | ❌ No | None | Would enhance development workflow with standardized code review processes |
-| [documentation.prompt.md](https://github.com/github/awesome-copilot/blob/main/prompts/documentation.prompt.md) | Generate project documentation | ✅ Yes | create_oo_component_documentation.prompt.md | Already covered by existing documentation prompts |
-| [debugging.prompt.md](https://github.com/github/awesome-copilot/blob/main/prompts/debugging.prompt.md) | Debug assistance prompts | ⚠️ Outdated | debugging.prompt.md | Tools configuration differs: remote uses `'codebase'` vs local missing - Update recommended |
+| [code-review.prompt.md](https://github.com/github/awesome-copilot/blob/main/prompts/code-review.prompt.md) | Automated code review prompts | ❌ Nao | None | Melhoraria o workflow de desenvolvimento com processos padronizados de code review |
+| [documentation.prompt.md](https://github.com/github/awesome-copilot/blob/main/prompts/documentation.prompt.md) | Generate project documentation | ✅ Sim | create_oo_component_documentation.prompt.md | Ja coberto por prompts existentes de documentacao |
+| [debugging.prompt.md](https://github.com/github/awesome-copilot/blob/main/prompts/debugging.prompt.md) | Debug assistance prompts | ⚠️ Desatualizado | debugging.prompt.md | Configuracao de tools difere: remoto usa `'codebase'` vs local ausente - Update recomendado |
 
-## Local Prompts Discovery Process
+## Processo de Descoberta de Prompts Locais
 
-1. List all `*.prompt.md` files in `.github/prompts/` directory
-2. For each discovered file, read front matter to extract `description`
-3. Build comprehensive inventory of existing prompts
-4. Use this inventory to avoid suggesting duplicates
+1. Liste todos os arquivos `*.prompt.md` no diretorio `.github/prompts/`
+2. Para cada arquivo encontrado, leia o front matter para extrair `description`
+3. Monte um inventario abrangente de prompts existentes
+4. Use esse inventario para evitar sugerir duplicatas
 
-## Version Comparison Process
+## Processo de Comparacao de Versoes
 
-1. For each local prompt file, construct the raw GitHub URL to fetch the remote version:
-   - Pattern: `https://raw.githubusercontent.com/github/awesome-copilot/main/prompts/<filename>`
-2. Fetch the remote version using the `#fetch` tool
-3. Compare entire file content (including front matter and body)
-4. Identify specific differences:
-   - **Front matter changes** (description, tools, mode)
-   - **Tools array modifications** (added, removed, or renamed tools)
-   - **Content updates** (instructions, examples, guidelines)
-5. Document key differences for outdated prompts
-6. Calculate similarity to determine if update is needed
+1. Para cada arquivo de prompt local, construa a URL raw do GitHub para buscar a versao remota:
+   - Padrao: `https://raw.githubusercontent.com/github/awesome-copilot/main/prompts/<filename>`
+2. Busque a versao remota usando a tool `#fetch`
+3. Compare o conteudo completo do arquivo (incluindo front matter e corpo)
+4. Identifique diferencas especificas:
+   - **Mudancas de front matter** (description, tools, mode)
+   - **Modificacoes no array de tools** (adicoes, remocoes, renomeacoes)
+   - **Atualizacoes de conteudo** (instrucoes, exemplos, guidelines)
+5. Documente diferencas-chave para prompts desatualizados
+6. Calcule similaridade para determinar se update e necessario
 
-## Requirements
+## Requisitos
 
-- Use `githubRepo` tool to get content from awesome-copilot repository prompts folder
-- Scan local file system for existing prompts in `.github/prompts/` directory
-- Read YAML front matter from local prompt files to extract descriptions
-- Compare local prompts with remote versions to detect outdated prompts
-- Compare against existing prompts in this repository to avoid duplicates
-- Focus on gaps in current prompt library coverage
-- Validate that suggested prompts align with repository's purpose and standards
-- Provide clear rationale for each suggestion
-- Include links to both awesome-copilot prompts and similar local prompts
-- Clearly identify outdated prompts with specific differences noted
-- Don't provide any additional information or context beyond the table and the analysis
+- Use a tool `githubRepo` para obter conteudo da pasta prompts do awesome-copilot
+- Scanne o file system local para prompts existentes em `.github/prompts/`
+- Leia front matter YAML dos prompts locais para extrair descricoes
+- Compare prompts locais com versoes remotas para detectar prompts desatualizados
+- Compare com prompts existentes no repositorio para evitar duplicatas
+- Foque em gaps na cobertura da biblioteca de prompts atual
+- Valide que prompts sugeridos alinham com o proposito e padroes do repositorio
+- Forneca rationale claro para cada sugestao
+- Inclua links para prompts do awesome-copilot e prompts locais similares
+- Identifique claramente prompts desatualizados com diferencas especificas
+- Nao forneca informacao ou contexto adicional alem da tabela e analise
 
+## Referencia de Icones
 
-## Icons Reference
+- ✅ Ja instalado e atualizado
+- ⚠️ Instalado mas desatualizado (update disponivel)
+- ❌ Nao instalado no repo
 
-- ✅ Already installed and up-to-date
-- ⚠️ Installed but outdated (update available)
-- ❌ Not installed in repo
+## Tratamento de Updates
 
-## Update Handling
-
-When outdated prompts are identified:
-1. Include them in the output table with ⚠️ status
-2. Document specific differences in the "Suggestion Rationale" column
-3. Provide recommendation to update with key changes noted
-4. When user requests update, replace entire local file with remote version
-5. Preserve file location in `.github/prompts/` directory
+Quando prompts desatualizados forem identificados:
+1. Inclua-os na tabela de saida com status ⚠️
+2. Documente diferencas especificas na coluna "Suggestion Rationale"
+3. Forneca recomendacao de update com mudancas-chave
+4. Quando o usuario pedir update, substitua o arquivo local inteiro pela versao remota
+5. Preserve a localizacao do arquivo no diretorio `.github/prompts/`

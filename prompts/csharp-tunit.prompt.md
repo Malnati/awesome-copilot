@@ -1,101 +1,101 @@
 ---
 agent: 'agent'
 tools: ['changes', 'search/codebase', 'edit/editFiles', 'problems', 'search']
-description: 'Get best practices for TUnit unit testing, including data-driven tests'
+description: 'Obtenha boas praticas para testes unitarios com TUnit, incluindo testes data-driven'
 ---
 
-# TUnit Best Practices
+# Boas Praticas de TUnit
 
-Your goal is to help me write effective unit tests with TUnit, covering both standard and data-driven testing approaches.
+Seu objetivo e me ajudar a escrever testes unitarios eficazes com TUnit, cobrindo abordagens padrao e data-driven.
 
-## Project Setup
+## Setup do Projeto
 
-- Use a separate test project with naming convention `[ProjectName].Tests`
-- Reference TUnit package and TUnit.Assertions for fluent assertions
-- Create test classes that match the classes being tested (e.g., `CalculatorTests` for `Calculator`)
-- Use .NET SDK test commands: `dotnet test` for running tests
-- TUnit requires .NET 8.0 or higher
+- Use um projeto de testes separado com convencao `[ProjectName].Tests`
+- Referencie os pacotes TUnit e TUnit.Assertions para fluent assertions
+- Crie classes de teste que correspondam as classes testadas (ex.: `CalculatorTests` para `Calculator`)
+- Use comandos do .NET SDK: `dotnet test` para rodar testes
+- TUnit requer .NET 8.0 ou superior
 
-## Test Structure
+## Estrutura de Testes
 
-- No test class attributes required (like xUnit/NUnit)
-- Use `[Test]` attribute for test methods (not `[Fact]` like xUnit)
-- Follow the Arrange-Act-Assert (AAA) pattern
-- Name tests using the pattern `MethodName_Scenario_ExpectedBehavior`
-- Use lifecycle hooks: `[Before(Test)]` for setup and `[After(Test)]` for teardown
-- Use `[Before(Class)]` and `[After(Class)]` for shared context between tests in a class
-- Use `[Before(Assembly)]` and `[After(Assembly)]` for shared context across test classes
-- TUnit supports advanced lifecycle hooks like `[Before(TestSession)]` and `[After(TestSession)]`
+- Nao sao necessarios atributos em classes de teste (como xUnit/NUnit)
+- Use `[Test]` em metodos de teste (nao `[Fact]` como xUnit)
+- Siga o pattern Arrange-Act-Assert (AAA)
+- Nomeie testes com o pattern `MethodName_Scenario_ExpectedBehavior`
+- Use hooks de lifecycle: `[Before(Test)]` para setup e `[After(Test)]` para teardown
+- Use `[Before(Class)]` e `[After(Class)]` para contexto compartilhado por classe
+- Use `[Before(Assembly)]` e `[After(Assembly)]` para contexto compartilhado entre classes
+- TUnit suporta hooks avancados como `[Before(TestSession)]` e `[After(TestSession)]`
 
-## Standard Tests
+## Testes Padrao
 
-- Keep tests focused on a single behavior
-- Avoid testing multiple behaviors in one test method
-- Use TUnit's fluent assertion syntax with `await Assert.That()`
-- Include only the assertions needed to verify the test case
-- Make tests independent and idempotent (can run in any order)
-- Avoid test interdependencies (use `[DependsOn]` attribute if needed)
+- Mantenha testes focados em um unico comportamento
+- Evite testar multiplos comportamentos em um unico metodo
+- Use syntax de assertion fluente do TUnit com `await Assert.That()`
+- Inclua apenas assertions necessarias para validar o caso de teste
+- Torne testes independentes e idempotentes (podem rodar em qualquer ordem)
+- Evite dependencias entre testes (use `[DependsOn]` se necessario)
 
-## Data-Driven Tests
+## Testes Data-Driven
 
-- Use `[Arguments]` attribute for inline test data (equivalent to xUnit's `[InlineData]`)
-- Use `[MethodData]` for method-based test data (equivalent to xUnit's `[MemberData]`)
-- Use `[ClassData]` for class-based test data
-- Create custom data sources by implementing `ITestDataSource`
-- Use meaningful parameter names in data-driven tests
-- Multiple `[Arguments]` attributes can be applied to the same test method
+- Use `[Arguments]` para dados inline (equivalente ao `[InlineData]` do xUnit)
+- Use `[MethodData]` para dados baseados em metodo (equivalente ao `[MemberData]`)
+- Use `[ClassData]` para dados baseados em classe
+- Crie fontes custom de dados implementando `ITestDataSource`
+- Use nomes de parametros significativos em testes data-driven
+- Multiplos `[Arguments]` podem ser aplicados ao mesmo metodo
 
 ## Assertions
 
-- Use `await Assert.That(value).IsEqualTo(expected)` for value equality
-- Use `await Assert.That(value).IsSameReferenceAs(expected)` for reference equality
-- Use `await Assert.That(value).IsTrue()` or `await Assert.That(value).IsFalse()` for boolean conditions
-- Use `await Assert.That(collection).Contains(item)` or `await Assert.That(collection).DoesNotContain(item)` for collections
-- Use `await Assert.That(value).Matches(pattern)` for regex pattern matching
-- Use `await Assert.That(action).Throws<TException>()` or `await Assert.That(asyncAction).ThrowsAsync<TException>()` to test exceptions
-- Chain assertions with `.And` operator: `await Assert.That(value).IsNotNull().And.IsEqualTo(expected)`
-- Use `.Or` operator for alternative conditions: `await Assert.That(value).IsEqualTo(1).Or.IsEqualTo(2)`
-- Use `.Within(tolerance)` for DateTime and numeric comparisons with tolerance
-- All assertions are asynchronous and must be awaited
+- Use `await Assert.That(value).IsEqualTo(expected)` para igualdade de valor
+- Use `await Assert.That(value).IsSameReferenceAs(expected)` para igualdade de referencia
+- Use `await Assert.That(value).IsTrue()` ou `await Assert.That(value).IsFalse()` para booleanos
+- Use `await Assert.That(collection).Contains(item)` ou `await Assert.That(collection).DoesNotContain(item)` para colecoes
+- Use `await Assert.That(value).Matches(pattern)` para regex
+- Use `await Assert.That(action).Throws<TException>()` ou `await Assert.That(asyncAction).ThrowsAsync<TException>()` para excecoes
+- Encadeie assertions com `.And`: `await Assert.That(value).IsNotNull().And.IsEqualTo(expected)`
+- Use `.Or` para condicoes alternativas: `await Assert.That(value).IsEqualTo(1).Or.IsEqualTo(2)`
+- Use `.Within(tolerance)` para comparacoes com tolerancia
+- Todas as assertions sao assincronas e devem ser aguardadas
 
-## Advanced Features
+## Recursos Avancados
 
-- Use `[Repeat(n)]` to repeat tests multiple times
-- Use `[Retry(n)]` for automatic retry on failure
-- Use `[ParallelLimit<T>]` to control parallel execution limits
-- Use `[Skip("reason")]` to skip tests conditionally
-- Use `[DependsOn(nameof(OtherTest))]` to create test dependencies
-- Use `[Timeout(milliseconds)]` to set test timeouts
-- Create custom attributes by extending TUnit's base attributes
+- Use `[Repeat(n)]` para repetir testes
+- Use `[Retry(n)]` para retry automatico em falha
+- Use `[ParallelLimit<T>]` para controlar limites de execucao paralela
+- Use `[Skip("reason")]` para pular testes condicionalmente
+- Use `[DependsOn(nameof(OtherTest))]` para criar dependencias
+- Use `[Timeout(milliseconds)]` para timeouts
+- Crie atributos custom estendendo atributos base do TUnit
 
-## Test Organization
+## Organizacao de Testes
 
-- Group tests by feature or component
-- Use `[Category("CategoryName")]` for test categorization
-- Use `[DisplayName("Custom Test Name")]` for custom test names
-- Consider using `TestContext` for test diagnostics and information
-- Use conditional attributes like custom `[WindowsOnly]` for platform-specific tests
+- Agrupe testes por feature ou componente
+- Use `[Category("CategoryName")]` para categorizacao
+- Use `[DisplayName("Custom Test Name")]` para nomes custom
+- Considere usar `TestContext` para diagnosticos
+- Use atributos condicionais como `[WindowsOnly]` para testes especificos por plataforma
 
-## Performance and Parallel Execution
+## Performance e Execucao Paralela
 
-- TUnit runs tests in parallel by default (unlike xUnit which requires explicit configuration)
-- Use `[NotInParallel]` to disable parallel execution for specific tests
-- Use `[ParallelLimit<T>]` with custom limit classes to control concurrency
-- Tests within the same class run sequentially by default
-- Use `[Repeat(n)]` with `[ParallelLimit<T>]` for load testing scenarios
+- TUnit executa testes em paralelo por default (ao contrario de xUnit)
+- Use `[NotInParallel]` para desabilitar execucao paralela em testes especificos
+- Use `[ParallelLimit<T>]` com classes de limite custom para controlar concorrencia
+- Testes na mesma classe rodam sequencialmente por default
+- Use `[Repeat(n)]` com `[ParallelLimit<T>]` para cenarios de load testing
 
-## Migration from xUnit
+## Migracao a partir de xUnit
 
-- Replace `[Fact]` with `[Test]`
-- Replace `[Theory]` with `[Test]` and use `[Arguments]` for data
-- Replace `[InlineData]` with `[Arguments]`
-- Replace `[MemberData]` with `[MethodData]`
-- Replace `Assert.Equal` with `await Assert.That(actual).IsEqualTo(expected)`
-- Replace `Assert.True` with `await Assert.That(condition).IsTrue()`
-- Replace `Assert.Throws<T>` with `await Assert.That(action).Throws<T>()`
-- Replace constructor/IDisposable with `[Before(Test)]`/`[After(Test)]`
-- Replace `IClassFixture<T>` with `[Before(Class)]`/`[After(Class)]`
+- Substitua `[Fact]` por `[Test]`
+- Substitua `[Theory]` por `[Test]` e use `[Arguments]` para dados
+- Substitua `[InlineData]` por `[Arguments]`
+- Substitua `[MemberData]` por `[MethodData]`
+- Substitua `Assert.Equal` por `await Assert.That(actual).IsEqualTo(expected)`
+- Substitua `Assert.True` por `await Assert.That(condition).IsTrue()`
+- Substitua `Assert.Throws<T>` por `await Assert.That(action).Throws<T>()`
+- Substitua construtor/IDisposable por `[Before(Test)]`/`[After(Test)]`
+- Substitua `IClassFixture<T>` por `[Before(Class)]`/`[After(Class)]`
 
-**Why TUnit over xUnit?**
+**Por que TUnit em vez de xUnit?**
 
-TUnit offers a modern, fast, and flexible testing experience with advanced features not present in xUnit, such as asynchronous assertions, more refined lifecycle hooks, and improved data-driven testing capabilities. TUnit's fluent assertions provide clearer and more expressive test validation, making it especially suitable for complex .NET projects.
+TUnit oferece uma experiencia moderna, rapida e flexivel com recursos avancados ausentes no xUnit, como assertions assincronas, hooks de lifecycle refinados e melhores capacidades de testes data-driven. As fluent assertions do TUnit sao mais claras e expressivas, sendo especialmente adequadas para projetos .NET complexos.

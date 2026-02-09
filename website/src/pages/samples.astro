@@ -5,40 +5,41 @@ import Modal from '../components/Modal.astro';
 const base = import.meta.env.BASE_URL;
 ---
 
-<BaseLayout title="Samples" description="Code samples, recipes, and examples for building with GitHub Copilot" activeNav="samples">
+
+<BaseLayout title="Samples" description="Code samples, recipes e exemplos para construir com GitHub Copilot" activeNav="samples">
   <main id="main-content">
     <div class="page-header">
       <div class="container">
         <h1>📚 Samples & Recipes</h1>
-        <p>Code samples, recipes, and examples for building with GitHub Copilot tools</p>
+        <p>Code samples, recipes e exemplos para construir com GitHub Copilot tools</p>
       </div>
     </div>
 
     <div class="page-content">
       <div class="container">
         <div class="search-bar">
-          <label for="search-input" class="sr-only">Search recipes</label>
-          <input type="text" id="search-input" placeholder="Search recipes..." autocomplete="off">
+          <label for="search-input" class="sr-only">Buscar recipes</label>
+          <input type="text" id="search-input" placeholder="Buscar recipes..." autocomplete="off">
         </div>
-        
+
         <div class="filters-bar" id="filters-bar">
           <div class="filter-group">
             <label for="filter-language">Language:</label>
-            <select id="filter-language" aria-label="Filter by language">
+            <select id="filter-language" aria-label="Filtrar por language">
               <option value="">All Languages</option>
             </select>
           </div>
           <div class="filter-group">
             <label for="filter-tag">Tags:</label>
-            <select id="filter-tag" multiple aria-label="Filter by tags"></select>
+            <select id="filter-tag" multiple aria-label="Filtrar por tags"></select>
           </div>
-          <button id="clear-filters" class="btn btn-secondary btn-small">Clear Filters</button>
+          <button id="clear-filters" class="btn btn-secondary btn-small">Limpar filtros</button>
         </div>
-        
+
         <div class="results-count" id="results-count" aria-live="polite"></div>
-        
+
         <div id="samples-list" role="list">
-          <div class="loading" aria-live="polite">Loading samples...</div>
+          <div class="loading" aria-live="polite">Carregando samples...</div>
         </div>
       </div>
     </div>

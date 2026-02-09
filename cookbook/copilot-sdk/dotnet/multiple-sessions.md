@@ -1,16 +1,16 @@
-# Working with Multiple Sessions
+# Trabalhando com Multiplas Sessoes
 
-Manage multiple independent conversations simultaneously.
+Gerencie varias conversas independentes simultaneamente.
 
-> **Runnable example:** [recipe/multiple-sessions.cs](recipe/multiple-sessions.cs)
+> **Exemplo executavel:** [recipe/multiple-sessions.cs](recipe/multiple-sessions.cs)
 >
 > ```bash
 > dotnet run recipe/multiple-sessions.cs
 > ```
 
-## Example scenario
+## Cenario de exemplo
 
-You need to run multiple conversations in parallel, each with its own context and history.
+Voce precisa executar varias conversas em paralelo, cada uma com seu proprio contexto e historico.
 
 ## C#
 
@@ -41,9 +41,9 @@ await session2.DisposeAsync();
 await session3.DisposeAsync();
 ```
 
-## Custom session IDs
+## IDs de sessao personalizados
 
-Use custom IDs for easier tracking:
+Use IDs personalizados para facilitar o acompanhamento:
 
 ```csharp
 var session = await client.CreateSessionAsync(new SessionConfig
@@ -55,7 +55,7 @@ var session = await client.CreateSessionAsync(new SessionConfig
 Console.WriteLine(session.SessionId); // "user-123-chat"
 ```
 
-## Listing sessions
+## Listando sessoes
 
 ```csharp
 var sessions = await client.ListSessionsAsync();
@@ -65,15 +65,15 @@ foreach (var sessionInfo in sessions)
 }
 ```
 
-## Deleting sessions
+## Excluindo sessoes
 
 ```csharp
 // Delete a specific session
 await client.DeleteSessionAsync("user-123-chat");
 ```
 
-## Use cases
+## Casos de uso
 
-- **Multi-user applications**: One session per user
-- **Multi-task workflows**: Separate sessions for different tasks
-- **A/B testing**: Compare responses from different models
+- **Aplicacoes multiusuario**: Uma sessao por usuario
+- **Fluxos de trabalho multitarefa**: Sessoes separadas para tarefas diferentes
+- **Testes A/B**: Compare respostas de modelos diferentes

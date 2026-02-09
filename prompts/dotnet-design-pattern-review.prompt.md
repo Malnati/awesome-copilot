@@ -1,41 +1,41 @@
 ---
 agent: 'agent'
-description: 'Review the C#/.NET code for design pattern implementation and suggest improvements.'
+description: 'Revise codigo C#/.NET para implementacao de design patterns e sugira melhorias.'
 ---
-# .NET/C# Design Pattern Review
+# Revisao de Design Patterns em .NET/C#
 
-Review the C#/.NET code in ${selection} for design pattern implementation and suggest improvements for the solution/project. Do not make any changes to the code, just provide a review.
+Revise o codigo C#/.NET em ${selection} para implementacao de design patterns e sugira melhorias para o solution/projeto. Nao faca alteracoes no codigo, apenas forneca uma revisao.
 
-## Required Design Patterns
+## Design Patterns Obrigatorios
 
-- **Command Pattern**: Generic base classes (`CommandHandler<TOptions>`), `ICommandHandler<TOptions>` interface, `CommandHandlerOptions` inheritance, static `SetupCommand(IHost host)` methods
-- **Factory Pattern**: Complex object creation service provider integration
-- **Dependency Injection**: Primary constructor syntax, `ArgumentNullException` null checks, interface abstractions, proper service lifetimes
-- **Repository Pattern**: Async data access interfaces provider abstractions for connections
-- **Provider Pattern**: External service abstractions (database, AI), clear contracts, configuration handling
-- **Resource Pattern**: ResourceManager for localized messages, separate .resx files (LogMessages, ErrorMessages)
+- **Command Pattern**: Classes base genericas (`CommandHandler<TOptions>`), interface `ICommandHandler<TOptions>`, heranca de `CommandHandlerOptions`, metodos estaticos `SetupCommand(IHost host)`
+- **Factory Pattern**: Criacao de objetos complexos com integracao ao service provider
+- **Dependency Injection**: Sintaxe de primary constructor, null checks com `ArgumentNullException`, abstracoes por interface, lifetimes corretos
+- **Repository Pattern**: Interfaces de acesso async a dados e abstracoes de provider para conexoes
+- **Provider Pattern**: Abstracoes de servicos externos (banco, IA), contratos claros, configuracao
+- **Resource Pattern**: ResourceManager para mensagens localizadas, arquivos .resx separados (LogMessages, ErrorMessages)
 
-## Review Checklist
+## Checklist de Revisao
 
-- **Design Patterns**: Identify patterns used. Are Command Handler, Factory, Provider, and Repository patterns correctly implemented? Missing beneficial patterns?
-- **Architecture**: Follow namespace conventions (`{Core|Console|App|Service}.{Feature}`)? Proper separation between Core/Console projects? Modular and readable?
-- **.NET Best Practices**: Primary constructors, async/await with Task returns, ResourceManager usage, structured logging, strongly-typed configuration?
-- **GoF Patterns**: Command, Factory, Template Method, Strategy patterns correctly implemented?
-- **SOLID Principles**: Single Responsibility, Open/Closed, Liskov Substitution, Interface Segregation, Dependency Inversion violations?
-- **Performance**: Proper async/await, resource disposal, ConfigureAwait(false), parallel processing opportunities?
-- **Maintainability**: Clear separation of concerns, consistent error handling, proper configuration usage?
-- **Testability**: Dependencies abstracted via interfaces, mockable components, async testability, AAA pattern compatibility?
-- **Security**: Input validation, secure credential handling, parameterized queries, safe exception handling?
-- **Documentation**: XML docs for public APIs, parameter/return descriptions, resource file organization?
-- **Code Clarity**: Meaningful names reflecting domain concepts, clear intent through patterns, self-explanatory structure?
-- **Clean Code**: Consistent style, appropriate method/class size, minimal complexity, eliminated duplication?
+- **Design Patterns**: Identificar patterns usados. Command Handler, Factory, Provider e Repository estao corretos? Faltam patterns beneficiosos?
+- **Arquitetura**: Segue convencoes de namespace (`{Core|Console|App|Service}.{Feature}`)? Separacao adequada entre projetos Core/Console? Modular e legivel?
+- **Boas Praticas .NET**: Primary constructors, async/await com Task, ResourceManager, logging estruturado, configuracao fortemente tipada?
+- **GoF Patterns**: Command, Factory, Template Method, Strategy corretamente implementados?
+- **Principios SOLID**: Violacoes de Single Responsibility, Open/Closed, Liskov Substitution, Interface Segregation, Dependency Inversion?
+- **Performance**: async/await adequado, disposal de recursos, ConfigureAwait(false), oportunidades de paralelizacao?
+- **Maintainability**: Separacao clara de responsabilidades, tratamento de erro consistente, configuracao correta?
+- **Testabilidade**: Dependencias abstraidas por interfaces, componentes mockaveis, testabilidade async, compatibilidade com AAA?
+- **Seguranca**: Validacao de input, credenciais seguras, queries parametrizadas, excecoes seguras?
+- **Documentacao**: XML docs para APIs publicas, descricoes de parametros/retornos, organizacao de resource files?
+- **Clareza**: Nomes significativos e alinhados ao dominio, intencao clara pelos patterns, estrutura autoexplicativa?
+- **Clean Code**: Estilo consistente, tamanho adequado de metodos/classes, complexidade minima, duplicacao eliminada?
 
-## Improvement Focus Areas
+## Areas de Foco para Melhorias
 
-- **Command Handlers**: Validation in base class, consistent error handling, proper resource management
-- **Factories**: Dependency configuration, service provider integration, disposal patterns
-- **Providers**: Connection management, async patterns, exception handling and logging
-- **Configuration**: Data annotations, validation attributes, secure sensitive value handling
-- **AI/ML Integration**: Semantic Kernel patterns, structured output handling, model configuration
+- **Command Handlers**: Validacao na base, tratamento de erro consistente, gerenciamento adequado de recursos
+- **Factories**: Configuracao de dependencias, integracao ao service provider, patterns de disposal
+- **Providers**: Gerenciamento de conexao, patterns async, tratamento de excecoes e logging
+- **Configuracao**: Data annotations, atributos de validacao, manuseio seguro de valores sensiveis
+- **Integracao de IA/ML**: Patterns de Semantic Kernel, handling de output estruturado, configuracao de modelo
 
-Provide specific, actionable recommendations for improvements aligned with the project's architecture and .NET best practices.
+Forneca recomendacoes especificas e acionaveis alinhadas com a arquitetura do projeto e boas praticas .NET.

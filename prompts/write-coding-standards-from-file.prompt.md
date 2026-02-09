@@ -1,140 +1,140 @@
 ---
 agent: "agent"
-description: "Write a coding standards document for a project using the coding styles from the file(s) and/or folder(s) passed as arguments in the prompt."
+description: "Escreva um documento de padroes de codificacao para um projeto usando os estilos de codificacao do(s) arquivo(s) e/ou pasta(s) passados como argumentos no prompt."
 tools: ['createFile', 'editFiles', 'web/fetch', 'githubRepo', 'search', 'testFailure']
 ---
 
-# Write Coding Standards From File
+# Escrever Padroes de Codificacao a partir de Arquivo
 
-Use the existing syntax of the file(s) to establish the standards and style guides for the project. If more than one file or a folder is passed, loop through each file or files in the folder, appending the file's data to temporary memory or a file, then when complete use temporary data as a single instance; as if it were the file name to base the standards and style guideline on.
+Use a sintaxe existente do(s) arquivo(s) para estabelecer os padroes e guias de estilo do projeto. Se mais de um arquivo ou uma pasta for passado, percorra cada arquivo ou arquivos na pasta, anexando os dados do arquivo a memoria temporaria ou a um arquivo, e quando concluir use os dados temporarios como uma unica instancia; como se fosse o nome do arquivo para basear os padroes e o guia de estilo.
 
-## Rules and Configuration
+## Regras e Configuracao
 
-Below is a set of quasi-configuration `boolean` and `string[]` variables. Conditions for handling `true`, or other values for each variable are under the level two heading `## Variable and Parameter Configuration Conditions`.
+Abaixo ha um conjunto de variaveis quasi-configuracao `boolean` e `string[]`. As condicoes para lidar com `true`, ou outros valores para cada variavel, estao sob o cabecalho de nivel dois `## Variable and Parameter Configuration Conditions`.
 
-Parameters for the prompt have a text definition. There is one required parameter **`${fileName}`**, and several optional parameters **`${folderName}`**, **`${instructions}`**, and any **`[configVariableAsParameter]`**.
+Parametros para o prompt tem uma definicao textual. Ha um parametro obrigatorio **`${fileName}`** e varios parametros opcionais **`${folderName}`**, **`${instructions}`** e qualquer **`[configVariableAsParameter]`**.
 
-### Configuration Variables
+### Variaveis de Configuracao
 
 * addStandardsTest = false;
 * addToREADME = false;
 * addToREADMEInsertions = ["atBegin", "middle", "beforeEnd", "bestFitUsingContext"];
-  - Default to **beforeEnd**.
+  - Padrao para **beforeEnd**.
 * createNewFile = true;
 * fetchStyleURL = true;
 * findInconsistencies = true;
 * fixInconsistencies = true;
 * newFileName = ["CONTRIBUTING.md", "STYLE.md", "CODE_OF_CONDUCT.md", "CODING_STANDARDS.md", "DEVELOPING.md", "CONTRIBUTION_GUIDE.md", "GUIDELINES.md", "PROJECT_STANDARDS.md", "BEST_PRACTICES.md", "HACKING.md"];
-  - For each file in `${newFileName}`, if file does not exist, use that file name and `break`, else continue to next file name of `${newFileName}`.
+  - Para cada arquivo em `${newFileName}`, se o arquivo nao existir, use esse nome e `break`, caso contrario continue para o proximo nome de arquivo de `${newFileName}`.
 * outputSpecToPrompt = false;
-* useTemplate = "verbose"; // or "v"
-  - Possible values are `[["v", "verbose"], ["m", "minimal"], ["b", "best fit"], ["custom"]]`.
-  - Selects one of the two example templates at the bottom of prompt file under the level two heading `## Coding Standards Templates`, or use another composition that is a better fit.
-  - If **custom**, then apply per request.
+* useTemplate = "verbose"; // ou "v"
+  - Valores possiveis sao `[["v", "verbose"], ["m", "minimal"], ["b", "best fit"], ["custom"]]`.
+  - Seleciona um dos dois templates de exemplo no fim do arquivo do prompt sob o cabecalho de nivel dois `## Coding Standards Templates`, ou use outra composicao que seja um melhor ajuste.
+  - Se **custom**, entao aplique conforme solicitado.
 
-### Configuration Variables as Prompt Parameters
+### Variaveis de Configuracao como Parametros do Prompt
 
-If any of the variable names are passed to prompt as-is, or as a similar but clearly related text value, then override the default variable value with the value passed to prompt.
+Se algum dos nomes das variaveis for passado ao prompt como esta, ou como um valor de texto semelhante mas claramente relacionado, entao substitua o valor padrao da variavel pelo valor passado ao prompt.
 
-### Prompt Parameters
+### Parametros do Prompt
 
-* **fileName** = The name of the file that will be analyzed in terms of: indentation, variable naming, commenting, conditional procedures, functional procedures, and other syntax related data for the coding language of the file.
-* folderName = The name of the folder that will be used to extract data from multiple files into one aggregated dataset that will be analyzed in terms of: indentation, variable naming, commenting, conditional procedures, functional procedures, and other syntax related data for the coding language of the files.
-* instructions = Additional instructions, rules, and procedures that will be provided for unique cases.
-* [configVariableAsParameter] = If passed will override the default state of the configuration variable. Example:
-  - useTemplate = If passed will override the configuration `${useTemplate}` default. Values are `[["v", "verbose"], ["m", "minimal"], ["b", "best fit"]]`.
+* **fileName** = O nome do arquivo que sera analisado em termos de: indentacao, nomeacao de variaveis, comentarios, procedimentos condicionais, procedimentos funcionais e outros dados de sintaxe relacionados a linguagem do arquivo.
+* folderName = O nome da pasta que sera usada para extrair dados de multiplos arquivos em um unico conjunto de dados agregado que sera analisado em termos de: indentacao, nomeacao de variaveis, comentarios, procedimentos condicionais, procedimentos funcionais e outros dados de sintaxe relacionados a linguagem dos arquivos.
+* instructions = Instrucoes adicionais, regras e procedimentos que serao fornecidos para casos unicos.
+* [configVariableAsParameter] = Se passado, substituira o estado padrao da variavel de configuracao. Exemplo:
+  - useTemplate = Se passado, substituira o padrao de configuracao `${useTemplate}`. Valores sao `[["v", "verbose"], ["m", "minimal"], ["b", "best fit"]]`.
 
-#### Required and Optional Parameters
+#### Parametros Obrigatorios e Opcionais
 
-* **fileName** - required
-* folderName - *optional*
-* instructions - *optional*
-* [configVariableAsParameter] - *optional*
+* **fileName** - obrigatorio
+* folderName - *opcional*
+* instructions - *opcional*
+* [configVariableAsParameter] - *opcional*
 
 ## Variable and Parameter Configuration Conditions
 
 ### `${fileName}.length > 1 || ${folderName} != undefined`
 
-* If true, toggle `${fixInconsistencies}` to false.
+* Se verdadeiro, alterne `${fixInconsistencies}` para false.
 
 ### `${addToREADME} == true`
 
-* Insert the coding standards into the `README.md` instead of outputting to the prompt or creating a new file.
-* If true, toggle both `${createNewFile}` and `${outputSpecToPrompt}` to false.
+* Insira os padroes de codificacao no `README.md` em vez de emitir no prompt ou criar um novo arquivo.
+* Se verdadeiro, alterne tanto `${createNewFile}` quanto `${outputSpecToPrompt}` para false.
 
 ### `${addToREADMEInsertions} == "atBegin"`
 
-* If `${addToREADME}` is true, then insert the coding standards data at the **beginning** of the `README.md` file after the title.
+* Se `${addToREADME}` for true, entao insira os dados de padroes de codificacao no **inicio** do arquivo `README.md` apos o titulo.
 
 ### `${addToREADMEInsertions} == "middle"`
 
-* If `${addToREADME}` is true, then insert the coding standards data at the **middle** of the `README.md` file, changing the standards title heading to match that of the `README.md` composition.
+* Se `${addToREADME}` for true, entao insira os dados de padroes de codificacao no **meio** do arquivo `README.md`, alterando o cabecalho de titulo dos padroes para corresponder ao da composicao do `README.md`.
 
 ### `${addToREADMEInsertions} == "beforeEnd"`
 
-* If `${addToREADME}` is true, then insert the coding standards data at the **end** of the `README.md` file, inserting a new line after the last character, then inserting the data on a new line.
+* Se `${addToREADME}` for true, entao insira os dados de padroes de codificacao no **fim** do arquivo `README.md`, inserindo uma nova linha apos o ultimo caractere, e depois inserindo os dados em uma nova linha.
 
 ### `${addToREADMEInsertions} == "bestFitUsingContext"`
 
-* If `${addToREADME}` is true, then insert the coding standards data at the **best fitting line** of the `README.md` file in regards to the context of the `README.md` composition and flow of data.
+* Se `${addToREADME}` for true, entao insira os dados de padroes de codificacao na **linha de melhor ajuste** do arquivo `README.md` em relacao ao contexto da composicao e ao fluxo de dados do `README.md`.
 
 ### `${addStandardsTest} == true`
 
-* Once the coding standards file is complete, write a test file to ensure the file or files passed to it adhere to the coding standards.
+* Uma vez que o arquivo de padroes de codificacao esteja completo, escreva um arquivo de teste para garantir que o arquivo ou arquivos passados a ele aderem aos padroes de codificacao.
 
 ### `${createNewFile} == true`
 
-* Create a new file using the value, or one of the possible values, from `${newFileName}`.
-* If true, toggle both `${outputSpecToPrompt}` and `${addToREADME}` to false.
+* Crie um novo arquivo usando o valor, ou um dos valores possiveis, de `${newFileName}`.
+* Se verdadeiro, alterne tanto `${outputSpecToPrompt}` quanto `${addToREADME}` para false.
 
 ### `${fetchStyleURL} == true`
 
-* Additionally use the data fetched from the links nested under level three heading `### Fetch Links` as context for creating standards, specifications, and styling data for the new file, prompt, or `README.md`.
-* For each relevant item in `### Fetch Links`, run `#fetch ${item}`.
+* Alem disso, use os dados buscados a partir dos links aninhados sob o cabecalho de nivel tres `### Fetch Links` como contexto para criar padroes, especificacoes e dados de estilo para o novo arquivo, prompt ou `README.md`.
+* Para cada item relevante em `### Fetch Links`, execute `#fetch ${item}`.
 
 ### `${findInconsistencies} == true`
 
-* Evaluate syntax related to indentations, line-breaks, comments, conditional and function nesting, quotation wrappers i.e. `'` or `"` for strings, etc., and categorize.
-* For each category, make a count, and if one item does not match the majority of the count, then commit to temporary memory.
-* Depending on the status of `${fixInconsistencies}`, either edit and fix the low count categories to match the majority, or output to prompt inconsistencies stored in temporary memory.
+* Avalie sintaxe relacionada a indentacoes, quebras de linha, comentarios, aninhamento condicional e de funcoes, delimitadores de strings como `'` ou `"`, etc., e categorize.
+* Para cada categoria, faca uma contagem, e se um item nao corresponder a maioria da contagem, entao registre na memoria temporaria.
+* Dependendo do status de `${fixInconsistencies}`, edite e corrija as categorias de baixa contagem para corresponder a maioria, ou apresente no prompt inconsistencias armazenadas na memoria temporaria.
 
 ### `${fixInconsistencies} == true`
 
-* Edit and fix the low count categories of syntax data to match the majority of corresponding syntax data using inconsistencies stored in temporary memory.
+* Edite e corrija as categorias de baixa contagem de dados de sintaxe para corresponder a maioria dos dados de sintaxe correspondentes usando inconsistencias armazenadas na memoria temporaria.
 
 ### `typeof ${newFileName} == "string"`
 
-* If specifically defined as a `string`, create a new file using the value from `${newFileName}`.
+* Se especificamente definido como uma `string`, crie um novo arquivo usando o valor de `${newFileName}`.
 
 ### `typeof ${newFileName} != "string"`
 
-* If **NOT** specifically defined as a `string`, but instead an `object` or an array, create a new file using a value from `${newFileName}` by applying this rule:
-  - For each file name in `${newFileName}`, if file does not exist, use that file name and `break`, else continue to the next.
+* Se **NAO** especificamente definido como `string`, mas sim um `object` ou um array, crie um novo arquivo usando um valor de `${newFileName}` aplicando esta regra:
+  - Para cada nome de arquivo em `${newFileName}`, se o arquivo nao existir, use esse nome e `break`, caso contrario continue para o proximo.
 
 ### `${outputSpecToPrompt} == true`
 
-* Output the coding standards to the prompt instead of creating a file or adding to README.
-* If true, toggle both `${createNewFile}` and `${addToREADME}` to false.
+* Apresente os padroes de codificacao no prompt em vez de criar um arquivo ou adicionar ao README.
+* Se verdadeiro, alterne tanto `${createNewFile}` quanto `${addToREADME}` para false.
 
 ### `${useTemplate} == "v" || ${useTemplate} == "verbose"`
 
-* Use data under the level three heading `### "v", "verbose"` as guiding template when composing the data for coding standards.
+* Use os dados sob o cabecalho de nivel tres `### "v", "verbose"` como template guia ao compor os dados para padroes de codificacao.
 
 ### `${useTemplate} == "m" || ${useTemplate} == "minimal"`
 
-* Use data under the level three heading `### "m", "minimal"` as guiding template when composing the data for coding standards.
+* Use os dados sob o cabecalho de nivel tres `### "m", "minimal"` como template guia ao compor os dados para padroes de codificacao.
 
 ### `${useTemplate} == "b" || ${useTemplate} == "best"`
 
-* Use either the data under the level three heading `### "v", "verbose"` or `### "m", "minimal"`, depending on the data extracted from `${fileName}`, and use the best fit as guiding template when composing the data for coding standards.
+* Use os dados sob o cabecalho de nivel tres `### "v", "verbose"` ou `### "m", "minimal"`, dependendo dos dados extraidos de `${fileName}`, e use o melhor ajuste como template guia ao compor os dados para padroes de codificacao.
 
 ### `${useTemplate} == "custom" || ${useTemplate} == "<ANY_NAME>"`
 
-* Use the custom prompt, instructions, template, or other data passed as guiding template when composing the data for coding standards.
+* Use o prompt personalizado, instrucoes, template ou outros dados passados como template guia ao compor os dados para padroes de codificacao.
 
 ## **if** `${fetchStyleURL} == true`
 
-Depending on the programming language, for each link in list below, run `#fetch (URL)`, if programming language is `${fileName} == [<Language> Style Guide]`.
+Dependendo da linguagem de programacao, para cada link na lista abaixo, execute `#fetch (URL)`, se a linguagem de programacao for `${fileName} == [<Language> Style Guide]`.
 
 ### Fetch Links
 
