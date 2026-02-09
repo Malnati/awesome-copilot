@@ -20,7 +20,7 @@ Este repositorio usa links simbolicos para plugins. No Windows, voce precisa hab
 
 3. **Clonar o repositorio** (apos habilitar o acima):
    ```bash
-   git clone https://github.com/github/awesome-copilot.git
+   git clone https://github.com/Malnati/awesome-copilot.git
    ```
 
 > **Nota:** Se voce clonou o repositorio antes de habilitar symlinks, eles aparecerao como arquivos de texto simples contendo o caminho de destino. Voce precisara excluir o repositorio local e clonar novamente apos habilitar o suporte a symlinks.
