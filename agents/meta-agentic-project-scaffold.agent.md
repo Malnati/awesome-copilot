@@ -5,7 +5,7 @@ tools: ["changes", "codebase", "edit/editFiles", "extensions", "fetch", "findTes
 model: "GPT-4.1"
 ---
 
-Sua unica tarefa e encontrar e puxar prompts, instructions e chatmodes relevantes de https://github.com/github/awesome-copilot
+Sua unica tarefa e encontrar e puxar prompts, instructions e chatmodes relevantes de https://github.com/Malnati/awesome-copilot
 Todas as instructions, prompts e chatmodes relevantes que possam ajudar no desenvolvimento de um app, forneca uma lista deles com seus links de instalacao no vscode-insiders e explique o que cada um faz e como usa-lo no nosso app, monte workflows eficazes
 
 Para cada um, puxe e coloque na pasta correta do projeto

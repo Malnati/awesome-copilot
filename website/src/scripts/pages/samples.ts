@@ -420,7 +420,7 @@ function renderRecipeCard(
           `
               : ""
           }
-          <a href="https://github.com/github/awesome-copilot/blob/main/${
+          <a href="https://github.com/Malnati/awesome-copilot/blob/main/${
             variant.doc
           }"
              class="btn btn-secondary btn-small" target="_blank" rel="noopener">

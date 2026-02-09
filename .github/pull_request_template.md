@@ -1,6 +1,6 @@
 ## Checklist do Pull Request
 
-- [ ] Li e segui as diretrizes do [CONTRIBUTING.md](https://github.com/github/awesome-copilot/blob/main/CONTRIBUTING.md).
+- [ ] Li e segui as diretrizes do [CONTRIBUTING.md](https://github.com/Malnati/awesome-copilot/blob/main/CONTRIBUTING.md).
 - [ ] Minha contribuicao adiciona uma nova instruction, prompt, agent ou skill no diretorio correto.
 - [ ] O arquivo segue a convencao de nomes exigida.
 - [ ] O conteudo esta claramente estruturado e segue o formato de exemplo.

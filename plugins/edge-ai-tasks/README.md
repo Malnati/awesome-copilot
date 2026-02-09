@@ -20,7 +20,7 @@ copilot plugin install edge-ai-tasks@awesome-copilot
 
 ## Source
 
-This plugin is part of [Awesome Copilot](https://github.com/github/awesome-copilot), a community-driven collection of GitHub Copilot extensions.
+This plugin is part of [Awesome Copilot](https://github.com/Malnati/awesome-copilot), a community-driven collection of GitHub Copilot extensions.
 
 ## License
 

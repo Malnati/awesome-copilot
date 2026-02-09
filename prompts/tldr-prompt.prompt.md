@@ -42,7 +42,7 @@ Voce DEVE receber pelo menos um dos seguintes. Se nenhum for fornecido, voce DEV
 * **Text data/query** - Texto bruto sobre recursos do Copilot, servidores MCP, ou perguntas de uso sao considerados **Ambiguous Queries**
   - Se o usuario fornecer texto bruto sem **arquivo** ou **URL** especifico, identifique o topico:
     * Prompts, agents, instructions, collections → Busque primeiro no workspace
-      - Se nenhum arquivo relevante encontrado, verifique https://github.com/github/awesome-copilot e resolva para
+      - Se nenhum arquivo relevante encontrado, verifique https://github.com/Malnati/awesome-copilot e resolva para
       https://raw.githubusercontent.com/github/awesome-copilot/refs/heads/main/{{folder}}/{{filename}}
       (ex: https://raw.githubusercontent.com/github/awesome-copilot/refs/heads/main/prompts/java-junit.prompt.md)
     * MCP servers → Priorize https://modelcontextprotocol.io/ e
@@ -62,7 +62,7 @@ Quando nao houver URL ou arquivo especifico, mas sim dados brutos relevantes ao 
    - Workspace files → Busque ${workspaceFolder} por .prompt.md, .agent.md, .instructions.md,
    .collections.md
      - Se NENHUM arquivo relevante for encontrado, ou dados nos arquivos de `agents`, `collections`, `instructions`, ou
-     `prompts` forem irrelevantes ao query → Buscar https://github.com/github/awesome-copilot
+     `prompts` forem irrelevantes ao query → Buscar https://github.com/Malnati/awesome-copilot
        - Se arquivo relevante encontrado, resolva para raw data usando
        https://raw.githubusercontent.com/github/awesome-copilot/refs/heads/main/{{folder}}/{{filename}}
        (ex: https://raw.githubusercontent.com/github/awesome-copilot/refs/heads/main/prompts/java-junit.prompt.md)
@@ -163,10 +163,10 @@ From the search results, I'll produce a tldr output for each file found.
 **Agent Response when NO Relevant Workspace Files Found**
 
 ```text
-I'll check https://github.com/github/awesome-copilot
+I'll check https://github.com/Malnati/awesome-copilot
 Found:
-- https://github.com/github/awesome-copilot/blob/main/prompts/java-docs.prompt.md
-- https://github.com/github/awesome-copilot/blob/main/prompts/java-junit.prompt.md
+- https://github.com/Malnati/awesome-copilot/blob/main/prompts/java-docs.prompt.md
+- https://github.com/Malnati/awesome-copilot/blob/main/prompts/java-junit.prompt.md
 
 Now let me fetch the raw content:
 - https://raw.githubusercontent.com/github/awesome-copilot/refs/heads/main/prompts/java-docs.prompt.md

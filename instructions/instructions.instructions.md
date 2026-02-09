@@ -253,4 +253,4 @@ Description and example
 ## Additional Resources
 
 - [Custom Instructions Documentation](https://code.visualstudio.com/docs/copilot/customization/custom-instructions)
-- [Awesome Copilot Instructions](https://github.com/github/awesome-copilot/tree/main/instructions)
+- [Awesome Copilot Instructions](https://github.com/Malnati/awesome-copilot/tree/main/instructions)

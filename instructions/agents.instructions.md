@@ -965,7 +965,7 @@ Each level can override settings from previous levels.
 - [MCP Integration](https://docs.github.com/en/copilot/how-tos/use-copilot-agents/coding-agent/extend-coding-agent-with-mcp)
 
 ### Community Resources
-- [Awesome Copilot Agents Collection](https://github.com/github/awesome-copilot/tree/main/agents)
+- [Awesome Copilot Agents Collection](https://github.com/Malnati/awesome-copilot/tree/main/agents)
 - [Customization Library Examples](https://docs.github.com/en/copilot/tutorials/customization-library/custom-agents)
 - [Your First Custom Agent Tutorial](https://docs.github.com/en/copilot/tutorials/customization-library/custom-agents/your-first-custom-agent)
 

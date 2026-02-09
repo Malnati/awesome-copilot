@@ -50,7 +50,7 @@ Crie chat modes especializados:
 
 **Atribuicao de Chat Mode**: Ao usar conteudo de chatmodes do awesome-copilot, adicione comentario de atribuicao:
 ```markdown
-<!-- Based on/Inspired by: https://github.com/github/awesome-copilot/blob/main/agents/[filename].agent.md -->
+<!-- Based on/Inspired by: https://github.com/Malnati/awesome-copilot/blob/main/agents/[filename].agent.md -->
 ```
 
 ### 5. Diretorio `.github/workflows/`
@@ -68,7 +68,7 @@ Crie arquivo de workflow para Coding Agent:
 Para cada arquivo, siga estes principios:
 
 **PRIMEIRO PASSO OBRIGATORIO**: Sempre use a ferramenta fetch para pesquisar patterns existentes antes de criar qualquer conteudo:
-1. **Buscar em collections do awesome-copilot**: https://github.com/github/awesome-copilot/blob/main/docs/README.collections.md
+1. **Buscar em collections do awesome-copilot**: https://github.com/Malnati/awesome-copilot/blob/main/docs/README.collections.md
 2. **Buscar arquivos de instrucao especificos**: https://raw.githubusercontent.com/github/awesome-copilot/main/instructions/[relevant-file].instructions.md
 3. **Checar patterns existentes** que correspondam a stack
 
@@ -80,12 +80,12 @@ Para cada arquivo, siga estes principios:
 
 **Formato de Atribuicao**: Ao usar conteudo do awesome-copilot, adicione este comentario no topo do arquivo:
 ```markdown
-<!-- Based on/Inspired by: https://github.com/github/awesome-copilot/blob/main/instructions/[filename].instructions.md -->
+<!-- Based on/Inspired by: https://github.com/Malnati/awesome-copilot/blob/main/instructions/[filename].instructions.md -->
 ```
 
 **Exemplos:**
 ```markdown
-<!-- Based on: https://github.com/github/awesome-copilot/blob/main/instructions/react.instructions.md -->
+<!-- Based on: https://github.com/Malnati/awesome-copilot/blob/main/instructions/react.instructions.md -->
 ---
 applyTo: "**/*.jsx,**/*.tsx"
 description: "React development best practices"
@@ -95,8 +95,8 @@ description: "React development best practices"
 ```
 
 ```markdown
-<!-- Inspired by: https://github.com/github/awesome-copilot/blob/main/instructions/java.instructions.md -->
-<!-- and: https://github.com/github/awesome-copilot/blob/main/instructions/spring-boot.instructions.md -->
+<!-- Inspired by: https://github.com/Malnati/awesome-copilot/blob/main/instructions/java.instructions.md -->
+<!-- and: https://github.com/Malnati/awesome-copilot/blob/main/instructions/spring-boot.instructions.md -->
 ---
 applyTo: "**/*.java"
 description: "Java Spring Boot development standards"
@@ -136,10 +136,10 @@ description: "Java Spring Boot development standards"
 6. **Crie conteudo custom** apenas se nada relevante existir
 
 **Diretorios awesome-copilot a buscar:**
-- **Instructions**: https://github.com/github/awesome-copilot/tree/main/instructions
-- **Prompts**: https://github.com/github/awesome-copilot/tree/main/prompts  
-- **Chat Modes**: https://github.com/github/awesome-copilot/tree/main/chatmodes
-- **Collections**: https://github.com/github/awesome-copilot/blob/main/docs/README.collections.md
+- **Instructions**: https://github.com/Malnati/awesome-copilot/tree/main/instructions
+- **Prompts**: https://github.com/Malnati/awesome-copilot/tree/main/prompts
+- **Chat Modes**: https://github.com/Malnati/awesome-copilot/tree/main/chatmodes
+- **Collections**: https://github.com/Malnati/awesome-copilot/blob/main/docs/README.collections.md
 
 **Awesome-Copilot Collections para Checar:**
 - **Frontend Web Development**: React, Angular, Vue, TypeScript, CSS frameworks
