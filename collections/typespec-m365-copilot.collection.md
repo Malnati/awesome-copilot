@@ -1,24 +1,24 @@
 # TypeSpec for Microsoft 365 Copilot
 
-## Overview
+## Visao Geral
 
-TypeSpec for Microsoft 365 Copilot is a powerful domain-specific language (DSL) that enables developers to create declarative agents and API plugins using a clean, expressive syntax. Built on the foundation of [TypeSpec](https://typespec.io/), this specialized language provides Microsoft 365-specific decorators and capabilities that streamline the development process for extending Microsoft 365 Copilot.
+TypeSpec for Microsoft 365 Copilot e uma linguagem especifica de dominio (DSL) poderosa que permite aos desenvolvedores criar agentes declarativos e API plugins usando uma sintaxe limpa e expressiva. Construida sobre a base do [TypeSpec](https://typespec.io/), essa linguagem especializada fornece decorators e capacidades especificas do Microsoft 365 que simplificam o processo de desenvolvimento para estender o Microsoft 365 Copilot.
 
-## Why Use TypeSpec?
+## Por que usar TypeSpec?
 
-- **Type Safety**: Comprehensive type checking for all Microsoft 365 Copilot-specific constructs
-- **Developer Experience**: Rich IntelliSense support in Visual Studio Code with real-time feedback
-- **Simplified Authoring**: Replace verbose JSON configurations with intuitive decorator-based syntax
-- **Automatic Manifest Generation**: Automatically generates valid manifest files and OpenAPI specifications
-- **Maintainability**: More readable and maintainable codebase compared to manual JSON authoring
+- **Type Safety**: Checagem de tipos abrangente para todos os constructs especificos do Microsoft 365 Copilot
+- **Developer Experience**: Suporte rico de IntelliSense no Visual Studio Code com feedback em tempo real
+- **Simplified Authoring**: Substitui configuracoes JSON verbosas por sintaxe intuitiva baseada em decorators
+- **Automatic Manifest Generation**: Gera automaticamente arquivos de manifest validos e especificacoes OpenAPI
+- **Maintainability**: Codebase mais legivel e manutenivel em comparacao com autoracao manual em JSON
 
-## Core Concepts
+## Conceitos Centrais
 
-### Declarative Agents
+### Agentes Declarativos
 
-A declarative agent is a customized version of Microsoft 365 Copilot that allows users to create personalized experiences by declaring specific instructions, actions, and knowledge.
+Um agente declarativo e uma versao personalizada do Microsoft 365 Copilot que permite aos usuarios criar experiencias personalizadas declarando instrucoes, acoes e conhecimento especificos.
 
-**Basic Agent Example:**
+**Exemplo basico de agent:**
 ```typescript
 @agent(
   "Customer Support Assistant",
@@ -40,9 +40,9 @@ namespace CustomerSupportAgent {
 
 ### API Plugins
 
-API plugins extend Microsoft 365 Copilot with custom API operations, enabling integration with external services and data sources.
+API plugins estendem o Microsoft 365 Copilot com operacoes de API customizadas, permitindo integracao com servicos externos e fontes de dados.
 
-**Basic API Plugin Example:**
+**Exemplo basico de API plugin:**
 ```typescript
 import "@typespec/http";
 import "@microsoft/typespec-m365-copilot";
@@ -77,29 +77,29 @@ namespace ProjectAPI {
 }
 ```
 
-## Key Decorators
+## Decorators Principais
 
-### Agent Decorators
+### Decorators de Agent
 
-- **@agent**: Define an agent with name, description, and optional ID
-- **@instructions**: Define behavioral instructions and guidelines for the agent
-- **@conversationStarter**: Define conversation starter prompts for users
-- **@behaviorOverrides**: Modify agent orchestration behavior settings
-- **@disclaimer**: Display legal or compliance disclaimers to users
-- **@customExtension**: Add custom key-value pairs for extensibility
+- **@agent**: Define um agent com nome, descricao e ID opcional
+- **@instructions**: Define instrucoes comportamentais e diretrizes para o agent
+- **@conversationStarter**: Define prompts iniciais de conversa para usuarios
+- **@behaviorOverrides**: Modifica configuracoes de comportamento de orquestracao do agent
+- **@disclaimer**: Exibe avisos legais ou de compliance para usuarios
+- **@customExtension**: Adiciona pares chave-valor customizados para extensibilidade
 
-### API Plugin Decorators
+### Decorators de API Plugin
 
-- **@actions**: Define action metadata including names, descriptions, and URLs
-- **@authReferenceId**: Specify authentication reference ID for API access
-- **@capabilities**: Configure function capabilities like confirmations and response formatting
-- **@card**: Define Adaptive Card templates for function responses
-- **@reasoning**: Provide reasoning instructions for function invocation
-- **@responding**: Define response formatting instructions for functions
+- **@actions**: Define metadados de action incluindo nomes, descricoes e URLs
+- **@authReferenceId**: Especifica ID de referencia de autenticacao para acesso a API
+- **@capabilities**: Configura capacidades de funcao como confirmacoes e formatacao de resposta
+- **@card**: Define templates de Adaptive Card para respostas de funcao
+- **@reasoning**: Fornece instrucoes de raciocinio para invocacao de funcao
+- **@responding**: Define instrucoes de formatacao de resposta para funcoes
 
-## Agent Capabilities
+## Capacidades do Agent
 
-TypeSpec provides built-in capabilities for accessing Microsoft 365 services and external resources:
+TypeSpec fornece capacidades embutidas para acessar servicos do Microsoft 365 e recursos externos:
 
 ### Knowledge Sources
 
@@ -190,11 +190,11 @@ op scenarioModels is AgentCapabilities.ScenarioModels<ModelsById = [
 ]>;
 ```
 
-## Authentication
+## Autenticacao
 
-TypeSpec supports multiple authentication methods for securing API plugins:
+TypeSpec suporta multiplos metodos de autenticacao para proteger API plugins:
 
-### No Authentication (Anonymous)
+### Sem Autenticacao (Anonymous)
 ```typescript
 @service
 @actions(ACTIONS_METADATA)
@@ -204,7 +204,7 @@ namespace API {
 }
 ```
 
-### API Key Authentication
+### Autenticacao por API Key
 ```typescript
 @service
 @actions(ACTIONS_METADATA)
@@ -220,7 +220,7 @@ namespace API {
 @service
 @actions(ACTIONS_METADATA)
 @server(SERVER_URL, API_NAME)
-@useAuth(OAuth2Auth<[{
+@useAuth(OAuth2Auth<[{ 
   type: OAuth2FlowType.authorizationCode;
   authorizationUrl: "https://contoso.com/oauth2/v2.0/authorize";
   tokenUrl: "https://contoso.com/oauth2/v2.0/token";
@@ -232,10 +232,10 @@ namespace API {
 }
 ```
 
-### Using Registered Authentication
+### Usando Autenticacao Registrada
 ```typescript
 @authReferenceId("NzFmOTg4YmYtODZmMS00MWFmLTkxYWItMmQ3Y2QwMTFkYjQ3IyM5NzQ5Njc3Yi04NDk2LTRlODYtOTdmZS1kNDUzODllZjUxYjM=")
-model Auth is OAuth2Auth<[{
+model Auth is OAuth2Auth<[{ 
   type: OAuth2FlowType.authorizationCode;
   authorizationUrl: "https://contoso.com/oauth2/v2.0/authorize";
   tokenUrl: "https://contoso.com/oauth2/v2.0/token";
@@ -244,7 +244,7 @@ model Auth is OAuth2Auth<[{
 }]>
 ```
 
-## Common Scenarios
+## Cenarios Comuns
 
 ### Multi-Capability Knowledge Worker Agent
 ```typescript
@@ -282,7 +282,7 @@ namespace KnowledgeWorkerAgent {
 }
 ```
 
-### API Plugin with Authentication
+### API Plugin com Autenticacao
 ```typescript
 import "@typespec/http";
 import "@microsoft/typespec-m365-copilot";
@@ -303,7 +303,7 @@ namespace RepairsHub {
   @get
   @action
   @card(#{
-    dataPath: "$",
+    dataPath: "$.",
     title: "$.title",
     url: "$.image",
     file: "cards/card.json"
@@ -342,154 +342,59 @@ namespace RepairsHub {
 }
 ```
 
-## Getting Started
+## Primeiros Passos
 
-### Prerequisites
+### Pre-requisitos
 - [Visual Studio Code](https://code.visualstudio.com/)
 - [Microsoft 365 Agents Toolkit Visual Studio Code extension](https://aka.ms/M365AgentsToolkit)
-- Microsoft 365 Copilot license
+- Licenca do Microsoft 365 Copilot
 
-### Create Your First Agent
+### Crie seu primeiro Agent
 
-1. Open Visual Studio Code
-2. Select **Microsoft 365 Agents Toolkit > Create a New Agent/App**
-3. Select **Declarative Agent**
-4. Select **Start with TypeSpec for Microsoft 365 Copilot**
-5. Choose your project location and name
-6. Edit the `main.tsp` file to customize your agent
-7. Select **Provision** in the Lifecycle pane to deploy
+1. Abra o Visual Studio Code
+2. Selecione **Microsoft 365 Agents Toolkit > Create a New Agent/App**
+3. Selecione **Declarative Agent**
+4. Selecione **Start with TypeSpec for Microsoft 365 Copilot**
+5. Escolha a localizacao e o nome do projeto
+6. Edite o arquivo `main.tsp` para personalizar seu agent
+7. Selecione **Provision** no painel Lifecycle para fazer o deploy
 
-## Best Practices
+## Boas Praticas
 
 ### Instructions
-- Be specific and clear about the agent's role and expertise
-- Define behaviors to avoid as well as desired behaviors
-- Keep instructions under 8,000 characters
-- Use triple-quoted strings for multi-line instructions
+- Seja especifico e claro sobre o papel e a especialidade do agent
+- Defina comportamentos a evitar, bem como comportamentos desejados
+- Mantenha instructions abaixo de 8.000 caracteres
+- Use strings com aspas triplas para instructions multilinha
 
 ### Conversation Starters
-- Provide 2-4 diverse examples of how to interact with the agent
-- Make them specific to your agent's capabilities
-- Keep titles concise (under 100 characters)
+- Forneca 2-4 exemplos diversos de como interagir com o agent
+- Torne-os especificos para as capacidades do agent
+- Mantenha titulos concisos (menos de 100 caracteres)
 
 ### Capabilities
-- Only include capabilities your agent actually needs
-- Scope capabilities to specific resources when possible
-- Use URLs and IDs to limit access to relevant content
+- Inclua apenas as capacidades de que seu agent realmente precisa
+- Delimite capacidades a recursos especificos quando possivel
+- Use URLs e IDs para limitar acesso a conteudo relevante
 
 ### API Operations
-- Use descriptive operation names and clear parameter names
-- Provide detailed descriptions for model and human consumers
-- Use confirmation dialogs for destructive operations
-- Implement proper error handling with meaningful error messages
+- Use nomes descritivos para operacoes e parametros com nomes claros
+- Forneca descricoes detalhadas para consumidores humanos e de modelo
+- Use dialogs de confirmacao para operacoes destrutivas
+- Implemente tratamento de erros adequado com mensagens de erro significativas
 
 ### Authentication
-- Use registered authentication configurations for production
-- Follow the principle of least privilege for scopes
-- Store sensitive credentials in environment variables
-- Use `@authReferenceId` to reference registered configurations
+- Use configuracoes de autenticacao registradas para producao
+- Siga o principio de menor privilegio para scopes
+- Armazene credenciais sensiveis em variaveis de ambiente
+- Use `@authReferenceId` para referenciar configuracoes registradas
 
-## Development Workflow
+## Fluxo de Desenvolvimento
 
-1. **Create**: Use Microsoft 365 Agents Toolkit to scaffold your project
-2. **Define**: Write your TypeSpec definitions in `main.tsp` and `actions.tsp`
-3. **Configure**: Set up authentication and capabilities
-4. **Provision**: Deploy to your development environment
-5. **Test**: Validate in Microsoft 365 Copilot (https://m365.cloud.microsoft/chat)
-6. **Debug**: Use Copilot developer mode to troubleshoot
-7. **Iterate**: Refine based on testing feedback
-8. **Publish**: Deploy to production when ready
-
-## Common Patterns
-
-### File Structure
-```
-project/
-├── appPackage/
-│   ├── cards/
-│   │   └── card.json
-│   ├── .generated/
-│   ├── manifest.json
-│   └── ...
-├── src/
-│   ├── main.tsp
-│   └── actions.tsp
-├── m365agents.yml
-└── package.json
-```
-
-### Multi-File TypeSpec
-```typescript
-// main.tsp
-import "@typespec/http";
-import "@microsoft/typespec-m365-copilot";
-import "./actions.tsp";
-
-using TypeSpec.Http;
-using TypeSpec.M365.Copilot.Agents;
-using TypeSpec.M365.Copilot.Actions;
-
-@agent("My Agent", "Description")
-@instructions("Instructions here")
-namespace MyAgent {
-  op apiAction is MyAPI.someOperation;
-}
-
-// actions.tsp
-import "@typespec/http";
-import "@microsoft/typespec-m365-copilot";
-
-@service
-@actions(#{...})
-@server("https://api.example.com")
-namespace MyAPI {
-  @route("/operation")
-  @get
-  @action
-  op someOperation(): Response;
-}
-```
-
-### Adaptive Cards
-```json
-{
-  "type": "AdaptiveCard",
-  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
-  "version": "1.5",
-  "body": [
-    {
-      "type": "Container",
-      "$data": "${$root}",
-      "items": [
-        {
-          "type": "TextBlock",
-          "text": "Title: ${if(title, title, 'N/A')}",
-          "wrap": true
-        },
-        {
-          "type": "Image",
-          "url": "${image}",
-          "$when": "${image != null}"
-        }
-      ]
-    }
-  ]
-}
-```
-
-## Resources
-
-- [TypeSpec Official Documentation](https://typespec.io/)
-- [Microsoft 365 Agents Toolkit](https://aka.ms/M365AgentsToolkit)
-- [Declarative Agent Documentation](https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/overview-declarative-agent)
-- [API Plugin Documentation](https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/overview-api-plugins)
-- [PnP Copilot Samples](https://github.com/pnp/copilot-pro-dev-samples)
-
-## Learn More
-
-- [TypeSpec Overview](https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/overview-typespec)
-- [Build Declarative Agents with TypeSpec](https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/build-declarative-agents-typespec)
-- [TypeSpec Scenarios](https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/typespec-scenarios)
-- [TypeSpec Authentication](https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/typespec-authentication)
-- [TypeSpec Decorators Reference](https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/typespec-decorators)
-- [TypeSpec Capabilities Reference](https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/typespec-capabilities)
+1. **Create**: Use o Microsoft 365 Agents Toolkit para fazer scaffolding do projeto
+2. **Define**: Escreva suas definicoes TypeSpec em `main.tsp` e `actions.tsp`
+3. **Configure**: Configure autenticacao e capacidades
+4. **Provision**: Faca o deploy no seu ambiente de desenvolvimento
+5. **Test**: Valide no Microsoft 365 Copilot (https://m365.cloud.microsoft/chat)
+6. **Debug**: Use o Copilot developer mode para troubleshooting
+7. **Iterate**: Refine com base no feedback de testes

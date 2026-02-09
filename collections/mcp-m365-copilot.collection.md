@@ -1,93 +1,93 @@
 # MCP-based M365 Agents Collection
 
-A comprehensive collection of prompts and instructions for building declarative agents with Model Context Protocol (MCP) integration for Microsoft 365 Copilot.
+Uma collection abrangente de prompts e instructions para construir agentes declarativos com integracao ao Model Context Protocol (MCP) para Microsoft 365 Copilot.
 
-## Overview
+## Visao Geral
 
-The Model Context Protocol (MCP) is a universal standard that allows AI models to integrate with external systems through standardized server endpoints. This collection provides everything you need to build, deploy, and manage MCP-based declarative agents that extend Microsoft 365 Copilot with custom capabilities.
+O Model Context Protocol (MCP) e um padrao universal que permite que modelos de AI integrem com sistemas externos por meio de endpoints de servidor padronizados. Esta collection fornece tudo que voce precisa para construir, implantar e gerenciar agentes declarativos baseados em MCP que estendem o Microsoft 365 Copilot com capacidades personalizadas.
 
-## What is Model Context Protocol?
+## O que e Model Context Protocol?
 
-MCP is an open protocol developed to streamline how AI models connect to external data sources and tools. Instead of custom integration code for each system, MCP provides a consistent interface for:
+MCP e um protocolo aberto desenvolvido para simplificar como modelos de AI se conectam a fontes de dados e tools externas. Em vez de codigo de integracao customizado para cada sistema, o MCP fornece uma interface consistente para:
 
-- **Server Metadata**: Discover available tools and capabilities
-- **Tools Listing**: Get function definitions and schemas
-- **Tool Execution**: Invoke tools with parameters and receive results
+- **Server Metadata**: Descobrir tools e capacidades disponiveis
+- **Tools Listing**: Obter definicoes de funcoes e schemas
+- **Tool Execution**: Invocar tools com parametros e receber resultados
 
-For Microsoft 365 Copilot, this means you can create agents that connect to any MCP-compatible server with point-and-click configuration instead of writing custom code.
+Para Microsoft 365 Copilot, isso significa que voce pode criar agentes que se conectam a qualquer servidor compativel com MCP com configuracao point-and-click, sem escrever codigo customizado.
 
-## Collection Contents
+## Conteudo da Collection
 
 ### Prompts
 
 1. **Create Declarative Agent** ([mcp-create-declarative-agent.prompt.md](../prompts/mcp-create-declarative-agent.prompt.md))
-   - Build declarative agents using Microsoft 365 Agents Toolkit
-   - Configure MCP server integration with tool import
-   - Set up OAuth 2.0 or SSO authentication
-   - Configure response semantics for data extraction
-   - Package and deploy agents for testing
+   - Construir agentes declarativos usando Microsoft 365 Agents Toolkit
+   - Configurar integracao com servidor MCP com importacao de tools
+   - Configurar autenticacao OAuth 2.0 ou SSO
+   - Configurar response semantics para extracao de dados
+   - Empacotar e implantar agents para testes
 
 2. **Create Adaptive Cards** ([mcp-create-adaptive-cards.prompt.md](../prompts/mcp-create-adaptive-cards.prompt.md))
-   - Design static and dynamic Adaptive Card templates
-   - Configure response semantics (data_path, properties, template_selector)
-   - Use template language for conditionals and data binding
-   - Create responsive cards that work across Copilot surfaces
-   - Implement card actions for user interactions
+   - Projetar templates de Adaptive Card estaticos e dinamicos
+   - Configurar response semantics (data_path, properties, template_selector)
+   - Usar template language para condicionais e data binding
+   - Criar cards responsivos que funcionam em diferentes superficies do Copilot
+   - Implementar actions de card para interacoes de usuario
 
 3. **Deploy and Manage Agents** ([mcp-deploy-manage-agents.prompt.md](../prompts/mcp-deploy-manage-agents.prompt.md))
-   - Deploy agents via Microsoft 365 admin center
-   - Configure organizational or public store distribution
-   - Manage agent lifecycle (publish, deploy, block, remove)
-   - Set up governance and compliance controls
-   - Monitor agent usage and performance
+   - Implantar agents via Microsoft 365 admin center
+   - Configurar distribuicao organizacional ou store publica
+   - Gerenciar ciclo de vida do agent (publish, deploy, block, remove)
+   - Configurar governanca e controles de compliance
+   - Monitorar uso e performance do agent
 
 ### Instructions
 
 **MCP M365 Copilot Development Guidelines** ([mcp-m365-copilot.instructions.md](../instructions/mcp-m365-copilot.instructions.md))
-- Best practices for MCP server design and tool selection
-- File organization and project structure
-- Response semantics configuration patterns
-- Adaptive Card design principles
-- Security, governance, and compliance requirements
-- Testing and deployment workflows
+- Boas praticas para design de MCP server e selecao de tools
+- Organizacao de arquivos e estrutura de projeto
+- Padroes de configuracao de response semantics
+- Principios de design de Adaptive Card
+- Requisitos de seguranca, governanca e compliance
+- Workflows de teste e deploy
 
-## Key Concepts
+## Conceitos-Chave
 
-### Declarative Agents
+### Agentes Declarativos
 
-Declarative agents are defined through configuration files rather than code:
-- **declarativeAgent.json**: Agent instructions, capabilities, conversation starters
-- **ai-plugin.json**: MCP server tools, response semantics, adaptive card templates
-- **mcp.json**: MCP server URL, authentication configuration
-- **manifest.json**: Teams app manifest for packaging
+Agentes declarativos sao definidos por arquivos de configuracao, nao por codigo:
+- **declarativeAgent.json**: Instrucoes do agent, capacidades, conversation starters
+- **ai-plugin.json**: Tools do MCP server, response semantics, templates de adaptive card
+- **mcp.json**: URL do MCP server, configuracao de autenticacao
+- **manifest.json**: Teams app manifest para empacotamento
 
-### MCP Server Integration
+### Integracao com MCP Server
 
-The Microsoft 365 Agents Toolkit provides a visual interface for:
-1. **Scaffold** a new agent project
-2. **Add MCP action** to connect to a server
-3. **Choose tools** from the server's available functions
+O Microsoft 365 Agents Toolkit fornece uma interface visual para:
+1. **Scaffold** de um novo projeto de agent
+2. **Add MCP action** para conectar a um servidor
+3. **Choose tools** entre funcoes disponiveis no servidor
 4. **Configure authentication** (OAuth 2.0, SSO)
 5. **Generate files** (agent config, plugin manifest)
-6. **Test** in m365.cloud.microsoft/chat
+6. **Test** em m365.cloud.microsoft/chat
 
-### Authentication Patterns
+### Padroes de Autenticacao
 
 **OAuth 2.0 Static Registration:**
-- Pre-register OAuth app with service provider
-- Store credentials in .env.local (never commit)
-- Reference in ai-plugin.json authentication config
-- Users consent once, tokens stored in plugin vault
+- Pre-registrar app OAuth com o provedor de servico
+- Armazenar credenciais em .env.local (nunca commitar)
+- Referenciar em ai-plugin.json config de autenticacao
+- Usuarios consentem uma vez, tokens armazenados no plugin vault
 
 **Single Sign-On (SSO):**
-- Use Microsoft Entra ID for authentication
-- Seamless experience for M365 users
-- No separate login required
-- Ideal for internal organizational agents
+- Usar Microsoft Entra ID para autenticacao
+- Experiencia fluida para usuarios M365
+- Sem necessidade de login separado
+- Ideal para agentes internos organizacionais
 
 ### Response Semantics
 
-Extract and format data from MCP server responses:
+Extraia e formate dados das respostas do MCP server:
 
 ```json
 {
@@ -103,85 +103,84 @@ Extract and format data from MCP server responses:
 }
 ```
 
-- **data_path**: JSONPath to extract array or object
-- **properties**: Map response fields to Copilot properties
-- **template_selector**: Choose dynamic template based on response
-- **static_template**: Adaptive Card for visual formatting
+- **data_path**: JSONPath para extrair array ou objeto
+- **properties**: Mapear campos de resposta para propriedades do Copilot
+- **template_selector**: Escolher template dinamico com base na resposta
+- **static_template**: Adaptive Card para formatacao visual
 
 ### Adaptive Cards
 
-Rich visual responses for agent outputs:
+Respostas visuais ricas para outputs de agent:
 
 **Static Templates:**
-- Defined once in ai-plugin.json
-- Used for all responses with same structure
-- Better performance and easier maintenance
+- Definidos uma vez em ai-plugin.json
+- Usados para todas as respostas com a mesma estrutura
+- Melhor performance e manutencao mais facil
 
 **Dynamic Templates:**
-- Returned in API response body
-- Selected via template_selector JSONPath
-- Useful for varied response structures
+- Retornados no corpo da resposta da API
+- Selecionados via template_selector JSONPath
+- Uteis para estruturas de resposta variadas
 
 **Template Language:**
 - `${property}`: Data binding
-- `${if(condition, true, false)}`: Conditionals
-- `${formatNumber(value, decimals)}`: Formatting
-- `$when`: Conditional element rendering
+- `${if(condition, true, false)}`: Condicionais
+- `${formatNumber(value, decimals)}`: Formatacao
+- `$when`: Renderizacao condicional de elementos
 
-## Deployment Options
+## Opcoes de Deploy
 
 ### Organization Deployment
-- IT admin deploys to all users or specific groups
-- Requires approval in Microsoft 365 admin center
-- Best for internal business agents
-- Full governance and compliance controls
+- Admin de TI implanta para todos os usuarios ou grupos especificos
+- Requer aprovacao no Microsoft 365 admin center
+- Melhor para agentes de negocio internos
+- Controle total de governanca e compliance
 
 ### Agent Store
-- Submit to Partner Center for validation
-- Public availability to all Copilot users
-- Rigorous security and compliance review
-- Suitable for partner-built agents
+- Envio para Partner Center para validacao
+- Disponibilidade publica para todos os usuarios do Copilot
+- Revisao rigorosa de seguranca e compliance
+- Adequado para agentes construidos por parceiros
 
-## Partner Examples
+## Exemplos de Parceiros
 
 ### monday.com
-Task and project management integration:
-- Create tasks directly from Copilot
-- Query project status and updates
-- Assign work items to team members
-- View deadlines and milestones
+Integracao de gestao de tarefas e projetos:
+- Criar tasks diretamente do Copilot
+- Consultar status e atualizacoes do projeto
+- Atribuir work items a membros da equipe
+- Ver prazos e milestones
 
 ### Canva
-Design automation capabilities:
-- Generate branded content
-- Create social media graphics
-- Access design templates
-- Export in multiple formats
+Capacidades de automacao de design:
+- Gerar conteudo com branding
+- Criar graficos para redes sociais
+- Acessar templates de design
+- Exportar em multiplos formatos
 
 ### Sitecore
-Content management integration:
-- Search content repository
-- Create and update content items
-- Manage workflows and approvals
-- Preview content in context
+Integracao de gestao de conteudo:
+- Buscar no repositorio de conteudo
+- Criar e atualizar itens de conteudo
+- Gerenciar workflows e aprovacoes
+- Previsualizar conteudo em contexto
 
-## Getting Started
+## Primeiros Passos
 
-### Prerequisites
-            return results
-- Microsoft 365 Agents Toolkit extension (v6.3.x or later)
-- GitHub account (for OAuth examples)
-- Microsoft 365 Copilot license
-- Access to an MCP-compatible server
+### Pre-requisitos
+- Microsoft 365 Agents Toolkit extension (v6.3.x ou superior)
+- Conta GitHub (para exemplos OAuth)
+- Licenca do Microsoft 365 Copilot
+- Acesso a um MCP server compativel
 
 ### Quick Start
-1. Install Microsoft 365 Agents Toolkit in VS Code
-2. Use **Create Declarative Agent** prompt to scaffold project
-3. Add MCP server URL and choose tools
-4. Configure authentication with OAuth or SSO
-5. Use **Create Adaptive Cards** prompt to design response templates
-6. Test agent at m365.cloud.microsoft/chat
-7. Use **Deploy and Manage Agents** prompt for distribution
+1. Instale o Microsoft 365 Agents Toolkit no VS Code
+2. Use o prompt **Create Declarative Agent** para fazer scaffolding do projeto
+3. Adicione a URL do MCP server e escolha tools
+4. Configure autenticacao com OAuth ou SSO
+5. Use o prompt **Create Adaptive Cards** para projetar templates de resposta
+6. Teste o agent em m365.cloud.microsoft/chat
+7. Use o prompt **Deploy and Manage Agents** para distribuicao
 
 ### Development Workflow
 ```
@@ -202,89 +201,89 @@ Content management integration:
 8. Monitor and iterate
 ```
 
-## Best Practices
+## Boas Praticas
 
 ### MCP Server Design
-- Import only necessary tools (avoid over-scoping)
-- Use secure authentication (OAuth 2.0, SSO)
-- Test each tool individually
-- Validate server endpoints are HTTPS
-- Consider token limits when selecting tools
+- Importe apenas tools necessarias (evite over-scoping)
+- Use autenticacao segura (OAuth 2.0, SSO)
+- Teste cada tool individualmente
+- Valide que endpoints do servidor sao HTTPS
+- Considere limites de token ao selecionar tools
 
 ### Agent Instructions
-- Be specific and clear about agent capabilities
-- Provide examples of how to interact
-- Set boundaries for what agent can/cannot do
-- Use conversation starters to guide users
+- Seja especifico e claro sobre capacidades do agent
+- Forneca exemplos de como interagir
+- Defina limites do que o agent pode ou nao pode fazer
+- Use conversation starters para orientar usuarios
 
 ### Response Formatting
-- Use JSONPath to extract relevant data
-- Map properties clearly (title, subtitle, url)
-- Design adaptive cards for readability
-- Test cards across Copilot surfaces (Chat, Teams, Outlook)
+- Use JSONPath para extrair dados relevantes
+- Mapeie propriedades claramente (title, subtitle, url)
+- Projete adaptive cards para legibilidade
+- Teste cards em diferentes superficies do Copilot (Chat, Teams, Outlook)
 
 ### Security and Governance
-- Never commit credentials to source control
-- Use environment variables for secrets
-- Follow principle of least privilege
-- Review compliance requirements
-- Monitor agent usage and performance
+- Nunca commit credenciais no controle de versao
+- Use variaveis de ambiente para secrets
+- Siga o principio de menor privilegio
+- Revise requisitos de compliance
+- Monitore uso e performance do agent
 
-## Common Use Cases
+## Casos de Uso Comuns
 
 ### Data Retrieval
-- Search external systems
-- Fetch user-specific information
-- Query databases or APIs
-- Aggregate data from multiple sources
+- Buscar em sistemas externos
+- Obter informacoes especificas do usuario
+- Consultar bancos de dados ou APIs
+- Agregar dados de multiplas fontes
 
 ### Task Automation
-- Create tickets or tasks
-- Update records or statuses
-- Trigger workflows
-- Schedule actions
+- Criar tickets ou tasks
+- Atualizar registros ou status
+- Disparar workflows
+- Agendar acoes
 
 ### Content Generation
-- Create documents or designs
-- Generate reports or summaries
-- Format data into templates
-- Export in various formats
+- Criar documentos ou designs
+- Gerar relatorios ou resumos
+- Formatar dados em templates
+- Exportar em varios formatos
 
 ### Integration Scenarios
-- Connect CRM systems
-- Integrate project management tools
-- Access knowledge bases
-- Connect to custom business apps
+- Conectar sistemas de CRM
+- Integrar tools de gestao de projetos
+- Acessar knowledge bases
+- Conectar apps de negocio customizados
 
 ## Troubleshooting
 
-### Agent Not Appearing in Copilot
-- Verify agent is deployed in admin center
-- Check user is in assigned group
-- Confirm agent is not blocked
-- Refresh Copilot interface
+### Agent nao aparece no Copilot
+- Verifique se o agent esta implantado no admin center
+- Confirme que o usuario esta no grupo atribuido
+- Confirme que o agent nao esta bloqueado
+- Atualize a interface do Copilot
 
-### Authentication Errors
-- Validate OAuth credentials in .env.local
-- Check scopes match required permissions
-- Test auth flow independently
-- Verify MCP server is accessible
+### Erros de Autenticacao
+- Valide credenciais OAuth em .env.local
+- Verifique se scopes correspondem as permissoes exigidas
+- Teste o fluxo de auth de forma independente
+- Verifique se o MCP server esta acessivel
 
-### Response Formatting Issues
-- Test JSONPath expressions with sample data
-- Validate data_path extracts expected array/object
-- Check property mappings are correct
-- Test adaptive card with various response structures
+### Problemas de Response Formatting
+- Teste expressoes JSONPath com dados de exemplo
+- Valide se data_path extrai o array/objeto esperado
+- Verifique se mapeamentos de propriedades estao corretos
+- Teste o adaptive card com diferentes estruturas de resposta
 
-### Performance Problems
-- Monitor MCP server response times
-- Reduce number of imported tools
-- Optimize response data size
-- Use caching where appropriate
+### Problemas de Performance
+- Monitore tempos de resposta do MCP server
+- Reduza o numero de tools importadas
+- Otimize o tamanho dos dados de resposta
+- Use caching quando apropriado
 
-## Resources
+## Recursos
 
-### Official Documentation
+### Documentacao Oficial
 - [Build Declarative Agents with MCP (DevBlogs)](https://devblogs.microsoft.com/microsoft365dev/build-declarative-agents-for-microsoft-365-copilot-with-mcp/)
 - [Build MCP Plugins (Microsoft Learn)](https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/build-mcp-plugins)
 - [API Plugin Adaptive Cards (Microsoft Learn)](https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/api-plugin-adaptive-cards)
@@ -307,19 +306,19 @@ Content management integration:
 
 ## Support and Community
 
-- Join the [Microsoft 365 Developer Community](https://developer.microsoft.com/en-us/microsoft-365/community)
-- Ask questions on [Microsoft Q&A](https://learn.microsoft.com/en-us/answers/products/)
-- Share feedback in [Microsoft 365 Copilot GitHub discussions](https://github.com/microsoft/copilot-feedback)
+- Participe da [Microsoft 365 Developer Community](https://developer.microsoft.com/en-us/microsoft-365/community)
+- Faca perguntas no [Microsoft Q&A](https://learn.microsoft.com/en-us/answers/products/)
+- Compartilhe feedback em [Microsoft 365 Copilot GitHub discussions](https://github.com/microsoft/copilot-feedback)
 
 ## What's Next?
 
-After mastering MCP-based agents, explore:
-- **Advanced tool composition**: Combine multiple MCP servers
-- **Custom authentication flows**: Implement custom OAuth providers
-- **Complex adaptive cards**: Multi-action cards with dynamic data
-- **Agent analytics**: Track usage patterns and optimize
-- **Multi-agent orchestration**: Build agents that work together
+Depois de dominar agentes baseados em MCP, explore:
+- **Advanced tool composition**: Combine multiplos MCP servers
+- **Custom authentication flows**: Implemente provedores OAuth customizados
+- **Complex adaptive cards**: Cards multi-acao com dados dinamicos
+- **Agent analytics**: Acompanhe padroes de uso e otimize
+- **Multi-agent orchestration**: Construa agents que trabalham juntos
 
 ---
 
-*This collection is maintained by the community and reflects current best practices for MCP-based M365 Copilot agent development. Contributions and feedback welcome!*
+*Esta collection e mantida pela comunidade e reflete boas praticas atuais para desenvolvimento de agentes MCP-based M365 Copilot. Contribuicoes e feedback sao bem-vindos!*

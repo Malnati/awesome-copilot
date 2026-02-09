@@ -1,4 +1,4 @@
-# Support
+# Suporte
 
 ## Como abrir issues e obter ajuda
 
@@ -9,7 +9,7 @@ Para ajuda ou perguntas sobre o uso deste projeto, abra uma issue no GitHub.
 Inclua uma das seguintes declaracoes no arquivo:
 
 - **Awesome Copilot Prompts** esta em desenvolvimento ativo e mantido por equipe do GitHub e da Microsoft **E A COMUNIDADE**. Faremos o nosso melhor para responder a suporte, solicitacoes de features e perguntas da comunidade em tempo habil.
--
-## GitHub Support Policy
+
+## Politica de Suporte do GitHub
 
 O suporte para este projeto esta limitado aos recursos listados acima.

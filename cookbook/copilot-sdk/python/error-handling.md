@@ -1,19 +1,19 @@
-# Error Handling Patterns
+# Padroes de Tratamento de Erros
 
-Handle errors gracefully in your Copilot SDK applications.
+Trate erros com elegancia em suas aplicacoes do Copilot SDK.
 
-> **Runnable example:** [recipe/error_handling.py](recipe/error_handling.py)
+> **Exemplo executavel:** [recipe/error_handling.py](recipe/error_handling.py)
 >
 > ```bash
 > cd recipe && pip install -r requirements.txt
 > python error_handling.py
 > ```
 
-## Example scenario
+## Cenario de exemplo
 
-You need to handle various error conditions like connection failures, timeouts, and invalid responses.
+Voce precisa lidar com varias condicoes de erro como falhas de conexao, timeouts e respostas invalidas.
 
-## Basic try-except
+## Try-except basico
 
 ```python
 from copilot import CopilotClient
@@ -44,7 +44,7 @@ finally:
     client.stop()
 ```
 
-## Handling specific error types
+## Tratando tipos de erro especificos
 
 ```python
 import subprocess
@@ -59,7 +59,7 @@ except Exception as e:
     print(f"Unexpected error: {e}")
 ```
 
-## Timeout handling
+## Tratamento de timeout
 
 ```python
 import signal
@@ -92,7 +92,7 @@ except TimeoutError:
     print("Request timed out")
 ```
 
-## Aborting a request
+## Abortando uma requisicao
 
 ```python
 import threading
@@ -112,7 +112,7 @@ def abort_later():
 threading.Thread(target=abort_later).start()
 ```
 
-## Graceful shutdown
+## Encerramento elegante
 
 ```python
 import signal
@@ -128,7 +128,7 @@ def signal_handler(sig, frame):
 signal.signal(signal.SIGINT, signal_handler)
 ```
 
-## Context manager for automatic cleanup
+## Context manager para limpeza automatica
 
 ```python
 from copilot import CopilotClient
@@ -142,9 +142,9 @@ with CopilotClient() as client:
     # client.stop() is automatically called when exiting context
 ```
 
-## Best practices
+## Melhores praticas
 
-1. **Always clean up**: Use try-finally or context managers to ensure `stop()` is called
-2. **Handle connection errors**: The CLI might not be installed or running
-3. **Set appropriate timeouts**: Long-running requests should have timeouts
-4. **Log errors**: Capture error details for debugging
+1. **Sempre limpe**: Use try-finally ou context managers para garantir que `stop()` seja chamado
+2. **Trate erros de conexao**: A CLI pode nao estar instalada ou em execucao
+3. **Defina timeouts apropriados**: Requisicoes longas devem ter timeouts
+4. **Registre erros**: Capture detalhes de erros para depuracao

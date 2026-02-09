@@ -1,84 +1,84 @@
-# Runnable Recipe Examples
+# Exemplos de Receita Executaveis
 
-This folder contains standalone, executable TypeScript examples for each cookbook recipe. Each file can be run directly with `tsx` or via npm scripts.
+Esta pasta contem exemplos TypeScript independentes e executaveis para cada receita do cookbook. Cada arquivo pode ser executado diretamente com `tsx` ou via scripts npm.
 
-## Prerequisites
+## Pre-requisitos
 
-- Node.js 18 or later
-- Install dependencies (this links to the local SDK in the repo):
+- Node.js 18 ou superior
+- Instale as dependencias (isso referencia o SDK local no repo):
 
 ```bash
 npm install
 ```
 
-## Running Examples
+## Executando Exemplos
 
-Each `.ts` file is a complete, runnable program. You can run them in two ways:
+Cada arquivo `.ts` e um programa completo e executavel. Voce pode executa-los de duas formas:
 
-### Using npm scripts:
+### Usando scripts npm:
 
 ```bash
 npm run <script-name>
 ```
 
-### Using tsx directly:
+### Usando tsx diretamente:
 
 ```bash
 npx tsx <filename>.ts
 ```
 
-### Available Recipes
+### Receitas Disponiveis
 
-| Recipe               | npm script                     | Direct command                    | Description                                |
-| -------------------- | ------------------------------ | --------------------------------- | ------------------------------------------ |
-| Error Handling       | `npm run error-handling`       | `npx tsx error-handling.ts`       | Demonstrates error handling patterns       |
-| Multiple Sessions    | `npm run multiple-sessions`    | `npx tsx multiple-sessions.ts`    | Manages multiple independent conversations |
-| Managing Local Files | `npm run managing-local-files` | `npx tsx managing-local-files.ts` | Organizes files using AI grouping          |
-| PR Visualization     | `npm run pr-visualization`     | `npx tsx pr-visualization.ts`     | Generates PR age charts                    |
-| Persisting Sessions  | `npm run persisting-sessions`  | `npx tsx persisting-sessions.ts`  | Save and resume sessions across restarts   |
+| Receita               | npm script                     | Comando direto                    | Descricao                                  |
+| --------------------- | ------------------------------ | --------------------------------- | ------------------------------------------ |
+| Error Handling        | `npm run error-handling`       | `npx tsx error-handling.ts`       | Demonstra padroes de tratamento de erros   |
+| Multiple Sessions     | `npm run multiple-sessions`    | `npx tsx multiple-sessions.ts`    | Gerencia multiplas conversas independentes |
+| Managing Local Files  | `npm run managing-local-files` | `npx tsx managing-local-files.ts` | Organiza arquivos com agrupamento por IA   |
+| PR Visualization      | `npm run pr-visualization`     | `npx tsx pr-visualization.ts`     | Gera graficos de idade de PR               |
+| Persisting Sessions   | `npm run persisting-sessions`  | `npx tsx persisting-sessions.ts`  | Salva e retoma sessoes entre reinicios     |
 
-### Examples with Arguments
+### Exemplos com Argumentos
 
-**PR Visualization with specific repo:**
+**PR Visualization com repo especifico:**
 
 ```bash
 npx tsx pr-visualization.ts --repo github/copilot-sdk
 ```
 
-**Managing Local Files (edit the file to change target folder):**
+**Managing Local Files (edite o arquivo para mudar a pasta alvo):**
 
 ```bash
 # Edit the targetFolder variable in managing-local-files.ts first
 npx tsx managing-local-files.ts
 ```
 
-## Local SDK Development
+## Desenvolvimento do SDK Local
 
-The `package.json` references the local Copilot SDK using `"*"`, which resolves to the local SDK source. This means:
+O `package.json` referencia o Copilot SDK local usando `"*"`, que resolve para a fonte local do SDK. Isso significa:
 
-- Changes to the SDK source are immediately available
-- No need to publish or install from npm
-- Perfect for testing and development
+- Mudancas no codigo do SDK ficam disponiveis imediatamente
+- Nao ha necessidade de publicar ou instalar do npm
+- Perfeito para testes e desenvolvimento
 
-If you modify the SDK source, you may need to rebuild:
+Se voce modificar o codigo do SDK, talvez precise reconstruir:
 
 ```bash
 cd ../../src
 npm run build
 ```
 
-## TypeScript Features
+## Recursos do TypeScript
 
-These examples use modern TypeScript/Node.js features:
+Estes exemplos usam recursos modernos de TypeScript/Node.js:
 
-- Top-level await (requires `"type": "module"` in package.json)
-- ESM imports
-- Type safety with TypeScript
-- async/await patterns
+- Top-level await (requer `"type": "module"` no package.json)
+- Imports ESM
+- Seguranca de tipos com TypeScript
+- Padroes async/await
 
-## Learning Resources
+## Recursos de Aprendizado
 
 - [TypeScript Documentation](https://www.typescriptlang.org/docs/)
 - [Node.js Documentation](https://nodejs.org/docs/latest/api/)
 - [GitHub Copilot SDK for Node.js](https://github.com/github/copilot-sdk/blob/main/nodejs/README.md)
-- [Parent Cookbook](../README.md)
+- [Cookbook Pai](../README.md)

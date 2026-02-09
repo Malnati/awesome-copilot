@@ -1,12 +1,12 @@
 Obrigado por ajudar a manter o GitHub seguro para todos.
 
-# Security
+# Seguranca
 
 O GitHub leva a seguranca de nossos produtos e servicos de software a serio, incluindo todos os repositorios de codigo aberto gerenciados por meio de nossas organizacoes GitHub, como o [GitHub](https://github.com/GitHub).
 
 Mesmo que [repositorios de codigo aberto estejam fora do escopo do nosso programa de bug bounty](https://bounty.github.com/index.html#scope) e, portanto, nao sejam elegiveis a recompensas, garantiremos que seu achado seja encaminhado aos mantenedores apropriados para correcao.
 
-## Reportando Security Issues
+## Reportando Issues de Seguranca
 
 Se voce acredita ter encontrado uma vulnerabilidade de seguranca em qualquer repositorio de propriedade do GitHub, relate para nos por meio de divulgacao coordenada.
 
@@ -26,6 +26,6 @@ Inclua o maximo de informacoes listadas abaixo que puder para nos ajudar a enten
 
 Essas informacoes ajudarao a triagem do seu reporte mais rapidamente.
 
-## Policy
+## Politica
 
 Veja a [GitHub's Safe Harbor Policy](https://docs.github.com/en/site-policy/security-policies/github-bug-bounty-program-legal-safe-harbor#1-safe-harbor-terms)

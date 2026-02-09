@@ -1,19 +1,19 @@
 # GitHub Copilot SDK Cookbook — Python
 
-This folder hosts short, practical recipes for using the GitHub Copilot SDK with Python. Each recipe is concise, copy‑pasteable, and points to fuller examples and tests.
+Esta pasta hospeda receitas curtas e praticas para usar o GitHub Copilot SDK com Python. Cada receita e concisa, pronta para copiar e colar, e aponta para exemplos e testes mais completos.
 
-## Recipes
+## Receitas
 
-- [Error Handling](error-handling.md): Handle errors gracefully including connection failures, timeouts, and cleanup.
-- [Multiple Sessions](multiple-sessions.md): Manage multiple independent conversations simultaneously.
-- [Managing Local Files](managing-local-files.md): Organize files by metadata using AI-powered grouping strategies.
-- [PR Visualization](pr-visualization.md): Generate interactive PR age charts using GitHub MCP Server.
-- [Persisting Sessions](persisting-sessions.md): Save and resume sessions across restarts.
+- [Error Handling](error-handling.md): Lide com erros com elegancia, incluindo falhas de conexao, timeouts e limpeza.
+- [Multiple Sessions](multiple-sessions.md): Gerencie varias conversas independentes simultaneamente.
+- [Managing Local Files](managing-local-files.md): Organize arquivos por metadados usando estrategias de agrupamento com IA.
+- [PR Visualization](pr-visualization.md): Gere graficos interativos de idade de PR usando o GitHub MCP Server.
+- [Persisting Sessions](persisting-sessions.md): Salve e retome sessoes entre reinicios.
 
-## Contributing
+## Contribuindo
 
-Add a new recipe by creating a markdown file in this folder and linking it above. Follow repository guidance in [CONTRIBUTING.md](../../../CONTRIBUTING.md).
+Adicione uma nova receita criando um arquivo markdown nesta pasta e referenciando-o acima. Siga as orientacoes do repositorio em [CONTRIBUTING.md](../../../CONTRIBUTING.md).
 
 ## Status
 
-These recipes are complete and ready to use; new contributions and additional recipes are welcome.
+Estas receitas estao completas e prontas para uso; novas contribuicoes e receitas adicionais sao bem-vindas.

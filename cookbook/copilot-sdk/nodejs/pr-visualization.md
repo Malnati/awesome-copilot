@@ -1,8 +1,8 @@
-# Generating PR Age Charts
+# Gerando Graficos de Idade de PR
 
-Build an interactive CLI tool that visualizes pull request age distribution for a GitHub repository using Copilot's built-in capabilities.
+Crie uma ferramenta CLI interativa que visualiza a distribuicao de idade de pull requests em um repositorio GitHub usando os recursos integrados do Copilot.
 
-> **Runnable example:** [recipe/pr-visualization.ts](recipe/pr-visualization.ts)
+> **Exemplo executavel:** [recipe/pr-visualization.ts](recipe/pr-visualization.ts)
 >
 > ```bash
 > cd recipe && npm install
@@ -14,18 +14,18 @@ Build an interactive CLI tool that visualizes pull request age distribution for 
 > # or: npm run pr-visualization
 > ```
 
-## Example scenario
+## Cenario de exemplo
 
-You want to understand how long PRs have been open in a repository. This tool detects the current Git repo or accepts a repo as input, then lets Copilot fetch PR data via the GitHub MCP Server and generate a chart image.
+Voce quer entender ha quanto tempo PRs estao abertos em um repositorio. Esta ferramenta detecta o repo git atual ou aceita um repo como entrada, depois permite que o Copilot busque dados de PR via GitHub MCP Server e gere uma imagem de grafico.
 
-## Prerequisites
+## Pre-requisitos
 
 ```bash
 npm install @github/copilot-sdk
 npm install -D typescript tsx @types/node
 ```
 
-## Usage
+## Uso
 
 ```bash
 # Auto-detect from current git repo
@@ -35,7 +35,7 @@ npx tsx pr-visualization.ts
 npx tsx pr-visualization.ts --repo github/copilot-sdk
 ```
 
-## Full example: pr-visualization.ts
+## Exemplo completo: pr-visualization.ts
 
 ```typescript
 #!/usr/bin/env npx tsx
@@ -219,16 +219,16 @@ The current working directory is: ${process.cwd()}
 main().catch(console.error);
 ```
 
-## How it works
+## Como funciona
 
-1. **Repository detection**: Checks `--repo` flag → git remote → prompts user
-2. **No custom tools**: Relies entirely on Copilot CLI's built-in capabilities:
-    - **GitHub MCP Server** - Fetches PR data from GitHub
-    - **File tools** - Saves generated chart images
-    - **Code execution** - Generates charts using Python/matplotlib or other methods
-3. **Interactive session**: After initial analysis, user can ask for adjustments
+1. **Deteccao de repositorio**: Verifica a flag `--repo` → remote do git → solicita ao usuario
+2. **Sem ferramentas personalizadas**: Depende apenas das capacidades integradas do Copilot CLI:
+    - **GitHub MCP Server** - Busca dados de PR no GitHub
+    - **Ferramentas de arquivo** - Salvam imagens de graficos geradas
+    - **Execucao de codigo** - Gera graficos usando Python/matplotlib ou outros metodos
+3. **Sessao interativa**: Apos a analise inicial, o usuario pode pedir ajustes
 
-## Sample interaction
+## Exemplo de interacao
 
 ```
 🔍 PR Age Chart Generator
@@ -281,12 +281,12 @@ You: Generate a pie chart showing the age distribution
 🤖 Done! Pie chart saved to: pr-age-chart.png
 ```
 
-## Why this approach?
+## Por que esta abordagem?
 
-| Aspect          | Custom Tools      | Built-in Copilot                  |
-| --------------- | ----------------- | --------------------------------- |
-| Code complexity | High              | **Minimal**                       |
-| Maintenance     | You maintain      | **Copilot maintains**             |
-| Flexibility     | Fixed logic       | **AI decides best approach**      |
-| Chart types     | What you coded    | **Any type Copilot can generate** |
-| Data grouping   | Hardcoded buckets | **Intelligent grouping**          |
+| Aspecto          | Ferramentas Personalizadas | Copilot Integrado               |
+| --------------- | -------------------------- | ------------------------------- |
+| Complexidade do codigo | Alta                  | **Minima**                      |
+| Manutencao      | Voce mantem               | **Copilot mantem**              |
+| Flexibilidade   | Logica fixa                | **IA decide a melhor abordagem**|
+| Tipos de grafico| O que voce codou           | **Qualquer tipo que o Copilot gere** |
+| Agrupamento de dados | Buckets fixos         | **Agrupamento inteligente**     |

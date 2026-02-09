@@ -1,18 +1,18 @@
-# Error Handling Patterns
+# Padroes de Tratamento de Erros
 
-Handle errors gracefully in your Copilot SDK applications.
+Trate erros com elegancia em suas aplicacoes do Copilot SDK.
 
-> **Runnable example:** [recipe/error-handling.cs](recipe/error-handling.cs)
+> **Exemplo executavel:** [recipe/error-handling.cs](recipe/error-handling.cs)
 >
 > ```bash
 > dotnet run recipe/error-handling.cs
 > ```
 
-## Example scenario
+## Cenario de exemplo
 
-You need to handle various error conditions like connection failures, timeouts, and invalid responses.
+Voce precisa lidar com varias condicoes de erro como falhas de conexao, timeouts e respostas invalidas.
 
-## Basic try-catch
+## Try-catch basico
 
 ```csharp
 using GitHub.Copilot.SDK;
@@ -52,7 +52,7 @@ finally
 }
 ```
 
-## Handling specific error types
+## Tratando tipos de erro especificos
 
 ```csharp
 try
@@ -73,7 +73,7 @@ catch (Exception ex)
 }
 ```
 
-## Timeout handling
+## Tratamento de timeout
 
 ```csharp
 var session = await client.CreateSessionAsync(new SessionConfig { Model = "gpt-5" });
@@ -103,7 +103,7 @@ catch (OperationCanceledException)
 }
 ```
 
-## Aborting a request
+## Abortando uma solicitacao
 
 ```csharp
 var session = await client.CreateSessionAsync(new SessionConfig { Model = "gpt-5" });
@@ -117,7 +117,7 @@ await session.AbortAsync();
 Console.WriteLine("Request aborted");
 ```
 
-## Graceful shutdown
+## Encerramento elegante
 
 ```csharp
 Console.CancelKeyPress += async (sender, e) =>
@@ -135,7 +135,7 @@ Console.CancelKeyPress += async (sender, e) =>
 };
 ```
 
-## Using await using for automatic disposal
+## Usando await using para descarte automatico
 
 ```csharp
 await using var client = new CopilotClient();
@@ -148,9 +148,9 @@ var session = await client.CreateSessionAsync(new SessionConfig { Model = "gpt-5
 // client.StopAsync() is automatically called when exiting scope
 ```
 
-## Best practices
+## Melhores praticas
 
-1. **Always clean up**: Use try-finally or `await using` to ensure `StopAsync()` is called
-2. **Handle connection errors**: The CLI might not be installed or running
-3. **Set appropriate timeouts**: Use `CancellationToken` for long-running requests
-4. **Log errors**: Capture error details for debugging
+1. **Sempre limpe**: Use try-finally ou `await using` para garantir que `StopAsync()` seja chamado
+2. **Trate erros de conexao**: A CLI pode nao estar instalada ou em execucao
+3. **Defina timeouts apropriados**: Use `CancellationToken` para requisicoes de longa duracao
+4. **Registre erros**: Capture detalhes de erros para depuracao

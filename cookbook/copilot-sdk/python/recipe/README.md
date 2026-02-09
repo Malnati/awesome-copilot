@@ -1,74 +1,74 @@
-# Runnable Recipe Examples
+# Exemplos de Receita Executaveis
 
-This folder contains standalone, executable Python examples for each cookbook recipe. Each file can be run directly as a Python script.
+Esta pasta contem exemplos Python independentes e executaveis para cada receita do cookbook. Cada arquivo pode ser executado diretamente como script Python.
 
-## Prerequisites
+## Pre-requisitos
 
-- Python 3.8 or later
-- Install dependencies (this installs the SDK from PyPI):
+- Python 3.8 ou superior
+- Instale as dependencias (isso instala o SDK do PyPI):
 
 ```bash
 pip install -r requirements.txt
 ```
 
-## Running Examples
+## Executando Exemplos
 
-Each `.py` file is a complete, runnable program with executable permissions:
+Cada arquivo `.py` e um programa completo e executavel com permissoes de execucao:
 
 ```bash
 python <filename>.py
-# or on Unix-like systems:
+# ou em sistemas tipo Unix:
 ./<filename>.py
 ```
 
-### Available Recipes
+### Receitas Disponiveis
 
-| Recipe               | Command                          | Description                                |
-| -------------------- | -------------------------------- | ------------------------------------------ |
-| Error Handling       | `python error_handling.py`       | Demonstrates error handling patterns       |
-| Multiple Sessions    | `python multiple_sessions.py`    | Manages multiple independent conversations |
-| Managing Local Files | `python managing_local_files.py` | Organizes files using AI grouping          |
-| PR Visualization     | `python pr_visualization.py`     | Generates PR age charts                    |
-| Persisting Sessions  | `python persisting_sessions.py`  | Save and resume sessions across restarts   |
+| Receita               | Comando                          | Descricao                                  |
+| --------------------- | -------------------------------- | ------------------------------------------ |
+| Error Handling        | `python error_handling.py`       | Demonstra padroes de tratamento de erros   |
+| Multiple Sessions     | `python multiple_sessions.py`    | Gerencia multiplas conversas independentes |
+| Managing Local Files  | `python managing_local_files.py` | Organiza arquivos com agrupamento por IA   |
+| PR Visualization      | `python pr_visualization.py`     | Gera graficos de idade de PR               |
+| Persisting Sessions   | `python persisting_sessions.py`  | Salva e retoma sessoes entre reinicios     |
 
-### Examples with Arguments
+### Exemplos com Argumentos
 
-**PR Visualization with specific repo:**
+**PR Visualization com repo especifico:**
 
 ```bash
 python pr_visualization.py --repo github/copilot-sdk
 ```
 
-**Managing Local Files (edit the file to change target folder):**
+**Managing Local Files (edite o arquivo para mudar a pasta alvo):**
 
 ```bash
 # Edit the target_folder variable in managing_local_files.py first
 python managing_local_files.py
 ```
 
-## Local SDK Development
+## Desenvolvimento do SDK Local
 
-The `requirements.txt` installs the Copilot SDK package from PyPI. This means:
+O `requirements.txt` instala o pacote Copilot SDK do PyPI. Isso significa:
 
-- You get the latest stable release of the SDK
-- No need to build from source
-- Perfect for using the SDK in your projects
+- Voce recebe a versao estavel mais recente do SDK
+- Nao ha necessidade de compilar a partir do codigo-fonte
+- Perfeito para usar o SDK nos seus projetos
 
-If you want to use a local development version, edit requirements.txt to use `-e ../..` for editable mode development.
+Se voce quiser usar uma versao local de desenvolvimento, edite o requirements.txt para usar `-e ../..` no modo editavel.
 
-## Python Best Practices
+## Melhores Praticas em Python
 
-These examples follow Python conventions:
+Estes exemplos seguem convencoes de Python:
 
-- PEP 8 naming (snake_case for functions and variables)
-- Shebang line for direct execution
-- Proper exception handling
-- Type hints where appropriate
-- Standard library usage
+- Nomenclatura PEP 8 (snake_case para funcoes e variaveis)
+- Linha shebang para execucao direta
+- Tratamento adequado de excecoes
+- Type hints quando apropriado
+- Uso da biblioteca padrao
 
-## Virtual Environment (Recommended)
+## Virtual Environment (Recomendado)
 
-For isolated development:
+Para desenvolvimento isolado:
 
 ```bash
 # Create virtual environment
@@ -84,9 +84,9 @@ source venv/bin/activate
 pip install -r requirements.txt
 ```
 
-## Learning Resources
+## Recursos de Aprendizado
 
 - [Python Documentation](https://docs.python.org/3/)
 - [PEP 8 Style Guide](https://pep8.org/)
 - [GitHub Copilot SDK for Python](https://github.com/github/copilot-sdk/blob/main/python/README.md)
-- [Parent Cookbook](../README.md)
+- [Cookbook Pai](../README.md)

@@ -1,18 +1,18 @@
-# Grouping Files by Metadata
+# Agrupando Arquivos por Metadados
 
-Use Copilot to intelligently organize files in a folder based on their metadata.
+Use o Copilot para organizar arquivos de forma inteligente em uma pasta com base em seus metadados.
 
-> **Runnable example:** [recipe/managing-local-files.go](recipe/managing-local-files.go)
+> **Exemplo executavel:** [recipe/managing-local-files.go](recipe/managing-local-files.go)
 >
 > ```bash
 > go run recipe/managing-local-files.go
 > ```
 
-## Example scenario
+## Cenario de exemplo
 
-You have a folder with many files and want to organize them into subfolders based on metadata like file type, creation date, size, or other attributes. Copilot can analyze the files and suggest or execute a grouping strategy.
+Voce tem uma pasta com muitos arquivos e quer organiza-los em subpastas com base em metadados como tipo de arquivo, data de criacao, tamanho ou outros atributos. O Copilot pode analisar os arquivos e sugerir ou executar uma estrategia de agrupamento.
 
-## Example code
+## Codigo de exemplo
 
 ```go
 package main
@@ -77,9 +77,9 @@ Please confirm before moving any files.
 }
 ```
 
-## Grouping strategies
+## Estrategias de agrupamento
 
-### By file extension
+### Por extensao de arquivo
 
 ```go
 // Groups files like:
@@ -88,7 +88,7 @@ Please confirm before moving any files.
 // videos/   -> .mp4, .avi, .mov
 ```
 
-### By creation date
+### Por data de criacao
 
 ```go
 // Groups files like:
@@ -96,7 +96,7 @@ Please confirm before moving any files.
 // 2024-02/ -> files created in February 2024
 ```
 
-### By file size
+### Por tamanho de arquivo
 
 ```go
 // Groups files like:
@@ -106,9 +106,9 @@ Please confirm before moving any files.
 // large-over-100mb/
 ```
 
-## Dry-run mode
+## Modo dry-run
 
-For safety, you can ask Copilot to only preview changes:
+Por seguranca, voce pode pedir ao Copilot para apenas prever as alteracoes:
 
 ```go
 prompt := fmt.Sprintf(`
@@ -119,9 +119,9 @@ by file type. DO NOT move any files - just show me the plan.
 session.Send(copilot.MessageOptions{Prompt: prompt})
 ```
 
-## Custom grouping with AI analysis
+## Agrupamento personalizado com analise de IA
 
-Let Copilot determine the best grouping based on file content:
+Deixe o Copilot determinar o melhor agrupamento com base no conteudo dos arquivos:
 
 ```go
 prompt := fmt.Sprintf(`
@@ -137,8 +137,8 @@ Propose folder names that are descriptive and useful.
 session.Send(copilot.MessageOptions{Prompt: prompt})
 ```
 
-## Safety considerations
+## Consideracoes de seguranca
 
-1. **Confirm before moving**: Ask Copilot to confirm before executing moves
-2. **Handle duplicates**: Consider what happens if a file with the same name exists
-3. **Preserve originals**: Consider copying instead of moving for important files
+1. **Confirme antes de mover**: Peça ao Copilot para confirmar antes de executar movimentacoes
+2. **Trate duplicatas**: Considere o que acontece se existir um arquivo com o mesmo nome
+3. **Preserve os originais**: Considere copiar em vez de mover para arquivos importantes

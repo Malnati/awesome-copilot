@@ -1,19 +1,19 @@
-# Session Persistence and Resumption
+# Persistencia e Retomada de Sessoes
 
-Save and restore conversation sessions across application restarts.
+Salve e restaure sessoes de conversa entre reinicios da aplicacao.
 
-## Example scenario
+## Cenario de exemplo
 
-You want users to be able to continue a conversation even after closing and reopening your application.
+Voce quer que os usuarios possam continuar uma conversa mesmo depois de fechar e reabrir seu aplicativo.
 
-> **Runnable example:** [recipe/persisting-sessions.cs](recipe/persisting-sessions.cs)
+> **Exemplo executavel:** [recipe/persisting-sessions.cs](recipe/persisting-sessions.cs)
 >
 > ```bash
 > cd recipe
 > dotnet run persisting-sessions.cs
 > ```
 
-### Creating a session with a custom ID
+### Criando uma sessao com ID personalizado
 
 ```csharp
 using GitHub.Copilot.SDK;
@@ -38,7 +38,7 @@ await session.DisposeAsync();
 await client.StopAsync();
 ```
 
-### Resuming a session
+### Retomando uma sessao
 
 ```csharp
 await using var client = new CopilotClient();
@@ -54,7 +54,7 @@ await session.DisposeAsync();
 await client.StopAsync();
 ```
 
-### Listing available sessions
+### Listando sessoes disponiveis
 
 ```csharp
 var sessions = await client.ListSessionsAsync();
@@ -64,16 +64,16 @@ foreach (var s in sessions)
 }
 ```
 
-### Deleting a session permanently
+### Excluindo uma sessao permanentemente
 
 ```csharp
 // Remove session and all its data from disk
 await client.DeleteSessionAsync("user-123-conversation");
 ```
 
-### Getting session history
+### Obtendo historico da sessao
 
-Retrieve all messages from a session:
+Recupere todas as mensagens de uma sessao:
 
 ```csharp
 var messages = await session.GetMessagesAsync();
@@ -83,8 +83,8 @@ foreach (var msg in messages)
 }
 ```
 
-## Best practices
+## Melhores praticas
 
-1. **Use meaningful session IDs**: Include user ID or context in the session ID
-2. **Handle missing sessions**: Check if a session exists before resuming
-3. **Clean up old sessions**: Periodically delete sessions that are no longer needed
+1. **Use IDs de sessao significativos**: Inclua ID do usuario ou contexto no ID da sessao
+2. **Trate sessoes ausentes**: Verifique se a sessao existe antes de retomar
+3. **Limpe sessoes antigas**: Periodicamente exclua sessoes que nao sao mais necessarias
