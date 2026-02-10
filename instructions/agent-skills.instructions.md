@@ -258,4 +258,4 @@ This ensures traceability and allows resuming workflows if interrupted.
 - [Agent Skills Specification](https://agentskills.io/)
 - [VS Code Agent Skills Documentation](https://code.visualstudio.com/docs/copilot/customization/agent-skills)
 - [Reference Skills Repository](https://github.com/anthropics/skills)
-- [Awesome Copilot Skills](https://github.com/github/awesome-copilot/blob/main/docs/README.skills.md)
+- [Awesome Copilot Skills](https://github.com/Malnati/awesome-copilot/blob/main/docs/README.skills.md)

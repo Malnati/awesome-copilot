@@ -12,7 +12,7 @@ export const GET: APIRoute = () => {
   const prompts = promptsData.items;
   const instructions = instructionsData.items;
   const skills = skillsData.items;
-  
+
   const url = (path: string) => `${GITHUB_RAW_BASE}/${path}`;
 
   let content = "";
@@ -91,7 +91,7 @@ export const GET: APIRoute = () => {
 
   // Add repository information
   content += "## Repository\n\n";
-  content += "- **GitHub**: https://github.com/github/awesome-copilot\n";
+  content += "- **GitHub**: https://github.com/Malnati/awesome-copilot\n";
   content += "- **License**: MIT\n";
   content += "- **Website**: https://github.github.io/awesome-copilot\n";
 

@@ -5,11 +5,11 @@ tools: ['edit', 'search', 'runCommands', 'runTasks', 'think', 'changes', 'testFa
 ---
 # Sugerir Collections do Awesome GitHub Copilot
 
-Analise o contexto atual do repositorio e sugira collections relevantes do [repositorio awesome-copilot](https://github.com/github/awesome-copilot/blob/main/docs/README.collections.md) que melhorem o workflow de desenvolvimento deste repositorio.
+Analise o contexto atual do repositorio e sugira collections relevantes do [repositorio awesome-copilot](https://github.com/Malnati/awesome-copilot/blob/main/docs/README.collections.md) que melhorem o workflow de desenvolvimento deste repositorio.
 
 ## Processo
 
-1. **Fetch Available Collections**: Extraia lista de collections e descricoes de [awesome-copilot README.collections.md](https://github.com/github/awesome-copilot/blob/main/docs/README.collections.md). Deve usar a tool `#fetch`.
+1. **Fetch Available Collections**: Extraia lista de collections e descricoes de [awesome-copilot README.collections.md](https://github.com/Malnati/awesome-copilot/blob/main/docs/README.collections.md). Deve usar a tool `#fetch`.
 2. **Scan Local Assets**: Descubra arquivos de prompt em `prompts/`, instrucoes em `instructions/`, e chat modes em `agents/`
 3. **Extract Local Descriptions**: Leia front matter dos assets locais para entender capacidades existentes
 4. **Fetch Remote Versions**: Para cada asset local que corresponda a item de collection, busque a versao correspondente no repositorio awesome-copilot usando URLs raw do GitHub (ex: `https://raw.githubusercontent.com/github/awesome-copilot/main/<type>/<filename>`)
@@ -53,9 +53,9 @@ Exiba resultados de analise em tabela estruturada mostrando collections relevant
 
 | Collection Name | Description | Items | Asset Overlap | Suggestion Rationale |
 |-----------------|-------------|-------|---------------|---------------------|
-| [Azure & Cloud Development](https://github.com/github/awesome-copilot/blob/main/collections/azure-cloud-development.md) | Ferramentas abrangentes de desenvolvimento Azure incluindo Infrastructure as Code, serverless functions, padroes de arquitetura e otimizacao de custos | 15 items | 3 similares | Melhoraria o workflow de desenvolvimento Azure com Bicep, Terraform e ferramentas de otimizacao de custos |
-| [C# .NET Development](https://github.com/github/awesome-copilot/blob/main/collections/csharp-dotnet-development.md) | Prompts, instructions e chat modes essenciais para desenvolvimento C# e .NET incluindo testes, documentacao e boas praticas | 7 items | 2 similares | Ja coberto por assets .NET existentes, mas inclui padroes avancados de testes |
-| [Testing & Test Automation](https://github.com/github/awesome-copilot/blob/main/collections/testing-automation.md) | Collection abrangente para escrita de testes, automacao de testes e test-driven development | 11 items | 1 similar | Pode melhorar significativamente praticas de teste com orientacao de TDD e ferramentas de automacao |
+| [Azure & Cloud Development](https://github.com/Malnati/awesome-copilot/blob/main/collections/azure-cloud-development.md) | Ferramentas abrangentes de desenvolvimento Azure incluindo Infrastructure as Code, serverless functions, padroes de arquitetura e otimizacao de custos | 15 items | 3 similares | Melhoraria o workflow de desenvolvimento Azure com Bicep, Terraform e ferramentas de otimizacao de custos |
+| [C# .NET Development](https://github.com/Malnati/awesome-copilot/blob/main/collections/csharp-dotnet-development.md) | Prompts, instructions e chat modes essenciais para desenvolvimento C# e .NET incluindo testes, documentacao e boas praticas | 7 items | 2 similares | Ja coberto por assets .NET existentes, mas inclui padroes avancados de testes |
+| [Testing & Test Automation](https://github.com/Malnati/awesome-copilot/blob/main/collections/testing-automation.md) | Collection abrangente para escrita de testes, automacao de testes e test-driven development | 11 items | 1 similar | Pode melhorar significativamente praticas de teste com orientacao de TDD e ferramentas de automacao |
 
 ### Analise de Assets para Collections Recomendadas
 

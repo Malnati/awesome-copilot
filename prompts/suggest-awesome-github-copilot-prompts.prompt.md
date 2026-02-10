@@ -5,11 +5,11 @@ tools: ['edit', 'search', 'runCommands', 'runTasks', 'think', 'changes', 'testFa
 ---
 # Sugerir Prompts do Awesome GitHub Copilot
 
-Analise o contexto atual do repositorio e sugira arquivos de prompt relevantes do [repositorio awesome-copilot](https://github.com/github/awesome-copilot/blob/main/docs/README.prompts.md) que ainda nao estao disponiveis neste repositorio.
+Analise o contexto atual do repositorio e sugira arquivos de prompt relevantes do [repositorio awesome-copilot](https://github.com/Malnati/awesome-copilot/blob/main/docs/README.prompts.md) que ainda nao estao disponiveis neste repositorio.
 
 ## Processo
 
-1. **Fetch Available Prompts**: Extraia lista de prompts e descricoes de [awesome-copilot README.prompts.md](https://github.com/github/awesome-copilot/blob/main/docs/README.prompts.md). Deve usar a tool `#fetch`.
+1. **Fetch Available Prompts**: Extraia lista de prompts e descricoes de [awesome-copilot README.prompts.md](https://github.com/Malnati/awesome-copilot/blob/main/docs/README.prompts.md). Deve usar a tool `#fetch`.
 2. **Scan Local Prompts**: Descubra arquivos de prompt existentes na pasta `.github/prompts/`
 3. **Extract Descriptions**: Leia front matter dos prompts locais para obter descricoes
 4. **Fetch Remote Versions**: Para cada prompt local, busque a versao correspondente no repositorio awesome-copilot usando URLs raw do GitHub (ex: `https://raw.githubusercontent.com/github/awesome-copilot/main/prompts/<filename>`)
@@ -51,9 +51,9 @@ Exiba resultados de analise em tabela estruturada comparando prompts do awesome-
 
 | Awesome-Copilot Prompt | Description | Already Installed | Similar Local Prompt | Suggestion Rationale |
 |-------------------------|-------------|-------------------|---------------------|---------------------|
-| [code-review.prompt.md](https://github.com/github/awesome-copilot/blob/main/prompts/code-review.prompt.md) | Automated code review prompts | ❌ Nao | None | Melhoraria o workflow de desenvolvimento com processos padronizados de code review |
-| [documentation.prompt.md](https://github.com/github/awesome-copilot/blob/main/prompts/documentation.prompt.md) | Generate project documentation | ✅ Sim | create_oo_component_documentation.prompt.md | Ja coberto por prompts existentes de documentacao |
-| [debugging.prompt.md](https://github.com/github/awesome-copilot/blob/main/prompts/debugging.prompt.md) | Debug assistance prompts | ⚠️ Desatualizado | debugging.prompt.md | Configuracao de tools difere: remoto usa `'codebase'` vs local ausente - Update recomendado |
+| [code-review.prompt.md](https://github.com/Malnati/awesome-copilot/blob/main/prompts/code-review.prompt.md) | Automated code review prompts | ❌ Nao | None | Melhoraria o workflow de desenvolvimento com processos padronizados de code review |
+| [documentation.prompt.md](https://github.com/Malnati/awesome-copilot/blob/main/prompts/documentation.prompt.md) | Generate project documentation | ✅ Sim | create_oo_component_documentation.prompt.md | Ja coberto por prompts existentes de documentacao |
+| [debugging.prompt.md](https://github.com/Malnati/awesome-copilot/blob/main/prompts/debugging.prompt.md) | Debug assistance prompts | ⚠️ Desatualizado | debugging.prompt.md | Configuracao de tools difere: remoto usa `'codebase'` vs local ausente - Update recomendado |
 
 ## Processo de Descoberta de Prompts Locais
 

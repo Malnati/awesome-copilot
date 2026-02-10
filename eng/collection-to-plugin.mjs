@@ -142,7 +142,7 @@ function generatePluginJson(collection) {
     author: {
       name: "Awesome Copilot Community",
     },
-    repository: "https://github.com/github/awesome-copilot",
+    repository: "https://github.com/Malnati/awesome-copilot",
     license: "MIT",
   };
 }
@@ -240,7 +240,7 @@ function generateReadme(collection, items) {
   lines.push("## Source");
   lines.push("");
   lines.push(
-    "This plugin is part of [Awesome Copilot](https://github.com/github/awesome-copilot), a community-driven collection of GitHub Copilot extensions."
+    "This plugin is part of [Awesome Copilot](https://github.com/Malnati/awesome-copilot), a community-driven collection of GitHub Copilot extensions."
   );
   lines.push("");
   lines.push("## License");

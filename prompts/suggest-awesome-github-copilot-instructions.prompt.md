@@ -5,11 +5,11 @@ tools: ['edit', 'search', 'runCommands', 'runTasks', 'think', 'changes', 'testFa
 ---
 # Sugerir Instrucoes do Awesome GitHub Copilot
 
-Analise o contexto atual do repositorio e sugira arquivos de copilot-instructions relevantes do [repositorio awesome-copilot](https://github.com/github/awesome-copilot/blob/main/docs/README.instructions.md) que ainda nao estao disponiveis neste repositorio.
+Analise o contexto atual do repositorio e sugira arquivos de copilot-instructions relevantes do [repositorio awesome-copilot](https://github.com/Malnati/awesome-copilot/blob/main/docs/README.instructions.md) que ainda nao estao disponiveis neste repositorio.
 
 ## Processo
 
-1. **Fetch Available Instructions**: Extraia lista de instrucoes e descricoes de [awesome-copilot README.instructions.md](https://github.com/github/awesome-copilot/blob/main/docs/README.instructions.md). Deve usar a tool `#fetch`.
+1. **Fetch Available Instructions**: Extraia lista de instrucoes e descricoes de [awesome-copilot README.instructions.md](https://github.com/Malnati/awesome-copilot/blob/main/docs/README.instructions.md). Deve usar a tool `#fetch`.
 2. **Scan Local Instructions**: Descubra arquivos de instrucoes existentes na pasta `.github/instructions/`
 3. **Extract Descriptions**: Leia front matter de arquivos locais para obter descricoes e padroes `applyTo`
 4. **Fetch Remote Versions**: Para cada instrucao local, busque a versao correspondente no repositorio awesome-copilot usando URLs raw do GitHub (ex: `https://raw.githubusercontent.com/github/awesome-copilot/main/instructions/<filename>`)
@@ -51,9 +51,9 @@ Exiba resultados de analise em tabela estruturada comparando instrucoes do aweso
 
 | Awesome-Copilot Instruction | Description | Already Installed | Similar Local Instruction | Suggestion Rationale |
 |------------------------------|-------------|-------------------|---------------------------|---------------------|
-| [blazor.instructions.md](https://github.com/github/awesome-copilot/blob/main/instructions/blazor.instructions.md) | Blazor development guidelines | ✅ Sim | blazor.instructions.md | Ja coberto por instrucoes existentes de Blazor |
-| [reactjs.instructions.md](https://github.com/github/awesome-copilot/blob/main/instructions/reactjs.instructions.md) | ReactJS development standards | ❌ Nao | None | Melhoraria desenvolvimento React com padroes estabelecidos |
-| [java.instructions.md](https://github.com/github/awesome-copilot/blob/main/instructions/java.instructions.md) | Java development best practices | ⚠️ Desatualizado | java.instructions.md | Padrao applyTo difere: remoto usa `'**/*.java'` vs local `'*.java'` - Update recomendado |
+| [blazor.instructions.md](https://github.com/Malnati/awesome-copilot/blob/main/instructions/blazor.instructions.md) | Blazor development guidelines | ✅ Sim | blazor.instructions.md | Ja coberto por instrucoes existentes de Blazor |
+| [reactjs.instructions.md](https://github.com/Malnati/awesome-copilot/blob/main/instructions/reactjs.instructions.md) | ReactJS development standards | ❌ Nao | None | Melhoraria desenvolvimento React com padroes estabelecidos |
+| [java.instructions.md](https://github.com/Malnati/awesome-copilot/blob/main/instructions/java.instructions.md) | Java development best practices | ⚠️ Desatualizado | java.instructions.md | Padrao applyTo difere: remoto usa `'**/*.java'` vs local `'*.java'` - Update recomendado |
 
 ## Processo de Descoberta de Instrucoes Locais
 
