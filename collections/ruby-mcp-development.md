@@ -1,41 +1,41 @@
 # Ruby MCP Server Development
 
-Toolkit completo para construir servidores Model Context Protocol em Ruby usando o gem do MCP Ruby SDK oficial com suporte a integracao com Rails.
+Complete toolkit for building Model Context Protocol servers in Ruby using the official MCP Ruby SDK gem with Rails integration support.
 
 **Tags:** ruby, mcp, model-context-protocol, server-development, sdk, rails, gem
 
-## Items nesta Collection
+## Items in this Collection
 
 | Title | Type | Description | MCP Servers |
 | ----- | ---- | ----------- | ----------- |
-| [Ruby MCP Server Development Guidelines](../instructions/ruby-mcp-server.instructions.md)<br />[![Install in VS Code](https://img.shields.io/badge/VS_Code-Install-0098FF?style=flat-square&logo=visualstudiocode&logoColor=white)](https://aka.ms/awesome-copilot/install/instructions?url=vscode%3Achat-instructions%2Finstall%3Furl%3Dhttps%3A%2F%2Fraw.githubusercontent.com%2Fgithub%2Fawesome-copilot%2Fmain%2Finstructions%2Fruby-mcp-server.instructions.md)<br />[![Install in VS Code Insiders](https://img.shields.io/badge/VS_Code_Insiders-Install-24bfa5?style=flat-square&logo=visualstudiocode&logoColor=white)](https://aka.ms/awesome-copilot/install/instructions?url=vscode-insiders%3Achat-instructions%2Finstall%3Furl%3Dhttps%3A%2F%2Fraw.githubusercontent.com%2Fgithub%2Fawesome-copilot%2Fmain%2Finstructions%2Fruby-mcp-server.instructions.md) | Instruction | Boas praticas e padroes para construir servidores Model Context Protocol (MCP) em Ruby usando o gem do MCP Ruby SDK oficial. |  |
-| [Ruby MCP Server Generator](../prompts/ruby-mcp-server-generator.prompt.md)<br />[![Install in VS Code](https://img.shields.io/badge/VS_Code-Install-0098FF?style=flat-square&logo=visualstudiocode&logoColor=white)](https://aka.ms/awesome-copilot/install/prompt?url=vscode%3Achat-prompt%2Finstall%3Furl%3Dhttps%3A%2F%2Fraw.githubusercontent.com%2Fgithub%2Fawesome-copilot%2Fmain%2Fprompts%2Fruby-mcp-server-generator.prompt.md)<br />[![Install in VS Code Insiders](https://img.shields.io/badge/VS_Code_Insiders-Install-24bfa5?style=flat-square&logo=visualstudiocode&logoColor=white)](https://aka.ms/awesome-copilot/install/prompt?url=vscode-insiders%3Achat-prompt%2Finstall%3Furl%3Dhttps%3A%2F%2Fraw.githubusercontent.com%2Fgithub%2Fawesome-copilot%2Fmain%2Fprompts%2Fruby-mcp-server-generator.prompt.md) | Prompt | Gera um projeto completo de servidor Model Context Protocol em Ruby usando o gem do MCP Ruby SDK oficial. |  |
-| [Ruby MCP Expert](../agents/ruby-mcp-expert.agent.md)<br />[![Install in VS Code](https://img.shields.io/badge/VS_Code-Install-0098FF?style=flat-square&logo=visualstudiocode&logoColor=white)](https://aka.ms/awesome-copilot/install/agent?url=vscode%3Achat-agent%2Finstall%3Furl%3Dhttps%3A%2F%2Fraw.githubusercontent.com%2Fgithub%2Fawesome-copilot%2Fmain%2Fagents%2Fruby-mcp-expert.agent.md)<br />[![Install in VS Code Insiders](https://img.shields.io/badge/VS_Code_Insiders-Install-24bfa5?style=flat-square&logo=visualstudiocode&logoColor=white)](https://aka.ms/awesome-copilot/install/agent?url=vscode-insiders%3Achat-agent%2Finstall%3Furl%3Dhttps%3A%2F%2Fraw.githubusercontent.com%2Fgithub%2Fawesome-copilot%2Fmain%2Fagents%2Fruby-mcp-expert.agent.md) | Agent | Assistencia especialista para construir servidores Model Context Protocol em Ruby usando o gem do MCP Ruby SDK oficial com integracao com Rails. [ver uso](#ruby-mcp-expert) |  |
+| [Ruby MCP Server Development Guidelines](../instructions/ruby-mcp-server.instructions.md)<br />[![Install in VS Code](https://img.shields.io/badge/VS_Code-Install-0098FF?style=flat-square&logo=visualstudiocode&logoColor=white)](https://aka.ms/awesome-copilot/install/instructions?url=vscode%3Achat-instructions%2Finstall%3Furl%3Dhttps%3A%2F%2Fraw.githubusercontent.com%2Fgithub%2Fawesome-copilot%2Fmain%2Finstructions%2Fruby-mcp-server.instructions.md)<br />[![Install in VS Code Insiders](https://img.shields.io/badge/VS_Code_Insiders-Install-24bfa5?style=flat-square&logo=visualstudiocode&logoColor=white)](https://aka.ms/awesome-copilot/install/instructions?url=vscode-insiders%3Achat-instructions%2Finstall%3Furl%3Dhttps%3A%2F%2Fraw.githubusercontent.com%2Fgithub%2Fawesome-copilot%2Fmain%2Finstructions%2Fruby-mcp-server.instructions.md) | Instruction | Best practices and patterns for building Model Context Protocol (MCP) servers in Ruby using the official MCP Ruby SDK gem. |  |
+| [Gerador de Servidor MCP em Ruby](../prompts/ruby-mcp-server-generator.prompt.md)<br />[![Install in VS Code](https://img.shields.io/badge/VS_Code-Install-0098FF?style=flat-square&logo=visualstudiocode&logoColor=white)](https://aka.ms/awesome-copilot/install/prompt?url=vscode%3Achat-prompt%2Finstall%3Furl%3Dhttps%3A%2F%2Fraw.githubusercontent.com%2Fgithub%2Fawesome-copilot%2Fmain%2Fprompts%2Fruby-mcp-server-generator.prompt.md)<br />[![Install in VS Code Insiders](https://img.shields.io/badge/VS_Code_Insiders-Install-24bfa5?style=flat-square&logo=visualstudiocode&logoColor=white)](https://aka.ms/awesome-copilot/install/prompt?url=vscode-insiders%3Achat-prompt%2Finstall%3Furl%3Dhttps%3A%2F%2Fraw.githubusercontent.com%2Fgithub%2Fawesome-copilot%2Fmain%2Fprompts%2Fruby-mcp-server-generator.prompt.md) | Prompt | Gere um projeto completo de servidor Model Context Protocol em Ruby usando o SDK oficial MCP Ruby. |  |
+| [Especialista em MCP Ruby](../agents/ruby-mcp-expert.agent.md)<br />[![Install in VS Code](https://img.shields.io/badge/VS_Code-Install-0098FF?style=flat-square&logo=visualstudiocode&logoColor=white)](https://aka.ms/awesome-copilot/install/agent?url=vscode%3Achat-agent%2Finstall%3Furl%3Dhttps%3A%2F%2Fraw.githubusercontent.com%2Fgithub%2Fawesome-copilot%2Fmain%2Fagents%2Fruby-mcp-expert.agent.md)<br />[![Install in VS Code Insiders](https://img.shields.io/badge/VS_Code_Insiders-Install-24bfa5?style=flat-square&logo=visualstudiocode&logoColor=white)](https://aka.ms/awesome-copilot/install/agent?url=vscode-insiders%3Achat-agent%2Finstall%3Furl%3Dhttps%3A%2F%2Fraw.githubusercontent.com%2Fgithub%2Fawesome-copilot%2Fmain%2Fagents%2Fruby-mcp-expert.agent.md) | Agent | Assistencia especializada para construir servidores Model Context Protocol em Ruby usando a gem oficial do MCP Ruby SDK com integracao Rails. [see usage](#especialista-em-mcp-ruby) |  |
 
-## Uso da Collection
+## Collection Usage
 
-### Ruby MCP Expert
+### Especialista em MCP Ruby
 
 recommended
 
-Este chat mode fornece orientacao especialista para construir servidores MCP em Ruby.
+This chat mode provides expert guidance for building MCP servers in Ruby.
 
-Este chat mode e ideal para:
-- Criar novos projetos de servidor MCP com Ruby
-- Implementar tools, prompts e resources
-- Configurar transports stdio ou HTTP
-- Depurar definicoes de schema e tratamento de erros
-- Aprender boas praticas de Ruby MCP com o SDK oficial
-- Integrar com aplicacoes Rails
+This chat mode is ideal for:
+- Creating new MCP server projects with Ruby
+- Implementing tools, prompts, and resources
+- Setting up stdio or HTTP transports
+- Debugging schema definitions and error handling
+- Learning Ruby MCP best practices with the official SDK
+- Integrating with Rails applications
 
-Para obter os melhores resultados, considere:
-- Usar o arquivo de instruction para definir o contexto para desenvolvimento Ruby MCP
-- Usar o prompt para gerar a estrutura inicial do projeto
-- Alternar para o chat mode especialista para ajuda detalhada de implementacao
-- Especificar se voce precisa de stdio ou integracao com Rails
-- Fornecer detalhes sobre quais tools ou funcionalidades voce precisa
-- Mencionar se voce precisa de autenticacao ou uso de server_context
+To get the best results, consider:
+- Using the instruction file to set context for Ruby MCP development
+- Using the prompt to generate initial project structure
+- Switching to the expert chat mode for detailed implementation help
+- Specifying whether you need stdio or Rails integration
+- Providing details about what tools or functionality you need
+- Mentioning if you need authentication or server_context usage
 
 ---
 
-*Esta collection inclui 3 itens curados para **Ruby MCP Server Development**.*
+*This collection includes 3 curated items for **Ruby MCP Server Development**.*

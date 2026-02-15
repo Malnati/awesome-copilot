@@ -1,53 +1,53 @@
 # CAST Imaging Agents
 
-Uma collection abrangente de agents especializados para analise de software, avaliacao de impacto, advisories de qualidade estrutural e review de arquitetura usando CAST Imaging.
+A comprehensive collection of specialized agents for software analysis, impact assessment, structural quality advisories, and architectural review using CAST Imaging.
 
 **Tags:** cast-imaging, software-analysis, architecture, quality, impact-analysis, devops
 
-## Items nesta Collection
+## Items in this Collection
 
 | Title | Type | Description | MCP Servers |
 | ----- | ---- | ----------- | ----------- |
-| [CAST Imaging Software Discovery Agent](../agents/cast-imaging-software-discovery.agent.md)<br />[![Install in VS Code](https://img.shields.io/badge/VS_Code-Install-0098FF?style=flat-square&logo=visualstudiocode&logoColor=white)](https://aka.ms/awesome-copilot/install/agent?url=vscode%3Achat-agent%2Finstall%3Furl%3Dhttps%3A%2F%2Fraw.githubusercontent.com%2Fgithub%2Fawesome-copilot%2Fmain%2Fagents%2Fcast-imaging-software-discovery.agent.md)<br />[![Install in VS Code Insiders](https://img.shields.io/badge/VS_Code_Insiders-Install-24bfa5?style=flat-square&logo=visualstudiocode&logoColor=white)](https://aka.ms/awesome-copilot/install/agent?url=vscode-insiders%3Achat-agent%2Finstall%3Furl%3Dhttps%3A%2F%2Fraw.githubusercontent.com%2Fgithub%2Fawesome-copilot%2Fmain%2Fagents%2Fcast-imaging-software-discovery.agent.md) | Agent | Agent especializado para descoberta abrangente de aplicacoes de software e mapeamento arquitetural por meio de analise estatica de codigo usando CAST Imaging [ver uso](#cast-imaging-software-discovery-agent) | imaging-structural-search<br />[![Install MCP](https://img.shields.io/badge/Install-VS_Code-0098FF?style=flat-square)](https://aka.ms/awesome-copilot/install/mcp-vscode?name=imaging-structural-search&config=%7B%22url%22%3A%22https%3A%2F%2Fcastimaging.io%2Fimaging%2Fmcp%2F%22%2C%22headers%22%3A%7B%22x-api-key%22%3A%22%24%7Binput%3Aimaging-key%7D%22%7D%7D)<br />[![Install MCP](https://img.shields.io/badge/Install-VS_Code_Insiders-24bfa5?style=flat-square)](https://aka.ms/awesome-copilot/install/mcp-vscodeinsiders?name=imaging-structural-search&config=%7B%22url%22%3A%22https%3A%2F%2Fcastimaging.io%2Fimaging%2Fmcp%2F%22%2C%22headers%22%3A%7B%22x-api-key%22%3A%22%24%7Binput%3Aimaging-key%7D%22%7D%7D)<br />[![Install MCP](https://img.shields.io/badge/Install-Visual_Studio-C16FDE?style=flat-square)](https://aka.ms/awesome-copilot/install/mcp-visualstudio/mcp-install?%7B%22url%22%3A%22https%3A%2F%2Fcastimaging.io%2Fimaging%2Fmcp%2F%22%2C%22headers%22%3A%7B%22x-api-key%22%3A%22%24%7Binput%3Aimaging-key%7D%22%7D%7D) |
-| [CAST Imaging Impact Analysis Agent](../agents/cast-imaging-impact-analysis.agent.md)<br />[![Install in VS Code](https://img.shields.io/badge/VS_Code-Install-0098FF?style=flat-square&logo=visualstudiocode&logoColor=white)](https://aka.ms/awesome-copilot/install/agent?url=vscode%3Achat-agent%2Finstall%3Furl%3Dhttps%3A%2F%2Fraw.githubusercontent.com%2Fgithub%2Fawesome-copilot%2Fmain%2Fagents%2Fcast-imaging-impact-analysis.agent.md)<br />[![Install in VS Code Insiders](https://img.shields.io/badge/VS_Code_Insiders-Install-24bfa5?style=flat-square&logo=visualstudiocode&logoColor=white)](https://aka.ms/awesome-copilot/install/agent?url=vscode-insiders%3Achat-agent%2Finstall%3Furl%3Dhttps%3A%2F%2Fraw.githubusercontent.com%2Fgithub%2Fawesome-copilot%2Fmain%2Fagents%2Fcast-imaging-impact-analysis.agent.md) | Agent | Agent especializado para avaliacao abrangente de impacto de mudancas e analise de risco em sistemas de software usando CAST Imaging [ver uso](#cast-imaging-impact-analysis-agent) | imaging-impact-analysis<br />[![Install MCP](https://img.shields.io/badge/Install-VS_Code-0098FF?style=flat-square)](https://aka.ms/awesome-copilot/install/mcp-vscode?name=imaging-impact-analysis&config=%7B%22url%22%3A%22https%3A%2F%2Fcastimaging.io%2Fimaging%2Fmcp%2F%22%2C%22headers%22%3A%7B%22x-api-key%22%3A%22%24%7Binput%3Aimaging-key%7D%22%7D%7D)<br />[![Install MCP](https://img.shields.io/badge/Install-VS_Code_Insiders-24bfa5?style=flat-square)](https://aka.ms/awesome-copilot/install/mcp-vscodeinsiders?name=imaging-impact-analysis&config=%7B%22url%22%3A%22https%3A%2F%2Fcastimaging.io%2Fimaging%2Fmcp%2F%22%2C%22headers%22%3A%7B%22x-api-key%22%3A%22%24%7Binput%3Aimaging-key%7D%22%7D%7D)<br />[![Install MCP](https://img.shields.io/badge/Install-Visual_Studio-C16FDE?style=flat-square)](https://aka.ms/awesome-copilot/install/mcp-visualstudio/mcp-install?%7B%22url%22%3A%22https%3A%2F%2Fcastimaging.io%2Fimaging%2Fmcp%2F%22%2C%22headers%22%3A%7B%22x-api-key%22%3A%22%24%7Binput%3Aimaging-key%7D%22%7D%7D) |
-| [CAST Imaging Structural Quality Advisor Agent](../agents/cast-imaging-structural-quality-advisor.agent.md)<br />[![Install in VS Code](https://img.shields.io/badge/VS_Code-Install-0098FF?style=flat-square&logo=visualstudiocode&logoColor=white)](https://aka.ms/awesome-copilot/install/agent?url=vscode%3Achat-agent%2Finstall%3Furl%3Dhttps%3A%2F%2Fraw.githubusercontent.com%2Fgithub%2Fawesome-copilot%2Fmain%2Fagents%2Fcast-imaging-structural-quality-advisor.agent.md)<br />[![Install in VS Code Insiders](https://img.shields.io/badge/VS_Code_Insiders-Install-24bfa5?style=flat-square&logo=visualstudiocode&logoColor=white)](https://aka.ms/awesome-copilot/install/agent?url=vscode-insiders%3Achat-agent%2Finstall%3Furl%3Dhttps%3A%2F%2Fraw.githubusercontent.com%2Fgithub%2Fawesome-copilot%2Fmain%2Fagents%2Fcast-imaging-structural-quality-advisor.agent.md) | Agent | Agent especializado para identificar, analisar e fornecer orientacao de remediacao para issues de qualidade de codigo usando CAST Imaging [ver uso](#cast-imaging-structural-quality-advisor-agent) | imaging-structural-quality<br />[![Install MCP](https://img.shields.io/badge/Install-VS_Code-0098FF?style=flat-square)](https://aka.ms/awesome-copilot/install/mcp-vscode?name=imaging-structural-quality&config=%7B%22url%22%3A%22https%3A%2F%2Fcastimaging.io%2Fimaging%2Fmcp%2F%22%2C%22headers%22%3A%7B%22x-api-key%22%3A%22%24%7Binput%3Aimaging-key%7D%22%7D%7D)<br />[![Install MCP](https://img.shields.io/badge/Install-VS_Code_Insiders-24bfa5?style=flat-square)](https://aka.ms/awesome-copilot/install/mcp-vscodeinsiders?name=imaging-structural-quality&config=%7B%22url%22%3A%22https%3A%2F%2Fcastimaging.io%2Fimaging%2Fmcp%2F%22%2C%22headers%22%3A%7B%22x-api-key%22%3A%22%24%7Binput%3Aimaging-key%7D%22%7D%7D)<br />[![Install MCP](https://img.shields.io/badge/Install-Visual_Studio-C16FDE?style=flat-square)](https://aka.ms/awesome-copilot/install/mcp-visualstudio/mcp-install?%7B%22url%22%3A%22https%3A%2F%2Fcastimaging.io%2Fimaging%2Fmcp%2F%22%2C%22headers%22%3A%7B%22x-api-key%22%3A%22%24%7Binput%3Aimaging-key%7D%22%7D%7D) |
+| [Agente de Descoberta de Software do CAST Imaging](../agents/cast-imaging-software-discovery.agent.md)<br />[![Install in VS Code](https://img.shields.io/badge/VS_Code-Install-0098FF?style=flat-square&logo=visualstudiocode&logoColor=white)](https://aka.ms/awesome-copilot/install/agent?url=vscode%3Achat-agent%2Finstall%3Furl%3Dhttps%3A%2F%2Fraw.githubusercontent.com%2Fgithub%2Fawesome-copilot%2Fmain%2Fagents%2Fcast-imaging-software-discovery.agent.md)<br />[![Install in VS Code Insiders](https://img.shields.io/badge/VS_Code_Insiders-Install-24bfa5?style=flat-square&logo=visualstudiocode&logoColor=white)](https://aka.ms/awesome-copilot/install/agent?url=vscode-insiders%3Achat-agent%2Finstall%3Furl%3Dhttps%3A%2F%2Fraw.githubusercontent.com%2Fgithub%2Fawesome-copilot%2Fmain%2Fagents%2Fcast-imaging-software-discovery.agent.md) | Agent | Agente especializado para descoberta abrangente de aplicacoes e mapeamento arquitetural via analise estatica de codigo usando CAST Imaging [see usage](#agente-de-descoberta-de-software-do-cast-imaging) | imaging-structural-search<br />[![Install MCP](https://img.shields.io/badge/Install-VS_Code-0098FF?style=flat-square)](https://aka.ms/awesome-copilot/install/mcp-vscode?name=imaging-structural-search&config=%7B%22url%22%3A%22https%3A%2F%2Fcastimaging.io%2Fimaging%2Fmcp%2F%22%2C%22headers%22%3A%7B%22x-api-key%22%3A%22%24%7Binput%3Aimaging-key%7D%22%7D%7D)<br />[![Install MCP](https://img.shields.io/badge/Install-VS_Code_Insiders-24bfa5?style=flat-square)](https://aka.ms/awesome-copilot/install/mcp-vscodeinsiders?name=imaging-structural-search&config=%7B%22url%22%3A%22https%3A%2F%2Fcastimaging.io%2Fimaging%2Fmcp%2F%22%2C%22headers%22%3A%7B%22x-api-key%22%3A%22%24%7Binput%3Aimaging-key%7D%22%7D%7D)<br />[![Install MCP](https://img.shields.io/badge/Install-Visual_Studio-C16FDE?style=flat-square)](https://aka.ms/awesome-copilot/install/mcp-visualstudio/mcp-install?%7B%22url%22%3A%22https%3A%2F%2Fcastimaging.io%2Fimaging%2Fmcp%2F%22%2C%22headers%22%3A%7B%22x-api-key%22%3A%22%24%7Binput%3Aimaging-key%7D%22%7D%7D) |
+| [Agente de Analise de Impacto do CAST Imaging](../agents/cast-imaging-impact-analysis.agent.md)<br />[![Install in VS Code](https://img.shields.io/badge/VS_Code-Install-0098FF?style=flat-square&logo=visualstudiocode&logoColor=white)](https://aka.ms/awesome-copilot/install/agent?url=vscode%3Achat-agent%2Finstall%3Furl%3Dhttps%3A%2F%2Fraw.githubusercontent.com%2Fgithub%2Fawesome-copilot%2Fmain%2Fagents%2Fcast-imaging-impact-analysis.agent.md)<br />[![Install in VS Code Insiders](https://img.shields.io/badge/VS_Code_Insiders-Install-24bfa5?style=flat-square&logo=visualstudiocode&logoColor=white)](https://aka.ms/awesome-copilot/install/agent?url=vscode-insiders%3Achat-agent%2Finstall%3Furl%3Dhttps%3A%2F%2Fraw.githubusercontent.com%2Fgithub%2Fawesome-copilot%2Fmain%2Fagents%2Fcast-imaging-impact-analysis.agent.md) | Agent | Agente especializado para avaliacao abrangente de impacto de mudancas e analise de risco em sistemas de software usando CAST Imaging [see usage](#agente-de-analise-de-impacto-do-cast-imaging) | imaging-impact-analysis<br />[![Install MCP](https://img.shields.io/badge/Install-VS_Code-0098FF?style=flat-square)](https://aka.ms/awesome-copilot/install/mcp-vscode?name=imaging-impact-analysis&config=%7B%22url%22%3A%22https%3A%2F%2Fcastimaging.io%2Fimaging%2Fmcp%2F%22%2C%22headers%22%3A%7B%22x-api-key%22%3A%22%24%7Binput%3Aimaging-key%7D%22%7D%7D)<br />[![Install MCP](https://img.shields.io/badge/Install-VS_Code_Insiders-24bfa5?style=flat-square)](https://aka.ms/awesome-copilot/install/mcp-vscodeinsiders?name=imaging-impact-analysis&config=%7B%22url%22%3A%22https%3A%2F%2Fcastimaging.io%2Fimaging%2Fmcp%2F%22%2C%22headers%22%3A%7B%22x-api-key%22%3A%22%24%7Binput%3Aimaging-key%7D%22%7D%7D)<br />[![Install MCP](https://img.shields.io/badge/Install-Visual_Studio-C16FDE?style=flat-square)](https://aka.ms/awesome-copilot/install/mcp-visualstudio/mcp-install?%7B%22url%22%3A%22https%3A%2F%2Fcastimaging.io%2Fimaging%2Fmcp%2F%22%2C%22headers%22%3A%7B%22x-api-key%22%3A%22%24%7Binput%3Aimaging-key%7D%22%7D%7D) |
+| [Agente Conselheiro de Qualidade Estrutural do CAST Imaging](../agents/cast-imaging-structural-quality-advisor.agent.md)<br />[![Install in VS Code](https://img.shields.io/badge/VS_Code-Install-0098FF?style=flat-square&logo=visualstudiocode&logoColor=white)](https://aka.ms/awesome-copilot/install/agent?url=vscode%3Achat-agent%2Finstall%3Furl%3Dhttps%3A%2F%2Fraw.githubusercontent.com%2Fgithub%2Fawesome-copilot%2Fmain%2Fagents%2Fcast-imaging-structural-quality-advisor.agent.md)<br />[![Install in VS Code Insiders](https://img.shields.io/badge/VS_Code_Insiders-Install-24bfa5?style=flat-square&logo=visualstudiocode&logoColor=white)](https://aka.ms/awesome-copilot/install/agent?url=vscode-insiders%3Achat-agent%2Finstall%3Furl%3Dhttps%3A%2F%2Fraw.githubusercontent.com%2Fgithub%2Fawesome-copilot%2Fmain%2Fagents%2Fcast-imaging-structural-quality-advisor.agent.md) | Agent | Agente especializado para identificar, analisar e orientar remediacao de issues de qualidade de codigo usando CAST Imaging [see usage](#agente-conselheiro-de-qualidade-estrutural-do-cast-imaging) | imaging-structural-quality<br />[![Install MCP](https://img.shields.io/badge/Install-VS_Code-0098FF?style=flat-square)](https://aka.ms/awesome-copilot/install/mcp-vscode?name=imaging-structural-quality&config=%7B%22url%22%3A%22https%3A%2F%2Fcastimaging.io%2Fimaging%2Fmcp%2F%22%2C%22headers%22%3A%7B%22x-api-key%22%3A%22%24%7Binput%3Aimaging-key%7D%22%7D%7D)<br />[![Install MCP](https://img.shields.io/badge/Install-VS_Code_Insiders-24bfa5?style=flat-square)](https://aka.ms/awesome-copilot/install/mcp-vscodeinsiders?name=imaging-structural-quality&config=%7B%22url%22%3A%22https%3A%2F%2Fcastimaging.io%2Fimaging%2Fmcp%2F%22%2C%22headers%22%3A%7B%22x-api-key%22%3A%22%24%7Binput%3Aimaging-key%7D%22%7D%7D)<br />[![Install MCP](https://img.shields.io/badge/Install-Visual_Studio-C16FDE?style=flat-square)](https://aka.ms/awesome-copilot/install/mcp-visualstudio/mcp-install?%7B%22url%22%3A%22https%3A%2F%2Fcastimaging.io%2Fimaging%2Fmcp%2F%22%2C%22headers%22%3A%7B%22x-api-key%22%3A%22%24%7Binput%3Aimaging-key%7D%22%7D%7D) |
 
-## Uso da Collection
+## Collection Usage
 
-### CAST Imaging Software Discovery Agent
+### Agente de Descoberta de Software do CAST Imaging
 
-Este agent foi projetado para descoberta abrangente de aplicacoes de software e mapeamento arquitetural. Ele ajuda usuarios a entender estrutura de codigo, dependencias e padroes arquiteturais, incluindo schemas de banco de dados e localizacoes fisicas de arquivos de source.
+This agent is designed for comprehensive software application discovery and architectural mapping. It helps users understand code structure, dependencies, and architectural patterns, including database schemas and physical source file locations.
 
-Ideal para:
-- Explorar aplicacoes disponiveis e obter visoes gerais.
-- Entender arquitetura do sistema e estrutura de componentes.
-- Analisar dependencias e schemas de banco de dados (tabelas/colunas).
-- Localizar e analisar arquivos de source fisicos.
-
----
-
-### CAST Imaging Impact Analysis Agent
-
-Este agent se especializa em avaliacao abrangente de impacto de mudancas e analise de risco. Ele ajuda usuarios a entender efeitos em cascata de mudancas de codigo, identificar acoplamento arquitetural (recursos compartilhados) e desenvolver estrategias de teste.
-
-Ideal para:
-- Avaliar impactos potenciais de modificacoes de codigo.
-- Identificar acoplamento arquitetural e riscos de codigo compartilhado.
-- Analisar impactos que abrangem multiplas aplicacoes.
-- Desenvolver abordagens de teste direcionadas com base no escopo da mudanca.
+Ideal for:
+- Exploring available applications and getting overviews.
+- Understanding system architecture and component structure.
+- Analyzing dependencies and database schemas (tables/columns).
+- Locating and analyzing physical source files.
 
 ---
 
-### CAST Imaging Structural Quality Advisor Agent
+### Agente de Analise de Impacto do CAST Imaging
 
-Este agent foca em identificar, analisar e fornecer orientacao de remediacao para issues de qualidade estrutural. Ele oferece suporte a padroes especializados incluindo Security (CVE), deficiencias de Green IT e conformidade ISO-5055.
+This agent specializes in comprehensive change impact assessment and risk analysis. It assists users in understanding ripple effects of code changes, identifying architectural coupling (shared resources), and developing testing strategies.
 
-Ideal para:
-- Identificar e entender issues de qualidade de codigo e falhas estruturais.
-- Checar conformidade com Security (CVE), Green IT e padroes ISO-5055.
-- Priorizar issues de qualidade com base em impacto de negocio e risco.
-- Analisar tendencias de qualidade e fornecer orientacao de remediacao.
+Ideal for:
+- Assessing potential impacts of code modifications.
+- Identifying architectural coupling and shared code risks.
+- Analyzing impacts spanning multiple applications.
+- Developing targeted testing approaches based on change scope.
 
 ---
 
-*Esta collection inclui 3 itens curados para **CAST Imaging Agents**.*
+### Agente Conselheiro de Qualidade Estrutural do CAST Imaging
+
+This agent focuses on identifying, analyzing, and providing remediation guidance for structural quality issues. It supports specialized standards including Security (CVE), Green IT deficiencies, and ISO-5055 compliance.
+
+Ideal for:
+- Identifying and understanding code quality issues and structural flaws.
+- Checking compliance with Security (CVE), Green IT, and ISO-5055 standards.
+- Prioritizing quality issues based on business impact and risk.
+- Analyzing quality trends and providing remediation guidance.
+
+---
+
+*This collection includes 3 curated items for **CAST Imaging Agents**.*
