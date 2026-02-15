@@ -1,41 +1,41 @@
 # Go MCP Server Development
 
-Toolkit completo para construir servidores Model Context Protocol (MCP) em Go usando o github.com/modelcontextprotocol/go-sdk oficial. Inclui instructions de boas praticas, um prompt para gerar servidores e um chat mode especialista para orientacao.
+Complete toolkit for building Model Context Protocol (MCP) servers in Go using the official github.com/modelcontextprotocol/go-sdk. Includes instructions for best practices, a prompt for generating servers, and an expert chat mode for guidance.
 
 **Tags:** go, golang, mcp, model-context-protocol, server-development, sdk
 
-## Items nesta Collection
+## Items in this Collection
 
 | Title | Type | Description | MCP Servers |
 | ----- | ---- | ----------- | ----------- |
-| [Go MCP Server Development Guidelines](../instructions/go-mcp-server.instructions.md)<br />[![Install in VS Code](https://img.shields.io/badge/VS_Code-Install-0098FF?style=flat-square&logo=visualstudiocode&logoColor=white)](https://aka.ms/awesome-copilot/install/instructions?url=vscode%3Achat-instructions%2Finstall%3Furl%3Dhttps%3A%2F%2Fraw.githubusercontent.com%2Fgithub%2Fawesome-copilot%2Fmain%2Finstructions%2Fgo-mcp-server.instructions.md)<br />[![Install in VS Code Insiders](https://img.shields.io/badge/VS_Code_Insiders-Install-24bfa5?style=flat-square&logo=visualstudiocode&logoColor=white)](https://aka.ms/awesome-copilot/install/instructions?url=vscode-insiders%3Achat-instructions%2Finstall%3Furl%3Dhttps%3A%2F%2Fraw.githubusercontent.com%2Fgithub%2Fawesome-copilot%2Fmain%2Finstructions%2Fgo-mcp-server.instructions.md) | Instruction | Boas praticas e padroes para construir servidores Model Context Protocol (MCP) em Go usando o pacote github.com/modelcontextprotocol/go-sdk oficial. |  |
-| [Go MCP Server Project Generator](../prompts/go-mcp-server-generator.prompt.md)<br />[![Install in VS Code](https://img.shields.io/badge/VS_Code-Install-0098FF?style=flat-square&logo=visualstudiocode&logoColor=white)](https://aka.ms/awesome-copilot/install/prompt?url=vscode%3Achat-prompt%2Finstall%3Furl%3Dhttps%3A%2F%2Fraw.githubusercontent.com%2Fgithub%2Fawesome-copilot%2Fmain%2Fprompts%2Fgo-mcp-server-generator.prompt.md)<br />[![Install in VS Code Insiders](https://img.shields.io/badge/VS_Code_Insiders-Install-24bfa5?style=flat-square&logo=visualstudiocode&logoColor=white)](https://aka.ms/awesome-copilot/install/prompt?url=vscode-insiders%3Achat-prompt%2Finstall%3Furl%3Dhttps%3A%2F%2Fraw.githubusercontent.com%2Fgithub%2Fawesome-copilot%2Fmain%2Fprompts%2Fgo-mcp-server-generator.prompt.md) | Prompt | Gera um projeto completo de servidor MCP em Go com estrutura, dependencias e implementacao adequadas usando o github.com/modelcontextprotocol/go-sdk oficial. |  |
-| [Go MCP Server Development Expert](../agents/go-mcp-expert.agent.md)<br />[![Install in VS Code](https://img.shields.io/badge/VS_Code-Install-0098FF?style=flat-square&logo=visualstudiocode&logoColor=white)](https://aka.ms/awesome-copilot/install/agent?url=vscode%3Achat-agent%2Finstall%3Furl%3Dhttps%3A%2F%2Fraw.githubusercontent.com%2Fgithub%2Fawesome-copilot%2Fmain%2Fagents%2Fgo-mcp-expert.agent.md)<br />[![Install in VS Code Insiders](https://img.shields.io/badge/VS_Code_Insiders-Install-24bfa5?style=flat-square&logo=visualstudiocode&logoColor=white)](https://aka.ms/awesome-copilot/install/agent?url=vscode-insiders%3Achat-agent%2Finstall%3Furl%3Dhttps%3A%2F%2Fraw.githubusercontent.com%2Fgithub%2Fawesome-copilot%2Fmain%2Fagents%2Fgo-mcp-expert.agent.md) | Agent | Assistente especialista para construir servidores Model Context Protocol (MCP) em Go usando o SDK oficial. [ver uso](#go-mcp-server-development-expert) |  |
+| [Go MCP Server Development Guidelines](../instructions/go-mcp-server.instructions.md)<br />[![Install in VS Code](https://img.shields.io/badge/VS_Code-Install-0098FF?style=flat-square&logo=visualstudiocode&logoColor=white)](https://aka.ms/awesome-copilot/install/instructions?url=vscode%3Achat-instructions%2Finstall%3Furl%3Dhttps%3A%2F%2Fraw.githubusercontent.com%2Fgithub%2Fawesome-copilot%2Fmain%2Finstructions%2Fgo-mcp-server.instructions.md)<br />[![Install in VS Code Insiders](https://img.shields.io/badge/VS_Code_Insiders-Install-24bfa5?style=flat-square&logo=visualstudiocode&logoColor=white)](https://aka.ms/awesome-copilot/install/instructions?url=vscode-insiders%3Achat-instructions%2Finstall%3Furl%3Dhttps%3A%2F%2Fraw.githubusercontent.com%2Fgithub%2Fawesome-copilot%2Fmain%2Finstructions%2Fgo-mcp-server.instructions.md) | Instruction | Best practices and patterns for building Model Context Protocol (MCP) servers in Go using the official github.com/modelcontextprotocol/go-sdk package. |  |
+| [Go Mcp Server Generator](../prompts/go-mcp-server-generator.prompt.md)<br />[![Install in VS Code](https://img.shields.io/badge/VS_Code-Install-0098FF?style=flat-square&logo=visualstudiocode&logoColor=white)](https://aka.ms/awesome-copilot/install/prompt?url=vscode%3Achat-prompt%2Finstall%3Furl%3Dhttps%3A%2F%2Fraw.githubusercontent.com%2Fgithub%2Fawesome-copilot%2Fmain%2Fprompts%2Fgo-mcp-server-generator.prompt.md)<br />[![Install in VS Code Insiders](https://img.shields.io/badge/VS_Code_Insiders-Install-24bfa5?style=flat-square&logo=visualstudiocode&logoColor=white)](https://aka.ms/awesome-copilot/install/prompt?url=vscode-insiders%3Achat-prompt%2Finstall%3Furl%3Dhttps%3A%2F%2Fraw.githubusercontent.com%2Fgithub%2Fawesome-copilot%2Fmain%2Fprompts%2Fgo-mcp-server-generator.prompt.md) | Prompt | Gere um projeto completo de servidor MCP em Go com estrutura adequada, dependências e implementação usando o SDK oficial github.com/modelcontextprotocol/go-sdk. |  |
+| [Especialista em Desenvolvimento de Servidor MCP em Go](../agents/go-mcp-expert.agent.md)<br />[![Install in VS Code](https://img.shields.io/badge/VS_Code-Install-0098FF?style=flat-square&logo=visualstudiocode&logoColor=white)](https://aka.ms/awesome-copilot/install/agent?url=vscode%3Achat-agent%2Finstall%3Furl%3Dhttps%3A%2F%2Fraw.githubusercontent.com%2Fgithub%2Fawesome-copilot%2Fmain%2Fagents%2Fgo-mcp-expert.agent.md)<br />[![Install in VS Code Insiders](https://img.shields.io/badge/VS_Code_Insiders-Install-24bfa5?style=flat-square&logo=visualstudiocode&logoColor=white)](https://aka.ms/awesome-copilot/install/agent?url=vscode-insiders%3Achat-agent%2Finstall%3Furl%3Dhttps%3A%2F%2Fraw.githubusercontent.com%2Fgithub%2Fawesome-copilot%2Fmain%2Fagents%2Fgo-mcp-expert.agent.md) | Agent | Assistente especialista em construir servidores Model Context Protocol (MCP) em Go usando o SDK oficial. [see usage](#especialista-em-desenvolvimento-de-servidor-mcp-em-go) |  |
 
-## Uso da Collection
+## Collection Usage
 
-### Go MCP Server Development Expert
+### Especialista em Desenvolvimento de Servidor MCP em Go
 
 recommended
 
-Este chat mode fornece orientacao especialista para construir servidores MCP em Go.
+This chat mode provides expert guidance for building MCP servers in Go.
 
-Este chat mode e ideal para:
-- Criar novos projetos de servidor MCP com Go
-- Implementar tools type-safe com structs e tags JSON schema
-- Configurar transports stdio ou HTTP
-- Depurar tratamento de contexto e padroes de erro
-- Aprender boas praticas de Go MCP com o SDK oficial
-- Otimizar performance do servidor e concorrencia
+This chat mode is ideal for:
+- Creating new MCP server projects with Go
+- Implementing type-safe tools with structs and JSON schema tags
+- Setting up stdio or HTTP transports
+- Debugging context handling and error patterns
+- Learning Go MCP best practices with the official SDK
+- Optimizing server performance and concurrency
 
-Para obter os melhores resultados, considere:
-- Usar o arquivo de instruction para definir o contexto para desenvolvimento Go MCP
-- Usar o prompt para gerar a estrutura inicial do projeto
-- Alternar para o chat mode especialista para ajuda detalhada de implementacao
-- Especificar se voce precisa de transport stdio ou HTTP
-- Fornecer detalhes sobre quais tools ou funcionalidades voce precisa
-- Mencionar se voce precisa de resources, prompts ou capacidades especiais
+To get the best results, consider:
+- Using the instruction file to set context for Go MCP development
+- Using the prompt to generate initial project structure
+- Switching to the expert chat mode for detailed implementation help
+- Specifying whether you need stdio or HTTP transport
+- Providing details about what tools or functionality you need
+- Mentioning if you need resources, prompts, or special capabilities
 
 ---
 
-*Esta collection inclui 3 itens curados para **Go MCP Server Development**.*
+*This collection includes 3 curated items for **Go MCP Server Development**.*
